@@ -1,0 +1,16 @@
+{
+  "schema_version": "office-replay-environment-v1",
+  "architecture": "aarch64",
+  "base_image": "document-oe-snapshot:20260827",
+  "base_image_id": "sha256:6eb99c666aab38fb4ba04886e42e5db219f4ac71d6e8307cd743b049a6a60111",
+  "original_image": "office-trace-bench:runtime",
+  "original_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+  "python": "3.12.3",
+  "openeuler_python_executable": "/opt/document-bench/.venv/bin/python",
+  "packages": {"openpyxl": "3.1.5", "et_xmlfile": "2.0.0", "pypdf": "6.10.0", "pdf2image": "1.17.0", "pillow": "12.2.0"},
+  "openeuler": {"libreoffice": "LibreOfficeDev 25.8.7.3", "poppler": "23.12.0"},
+  "original": {"libreoffice": "LibreOffice 24.2.7.2", "poppler": "24.02.0"},
+  "document_runner_sha256": "5f1f5d2ab8075ded5b12e6e583c0b733de09389c2c60d63d735c82a252d7c2d1",
+  "libreoffice_profile_adapter": "runtime/bin/soffice forces the symbols build to use file:///root/.config/libreoffice/4, matching the macro location used by frozen recalc.py. Original Ubuntu uses its normal default profile without this wrapper.",
+  "policy": "Original and openEuler environments qualify separately against the same frozen semantic verifier. No byte identity claim across Office/Poppler versions."
+}

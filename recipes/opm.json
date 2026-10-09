@@ -1,0 +1,197 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_id": "SUB-MEM-PDF-01",
+  "case_kind": "pdf",
+  "dataset_id": "opm",
+  "scope": "final_effective_tool_execution",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "PDF-P01-inspect_prepare",
+      "PDF-P02-build",
+      "PDF-P03-process_publish",
+      "PDF-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "PDF-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_d1fPeDi1O7wqF9D95HfC1536",
+          "source_event_index": 9,
+          "source_step_id": 6,
+          "adaptation": "archived_call",
+          "source_call_sha256": "74a21fa0f2e4eb3a4cca8924098a37f97baa04e6f3d70dd122828d87b2eb6d74",
+          "tool_call": {
+            "tool_call_id": "call_00_d1fPeDi1O7wqF9D95HfC1536",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01\nWORK=$(pwd); SCRIPTS=/root/.openclaw/skills/pdf/scripts\nmkdir -p output/rendered/template output/field_values output/filled helpers\n# 1) check_fillable_fields\npython3 \"$SCRIPTS/check_fillable_fields.py\" input/of306_aug2023.pdf > output/check_fillable_fields.log 2>&1\necho \"=== check_fillable_fields.log ===\"; cat output/check_fillable_fields.log\n# 2) extract_form_field_info\npython3 \"$SCRIPTS/extract_form_field_info.py\" input/of306_aug2023.pdf output/form_field_info.json\n# 3) render blank template\npython3 \"$SCRIPTS/convert_pdf_to_images.py\" input/of306_aug2023.pdf output/rendered/template/\necho \"=== template renders ===\"; ls -la output/rendered/template/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P02-build",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_ET_Ai7ytRpSFnnfFYfSq9Aa8266",
+          "source_event_index": 12,
+          "source_step_id": 9,
+          "adaptation": "archived_call",
+          "source_call_sha256": "26d0b1d5da10d108a2cff222b56758901a33a6a03faa0cea3cff2223fa59447e",
+          "tool_call": {
+            "tool_call_id": "call_00_ET_Ai7ytRpSFnnfFYfSq9Aa8266",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01\npython3 helpers/build_field_values.py\necho \"=== applicant_01.json ===\"\ncat output/field_values/applicant_01.json\necho \"=== applicant_02.json ===\"\ncat output/field_values/applicant_02.json"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_ET_ErkhuJ5wCZEVlKWfUthk7175",
+          "source_event_index": 14,
+          "source_step_id": 11,
+          "adaptation": "archived_call",
+          "source_call_sha256": "161f2bee6a1dae9ff4206862d2ce1375930440511492b15edd7ca59c213b2fab",
+          "tool_call": {
+            "tool_call_id": "call_00_ET_ErkhuJ5wCZEVlKWfUthk7175",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01\nmkdir -p output/filled\npython3 helpers/run_batch.py"
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_KLQnrvSA5Z7RlmmZ4Yls9131",
+          "source_event_index": 16,
+          "source_step_id": 13,
+          "adaptation": "archived_call",
+          "source_call_sha256": "f64ae2e8695f147890c224fb2f1498e2e3438aca1b25b5bf685faa60b21c6660",
+          "tool_call": {
+            "tool_call_id": "call_00_KLQnrvSA5Z7RlmmZ4Yls9131",
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/batch_summary.json",
+              "content": "{\n  \"input_form\": \"of306_aug2023.pdf\",\n  \"applicant_count\": 10,\n  \"filled_pdf_count\": 10,\n  \"rendered_page_count\": 33,\n  \"ssn_and_signatures_left_blank\": true,\n  \"fill_script_invocations\": 10,\n  \"render_script_invocations\": 11\n}\n"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_ET_cnGk0KrWJ9WywNrgU1837094",
+          "source_event_index": 17,
+          "source_step_id": 14,
+          "adaptation": "explicit_shell_reduction",
+          "source_call_sha256": "9be6890f66f17f314de0ceff7c3d3fee81750c44dd4d05dc079363bce5ff5f57",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01 && python3 input/verify_pdf_batch.py input/of306_aug2023.pdf input/synthetic_applicants.json output output/business_verification.json"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "requires_llm": false,
+  "source": {
+    "canonical_sha256": "de2f3bb1dcb6989be3d99c01432f1140e4aa85771b63b28060ae87e8c67c7320",
+    "original_run_id": "pdf-opm-20261009T060618Z-87cbc811",
+    "trajectory_sha256": "cdddfcce32d5d3209f71fec07e628f3f5569f36d328b9496f044bd8fb35cabe8",
+    "tool_events_sha256": "4a31383ba55b54be42d00b823ff8c6e3f2f2116edf0c381a9ea34f3c96041bda",
+    "manifest_sha256": "c186b2ed0fc07639048c7bb2378a30831e2c53e832c186a5f99aac9f0e40532d",
+    "prompt_sha256": "b807e9f03fa0638466a6424d4f89e241ab3a599bf71ca7f11a1388e5e8471ecb",
+    "skill_and_context_hashes": {
+      "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+      "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+      "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+      "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+      "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+      "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+      "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+      "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+      "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+    },
+    "input_hashes": {
+      "input/synthetic_applicants.json": "3f5247d47c13763f56a1e820f9f73796104a2d972b86a3a89a823fb516714b7d",
+      "input/pdf_dataset_sources.md": "4736a0879c8e13ff4eefe685bdd545e4bb01057a4f8e6c781e2c6027ee253e20",
+      "input/of306_aug2023.pdf": "b690ec40015e42b0ed0424e5c0193616dc6491b70525240463d24b951e6ce46c",
+      "input/verify_pdf_batch.py": "a930b8c761d94a621f0de409bf11444466550f75a1e16aa8f3619de39a78fa7c"
+    },
+    "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "original_runtime_versions": {
+      "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+      "node": "v24.14.0",
+      "python": "Python 3.12.3",
+      "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+      "poppler": "pdftoppm version 24.02.0"
+    }
+  },
+  "helper_hashes": {
+    "helpers/build_field_values.py": "094d41e6cd21adf08a6ad4f604b084e0fe02c3af3b619508740e5c1ada622811",
+    "helpers/run_batch.py": "1bf71a3c89e06605519de775875037fcfc404bb2c3211ac36b517b722601881f",
+    "input/pdf_dataset_sources.md": "4736a0879c8e13ff4eefe685bdd545e4bb01057a4f8e6c781e2c6027ee253e20",
+    "input/verify_pdf_batch.py": "a930b8c761d94a621f0de409bf11444466550f75a1e16aa8f3619de39a78fa7c"
+  },
+  "review": {
+    "method": "explicit per-run manual selection, frozen final helper staging, dependency reconstruction and executable qualification",
+    "note": "Successful prepare, field-value build and batch helper calls retained; read errors and inspection-only listings excluded.",
+    "selected_call_ids": [
+      "call_00_d1fPeDi1O7wqF9D95HfC1536",
+      "call_00_ET_Ai7ytRpSFnnfFYfSq9Aa8266",
+      "call_00_ET_ErkhuJ5wCZEVlKWfUthk7175",
+      "call_00_KLQnrvSA5Z7RlmmZ4Yls9131",
+      "call_00_ET_cnGk0KrWJ9WywNrgU1837094"
+    ],
+    "excluded_call_ids": [
+      "call_00_6xzXdGOf0psgz2P8wVAJ9804",
+      "call_01_NHDJdy50t60y4KRYmNDT1309",
+      "call_00_3gn6A7GzU2L9ADaS1O6L8623",
+      "call_01_TOU9Evud5c3ufm5PXprb3028",
+      "call_00_RyNZl7ZQfolYmVLxKi2u0577",
+      "call_01_Rp4My6fWg4Y1vY6r1Jym1267",
+      "call_00_uw1SCOXvOJtWCw7Bicsx3001",
+      "call_01_0x7FHiLMqgTdp5qQX2fD8544",
+      "call_02_IE4sbxytsd9qkNrQu0LU9566",
+      "call_00_uuAVgdpfi4bV0TaMxH6g4865",
+      "call_00_gFwJKw5xddhPBcITcWjq1941",
+      "call_00_Y44XzfIZoSef26PGeDP21539",
+      "call_00_NlNoMqvBNThpgt0NAlIF8347",
+      "call_00_jLJvue9D69dM1xYVESNF9104"
+    ],
+    "capture_gap_decisions": [],
+    "qualifications": "Recipe existence alone is not replay qualification. Read reports/qualification.json for runtime-specific results."
+  },
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01",
+  "source_path": "assets/cases/opm/source",
+  "seed_path": "assets/cases/opm/seed",
+  "scratch_files": [],
+  "operation_timeout": 900,
+  "recalc_timeout": 180
+}

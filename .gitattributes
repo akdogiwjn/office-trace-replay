@@ -1,0 +1,4 @@
+# Hash-bound evidence must retain exact bytes across checkout platforms.
+assets/** -text
+assets/objects/sha256/* -diff
+vendor/document-oe/** -text

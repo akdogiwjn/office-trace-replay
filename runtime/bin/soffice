@@ -1,0 +1,5 @@
+#!/bin/sh
+# The snapshot's symbols build defaults UserInstallation to the installation
+# directory. Frozen Skills install their macro under the normal user profile.
+# Match that profile without changing any captured helper or recalc.py byte.
+exec /opt/libreoffice25.8-symbols/program/soffice -env:UserInstallation=file:///root/.config/libreoffice/4 "$@"

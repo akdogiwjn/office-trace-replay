@@ -1,0 +1,26 @@
+{
+  "schema_version": "office-semantic-oracle-v2",
+  "metric_values": {
+    "total_employment": 155495730,
+    "annual_mean_wage": 69770,
+    "hourly_median_wage": 24.51
+  },
+  "scenario_values": {
+    "Base": {
+      "projected_mean_wage": 69770
+    },
+    "Increase": {
+      "projected_mean_wage": 73258.5
+    }
+  },
+  "oracle_provenance": "Independent calculations over frozen source observations; these answers are not part of the Agent-facing task contract.",
+  "chart_values": {
+    "major_employment": [
+      17753430,
+      13680750,
+      13677150,
+      13424300,
+      11132700
+    ]
+  }
+}

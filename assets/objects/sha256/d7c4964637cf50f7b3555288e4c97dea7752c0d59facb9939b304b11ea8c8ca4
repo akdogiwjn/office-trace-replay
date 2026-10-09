@@ -1,0 +1,66 @@
+{
+  "schema_version": "office-semantic-oracle-v2",
+  "metric_values": {
+    "total_trips": 2758427,
+    "fare_revenue": 50744748.6,
+    "average_fare": 18.9361351508528,
+    "removal_rate": 0.0695524963705347,
+    "reconciliation_status": "PASS"
+  },
+  "scenario_values": {
+    "Base": {
+      "projected_trips": 2758427,
+      "projected_fare": 50744748.6
+    },
+    "Upside": {
+      "projected_trips": 2896348.35,
+      "projected_fare": 57544544.91240001
+    },
+    "Downside": {
+      "projected_trips": 2620505.65,
+      "projected_fare": 44832985.388100006
+    }
+  },
+  "oracle_provenance": "Independent calculations over frozen source observations; these answers are not part of the Agent-facing task contract.",
+  "chart_values": {
+    "daily_trips": [
+      69073,
+      71057,
+      78111,
+      97758,
+      97823,
+      90260,
+      63738,
+      75558,
+      84285,
+      89755,
+      99130,
+      96747,
+      98382,
+      87305,
+      72868,
+      85601,
+      99930,
+      102078,
+      89472,
+      98565,
+      77673,
+      80283,
+      93304,
+      98991,
+      102571,
+      98682,
+      104101,
+      83819,
+      79645,
+      95696,
+      96166
+    ],
+    "payment_mix": [
+      2289029,
+      430338,
+      25219,
+      13841
+    ]
+  }
+}
