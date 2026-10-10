@@ -101,7 +101,7 @@ def main(argv=None):
     parser.add_argument('--dataset', action='append', choices=DATASETS)
     parser.add_argument('--loops', type=int, default=1)
     parser.add_argument('--pdf-applicant-count', type=int, choices=[1, 10], default=1)
-    parser.add_argument('--legacy-python', choices=['system', 'venv'], default='system')
+    parser.add_argument('--legacy-python', choices=['system', 'venv'], default='venv')
     parser.add_argument('--timed', action='store_true')
     parser.add_argument('--results-dir', type=Path, default=Path('/results'))
     parser.add_argument('--native-child', type=Path, help=argparse.SUPPRESS)

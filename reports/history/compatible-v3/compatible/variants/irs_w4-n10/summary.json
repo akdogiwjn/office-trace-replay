@@ -1,0 +1,28 @@
+{
+  "abstraction": "steps",
+  "completed_iterations": 1,
+  "elapsed_seconds": 15.345244,
+  "events_file": "/results/compatible-20261010T121937Z-1d5a4abf/irs_w4-n10/0001/pdf/20261010T121937Z-pid83/iterations.jsonl",
+  "failures": 0,
+  "finished_at": "2026-10-10T12:19:52.679+00:00",
+  "interrupted": false,
+  "operation_timeout_seconds": 300,
+  "pdf_applicant_count": 10,
+  "recalc_timeout_seconds": 180,
+  "recipe": "/opt/office-trace-replay/compatibility/recipes/irs_w4-n10.json",
+  "recipe_sha256": "001c38ebb524bad0c73124096af624c854a1286427b2ccc24c48474b4952e8ba",
+  "requested_iterations": 1,
+  "run_id": "20261010T121937Z-pid83",
+  "scene": "pdf",
+  "schema_version": "document-step-scene-loop-v2",
+  "seed": "/opt/office-trace-replay/compatibility/cases/irs_w4-n10/seed",
+  "started_at": "2026-10-10T12:19:37.334+00:00",
+  "step_order": [
+    "PDF-P01-inspect_prepare",
+    "PDF-P02-build",
+    "PDF-P03-process_publish",
+    "PDF-P04-verify_deliver"
+  ],
+  "successes": 1,
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01"
+}

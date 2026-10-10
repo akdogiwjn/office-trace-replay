@@ -2,7 +2,9 @@
 ARG BASE_IMAGE=document-oe-snapshot:20260827
 FROM ${BASE_IMAGE}
 ENV OFFICE_REPLAY_CONTAINER=1 PYTHONDONTWRITEBYTECODE=1 \
-    LANG=C.UTF-8 LC_ALL=C.UTF-8
+    LANG=C.UTF-8 LC_ALL=C.UTF-8 \
+    VIRTUAL_ENV=/opt/document-bench/.venv \
+    PATH=/opt/document-bench/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 COPY . /opt/office-trace-replay
 # Restore the actual running document-oe bundle at its unchanged absolute root.
 COPY legacy/document-oe/ /opt/document-bench/

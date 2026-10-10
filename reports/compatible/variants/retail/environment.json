@@ -1,6 +1,6 @@
 {
-  "python": "3.11.6",
-  "executable": "/usr/bin/python3",
+  "python": "3.12.3",
+  "executable": "/opt/document-bench/.venv/bin/python",
   "packages": {
     "openpyxl": "3.1.5",
     "et_xmlfile": "2.0.0",
@@ -8,7 +8,7 @@
     "pdf2image": "1.17.0",
     "pillow": "12.2.0"
   },
-  "path": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  "path": "/opt/document-bench/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
   "skills_root": "/opt/document-bench/skills",
   "soffice_target": "/opt/libreoffice25.8-symbols/program/soffice"
 }

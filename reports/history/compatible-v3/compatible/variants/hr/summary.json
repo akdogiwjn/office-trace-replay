@@ -1,0 +1,28 @@
+{
+  "abstraction": "steps",
+  "completed_iterations": 1,
+  "elapsed_seconds": 23.15903,
+  "events_file": "/results/compatible-20261010T121824Z-bff84f52/hr/0001/xlsx/20261010T121833Z-pid56/iterations.jsonl",
+  "failures": 0,
+  "finished_at": "2026-10-10T12:18:56.380+00:00",
+  "interrupted": false,
+  "operation_timeout_seconds": 900,
+  "pdf_applicant_count": null,
+  "recalc_timeout_seconds": 600,
+  "recipe": "/opt/office-trace-replay/compatibility/recipes/hr.json",
+  "recipe_sha256": "21462030043b349a6d35dbc831a41c4b80be4058ffc5951b25623b0f2b99c871",
+  "requested_iterations": 1,
+  "run_id": "20261010T121833Z-pid56",
+  "scene": "xlsx",
+  "schema_version": "document-step-scene-loop-v2",
+  "seed": "/opt/office-trace-replay/compatibility/cases/hr/seed",
+  "started_at": "2026-10-10T12:18:33.220+00:00",
+  "step_order": [
+    "XLSX-P01-inspect_prepare",
+    "XLSX-P02-build",
+    "XLSX-P03-process_publish",
+    "XLSX-P04-verify_deliver"
+  ],
+  "successes": 1,
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR"
+}

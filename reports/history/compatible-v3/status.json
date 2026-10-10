@@ -1,0 +1,22 @@
+{
+  "schema_version": "office-replay-status-v3",
+  "status": "success",
+  "image": "office-trace-replay:openeuler-v3",
+  "image_id": "sha256:890c53efc41f5388f76a5662e4bb4751ede1cac68c26844dca4716260a93d1f4",
+  "old_pdf_xlsx_unchanged": true,
+  "canonical_traces_unchanged": true,
+  "default_dataset_count": 7,
+  "compatible_variant_count": 7,
+  "tests": {
+    "passed": 16,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0
+  },
+  "classification": "versioned adapted replay; no new Agent trajectory",
+  "representativeness_established": false,
+  "qualification": {
+    "path": "reports/qualification.json",
+    "sha256": "f85c9a365b93e63fa3077570884429e885e776426359ecda3e817a17bfae3e8c"
+  }
+}

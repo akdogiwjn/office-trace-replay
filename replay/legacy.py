@@ -24,7 +24,7 @@ def validate(root=LEGACY, check_installed=False):
     return lock
 
 
-def native_command(arguments, timed=False, python_mode='system'):
+def native_command(arguments, timed=False, python_mode='venv'):
     # Forward all original flags unchanged: scene, loops, 1/10 applicants,
     # operation timeout, recalc timeout and original results format.
     script = 'run_document_scene_loop_timed.py' if timed else 'run_document_scene_loop.py'
@@ -32,7 +32,7 @@ def native_command(arguments, timed=False, python_mode='system'):
     return [executable, str(NATIVE / 'bin' / script), *arguments]
 
 
-def launch(arguments, timed=False, python_mode='system'):
+def launch(arguments, timed=False, python_mode='venv'):
     if not Path('/.dockerenv').exists():
         raise ValueError('legacy execution requires a disposable container')
     validate(check_installed=True)

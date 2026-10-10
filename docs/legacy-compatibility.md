@@ -12,7 +12,7 @@
 | helper 写入时间 | 原配方仍在循环内写代码，不移到准备阶段 |
 | shell 与调用顺序 | 不增加 set -e/pipefail、不合并、不删减、不改 stdout |
 | Office | 原 recalc.py/profile 逻辑、原 600 秒超时；不走新包装器 |
-| Python | 原系统 3.11.6 默认及 venv 3.12.3 模式都保留 |
+| Python | 按用户要求默认原 venv 3.12.3；系统 3.11.6 可显式选择，原脚本未修改 |
 | PDF 数量 | 原默认 1、原参数支持 10；不强制改为 10 |
 | 结果与计时格式 | 由原 loop/timed loop 生成，无额外 verifier 加入计时链 |
 

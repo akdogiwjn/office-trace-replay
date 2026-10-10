@@ -25,7 +25,7 @@ def main(argv=None):
     if '--scene' in argv:
         timed = '--timed' in argv
         if timed: argv.remove('--timed')
-        python_mode = 'system'
+        python_mode = 'venv'
         if '--legacy-python' in argv:
             i = argv.index('--legacy-python')
             python_mode = argv[i + 1]
@@ -38,7 +38,7 @@ def main(argv=None):
     parser.add_argument('--loops', type=int, default=1)
     parser.add_argument('--pdf-applicant-count', type=int, choices=[1, 10], default=None)
     parser.add_argument('--timed', action='store_true', help='Original document-oe timing entry for old scenes only')
-    parser.add_argument('--legacy-python', choices=['system', 'venv'], default='system')
+    parser.add_argument('--legacy-python', choices=['system', 'venv'], default='venv')
     parser.add_argument('--workflow', choices=['compatible', 'derived-v1'], default='compatible',
                         help='New inputs use the original native workflow by default; derived-v1 retains historical recipes')
     parser.add_argument('--results-dir', type=Path, default=Path('/results'))

@@ -64,12 +64,17 @@ class CompatibleWorkflowTests(unittest.TestCase):
 
     def test_compatible_entry_forwards_same_runtime_and_timing_modes(self):
         with patch('replay.entry.legacy.validate'), patch('replay.entry.subprocess.call', return_value=0) as call:
-            self.assertEqual(main(['--dataset', 'retail', '--timed', '--legacy-python', 'venv']), 0)
+            self.assertEqual(main(['--dataset', 'retail', '--timed']), 0)
             command = call.call_args.args[0]
             self.assertEqual(command[0], '/opt/document-bench/.venv/bin/python')
             self.assertIn(str(ROOT / 'replay/compatible.py'), command)
             self.assertIn('--timed', command)
             self.assertEqual(command[command.index('--legacy-python') + 1], 'venv')
+        with patch('replay.entry.legacy.validate'), patch('replay.entry.subprocess.call', return_value=0) as call:
+            self.assertEqual(main(['--dataset', 'retail', '--legacy-python', 'system']), 0)
+            command = call.call_args.args[0]
+            self.assertEqual(command[0], '/usr/bin/python3')
+            self.assertEqual(command[command.index('--legacy-python') + 1], 'system')
         with patch('replay.entry.legacy.validate'), patch('replay.entry.subprocess.call', return_value=0) as call:
             main(['--dataset', 'retail', '--workflow', 'derived-v1'])
             self.assertIn(str(ROOT / 'replay/run.py'), call.call_args.args[0])
@@ -79,6 +84,8 @@ class CompatibleWorkflowTests(unittest.TestCase):
         index = read(ROOT / 'compatibility/suite.json')
         self.assertEqual(default['compatible_suite_sha256'], digest(ROOT / 'compatibility/suite.json'))
         self.assertEqual(default['compatible_contract_sha256'], index['contract_sha256'])
+        self.assertEqual(read(ROOT / 'compatibility/contract.json')['python']['default'], 'venv')
+        self.assertTrue(all(e['python_default'] == 'venv-3.12.3' for e in default['datasets']))
         for entry in default['datasets'][2:]:
             self.assertEqual(entry['mode'], 'document_oe_compatible_adapter')
             self.assertEqual(entry['recipe_sha256'], digest(ROOT / entry['recipe_path']))

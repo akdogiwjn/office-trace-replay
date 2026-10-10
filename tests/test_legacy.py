@@ -32,13 +32,17 @@ class LegacyCompatibilityTests(unittest.TestCase):
         arguments = ['--scene', 'pdf', '--loops', '3', '--pdf-applicant-count', '10', '--recalc-timeout', '180']
         with patch('replay.entry.legacy.launch') as launch:
             self.assertEqual(main(arguments), 0)
-            launch.assert_called_once_with(arguments, False, 'system')
+            launch.assert_called_once_with(arguments, False, 'venv')
         with patch('replay.entry.legacy.launch') as launch:
             self.assertEqual(main(arguments + ['--timed']), 0)
-            launch.assert_called_once_with(arguments, True, 'system')
+            launch.assert_called_once_with(arguments, True, 'venv')
 
-        self.assertEqual(legacy.native_command(arguments)[0], '/usr/bin/python3')
-        self.assertEqual(legacy.native_command(arguments, python_mode='venv')[0], '/opt/document-bench/.venv/bin/python')
+        with patch('replay.entry.legacy.launch') as launch:
+            self.assertEqual(main(arguments + ['--legacy-python', 'system']), 0)
+            launch.assert_called_once_with(arguments, False, 'system')
+
+        self.assertEqual(legacy.native_command(arguments)[0], '/opt/document-bench/.venv/bin/python')
+        self.assertEqual(legacy.native_command(arguments, python_mode='system')[0], '/usr/bin/python3')
 
     def test_old_names_never_select_new_opm_tlc(self):
         self.assertEqual(OLD['opm'], 'pdf')

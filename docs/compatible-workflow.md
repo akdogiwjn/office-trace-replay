@@ -4,7 +4,7 @@
 
 ## 执行和计时边界
 
-`entry.py` 对旧用例仍委托原程序。对五个新增用例启动 `compatible.py`，默认与旧用例一样使用系统 Python 3.11.6、原 PATH、原 PDF/XLSX Skill 工具、原 LibreOffice 重算实现。`--legacy-python venv` 会同时为旧、新用例选择原 Python 3.12.3 环境。比较两侧必须使用同一模式。
+`entry.py` 对旧用例仍委托原程序。对五个新增用例启动 `compatible.py`，默认与旧用例一样使用原 venv Python 3.12.3、带该 venv 前缀的 PATH、原 PDF/XLSX Skill 工具、原 LibreOffice 重算实现。容器默认 `python3` 及脚本内部子进程也使用 3.12.3。`--legacy-python system` 会同时为旧、新用例显式选择历史系统 Python 3.11.6 环境。比较两侧必须使用同一模式。
 
 兼容 launcher 导入安装在 `/opt/document-bench/bin` 的原执行器，只在新子进程内配置 `SCENES[kind]` 的 seed、workspace、recipe 路径，再调用原 `main()`。没有修改原文件或替换 `execute_call`、Shell、超时、workspace reset 和业务状态检查。新用例的配方和业务 helper 是显式适配版本。
 
@@ -40,20 +40,20 @@ helper 在 native build 阶段通过配方 write 写入，而非在未计入执�
 ```bash
 # 默认七用例，单条 PDF，plain。
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v3 --loops 1
+  office-trace-replay:openeuler-v4 --loops 1
 
 # 两侧均使用原计时方式。
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v3 --loops 1 --timed
+  office-trace-replay:openeuler-v4 --loops 1 --timed
 
 # 原 PDF 和新增 PDF 同为十条 fill/render。
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v3 --dataset pdf --dataset irs_w4 \
+  office-trace-replay:openeuler-v4 --dataset pdf --dataset irs_w4 \
   --dataset sba1919 --pdf-applicant-count 10 --loops 1 --timed
 
 # 保留历史衍生配方的明确入口。
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v3 --dataset retail --workflow derived-v1 --loops 1
+  office-trace-replay:openeuler-v4 --dataset retail --workflow derived-v1 --loops 1
 ```
 
 兼容运行记录位于 `/results/compatible-<run-id>/<variant>/0001/`：原 `pdf|xlsx/<native-run-id>/summary.json`、`iterations.jsonl`；timed 模式另有原 calls/nested_calls。外层保存 `environment.json`、独立验收、output 和 workspace_artifacts。外层 summary 绑定所有输入、配方、父 trace 和归档文件，方便明确选择性能实验的具体 recipe/variant。
