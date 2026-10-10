@@ -1,0 +1,292 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_kind": "xlsx",
+  "case_id": "OFFICE-XLSX-RETAIL",
+  "dataset_id": "retail",
+  "variant_id": "retail",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "XLSX-P01-inspect_prepare",
+      "XLSX-P02-build",
+      "XLSX-P03-process_publish",
+      "XLSX-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "XLSX-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "read_skill",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/xlsx/SKILL.md"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "read_verifier",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && cat input/verify_office.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "copy_input",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && mkdir -p work && cp input/mrtssales92-present.xlsx output/retail_enhanced.xlsx"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py source"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py copy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P02-build",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "write_helper",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/helpers/build_enhance.py",
+              "content": "\"\"\"Build the enhanced retail workbook: add an Overview sheet with live formulas,\nscenario selector, assumptions, projection, chart, formatting. Original sheets are\npreserved by openpyxl; empty-string cells and recalculated caches are restored by a\nseparate XML patch step.\"\"\"\nimport sys\nfrom openpyxl import load_workbook\nfrom openpyxl.styles import Font, PatternFill, Alignment, Border, Side\nfrom openpyxl.worksheet.datavalidation import DataValidation\nfrom openpyxl.comments import Comment\nfrom openpyxl.formatting.rule import CellIsRule, ColorScaleRule, FormulaRule\nfrom openpyxl.chart import LineChart, Reference\n\nSRC = '/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/input/mrtssales92-present.xlsx'\nBUILD = '/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/work/build.xlsx'\n\nGREEN = 'FF008000'   # cross-sheet formulas\nBLUE = 'FF0000FF'    # editable inputs\nFONT = 'Arial'\n\nGREEN_FONT = Font(name=FONT, size=10, color=GREEN)\nBLUE_FONT = Font(name=FONT, size=10, color=BLUE)\nBLACK_FONT = Font(name=FONT, size=10)\nBOLD = Font(name=FONT, size=10, bold=True)\nTITLE = Font(name=FONT, size=12, bold=True)\nHEADER_FILL = PatternFill('solid', fgColor='FFD9E1F2')\nTHIN = Side(style='thin', color='FFBFBFBF')\nBORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)\n\nRED_FILL = PatternFill('solid', fgColor='FFFFC7CE')\nGRN_FILL = PatternFill('solid', fgColor='FFC6EFCE')\n\n\ndef build():\n    wb = load_workbook(SRC)\n    ws = wb.create_sheet('Overview')\n    ws.sheet_view.showGridLines = False\n\n    widths = {'A': 46, 'B': 18, 'C': 14, 'D': 14, 'E': 3, 'F': 12, 'G': 12}\n    for col, w in widths.items():\n        ws.column_dimensions[col].width = w\n\n    def put(ref, value, font=BLACK_FONT, numfmt=None, align=None, fill=None):\n        c = ws[ref]\n        c.value = value\n        c.font = font\n        if numfmt:\n            c.number_format = numfmt\n        if align:\n            c.alignment = align\n        if fill:\n            c.fill = fill\n        return c\n\n    put('A1', 'Retail and Food Services \\u2014 July 2026 Analysis', TITLE)\n    put('A2', 'Live formulas linked to the Census MRTS source sheets in this workbook. '\n              'Adjusted = seasonally adjusted (not price adjusted).')\n\n    # ---- Key metrics ----\n    put('A4', 'Key Metrics', BOLD)\n    put('A5', 'Metric', BOLD, fill=HEADER_FILL)\n    put('B5', 'Value', BOLD, fill=HEADER_FILL)\n    put('C5', 'Unit', BOLD, fill=HEADER_FILL)\n    put('A6', 'Adjusted retail and food services sales (Jul 2026)')\n    put('B6', \"='2026'!I72\", GREEN_FONT, '#,##0')\n    put('C6', 'USD million')\n    put('A7', 'Month-over-month growth (Jun\\u2192Jul 2026)')\n    put('B7', \"=('2026'!I72-'2026'!H72)/'2026'!H72\", GREEN_FONT, '0.0%')\n    put('C7', 'fraction')\n    put('A8', 'Year-over-year growth (Jul 2025\\u2192Jul 2026)')\n    put('B8', \"=('2026'!I72-'2025'!I72)/'2025'!I72\", GREEN_FONT, '0.0%')\n    put('C8', 'fraction')\n    for r in (6, 7, 8):\n        ws.cell(r, 1).border = BORDER\n        ws.cell(r, 2).border = BORDER\n        ws.cell(r, 3).border = BORDER\n\n    # ---- Scenario ----\n    put('A10', 'Scenario Analysis', BOLD)\n    put('A11', 'Selected scenario')\n    put('B11', 'Base', BLUE_FONT, align=Alignment(horizontal='left'))\n    ws['B11'].border = BORDER\n\n    put('A12', 'Scenario assumptions (editable inputs)', BOLD)\n    put('A13', 'Scenario', BOLD, fill=HEADER_FILL)\n    put('B13', 'sales_multiplier', BOLD, fill=HEADER_FILL)\n    put('A14', 'Base')\n    put('B14', 1, BLUE_FONT, '0.00')\n    put('A15', 'Higher')\n    put('B15', 1.04, BLUE_FONT, '0.00')\n    put('A16', 'Lower')\n    put('B16', 0.96, BLUE_FONT, '0.00')\n    for r in (14, 15, 16):\n        ws.cell(r, 1).border = BORDER\n        ws.cell(r, 2).border = BORDER\n\n    put('A18', 'Projection', BOLD)\n    put('A19', 'Projected adjusted sales (USD million)')\n    put('B19', '=$B$6*INDEX($B$14:$B$16,MATCH($B$11,$A$14:$A$16,0))', BLACK_FONT, '#,##0')\n    ws['A19'].border = BORDER\n    ws['B19'].border = BORDER\n\n    # ---- Chart data block ----\n    put('A21', 'Chart data: adjusted total retail & food services sales', BOLD)\n    put('A22', 'Month', BOLD)\n    put('B22', 'May 2026')\n    put('C22', 'Jun 2026')\n    put('D22', 'Jul 2026')\n    put('A23', 'Adjusted sales (USD million)', BOLD)\n    put('B23', \"='2026'!G72\", GREEN_FONT, '#,##0')\n    put('C23', \"='2026'!H72\", GREEN_FONT, '#,##0')\n    put('D23', \"='2026'!I72\", GREEN_FONT, '#,##0')\n    for ref in ('B22', 'C22', 'D22', 'B23', 'C23', 'D23'):\n        ws[ref].border = BORDER\n\n    # ---- Data validation dropdown (scenario selector) ----\n    dv = DataValidation(type='list', formula1='\"Base,Higher,Lower\"', allow_blank=False,\n                        showDropDown=False, promptTitle='Scenario', prompt='Choose Base, Higher or Lower')\n    ws.add_data_validation(dv)\n    dv.add(ws['B11'])\n\n    # ---- Conditional formatting (3 distinct ranges) ----\n    ws.conditional_formatting.add('B7', CellIsRule(operator='lessThan', formula=['0'],\n                                   fill=RED_FILL, font=Font(name=FONT, size=10, color='FF9C0006')))\n    ws.conditional_formatting.add('B8', CellIsRule(operator='greaterThan', formula=['0'],\n                                   fill=GRN_FILL, font=Font(name=FONT, size=10, color='FF006100')))\n    ws.conditional_formatting.add('B23:D23', ColorScaleRule(\n        start_type='min', start_color='FFF8696B',\n        mid_type='percentile', mid_value=50, mid_color='FFFFEB84',\n        end_type='max', end_color='FF63BE7B'))\n    ws.conditional_formatting.add('B19', FormulaRule(formula=['$B$11=\"Base\"'], fill=HEADER_FILL))\n\n    # ---- Comments ----\n    ws['B6'].comment = Comment(\n        'Source: U.S. Census Bureau, Monthly Retail Trade Survey (MRTS) historical workbook '\n        \"(input file 'mrtssales92-present.xlsx'). '2026' sheet, ADJUSTED section, row 72 \"\n        \"'Retail and food services sales, total', column I = Jul. 2026(p) = 729,538 USD million.\", 'Analyst')\n    ws['B14'].comment = Comment(\n        'Editable assumption: hypothetical sales-level multiplier (Base = 1.00; Higher = 1.04; '\n        'Lower = 0.96). These are NOT Census forecasts.', 'Analyst')\n    ws['B19'].comment = Comment(\n        'Projection = Adjusted July 2026 sales (B6) \\u00d7 multiplier selected by the scenario '\n        'dropdown (B11) from the assumption table B14:B16 via INDEX/MATCH.', 'Analyst')\n\n    # ---- Freeze panes ----\n    ws.freeze_panes = 'B3'\n\n    # ---- Chart ----\n    chart = LineChart()\n    chart.title = 'Adjusted total retail & food services sales (May\\u2013Jul 2026)'\n    chart.y_axis.title = 'USD million'\n    chart.x_axis.title = 'Month'\n    chart.height = 8\n    chart.width = 16\n    data = Reference(ws, min_col=2, max_col=4, min_row=23, max_row=23)\n    cats = Reference(ws, min_col=2, max_col=4, min_row=22, max_row=22)\n    chart.add_data(data, titles_from_data=False, from_rows=True)\n    chart.set_categories(cats)\n    ws.add_chart(chart, 'F4')\n\n    wb.save(BUILD)\n    print('built', BUILD, 'sheets', len(wb.sheetnames), 'last', wb.sheetnames[-1])\n\n\nif __name__ == '__main__':\n    build()\n"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "write_helper",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/helpers/assemble_output.py",
+              "content": "\"\"\"Assemble the final workbook from:\n  - build.xlsx   : openpyxl output (originals preserved semantically, Overview formulas, no caches)\n  - recalc.xlsx  : LibreOffice-recalculated copy of build.xlsx (has computed caches)\n  - source.xlsx  : original input (defines which cells are empty-string and must be restored)\n\nOriginal sheet parts are patched so empty-string cells read back as '' again; the Overview\nsheet gets its recalculated numeric caches injected. No original styling/formula is altered.\n\"\"\"\nimport re\nimport sys\nimport zipfile\nfrom openpyxl import load_workbook\n\nBASE = '/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL'\nBUILD = BASE + '/work/build.xlsx'\nRECALC = BASE + '/work/recalc_input.xlsx'\nSOURCE = BASE + '/input/mrtssales92-present.xlsx'\nOUT = BASE + '/output/retail_enhanced.xlsx'\n\nOVERVIEW = 'Overview'\n\n\ndef sheet_parts(zf):\n    \"\"\"Map worksheet name -> zip part path using workbook.xml + rels.\"\"\"\n    wbxml = zf.read('xl/workbook.xml').decode()\n    rels = zf.read('xl/_rels/workbook.xml.rels').decode()\n    rid2target = {}\n    for tag in re.findall(r'<Relationship\\b[^>]*/>', rels):\n        mid = re.search(r'Id=\"([^\"]+)\"', tag)\n        mtgt = re.search(r'Target=\"([^\"]+)\"', tag)\n        if mid and mtgt:\n            rid2target[mid.group(1)] = mtgt.group(1)\n    name2part = {}\n    for name, rid in re.findall(r'<sheet name=\"([^\"]+)\"[^>]*r:id=\"([^\"]+)\"', wbxml):\n        tgt = rid2target[rid].lstrip('/')\n        if not tgt.startswith('xl/'):\n            tgt = 'xl/' + tgt\n        name2part[name] = tgt\n    return name2part\n\n\ndef empty_coords_by_sheet():\n    wb = load_workbook(SOURCE, data_only=False)\n    out = {}\n    for ws in wb.worksheets:\n        out[ws.title] = {c.coordinate for row in ws.iter_rows() for c in row if c.value == ''}\n    wb.close()\n    return out\n\n\ndef num(v):\n    if isinstance(v, str):\n        return None\n    if v is None:\n        return None\n    if float(v).is_integer():\n        return str(int(round(v)))\n    return repr(float(v))\n\n\ndef main():\n    empties = empty_coords_by_sheet()\n    # computed caches for every formula cell on the Overview sheet\n    rwb = load_workbook(RECALC, data_only=True)\n    ows = rwb[OVERVIEW]\n    caches = {}\n    for row in ows.iter_rows():\n        for c in row:\n            if c.value is not None:\n                caches[c.coordinate] = c.value\n    rwb.close()\n    # only numeric caches should be injected into <v/>\n    numeric = {k: num(v) for k, v in caches.items() if not isinstance(v, str)}\n    numeric = {k: v for k, v in numeric.items() if v is not None}\n\n    src = zipfile.ZipFile(BUILD)\n    parts = sheet_parts(src)\n    rev = {p: n for n, p in parts.items()}\n    dst = zipfile.ZipFile(OUT, 'w', zipfile.ZIP_DEFLATED)\n\n    empty_patched = 0\n    cache_patched = 0\n    for item in src.infolist():\n        data = src.read(item.filename)\n        name = item.filename\n        if name in rev:\n            sh = rev[name]\n            text = data.decode('utf-8')\n            if sh == OVERVIEW:\n                for coord, val in numeric.items():\n                    pat = re.compile(r'(<c r=\"%s\"[^>]*?>)(<f>.*?</f>)\\s*<v\\s*/>' % re.escape(coord), re.S)\n                    text, n = pat.subn(lambda m: m.group(1) + m.group(2) + '<v>' + val + '</v>', text)\n                    cache_patched += n\n            else:\n                ecs = empties.get(sh, set())\n                for coord in ecs:\n                    pat = re.compile(r'(<c r=\"%s\"[^>]*?)\\s*/>' % re.escape(coord))\n                    text, n = pat.subn(lambda m: m.group(1) + '><is><t></t></is></c>', text)\n                    empty_patched += n\n            data = text.encode('utf-8')\n        dst.writestr(item, data)\n    dst.close()\n    src.close()\n    print('empty cells patched:', empty_patched, 'cache cells patched:', cache_patched)\n\n\nif __name__ == '__main__':\n    main()\n"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "build",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 helpers/build_enhance.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "recalculate",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && cp work/build.xlsx work/recalc_input.xlsx && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py work/recalc_input.xlsx __DOCUMENT_RECALC_TIMEOUT__ > output/formula_recalc.json 2> output/formula_recalc.stderr.log"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "source_preservation",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 helpers/assemble_output.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "implementation_index",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "content": "{\n  \"summary_sheet\": \"Overview\",\n  \"metrics\": {\n    \"adjusted_sales\": {\"sheet\": \"Overview\", \"cell\": \"B6\"},\n    \"monthly_growth\": {\"sheet\": \"Overview\", \"cell\": \"B7\"},\n    \"annual_growth\": {\"sheet\": \"Overview\", \"cell\": \"B8\"}\n  },\n  \"scenario\": {\n    \"selector\": {\"sheet\": \"Overview\", \"cell\": \"B11\"},\n    \"assumptions\": {\n      \"Base\": {\"sales_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B14\"}},\n      \"Higher\": {\"sales_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B15\"}},\n      \"Lower\": {\"sales_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B16\"}}\n    },\n    \"projections\": {\n      \"projected_sales\": {\"sheet\": \"Overview\", \"cell\": \"B19\"}\n    }\n  },\n  \"charts\": {\n    \"adjusted_trend\": {\"sheet\": \"Overview\", \"index\": 0}\n  }\n}\n",
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/output/workbook_features.json"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py formula"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py cached"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "inspect_log",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && cat output/formula_recalc.json"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "export_csv",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 /opt/office-trace-replay/compatibility/tools/export_xlsx.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "semantic_verification",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 input/verify_office.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "write_summary",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 /opt/office-trace-replay/compatibility/tools/summary.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v1",
+          "role": "check_deliverables",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && test -s output/retail_enhanced.xlsx && test -s output/metrics.csv && test -s output/scenario.csv && test -s output/xlsx_enhancement_summary.json"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL",
+  "seed_path": "compatibility/cases/retail/seed",
+  "source_path": "compatibility/cases/retail/source",
+  "record_count": null,
+  "operation_timeout": 900,
+  "recalc_timeout": 600,
+  "requires_llm": false,
+  "classification": "adapted_replay_recipe_not_new_agent_trace",
+  "parent": {
+    "recipe_path": "recipes/retail.json",
+    "recipe_sha256": "2c64a21bba8e542dd2873403957b2867f076c92fc50269b25360de445bc26269",
+    "canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
+    "original_run_id": "xlsx-retail-20261009T101352Z-725a21b6",
+    "trajectory_sha256": "a82aa4b889938382ac73a74a6bbd0109ce5c4d51028338b6a9d9fe500ef96cc6",
+    "tool_events_sha256": "b1b1eaaf14f1cbea9673bb6d51df60b0658fd8a815422a1fbe96605a09c7ec6c",
+    "manifest_sha256": "5604a33257c5acb1a803272226bbdfd931ad37e1159b228ae8f52cac3df0674b",
+    "prompt_sha256": "92d26ab1bb61ddcdf5d21604825cc6158128845e95559c82245976aaa634c389",
+    "skill_and_context_hashes": {
+      "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+      "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+      "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+      "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+      "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+      "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+      "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+      "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+      "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+    },
+    "input_hashes": {
+      "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956"
+    },
+    "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "original_runtime_versions": {
+      "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+      "node": "v24.14.0",
+      "python": "Python 3.12.3",
+      "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+      "poppler": "pdftoppm version 24.02.0"
+    }
+  },
+  "contract_sha256": "fcb59d3be89197f0aaeac84839504db85b33f2fb3e4de37da1f1cc4088123b02",
+  "adaptations": [
+    "Use original native executor, original Skill tools and original runtime/timing boundaries.",
+    "One build and one original recalc; retain clean build instead of rebuilding.",
+    "Keep necessary formula-cache/source-content assembly as an explicit extra call.",
+    "Export actual manifest metric/projection values to metrics.csv/scenario.csv; no fabricated TLC sheets."
+  ],
+  "prompt_path": "compatibility/prompts/xlsx.txt",
+  "prompt_sha256": "df57016cb22fa6ee19b268f369d64d6061f45eb99063d20393b04c0b11f48642",
+  "input_hashes": {
+    "input/dataset_manifest.json": "5604a33257c5acb1a803272226bbdfd931ad37e1159b228ae8f52cac3df0674b",
+    "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956",
+    "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+  },
+  "preservation_call_roles": [
+    "source_preservation"
+  ]
+}

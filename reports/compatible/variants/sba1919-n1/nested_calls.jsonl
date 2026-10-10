@@ -1,0 +1,8 @@
+{"ts": 1791634708.6193297, "parent": "convert_pdf_to_images.py", "child": "pdfinfo input/sba1919_2024.pdf", "seconds": 0.029221}
+{"ts": 1791634708.6279988, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -v", "seconds": 0.008554}
+{"ts": 1791634708.9545975, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -r 200 input/sba1919_2024.pdf -f 1 -l 7", "seconds": 0.326516}
+{"ts": 1791634710.2049258, "parent": "run_batch_fill_render.py", "child": "fill_fillable_fields.py", "seconds": 0.551216}
+{"ts": 1791634710.266097, "parent": "convert_pdf_to_images.py", "child": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/fi", "seconds": 0.014918}
+{"ts": 1791634710.2754853, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -v", "seconds": 0.009271}
+{"ts": 1791634710.6056056, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/o", "seconds": 0.330043}
+{"ts": 1791634711.2247672, "parent": "run_batch_fill_render.py", "child": "convert_pdf_to_images.py", "seconds": 1.019758}

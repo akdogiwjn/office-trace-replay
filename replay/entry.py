@@ -39,18 +39,22 @@ def main(argv=None):
     parser.add_argument('--pdf-applicant-count', type=int, choices=[1, 10], default=None)
     parser.add_argument('--timed', action='store_true', help='Original document-oe timing entry for old scenes only')
     parser.add_argument('--legacy-python', choices=['system', 'venv'], default='system')
+    parser.add_argument('--workflow', choices=['compatible', 'derived-v1'], default='compatible',
+                        help='New inputs use the original native workflow by default; derived-v1 retains historical recipes')
     parser.add_argument('--results-dir', type=Path, default=Path('/results'))
     parser.add_argument('--validate-only', action='store_true')
     args = parser.parse_args(argv)
     if args.loops < 1: parser.error('--loops must be positive')
     selected = args.dataset or DEFAULT
-    if args.timed and any(name in NEW for name in selected):
-        parser.error('--timed belongs to the preserved old PDF/XLSX scenes')
+    if args.timed and (args.workflow == 'derived-v1' or any(n in ('opm_v2', 'tlc_v2') for n in selected)):
+        parser.error('--timed requires native/compatible workflow')
     legacy.validate(check_installed=Path('/.dockerenv').exists())
     if args.validate_only:
         from replay.run import validate_project
         validate_project()
-        print('legacy bytes and derived pack bindings valid')
+        from replay.compatible import validate
+        validate()
+        print('legacy bytes, derived packs and compatible workflow bindings valid')
         return 0
     # Each old scene is a child running the original program with original
     # logs. Complete both old scenes before any new engine replaces Skills.
@@ -65,6 +69,17 @@ def main(argv=None):
         code = subprocess.call(command)
         if code: return code
     chosen = list(dict.fromkeys(NEW[n] for n in selected if n in NEW))
+    compatible = [n for n in chosen if n not in ('opm', 'tlc') and args.workflow == 'compatible']
+    if compatible:
+        command = [legacy.native_command([], python_mode=args.legacy_python)[0],
+                   str(ROOT / 'replay/compatible.py'), '--loops', str(args.loops),
+                   '--results-dir', str(args.results_dir), '--legacy-python', args.legacy_python,
+                   '--pdf-applicant-count', str(args.pdf_applicant_count or 1)]
+        if args.timed: command.append('--timed')
+        for name in compatible: command.extend(['--dataset', name])
+        code = subprocess.call(command)
+        if code: return code
+    chosen = [n for n in chosen if n not in compatible]
     if chosen:
         command = [sys.executable, str(ROOT / 'replay/run.py'), '--loops', str(args.loops),
                    '--results-dir', str(args.results_dir)]

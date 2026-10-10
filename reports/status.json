@@ -1,30 +1,22 @@
 {
-  "schema_version": "office-replay-status-v2",
+  "schema_version": "office-replay-status-v3",
   "status": "success",
-  "image": "office-trace-replay:openeuler-v2",
-  "image_id": "sha256:9ed449fe6613c20d390ea203376583ea723e7154b2db7d38f3e334bcc1b96ba7",
-  "default_suite_sha256": "88dc6ff8c255c3acadfcdd05c2e741c773345e72b9a6bdad08b0aef5a32e7685",
-  "dataset_count": 7,
-  "legacy_file_count": 45,
-  "legacy_bytes_modes_equal": true,
+  "image": "office-trace-replay:openeuler-v3",
+  "image_id": "sha256:890c53efc41f5388f76a5662e4bb4751ede1cac68c26844dca4716260a93d1f4",
   "old_pdf_xlsx_unchanged": true,
-  "old_aliases": {
-    "opm": "pdf",
-    "tlc": "xlsx"
-  },
-  "original_pdf_modes_qualified": [
-    1,
-    10
-  ],
-  "original_timed_pdf_10_qualified": true,
+  "canonical_traces_unchanged": true,
+  "default_dataset_count": 7,
+  "compatible_variant_count": 7,
   "tests": {
-    "passed": 11,
+    "passed": 16,
     "skipped": 0,
     "failed": 0,
     "errors": 0
   },
+  "classification": "versioned adapted replay; no new Agent trajectory",
+  "representativeness_established": false,
   "qualification": {
     "path": "reports/qualification.json",
-    "sha256": "84bd5a0f85978b937e22fe2117224db72ed53d9ccfa3ff51f1eecba0fae7f2da"
+    "sha256": "f85c9a365b93e63fa3077570884429e885e776426359ecda3e817a17bfae3e8c"
   }
 }

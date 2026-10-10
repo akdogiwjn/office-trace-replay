@@ -1,0 +1,33 @@
+{
+  "schema_version": "document-oe-compatible-workflow-v1",
+  "purpose": "Test whether observations from the frozen original workloads recur on other native inputs under a shared execution workflow.",
+  "original_baselines": "legacy/document-oe/lock.json",
+  "originals_must_remain_byte_identical": true,
+  "native_executor": "/opt/document-bench/bin/run_document_scene_loop.py",
+  "native_timing_wrapper": "/opt/document-bench/bin/run_document_scene_loop_timed.py",
+  "python": {"default": "system", "system_version": "3.11.6", "venv_version": "3.12.3"},
+  "path_policy": "Original PATH; optional original venv prefix for BOTH baselines and added workloads; never inject runtime/bin/soffice.",
+  "skills_policy": "Use installed byte-preserved document-oe PDF/XLSX tools including its isolated-profile recalc.py.",
+  "stages": ["inspect_prepare", "build", "process_publish", "verify_deliver"],
+  "pdf": {"default_record_count": 1, "allowed_record_counts": [1, 10], "driver": "one Python batch driver, alternating one fill and one render per record", "template_render_count": 1},
+  "xlsx": {"build_invocations": 1, "recalc_invocations": 1, "recalc_timeout_seconds": 600, "operation_timeout_seconds": 900, "extra_preservation": "Necessary cache assembly and source empty-cell restoration remain explicit additional process_publish calls."},
+  "measurement": {
+    "native_iteration": "Original run_iteration elapsed time includes workspace reset, four phases and original final status read.",
+    "net_iteration": "Native iteration elapsed time minus native reset_seconds.",
+    "stage_times": "Original native execute_step boundaries, including each phase's actual helper calls.",
+    "outside_native_iteration": ["hash validation", "environment probe", "independent acceptance", "output archival"],
+    "verification_caveat": "Native verify_deliver is included, but dataset-specific semantic verifiers differ; compare it separately.",
+    "instrumentation": "Either original plain mode for both sides or original timed wrapper for both sides. No per-call stdout redirection added."
+  },
+  "trace_policy": {
+    "requires_llm": false,
+    "classification": "versioned adapted replay recipe derived from an existing Agent trace; not a newly generated Agent trajectory",
+    "retain_parent_trace_and_recipes": true,
+    "freeze_input_helper_prompt_adapter_and_recipe_hashes": true
+  },
+  "interpretation": {
+    "supported_question": "Does an observed bottleneck or system-configuration trend persist for other inputs using this workflow?",
+    "not_established_by_qualification": ["representativeness itself", "all Office or unconstrained Agent workloads", "strict industry-only causal comparison"],
+    "required_covariates": ["native workbook/PDF complexity", "record count", "dataset-specific helper work", "source-preservation work", "semantic verification work"]
+  }
+}

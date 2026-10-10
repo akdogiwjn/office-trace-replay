@@ -1,0 +1,445 @@
+{
+  "schema_version": "office-replay-public-suite-qualification-v2",
+  "status": "success",
+  "qualified_at_utc": "2026-10-10T02:02:53.396707+00:00",
+  "scope": "unchanged document-oe PDF/XLSX plus five derived effective execution workloads",
+  "requires_llm": false,
+  "cpu_os_performance_experiment_conducted": false,
+  "image": "office-trace-replay:openeuler-v2",
+  "image_id": "sha256:9ed449fe6613c20d390ea203376583ea723e7154b2db7d38f3e334bcc1b96ba7",
+  "base_image_id": "sha256:6eb99c666aab38fb4ba04886e42e5db219f4ac71d6e8307cd743b049a6a60111",
+  "project_lock_sha256": "70e517246e963969ffa8eb807bff4a50eb51b961a2627c40130586a9082e9ad9",
+  "default_suite_sha256": "88dc6ff8c255c3acadfcdd05c2e741c773345e72b9a6bdad08b0aef5a32e7685",
+  "legacy_lock_sha256": "a28d8f8a5964549d306b7e5b624e2a6c20dc5262b6522a54c347aad2868607fe",
+  "legacy_file_count": 45,
+  "legacy_source_equality": {
+    "path": "reports/legacy-source-equality.json",
+    "sha256": "fef15bb323383a919262196efbec5319dfffe73dd633cdf4c107b2902d976470"
+  },
+  "legacy_installed_equality": {
+    "path": "reports/legacy-installed-equality.json",
+    "sha256": "75c24649d39da2366a7a7fa0114a2dae8d7d8ec0c91428ce1ef35cff4f885e3d"
+  },
+  "self_contained_tests": {
+    "path": "reports/self-contained-tests.json",
+    "sha256": "4dcb7ae0ce3fb270c12ea5f08bf6cc59ffb24bb372ac144d8ff5e3b4e4f28af9",
+    "passed": 11,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0
+  },
+  "dataset_count": 7,
+  "datasets": [
+    {
+      "dataset_id": "pdf",
+      "aliases": [
+        "opm"
+      ],
+      "mode": "document_oe_unchanged",
+      "recipe_path": "legacy/document-oe/operations/pdf_key_operations.json",
+      "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+      "native_script": "/opt/document-bench/bin/run_document_scene_loop.py",
+      "timed_script": "/opt/document-bench/bin/run_document_scene_loop_timed.py",
+      "python_default": "system-3.11.6",
+      "python_venv_option": "3.12.3",
+      "pdf_applicant_count_default": 1,
+      "source_container": "document-oe",
+      "status": "success",
+      "original_call_count": 21,
+      "qualification": {
+        "path": "reports/legacy/pdf/summary.json",
+        "sha256": "98087baabdee8ac3b039965d0378347927da43c5a424cf19a24415b9c4515169"
+      },
+      "events": {
+        "path": "reports/legacy/pdf/iterations.jsonl",
+        "sha256": "b9542e83a7506822d020bff55d82d771d786e62f6a52a3803da6f86a71f35968"
+      },
+      "verification_policy": "unchanged original native recipe verifier; no additional verifier inserted"
+    },
+    {
+      "dataset_id": "xlsx",
+      "aliases": [
+        "tlc"
+      ],
+      "mode": "document_oe_unchanged",
+      "recipe_path": "legacy/document-oe/operations/xlsx_key_operations.json",
+      "recipe_sha256": "53a475924f0bf6f2b2fef4e85c13bae467241e5785ba7867e195422d2e9b07f2",
+      "native_script": "/opt/document-bench/bin/run_document_scene_loop.py",
+      "timed_script": "/opt/document-bench/bin/run_document_scene_loop_timed.py",
+      "python_default": "system-3.11.6",
+      "python_venv_option": "3.12.3",
+      "pdf_applicant_count_default": null,
+      "source_container": "document-oe",
+      "status": "success",
+      "original_call_count": 15,
+      "qualification": {
+        "path": "reports/legacy/xlsx/summary.json",
+        "sha256": "12483a59ec62c830406f022114ef46b4e382f712a0a2c938d8b25d60273381a4"
+      },
+      "events": {
+        "path": "reports/legacy/xlsx/iterations.jsonl",
+        "sha256": "5e543d57dd4573fa3fd3d1b37b3a71cae3f3d4e8e607161bf584884de5a41e27"
+      },
+      "verification_policy": "unchanged original native recipe verifier; no additional verifier inserted"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "kind": "pdf",
+      "recipe_path": "recipes/irs_w4.json",
+      "recipe_sha256": "57b147ce2d2d528083edc99d38fa194693e638e31a82c33b6fbea21f8c887edb",
+      "canonical_path": "assets/canonical/irs_w4",
+      "canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
+      "mode": "derived_effective_execution",
+      "status": "success",
+      "qualification": {
+        "path": "reports/new-five-qualification.json",
+        "sha256": "33bf2d660e438206ee6fa72ba260cb9ab0ecb8a3f05f68702bdf6ee195a3f541"
+      },
+      "source": {
+        "canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
+        "original_run_id": "pdf-irs_w4-20261009T060857Z-ef1696a0",
+        "trajectory_sha256": "3361b484e8daf305b45a03bac6dbbac0e5cd740999168fffa73fd2faaee90f45",
+        "tool_events_sha256": "748b256d6a93b9394d989f02d70c0b4b246fdfca33f933c3abafdf76be5866d3",
+        "manifest_sha256": "ea7e0817247d77740b4c5d46330f981b53814dd91ca28079cd824aa0650404f9",
+        "prompt_sha256": "2f4c91b992f7e1e85996a9975a0db3bde82f84cd0b378049a8cbb9b543c1e4b0",
+        "skill_and_context_hashes": {
+          "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+          "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+          "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+          "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+          "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+          "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+          "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+          "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+          "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+          "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+          "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+          "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+          "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+          "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+          "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+          "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+          "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+          "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+          "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+          "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+        },
+        "input_hashes": {
+          "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+          "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
+          "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc"
+        },
+        "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+        "original_runtime_versions": {
+          "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+          "node": "v24.14.0",
+          "python": "Python 3.12.3",
+          "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+          "poppler": "pdftoppm version 24.02.0"
+        }
+      },
+      "acceptance": {
+        "path": "reports/acceptance/v2/irs_w4.json",
+        "sha256": "f2617c7b3e0962368646803a05a072cf418c6126a9949074240ff335c71c0919",
+        "status": "success",
+        "check_count": 102
+      }
+    },
+    {
+      "dataset_id": "sba1919",
+      "kind": "pdf",
+      "recipe_path": "recipes/sba1919.json",
+      "recipe_sha256": "d99b8728fcdcaa64293fc49791c11d138d6762c30f6a0c52b09861ff711b7dc3",
+      "canonical_path": "assets/canonical/sba1919",
+      "canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
+      "mode": "derived_effective_execution",
+      "status": "success",
+      "qualification": {
+        "path": "reports/new-five-qualification.json",
+        "sha256": "33bf2d660e438206ee6fa72ba260cb9ab0ecb8a3f05f68702bdf6ee195a3f541"
+      },
+      "source": {
+        "canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
+        "original_run_id": "pdf-sba1919-20261009T060857Z-b7a0ae3b",
+        "trajectory_sha256": "0378b2448dae7c681a504ebb2a38f904e127dabbcd058f26a8e36f8bac56e89d",
+        "tool_events_sha256": "c77b9b167df7e41e08fd458df3cec60872a2dc5736c304caf7448eb195269b5a",
+        "manifest_sha256": "2b65a2ca089abdf246fd9695cd539bb2890d6aaaa752083a352e4b2835e6b446",
+        "prompt_sha256": "81726279fdc6ff9e7f846b7247906f63fc6b66393696cd74380405a6a2b26bb0",
+        "skill_and_context_hashes": {
+          "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+          "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+          "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+          "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+          "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+          "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+          "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+          "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+          "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+          "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+          "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+          "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+          "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+          "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+          "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+          "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+          "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+          "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+          "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+          "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+        },
+        "input_hashes": {
+          "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+          "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
+          "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2"
+        },
+        "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+        "original_runtime_versions": {
+          "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+          "node": "v24.14.0",
+          "python": "Python 3.12.3",
+          "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+          "poppler": "pdftoppm version 24.02.0"
+        }
+      },
+      "acceptance": {
+        "path": "reports/acceptance/v2/sba1919.json",
+        "sha256": "a76777beb79ac612ba23ec46619741fb480909c189cc5941b75bb91cbda138a7",
+        "status": "success",
+        "check_count": 122
+      }
+    },
+    {
+      "dataset_id": "hr",
+      "kind": "xlsx",
+      "recipe_path": "recipes/hr.json",
+      "recipe_sha256": "79c89d5d91009096431d9a89a42d472e1b7fa9418efb8ecdae6df1dd6275f908",
+      "canonical_path": "assets/canonical/hr",
+      "canonical_sha256": "648bef3f71a6e753c292a4916e6b7408a482d515f0cceabbf27c028704738a53",
+      "mode": "derived_effective_execution",
+      "status": "success",
+      "qualification": {
+        "path": "reports/new-five-qualification.json",
+        "sha256": "33bf2d660e438206ee6fa72ba260cb9ab0ecb8a3f05f68702bdf6ee195a3f541"
+      },
+      "source": {
+        "canonical_sha256": "648bef3f71a6e753c292a4916e6b7408a482d515f0cceabbf27c028704738a53",
+        "original_run_id": "xlsx-hr-20261009T060833Z-5e454df8",
+        "trajectory_sha256": "8e6de648af39d18a706a7a688b2be91ff96cd91873d1c0b24e70f79015294ad0",
+        "tool_events_sha256": "3b44b22ee9f03179eeaad4e1e3ae5000c437a2f0e5b3eb8a0fcf4f9eba3e67c1",
+        "manifest_sha256": "0342aee27f185225d32ad21dd4b4aa6b668c4aa82eeaf90430eae74e485557b1",
+        "prompt_sha256": "183955ba6d639ff13ed451b9b2725705d0abd0fe44e21f69e7081e60b1b618e0",
+        "skill_and_context_hashes": {
+          "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+          "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+          "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+          "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+          "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+          "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+          "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+          "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+          "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+          "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+          "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+          "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+          "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+          "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+          "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+          "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+          "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+          "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+          "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+          "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+        },
+        "input_hashes": {
+          "input/national_M2025_dl.xlsx": "852250997ceff9b721ff68f63e877d818f9c1ec8b1b69dd367958faedd5282b2"
+        },
+        "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+        "original_runtime_versions": {
+          "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+          "node": "v24.14.0",
+          "python": "Python 3.12.3",
+          "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+          "poppler": "pdftoppm version 24.02.0"
+        }
+      },
+      "acceptance": {
+        "path": "reports/acceptance/v2/hr.json",
+        "sha256": "8309261908a0091bf90d5936725e6ebfb2c71c2cb0e606ced30b4bee05c8bea7",
+        "status": "success",
+        "check_count": 70
+      }
+    },
+    {
+      "dataset_id": "manufacturing",
+      "kind": "xlsx",
+      "recipe_path": "recipes/manufacturing.json",
+      "recipe_sha256": "37392799eb6023c525bf67a9226ab5e54f74a03b3d2d97aa8852d677e31da0ce",
+      "canonical_path": "assets/canonical/manufacturing",
+      "canonical_sha256": "7dd6a7f4b3476d354db7a8678438e8a3313f896b3350cbf6516ea78132c8ad0d",
+      "mode": "derived_effective_execution",
+      "status": "success",
+      "qualification": {
+        "path": "reports/new-five-qualification.json",
+        "sha256": "33bf2d660e438206ee6fa72ba260cb9ab0ecb8a3f05f68702bdf6ee195a3f541"
+      },
+      "source": {
+        "canonical_sha256": "7dd6a7f4b3476d354db7a8678438e8a3313f896b3350cbf6516ea78132c8ad0d",
+        "original_run_id": "xlsx-manufacturing-20261009T101352Z-bd60f53e",
+        "trajectory_sha256": "1ef604c890dff1e83d10ac1cfeb154733d26a179b2652648f352014d9f919400",
+        "tool_events_sha256": "5f98c61b94482fdafa0dc5ac52e0934803eb1273fc63d3d6769edfaed2aa0105",
+        "manifest_sha256": "d1b0226702960d952bfdc95e2c0d61a6b1232244acaa0675f8186437c6bec8b0",
+        "prompt_sha256": "394c2ece661271c6b7f5d32816e9b04907f6d94bf2c8ee725d33a873fd5ef77c",
+        "skill_and_context_hashes": {
+          "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+          "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+          "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+          "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+          "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+          "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+          "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+          "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+          "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+          "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+          "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+          "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+          "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+          "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+          "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+          "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+          "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+          "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+          "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+          "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+        },
+        "input_hashes": {
+          "input/text.xlsx": "3a675ad4067e5463600ba46237c1f38123a4b83519035d1450b511496c130e43"
+        },
+        "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+        "original_runtime_versions": {
+          "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+          "node": "v24.14.0",
+          "python": "Python 3.12.3",
+          "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+          "poppler": "pdftoppm version 24.02.0"
+        }
+      },
+      "acceptance": {
+        "path": "reports/acceptance/v2/manufacturing.json",
+        "sha256": "3f132eeaf503bf18f4c51530c0fa7f0c8bd1b0df8e682868f67942f965278f4b",
+        "status": "success",
+        "check_count": 104
+      }
+    },
+    {
+      "dataset_id": "retail",
+      "kind": "xlsx",
+      "recipe_path": "recipes/retail.json",
+      "recipe_sha256": "2c64a21bba8e542dd2873403957b2867f076c92fc50269b25360de445bc26269",
+      "canonical_path": "assets/canonical/retail",
+      "canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
+      "mode": "derived_effective_execution",
+      "status": "success",
+      "qualification": {
+        "path": "reports/new-five-qualification.json",
+        "sha256": "33bf2d660e438206ee6fa72ba260cb9ab0ecb8a3f05f68702bdf6ee195a3f541"
+      },
+      "source": {
+        "canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
+        "original_run_id": "xlsx-retail-20261009T101352Z-725a21b6",
+        "trajectory_sha256": "a82aa4b889938382ac73a74a6bbd0109ce5c4d51028338b6a9d9fe500ef96cc6",
+        "tool_events_sha256": "b1b1eaaf14f1cbea9673bb6d51df60b0658fd8a815422a1fbe96605a09c7ec6c",
+        "manifest_sha256": "5604a33257c5acb1a803272226bbdfd931ad37e1159b228ae8f52cac3df0674b",
+        "prompt_sha256": "92d26ab1bb61ddcdf5d21604825cc6158128845e95559c82245976aaa634c389",
+        "skill_and_context_hashes": {
+          "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+          "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+          "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+          "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+          "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+          "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+          "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+          "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+          "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+          "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+          "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+          "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+          "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+          "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+          "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+          "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+          "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+          "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+          "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+          "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+          "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+          "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+        },
+        "input_hashes": {
+          "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956"
+        },
+        "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+        "original_runtime_versions": {
+          "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+          "node": "v24.14.0",
+          "python": "Python 3.12.3",
+          "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+          "poppler": "pdftoppm version 24.02.0"
+        }
+      },
+      "acceptance": {
+        "path": "reports/acceptance/v2/retail.json",
+        "sha256": "be7f91bc92de19642e1a6dede282cac4f2489c43fbcff8e25086d931fd53c69e",
+        "status": "success",
+        "check_count": 258
+      }
+    }
+  ],
+  "original_timed_pdf_10": {
+    "status": "success",
+    "image_id": "sha256:9ed449fe6613c20d390ea203376583ea723e7154b2db7d38f3e334bcc1b96ba7",
+    "summary": {
+      "path": "reports/legacy/pdf-timed-10/summary.json",
+      "sha256": "77f5833a77f7865af5fdd8a423e848b38b82b7d5a0ea7772f239295ef6983122"
+    },
+    "calls": {
+      "path": "reports/legacy/pdf-timed-10/calls.jsonl",
+      "sha256": "5e2d6d3f1ac1943fc17ea4dff92b67d9df64d71b9b92e01d1f67a921e8214f28"
+    },
+    "additional_events": [
+      {
+        "path": "reports/legacy/pdf-timed-10/iterations.jsonl",
+        "sha256": "414f792a6603bb1089d8d025d879902d0dc9110a0accf53e74a0050b24348b8d"
+      },
+      {
+        "path": "reports/legacy/pdf-timed-10/nested_calls.jsonl",
+        "sha256": "451dd6f0a4cd8b0e0a99a4bd7a36c8a5a99c2250276fcf0a974b7d52c78ff6b6"
+      }
+    ],
+    "original_top_level_call_count": 21
+  },
+  "excluded_from_default": [
+    "opm_v2",
+    "tlc_v2"
+  ],
+  "previous_derived_v1_reports": "reports/history/derived-v1/",
+  "legacy_preservation": {
+    "modified_original_scripts": [],
+    "modified_original_recipes": [],
+    "default_system_python": "3.11.6",
+    "optional_original_venv_python": "3.12.3",
+    "soffice_wrapper_in_legacy_path": false
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": "office-replay-public-suite-v2",
+  "schema_version": "office-replay-public-suite-v3",
   "datasets": [
     {
       "dataset_id": "pdf",
@@ -34,47 +34,67 @@
     {
       "dataset_id": "irs_w4",
       "kind": "pdf",
-      "recipe_path": "recipes/irs_w4.json",
-      "recipe_sha256": "57b147ce2d2d528083edc99d38fa194693e638e31a82c33b6fbea21f8c887edb",
+      "recipe_path": "compatibility/recipes/irs_w4-n1.json",
+      "recipe_sha256": "eac8fc2e6fe3c38faf0999e11ecb7e10d8970b2679c2607f6b4a519ffff944b0",
       "canonical_path": "assets/canonical/irs_w4",
       "canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
-      "mode": "derived_effective_execution"
+      "mode": "document_oe_compatible_adapter",
+      "variant_id": "irs_w4-n1",
+      "python_default": "system-3.11.6",
+      "python_venv_option": "3.12.3",
+      "parent_recipe_path": "recipes/irs_w4.json"
     },
     {
       "dataset_id": "sba1919",
       "kind": "pdf",
-      "recipe_path": "recipes/sba1919.json",
-      "recipe_sha256": "d99b8728fcdcaa64293fc49791c11d138d6762c30f6a0c52b09861ff711b7dc3",
+      "recipe_path": "compatibility/recipes/sba1919-n1.json",
+      "recipe_sha256": "50d956bddc888f184047eb7745c9605adc0566b3051bec3df7f496eac8e24b93",
       "canonical_path": "assets/canonical/sba1919",
       "canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
-      "mode": "derived_effective_execution"
+      "mode": "document_oe_compatible_adapter",
+      "variant_id": "sba1919-n1",
+      "python_default": "system-3.11.6",
+      "python_venv_option": "3.12.3",
+      "parent_recipe_path": "recipes/sba1919.json"
     },
     {
       "dataset_id": "hr",
       "kind": "xlsx",
-      "recipe_path": "recipes/hr.json",
-      "recipe_sha256": "79c89d5d91009096431d9a89a42d472e1b7fa9418efb8ecdae6df1dd6275f908",
+      "recipe_path": "compatibility/recipes/hr.json",
+      "recipe_sha256": "21462030043b349a6d35dbc831a41c4b80be4058ffc5951b25623b0f2b99c871",
       "canonical_path": "assets/canonical/hr",
       "canonical_sha256": "648bef3f71a6e753c292a4916e6b7408a482d515f0cceabbf27c028704738a53",
-      "mode": "derived_effective_execution"
+      "mode": "document_oe_compatible_adapter",
+      "variant_id": "hr",
+      "python_default": "system-3.11.6",
+      "python_venv_option": "3.12.3",
+      "parent_recipe_path": "recipes/hr.json"
     },
     {
       "dataset_id": "manufacturing",
       "kind": "xlsx",
-      "recipe_path": "recipes/manufacturing.json",
-      "recipe_sha256": "37392799eb6023c525bf67a9226ab5e54f74a03b3d2d97aa8852d677e31da0ce",
+      "recipe_path": "compatibility/recipes/manufacturing.json",
+      "recipe_sha256": "bdc31a99f6f4757a4675ec789b0e1eb913946b3251397379b17bbef22e31e5bb",
       "canonical_path": "assets/canonical/manufacturing",
       "canonical_sha256": "7dd6a7f4b3476d354db7a8678438e8a3313f896b3350cbf6516ea78132c8ad0d",
-      "mode": "derived_effective_execution"
+      "mode": "document_oe_compatible_adapter",
+      "variant_id": "manufacturing",
+      "python_default": "system-3.11.6",
+      "python_venv_option": "3.12.3",
+      "parent_recipe_path": "recipes/manufacturing.json"
     },
     {
       "dataset_id": "retail",
       "kind": "xlsx",
-      "recipe_path": "recipes/retail.json",
-      "recipe_sha256": "2c64a21bba8e542dd2873403957b2867f076c92fc50269b25360de445bc26269",
+      "recipe_path": "compatibility/recipes/retail.json",
+      "recipe_sha256": "99e25d068b4b1c6e2ee2415f0ff99875fc8718153b800f3f3570293830cd5f82",
       "canonical_path": "assets/canonical/retail",
       "canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
-      "mode": "derived_effective_execution"
+      "mode": "document_oe_compatible_adapter",
+      "variant_id": "retail",
+      "python_default": "system-3.11.6",
+      "python_venv_option": "3.12.3",
+      "parent_recipe_path": "recipes/retail.json"
     }
   ],
   "legacy_lock_sha256": "a28d8f8a5964549d306b7e5b624e2a6c20dc5262b6522a54c347aad2868607fe",
@@ -82,5 +102,7 @@
     "opm_v2",
     "tlc_v2"
   ],
-  "policy": "Old aliases opm/tlc always delegate untouched old pdf/xlsx. New OPM/TLC recipes remain explicit derived-v1 references."
+  "policy": "Old pdf/xlsx and opm/tlc aliases remain byte-identical. New inputs default to versioned native-compatible adapters; historical derived recipes require --workflow derived-v1.",
+  "compatible_contract_sha256": "fcb59d3be89197f0aaeac84839504db85b33f2fb3e4de37da1f1cc4088123b02",
+  "compatible_suite_sha256": "27ea2a2db178d834954e70050a09050c7aca833e44efa55597683216bd5ffffb"
 }

@@ -1,0 +1,15 @@
+{
+  "schema_version": "office-replay-self-contained-tests-v2",
+  "status": "success",
+  "checked_tree": "bb6f041eb22c994921c6617f3e2673a198444840",
+  "project_lock_sha256": "70e517246e963969ffa8eb807bff4a50eb51b961a2627c40130586a9082e9ad9",
+  "passed": 11,
+  "skipped": 0,
+  "exit_code": 0,
+  "validation_exit_code": 0,
+  "method": "git archive into fresh /tmp directory without sibling repository",
+  "log": "test_command_failure_and_timeout_propagate (test_contract.FrozenReplayTests.test_command_failure_and_timeout_propagate) ... ok\ntest_seeds_have_no_generated_output_or_intermediate_workbook (test_contract.FrozenReplayTests.test_seeds_have_no_generated_output_or_intermediate_workbook) ... ok\ntest_selected_calls_and_explicit_adaptations_have_source_evidence (test_contract.FrozenReplayTests.test_selected_calls_and_explicit_adaptations_have_source_evidence) ... ok\ntest_skill_office_namespace_with_clean_pythonpath (test_contract.FrozenReplayTests.test_skill_office_namespace_with_clean_pythonpath) ... ok\ntest_suite_and_document_executor_contract (test_contract.FrozenReplayTests.test_suite_and_document_executor_contract) ... ok\ntest_tampered_asset_rejected (test_contract.FrozenReplayTests.test_tampered_asset_rejected) ... ok\ntest_tmp_gaps_are_reviewed_using_rename_evidence (test_contract.FrozenReplayTests.test_tmp_gaps_are_reviewed_using_rename_evidence) ... ok\ntest_mutated_legacy_helper_rejected (test_legacy.LegacyCompatibilityTests.test_mutated_legacy_helper_rejected) ... ok\ntest_native_scene_and_timing_flags_are_forwarded_verbatim (test_legacy.LegacyCompatibilityTests.test_native_scene_and_timing_flags_are_forwarded_verbatim) ... ok\ntest_old_names_never_select_new_opm_tlc (test_legacy.LegacyCompatibilityTests.test_old_names_never_select_new_opm_tlc) ... ok\ntest_original_recipe_calls_and_defaults_are_preserved (test_legacy.LegacyCompatibilityTests.test_original_recipe_calls_and_defaults_are_preserved) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 1.340s\n\nOK\n",
+  "validation_log": "legacy bytes and derived pack bindings valid\n",
+  "failed": 0,
+  "errors": 0
+}
