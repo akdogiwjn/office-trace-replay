@@ -1,12 +1,12 @@
 PYTHON ?= python3
-IMAGE ?= office-trace-replay:openeuler-v1
-DATASET ?= retail
+IMAGE ?= office-trace-replay:openeuler-v2
+DATASET ?= pdf
 
 .PHONY: test validate image replay
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 validate:
-	$(PYTHON) replay/run.py --validate-only
+	$(PYTHON) replay/entry.py --validate-only
 image:
 	$(PYTHON) scripts/build_image.py --tag $(IMAGE)
 replay:

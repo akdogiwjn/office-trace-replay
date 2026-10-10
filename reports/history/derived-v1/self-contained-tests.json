@@ -1,0 +1,13 @@
+{
+  "schema_version": "office-replay-self-contained-tests-v1",
+  "status": "success",
+  "checked_tree": "7f79a2a79b027821b9af821a97125a016d6be37c",
+  "project_lock_sha256": "c4aa5d56ef8933a9a2658d2b9104d54725bfa1c0cb9d5ad4978e63a74bc5e81f",
+  "method": "git archive of staged tree into fresh /tmp; no sibling repository; unittest discover plus standalone seven-recipe hash validation",
+  "passed": 7,
+  "skipped": 0,
+  "exit_code": 0,
+  "validate_exit_code": 0,
+  "log": "test_command_failure_and_timeout_propagate (test_contract.FrozenReplayTests.test_command_failure_and_timeout_propagate) ... ok\ntest_seeds_have_no_generated_output_or_intermediate_workbook (test_contract.FrozenReplayTests.test_seeds_have_no_generated_output_or_intermediate_workbook) ... ok\ntest_selected_calls_and_explicit_adaptations_have_source_evidence (test_contract.FrozenReplayTests.test_selected_calls_and_explicit_adaptations_have_source_evidence) ... ok\ntest_skill_office_namespace_with_clean_pythonpath (test_contract.FrozenReplayTests.test_skill_office_namespace_with_clean_pythonpath) ... ok\ntest_suite_and_document_executor_contract (test_contract.FrozenReplayTests.test_suite_and_document_executor_contract) ... ok\ntest_tampered_asset_rejected (test_contract.FrozenReplayTests.test_tampered_asset_rejected) ... ok\ntest_tmp_gaps_are_reviewed_using_rename_evidence (test_contract.FrozenReplayTests.test_tmp_gaps_are_reviewed_using_rename_evidence) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 1.310s\n\nOK\n",
+  "validation_log": "hashes and recipes valid: irs_w4, opm, sba1919, hr, manufacturing, retail, tlc\n"
+}

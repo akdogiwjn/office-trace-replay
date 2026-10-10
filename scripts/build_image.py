@@ -12,13 +12,13 @@ from replay.common import digest, read, write
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--tag', default='office-trace-replay:openeuler-v1')
+    parser.add_argument('--tag', default='office-trace-replay:openeuler-v2')
     args = parser.parse_args()
     lock = read(ROOT / 'runtime/environment-lock.json')
     actual = subprocess.check_output(['docker', 'image', 'inspect', lock['base_image'], '--format', '{{.Id}}'], text=True).strip()
     if actual != lock['base_image_id']:
         raise ValueError('local base tag has changed')
-    subprocess.run([sys.executable, str(ROOT / 'replay/run.py'), '--validate-only'], check=True)
+    subprocess.run([sys.executable, str(ROOT / 'replay/entry.py'), '--validate-only'], check=True)
     subprocess.run(['docker', 'build', '--pull=false', '--network=none', '-t', args.tag, '-f', 'runtime/Dockerfile', '.'], cwd=ROOT, check=True)
     image = __import__('json').loads(subprocess.check_output(['docker', 'image', 'inspect', args.tag], text=True))[0]
     write(ROOT / 'reports/image-build.json', {'schema_version': 'office-replay-image-build-v1', 'status': 'success',

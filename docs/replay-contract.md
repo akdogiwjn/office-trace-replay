@@ -1,3 +1,5 @@
+> 此文描述最初的衍生配方机制。当前两个旧基线直接执行 `legacy/document-oe` 的原程序，完全不使用此机制。以 README 和 suites/default.json 为当前入口定义。
+
 # 整理与回放约定
 
 ## 研究对象

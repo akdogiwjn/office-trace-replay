@@ -1,3 +1,5 @@
+> 此文描述最初的衍生配方机制。当前两个旧基线直接执行 `legacy/document-oe` 的原程序，完全不使用此机制。以 README 和 suites/default.json 为当前入口定义。
+
 # 复用 document-oe 的范围
 
 容器实际目录为 `/opt/document-bench`。复制执行器 `bin/run_document_scene_loop.py`，SHA256 为 `5f1f5d2ab8075ded5b12e6e583c0b733de09389c2c60d63d735c82a252d7c2d1`；已确认本地 snapshot 中的版本一致。该原文件完整保留在 `vendor/document-oe/`。

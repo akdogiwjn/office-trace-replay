@@ -1,57 +1,67 @@
 # office-trace-replay
 
-从 `office-trace-bench` 冻结的七条成功 Agent trace 整理有效工具执行链，再在本地 openEuler 镜像中回放。沿用 `document-oe` 的四阶段配方和执行器：检查与准备、构建、处理与发布、验证与交付。每个数据集保留自己的实际脚本、输入结构和调用数量。
+默认 suite 保留 **document-oe 的两个旧执行用例原样不变**，增加 Retail / Manufacturing / HR / IRS W-4 / SBA 1919 五个新用例。旧用例的配方、调用顺序、helper、Skill、verifier、CSV 导出、计时入口及默认参数均从实际容器逐字节复制。
 
-当前范围：XLSX TLC / Retail / Manufacturing / HR；PDF OPM / IRS W-4 / SBA 1919。运行不调用 LLM，不重新生成 helper，不重新做自然语言决策。完整 Agent 轨迹回放不属于第一版。项目用于工具 workload 回放资格验证；当前没有开展 CPU/OS 性能实验。
+`opm` 是旧 `pdf` 的别名；`tlc` 是旧 `xlsx` 的别名。此前 15a290f 中重新生成的 OPM/TLC 配方使用了不同脚本，不能承接旧实验；现在只可通过 `opm_v2` / `tlc_v2` 显式选择，不进入默认 suite。历史验收报告保留在 `reports/history/derived-v1/`。
 
-## Trace 如何整理
+## 旧用例：原命令、原路径、原脚本
 
-1. 通过原仓库 `artifacts/suite.json` 选择准确的 canonical run，验证输入、Prompt、manifest、Skill、源码、轨迹和验收的 hash 关联。
-2. 导入完整 canonical pack 和对象闭包，保存每条 trace 对应的冻结源码。后续运行不再依赖旧仓库。
-3. 检查最终结果需要的命令、脚本版本、中间文件和工作目录。排除探测、失败尝试、临时调试及重复轮询，保留生成合格输出的依赖链。
-4. 冻结有效 helper 版本，准备阶段恢复代码；`edit` 不再执行。执行命令并等待结束，替代 `process.poll`。仍保留工具的真实构建、Office 重算、填表、渲染、缓存注入和验收。
-5. 编译为 `read/write/exec` 四阶段配方。每次运行清理工作目录和指定临时文件，重新生成输出，再用原 trace 的冻结 verifier 做完整独立验收。
-
-具体选择在 [selections.py](replay/selections.py)，逐条来源/排除调用、适配说明和 helper hash 在 `recipes/<dataset>.json`。这是一条经过审核的有效执行链，不等同于原 Agent 的完整工具调用过程。TLC 配方组合了最终修复的 cache injector，明确记录与原 pipeline 首次调用时脚本版本的区别。
-
-Agent 直接写出的 batch summary、feature index 和 enhancement summary 作为冻结执行决策保留，按配方重新写出。不会把旧输出工作簿、已填写 PDF、PNG、公式缓存或成功验收报告放进工作区。它们只有在工具重新执行后才能生成。
-
-## 使用
-
-已导入的数据在 `assets/`；单项和全部执行都不要求存在 `../office-trace-bench`。一次性导入命令需要显式指定来源，不能静默替换已有 suite：
-
-```bash
-python3 scripts/import_suite.py --source /path/to/office-trace-bench
-python3 scripts/compile_recipes.py
-python3 scripts/freeze_project.py
-make test
-make validate
-make image
-make replay DATASET=retail
-```
-
-全部执行或重复执行：
+容器内 `/opt/document-bench` 保留原目录布局。原执行器 `run_document_scene_loop.py`、原计时入口 `run_document_scene_loop_timed.py`、两个 scene 启动脚本均未修改。
 
 ```bash
 mkdir -p results
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v1 --loops 1
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v1 --dataset retail --dataset manufacturing --loops 2
+# 直接执行原程序；只换镜像名，不经过新工具执行器。
+docker run --rm --network none --entrypoint /usr/bin/python3 \
+  -v "$PWD/results:/results" office-trace-replay:openeuler-v2 \
+  /opt/document-bench/bin/run_document_scene_loop.py \
+  --scene pdf --loops 1 --results-dir /results
+
+# 原计时入口也完全保留。
+docker run --rm --network none --entrypoint /usr/bin/python3 \
+  -v "$PWD/results:/results" office-trace-replay:openeuler-v2 \
+  /opt/document-bench/bin/run_document_scene_loop_timed.py \
+  --scene xlsx --loops 1 --results-dir /results
 ```
 
-每次命令生成独立结果目录，保存总报告、分阶段与分调用日志、独立验收和实际新输出 hash。默认只运行一次。当前每个容器串行执行；可以为不同实验使用独立容器。固定脚本与输入不代表 ZIP/PDF 时间戳或运行时间逐字节相同。
+原容器默认 `python3` 为系统 3.11.6，镜像保留其 PATH 和库。若之前实验使用 `/opt/document-bench/.venv` 的 Python 3.12.3，则继续使用相同绝对解释器，并把该 venv 放在 PATH 前面，让原脚本内部的 `python3` 也保持相同版本。两种解释器都没有被替换。
 
-## 环境
+便捷入口同样直接委托原程序：
 
-第一版复用本地 `document-oe-snapshot:20260827`，构建器先核对锁定镜像 ID，关闭网络和拉取。容器实际路径是 `/opt/document-bench`。明确使用 `/opt/document-bench/.venv/bin/python`（Python 3.12.3），不会使用系统默认 Python 3.11.6。
+```bash
+make replay DATASET=pdf
+make replay DATASET=xlsx
+docker run --rm --network none -v "$PWD/results:/results" \
+  office-trace-replay:openeuler-v2 --scene pdf --loops 1 --pdf-applicant-count 10 --results-dir /results
+docker run --rm --network none -v "$PWD/results:/results" \
+  office-trace-replay:openeuler-v2 --scene xlsx --loops 1 --timed --results-dir /results
+# 显式选择原有 venv 模式：--legacy-python venv
+```
 
-Python 库冻结为 openpyxl 3.1.5、et_xmlfile 2.0.0、pypdf 6.10.0、pdf2image 1.17.0、Pillow 12.2.0；平台为 Linux ARM64。openEuler LibreOfficeDev 25.8.7.3 / Poppler 23.12.0 与 trace 原 Ubuntu 环境 LibreOffice 24.2.7.2 / Poppler 24.02.0 不同，两种环境分别做功能验收，不声称输出字节一致。完整观察及固定版本在 `runtime/environment-lock.json`。
+原生 `--scene` 接口保持默认 loops=20000、PDF applicant count=1（原样支持 10）、XLSX recalc timeout=600、operation timeout=900。上面显式写 `--loops 1` 仅用于一次验证。旧循环内仍按原配方写 helper；不会提前恢复脚本、合并调用、改 shell、清理 Office profile、换 verifier、注入新 soffice 包装器或添加独立验收到旧执行链。
 
-现有 snapshot 基础层约 18.7 GB，第一版采用增量复制以保留已验证的 Python 前缀、系统库和 Office 环境；后续可以另做精简镜像。运行仅恢复所需输入、helper、Skill 和冻结 verifier，不启动 snapshot 中的旧 Agent。
+## 新用例与 trace 整理
 
-构建和资格验证结果见 `reports/`。通过状态只对应报告中的具体 recipe hash、project lock 和镜像 ID；配方存在或镜像构建成功本身不代表全部回放已经通过。
+五个新增用例使用冻结的 canonical trace，固定输入、最终 helper 版本和有效执行决策：检查并选取依赖链，去掉调试/失败/轮询，将代码在准备阶段恢复，再执行构建、重算/填表/渲染和验收。这种整理方式只适用于新用例，不用于改写两个旧配方。
 
-已完成验证：全新 Git 导出副本的 7 项测试通过，0 skipped / failed / errors；七个数据集均在原 trace 环境及新 openEuler 镜像中重新生成输出，并通过冻结 verifier 的完整独立验收。汇总见 [qualification.json](reports/qualification.json)，输入/配方/输出与环境绑定均包含 hash。
+```bash
+make replay DATASET=retail
+# 默认七用例：先原 PDF/XLSX，再五个新增用例。
+docker run --rm --network none -v "$PWD/results:/results" \
+  office-trace-replay:openeuler-v2 --loops 1
+```
 
-已构建镜像为 `office-trace-replay:openeuler-v1`，固定 ID `sha256:d9b6fc8c07909e80124df83e239460446feef8be2db502a78f7a8a8c62fcf8cb`。正式资格报告记录的是这一镜像；未来重新构建产生的新 image ID 应另行绑定对应验收，不用浮动 tag 代替实验身份。
+默认 suite 在 `suites/default.json`。新用例源码/输入/Skill/轨迹在 `assets/`，配方在 `recipes/`。旧执行副本在 `legacy/document-oe/`，其 `lock.json` 记录从真实旧容器导出的 45 个活动文件的 hash、模式和大小。运行不依赖 sibling repository，不调用 LLM。
+
+## 构建与检查
+
+```bash
+make test
+make validate
+make image
+```
+
+离线基于本地固定 `document-oe-snapshot:20260827` 构建；保留原 Python、系统库、LibreOffice 和 Poppler。新用例使用原 venv 的 Python 3.12.3，且只在新执行器子进程中启用新 soffice profile 包装器。旧执行入口使用原 recalc.py 自己的 profile 逻辑。
+
+完整原始资产冻结、输入/配方关联和环境版本见 `legacy/document-oe/lock.json`、`assets/project-lock.json`、`runtime/environment-lock.json`。构建及当前恢复验收见 `reports/`；旧 v1 的成功报告只能证明其衍生配方通过，不能证明旧 document-oe 执行相同。项目仍未开展 CPU/OS 性能实验。
+
+2026-10-10 已验收 `office-trace-replay:openeuler-v2`（image ID `sha256:9ed449fe6613c20d390ea203376583ea723e7154b2db7d38f3e334bcc1b96ba7`）：安装后的 45 个原文件与旧容器内容、权限一致，默认七用例各执行一次均成功，原 PDF 10 条记录计时入口也成功。独立 checkout 测试为 **11 passed / 0 skipped / 0 failed / 0 errors**，机器可核对的汇总见 `reports/qualification.json`。

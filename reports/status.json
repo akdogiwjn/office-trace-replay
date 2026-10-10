@@ -1,22 +1,30 @@
 {
-  "schema_version": "office-replay-status-v1",
-  "image_build": "success",
-  "image_id": "sha256:d9b6fc8c07909e80124df83e239460446feef8be2db502a78f7a8a8c62fcf8cb",
-  "self_contained_tests": "success",
-  "tests_passed": 7,
-  "tests_skipped": 0,
-  "tests_failed": 0,
-  "tests_errors": 0,
-  "original_runtime": {
-    "status": "success",
-    "passed_datasets": 7,
-    "report_sha256": "31e98422c2c9c2b411cbc7fed0dbb4f169b879a3d755e0b1c014f4901ae59f4f"
+  "schema_version": "office-replay-status-v2",
+  "status": "success",
+  "image": "office-trace-replay:openeuler-v2",
+  "image_id": "sha256:9ed449fe6613c20d390ea203376583ea723e7154b2db7d38f3e334bcc1b96ba7",
+  "default_suite_sha256": "88dc6ff8c255c3acadfcdd05c2e741c773345e72b9a6bdad08b0aef5a32e7685",
+  "dataset_count": 7,
+  "legacy_file_count": 45,
+  "legacy_bytes_modes_equal": true,
+  "old_pdf_xlsx_unchanged": true,
+  "old_aliases": {
+    "opm": "pdf",
+    "tlc": "xlsx"
   },
-  "openeuler_runtime": {
-    "status": "success",
-    "passed_datasets": 7,
-    "report_sha256": "7936d5feb3cc0798b9e318b922dc1c323d52f67231dde7b346aad091537a567f"
+  "original_pdf_modes_qualified": [
+    1,
+    10
+  ],
+  "original_timed_pdf_10_qualified": true,
+  "tests": {
+    "passed": 11,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0
   },
-  "qualification_sha256": "d03b426632bd5c81991ef4f4f33cd35419ad49f815e5461f2aab6788989eb990",
-  "cpu_os_performance_experiment_started": false
+  "qualification": {
+    "path": "reports/qualification.json",
+    "sha256": "84bd5a0f85978b937e22fe2117224db72ed53d9ccfa3ff51f1eecba0fae7f2da"
+  }
 }

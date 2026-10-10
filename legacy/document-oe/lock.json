@@ -1,0 +1,234 @@
+{
+  "schema_version": "document-oe-byte-preserved-v1",
+  "source_container": "document-oe",
+  "runtime_root": "/opt/document-bench",
+  "base_image_id": "sha256:6eb99c666aab38fb4ba04886e42e5db219f4ac71d6e8307cd743b049a6a60111",
+  "files": {
+    "bin/export_xlsx_csv.py": {
+      "mode": 493,
+      "sha256": "10b70ec07460aab4930f556a3c4d6830f8338d70f0f173b508bf72c8149c3dfa",
+      "size": 2726
+    },
+    "bin/inspect_xlsx_features.py": {
+      "mode": 493,
+      "sha256": "3d14f70a982370cf8992540b983fe91e7d8ad2c036dc67767960377e3e58de05",
+      "size": 3352
+    },
+    "bin/inspect_xlsx_structure.py": {
+      "mode": 493,
+      "sha256": "32c72802e3710b260dcbb782933a5241f0dedc9be246df2dd226cf573a6681ab",
+      "size": 1892
+    },
+    "bin/run_document_scene_loop.py": {
+      "mode": 493,
+      "sha256": "5f1f5d2ab8075ded5b12e6e583c0b733de09389c2c60d63d735c82a252d7c2d1",
+      "size": 15979
+    },
+    "bin/run_document_scene_loop_timed.py": {
+      "mode": 420,
+      "sha256": "73ad442263012692f79538d09950692c3e0ad48a167a9807a052f767b5e46f73",
+      "size": 9323
+    },
+    "bin/run_pdf_scene.sh": {
+      "mode": 493,
+      "sha256": "dd329356d5fa257d7ab122fea828912faa551ebf8c9e24c3911e37bf20bacc10",
+      "size": 120
+    },
+    "bin/run_xlsx_helper_atomic.py": {
+      "mode": 493,
+      "sha256": "71e7da52608152b740587b01ccdc8b682fb1e5ebaeec154acf900a1ef8fee32a",
+      "size": 3641
+    },
+    "bin/run_xlsx_scene.sh": {
+      "mode": 493,
+      "sha256": "77d666d803562c1f27959a121f6f2df323a0b060b704b452a5995cab1c0fbdf2",
+      "size": 121
+    },
+    "bin/smoke_document_scenes.py": {
+      "mode": 493,
+      "sha256": "55636c87ddfdd615ea7a424d5338d58bc0d42c7c68bb5e9d52a2d4984ef1238a",
+      "size": 5250
+    },
+    "bin/smoke_xlsx_recalc.py": {
+      "mode": 493,
+      "sha256": "514627d20565088306f34654ae6b26861a1b4ebae462645a5f703552c1866661",
+      "size": 4271
+    },
+    "bin/timing_hooks/sitecustomize.py": {
+      "mode": 420,
+      "sha256": "d29c04cbb91c286001444be10b29d61218a7afbc93bf2349501c8f31de799b00",
+      "size": 2960
+    },
+    "bin/validate_image.py": {
+      "mode": 493,
+      "sha256": "69546bd5324ee8b42acfc3d56134029cfbfcbd1e7a06003adeb7d4488f7498a6",
+      "size": 7770
+    },
+    "bin/write_pdf_batch_summary.py": {
+      "mode": 493,
+      "sha256": "28e409c889e503e9aed199d8152b61f44de579ab18c2f9defc9fd54c282f3c11",
+      "size": 2251
+    },
+    "bin/write_xlsx_summary.py": {
+      "mode": 493,
+      "sha256": "f5e7102cb64dd6bb05d89b29998f98c88b48ade3d3f0701d5e4c295a313c903a",
+      "size": 4880
+    },
+    "manifest.json": {
+      "mode": 420,
+      "sha256": "97469456ec38901056d3061e3ec13b1ef6cb5056567e8dd677bff90eb252920b",
+      "size": 6190
+    },
+    "operations/pdf_key_operations.json": {
+      "mode": 436,
+      "sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+      "size": 29011
+    },
+    "operations/xlsx_key_operations.json": {
+      "mode": 420,
+      "sha256": "53a475924f0bf6f2b2fef4e85c13bae467241e5785ba7867e195422d2e9b07f2",
+      "size": 27386
+    },
+    "pdf/input/of306_aug2023.pdf": {
+      "mode": 436,
+      "sha256": "b690ec40015e42b0ed0424e5c0193616dc6491b70525240463d24b951e6ce46c",
+      "size": 254430
+    },
+    "pdf/input/pdf_dataset_sources.md": {
+      "mode": 436,
+      "sha256": "4736a0879c8e13ff4eefe685bdd545e4bb01057a4f8e6c781e2c6027ee253e20",
+      "size": 450
+    },
+    "pdf/input/synthetic_applicants.json": {
+      "mode": 436,
+      "sha256": "3f5247d47c13763f56a1e820f9f73796104a2d972b86a3a89a823fb516714b7d",
+      "size": 3951
+    },
+    "pdf/input/verify_pdf_batch.py": {
+      "mode": 509,
+      "sha256": "691b63fac6bef80848bfc5b5c78bd6bf6dd5995e230f20a747beeaa1db6d058a",
+      "size": 9723
+    },
+    "pdf/run_batch_fill_render.py": {
+      "mode": 420,
+      "sha256": "489ca16deccc96f34ca9d89fb3f66f0a3d5250bb0c28e50dd91a498a901d0e76",
+      "size": 1960
+    },
+    "requirements.txt": {
+      "mode": 436,
+      "sha256": "a62043946cca4e13709ce39b49cc38a6a1c4a5b6eba23c70706b79f5d35331a3",
+      "size": 81
+    },
+    "skills/pdf/LICENSE.txt": {
+      "mode": 436,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "size": 1467
+    },
+    "skills/pdf/SKILL.md": {
+      "mode": 436,
+      "sha256": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "size": 8072
+    },
+    "skills/pdf/forms.md": {
+      "mode": 436,
+      "sha256": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "size": 11854
+    },
+    "skills/pdf/reference.md": {
+      "mode": 436,
+      "sha256": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "size": 16692
+    },
+    "skills/pdf/scripts/check_fillable_fields.py": {
+      "mode": 436,
+      "sha256": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "size": 268
+    },
+    "skills/pdf/scripts/convert_pdf_to_images.py": {
+      "mode": 436,
+      "sha256": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "size": 1008
+    },
+    "skills/pdf/scripts/extract_form_field_info.py": {
+      "mode": 436,
+      "sha256": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "size": 4300
+    },
+    "skills/pdf/scripts/fill_fillable_fields.py": {
+      "mode": 436,
+      "sha256": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "size": 3819
+    },
+    "skills/xlsx/LICENSE.txt": {
+      "mode": 436,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "size": 1467
+    },
+    "skills/xlsx/SKILL.md": {
+      "mode": 436,
+      "sha256": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "size": 11463
+    },
+    "skills/xlsx/scripts/office/pack.py": {
+      "mode": 509,
+      "sha256": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "size": 4991
+    },
+    "skills/xlsx/scripts/office/soffice.py": {
+      "mode": 436,
+      "sha256": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "size": 5301
+    },
+    "skills/xlsx/scripts/office/unpack.py": {
+      "mode": 509,
+      "sha256": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "size": 4052
+    },
+    "skills/xlsx/scripts/office/validate.py": {
+      "mode": 509,
+      "sha256": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "size": 3668
+    },
+    "skills/xlsx/scripts/recalc.py": {
+      "mode": 436,
+      "sha256": "b4d04cd56ba59c67b15e6745bf8a825c7741861692d863e2eca81f7d704186c3",
+      "size": 7636
+    },
+    "xlsx/enhance_workbook.py": {
+      "mode": 420,
+      "sha256": "774a41787ea3b89fbaa7ef6095505a393dc35ed52121c052442aa11978cbbbbe",
+      "size": 10470
+    },
+    "xlsx/input/dataset_sources.md": {
+      "mode": 436,
+      "sha256": "f526508c1d91d6120d1adf16388a5bcd4edbaccec8c34bf4329610ecad6f0214",
+      "size": 308
+    },
+    "xlsx/input/monthly_operations_template.xlsx": {
+      "mode": 436,
+      "sha256": "51e34e9d59e43b9c330a00448645f025f1d4ea2d4c33e9998e6e1c6fef7b189f",
+      "size": 12278348
+    },
+    "xlsx/input/template_manifest.json": {
+      "mode": 436,
+      "sha256": "0ce06d540beea2b174de7da82bca932156511a10cc3df2687b6f6e928214ed8b",
+      "size": 704
+    },
+    "xlsx/input/verify_xlsx_enhanced.py": {
+      "mode": 436,
+      "sha256": "cbf9fc9de5a88666750d41f610a9c3d92d32ed65d2acd73f565179487ea71467",
+      "size": 12899
+    },
+    "xlsx/inspect_xlsx_cached_values.py": {
+      "mode": 493,
+      "sha256": "67aa196bfcc321869f3b786b4a15e37ab3f1c55bb59428948e6881402bf8d556",
+      "size": 785
+    },
+    "xlsx/inspect_xlsx_formulas.py": {
+      "mode": 493,
+      "sha256": "d73007133f7389edad1229fc4c6e904d127cd2839dd0e672b3d740207f42419a",
+      "size": 1081
+    }
+  },
+  "policy": "All active text/input/recipe bytes and modes preserved. No recipe/helper/verifier rewriting. Native runner and timed entry remain unchanged."
+}

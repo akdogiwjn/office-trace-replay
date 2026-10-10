@@ -7,7 +7,7 @@ sys.path.insert(0, str(ROOT))
 from replay.common import digest, write
 
 files = {}
-for folder in ('assets', 'recipes', 'replay', 'vendor', 'runtime', 'scripts'):
+for folder in ('assets', 'recipes', 'replay', 'vendor', 'runtime', 'scripts', 'legacy', 'suites'):
     for path in (ROOT / folder).rglob('*'):
         if path.is_file() and '__pycache__' not in path.parts and path.name != 'project-lock.json':
             files[str(path.relative_to(ROOT))] = digest(path)
