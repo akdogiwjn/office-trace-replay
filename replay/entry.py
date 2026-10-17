@@ -16,6 +16,12 @@ defaults to the byte-preserved `tlc` workload. This module is the high-level
 suite/old-interface compatibility layer: it selects datasets, prepares the
 environment, starts one unified runner process per dataset, and for the
 canonicalized datasets performs post-loop acceptance and archival.
+
+Historical aliases `--dataset opm_v2` / `--dataset tlc_v2` replay the frozen
+parent recipes through the derived-v1 engine (replay/run.py). They are kept for
+provenance comparisons only: they run LAST in any invocation (the derived
+engine replaces Skill links / source context), ignore formal-suite-only
+parameters, and `--timed` with them is rejected before execution.
 """
 import argparse
 import os
@@ -32,13 +38,13 @@ from replay import suite
 
 OLD = {'pdf': 'pdf', 'opm': 'pdf', 'xlsx': 'xlsx', 'tlc': 'xlsx'}
 NEW = {'irs_w4': 'irs_w4', 'sba1919': 'sba1919', 'hr': 'hr',
-       'manufacturing': 'manufacturing', 'retail': 'retail',
-       'opm_v2': 'opm', 'tlc_v2': 'tlc'}
+       'manufacturing': 'manufacturing', 'retail': 'retail'}
+# Historical aliases replay the frozen parent recipes (recipes/opm.json,
+# recipes/tlc.json) through the derived-v1 engine (replay/run.py). They are
+# not canonicalized workloads, have no compatibility entries, and ignore
+# formal-suite-only parameters such as --timed / --pdf-applicant-count.
+HISTORICAL = {'opm_v2': 'opm', 'tlc_v2': 'tlc'}
 DEFAULT = ['pdf', 'xlsx', 'irs_w4', 'sba1919', 'hr', 'manufacturing', 'retail']
-
-
-def resolve_old(name):
-    return OLD[name], name if name in ('opm', 'tlc') else ({'pdf': 'opm', 'xlsx': 'tlc'}[OLD[name]])
 
 
 def main(argv=None):
@@ -59,7 +65,7 @@ def main(argv=None):
         legacy.launch(argv, timed, python_mode)
         return 0
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--dataset', action='append', choices=list(OLD) + list(NEW))
+    parser.add_argument('--dataset', action='append', choices=list(OLD) + list(NEW) + list(HISTORICAL))
     parser.add_argument('--loops', type=int, default=1)
     parser.add_argument('--pdf-applicant-count', type=int, choices=[1, 10], default=1)
     parser.add_argument('--timed', action='store_true', help='Original document-oe timing wrapper for all datasets')
@@ -72,8 +78,12 @@ def main(argv=None):
     if args.loops < 1:
         parser.error('--loops must be positive')
     selected = args.dataset or DEFAULT
-    if args.timed and args.workflow == 'derived-v1':
-        parser.error('--timed requires compatible workflow')
+    historical = [name for name in selected if name in HISTORICAL]
+    # Reject unsupported parameter combinations before any workload runs; the
+    # historical derived-v1 engine has no timing mode.
+    if args.timed and (historical or args.workflow == 'derived-v1'):
+        parser.error('--timed is not supported by the historical derived-v1 engine'
+                     + (' (selected: ' + ', '.join(historical) + ')' if historical else ''))
     legacy.validate(check_installed=Path('/.dockerenv').exists())
     if args.validate_only:
         from replay.run import validate_project
@@ -83,8 +93,11 @@ def main(argv=None):
         print('executor, workload and compatible workflow bindings valid')
         return 0
     core = document_executor()
-    # Old workloads run first with their byte-preserved runner behavior, then
-    # each canonicalized dataset runs its own unified runner process.
+    # Execution order: old byte-preserved workloads first, then the
+    # canonicalized formal datasets, and the historical derived-v1 engine LAST,
+    # because the derived engine replaces the Skill links and source context
+    # and must never run before a unified-runner workload in the same
+    # invocation.
     results_root = args.results_dir.resolve()
     selected = dict.fromkeys(selected)
     for name in list(selected):
@@ -96,16 +109,14 @@ def main(argv=None):
             if code:
                 return code
             del selected[name]
-    if args.workflow == 'derived-v1' and selected:
-        names = [NEW[n] for n in selected]
-        command = [sys.executable, str(ROOT / 'replay/run.py'), '--loops', str(args.loops),
-                   '--results-dir', str(results_root)]
-        for n in names:
-            command += ['--dataset', n]
-        env = os.environ.copy()
-        env['PATH'] = str(ROOT / 'runtime/bin') + ':/opt/document-bench/.venv/bin:' + env['PATH']
-        env['VIRTUAL_ENV'] = '/opt/document-bench/.venv'
-        return subprocess.call(command, env=env)
+    derived_names = []
+    for name in list(selected):
+        if args.workflow == 'derived-v1':
+            derived_names.append(NEW.get(name, HISTORICAL.get(name)))
+            del selected[name]
+        elif name in HISTORICAL:
+            derived_names.append(HISTORICAL[name])
+            del selected[name]
     for name in selected:
         dataset = NEW[name]
         scene = core.DATASET_SCENE[dataset]
@@ -115,6 +126,15 @@ def main(argv=None):
         if item['status'] != 'success':
             print(dataset, item.get('error', ''), flush=True)
             return 1
+    if derived_names:
+        command = [sys.executable, str(ROOT / 'replay/run.py'), '--loops', str(args.loops),
+                   '--results-dir', str(results_root)]
+        for n in derived_names:
+            command += ['--dataset', n]
+        env = os.environ.copy()
+        env['PATH'] = str(ROOT / 'runtime/bin') + ':/opt/document-bench/.venv/bin:' + env['PATH']
+        env['VIRTUAL_ENV'] = '/opt/document-bench/.venv'
+        return subprocess.call(command, env=env)
     return 0
 
 

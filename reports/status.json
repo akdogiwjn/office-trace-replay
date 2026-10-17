@@ -1,8 +1,8 @@
 {
-  "schema_version": "office-replay-status-v8",
+  "schema_version": "office-replay-status-v9",
   "status": "success",
-  "image": "office-trace-replay:openeuler-v8",
-  "image_id": "sha256:8bf017d1b4bfe7b481f9aed1e6a44d396444a6c49b40c9a91d7dee84232f53a0",
+  "image": "office-trace-replay:openeuler-v9",
+  "image_id": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
   "executor": "unified-dataset-runner-v1",
   "old_workload_bytes_unchanged": true,
   "old_workload_frozen_file_count": 43,
@@ -18,7 +18,7 @@
   "defined_names_protection": "global and worksheet-local names are tracked by (name, scope); reference meaning must be preserved (A1->A2, nonexistent targets, scope moves, indirect missing references and cycles are rejected or handled); only supported serialization differences are diagnostics",
   "formula_normalization": "sheet/workbook identifiers and double-quoted string literals are tokenized; meaningful whitespace, punctuation, escaped single quotes and the intersection operator are preserved; bounded serialization equivalences only",
   "tests": {
-    "passed": 52,
+    "passed": 59,
     "skipped": 0,
     "failed": 0,
     "errors": 0
@@ -27,7 +27,7 @@
   "representativeness_established": false,
   "qualification": {
     "path": "reports/qualification.json",
-    "sha256": "c517d169ee4d3563702bdca4e8267fe3703a6c0d6190715648b46959eec51a79"
+    "sha256": "2e0014d79038bd6538a7c2efbe6fe8167c5ca83c40316cfd896950b22911392f"
   },
   "working_tree_patch": {
     "patch": "defined-name-shadowing",
@@ -37,5 +37,6 @@
       "path": "reports/patches/defined-name-shadowing/summary.json",
       "sha256": "493556cfee28a9624e6397f4998059280216d6931caadc8f4f2865ca888e30d2"
     }
-  }
+  },
+  "historical_aliases": "opm_v2/tlc_v2 route to the derived-v1 historical engine and parent recipes; they run last, --timed is rejected up front, and they are not canonicalized workloads"
 }

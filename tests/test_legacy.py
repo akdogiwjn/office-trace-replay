@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 from replay.common import digest, read
 from replay import legacy
-from replay.entry import OLD, NEW, DEFAULT, main
+from replay.entry import OLD, NEW, HISTORICAL, DEFAULT, main
 
 
 class LegacyCompatibilityTests(unittest.TestCase):
@@ -109,14 +109,64 @@ class LegacyCompatibilityTests(unittest.TestCase):
     def test_old_names_never_select_new_opm_tlc(self):
         self.assertEqual(OLD['opm'], 'pdf')
         self.assertEqual(OLD['tlc'], 'xlsx')
-        self.assertEqual(NEW['opm_v2'], 'opm')
-        self.assertEqual(NEW['tlc_v2'], 'tlc')
+        self.assertEqual(HISTORICAL['opm_v2'], 'opm')
+        self.assertEqual(HISTORICAL['tlc_v2'], 'tlc')
         self.assertNotIn('opm_v2', DEFAULT)
         self.assertNotIn('tlc_v2', DEFAULT)
+        self.assertNotIn('opm_v2', NEW)
+        self.assertNotIn('tlc_v2', NEW)
         with patch('replay.entry.legacy.validate'), \
              patch('replay.entry.suite.run_old_dataset', return_value=0) as run:
             self.assertEqual(main(['--dataset', 'opm', '--dataset', 'tlc', '--loops', '1']), 0)
             self.assertEqual([(r.args[1], r.args[0]) for r in run.call_args_list], [('pdf', 'opm'), ('xlsx', 'tlc')])
+
+    def test_historical_aliases_route_to_derived_v1_engine_and_parent_recipes(self):
+        from replay.common import ROOT as REPO_ROOT
+        with patch('replay.entry.legacy.validate'), \
+             patch('replay.entry.subprocess.call', return_value=0) as call:
+            self.assertEqual(main(['--dataset', 'opm_v2', '--dataset', 'tlc_v2', '--loops', '1']), 0)
+            command = call.call_args.args[0]
+            self.assertIn(str(REPO_ROOT / 'replay/run.py'), command)
+            datasets = [command[i + 1] for i, c in enumerate(command) if c == '--dataset']
+            self.assertEqual(datasets, ['opm', 'tlc'])
+            # The unified runner must never be used for the historical aliases.
+            self.assertNotIn('--scene', command)
+
+    def test_historical_alias_mixed_with_formal_runs_formal_first(self):
+        # The derived-v1 engine replaces Skill links / source context, so the
+        # formal unified-runner workloads must complete before it starts.
+        order = []
+        with patch('replay.entry.legacy.validate'), \
+             patch('replay.entry.suite.run_old_dataset', side_effect=lambda *a, **k: order.append('old') or 0), \
+             patch('replay.entry.suite.run_dataset', side_effect=lambda *a, **k: order.append('formal') or {'status': 'success'}), \
+             patch('replay.entry.subprocess.call', side_effect=lambda c, **k: order.append('historical') or 0):
+            self.assertEqual(main(['--dataset', 'retail', '--dataset', 'opm', '--dataset', 'opm_v2', '--loops', '1']), 0)
+        self.assertEqual(order, ['old', 'formal', 'historical'])
+
+    def test_timed_with_historical_alias_rejected_before_execution(self):
+        with patch('replay.entry.legacy.validate') as validate, \
+             patch('replay.entry.suite.run_old_dataset') as run_old, \
+             patch('replay.entry.suite.run_dataset') as run_dataset, \
+             patch('replay.entry.subprocess.call') as call:
+            with self.assertRaises(SystemExit):
+                main(['--dataset', 'opm_v2', '--timed', '--loops', '1'])
+            with self.assertRaises(SystemExit):
+                main(['--dataset', 'retail', '--dataset', 'tlc_v2', '--timed', '--loops', '1'])
+            with self.assertRaises(SystemExit):
+                main(['--dataset', 'retail', '--timed', '--workflow', 'derived-v1', '--loops', '1'])
+        validate.assert_not_called()
+        run_old.assert_not_called()
+        run_dataset.assert_not_called()
+        call.assert_not_called()
+
+    def test_workflow_derived_v1_routes_all_new_selections_to_historical_engine(self):
+        with patch('replay.entry.legacy.validate'), \
+             patch('replay.entry.subprocess.call', return_value=0) as call:
+            self.assertEqual(main(['--dataset', 'retail', '--dataset', 'opm_v2',
+                                   '--workflow', 'derived-v1', '--loops', '1']), 0)
+            command = call.call_args.args[0]
+            datasets = [command[i + 1] for i, c in enumerate(command) if c == '--dataset']
+            self.assertEqual(sorted(datasets), ['opm', 'retail'])
 
     def test_mutated_legacy_helper_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:

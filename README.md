@@ -132,7 +132,7 @@ PDF 保持当前执行流程，仅接入统一入口与 registry：准备完整 
 ```bash
 make test          # 仓库自包含单元测试
 make validate      # replay/entry.py --validate-only
-make image         # scripts/build_image.py --tag office-trace-replay:openeuler-v8
+make image         # scripts/build_image.py --tag office-trace-replay:openeuler-v9
 make replay DATASET=retail   # 容器内单数据集
 ```
 
@@ -151,6 +151,20 @@ SHA256。
 
 `--workflow derived-v1` 仍可选历史父 recipe 引擎（`replay/run.py`）。历史验收记录保留
 在 `reports/history/`。
+
+### 历史别名 opm_v2 / tlc_v2
+
+`--dataset opm_v2` / `--dataset tlc_v2` 仅用于 provenance 对比：它们把冻结的父
+recipe（`recipes/opm.json`、`recipes/tlc.json`）路由到历史 derived-v1 引擎
+（`replay/run.py`），不是 canonicalized workload，也没有 compatibility entry。限制：
+
+- 它们在任何一次调用中**最后**执行——历史引擎会替换 Skill 链接与 source context，
+  不能在统一 runner workload 之前运行；混选时正式 dataset 先完成。
+- 不支持 `--timed`（执行前直接拒绝）；`--pdf-applicant-count`、`--legacy-python` 等
+  formal-suite 参数对历史引擎不生效（历史 recipe 按冻结原样回放，opm_v2 固定填充
+  全部 10 条记录）。
+- 普通 `opm`/`tlc` 及 `pdf`/`xlsx` 默认别名继续执行旧 document-oe workload，不受
+  历史别名影响；七个正式 dataset 的默认执行方式不变。
 
 ## 版本与研究定位
 
