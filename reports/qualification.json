@@ -19,7 +19,7 @@
   "representativeness_established": false,
   "evidence_index": {
     "path": "reports/evidence/index.json",
-    "sha256": "bda3e6259a338a7ae5afe6e944c9e61abda4910a6e03486c3425b262c4a128e6",
+    "sha256": "cb817d6355b43c1515805395ed7a0347738819032f13eee7c2ba9f284a42e363",
     "note": "v9 = final image verification (built-in verifier incl. defined-name shadowing fix; single-loop spot checks; v8 artifacts re-verified). v8 = full 7-dataset single-loop qualification (image 8bf017d1..., runner 3623f727...). v7 = historical (image 977afba4..., runner d82fc551...). Each section keeps its original image/runner identity."
   },
   "scope_note": "One loop per dataset functional regression; no CPU/OS performance experiment and no long stress loops. Old TLC was re-run once on v8 (243.13s) because the unified runner changed; the v7 TLC run is retained as historical evidence.",
@@ -110,10 +110,10 @@
     "path": "reports/self-contained-tests.json",
     "note": "59 passed / 0 skipped / 0 failed / 0 errors"
   },
-  "verifier_sha256": "e13d8a90b32d9999b04f5cfd54a83593397044b5725a3f4a43fed02a25d66bf3",
+  "verifier_sha256": "e13d8a90b32d9999b04f5cfd772165cab6141188a4f65040d545a00a832cb231",
   "final_image_verification": {
     "path": "reports/evidence/v9/image-verification.json",
-    "sha256": "863868e7ed5901cba09718686e6fcecda56bbf843a60a0d34d21f7aa04088894",
+    "sha256": "6bf763ac6803b98319df3c6e365e3df9c61fb8b8e48a94b937c9f05ef9620ad2",
     "note": "validate, 43/43 workload files, verifier shadowing fixtures (negative rejected; unused-added and equivalent-target positives), retail single loop, irs_w4 n1/n10 (1/10 filled, 10 mappings), manufacturing timed logs, venv 3.12.3 / system 3.11.6, and re-verification of the v8 HR/Manufacturing/Retail artifacts with the v9 verifier"
   },
   "historical_aliases": {

@@ -27,16 +27,21 @@
   "representativeness_established": false,
   "qualification": {
     "path": "reports/qualification.json",
-    "sha256": "2e0014d79038bd6538a7c2efbe6fe8167c5ca83c40316cfd896950b22911392f"
+    "sha256": "012e346b6379f8d9bee656782ce5e098e943cdf265d01efa7bcf04b8e911f7a3"
   },
-  "working_tree_patch": {
-    "patch": "defined-name-shadowing",
-    "status": "success",
-    "included_in_image": false,
-    "report": {
-      "path": "reports/patches/defined-name-shadowing/summary.json",
-      "sha256": "493556cfee28a9624e6397f4998059280216d6931caadc8f4f2865ca888e30d2"
+  "historical_aliases": "opm_v2/tlc_v2 route to the derived-v1 historical engine and parent recipes; they run last, --timed is rejected up front, and they are not canonicalized workloads",
+  "integrated_patches": [
+    {
+      "patch": "defined-name-shadowing",
+      "status": "success",
+      "included_in_image": true,
+      "report": {
+        "path": "reports/patches/defined-name-shadowing/summary.json",
+        "sha256": "493556cfee28a9624e6397f4998059280216d6931caadc8f4f2865ca888e30d2"
+      },
+      "image": "office-trace-replay:openeuler-v9",
+      "image_id": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+      "note": "Integrated into v9. The linked report preserves the earlier v8 source-mount validation."
     }
-  },
-  "historical_aliases": "opm_v2/tlc_v2 route to the derived-v1 historical engine and parent recipes; they run last, --timed is rejected up front, and they are not canonicalized workloads"
+  ]
 }
