@@ -42,7 +42,7 @@ def validate():
     return index
 
 
-def native_child(recipe_path, results, timed, python_mode):
+def native_child(recipe_path, results, timed, python_mode, loops):
     """Only SCENES paths change in memory; original execution/timing code stays untouched."""
     recipe = read(recipe_path)
     legacy.validate(check_installed=True)
@@ -88,12 +88,69 @@ def native_child(recipe_path, results, timed, python_mode):
     core.SCENES[kind] = {**core.SCENES[kind], 'seed': ROOT / recipe['seed_path'],
                         'workspace': Path(recipe['workspace']), 'recipe': recipe_path}
     sys.argv = [str(Path('/opt/document-bench/bin/run_document_scene_loop.py')),
-                '--scene', kind, '--loops', '1', '--results-dir', str(results),
+                '--scene', kind, '--loops', str(loops), '--results-dir', str(results),
                 '--operation-timeout', str(recipe['operation_timeout']),
                 '--recalc-timeout', str(recipe['recalc_timeout'])]
     if kind == 'pdf':
         sys.argv += ['--pdf-applicant-count', str(recipe['record_count'])]
     return core.main()
+
+
+def run_dataset(entry, target, loops, timed, python_mode):
+    """Run the entire native loop before final acceptance and archival."""
+    recipe_path = ROOT / entry['recipe_path']
+    recipe = read(recipe_path)
+    destination = target / entry['variant_id'] / 'series'
+    destination.mkdir(parents=True)
+    interpreter = legacy.native_command([], python_mode=python_mode)[0]
+    command = [interpreter, str(ROOT / 'replay/compatible.py'), '--native-child', str(recipe_path),
+               '--results-dir', str(destination), '--legacy-python', python_mode,
+               '--loops', str(loops)]
+    if timed:
+        command.append('--timed')
+    item = {'dataset_id': entry['dataset_id'], 'variant_id': entry['variant_id'],
+            'requested_iterations': loops, 'recipe_sha256': entry['recipe_sha256'],
+            'parent': recipe['parent'], 'status': 'in_progress',
+            'archive_scope': 'final_iteration_only',
+            'acceptance_scope': 'native business verifier each iteration; independent verifier after entire loop'}
+    try:
+        subprocess.run(command, check=True)
+        native_path = next(destination.glob(recipe['case_kind'] + '/*/summary.json'))
+        native = read(native_path)
+        events = read_events(native_path.with_name('iterations.jsonl'))
+        if (native['requested_iterations'] != loops or native['completed_iterations'] != loops
+                or native['successes'] != loops or native['failures'] != 0 or native['interrupted']
+                or native['recipe_sha256'] != entry['recipe_sha256']
+                or len(events) != loops
+                or any(e['iteration'] != i or e['status'] != 'success' for i, e in enumerate(events, 1))):
+            raise ValueError('native loop incomplete, failed, or recipe mismatched')
+        item.update(native_summary=str(native_path.relative_to(target)),
+                    native_summary_sha256=digest(native_path),
+                    native_events_sha256=digest(native_path.with_name('iterations.jsonl')),
+                    native_iterations=events, completed_iterations=loops)
+        start = time.perf_counter()
+        subprocess.run([interpreter, str(ROOT / 'replay/accept.py'), '--source', str(ROOT / recipe['source_path']),
+                        '--dataset', entry['dataset_id'], '--kind', recipe['case_kind'], '--workspace', recipe['workspace'],
+                        '--report', str(destination / 'independent_verification.json')], check=True)
+        acceptance = read(destination / 'independent_verification.json')
+        if acceptance['status'] != 'success' or acceptance['failures']:
+            raise ValueError('independent verification failed')
+        item['independent_acceptance_seconds'] = round(time.perf_counter() - start, 6)
+        item['independent_verification_sha256'] = digest(destination / 'independent_verification.json')
+        shutil.copytree(Path(recipe['workspace']) / 'output', destination / 'output')
+        # Like the native baseline, reset overwrites previous iterations. Only
+        # the final workspace is archived, after all native iterations finish.
+        shutil.copytree(Path(recipe['workspace']), destination / 'workspace_artifacts')
+        item['artifact_hashes'] = {str(p.relative_to(destination / 'workspace_artifacts')): digest(p)
+                                  for p in (destination / 'workspace_artifacts').rglob('*') if p.is_file()}
+        item['status'] = 'success'
+    except Exception as exc:
+        item.update(status='failed', error=f'{type(exc).__name__}: {exc}')
+        workspace = Path(recipe['workspace'])
+        if workspace.is_dir():
+            shutil.copytree(workspace, destination / 'failure_workspace', dirs_exist_ok=True)
+            item['failure_workspace_scope'] = 'last available workspace; earlier iterations may have been reset'
+    return item
 
 
 def main(argv=None):
@@ -106,70 +163,36 @@ def main(argv=None):
     parser.add_argument('--results-dir', type=Path, default=Path('/results'))
     parser.add_argument('--native-child', type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
-    if args.native_child:
-        return native_child(args.native_child, args.results_dir, args.timed, args.legacy_python)
     if args.loops < 1:
         parser.error('loops must be positive')
+    if args.native_child:
+        return native_child(args.native_child, args.results_dir, args.timed, args.legacy_python, args.loops)
     index = validate()
     if not Path('/.dockerenv').exists() or os.environ.get('OFFICE_REPLAY_CONTAINER') != '1':
         raise ValueError('execute only in a disposable replay container')
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:8]
     target = args.results_dir / ('compatible-' + stamp)
     target.mkdir(parents=True, exist_ok=False)
-    interpreter = legacy.native_command([], python_mode=args.legacy_python)[0]
-    report = {'schema_version': 'document-oe-compatible-qualification-v1', 'status': 'in_progress',
+    report = {'schema_version': 'document-oe-compatible-qualification-v2', 'status': 'in_progress',
               'project_lock_sha256': digest(ROOT / 'assets/project-lock.json'),
               'contract_sha256': index['contract_sha256'], 'legacy_lock_sha256': index['legacy_lock_sha256'],
               'python_mode': args.legacy_python, 'timed': args.timed, 'requires_llm': False,
               'classification': 'adapted_replay_recipe_not_new_agent_trace',
-              'results': [], 'timing_scope': 'Native iteration/phase times only; preparation, independent acceptance and archival are separate. No CPU/OS experiment.'}
+              'results': [], 'loop_policy': 'one native process per dataset; no outer work between iterations',
+              'archive_scope': 'final_iteration_only',
+              'timing_scope': 'Native iteration/phase times only; independent acceptance and archival occur after the entire loop. No CPU/OS experiment.'}
     write(target / 'summary.json', report)
     for dataset in args.dataset or DATASETS:
         entry = next(e for e in index['entries'] if e['dataset_id'] == dataset and
                      (e['record_count'] is None or e['record_count'] == args.pdf_applicant_count))
-        recipe = read(ROOT / entry['recipe_path'])
-        for iteration in range(1, args.loops + 1):
-            destination = target / entry['variant_id'] / f'{iteration:04d}'
-            destination.mkdir(parents=True)
-            command = [interpreter, str(ROOT / 'replay/compatible.py'), '--native-child', str(ROOT / entry['recipe_path']),
-                       '--results-dir', str(destination), '--legacy-python', args.legacy_python]
-            if args.timed:
-                command.append('--timed')
-            item = {'dataset_id': dataset, 'variant_id': entry['variant_id'], 'iteration': iteration,
-                    'recipe_sha256': entry['recipe_sha256'], 'parent': recipe['parent'], 'status': 'in_progress'}
-            report['results'].append(item)
-            try:
-                subprocess.run(command, check=True)
-                native_path = next(destination.glob(recipe['case_kind'] + '/*/summary.json'))
-                native = read(native_path)
-                if native['successes'] != 1 or native['failures'] != 0 or native['interrupted']:
-                    raise ValueError('native execution failed')
-                item['native_summary'] = str(native_path.relative_to(target))
-                item['native_summary_sha256'] = digest(native_path)
-                events = read_events(native_path.with_name('iterations.jsonl'))
-                item['native_iteration'] = events[0]
-                start = time.perf_counter()
-                subprocess.run([interpreter, str(ROOT / 'replay/accept.py'), '--source', str(ROOT / recipe['source_path']),
-                                '--dataset', dataset, '--kind', recipe['case_kind'], '--workspace', recipe['workspace'],
-                                '--report', str(destination / 'independent_verification.json')], check=True)
-                item['independent_acceptance_seconds'] = round(time.perf_counter() - start, 6)
-                item['independent_verification_sha256'] = digest(destination / 'independent_verification.json')
-                shutil.copytree(Path(recipe['workspace']) / 'output', destination / 'output')
-                # Preserve scripts/intermediates separately from measured native calls.
-                shutil.copytree(Path(recipe['workspace']), destination / 'workspace_artifacts')
-                item['artifact_hashes'] = {str(p.relative_to(destination / 'workspace_artifacts')): digest(p)
-                                          for p in (destination / 'workspace_artifacts').rglob('*') if p.is_file()}
-                item['status'] = 'success'
-            except Exception as exc:
-                item.update(status='failed', error=f'{type(exc).__name__}: {exc}')
-                workspace = Path(recipe['workspace'])
-                if workspace.is_dir():
-                    shutil.copytree(workspace, destination / 'failure_workspace', dirs_exist_ok=True)
-                report['status'] = 'failed'
-                write(target / 'summary.json', report)
-                print(dataset, item['error'], flush=True)
-                return 1
+        item = run_dataset(entry, target, args.loops, args.timed, args.legacy_python)
+        report['results'].append(item)
+        if item['status'] != 'success':
+            report['status'] = 'failed'
             write(target / 'summary.json', report)
+            print(dataset, item['error'], flush=True)
+            return 1
+        write(target / 'summary.json', report)
     report['status'] = 'success'
     write(target / 'summary.json', report)
     print('compatible report:', target / 'summary.json', flush=True)

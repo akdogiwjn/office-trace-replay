@@ -1,90 +1,30 @@
 {
-  "schema_version": "office-workflow-alignment-v1",
-  "status": "execution_qualified_representativeness_not_yet_tested",
-  "scope": "Constrained native workflow comparison; no representativeness result yet",
+  "schema_version": "office-workflow-alignment-v2",
+  "status": "functional_alignment_qualified",
+  "scope": "Execution alignment and functional regression only; no CPU/OS performance experiment.",
+  "contract_sha256": "35d59b089a3c8c0675d72dca7af4f4cdeb46b2963c22c9a3d29493e70e3b00f8",
   "original_files_changed": [],
   "canonical_traces_changed": [],
+  "resolved_differences": [
+    "New datasets now use one native process for all requested iterations; no interleaved outer verification/archive.",
+    "All PDF variants prepare ten mappings and select one or ten for execution.",
+    "SBA and W-4 use the same field-ID precheck; no separate SBA dry-run helper."
+  ],
+  "residual_differences": [
+    "Native workbook/PDF complexity",
+    "Dataset-specific edit/mapping algorithms and semantic verification",
+    "New XLSX preservation assembly, absent in original TLC"
+  ],
   "variants": [
     {
       "variant_id": "irs_w4-n1",
       "dataset_id": "irs_w4",
       "record_count": 1,
-      "recipe_sha256": "6dae2b08d0df0e47be0301194cc5a5e825ad48a985d1673d7119bfb51ba28419",
+      "prepared_record_count": 10,
+      "recipe_sha256": "e871d91aa2640e31f6d2ad4e9fb7e8a8606d28af5d00f747ec41e9ab2c5daf2a",
       "parent_recipe_sha256": "57b147ce2d2d528083edc99d38fa194693e638e31a82c33b6fbea21f8c887edb",
-      "parent_canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
       "input_hashes": {
-        "input/dataset_manifest.json": "e3538be69bd470f4cf4e6f627d5caddfd222a2aa6be9108270557b62739fc370",
-        "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
-        "input/synthetic_employees.json": "4e2fd54e84808ded658fbb2b6ff75c192df6ec95d03e9a0573a695675b053a99",
-        "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
-        "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
-      },
-      "phases": [
-        {
-          "phase": "PDF-P01-inspect_prepare",
-          "call_count": 13,
-          "roles": [
-            "read_skill",
-            "read_skill",
-            "read_verifier",
-            "read_tool",
-            "read_tool",
-            "read_tool",
-            "read_tool",
-            "prepare",
-            "check_fields",
-            "inspect_log",
-            "extract_fields",
-            "inspect_schema",
-            "render_template"
-          ]
-        },
-        {
-          "phase": "PDF-P02-build",
-          "call_count": 4,
-          "roles": [
-            "write_helper",
-            "build",
-            "validate_mapping",
-            "write_helper"
-          ]
-        },
-        {
-          "phase": "PDF-P03-process_publish",
-          "call_count": 2,
-          "roles": [
-            "fill_render_batch",
-            "write_summary"
-          ]
-        },
-        {
-          "phase": "PDF-P04-verify_deliver",
-          "call_count": 2,
-          "roles": [
-            "semantic_verification",
-            "check_deliverables"
-          ]
-        }
-      ],
-      "adaptations": [
-        "Use original native executor, original Skill tools and original runtime/timing boundaries.",
-        "Explicit frozen 1-record variant; no changes to original 10-record input.",
-        "One subprocess batch driver alternates fill/render per record, matching the old driver pattern."
-      ],
-      "strictly_identical_execution": false,
-      "source_preservation_extra": false,
-      "qualified_image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
-      "status": "success"
-    },
-    {
-      "variant_id": "irs_w4-n10",
-      "dataset_id": "irs_w4",
-      "record_count": 10,
-      "recipe_sha256": "2854a340e8c0d4025927e90876ee14529ac321d36dd5a9fd6888aff1107f6fd1",
-      "parent_recipe_sha256": "57b147ce2d2d528083edc99d38fa194693e638e31a82c33b6fbea21f8c887edb",
-      "parent_canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
-      "input_hashes": {
-        "input/dataset_manifest.json": "ea7e0817247d77740b4c5d46330f981b53814dd91ca28079cd824aa0650404f9",
+        "input/dataset_manifest.json": "9be8cbffb9d3a3c21a8e5c0fc6281eb6e1febc32218fb71c2e9b2c43784b2a51",
         "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
         "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc",
         "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
@@ -139,95 +79,25 @@
       ],
       "adaptations": [
         "Use original native executor, original Skill tools and original runtime/timing boundaries.",
-        "Explicit frozen 10-record variant; no changes to original 10-record input.",
-        "One subprocess batch driver alternates fill/render per record, matching the old driver pattern."
+        "Prepare all ten original mappings; explicitly fill/render first 1 records.",
+        "Same field-ID precheck for both new PDFs; complete mapping checks remain in final verification.",
+        "One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.",
+        "Private verifier checks all prepared mappings and exactly the selected PDFs/renders."
       ],
       "strictly_identical_execution": false,
       "source_preservation_extra": false,
-      "qualified_image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
+      "qualified_image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
       "status": "success"
     },
     {
       "variant_id": "sba1919-n1",
       "dataset_id": "sba1919",
       "record_count": 1,
-      "recipe_sha256": "33fb5efd42eb3c6172d9894706fa855241a555abe39a6ca692401200a69bc4a9",
+      "prepared_record_count": 10,
+      "recipe_sha256": "b2202ecbf97930c72f2e8240d3e0ca0cc00693aeaae12262009408e58b510767",
       "parent_recipe_sha256": "d99b8728fcdcaa64293fc49791c11d138d6762c30f6a0c52b09861ff711b7dc3",
-      "parent_canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
       "input_hashes": {
-        "input/dataset_manifest.json": "8636635459d5e9c69740c6d57826f88d28ce7dffdc93f99805531f7dd7e2faf3",
-        "input/synthetic_applicants.json": "90a1aa56a98bdbfb105bc4aa7eca4f89219a58f6019c987cd74163fb2b10a5c2",
-        "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
-        "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
-        "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
-      },
-      "phases": [
-        {
-          "phase": "PDF-P01-inspect_prepare",
-          "call_count": 13,
-          "roles": [
-            "read_skill",
-            "read_skill",
-            "read_verifier",
-            "read_tool",
-            "read_tool",
-            "read_tool",
-            "read_tool",
-            "prepare",
-            "check_fields",
-            "inspect_log",
-            "extract_fields",
-            "inspect_schema",
-            "render_template"
-          ]
-        },
-        {
-          "phase": "PDF-P02-build",
-          "call_count": 5,
-          "roles": [
-            "write_helper",
-            "write_helper",
-            "build",
-            "validate_mapping",
-            "write_helper"
-          ]
-        },
-        {
-          "phase": "PDF-P03-process_publish",
-          "call_count": 2,
-          "roles": [
-            "fill_render_batch",
-            "write_summary"
-          ]
-        },
-        {
-          "phase": "PDF-P04-verify_deliver",
-          "call_count": 2,
-          "roles": [
-            "semantic_verification",
-            "check_deliverables"
-          ]
-        }
-      ],
-      "adaptations": [
-        "Use original native executor, original Skill tools and original runtime/timing boundaries.",
-        "Explicit frozen 1-record variant; no changes to original 10-record input.",
-        "One subprocess batch driver alternates fill/render per record, matching the old driver pattern."
-      ],
-      "strictly_identical_execution": false,
-      "source_preservation_extra": false,
-      "qualified_image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
-      "status": "success"
-    },
-    {
-      "variant_id": "sba1919-n10",
-      "dataset_id": "sba1919",
-      "record_count": 10,
-      "recipe_sha256": "d682046b58cbf38833c0c526d2cca9e220c46fcbce954bbcc28dde275bfdca81",
-      "parent_recipe_sha256": "d99b8728fcdcaa64293fc49791c11d138d6762c30f6a0c52b09861ff711b7dc3",
-      "parent_canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
-      "input_hashes": {
-        "input/dataset_manifest.json": "2b65a2ca089abdf246fd9695cd539bb2890d6aaaa752083a352e4b2835e6b446",
+        "input/dataset_manifest.json": "d1e1f339237156211746025b491731e0feb6f6690c4301163ca0e4e7150be1c6",
         "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
         "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
         "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
@@ -255,9 +125,8 @@
         },
         {
           "phase": "PDF-P02-build",
-          "call_count": 5,
+          "call_count": 4,
           "roles": [
-            "write_helper",
             "write_helper",
             "build",
             "validate_mapping",
@@ -283,21 +152,23 @@
       ],
       "adaptations": [
         "Use original native executor, original Skill tools and original runtime/timing boundaries.",
-        "Explicit frozen 10-record variant; no changes to original 10-record input.",
-        "One subprocess batch driver alternates fill/render per record, matching the old driver pattern."
+        "Prepare all ten original mappings; explicitly fill/render first 1 records.",
+        "Same field-ID precheck for both new PDFs; complete mapping checks remain in final verification.",
+        "One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.",
+        "Private verifier checks all prepared mappings and exactly the selected PDFs/renders."
       ],
       "strictly_identical_execution": false,
       "source_preservation_extra": false,
-      "qualified_image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
+      "qualified_image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
       "status": "success"
     },
     {
       "variant_id": "hr",
       "dataset_id": "hr",
       "record_count": null,
-      "recipe_sha256": "abcf394e84e5ddab7a557c6b832cf685d513d9754d5832aab618298d4269a8ac",
+      "prepared_record_count": null,
+      "recipe_sha256": "0b1d3ca1987f2cc64476048129e1a266123018ffd5f31a305ef8bd019dd4ac46",
       "parent_recipe_sha256": "79c89d5d91009096431d9a89a42d472e1b7fa9418efb8ecdae6df1dd6275f908",
-      "parent_canonical_sha256": "648bef3f71a6e753c292a4916e6b7408a482d515f0cceabbf27c028704738a53",
       "input_hashes": {
         "input/national_M2025_dl.xlsx": "852250997ceff9b721ff68f63e877d818f9c1ec8b1b69dd367958faedd5282b2",
         "input/dataset_manifest.json": "0342aee27f185225d32ad21dd4b4aa6b668c4aa82eeaf90430eae74e485557b1",
@@ -354,16 +225,16 @@
       ],
       "strictly_identical_execution": false,
       "source_preservation_extra": true,
-      "qualified_image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
+      "qualified_image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
       "status": "success"
     },
     {
       "variant_id": "manufacturing",
       "dataset_id": "manufacturing",
       "record_count": null,
-      "recipe_sha256": "de114c5a74db7e0557137a66eeea6a13dadc1d51c623cf8f8f10722c68043931",
+      "prepared_record_count": null,
+      "recipe_sha256": "c1fd6356cf5b086108fadbbed47e0c10e06d12f6438454185e07d6f1614599fc",
       "parent_recipe_sha256": "37392799eb6023c525bf67a9226ab5e54f74a03b3d2d97aa8852d677e31da0ce",
-      "parent_canonical_sha256": "7dd6a7f4b3476d354db7a8678438e8a3313f896b3350cbf6516ea78132c8ad0d",
       "input_hashes": {
         "input/dataset_manifest.json": "d1b0226702960d952bfdc95e2c0d61a6b1232244acaa0675f8186437c6bec8b0",
         "input/text.xlsx": "3a675ad4067e5463600ba46237c1f38123a4b83519035d1450b511496c130e43",
@@ -421,16 +292,16 @@
       ],
       "strictly_identical_execution": false,
       "source_preservation_extra": true,
-      "qualified_image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
+      "qualified_image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
       "status": "success"
     },
     {
       "variant_id": "retail",
       "dataset_id": "retail",
       "record_count": null,
-      "recipe_sha256": "e0bd781e6d2cbe74033bc84c031393f040e57c34d56a5088d5100dd6bcb8c6fb",
+      "prepared_record_count": null,
+      "recipe_sha256": "96df5c2bf2f030089994768e9636991ae93de1ad4ad8e4bae170fd2c2965c6f8",
       "parent_recipe_sha256": "2c64a21bba8e542dd2873403957b2867f076c92fc50269b25360de445bc26269",
-      "parent_canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
       "input_hashes": {
         "input/dataset_manifest.json": "5604a33257c5acb1a803272226bbdfd931ad37e1159b228ae8f52cac3df0674b",
         "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956",
@@ -488,17 +359,155 @@
       ],
       "strictly_identical_execution": false,
       "source_preservation_extra": true,
-      "qualified_image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
+      "qualified_image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
+      "status": "success"
+    },
+    {
+      "variant_id": "irs_w4-n10",
+      "dataset_id": "irs_w4",
+      "record_count": 10,
+      "prepared_record_count": 10,
+      "recipe_sha256": "b1a5fbb983f860fcc0195629889653b045d1f4d0fe6090d631c2c924e519f6f7",
+      "parent_recipe_sha256": "57b147ce2d2d528083edc99d38fa194693e638e31a82c33b6fbea21f8c887edb",
+      "input_hashes": {
+        "input/dataset_manifest.json": "ebfa6e0b2ea02c04ca6946f1a7ab25a67b4d4fce00cd4b496d6534f08c3abc08",
+        "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+        "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc",
+        "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
+        "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+      },
+      "phases": [
+        {
+          "phase": "PDF-P01-inspect_prepare",
+          "call_count": 13,
+          "roles": [
+            "read_skill",
+            "read_skill",
+            "read_verifier",
+            "read_tool",
+            "read_tool",
+            "read_tool",
+            "read_tool",
+            "prepare",
+            "check_fields",
+            "inspect_log",
+            "extract_fields",
+            "inspect_schema",
+            "render_template"
+          ]
+        },
+        {
+          "phase": "PDF-P02-build",
+          "call_count": 4,
+          "roles": [
+            "write_helper",
+            "build",
+            "validate_mapping",
+            "write_helper"
+          ]
+        },
+        {
+          "phase": "PDF-P03-process_publish",
+          "call_count": 2,
+          "roles": [
+            "fill_render_batch",
+            "write_summary"
+          ]
+        },
+        {
+          "phase": "PDF-P04-verify_deliver",
+          "call_count": 2,
+          "roles": [
+            "semantic_verification",
+            "check_deliverables"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Use original native executor, original Skill tools and original runtime/timing boundaries.",
+        "Prepare all ten original mappings; explicitly fill/render first 10 records.",
+        "Same field-ID precheck for both new PDFs; complete mapping checks remain in final verification.",
+        "One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.",
+        "Private verifier checks all prepared mappings and exactly the selected PDFs/renders."
+      ],
+      "strictly_identical_execution": false,
+      "source_preservation_extra": false,
+      "qualified_image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
+      "status": "success"
+    },
+    {
+      "variant_id": "sba1919-n10",
+      "dataset_id": "sba1919",
+      "record_count": 10,
+      "prepared_record_count": 10,
+      "recipe_sha256": "f1b9015a7177cb0c9841ebbe19e75c50668f37d02cd5ecd7f1f2cc1061027847",
+      "parent_recipe_sha256": "d99b8728fcdcaa64293fc49791c11d138d6762c30f6a0c52b09861ff711b7dc3",
+      "input_hashes": {
+        "input/dataset_manifest.json": "ecfadf80521f7c6655188fad2a989751baa4dd02d4dd47aa1ac86fde0619754c",
+        "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
+        "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
+        "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+        "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+      },
+      "phases": [
+        {
+          "phase": "PDF-P01-inspect_prepare",
+          "call_count": 13,
+          "roles": [
+            "read_skill",
+            "read_skill",
+            "read_verifier",
+            "read_tool",
+            "read_tool",
+            "read_tool",
+            "read_tool",
+            "prepare",
+            "check_fields",
+            "inspect_log",
+            "extract_fields",
+            "inspect_schema",
+            "render_template"
+          ]
+        },
+        {
+          "phase": "PDF-P02-build",
+          "call_count": 4,
+          "roles": [
+            "write_helper",
+            "build",
+            "validate_mapping",
+            "write_helper"
+          ]
+        },
+        {
+          "phase": "PDF-P03-process_publish",
+          "call_count": 2,
+          "roles": [
+            "fill_render_batch",
+            "write_summary"
+          ]
+        },
+        {
+          "phase": "PDF-P04-verify_deliver",
+          "call_count": 2,
+          "roles": [
+            "semantic_verification",
+            "check_deliverables"
+          ]
+        }
+      ],
+      "adaptations": [
+        "Use original native executor, original Skill tools and original runtime/timing boundaries.",
+        "Prepare all ten original mappings; explicitly fill/render first 10 records.",
+        "Same field-ID precheck for both new PDFs; complete mapping checks remain in final verification.",
+        "One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.",
+        "Private verifier checks all prepared mappings and exactly the selected PDFs/renders."
+      ],
+      "strictly_identical_execution": false,
+      "source_preservation_extra": false,
+      "qualified_image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
       "status": "success"
     }
   ],
-  "residual_differences": [
-    "Native workbook/PDF complexity",
-    "Dataset-specific edit/mapping algorithms and semantic verification",
-    "New XLSX preservation assembly, absent in original TLC",
-    "Original single-record PDF builds 10 field-value files; new n1 builds 1",
-    "SBA mapping dry run"
-  ],
-  "qualification_report": "reports/qualification.json",
-  "contract_sha256": "a8ddcbc044bebadabae7c7b87ae134eab3c960199cb80a761e6cfb6925b330d3"
+  "qualification_report": "reports/qualification.json"
 }

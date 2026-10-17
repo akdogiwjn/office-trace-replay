@@ -1,15 +1,19 @@
 {
   "status": "success",
-  "image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990",
-  "files_checked": 45,
-  "installed_bytes_modes_equal": true,
-  "source_lock_sha256": "a28d8f8a5964549d306b7e5b624e2a6c20dc5262b6522a54c347aad2868607fe",
   "default_python": "3.12.3",
   "default_executable": "/opt/document-bench/.venv/bin/python3",
-  "system_python": "3.11.6",
-  "virtual_env": "/opt/document-bench/.venv",
+  "files_checked": 45,
+  "installed_bytes_modes_equal": true,
+  "variants": 7,
+  "packages": {
+    "openpyxl": "3.1.5",
+    "et_xmlfile": "2.0.0",
+    "pypdf": "6.10.0",
+    "pdf2image": "1.17.0",
+    "pillow": "12.2.0"
+  },
   "path": "/opt/document-bench/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
   "soffice_target": "/opt/libreoffice25.8-symbols/program/soffice",
-  "wrapper_in_global_path": false,
-  "method": "Read-only docker run --entrypoint python3: legacy.validate(check_installed=True), sys.version, executable, PATH, VIRTUAL_ENV, explicit system Python and realpath(soffice)"
+  "image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
+  "method": "Read-only network-disabled v5 container; validate installed bytes/modes, all project bindings and inspect runtime."
 }

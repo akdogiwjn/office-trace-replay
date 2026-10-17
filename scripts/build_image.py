@@ -12,7 +12,7 @@ from replay.common import digest, read, write
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--tag', default='office-trace-replay:openeuler-v4')
+    parser.add_argument('--tag', default='office-trace-replay:openeuler-v5')
     args = parser.parse_args()
     lock = read(ROOT / 'runtime/environment-lock.json')
     actual = subprocess.check_output(['docker', 'image', 'inspect', lock['base_image'], '--format', '{{.Id}}'], text=True).strip()

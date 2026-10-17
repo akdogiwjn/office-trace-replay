@@ -1,5 +1,5 @@
 PYTHON ?= python3
-IMAGE ?= office-trace-replay:openeuler-v4
+IMAGE ?= office-trace-replay:openeuler-v5
 DATASET ?= pdf
 
 .PHONY: test validate image replay

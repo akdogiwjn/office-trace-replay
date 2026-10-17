@@ -4,8 +4,9 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from replay.common import ROOT, digest, read
-from replay.compatible import validate
+from replay.common import ROOT, digest, read, write
+from replay.compatible import validate, run_dataset
+from compatibility.verification.pdf import selected_records
 from replay.entry import main
 
 
@@ -30,8 +31,12 @@ class CompatibleWorkflowTests(unittest.TestCase):
                 self.assertNotIn('2>&1', recalc)
             else:
                 self.assertEqual(roles.count('fill_render_batch'), 1)
+                self.assertEqual(roles.count('validate_mapping'), 1)
+                self.assertEqual(roles.count('write_helper'), 2)
+                self.assertEqual(len(roles), 21)
+                self.assertNotIn('verify_mapping_dryrun.py', json.dumps(recipe['key_operations']))
 
-    def test_frozen_pdf_subsets_have_coherent_hashes_and_oracles(self):
+    def test_full_pdf_preparation_and_selected_execution_are_frozen(self):
         for entry in read(ROOT / 'compatibility/suite.json')['entries']:
             if entry['record_count'] is None:
                 continue
@@ -41,17 +46,79 @@ class CompatibleWorkflowTests(unittest.TestCase):
             dataset = ROOT / recipe['source_path'] / 'datasets/pdf' / entry['dataset_id']
             self.assertEqual(read(dataset / 'manifest.json'), manifest)
             records = read(seed / 'input' / manifest['records'])[manifest['records_key']]
-            self.assertEqual(len(records), entry['record_count'])
+            self.assertEqual(len(records), 10)
+            self.assertEqual(recipe['prepared_record_count'], 10)
+            self.assertEqual(len(selected_records(manifest, records)), entry['record_count'])
             self.assertEqual(manifest['requirements']['record_count'], len(records))
             self.assertEqual(digest(dataset / manifest['expected_file']), manifest['expected_sha256'])
-            self.assertEqual(read(dataset / manifest['expected_file'])['summary_values']['filled_pdf_count'], len(records))
+            summary = read(dataset / manifest['expected_file'])['summary_values']
+            self.assertEqual(summary['filled_pdf_count'], entry['record_count'])
+            self.assertEqual(summary['field_values_count'], 10)
             for name, sha in manifest['input_files'].items():
                 self.assertEqual(digest(dataset / name), sha)
                 self.assertEqual(digest(seed / name), sha)
             parent = read(ROOT / 'assets/cases' / entry['dataset_id'] / 'seed/input/dataset_manifest.json')
             self.assertEqual(parent['requirements']['record_count'], 10)
             original_records = read(ROOT / 'assets/cases' / entry['dataset_id'] / 'seed/input' / parent['records'])
-            self.assertEqual(records, original_records[parent['records_key']][:entry['record_count']])
+            self.assertEqual(records, original_records[parent['records_key']])
+            self.assertEqual(digest(seed / 'input' / manifest['records']), parent['input_files']['input/' + parent['records']])
+            self.assertEqual(digest(dataset / 'records_contract.json'), parent['records_contract_sha256'])
+
+    def test_invalid_pdf_selection_is_rejected(self):
+        records = [{'id': 'first'}, {'id': 'second'}]
+        for ids, count in [([], 0), (['second'], 1), (['first', 'first'], 2), (['first'], 2), (['missing'], 1)]:
+            with self.subTest(ids=ids, count=count), self.assertRaises(ValueError):
+                selected_records({'pdf_execution': {'record_ids': ids, 'record_count': count}}, records)
+
+    def test_native_loop_runs_once_before_final_acceptance_and_archive(self):
+        self._exercise_native_series()
+
+    def test_failed_or_incomplete_native_series_never_passes_on_last_success(self):
+        for defect in ('earlier_failure', 'missing_event', 'wrong_recipe', 'acceptance_failure'):
+            with self.subTest(defect=defect):
+                self._exercise_native_series(defect)
+
+    def _exercise_native_series(self, defect=None):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            workspace = root / 'workspace'
+            write(workspace / 'output/result.json', {'value': 1})
+            recipe = {'case_kind': 'pdf', 'source_path': 'source', 'workspace': str(workspace), 'parent': {}}
+            write(root / 'recipe.json', recipe)
+            entry = {'dataset_id': 'irs_w4', 'variant_id': 'irs_w4-n1', 'recipe_path': 'recipe.json', 'recipe_sha256': digest(root / 'recipe.json')}
+            calls = []
+            def execute(command, check):
+                calls.append(command)
+                destination = root / 'results/irs_w4-n1/series'
+                self.assertFalse((destination / 'workspace_artifacts').exists())
+                if '--native-child' in command:
+                    self.assertEqual(command[command.index('--loops') + 1], '3')
+                    summary = {'requested_iterations': 3, 'completed_iterations': 3, 'successes': 3,
+                               'failures': 0, 'interrupted': False, 'recipe_sha256': entry['recipe_sha256']}
+                    events = [{'iteration': i, 'status': 'success'} for i in range(1, 4)]
+                    if defect == 'earlier_failure':
+                        summary.update(successes=2, failures=1)
+                        events[0]['status'] = 'failed'
+                    elif defect == 'missing_event':
+                        events.pop(0)
+                    elif defect == 'wrong_recipe':
+                        summary['recipe_sha256'] = 'wrong'
+                    write(destination / 'pdf/native/summary.json', summary)
+                    (destination / 'pdf/native/iterations.jsonl').write_text(''.join(json.dumps(e) + '\n' for e in events))
+                else:
+                    self.assertEqual(len(calls), 2)
+                    write(destination / 'independent_verification.json',
+                          {'status': 'failed' if defect == 'acceptance_failure' else 'success',
+                           'failures': ['bad_mapping'] if defect == 'acceptance_failure' else []})
+            with patch('replay.compatible.ROOT', root), patch('replay.compatible.subprocess.run', side_effect=execute):
+                result = run_dataset(entry, root / 'results', 3, True, 'venv')
+            self.assertEqual(sum('--native-child' in c for c in calls), 1)
+            self.assertEqual(result['status'], 'failed' if defect else 'success')
+            self.assertEqual(len(calls), 1 if defect in ('earlier_failure', 'missing_event', 'wrong_recipe') else 2)
+            if not defect:
+                self.assertEqual(len(result['native_iterations']), 3)
+                self.assertEqual(result['archive_scope'], 'final_iteration_only')
+                self.assertTrue((root / 'results/irs_w4-n1/series/workspace_artifacts/output/result.json').is_file())
 
     def test_active_helpers_are_written_inside_native_build_phase(self):
         for entry in read(ROOT / 'compatibility/suite.json')['entries']:

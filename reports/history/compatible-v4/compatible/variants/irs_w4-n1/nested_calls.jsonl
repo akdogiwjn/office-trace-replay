@@ -1,0 +1,8 @@
+{"ts": 1791636419.210538, "parent": "convert_pdf_to_images.py", "child": "pdfinfo input/fw4_2026.pdf", "seconds": 0.012742}
+{"ts": 1791636419.219354, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -v", "seconds": 0.008687}
+{"ts": 1791636419.4290326, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -r 200 input/fw4_2026.pdf -f 1 -l 5", "seconds": 0.209586}
+{"ts": 1791636420.4416778, "parent": "run_batch_fill_render.py", "child": "fill_fillable_fields.py", "seconds": 0.468192}
+{"ts": 1791636420.5030725, "parent": "convert_pdf_to_images.py", "child": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/fill", "seconds": 0.015249}
+{"ts": 1791636420.5121195, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -v", "seconds": 0.00893}
+{"ts": 1791636420.7227051, "parent": "convert_pdf_to_images.py", "child": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/out", "seconds": 0.210489}
+{"ts": 1791636421.17568, "parent": "run_batch_fill_render.py", "child": "convert_pdf_to_images.py", "seconds": 0.733911}

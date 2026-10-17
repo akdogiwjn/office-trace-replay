@@ -251,7 +251,8 @@ def verify(manifest_path, workspace, report_path=None, *, deferred_outputs=()):
             else:
                 verify_xlsx(manifest, expected, workspace, checks, deferred_outputs)
         else:
-            verify_pdf(manifest, expected, workspace, checks)
+            from .compatible_pdf import verify_pdf as verify_prepared_pdf
+            verify_prepared_pdf(manifest, expected, workspace, checks)
     except Exception as exc:
         checks.add('verification_exception', False, f'{type(exc).__name__}: {exc}')
     finally:

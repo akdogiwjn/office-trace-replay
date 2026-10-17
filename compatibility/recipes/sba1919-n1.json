@@ -18,7 +18,7 @@
       "operation_id": "PDF-P01-inspect_prepare",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_skill",
           "tool_call": {
             "function_name": "read",
@@ -28,7 +28,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_skill",
           "tool_call": {
             "function_name": "read",
@@ -38,7 +38,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_verifier",
           "tool_call": {
             "function_name": "read",
@@ -48,7 +48,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_tool",
           "tool_call": {
             "function_name": "read",
@@ -58,7 +58,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_tool",
           "tool_call": {
             "function_name": "read",
@@ -68,7 +68,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_tool",
           "tool_call": {
             "function_name": "read",
@@ -78,7 +78,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_tool",
           "tool_call": {
             "function_name": "read",
@@ -88,7 +88,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "prepare",
           "tool_call": {
             "function_name": "exec",
@@ -98,7 +98,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "check_fields",
           "tool_call": {
             "function_name": "exec",
@@ -108,7 +108,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "inspect_log",
           "tool_call": {
             "function_name": "exec",
@@ -118,7 +118,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "extract_fields",
           "tool_call": {
             "function_name": "exec",
@@ -128,7 +128,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "inspect_schema",
           "tool_call": {
             "function_name": "read",
@@ -138,7 +138,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "render_template",
           "tool_call": {
             "function_name": "exec",
@@ -153,7 +153,7 @@
       "operation_id": "PDF-P02-build",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "write_helper",
           "tool_call": {
             "function_name": "write",
@@ -164,18 +164,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
-          "role": "write_helper",
-          "tool_call": {
-            "function_name": "write",
-            "arguments": {
-              "path": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/helpers/verify_mapping_dryrun.py",
-              "content": "#!/usr/bin/env python3\n\"\"\"Pre-fill dry run: replicate the verifier's mapping contract WITHOUT invoking\nthe fill script, so the normal fill invocations never fail or need repair.\n\nChecks, per record:\n  * the emitted field-id set exactly equals the manifest rule field-id set\n  * each item's page equals the actual schema page\n  * no protected field is present\n  * each value matches the manifest-derived expectation (leading '/' ignored)\n\"\"\"\nimport json\nimport sys\nfrom pathlib import Path\n\nWS = Path(__file__).resolve().parents[1]\nsys.path.insert(0, str(WS))\nMANIFEST = WS / 'input/dataset_manifest.json'\nRECORDS = WS / 'input/synthetic_applicants.json'\nFIELD_INFO = WS / 'output/form_field_info.json'\nVALUES = WS / 'output/field_values'\n\n\ndef pv(value):\n    return '' if value is None else str(value).lstrip('/')\n\n\ndef expected_pdf_fields(record, records_data, rules):\n    values = {}\n    for rule in rules:\n        if 'constant' in rule:\n            value = rule['constant']\n        else:\n            data = records_data if rule.get('source') == 'shared' else record\n            for part in rule['value_from'].split('.'):\n                data = data[part]\n            value = data\n        if 'choices' in rule:\n            key = str(value).lower() if isinstance(value, bool) else str(value)\n            value = rule['choices'][key]\n        values[rule['field_id']] = value\n    return values\n\n\ndef main():\n    manifest = json.loads(MANIFEST.read_text())\n    req = manifest['requirements']\n    records_data = json.loads(RECORDS.read_text())\n    records = records_data[manifest['records_key']]\n    schema = {f['field_id']: f for f in json.loads(FIELD_INFO.read_text())}\n    rules_by_id = {r['field_id']: r for r in req['field_rules']}\n    protected = set(req['protected_blank'])\n\n    failures = []\n    for record in records:\n        rid = record['id']\n        values = json.loads((VALUES / (rid + '.json')).read_text())\n        by_id = {v['field_id']: v for v in values}\n        wanted = expected_pdf_fields(record, records_data, req['field_rules'])\n        if len(by_id) != len(values):\n            failures.append(f'{rid}: duplicate field ids')\n        if set(by_id) != set(wanted):\n            failures.append(f'{rid}: field set mismatch '\n                            f'missing={sorted(set(wanted) - set(by_id))} '\n                            f'extra={sorted(set(by_id) - set(wanted))}')\n        for fid, exp in wanted.items():\n            item = by_id.get(fid)\n            if item is None:\n                continue\n            if pv(item.get('value')) != pv(exp):\n                failures.append(f'{rid}: value mismatch {fid!r} {item.get(\"value\")!r} != {exp!r}')\n            if item['page'] != schema[fid]['page']:\n                failures.append(f'{rid}: page mismatch {fid!r} {item[\"page\"]} != {schema[fid][\"page\"]}')\n        if set(by_id) & protected:\n            failures.append(f'{rid}: protected fields present {sorted(set(by_id) & protected)}')\n\n    if failures:\n        print('DRY RUN FAILED')\n        for f in failures:\n            print(' -', f)\n        sys.exit(1)\n    print(f'DRY RUN OK: {len(records)} records, '\n          f'{len(req[\"field_rules\"])} mapped fields each, 0 protected fields')\n\n\nif __name__ == '__main__':\n    main()\n"
-            }
-          }
-        },
-        {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "build",
           "tool_call": {
             "function_name": "exec",
@@ -185,23 +174,23 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "validate_mapping",
           "tool_call": {
             "function_name": "exec",
             "arguments": {
-              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && python3 helpers/verify_mapping_dryrun.py"
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && python3 -c \"import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')\""
             }
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "write_helper",
           "tool_call": {
             "function_name": "write",
             "arguments": {
               "path": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/run_batch_fill_render.py",
-              "content": "\"\"\"The old fill/render subprocess pattern, with manifest paths and record IDs.\"\"\"\nimport json\nfrom pathlib import Path\nimport subprocess\n\nWS = Path.cwd()\nmanifest = json.loads((WS / 'input/dataset_manifest.json').read_text())\nrecords = json.loads((WS / 'input' / manifest['records']).read_text())[manifest['records_key']]\nskill = Path('/root/.openclaw/skills/pdf')\nfor record in records:\n    ident = record['id']\n    filled = WS / 'output/filled' / (ident + '.pdf')\n    rendered = WS / 'output/rendered' / ident\n    filled.parent.mkdir(parents=True, exist_ok=True)\n    rendered.mkdir(parents=True, exist_ok=True)\n    for command in (\n        ['python3', str(skill / 'scripts/fill_fillable_fields.py'),\n         str(WS / 'input' / manifest['form']), str(WS / 'output/field_values' / (ident + '.json')), str(filled)],\n        ['python3', str(skill / 'scripts/convert_pdf_to_images.py'), str(filled), str(rendered)],\n    ):\n        result = subprocess.run(command, capture_output=True, text=True, cwd=skill)\n        if result.returncode:\n            raise RuntimeError(f'{ident}: {command[1]}: {result.stderr}')\n    print('filled and rendered', ident)\n"
+              "content": "\"\"\"The old fill/render subprocess pattern, with manifest paths and record IDs.\"\"\"\nimport json\nimport os\nfrom pathlib import Path\nimport subprocess\n\nWS = Path.cwd()\nmanifest = json.loads((WS / 'input/dataset_manifest.json').read_text())\nrecords = json.loads((WS / 'input' / manifest['records']).read_text())[manifest['records_key']]\nselection = manifest['pdf_execution']\ncount = int(os.environ.get('DOCUMENT_BENCH_PDF_APPLICANT_COUNT', str(selection['record_count'])))\nif count != selection['record_count'] or [r['id'] for r in records[:count]] != selection['record_ids']:\n    raise ValueError('PDF runtime selection differs from the frozen execution contract')\nrecords = records[:count]\nskill = Path('/root/.openclaw/skills/pdf')\nfor record in records:\n    ident = record['id']\n    filled = WS / 'output/filled' / (ident + '.pdf')\n    rendered = WS / 'output/rendered' / ident\n    filled.parent.mkdir(parents=True, exist_ok=True)\n    rendered.mkdir(parents=True, exist_ok=True)\n    for command in (\n        ['python3', str(skill / 'scripts/fill_fillable_fields.py'),\n         str(WS / 'input' / manifest['form']), str(WS / 'output/field_values' / (ident + '.json')), str(filled)],\n        ['python3', str(skill / 'scripts/convert_pdf_to_images.py'), str(filled), str(rendered)],\n    ):\n        result = subprocess.run(command, capture_output=True, text=True, cwd=skill)\n        if result.returncode:\n            raise RuntimeError(f'{ident}: {command[1]}: {result.stderr}')\n    print('filled and rendered', ident)\n"
             }
           }
         }
@@ -211,7 +200,7 @@
       "operation_id": "PDF-P03-process_publish",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "fill_render_batch",
           "tool_call": {
             "function_name": "exec",
@@ -221,7 +210,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "write_summary",
           "tool_call": {
             "function_name": "exec",
@@ -236,7 +225,7 @@
       "operation_id": "PDF-P04-verify_deliver",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "semantic_verification",
           "tool_call": {
             "function_name": "exec",
@@ -246,7 +235,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "check_deliverables",
           "tool_call": {
             "function_name": "exec",
@@ -262,6 +251,7 @@
   "seed_path": "compatibility/cases/sba1919-n1/seed",
   "source_path": "compatibility/cases/sba1919-n1/source",
   "record_count": 1,
+  "prepared_record_count": 10,
   "operation_timeout": 300,
   "recalc_timeout": 180,
   "requires_llm": false,
@@ -314,17 +304,19 @@
       "poppler": "pdftoppm version 24.02.0"
     }
   },
-  "contract_sha256": "a8ddcbc044bebadabae7c7b87ae134eab3c960199cb80a761e6cfb6925b330d3",
+  "contract_sha256": "35d59b089a3c8c0675d72dca7af4f4cdeb46b2963c22c9a3d29493e70e3b00f8",
   "adaptations": [
     "Use original native executor, original Skill tools and original runtime/timing boundaries.",
-    "Explicit frozen 1-record variant; no changes to original 10-record input.",
-    "One subprocess batch driver alternates fill/render per record, matching the old driver pattern."
+    "Prepare all ten original mappings; explicitly fill/render first 1 records.",
+    "Same field-ID precheck for both new PDFs; complete mapping checks remain in final verification.",
+    "One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.",
+    "Private verifier checks all prepared mappings and exactly the selected PDFs/renders."
   ],
   "prompt_path": "compatibility/prompts/pdf.txt",
-  "prompt_sha256": "cfb8eebf2b31dc214f4795c9c6092f82e63310ba1555ac188e8ab51129fb3a81",
+  "prompt_sha256": "77af5677bf35e97fa240147e5f0cb34e132f4890d6e24d91904f1a084c272d65",
   "input_hashes": {
-    "input/dataset_manifest.json": "8636635459d5e9c69740c6d57826f88d28ce7dffdc93f99805531f7dd7e2faf3",
-    "input/synthetic_applicants.json": "90a1aa56a98bdbfb105bc4aa7eca4f89219a58f6019c987cd74163fb2b10a5c2",
+    "input/dataset_manifest.json": "d1e1f339237156211746025b491731e0feb6f6690c4301163ca0e4e7150be1c6",
+    "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
     "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
     "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
     "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"

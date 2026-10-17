@@ -1,0 +1,28 @@
+{
+  "abstraction": "steps",
+  "completed_iterations": 1,
+  "elapsed_seconds": 4.037585,
+  "events_file": "/results/compatible-20261010T124658Z-a3de4469/sba1919-n1/0001/pdf/20261010T124702Z-pid3118/iterations.jsonl",
+  "failures": 0,
+  "finished_at": "2026-10-10T12:47:06.657+00:00",
+  "interrupted": false,
+  "operation_timeout_seconds": 300,
+  "pdf_applicant_count": 1,
+  "recalc_timeout_seconds": 180,
+  "recipe": "/opt/office-trace-replay/compatibility/recipes/sba1919-n1.json",
+  "recipe_sha256": "33fb5efd42eb3c6172d9894706fa855241a555abe39a6ca692401200a69bc4a9",
+  "requested_iterations": 1,
+  "run_id": "20261010T124702Z-pid3118",
+  "scene": "pdf",
+  "schema_version": "document-step-scene-loop-v2",
+  "seed": "/opt/office-trace-replay/compatibility/cases/sba1919-n1/seed",
+  "started_at": "2026-10-10T12:47:02.619+00:00",
+  "step_order": [
+    "PDF-P01-inspect_prepare",
+    "PDF-P02-build",
+    "PDF-P03-process_publish",
+    "PDF-P04-verify_deliver"
+  ],
+  "successes": 1,
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01"
+}

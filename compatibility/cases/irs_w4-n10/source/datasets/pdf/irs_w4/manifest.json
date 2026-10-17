@@ -152,7 +152,9 @@
     "rendered_page_count": 55,
     "ssn_and_signatures_left_blank": true,
     "fill_script_invocations": 10,
-    "render_script_invocations": 11
+    "render_script_invocations": 11,
+    "prepared_record_count": 10,
+    "field_values_count": 10
   },
   "summary_aliases": {
     "input_form": [
@@ -174,7 +176,7 @@
     "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc"
   },
   "expected_file": "expected.json",
-  "expected_sha256": "a0e812d7c63f7ea808a53ffc67606a84a779615792fb3ab1ef10653df0fe551f",
+  "expected_sha256": "48b8598d3984d7d1ff7a8226a464ca49fe240dca09f59375da2076081e8947a7",
   "prompt_template": "pdf.txt",
   "prompt_template_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
   "runtime_case": "SUB-MEM-PDF-IRSW4-01",
@@ -212,5 +214,27 @@
   },
   "revision": "Form W-4, 2026",
   "records_contract_sha256": "3aac32e0c07470f413d5ee07665220b4361eef04a193522e248b21485b3ff8ad",
-  "provenance_sha256": "2ad241889efe8c3d673fae3285bbe3d3804404eb37598b03eb368412b307c4a9"
+  "provenance_sha256": "2ad241889efe8c3d673fae3285bbe3d3804404eb37598b03eb368412b307c4a9",
+  "pdf_execution": {
+    "record_count": 10,
+    "record_ids": [
+      "employee_01",
+      "employee_02",
+      "employee_03",
+      "employee_04",
+      "employee_05",
+      "employee_06",
+      "employee_07",
+      "employee_08",
+      "employee_09",
+      "employee_10"
+    ],
+    "selection": "first records in frozen input order"
+  },
+  "compatibility_variant": {
+    "id": "irs_w4-n10",
+    "method": "prepare all records; execute selected prefix",
+    "parent_manifest_sha256": "ea7e0817247d77740b4c5d46330f981b53814dd91ca28079cd824aa0650404f9",
+    "verifier_sha256": "7725b27d634fc2a88abc8fd20516e38efda83302efb75142ba4eae2eafb64afb"
+  }
 }

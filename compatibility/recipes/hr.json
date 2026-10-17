@@ -18,7 +18,7 @@
       "operation_id": "XLSX-P01-inspect_prepare",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_skill",
           "tool_call": {
             "function_name": "read",
@@ -28,7 +28,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "read_verifier",
           "tool_call": {
             "function_name": "exec",
@@ -38,7 +38,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "copy_input",
           "tool_call": {
             "function_name": "exec",
@@ -48,7 +48,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "inspect_workbook",
           "tool_call": {
             "function_name": "exec",
@@ -58,7 +58,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "inspect_workbook",
           "tool_call": {
             "function_name": "exec",
@@ -73,7 +73,7 @@
       "operation_id": "XLSX-P02-build",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "write_helper",
           "tool_call": {
             "function_name": "write",
@@ -84,7 +84,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "write_helper",
           "tool_call": {
             "function_name": "write",
@@ -95,7 +95,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "build",
           "tool_call": {
             "function_name": "exec",
@@ -110,7 +110,7 @@
       "operation_id": "XLSX-P03-process_publish",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "recalculate",
           "tool_call": {
             "function_name": "exec",
@@ -120,7 +120,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "source_preservation",
           "tool_call": {
             "function_name": "exec",
@@ -130,7 +130,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "inspect_workbook",
           "tool_call": {
             "function_name": "exec",
@@ -140,7 +140,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "inspect_workbook",
           "tool_call": {
             "function_name": "exec",
@@ -150,7 +150,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "inspect_log",
           "tool_call": {
             "function_name": "exec",
@@ -160,7 +160,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "export_csv",
           "tool_call": {
             "function_name": "exec",
@@ -175,7 +175,7 @@
       "operation_id": "XLSX-P04-verify_deliver",
       "source_tool_calls": [
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "semantic_verification",
           "tool_call": {
             "function_name": "exec",
@@ -185,7 +185,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "write_summary",
           "tool_call": {
             "function_name": "exec",
@@ -195,7 +195,7 @@
           }
         },
         {
-          "adaptation": "document-oe-compatible-workflow-v1",
+          "adaptation": "document-oe-compatible-workflow-v2",
           "role": "check_deliverables",
           "tool_call": {
             "function_name": "exec",
@@ -211,6 +211,7 @@
   "seed_path": "compatibility/cases/hr/seed",
   "source_path": "compatibility/cases/hr/source",
   "record_count": null,
+  "prepared_record_count": null,
   "operation_timeout": 900,
   "recalc_timeout": 600,
   "requires_llm": false,
@@ -261,7 +262,7 @@
       "poppler": "pdftoppm version 24.02.0"
     }
   },
-  "contract_sha256": "a8ddcbc044bebadabae7c7b87ae134eab3c960199cb80a761e6cfb6925b330d3",
+  "contract_sha256": "35d59b089a3c8c0675d72dca7af4f4cdeb46b2963c22c9a3d29493e70e3b00f8",
   "adaptations": [
     "Use original native executor, original Skill tools and original runtime/timing boundaries.",
     "One build and one original recalc; retain clean build instead of rebuilding.",
@@ -269,7 +270,7 @@
     "Export actual manifest metric/projection values to metrics.csv/scenario.csv; no fabricated TLC sheets."
   ],
   "prompt_path": "compatibility/prompts/xlsx.txt",
-  "prompt_sha256": "df57016cb22fa6ee19b268f369d64d6061f45eb99063d20393b04c0b11f48642",
+  "prompt_sha256": "d11c6e60336d691aceb23f8b57eb48652e7fc1531a2b2f61570afea4f4b24a93",
   "input_hashes": {
     "input/national_M2025_dl.xlsx": "852250997ceff9b721ff68f63e877d818f9c1ec8b1b69dd367958faedd5282b2",
     "input/dataset_manifest.json": "0342aee27f185225d32ad21dd4b4aa6b668c4aa82eeaf90430eae74e485557b1",

@@ -10,7 +10,7 @@
   "requirements": {
     "page_count": 5,
     "field_count": 48,
-    "record_count": 1,
+    "record_count": 10,
     "field_rules": [
       {
         "semantic": "first_name",
@@ -152,7 +152,9 @@
     "rendered_page_count": 10,
     "ssn_and_signatures_left_blank": true,
     "fill_script_invocations": 1,
-    "render_script_invocations": 2
+    "render_script_invocations": 2,
+    "prepared_record_count": 10,
+    "field_values_count": 10
   },
   "summary_aliases": {
     "input_form": [
@@ -171,10 +173,10 @@
   "input_files": {
     "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
     "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
-    "input/synthetic_employees.json": "4e2fd54e84808ded658fbb2b6ff75c192df6ec95d03e9a0573a695675b053a99"
+    "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc"
   },
   "expected_file": "expected.json",
-  "expected_sha256": "b8154e6e43ab287fdf4913e9435801fe049cf80deeaaace23b123267a4725d12",
+  "expected_sha256": "971312b8c670281d2fff63e86cf19f08578c3cb74c5e00822da638492f6f5bf0",
   "prompt_template": "pdf.txt",
   "prompt_template_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
   "runtime_case": "SUB-MEM-PDF-IRSW4-01",
@@ -211,11 +213,19 @@
     "official_form_modified": false
   },
   "revision": "Form W-4, 2026",
-  "records_contract_sha256": "7f1a675466b0c39fb4e759166e926b3a965c7efe404f0c040f5efde7f45911b7",
+  "records_contract_sha256": "3aac32e0c07470f413d5ee07665220b4361eef04a193522e248b21485b3ff8ad",
   "provenance_sha256": "2ad241889efe8c3d673fae3285bbe3d3804404eb37598b03eb368412b307c4a9",
+  "pdf_execution": {
+    "record_count": 1,
+    "record_ids": [
+      "employee_01"
+    ],
+    "selection": "first records in frozen input order"
+  },
   "compatibility_variant": {
     "id": "irs_w4-n1",
-    "method": "first-record subset",
-    "parent_manifest_sha256": "ea7e0817247d77740b4c5d46330f981b53814dd91ca28079cd824aa0650404f9"
+    "method": "prepare all records; execute selected prefix",
+    "parent_manifest_sha256": "ea7e0817247d77740b4c5d46330f981b53814dd91ca28079cd824aa0650404f9",
+    "verifier_sha256": "7725b27d634fc2a88abc8fd20516e38efda83302efb75142ba4eae2eafb64afb"
   }
 }

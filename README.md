@@ -12,13 +12,13 @@
 mkdir -p results
 # 直接执行原程序；只换镜像名，不经过新工具执行器。
 docker run --rm --network none --entrypoint /opt/document-bench/.venv/bin/python \
-  -v "$PWD/results:/results" office-trace-replay:openeuler-v4 \
+  -v "$PWD/results:/results" office-trace-replay:openeuler-v5 \
   /opt/document-bench/bin/run_document_scene_loop.py \
   --scene pdf --loops 1 --results-dir /results
 
 # 原计时入口也完全保留。
 docker run --rm --network none --entrypoint /opt/document-bench/.venv/bin/python \
-  -v "$PWD/results:/results" office-trace-replay:openeuler-v4 \
+  -v "$PWD/results:/results" office-trace-replay:openeuler-v5 \
   /opt/document-bench/bin/run_document_scene_loop_timed.py \
   --scene xlsx --loops 1 --results-dir /results
 ```
@@ -31,9 +31,9 @@ docker run --rm --network none --entrypoint /opt/document-bench/.venv/bin/python
 make replay DATASET=pdf
 make replay DATASET=xlsx
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v4 --scene pdf --loops 1 --pdf-applicant-count 10 --results-dir /results
+  office-trace-replay:openeuler-v5 --scene pdf --loops 1 --pdf-applicant-count 10 --results-dir /results
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v4 --scene xlsx --loops 1 --timed --results-dir /results
+  office-trace-replay:openeuler-v5 --scene xlsx --loops 1 --timed --results-dir /results
 # 默认 Python 3.12.3；需要历史系统模式时：--legacy-python system
 ```
 
@@ -41,7 +41,7 @@ docker run --rm --network none -v "$PWD/results:/results" \
 
 ## 新输入与兼容旧流程的回放
 
-五个新增输入默认使用 `compatibility/recipes/` 的配方，绑定父 canonical trace、输入、helper、兼容 contract 和 Prompt 哈希。helper 在原 build 阶段写入并执行；使用原 PDF 工具和原 XLSX `recalc.py`。HR 只构建一次，三个 XLSX 都将保护源数据所需的缓存装配明确保留为额外操作。输入表格保留自己的结构。
+五个新增输入默认使用 `compatibility/recipes/` 的配方，绑定父 canonical trace、输入、helper、兼容 contract 和 Prompt 哈希。helper 在原 build 阶段写入并执行；新旧均由原执行器在同一进程中连续循环，新增用例的额外独立验收和归档仅在全部轮次成功后进行；使用原 PDF 工具和原 XLSX `recalc.py`。HR 只构建一次，三个 XLSX 都将保护源数据所需的缓存装配明确保留为额外操作。输入表格保留自己的结构。
 
 这是从已有 Agent trace 适配的 replay recipe，没有再次调用 LLM，也不是新的 Agent trajectory。业务 helper/verifier、原始输入复杂度和必要的源内容保护仍不同，不能仅凭成功回放声称代表性已获证明。详细边界和剩余差异见 [compatible-workflow.md](docs/compatible-workflow.md) 与 `reports/workflow-alignment.json`。
 
@@ -49,13 +49,13 @@ docker run --rm --network none -v "$PWD/results:/results" \
 make replay DATASET=retail
 # 默认七用例：先原 PDF/XLSX，再五个新增用例。
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v4 --loops 1
+  office-trace-replay:openeuler-v5 --loops 1
 # 新旧两侧使用原计时方式，PDF 默认都执行一条 fill/render。
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v4 --loops 1 --timed
-# 明确选择十条记录比较，原有十条 records 保留，单条 variant 独立冻结。
+  office-trace-replay:openeuler-v5 --loops 1 --timed
+# 明确选择十条记录比较，两个模式均准备十份 mapping，仅填写/渲染数量分别为一条和十条。
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v4 --dataset pdf --dataset irs_w4 \
+  office-trace-replay:openeuler-v5 --dataset pdf --dataset irs_w4 \
   --dataset sba1919 --pdf-applicant-count 10 --loops 1 --timed
 ```
 
@@ -69,14 +69,20 @@ make validate
 make image
 ```
 
-离线基于本地固定 `document-oe-snapshot:20260827` 构建；保留原 Python、系统库、LibreOffice 和 Poppler。兼容模式的旧、新用例默认均使用原 venv Python 3.12.3，可同时显式选择系统 3.11.6。两侧使用原 recalc.py 的 profile 逻辑，均不启用新 soffice 包装器。历史 `derived-v1` 模式仍使用其原 venv/profile 包装器。
+离线基于本地固定 `office-trace-replay:openeuler-v4` 构建（原 snapshot 已不在本地，v4 是已验收且 ID 冻结的后继镜像）；保留原 Python、系统库、LibreOffice 和 Poppler。兼容模式的旧、新用例默认均使用原 venv Python 3.12.3，可同时显式选择系统 3.11.6。两侧使用原 recalc.py 的 profile 逻辑，均不启用新 soffice 包装器。历史 `derived-v1` 模式仍使用其原 venv/profile 包装器。
 
 完整原始资产冻结、输入/配方关联和环境版本见 `legacy/document-oe/lock.json`、`assets/project-lock.json`、`runtime/environment-lock.json`。构建及当前恢复验收见 `reports/`；旧 v1 的成功报告只能证明其衍生配方通过，不能证明旧 document-oe 执行相同。项目仍未开展 CPU/OS 性能实验。
 
-旧 v2 的验收记录冻结在 `reports/history/native-v2/`；该版本只保留了旧执行，新增用例仍采用历史衍生流程。当前兼容版本的状态以 `reports/status.json`、`reports/qualification.json` 为准。
+旧 v2 的验收记录冻结在 `reports/history/native-v2/`；该版本只保留了旧执行，新增用例仍采用历史衍生流程。v4 默认 Python 3.12.3 的历史验收保留在 `reports/history/compatible-v4/`。当前兼容版本的状态以 `reports/status.json`、`reports/qualification.json` 为准。
 
 默认解释器修改前的系统 Python 3.11.6 验收及镜像信息完整保留在 `reports/history/compatible-v3/`。当前 Python 3.12.3 默认模式的验收状态见 `reports/status.json` 与 `reports/qualification.json`。
 
-2026-10-10 已完成默认 **Python 3.12.3** 模式的功能回归：七个默认用例全部通过；原 PDF 与新增 W-4/SBA 的十条记录模式均通过。新镜像安装的 45 个旧文件内容与权限保持一致。独立 checkout 测试为 **16 passed / 0 skipped / 0 failed / 0 errors**。
+当前使用 `document-oe-compatible-workflow-v2`：PDF 两个新用例均保留十条原始 records，生成十份字段 JSON，按冻结的 execution selection 处理一条或十条；SBA 与 W-4 共用字段 ID 预检查，最终 verifier 检查全部 mapping 及选中的 PDF/PNG。新增用例的 `--loops N` 只启动一次原执行器，由其完成 N 轮。所有轮次保留原运行日志，只有最后一轮的产物在循环结束后额外验收并归档。
 
-当前镜像 `office-trace-replay:openeuler-v4`，image ID `sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990`。验收使用原 timed wrapper；plain 和显式 system 模式保留，本次未实跑所有组合。验收报告在构建后写入仓库 `reports/`，以其中绑定的 image ID 为准。
+新版功能验收信息以仓库 `reports/qualification.json` 绑定的镜像 ID 为准；报告在镜像构建后生成。
+
+2026-10-17 v5 功能验收完成：五个新增输入的七个 variant 均连续两轮通过；旧 PDF 的一条/十条模式均连续两轮通过。单条模式仍生成十份 mapping，实际填充/渲染次数由原调用日志核对。独立 checkout 测试 **19 passed / 0 skipped / 0 failed / 0 errors**；PDF 的 2 个正确样本及 14 个故意破坏样本均得到预期结果。
+
+旧 TLC 的源码、输入、工具、入口和运行库未改动，v5 直接继承已验收的 v4；本次复核了镜像内 45 个旧文件的字节及权限，并复用 v4 的 TLC 成功记录，没有重复长时间运行。全部轮次保留原日志，仅归档最后一轮产物。
+
+当前镜像 `office-trace-replay:openeuler-v5`，image ID `sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793`。此次使用原 timed wrapper 核对调用与轮次，只做功能验收；未进行 CPU/OS 性能实验。

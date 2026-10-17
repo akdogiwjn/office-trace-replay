@@ -1,21 +1,53 @@
 {
-  "schema_version": "document-oe-compatible-workflow-v1",
+  "schema_version": "document-oe-compatible-workflow-v2",
   "purpose": "Test whether observations from the frozen original workloads recur on other native inputs under a shared execution workflow.",
   "original_baselines": "legacy/document-oe/lock.json",
   "originals_must_remain_byte_identical": true,
   "native_executor": "/opt/document-bench/bin/run_document_scene_loop.py",
   "native_timing_wrapper": "/opt/document-bench/bin/run_document_scene_loop_timed.py",
-  "python": {"default": "venv", "system_version": "3.11.6", "venv_version": "3.12.3"},
+  "python": {
+    "default": "venv",
+    "system_version": "3.11.6",
+    "venv_version": "3.12.3"
+  },
   "path_policy": "Original venv prefix by default for BOTH baselines and added workloads; explicit system mode restores original system PATH; never inject runtime/bin/soffice.",
   "skills_policy": "Use installed byte-preserved document-oe PDF/XLSX tools including its isolated-profile recalc.py.",
-  "stages": ["inspect_prepare", "build", "process_publish", "verify_deliver"],
-  "pdf": {"default_record_count": 1, "allowed_record_counts": [1, 10], "driver": "one Python batch driver, alternating one fill and one render per record", "template_render_count": 1},
-  "xlsx": {"build_invocations": 1, "recalc_invocations": 1, "recalc_timeout_seconds": 600, "operation_timeout_seconds": 900, "extra_preservation": "Necessary cache assembly and source empty-cell restoration remain explicit additional process_publish calls."},
+  "stages": [
+    "inspect_prepare",
+    "build",
+    "process_publish",
+    "verify_deliver"
+  ],
+  "pdf": {
+    "default_record_count": 1,
+    "allowed_record_counts": [
+      1,
+      10
+    ],
+    "driver": "one Python batch driver, alternating one fill and one render per record",
+    "template_render_count": 1,
+    "prepared_record_count": 10,
+    "selection": "Prepare all frozen records; fill/render first 1 or 10 according to variant and native parameter",
+    "mapping_precheck": "one common field-ID check; no separate SBA dry-run helper",
+    "verification": "Check all prepared mappings and exactly the selected PDFs and renders"
+  },
+  "xlsx": {
+    "build_invocations": 1,
+    "recalc_invocations": 1,
+    "recalc_timeout_seconds": 600,
+    "operation_timeout_seconds": 900,
+    "extra_preservation": "Necessary cache assembly and source empty-cell restoration remain explicit additional process_publish calls."
+  },
   "measurement": {
     "native_iteration": "Original run_iteration elapsed time includes workspace reset, four phases and original final status read.",
     "net_iteration": "Native iteration elapsed time minus native reset_seconds.",
     "stage_times": "Original native execute_step boundaries, including each phase's actual helper calls.",
-    "outside_native_iteration": ["hash validation", "environment probe", "independent acceptance", "output archival"],
+    "outside_native_iteration": [
+      "hash validation",
+      "environment probe",
+      "independent acceptance",
+      "output archival"
+    ],
     "verification_caveat": "Native verify_deliver is included, but dataset-specific semantic verifiers differ; compare it separately.",
     "instrumentation": "Either original plain mode for both sides or original timed wrapper for both sides. No per-call stdout redirection added."
   },
@@ -27,7 +59,24 @@
   },
   "interpretation": {
     "supported_question": "Does an observed bottleneck or system-configuration trend persist for other inputs using this workflow?",
-    "not_established_by_qualification": ["representativeness itself", "all Office or unconstrained Agent workloads", "strict industry-only causal comparison"],
-    "required_covariates": ["native workbook/PDF complexity", "record count", "dataset-specific helper work", "source-preservation work", "semantic verification work"]
+    "not_established_by_qualification": [
+      "representativeness itself",
+      "all Office or unconstrained Agent workloads",
+      "strict industry-only causal comparison"
+    ],
+    "required_covariates": [
+      "native workbook/PDF complexity",
+      "record count",
+      "dataset-specific helper work",
+      "source-preservation work",
+      "semantic verification work"
+    ]
+  },
+  "loop_policy": {
+    "native_processes_per_dataset": 1,
+    "native_loops": "requested loops, uninterrupted by outer acceptance or archival",
+    "native_business_verification": "every iteration",
+    "independent_acceptance": "once after all native iterations succeed",
+    "archive": "final iteration only; all native iteration logs retained"
   }
 }

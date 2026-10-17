@@ -13,7 +13,7 @@ from replay.common import digest, read, write
 DATASETS = ['irs_w4', 'sba1919', 'hr', 'manufacturing', 'retail']
 HELPERS = {
     'irs_w4': ['build_field_values.py'],
-    'sba1919': ['helpers/build_field_values.py', 'helpers/verify_mapping_dryrun.py'],
+    'sba1919': ['helpers/build_field_values.py'],
     'hr': ['helpers/build.py', 'helpers/patch.py'],
     'manufacturing': ['build_enhanced.py', 'inject_caches.py'],
     'retail': ['helpers/build_enhance.py', 'helpers/assemble_output.py'],
@@ -47,37 +47,46 @@ def main():
             if kind == 'pdf':
                 record_path = seed / 'input' / manifest['records']
                 records = read(record_path)
-                if count == 1:
-                    records[manifest['records_key']] = records[manifest['records_key']][:1]
-                    write(record_path, records)
-                    ds = source / 'datasets/pdf' / dataset
-                    shutil.copyfile(record_path, ds / 'input' / manifest['records'])
-                    expected = read(ds / manifest['expected_file'])
-                    summary = copy.deepcopy(manifest['summary_contract'])
-                    summary.update(applicant_count=1, filled_pdf_count=1,
-                                   rendered_page_count=manifest['requirements']['page_count'] * 2,
-                                   fill_script_invocations=1, render_script_invocations=2)
-                    expected['summary_values'] = summary
-                    write(ds / manifest['expected_file'], expected)
-                    manifest['expected_sha256'] = digest(ds / manifest['expected_file'])
-                    manifest['summary_contract'] = summary
-                    manifest['requirements']['record_count'] = 1
-                    manifest['input_files']['input/' + manifest['records']] = digest(record_path)
-                    rc_path = ds / 'records_contract.json'
-                    rc = read(rc_path)
-                    rc.update(record_count=1, records_sha256=digest(record_path),
-                              generation_method='First record of frozen original 10-record fixture; no regeneration',
-                              parent_records_sha256=original_manifest['input_files']['input/' + manifest['records']])
-                    array = rc['schema']['properties'][manifest['records_key']]
-                    array['minItems'] = array['maxItems'] = 1
-                    write(rc_path, rc)
-                    manifest['records_contract_sha256'] = digest(rc_path)
-                    manifest['compatibility_variant'] = {'id': variant, 'method': 'first-record subset',
-                        'parent_manifest_sha256': digest(old_seed / 'input/dataset_manifest.json')}
-                    write(ds / 'manifest.json', manifest)
-                    write(seed / 'input/dataset_manifest.json', manifest)
-                adaptations += [f'Explicit frozen {count}-record variant; no changes to original 10-record input.',
-                                'One subprocess batch driver alternates fill/render per record, matching the old driver pattern.']
+                if len(records[manifest['records_key']]) != 10:
+                    raise ValueError('compatible PDF preparation requires the frozen ten-record fixture')
+                ds = source / 'datasets/pdf' / dataset
+                expected = read(ds / manifest['expected_file'])
+                summary = copy.deepcopy(manifest['summary_contract'])
+                summary.update(applicant_count=count, filled_pdf_count=count,
+                               rendered_page_count=manifest['requirements']['page_count'] * (count + 1),
+                               fill_script_invocations=count, render_script_invocations=count + 1,
+                               prepared_record_count=10, field_values_count=10)
+                expected['summary_values'] = summary
+                write(ds / manifest['expected_file'], expected)
+                manifest['expected_sha256'] = digest(ds / manifest['expected_file'])
+                manifest['summary_contract'] = summary
+                manifest['pdf_execution'] = {
+                    'record_count': count,
+                    'record_ids': [r['id'] for r in records[manifest['records_key']][:count]],
+                    'selection': 'first records in frozen input order',
+                }
+                manifest['compatibility_variant'] = {'id': variant, 'method': 'prepare all records; execute selected prefix',
+                    'parent_manifest_sha256': digest(old_seed / 'input/dataset_manifest.json')}
+                # The original records, records contract, parent verifier and
+                # canonical trace remain unchanged. Only this private source
+                # dispatches to a verifier that distinguishes prepared/executed.
+                shutil.copyfile(ROOT / 'compatibility/verification/pdf.py',
+                                source / 'office_trace_bench/compatible_pdf.py')
+                verifier = source / 'office_trace_bench/verify.py'
+                original = verifier.read_text()
+                marker = '            verify_pdf(manifest, expected, workspace, checks)'
+                if original.count(marker) != 1:
+                    raise ValueError('unexpected parent PDF verifier dispatch')
+                verifier.write_text(original.replace(marker,
+                    '            from .compatible_pdf import verify_pdf as verify_prepared_pdf\n'
+                    '            verify_prepared_pdf(manifest, expected, workspace, checks)'))
+                manifest['compatibility_variant']['verifier_sha256'] = digest(source / 'office_trace_bench/compatible_pdf.py')
+                write(ds / 'manifest.json', manifest)
+                write(seed / 'input/dataset_manifest.json', manifest)
+                adaptations += [f'Prepare all ten original mappings; explicitly fill/render first {count} records.',
+                                'Same field-ID precheck for both new PDFs; complete mapping checks remain in final verification.',
+                                'One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.',
+                                'Private verifier checks all prepared mappings and exactly the selected PDFs/renders.']
             else:
                 adaptations += ['One build and one original recalc; retain clean build instead of rebuilding.',
                                 'Keep necessary formula-cache/source-content assembly as an explicit extra call.',
@@ -89,7 +98,7 @@ def main():
                      for i, phase in enumerate(phases, 1)]
             def add(stage, function, arguments, role):
                 steps[stage - 1]['source_tool_calls'].append({
-                    'adaptation': 'document-oe-compatible-workflow-v1', 'role': role,
+                    'adaptation': 'document-oe-compatible-workflow-v2', 'role': role,
                     'tool_call': {'function_name': function, 'arguments': arguments}})
             def command(stage, cmd, role):
                 add(stage, 'exec', {'command': f'cd {ws} && {cmd}'}, role)
@@ -120,10 +129,7 @@ def main():
                 write_helper(helper, (old_seed / helper).read_text())
             command(2, 'python3 ' + BUILD[dataset], 'build')
             if kind == 'pdf':
-                if dataset == 'sba1919':
-                    command(2, 'python3 helpers/verify_mapping_dryrun.py', 'validate_mapping')
-                else:
-                    command(2, "python3 -c \"import json,pathlib; m=json.load(open('input/dataset_manifest.json')); ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')\"", 'validate_mapping')
+                command(2, "python3 -c \"import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')\"", 'validate_mapping')
                 write_helper('run_batch_fill_render.py', (ROOT / 'compatibility/tools/pdf_batch.py').read_text())
                 command(3, 'python3 run_batch_fill_render.py', 'fill_render_batch')
                 command(3, 'python3 /opt/office-trace-replay/compatibility/tools/summary.py', 'write_summary')
@@ -163,6 +169,7 @@ def main():
                       'operation_count': 4, 'workflow': {'success_path': [s['operation_id'] for s in steps]},
                       'key_operations': steps, 'workspace': ws, 'seed_path': str(seed.relative_to(ROOT)),
                       'source_path': str(source.relative_to(ROOT)), 'record_count': count,
+                      'prepared_record_count': 10 if kind == 'pdf' else None,
                       'operation_timeout': 900 if kind == 'xlsx' else 300,
                       'recalc_timeout': 600 if kind == 'xlsx' else 180,
                       'requires_llm': False, 'classification': 'adapted_replay_recipe_not_new_agent_trace',

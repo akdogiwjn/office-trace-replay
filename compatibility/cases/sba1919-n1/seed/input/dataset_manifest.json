@@ -10,7 +10,7 @@
   "requirements": {
     "page_count": 7,
     "field_count": 127,
-    "record_count": 1,
+    "record_count": 10,
     "field_rules": [
       {
         "semantic": "business_name",
@@ -521,7 +521,9 @@
     "rendered_page_count": 14,
     "ssn_and_signatures_left_blank": true,
     "fill_script_invocations": 1,
-    "render_script_invocations": 2
+    "render_script_invocations": 2,
+    "prepared_record_count": 10,
+    "field_values_count": 10
   },
   "summary_aliases": {
     "input_form": [
@@ -540,10 +542,10 @@
   "input_files": {
     "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
     "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
-    "input/synthetic_applicants.json": "90a1aa56a98bdbfb105bc4aa7eca4f89219a58f6019c987cd74163fb2b10a5c2"
+    "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2"
   },
   "expected_file": "expected.json",
-  "expected_sha256": "f84ceccee3efe129a21b182890b7a04ba2b8331ffb17d5e132a5e132e7b56fb7",
+  "expected_sha256": "cbf476f922f2c722a149c557e55c4ba65f767327afdaba83cf843c00301c5f0d",
   "prompt_template": "pdf.txt",
   "prompt_template_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
   "runtime_case": "SUB-MEM-PDF-SBA1919-01",
@@ -580,11 +582,19 @@
     "evidence": "provenance.json"
   },
   "revision": "SBA Form 1919, 04/2024; expires 2027-06-30",
-  "records_contract_sha256": "3f0e31b6da591be8cd6db0fc03382cddd5fa03820f88d7bc47b4867be3d65380",
+  "records_contract_sha256": "ffe8a1b0989694a1a3309e2d18a89fc215edee20ae01409f9d8356bad3273698",
   "provenance_sha256": "37f4d496330f66c28d102edac2a62f095933d89b6156ab6d56c94607af5d3a77",
+  "pdf_execution": {
+    "record_count": 1,
+    "record_ids": [
+      "applicant_01"
+    ],
+    "selection": "first records in frozen input order"
+  },
   "compatibility_variant": {
     "id": "sba1919-n1",
-    "method": "first-record subset",
-    "parent_manifest_sha256": "2b65a2ca089abdf246fd9695cd539bb2890d6aaaa752083a352e4b2835e6b446"
+    "method": "prepare all records; execute selected prefix",
+    "parent_manifest_sha256": "2b65a2ca089abdf246fd9695cd539bb2890d6aaaa752083a352e4b2835e6b446",
+    "verifier_sha256": "7725b27d634fc2a88abc8fd20516e38efda83302efb75142ba4eae2eafb64afb"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "office-replay-public-suite-v4",
+  "schema_version": "office-replay-public-suite-v5",
   "datasets": [
     {
       "dataset_id": "pdf",
@@ -35,7 +35,7 @@
       "dataset_id": "irs_w4",
       "kind": "pdf",
       "recipe_path": "compatibility/recipes/irs_w4-n1.json",
-      "recipe_sha256": "6dae2b08d0df0e47be0301194cc5a5e825ad48a985d1673d7119bfb51ba28419",
+      "recipe_sha256": "e871d91aa2640e31f6d2ad4e9fb7e8a8606d28af5d00f747ec41e9ab2c5daf2a",
       "canonical_path": "assets/canonical/irs_w4",
       "canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
       "mode": "document_oe_compatible_adapter",
@@ -48,7 +48,7 @@
       "dataset_id": "sba1919",
       "kind": "pdf",
       "recipe_path": "compatibility/recipes/sba1919-n1.json",
-      "recipe_sha256": "33fb5efd42eb3c6172d9894706fa855241a555abe39a6ca692401200a69bc4a9",
+      "recipe_sha256": "b2202ecbf97930c72f2e8240d3e0ca0cc00693aeaae12262009408e58b510767",
       "canonical_path": "assets/canonical/sba1919",
       "canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
       "mode": "document_oe_compatible_adapter",
@@ -61,7 +61,7 @@
       "dataset_id": "hr",
       "kind": "xlsx",
       "recipe_path": "compatibility/recipes/hr.json",
-      "recipe_sha256": "abcf394e84e5ddab7a557c6b832cf685d513d9754d5832aab618298d4269a8ac",
+      "recipe_sha256": "0b1d3ca1987f2cc64476048129e1a266123018ffd5f31a305ef8bd019dd4ac46",
       "canonical_path": "assets/canonical/hr",
       "canonical_sha256": "648bef3f71a6e753c292a4916e6b7408a482d515f0cceabbf27c028704738a53",
       "mode": "document_oe_compatible_adapter",
@@ -74,7 +74,7 @@
       "dataset_id": "manufacturing",
       "kind": "xlsx",
       "recipe_path": "compatibility/recipes/manufacturing.json",
-      "recipe_sha256": "de114c5a74db7e0557137a66eeea6a13dadc1d51c623cf8f8f10722c68043931",
+      "recipe_sha256": "c1fd6356cf5b086108fadbbed47e0c10e06d12f6438454185e07d6f1614599fc",
       "canonical_path": "assets/canonical/manufacturing",
       "canonical_sha256": "7dd6a7f4b3476d354db7a8678438e8a3313f896b3350cbf6516ea78132c8ad0d",
       "mode": "document_oe_compatible_adapter",
@@ -87,7 +87,7 @@
       "dataset_id": "retail",
       "kind": "xlsx",
       "recipe_path": "compatibility/recipes/retail.json",
-      "recipe_sha256": "e0bd781e6d2cbe74033bc84c031393f040e57c34d56a5088d5100dd6bcb8c6fb",
+      "recipe_sha256": "96df5c2bf2f030089994768e9636991ae93de1ad4ad8e4bae170fd2c2965c6f8",
       "canonical_path": "assets/canonical/retail",
       "canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
       "mode": "document_oe_compatible_adapter",
@@ -103,6 +103,6 @@
     "tlc_v2"
   ],
   "policy": "Old pdf/xlsx and opm/tlc aliases remain byte-identical. New inputs default to versioned native-compatible adapters; historical derived recipes require --workflow derived-v1.",
-  "compatible_contract_sha256": "a8ddcbc044bebadabae7c7b87ae134eab3c960199cb80a761e6cfb6925b330d3",
-  "compatible_suite_sha256": "3f8c4fabdfb3cbb6cd79faae767f8786d30d455b0a553c8c35e4c932e2d66b14"
+  "compatible_contract_sha256": "35d59b089a3c8c0675d72dca7af4f4cdeb46b2963c22c9a3d29493e70e3b00f8",
+  "compatible_suite_sha256": "9535c2653f7cc7f217171e8b0e6448f9542b2bc872aad24ef279bb6b21973f58"
 }

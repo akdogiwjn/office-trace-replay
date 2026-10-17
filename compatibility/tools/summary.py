@@ -7,15 +7,18 @@ ws = Path.cwd()
 manifest = json.loads((ws / 'input/dataset_manifest.json').read_text())
 output = ws / 'output'
 if manifest['kind'] == 'pdf':
-    count = len(json.loads((ws / 'input' / manifest['records']).read_text())[manifest['records_key']])
+    prepared = len(json.loads((ws / 'input' / manifest['records']).read_text())[manifest['records_key']])
+    count = manifest['pdf_execution']['record_count']
+    mappings = len(list((output / 'field_values').glob('*.json')))
     filled = len(list((output / 'filled').glob('*.pdf')))
     pages = len(list((output / 'rendered').glob('*/page_*.png')))
-    if filled != count or pages != manifest['requirements']['page_count'] * (count + 1):
+    if mappings != prepared or filled != count or pages != manifest['requirements']['page_count'] * (count + 1):
         raise ValueError('unexpected PDF output inventory')
     value = {'input_form': manifest['form'], 'applicant_count': count,
              'filled_pdf_count': filled, 'rendered_page_count': pages,
              'fill_script_invocations': count, 'render_script_invocations': count + 1,
-             'ssn_and_signatures_left_blank': True}
+             'ssn_and_signatures_left_blank': True, 'prepared_record_count': prepared,
+             'field_values_count': mappings}
     name = 'batch_summary.json'
 else:
     from openpyxl import load_workbook
@@ -33,7 +36,7 @@ else:
                  'chart_count': sum(len(sheet._charts) for sheet in wb),
                  'helper_execution_attempts': 1, 'helper_successful_executions': 1,
                  'recalc_invocation_count': 1, 'final_verifier_status': verification['status'],
-                 'recalculation': recalc, 'workflow_contract': 'document-oe-compatible-workflow-v1'}
+                 'recalculation': recalc, 'workflow_contract': 'document-oe-compatible-workflow-v2'}
     finally:
         wb.close()
     name = 'xlsx_enhancement_summary.json'

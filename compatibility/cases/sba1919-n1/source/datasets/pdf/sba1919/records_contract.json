@@ -1,9 +1,9 @@
 {
   "schema_version": "office-fictional-record-contract-v1",
   "records_file": "synthetic_applicants.json",
-  "records_sha256": "90a1aa56a98bdbfb105bc4aa7eca4f89219a58f6019c987cd74163fb2b10a5c2",
+  "records_sha256": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
   "records_key": "applicants",
-  "record_count": 1,
+  "record_count": 10,
   "schema": {
     "type": "object",
     "required": [
@@ -256,8 +256,8 @@
             }
           }
         },
-        "minItems": 1,
-        "maxItems": 1
+        "minItems": 10,
+        "maxItems": 10
       },
       "provenance": {
         "type": "string"
@@ -267,11 +267,10 @@
   "synthetic": true,
   "contains_real_sensitive_data": false,
   "random_seed": null,
-  "generation_method": "First record of frozen original 10-record fixture; no regeneration",
+  "generation_method": "Deterministic ordinal loop, no random inputs",
   "generator": "office_trace_bench/records.py",
   "generator_sha256": "f205dbb3e3a25ae26b7fa525a621a8f970e77498294cd417b1682b2f0bbe8d6d",
   "generator_function": "sba",
   "privacy": "All fixture identities are invented; reserved 555 phone numbers/example.invalid emails where present; SSNs/TINs/signatures excluded. Public birthplaces/addresses can coincide with real places without representing real persons.",
-  "update_policy": "Input byte changes require a new suite revision and new canonical trace; never replace silently.",
-  "parent_records_sha256": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2"
+  "update_policy": "Input byte changes require a new suite revision and new canonical trace; never replace silently."
 }
