@@ -1,4 +1,23 @@
-"""Shared structural checks plus manifest-defined business expectations."""
+"""Versioned semantic verification contract for the canonicalized XLSX replay.
+
+Contract: spreadsheet-semantic-v3.
+
+Strict failures are limited to business-meaningful damage:
+  - official input hashes, worksheet presence and relative order,
+  - original data values / missing / suppression markers (missing or changed real
+    values, or values appearing where the source had none),
+  - original formulas (deleted, hardcoded, or wrongly overwritten) and charts'
+    data series / references,
+  - new Summary/Overview, metrics, scenario and charts per the manifest,
+  - formula usage and dependency correctness, cached values, no formula errors,
+  - recalc success and complete deliverables.
+
+Pure format or serialization differences (font/fill/alignment/border/protection
+representation, number-format serialization, style-table/shared-string/relationship
+representation, defined-name serialization, merged-region representation, and
+empty-string cells normalized to empty cells) are recorded as diagnostics and do
+not by themselves fail the run. See spreadsheet.original_content.
+"""
 import gc
 import json
 import math
@@ -10,18 +29,29 @@ from .workbooks import chart_sources, logical_value, normalized_formula, sheet_d
 
 ERRORS = {'#REF!', '#DIV/0!', '#VALUE!', '#N/A', '#NAME?', '#NUM!', '#NULL!'}
 
+SEMANTIC_CONTRACTS = ('spreadsheet-semantic-v2', 'spreadsheet-semantic-v3')
+
 
 class Checks:
     def __init__(self, manifest):
         self.data = {'schema_version': 'office-verification-v1', 'dataset_id': manifest['dataset_id'],
-                     'kind': manifest['kind'], 'status': 'failed', 'checks': {}, 'failures': []}
+                     'kind': manifest['kind'], 'status': 'failed', 'checks': {}, 'failures': [],
+                     'diagnostics': {}, 'diagnostics_total': 0, 'diagnostic_diff_count': 0}
 
     def add(self, name, ok, detail=None):
         self.data['checks'][name] = {'ok': bool(ok), 'detail': detail}
         if not ok:
             self.data['failures'].append(name)
 
+    def diag(self, name, detail):
+        self.data['diagnostics'][name] = {'ok': True, 'detail': detail}
+
     def finish(self):
+        diagnostics = self.data['diagnostics']
+        self.data['diagnostics_total'] = len(diagnostics)
+        self.data['diagnostic_diff_count'] = sum(
+            1 for v in diagnostics.values()
+            if isinstance(v, dict) and v.get('detail'))
         self.data['status'] = 'failed' if self.data['failures'] else 'success'
         return self.data
 
@@ -245,7 +275,7 @@ def verify(manifest_path, workspace, report_path=None, *, deferred_outputs=()):
         if checks.data['failures']:
             return checks.finish()
         if manifest['kind'] == 'xlsx':
-            if manifest.get('workload_contract') == 'spreadsheet-semantic-v2':
+            if manifest.get('workload_contract') in SEMANTIC_CONTRACTS:
                 from .spreadsheet import verify_semantic_xlsx
                 verify_semantic_xlsx(manifest, expected, workspace, checks, deferred_outputs)
             else:

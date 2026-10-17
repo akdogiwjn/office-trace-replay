@@ -65,7 +65,8 @@ def load_manifest(path, check_assets=True):
     if data['kind'] == 'xlsx':
         safe_relative(data['workbook'])
         safe_relative(data['output_workbook'])
-        required = (('metrics', 'scenario', 'charts') if data.get('workload_contract') == 'spreadsheet-semantic-v2'
+        required = (('metrics', 'scenario', 'charts') if data.get('workload_contract')
+                    in ('spreadsheet-semantic-v2', 'spreadsheet-semantic-v3')
                     else ('summary_sheet', 'base_sheets', 'raw_sheets', 'metrics', 'scenario', 'charts'))
     else:
         safe_relative(data['form'])

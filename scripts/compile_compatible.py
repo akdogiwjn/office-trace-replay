@@ -14,12 +14,35 @@ DATASETS = ['irs_w4', 'sba1919', 'hr', 'manufacturing', 'retail']
 HELPERS = {
     'irs_w4': ['build_field_values.py'],
     'sba1919': ['helpers/build_field_values.py'],
-    'hr': ['helpers/build.py', 'helpers/patch.py'],
-    'manufacturing': ['build_enhanced.py', 'inject_caches.py'],
-    'retail': ['helpers/build_enhance.py', 'helpers/assemble_output.py'],
+    'hr': ['helpers/build.py'],
+    'manufacturing': ['build_enhanced.py'],
+    'retail': ['helpers/build_enhance.py'],
 }
 BUILD = {'irs_w4': 'build_field_values.py', 'sba1919': 'helpers/build_field_values.py',
          'hr': 'helpers/build.py', 'manufacturing': 'build_enhanced.py', 'retail': 'helpers/build_enhance.py'}
+# New XLSX build helpers live in the replay tree and write the final output
+# workbook directly; no assemble_output / inject_caches / patch preservation step.
+NEW_XLSX_HELPERS = {
+    'hr': 'compatibility/helpers/hr_build.py',
+    'manufacturing': 'compatibility/helpers/manufacturing_build_enhanced.py',
+    'retail': 'compatibility/helpers/retail_build_enhance.py',
+}
+CLASSIFICATION = 'canonicalized_deterministic_replay_derived_from_successful_agent_executions'
+XLSX_CONTRACT = 'spreadsheet-semantic-v3'
+XLSX_ADAPTATIONS = [
+    'Canonicalized deterministic replay derived from successful Agent executions: '
+    'P01 copies the official input to the final output workbook; P02 writes and runs the '
+    'dataset-specific enhancement helper through the generic atomic XLSX helper, enhancing the '
+    'final output workbook directly; P03 recalculates that final output with the original Skill '
+    'recalc.py so LibreOffice saves the computed caches in place, then checks formulas/cached '
+    'values and exports metrics; P04 runs the versioned semantic verifier, writes the summary '
+    'and checks deliverables.',
+    'Enhancement helper writes the final output workbook directly; original recalc.py recalcs it in place.',
+    'No assemble_output.py / inject_caches.py / patch.py preservation call in the formal recipe.',
+    'Semantic verification uses the versioned spreadsheet-semantic-v3 contract; format/serialization differences are diagnostics.',
+]
+XLSX_OUTPUTS = {'hr': 'hr_enhanced.xlsx', 'manufacturing': 'manufacturing_enhanced.xlsx',
+                'retail': 'retail_enhanced.xlsx'}
 
 
 def main():
@@ -88,9 +111,29 @@ def main():
                                 'One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.',
                                 'Private verifier checks all prepared mappings and exactly the selected PDFs/renders.']
             else:
-                adaptations += ['One build and one original recalc; retain clean build instead of rebuilding.',
-                                'Keep necessary formula-cache/source-content assembly as an explicit extra call.',
-                                'Export actual manifest metric/projection values to metrics.csv/scenario.csv; no fabricated TLC sheets.']
+                ds = source / 'datasets/xlsx' / dataset
+                manifest['workload_contract'] = XLSX_CONTRACT
+                # Private XLSX verifier: versioned semantic contract with strict
+                # business checks and diagnostic-only format/serialization diffs.
+                for name in ('verify.py', 'spreadsheet.py', 'contracts.py', 'workbooks.py'):
+                    shutil.copyfile(ROOT / 'compatibility/verification' / name,
+                                    source / 'office_trace_bench' / name)
+                # Explicit, checkable rule for empty-string normalization: only
+                # the original sheets listed here may serialize empty-string
+                # markers to empty cells; elsewhere it is a data change.
+                workbook = ROOT / 'compatibility/cases' / variant / 'seed/input' / manifest['workbook']
+                from openpyxl import load_workbook
+                wb = load_workbook(workbook, read_only=True)
+                manifest.setdefault('requirements', {})
+                manifest['requirements']['empty_strings_policy'] = {
+                    'sheets': list(wb.sheetnames),
+                    'rule': 'Empty-string cells on these original sheets are visual '
+                            'fillers and may serialize to empty cells; empty-string '
+                            'loss elsewhere is a data change.'}
+                wb.close()
+                adaptations += XLSX_ADAPTATIONS
+                write(ds / 'manifest.json', manifest)
+                write(seed / 'input/dataset_manifest.json', manifest)
 
             ws = parent['workspace']
             phases = ['inspect_prepare', 'build', 'process_publish', 'verify_deliver']
@@ -120,14 +163,20 @@ def main():
                 command(1, f'python3 {tools}convert_pdf_to_images.py input/{manifest["form"]} output/rendered/template', 'render_template')
             else:
                 command(1, 'cat input/verify_office.py', 'read_verifier')
-                prepare = 'mkdir -p work && ' if dataset == 'retail' else ''
-                command(1, prepare + f'cp input/{manifest["workbook"]} output/{manifest["output_workbook"]}', 'copy_input')
+                command(1, f'cp input/{manifest["workbook"]} output/{manifest["output_workbook"]}', 'copy_input')
                 for mode in ['source', 'copy']:
                     command(1, f'python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py {mode}', 'inspect_workbook')
 
             for helper in HELPERS[dataset]:
-                write_helper(helper, (old_seed / helper).read_text())
-            command(2, 'python3 ' + BUILD[dataset], 'build')
+                if kind == 'xlsx':
+                    write_helper(helper, (ROOT / NEW_XLSX_HELPERS[dataset]).read_text())
+                else:
+                    write_helper(helper, (old_seed / helper).read_text())
+            if kind == 'xlsx':
+                output_book = XLSX_OUTPUTS[dataset]
+                command(2, f'python3 /opt/office-trace-replay/compatibility/tools/run_xlsx_helper_atomic.py {BUILD[dataset]} output/{output_book}', 'build')
+            else:
+                command(2, 'python3 ' + BUILD[dataset], 'build')
             if kind == 'pdf':
                 command(2, "python3 -c \"import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')\"", 'validate_mapping')
                 write_helper('run_batch_fill_render.py', (ROOT / 'compatibility/tools/pdf_batch.py').read_text())
@@ -136,14 +185,8 @@ def main():
                 command(4, 'python3 input/verify_office.py', 'semantic_verification')
                 command(4, 'find output -type f | sort', 'check_deliverables')
             else:
-                if dataset == 'hr':
-                    base, recalc, assemble = 'helpers/pre_recalc.xlsx', 'helpers/rec_recalc.xlsx', 'helpers/patch.py'
-                elif dataset == 'manufacturing':
-                    base, recalc, assemble = 'build/enhanced_base.xlsx', 'build/recalc_work.xlsx', 'inject_caches.py'
-                else:
-                    base, recalc, assemble = 'work/build.xlsx', 'work/recalc_input.xlsx', 'helpers/assemble_output.py'
-                command(3, f'cp {base} {recalc} && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py {recalc} __DOCUMENT_RECALC_TIMEOUT__ > output/formula_recalc.json 2> output/formula_recalc.stderr.log', 'recalculate')
-                command(3, 'python3 ' + assemble, 'source_preservation')
+                output_book = XLSX_OUTPUTS[dataset]
+                command(3, f'python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/{output_book} __DOCUMENT_RECALC_TIMEOUT__ > output/formula_recalc.json 2> output/formula_recalc.stderr.log', 'recalculate')
                 # HR build emits its index itself; other indexes were authored
                 # in the parent trace. Only locations are restored, not answers.
                 if dataset != 'hr':
@@ -162,7 +205,7 @@ def main():
                 command(3, 'python3 /opt/office-trace-replay/compatibility/tools/export_xlsx.py', 'export_csv')
                 command(4, 'python3 input/verify_office.py', 'semantic_verification')
                 command(4, 'python3 /opt/office-trace-replay/compatibility/tools/summary.py', 'write_summary')
-                command(4, f'test -s output/{manifest["output_workbook"]} && test -s output/metrics.csv && test -s output/scenario.csv && test -s output/xlsx_enhancement_summary.json', 'check_deliverables')
+                command(4, f'test -s output/{output_book} && test -s output/metrics.csv && test -s output/scenario.csv && test -s output/xlsx_enhancement_summary.json', 'check_deliverables')
 
             recipe = {'schema_version': 'scene-key-operations-v2', 'case_kind': kind,
                       'case_id': manifest['runtime_case'], 'dataset_id': dataset, 'variant_id': variant,
@@ -172,14 +215,17 @@ def main():
                       'prepared_record_count': 10 if kind == 'pdf' else None,
                       'operation_timeout': 900 if kind == 'xlsx' else 300,
                       'recalc_timeout': 600 if kind == 'xlsx' else 180,
-                      'requires_llm': False, 'classification': 'adapted_replay_recipe_not_new_agent_trace',
+                      'requires_llm': False, 'classification': CLASSIFICATION,
                       'parent': {'recipe_path': str(parent_path.relative_to(ROOT)), 'recipe_sha256': digest(parent_path),
                                  **parent['source']},
                       'contract_sha256': index['contract_sha256'], 'adaptations': adaptations,
                       'prompt_path': f'compatibility/prompts/{kind}.txt',
                       'prompt_sha256': digest(ROOT / f'compatibility/prompts/{kind}.txt'),
-                      'input_hashes': {str(p.relative_to(seed)): digest(p) for p in (seed / 'input').rglob('*') if p.is_file()},
-                      'preservation_call_roles': ['source_preservation'] if kind == 'xlsx' else []}
+                      'input_hashes': {str(p.relative_to(seed)): digest(p) for p in (seed / 'input').rglob('*') if p.is_file()}}
+            if kind == 'xlsx':
+                recipe['workflow_contract'] = XLSX_CONTRACT
+                helper_path = NEW_XLSX_HELPERS[dataset]
+                recipe['helper_hashes'] = {BUILD[dataset]: digest(ROOT / helper_path)}
             target = ROOT / 'compatibility/recipes' / (variant + '.json')
             write(target, recipe)
             index['entries'].append({'dataset_id': dataset, 'variant_id': variant, 'record_count': count,

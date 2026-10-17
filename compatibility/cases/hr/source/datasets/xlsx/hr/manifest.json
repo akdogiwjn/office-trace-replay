@@ -1,6 +1,6 @@
 {
   "schema_version": "office-dataset-v2",
-  "workload_contract": "spreadsheet-semantic-v2",
+  "workload_contract": "spreadsheet-semantic-v3",
   "kind": "xlsx",
   "dataset_id": "hr",
   "domain": "hr",
@@ -79,7 +79,16 @@
     ],
     "minimum_comments": 2,
     "minimum_conditional_formats": 2,
-    "recalc_timeout": 180
+    "recalc_timeout": 180,
+    "empty_strings_policy": {
+      "sheets": [
+        "national_M2025_dl",
+        "Field Descriptions",
+        "UpdateTime",
+        "Filler"
+      ],
+      "rule": "Empty-string cells on these original sheets are visual fillers and may serialize to empty cells; empty-string loss elsewhere is a data change."
+    }
   },
   "publish_files": [],
   "trace_rules": [

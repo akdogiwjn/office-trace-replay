@@ -1,4 +1,3 @@
-import copy
 import tempfile
 from pathlib import Path
 import unittest
@@ -13,7 +12,10 @@ class LegacyCompatibilityTests(unittest.TestCase):
     def test_original_recipe_calls_and_defaults_are_preserved(self):
         lock = legacy.validate()
         self.assertEqual(lock['files']['bin/run_document_scene_loop.py']['sha256'],
-                         '5f1f5d2ab8075ded5b12e6e583c0b733de09389c2c60d63d735c82a252d7c2d1')
+                         '3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80')
+        self.assertEqual(lock['executor']['version'], 'unified-dataset-runner-v1')
+        self.assertIn('bin/run_document_scene_loop_timed.py', lock['executor']['files'])
+        self.assertIn('operations/xlsx_key_operations.json', lock['workload'])
         from replay.run import document_executor
         core = document_executor()
         self.assertEqual(core.LOOP_COUNT, 20000)
@@ -27,6 +29,66 @@ class LegacyCompatibilityTests(unittest.TestCase):
             recipe = read(p)
             self.assertEqual(sum(len(s['source_tool_calls']) for s in recipe['key_operations']), count)
             core.load_recipe(p, kind, core.SCENES[kind]['step_order'])
+
+    def test_runner_prepares_environment_and_legacy_python_flags(self):
+        from replay.run import document_executor
+        core = document_executor()
+        self.assertIn('--legacy-python', legacy.native_command(['--scene', 'pdf']))
+        command = legacy.native_command(['--scene', 'xlsx'], timed=True, python_mode='venv')
+        self.assertEqual(command[0], '/opt/document-bench/.venv/bin/python')
+        self.assertIn('--timed', command)
+        self.assertEqual(command[command.index('--legacy-python') + 1], 'venv')
+        system = legacy.native_command(['--scene', 'pdf'], python_mode='system')
+        self.assertEqual(system[0], '/usr/bin/python3')
+        # The runner prepares env itself for canonicalized layouts.
+        layout = core.dataset_layout('xlsx', 'retail')
+        self.assertIsNotNone(layout['source'])
+        self.assertIn('/opt/office-trace-replay/compatibility/cases/retail/source', str(layout['source']))
+        layout_old = core.dataset_layout('xlsx', 'tlc')
+        self.assertIsNone(layout_old['source'])
+
+    def test_ensure_interpreter_noop_when_already_matching(self):
+        from replay.run import document_executor
+        core = document_executor()
+        with patch('os.path.realpath', return_value='/usr/bin/python3'), \
+             patch.object(core.sys, 'executable', '/usr/bin/python3'):
+            core.ensure_interpreter('system')  # must not raise or re-exec
+
+    def test_ensure_interpreter_rejects_missing_interpreter(self):
+        from replay.run import document_executor
+        core = document_executor()
+        with patch('os.path.realpath', side_effect=lambda p: p), \
+             patch.object(core.sys, 'executable', '/usr/bin/python3'), \
+             patch('os.path.isfile', return_value=False):
+            with self.assertRaises(FileNotFoundError):
+                core.ensure_interpreter('venv')
+
+    def test_unified_registry_defaults_and_mismatch_rejection(self):
+        from replay.run import document_executor
+        core = document_executor()
+        self.assertEqual(core.SCENE_DEFAULT_DATASET, {'pdf': 'opm', 'xlsx': 'tlc'})
+        # Old defaults preserved byte-for-byte.
+        for scene, dataset in core.SCENE_DEFAULT_DATASET.items():
+            layout = core.dataset_layout(scene, dataset)
+            old = core.SCENES[scene]
+            for key in ('seed', 'workspace', 'recipe', 'operation_timeout', 'recalc_timeout', 'step_order'):
+                self.assertEqual(layout[key], old[key])
+        # All seven formal datasets parse.
+        self.assertEqual(set(core.ALL_DATASETS),
+                         {'opm', 'irs_w4', 'sba1919', 'tlc', 'retail', 'manufacturing', 'hr'})
+        for ds in ('opm', 'irs_w4', 'sba1919'):
+            core.dataset_layout('pdf', ds, 1)
+        for ds in ('tlc', 'retail', 'manufacturing', 'hr'):
+            core.dataset_layout('xlsx', ds)
+        # Illegal combinations are rejected.
+        for scene, dataset, count in [('pdf', 'tlc', 1), ('xlsx', 'opm', 1), ('pdf', 'retail', 1), ('pdf', 'irs_w4', 5)]:
+            with self.subTest(scene=scene, dataset=dataset), self.assertRaises(ValueError):
+                core.dataset_layout(scene, dataset, count)
+        # New XLSX layouts point into the replay tree with TLC-like timeouts.
+        for ds in ('retail', 'manufacturing', 'hr'):
+            layout = core.dataset_layout('xlsx', ds)
+            self.assertEqual(layout['recalc_timeout'], 600)
+            self.assertEqual(layout['operation_timeout'], 900)
 
     def test_native_scene_and_timing_flags_are_forwarded_verbatim(self):
         arguments = ['--scene', 'pdf', '--loops', '3', '--pdf-applicant-count', '10', '--recalc-timeout', '180']
@@ -51,11 +113,10 @@ class LegacyCompatibilityTests(unittest.TestCase):
         self.assertEqual(NEW['tlc_v2'], 'tlc')
         self.assertNotIn('opm_v2', DEFAULT)
         self.assertNotIn('tlc_v2', DEFAULT)
-        with patch('replay.entry.legacy.validate'), patch('replay.entry.subprocess.call', return_value=0) as call:
+        with patch('replay.entry.legacy.validate'), \
+             patch('replay.entry.suite.run_old_dataset', return_value=0) as run:
             self.assertEqual(main(['--dataset', 'opm', '--dataset', 'tlc', '--loops', '1']), 0)
-            commands = [c.args[0] for c in call.call_args_list]
-            self.assertEqual([c[c.index('--scene') + 1] for c in commands], ['pdf', 'xlsx'])
-            self.assertTrue(all('run.py' not in ' '.join(c) for c in commands))
+            self.assertEqual([(r.args[1], r.args[0]) for r in run.call_args_list], [('pdf', 'opm'), ('xlsx', 'tlc')])
 
     def test_mutated_legacy_helper_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -63,7 +124,13 @@ class LegacyCompatibilityTests(unittest.TestCase):
             helper = root / 'helper.py'
             helper.write_text('changed')
             from replay.common import write
-            write(root / 'lock.json', {'files': {'helper.py': {'sha256': '0' * 64, 'mode': 420}}})
+            lock = read(legacy.LEGACY / 'lock.json')
+            lock = {
+                'executor': {'version': 'unified-dataset-runner-v1',
+                             'files': ['bin/run_document_scene_loop.py', 'bin/run_document_scene_loop_timed.py']},
+                'workload': ['helper.py'],
+                'files': {'helper.py': {'sha256': '0' * 64, 'mode': 420}}}
+            write(root / 'lock.json', lock)
             with self.assertRaisesRegex(ValueError, 'legacy bytes changed'):
                 legacy.validate(root)
 

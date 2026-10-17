@@ -1,29 +1,41 @@
 {
-  "schema_version": "office-replay-status-v5",
+  "schema_version": "office-replay-status-v8",
   "status": "success",
-  "image": "office-trace-replay:openeuler-v5",
-  "image_id": "sha256:a20f289df4feb7c25feb9dc43442b59ab2079f4ed3f389152e504f45b1f13793",
-  "old_pdf_xlsx_unchanged": true,
+  "image": "office-trace-replay:openeuler-v8",
+  "image_id": "sha256:8bf017d1b4bfe7b481f9aed1e6a44d396444a6c49b40c9a91d7dee84232f53a0",
+  "executor": "unified-dataset-runner-v1",
+  "old_workload_bytes_unchanged": true,
+  "old_workload_frozen_file_count": 43,
   "python_default": "3.12.3",
   "canonical_traces_unchanged": true,
   "default_dataset_count": 7,
-  "compatible_variant_count": 7,
-  "new_variant_iterations": 2,
-  "old_tlc_regression": "reused unchanged v4 baseline with v5 installed-source/runtime equivalence",
+  "canonicalized_variant_count": 7,
+  "new_variant_iterations": 1,
+  "old_tlc_regression": "one v8 unified-runner loop (243.13s) with unchanged workload recipes/scripts; v7 TLC run retained as historical evidence",
+  "new_xlsx_flow": "enhance final output via generic atomic helper -> original recalc.py in place (LibreOffice save) -> spreadsheet-semantic-v3 verification; no assemble_output/inject_caches/patch in the formal recipes",
+  "runner_self_preparation": "direct runner and entry/suite share the same registry resolution, frozen-binding validation, source context / Skill links / Python environment preparation, and timing hooks",
+  "runner_interpreter_unification": "direct runner re-execs under the requested interpreter (venv 3.12.3 or system 3.11.6) before the loop, so the runner and recipe tools always use one consistent Python; wrong/missing interpreter is rejected",
+  "defined_names_protection": "global and worksheet-local names are tracked by (name, scope); reference meaning must be preserved (A1->A2, nonexistent targets, scope moves, indirect missing references and cycles are rejected or handled); only supported serialization differences are diagnostics",
+  "formula_normalization": "sheet/workbook identifiers and double-quoted string literals are tokenized; meaningful whitespace, punctuation, escaped single quotes and the intersection operator are preserved; bounded serialization equivalences only",
   "tests": {
-    "passed": 19,
+    "passed": 52,
     "skipped": 0,
     "failed": 0,
     "errors": 0
   },
-  "pdf_positive_negative_checks": {
-    "passed": 16,
-    "failed": 0
-  },
-  "classification": "versioned adapted replay; no new Agent trajectory",
+  "classification": "canonicalized deterministic replay derived from successful Agent executions; no new Agent trajectory",
   "representativeness_established": false,
   "qualification": {
     "path": "reports/qualification.json",
-    "sha256": "59eefd80847ee2dabacba83363d5c32feda8a63419d848f39bc42e7eb15b807b"
+    "sha256": "c517d169ee4d3563702bdca4e8267fe3703a6c0d6190715648b46959eec51a79"
+  },
+  "working_tree_patch": {
+    "patch": "defined-name-shadowing",
+    "status": "success",
+    "included_in_image": false,
+    "report": {
+      "path": "reports/patches/defined-name-shadowing/summary.json",
+      "sha256": "493556cfee28a9624e6397f4998059280216d6931caadc8f4f2865ca888e30d2"
+    }
   }
 }

@@ -22,7 +22,7 @@
     "libreoffice": "LibreOffice 24.2.7.2",
     "poppler": "24.02.0"
   },
-  "document_runner_sha256": "5f1f5d2ab8075ded5b12e6e583c0b733de09389c2c60d63d735c82a252d7c2d1",
+  "document_runner_sha256": "d82fc551cd8a36b44827582e3f94cdb950209a947c3f2e994ea999de9ce254ae",
   "libreoffice_profile_adapter": "runtime/bin/soffice forces the symbols build to use file:///root/.config/libreoffice/4, matching the macro location used by frozen recalc.py. Original Ubuntu uses its normal default profile without this wrapper.",
   "policy": "Original and openEuler environments qualify separately against the same frozen semantic verifier. No byte identity claim across Office/Poppler versions.",
   "base_ancestry": {

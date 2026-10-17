@@ -1,5 +1,5 @@
 {
-  "schema_version": "document-oe-byte-preserved-v1",
+  "schema_version": "document-oe-byte-preserved-v2",
   "source_container": "document-oe",
   "runtime_root": "/opt/document-bench",
   "base_image_id": "sha256:6eb99c666aab38fb4ba04886e42e5db219f4ac71d6e8307cd743b049a6a60111",
@@ -21,13 +21,13 @@
     },
     "bin/run_document_scene_loop.py": {
       "mode": 493,
-      "sha256": "5f1f5d2ab8075ded5b12e6e583c0b733de09389c2c60d63d735c82a252d7c2d1",
-      "size": 15979
+      "sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+      "size": 36682
     },
     "bin/run_document_scene_loop_timed.py": {
       "mode": 420,
-      "sha256": "73ad442263012692f79538d09950692c3e0ad48a167a9807a052f767b5e46f73",
-      "size": 9323
+      "sha256": "1a8cbde481d31ab6389b7c3c266d6510acac804866e2fdf8e5577aa766d7367e",
+      "size": 747
     },
     "bin/run_pdf_scene.sh": {
       "mode": 493,
@@ -230,5 +230,57 @@
       "size": 1081
     }
   },
-  "policy": "All active text/input/recipe bytes and modes preserved. No recipe/helper/verifier rewriting. Native runner and timed entry remain unchanged."
+  "policy": "Unified runner executor version and the byte-preserved workload are frozen separately. workload files are byte-identical to the original document-oe container export and are strictly verified; executor files (unified runner + timing wrapper) are versioned and validated against the frozen executor lock. The runner is the formal entry for every dataset; opm/tlc keep the original loop, workspace reset, timeout, error handling, exit status and timing semantics and never have their recipes/commands rewritten.",
+  "executor": {
+    "version": "unified-dataset-runner-v1",
+    "files": [
+      "bin/run_document_scene_loop.py",
+      "bin/run_document_scene_loop_timed.py"
+    ]
+  },
+  "workload": [
+    "bin/export_xlsx_csv.py",
+    "bin/inspect_xlsx_features.py",
+    "bin/inspect_xlsx_structure.py",
+    "bin/run_pdf_scene.sh",
+    "bin/run_xlsx_helper_atomic.py",
+    "bin/run_xlsx_scene.sh",
+    "bin/smoke_document_scenes.py",
+    "bin/smoke_xlsx_recalc.py",
+    "bin/timing_hooks/sitecustomize.py",
+    "bin/validate_image.py",
+    "bin/write_pdf_batch_summary.py",
+    "bin/write_xlsx_summary.py",
+    "manifest.json",
+    "operations/pdf_key_operations.json",
+    "operations/xlsx_key_operations.json",
+    "pdf/input/of306_aug2023.pdf",
+    "pdf/input/pdf_dataset_sources.md",
+    "pdf/input/synthetic_applicants.json",
+    "pdf/input/verify_pdf_batch.py",
+    "pdf/run_batch_fill_render.py",
+    "requirements.txt",
+    "skills/pdf/LICENSE.txt",
+    "skills/pdf/SKILL.md",
+    "skills/pdf/forms.md",
+    "skills/pdf/reference.md",
+    "skills/pdf/scripts/check_fillable_fields.py",
+    "skills/pdf/scripts/convert_pdf_to_images.py",
+    "skills/pdf/scripts/extract_form_field_info.py",
+    "skills/pdf/scripts/fill_fillable_fields.py",
+    "skills/xlsx/LICENSE.txt",
+    "skills/xlsx/SKILL.md",
+    "skills/xlsx/scripts/office/pack.py",
+    "skills/xlsx/scripts/office/soffice.py",
+    "skills/xlsx/scripts/office/unpack.py",
+    "skills/xlsx/scripts/office/validate.py",
+    "skills/xlsx/scripts/recalc.py",
+    "xlsx/enhance_workbook.py",
+    "xlsx/input/dataset_sources.md",
+    "xlsx/input/monthly_operations_template.xlsx",
+    "xlsx/input/template_manifest.json",
+    "xlsx/input/verify_xlsx_enhanced.py",
+    "xlsx/inspect_xlsx_cached_values.py",
+    "xlsx/inspect_xlsx_formulas.py"
+  ]
 }

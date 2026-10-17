@@ -1,0 +1,90 @@
+{
+  "dataset_id": "manufacturing",
+  "variant_id": "manufacturing",
+  "run_stamp": "20261017T123340Z-a94c8038",
+  "requested_iterations": 1,
+  "scene": "xlsx",
+  "record_count": null,
+  "status": "success",
+  "archive_scope": "final_iteration_only",
+  "acceptance_scope": "native business verifier each iteration; independent verifier after entire loop",
+  "run_dir": "/results/manufacturing/20261017T123340Z-a94c8038",
+  "native_run_id": "20261017T123340Z-pid9079",
+  "native_summary": "xlsx/20261017T123340Z-pid9079/summary.json",
+  "native_summary_sha256": "5851b37ec586831d41597a5516d5ca65f060e80536fc94b8bebfbad0843ddcb2",
+  "native_events_sha256": "e98ef0a43d4391613ab88aedc6d3c8f28e886858f7cbd576b074f62988edf516",
+  "native_iterations": [
+    {
+      "abstraction": "steps",
+      "elapsed_seconds": 4.6829,
+      "failed_step": "",
+      "finished_at": "2026-10-17T12:33:45.489+00:00",
+      "iteration": 1,
+      "reset_seconds": 0.000784,
+      "scene": "xlsx",
+      "schema_version": "document-step-scene-iteration-v2",
+      "status": "success",
+      "step_seconds": {
+        "XLSX-P01-inspect_prepare": 0.429284,
+        "XLSX-P02-build": 0.352562,
+        "XLSX-P03-process_publish": 2.398711,
+        "XLSX-P04-verify_deliver": 1.501299
+      }
+    }
+  ],
+  "completed_iterations": 1,
+  "recipe_sha256": "26262a7d0b090965969cbc3b5c1ef77b2b4dde3aa5e645d185334b244bb92cdd",
+  "recipe_path": "compatibility/recipes/manufacturing.json",
+  "parent_recipe_sha256": "37392799eb6023c525bf67a9226ab5e54f74a03b3d2d97aa8852d677e31da0ce",
+  "prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+  "contract_sha256": "d6777c1168cc3c6bb684046e3a54a432719db8b4f7c2bfe0ab4a046fc05e5867",
+  "input_hashes": {
+    "input/dataset_manifest.json": "a4f087fbd66055cb581769b6824f84acffa610df736ce4b17d5c6aa134c516db",
+    "input/text.xlsx": "3a675ad4067e5463600ba46237c1f38123a4b83519035d1450b511496c130e43",
+    "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+  },
+  "helper_hashes": {
+    "build_enhanced.py": "ed1257d5d3fde9b68554b7cd99fd0dff32b02b22f7ee2554f45e3b94ab6d7c7f"
+  },
+  "verifier_contract": "spreadsheet-semantic-v3",
+  "executor_version": "unified-dataset-runner-v1",
+  "verifier_hashes": {
+    "verify.py": "4d1fd585d32f928d4d64b8681be96cc38bc3bcafc16c264d7a9bbcace2e51af4",
+    "spreadsheet.py": "dd3667fc6aef379b40afc201be6f1bdbfd50f8c289828c1285a21658eaae67fe",
+    "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+    "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+  },
+  "environment": {
+    "libreoffice": "LibreOfficeDev 25.8.7.3",
+    "packages": {
+      "et_xmlfile": "2.0.0",
+      "openpyxl": "3.1.5",
+      "pdf2image": "1.17.0",
+      "pillow": "12.2.0",
+      "pypdf": "6.10.0"
+    },
+    "python3_executable": "/opt/document-bench/.venv/bin/python3",
+    "python3_openpyxl": "3.1.5",
+    "python3_version": "3.12.3",
+    "python_executable": "/opt/document-bench/.venv/bin/python",
+    "python_version": "3.12.3"
+  },
+  "python_mode": "venv",
+  "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+  "independent_acceptance_seconds": 1.249669,
+  "independent_verification_sha256": "d183b820cd1c19154d0d2179362fc46204624d87a328b678fe6d9a629ea63d7b",
+  "artifact_hashes": {
+    "build_enhanced.py": "ed1257d5d3fde9b68554b7cd99fd0dff32b02b22f7ee2554f45e3b94ab6d7c7f",
+    "output/xlsx_enhancement_summary.json": "a2dd7453d51a862f43c16a89e183750582448f910cc00f121333a36def9accc1",
+    "output/scenario.csv": "94566ea99206875bec2c2cc15df8784335bcc4ab1393c9bf8bb49710366fbd7b",
+    "output/business_verification.json": "85988f7f1de86edb48b1a98fdd7711d80bcf118163b5f2c2b6fdf92452bd2066",
+    "output/manufacturing_enhanced.xlsx": "b7984df146863fbf1c5d24ddc997f7d56b791de489365b9e04e0c0a2cefb836d",
+    "output/formula_recalc.stderr.log": "c95c54f85c2057d6952ef305b8165389353a023a999236f785d44258ffabb3ee",
+    "output/formula_recalc.json": "804c1012eed36fde742cb95585601954dc8ffe66048256035a59f1c9b1f64bc0",
+    "output/workbook_features.json": "280fc1a493dbdb313acc12f98129988352949f1454253594031b76e237f13127",
+    "output/metrics.csv": "78a0db005d32acf7cf709c3dbd3aaf30ad1119fb09ce2f2f0ed8732676f53f2e",
+    "input/dataset_manifest.json": "a4f087fbd66055cb581769b6824f84acffa610df736ce4b17d5c6aa134c516db",
+    "input/text.xlsx": "3a675ad4067e5463600ba46237c1f38123a4b83519035d1450b511496c130e43",
+    "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+  }
+}

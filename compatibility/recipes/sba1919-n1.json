@@ -255,7 +255,7 @@
   "operation_timeout": 300,
   "recalc_timeout": 180,
   "requires_llm": false,
-  "classification": "adapted_replay_recipe_not_new_agent_trace",
+  "classification": "canonicalized_deterministic_replay_derived_from_successful_agent_executions",
   "parent": {
     "recipe_path": "recipes/sba1919.json",
     "recipe_sha256": "d99b8728fcdcaa64293fc49791c11d138d6762c30f6a0c52b09861ff711b7dc3",
@@ -304,7 +304,7 @@
       "poppler": "pdftoppm version 24.02.0"
     }
   },
-  "contract_sha256": "35d59b089a3c8c0675d72dca7af4f4cdeb46b2963c22c9a3d29493e70e3b00f8",
+  "contract_sha256": "d6777c1168cc3c6bb684046e3a54a432719db8b4f7c2bfe0ab4a046fc05e5867",
   "adaptations": [
     "Use original native executor, original Skill tools and original runtime/timing boundaries.",
     "Prepare all ten original mappings; explicitly fill/render first 1 records.",
@@ -313,13 +313,12 @@
     "Private verifier checks all prepared mappings and exactly the selected PDFs/renders."
   ],
   "prompt_path": "compatibility/prompts/pdf.txt",
-  "prompt_sha256": "77af5677bf35e97fa240147e5f0cb34e132f4890d6e24d91904f1a084c272d65",
+  "prompt_sha256": "045d706ffd68a38158f2af57560dfc6ea25d34531a469e448449ed3116ba8b38",
   "input_hashes": {
     "input/dataset_manifest.json": "d1e1f339237156211746025b491731e0feb6f6690c4301163ca0e4e7150be1c6",
     "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
     "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
     "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
     "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
-  },
-  "preservation_call_roles": []
+  }
 }

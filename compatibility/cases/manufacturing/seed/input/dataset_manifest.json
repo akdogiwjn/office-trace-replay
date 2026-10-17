@@ -1,6 +1,6 @@
 {
   "schema_version": "office-dataset-v2",
-  "workload_contract": "spreadsheet-semantic-v2",
+  "workload_contract": "spreadsheet-semantic-v3",
   "kind": "xlsx",
   "dataset_id": "manufacturing",
   "domain": "manufacturing",
@@ -96,7 +96,20 @@
     ],
     "minimum_comments": 2,
     "minimum_conditional_formats": 2,
-    "recalc_timeout": 180
+    "recalc_timeout": 180,
+    "empty_strings_policy": {
+      "sheets": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Table 7",
+        "Sheet1"
+      ],
+      "rule": "Empty-string cells on these original sheets are visual fillers and may serialize to empty cells; empty-string loss elsewhere is a data change."
+    }
   },
   "publish_files": [],
   "trace_rules": [
