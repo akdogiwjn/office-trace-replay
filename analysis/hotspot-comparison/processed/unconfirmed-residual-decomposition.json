@@ -1,0 +1,3352 @@
+{
+  "schema_version": "unconfirmed-residual-decomposition-v1",
+  "generated_at_utc": "2026-10-18T17:07:29.814295+00:00",
+  "baseline_manifest_sha256": "eabd73d563e09636854f327a1b819268ddfc7bb6182b2e3be462ca81b93bb505",
+  "analysis_code_sha256": "7f95b2150402de07417b1c4de4f74afd7386de049d3f55249443239c30f46701",
+  "current_analysis_dependencies_sha256": {
+    "scripts/analyze_comparison.py": "ba90da41bd6c4fc680f6f1021a15ad4e8c9fcb8b3ec5612c1cae8dfbde4828d9",
+    "scripts/build_profiles.py": "5baae41adfae265210f30bb4e580f29bf12877ce9b731ac4a496f624ff57576e"
+  },
+  "raw_index_sha256": "bc564d8c5ba7b0083f83c269759259f69bf4a4bf3545aa53aa5539820c51e3c4",
+  "coverage_definition": "A = sample in an identity/source-matched old selected-slice execution scope; B = leaf native mechanism observed in source-matched old selected-slice samples; coverage = A union B; residual R = not(A union B), denominator = complete ROI cycles:u sample period",
+  "category_priority": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5"
+  ],
+  "category_rule": "Exactly one category per residual sample; path A or mechanism B samples are excluded first. Strong prefix, then resolved leaf, then specific mechanism, then resolved-but-broad, then insufficient evidence.",
+  "display_threshold": {
+    "roi_share": 0.005,
+    "top_n": 10,
+    "application": "combine full per-repeat contributor weights first; then display threshold"
+  },
+  "baseline": {
+    "retail": {
+      "coverage_union_share": 0.6514076386207317,
+      "uncovered_share": 0.34859236137926825
+    },
+    "manufacturing": {
+      "coverage_union_share": 0.6443761658575584,
+      "uncovered_share": 0.3556238341424416
+    },
+    "hr": {
+      "coverage_union_share": 0.6100700930361187,
+      "uncovered_share": 0.38992990696388136
+    }
+  },
+  "datasets": {
+    "retail": {
+      "same_environment_control": "tlc",
+      "reference_slice_ids": [
+        "X-S1",
+        "X-S2",
+        "X-S3",
+        "X-S4",
+        "X-S5",
+        "X-S6",
+        "X-S7",
+        "X-S8"
+      ],
+      "reference_mechanism_count": 11,
+      "reference_leaf_function_count": 1134,
+      "reference_stack_prefix_count": 3519,
+      "reference_sample_sources": {
+        "r1": {
+          "samples_jsonl": "raw/tlc/r1/out/samples.jsonl",
+          "samples_sha256": "10c3fd0d7a294bede75110d7063483023a647d7236f91534d551613fdd6627cf",
+          "raw_index_sha256": "10c3fd0d7a294bede75110d7063483023a647d7236f91534d551613fdd6627cf"
+        },
+        "r2": {
+          "samples_jsonl": "raw/tlc/r2/out/samples.jsonl",
+          "samples_sha256": "4625a7a4ec7bb129ca1ae59225c49f56bfba344b6e951d8537322fc6c5b5d9c5",
+          "raw_index_sha256": "4625a7a4ec7bb129ca1ae59225c49f56bfba344b6e951d8537322fc6c5b5d9c5"
+        }
+      },
+      "reference_method": "recomputed from raw samples within timestamped/source-matched old-slice process scopes; unknown leaves and weak prefixes excluded",
+      "roi_period": 292212811365,
+      "residual_period": 101863153939,
+      "coverage_residual_share": 0.34859236137926825,
+      "computed_residual_share": 0.3485923613792682,
+      "per_repeat": {
+        "r1": {
+          "roi_period": 149605707437,
+          "residual_period": 52169632991,
+          "residual_roi_share": 0.3487141893498214,
+          "coverage_residual_share": 0.34871418934982157,
+          "categories": {
+            "R1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 34659088277,
+              "roi_share": 0.23166955907477782,
+              "residual_share": 0.6643536917919124,
+              "sample_count": 12209
+            },
+            "R2": {
+              "label": "仅叶函数匹配",
+              "period": 13498711767,
+              "roi_share": 0.09022858818861841,
+              "residual_share": 0.2587465349685078,
+              "sample_count": 27108
+            },
+            "R3": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "R4": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 3040622416,
+              "roi_share": 0.020324240753184012,
+              "residual_share": 0.05828337754502797,
+              "sample_count": 1264
+            },
+            "R5": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 971210531,
+              "roi_share": 0.006491801333241136,
+              "residual_share": 0.018616395694551802,
+              "sample_count": 135631
+            }
+          },
+          "diagnostics": {
+            "upper_operation": {
+              "unknown": 52169632991
+            },
+            "stack_prefix_quality": {
+              "strong": 46649929423,
+              "weak-unknown-frame": 5460490979,
+              "weak-short-stack": 59212589
+            },
+            "quality_reason": {
+              "no-quality-blocker": 46649929423,
+              "unknown-dso": 958314049,
+              "unknown-frame-in-prefix": 4489281366,
+              "unknown-dso-and-symbol": 9556895,
+              "short-stack": 59211671,
+              "unknown-symbol": 3339587
+            },
+            "path_source_evidence_grade": {
+              "no_old_slice_path_candidate": 52169632991
+            },
+            "R5_reason": {
+              "unknown-dso": 958314049,
+              "unknown-dso-and-symbol": 9556895,
+              "unknown-symbol": 3339587
+            }
+          },
+          "sample_source": {
+            "samples_jsonl": "raw/retail/r1/out/samples.jsonl",
+            "samples_sha256": "1887c944a85f74a287e4f03d9151227494cd2e11483f663933493c060f8ea53c",
+            "raw_index_sha256": "1887c944a85f74a287e4f03d9151227494cd2e11483f663933493c060f8ea53c",
+            "identity_jsonl": "raw/retail/r1/out/monitor/identity.jsonl",
+            "identity_sha256_from_raw_index": "9e0a3c6420be75c0e74a8321b4cda906f8b92f7fa6e0b8d11807539d95df6962"
+          }
+        },
+        "r2": {
+          "roi_period": 142607103928,
+          "residual_period": 49693520948,
+          "residual_roi_share": 0.3484645545644728,
+          "coverage_residual_share": 0.3484645545644728,
+          "categories": {
+            "R1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 31925929458,
+              "roi_share": 0.22387334556712463,
+              "residual_share": 0.6424565788245864,
+              "sample_count": 30423
+            },
+            "R2": {
+              "label": "仅叶函数匹配",
+              "period": 12929489698,
+              "roi_share": 0.09066511654656341,
+              "residual_share": 0.26018461665313675,
+              "sample_count": 56910
+            },
+            "R3": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "R4": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 2818404671,
+              "roi_share": 0.019763424074742915,
+              "residual_share": 0.05671573712696305,
+              "sample_count": 1126
+            },
+            "R5": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 2019697121,
+              "roi_share": 0.014162668376041857,
+              "residual_share": 0.04064306739531376,
+              "sample_count": 188515
+            }
+          },
+          "diagnostics": {
+            "upper_operation": {
+              "unknown": 49693520948
+            },
+            "stack_prefix_quality": {
+              "strong": 42608411368,
+              "weak-unknown-frame": 6967302917,
+              "weak-short-stack": 117806663
+            },
+            "quality_reason": {
+              "no-quality-blocker": 42608411368,
+              "unknown-frame-in-prefix": 4947607665,
+              "unknown-dso": 2003024401,
+              "unknown-symbol": 2891195,
+              "short-stack": 117804794,
+              "unknown-dso-and-symbol": 13781525
+            },
+            "path_source_evidence_grade": {
+              "no_old_slice_path_candidate": 49693520948
+            },
+            "R5_reason": {
+              "unknown-dso": 2003024401,
+              "unknown-symbol": 2891195,
+              "unknown-dso-and-symbol": 13781525
+            }
+          },
+          "sample_source": {
+            "samples_jsonl": "raw/retail/r2/out/samples.jsonl",
+            "samples_sha256": "77c5eeafe8fb106831653a04bea79a63bf48235060b64d019619f5432faea478",
+            "raw_index_sha256": "77c5eeafe8fb106831653a04bea79a63bf48235060b64d019619f5432faea478",
+            "identity_jsonl": "raw/retail/r2/out/monitor/identity.jsonl",
+            "identity_sha256_from_raw_index": "bf96d3d23d24007bbf7f282ff405a8d2a94029c79f1584521727dfef8f49fa48"
+          }
+        }
+      },
+      "categories": {
+        "R1": {
+          "label": "规范化栈前缀指纹匹配",
+          "period": 66585017735,
+          "roi_share": 0.22786481340076956,
+          "residual_share": 0.6536712752373046,
+          "sample_count": 42632,
+          "per_repeat": {
+            "r1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 34659088277,
+              "roi_share": 0.23166955907477782,
+              "residual_share": 0.6643536917919124,
+              "sample_count": 12209
+            },
+            "r2": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 31925929458,
+              "roi_share": 0.22387334556712463,
+              "residual_share": 0.6424565788245864,
+              "sample_count": 30423
+            }
+          },
+          "contributors": {
+            "top_contributors": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_Py_dict_lookup",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1810808001,
+                "roi_share": 0.0061968809394128115,
+                "residual_share": 0.017776869564478527,
+                "representative_stack": [
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_GetItemWithError [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_elementtree_Element_get_impl [inlined]",
+                  "_elementtree_Element_get [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyIter_Next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "zip_longest_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              }
+            ],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_Py_dict_lookup",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1810808001,
+                "roi_share": 0.0061968809394128115,
+                "residual_share": 0.017776869564478527,
+                "representative_stack": [
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_GetItemWithError [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_elementtree_Element_get_impl [inlined]",
+                  "_elementtree_Element_get [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyIter_Next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "zip_longest_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "unicodekeys_lookup_unicode",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1170546823,
+                "roi_share": 0.0040058025434685065,
+                "residual_share": 0.011491366384561127,
+                "representative_stack": [
+                  "unicodekeys_lookup_unicode [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_Contains [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PySequence_Contains [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyIter_Next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "zip_longest_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "unicodekeys_lookup_unicode",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1138309021,
+                "roi_share": 0.0038954795160508894,
+                "residual_share": 0.011174884901773884,
+                "representative_stack": [
+                  "unicodekeys_lookup_unicode [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_Contains [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PySequence_Contains [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-enhance",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "getset_get",
+                "entity_symbol": "getset_get",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 886464837,
+                "roi_share": 0.0030336275567765096,
+                "residual_share": 0.008702507263135137,
+                "representative_stack": [
+                  "getset_get [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_GenericGetAttrWithDict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_LookupAttr [inlined]",
+                  "object_isinstance [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "arena_map_is_used",
+                "entity_symbol": "_PyStack_UnpackDict_Free",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 873946627,
+                "roi_share": 0.0029907881961696824,
+                "residual_share": 0.008579614838191212,
+                "representative_stack": [
+                  "arena_map_is_used [inlined]",
+                  "address_in_range [inlined]",
+                  "pymalloc_free [inlined]",
+                  "_PyObject_Free [inlined]",
+                  "PyMem_Free [inlined]",
+                  "_PyStack_UnpackDict_FreeNoDecRef [inlined]",
+                  "_PyStack_UnpackDict_Free [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_FastCallDictTstate [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_Call_Prepend [inlined]",
+                  "slot_tp_init [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "type_call [inlined]",
+                  "_PyObject_MakeTpCall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              }
+            ],
+            "contributor_count": 490,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 64774209734,
+            "below_threshold_roi_share": 0.22166793246135674,
+            "below_threshold_residual_share": 0.6358944056728261,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 66585017735,
+            "all_contributors_roi_share": 0.22786481340076956
+          }
+        },
+        "R2": {
+          "label": "仅叶函数匹配",
+          "period": 26428201465,
+          "roi_share": 0.0904416248608238,
+          "residual_share": 0.25944809720722306,
+          "sample_count": 84018,
+          "per_repeat": {
+            "r1": {
+              "label": "仅叶函数匹配",
+              "period": 13498711767,
+              "roi_share": 0.09022858818861841,
+              "residual_share": 0.2587465349685078,
+              "sample_count": 27108
+            },
+            "r2": {
+              "label": "仅叶函数匹配",
+              "period": 12929489698,
+              "roi_share": 0.09066511654656341,
+              "residual_share": 0.26018461665313675,
+              "sample_count": 56910
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-enhance",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "insert_to_emptydict",
+                "entity_symbol": "insert_to_emptydict",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 820292337,
+                "roi_share": 0.0028071744464871575,
+                "residual_share": 0.008052885712641747,
+                "representative_stack": [
+                  "insert_to_emptydict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyDict_FromItems [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]",
+                  "pymain_run_file [inlined]",
+                  "pymain_run_python [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "arena_map_is_used",
+                "entity_symbol": "PyObject_Realloc",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 669996582,
+                "roi_share": 0.0022928378084118776,
+                "residual_share": 0.006577418390178872,
+                "representative_stack": [
+                  "arena_map_is_used [inlined]",
+                  "address_in_range [inlined]",
+                  "pymalloc_realloc [inlined]",
+                  "_PyObject_Realloc [inlined]",
+                  "PyObject_Realloc [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "element_resize [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "element_add_subelement [inlined]",
+                  "treebuilder_handle_start [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "expat_start_handler [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "doContent [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "contentProcessor [inlined]",
+                  "doProlog [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "PyCFunction_Call",
+                "entity_symbol": "_PyEval_EvalFrameDefault",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 611052069,
+                "roi_share": 0.0020911200509848324,
+                "residual_share": 0.005998754656329648,
+                "representative_stack": [
+                  "PyCFunction_Call [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyIter_Next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "zip_longest_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "ld",
+                "leaf_dso": "/usr/lib/ld-linux-aarch64.so.1",
+                "leaf_symbol": "_dl_tlsdesc_return",
+                "entity_symbol": "_dl_tlsdesc_return",
+                "entity_dso": "/usr/lib/ld-linux-aarch64.so.1",
+                "mechanism": "M-NATIVE-OTHER-UNSPECIFIED",
+                "native_status": "known-dso-mechanism-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 583915128,
+                "roi_share": 0.0019982530035982495,
+                "residual_share": 0.005732348797580657,
+                "representative_stack": [
+                  "_dl_tlsdesc_return [/usr/lib/ld-linux-aarch64.so.1]",
+                  "_PyThreadState_GET [inlined]",
+                  "_PyInterpreterState_GET [inlined]",
+                  "get_state [inlined]",
+                  "_PyObject_Free [inlined]",
+                  "PyMem_Free [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "data_stack_dealloc [inlined]",
+                  "state_reset [inlined]",
+                  "pattern_subx [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "method_vectorcall_FASTCALL_KEYWORDS_METHOD [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_VectorcallTstate [inlined]",
+                  "PyObject_Vectorcall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "move_unreachable",
+                "entity_symbol": "deduce_unreachable",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 580907772,
+                "roi_share": 0.001987961339841442,
+                "residual_share": 0.005702825305682881,
+                "representative_stack": [
+                  "move_unreachable [inlined]",
+                  "deduce_unreachable [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "gc_collect_main [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyGC_CollectNoFail [inlined]",
+                  "finalize_modules [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_FinalizeEx [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_RunMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_BytesMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "__libc_start_call_main [/usr/lib64/libc.so.6]",
+                  "__libc_start_main_impl [inlined]",
+                  "_start [/opt/python-3.12.3/bin/python3.12]"
+                ]
+              }
+            ],
+            "contributor_count": 399,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 26428201465,
+            "below_threshold_roi_share": 0.0904416248608238,
+            "below_threshold_residual_share": 0.25944809720722306,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 26428201465,
+            "all_contributors_roi_share": 0.0904416248608238
+          }
+        },
+        "R3": {
+          "label": "具体原生机制已知，旧切片参考未观察到",
+          "period": 0,
+          "roi_share": 0.0,
+          "residual_share": 0.0,
+          "sample_count": 0,
+          "per_repeat": {
+            "r1": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "r2": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [],
+            "contributor_count": 0,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 0,
+            "below_threshold_roi_share": 0.0,
+            "below_threshold_residual_share": 0.0,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 0,
+            "all_contributors_roi_share": 0.0
+          }
+        },
+        "R4": {
+          "label": "符号/DSO 已解析，机制不够具体",
+          "period": 5859027087,
+          "roi_share": 0.0200505482960552,
+          "residual_share": 0.057518610610747783,
+          "sample_count": 2390,
+          "per_repeat": {
+            "r1": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 3040622416,
+              "roi_share": 0.020324240753184012,
+              "residual_share": 0.05828337754502797,
+              "sample_count": 1264
+            },
+            "r2": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 2818404671,
+              "roi_share": 0.019763424074742915,
+              "residual_share": 0.05671573712696305,
+              "sample_count": 1126
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "remove_redundant_nops",
+                "entity_symbol": "_PyCfg_ConvertPseudoOps",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 958694811,
+                "roi_share": 0.003280810333132534,
+                "residual_share": 0.00941159559593165,
+                "representative_stack": [
+                  "remove_redundant_nops [inlined]",
+                  "_PyCfg_ConvertPseudoOps [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "optimize_and_assemble_code_unit [inlined]",
+                  "optimize_and_assemble [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_function_body [inlined]",
+                  "compiler_function [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_body [inlined]",
+                  "compiler_class_body [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_class [inlined]",
+                  "compiler_visit_stmt [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_body [inlined]",
+                  "compiler_codegen [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "tok_nextc",
+                "entity_symbol": "tok_nextc",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 426531154,
+                "roi_share": 0.0014596593216004631,
+                "residual_share": 0.004187295773851898,
+                "representative_stack": [
+                  "tok_nextc [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "tok_get_normal_mode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "tok_get [inlined]",
+                  "_PyTokenizer_Get [inlined]",
+                  "_PyPegen_fill_token [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_PyPegen_update_memo",
+                "entity_symbol": "term_rule",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 316779969,
+                "roi_share": 0.0010840728287039867,
+                "residual_share": 0.003109858243636373,
+                "representative_stack": [
+                  "_PyPegen_update_memo [inlined]",
+                  "term_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "sum_raw [inlined]",
+                  "sum_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "shift_expr_raw [inlined]",
+                  "shift_expr_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "bitwise_and_raw [inlined]",
+                  "bitwise_and_rule [inlined]",
+                  "bitwise_xor_raw [inlined]",
+                  "bitwise_xor_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "bitwise_or_raw [inlined]",
+                  "bitwise_or_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "pattern_subx",
+                "entity_symbol": "pattern_subx",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 235647993,
+                "roi_share": 0.0008064259465532281,
+                "residual_share": 0.002313378134169261,
+                "representative_stack": [
+                  "pattern_subx [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "method_vectorcall_FASTCALL_KEYWORDS_METHOD [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_VectorcallTstate [inlined]",
+                  "PyObject_Vectorcall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "dictiter_iternextvalue",
+                "entity_symbol": "dictiter_iternextvalue",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 176503823,
+                "roi_share": 0.0006040249302400739,
+                "residual_share": 0.001732754349091704,
+                "representative_stack": [
+                  "dictiter_iternextvalue [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]",
+                  "pymain_run_file [inlined]",
+                  "pymain_run_python [inlined]",
+                  "Py_RunMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              }
+            ],
+            "contributor_count": 176,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 5859027087,
+            "below_threshold_roi_share": 0.0200505482960552,
+            "below_threshold_residual_share": 0.057518610610747783,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 5859027087,
+            "all_contributors_roi_share": 0.0200505482960552
+          }
+        },
+        "R5": {
+          "label": "证据不足（未知项或采样质量限制）",
+          "period": 2990907652,
+          "roi_share": 0.010235374821619604,
+          "residual_share": 0.02936201694472452,
+          "sample_count": 324146,
+          "per_repeat": {
+            "r1": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 971210531,
+              "roi_share": 0.006491801333241136,
+              "residual_share": 0.018616395694551802,
+              "sample_count": 135631
+            },
+            "r2": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 2019697121,
+              "roi_share": 0.014162668376041857,
+              "residual_share": 0.04064306739531376,
+              "sample_count": 188515
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "__GI___memcmpeq",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 292530499,
+                "roi_share": 0.0010010871790101057,
+                "residual_share": 0.0028717989546561628,
+                "representative_stack": [
+                  "__GI___memcmpeq [inlined]",
+                  "unicode_compare_eq [inlined]",
+                  "hashtable_unicode_compare [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_Py_hashtable_get_entry_generic [inlined]",
+                  "_Py_hashtable_get [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyUnicode_InternInPlace [inlined]",
+                  "PyUnicode_InternInPlace [inlined]",
+                  "_PyPegen_new_identifier [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyPegen_name_from_token [inlined]",
+                  "_PyPegen_name_token [inlined]",
+                  "assignment_expression_rule [inlined]",
+                  "_tmp_284_rule [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "Py_INCREF",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 174370961,
+                "roi_share": 0.0005967259278793052,
+                "residual_share": 0.0017118158456434676,
+                "representative_stack": [
+                  "Py_INCREF [inlined]",
+                  "_Py_NewRef [inlined]",
+                  "treebuilder_handle_end [inlined]",
+                  "expat_end_handler [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "doContent [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "contentProcessor [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "callProcessor [inlined]",
+                  "PyExpat_XML_ParseBuffer [inlined]",
+                  "PyExpat_XML_Parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "expat_parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_elementtree_XMLParser_feed [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "new_reference",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 173093848,
+                "roi_share": 0.0005923554384608766,
+                "residual_share": 0.0016992783092466975,
+                "representative_stack": [
+                  "new_reference [inlined]",
+                  "_Py_NewReference [inlined]",
+                  "maybe_freelist_pop [inlined]",
+                  "tuple_alloc [inlined]",
+                  "PyTuple_Pack [inlined]",
+                  "enum_new_impl [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "new_reference",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 128245626,
+                "roi_share": 0.0004388774927455515,
+                "residual_share": 0.0012589991674202326,
+                "representative_stack": [
+                  "new_reference [inlined]",
+                  "_Py_NewReference [inlined]",
+                  "maybe_freelist_pop [inlined]",
+                  "tuple_alloc [inlined]",
+                  "PyTuple_Pack [inlined]",
+                  "enum_new_impl [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-enhance",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "new_reference",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 121559006,
+                "roi_share": 0.00041599478623872483,
+                "residual_share": 0.0011933560006672748,
+                "representative_stack": [
+                  "new_reference [inlined]",
+                  "_Py_NewReference [inlined]",
+                  "maybe_freelist_pop [inlined]",
+                  "tuple_alloc [inlined]",
+                  "PyTuple_New [inlined]",
+                  "dict_items [inlined]",
+                  "PyDict_Items [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              }
+            ],
+            "contributor_count": 180,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 2990907652,
+            "below_threshold_roi_share": 0.010235374821619604,
+            "below_threshold_residual_share": 0.02936201694472452,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 2990907652,
+            "all_contributors_roi_share": 0.010235374821619604
+          }
+        }
+      },
+      "diagnostics": {
+        "upper_operation": {
+          "unknown": {
+            "period": 101863153939,
+            "roi_share": 0.3485923613792682,
+            "residual_share": 1.0
+          }
+        },
+        "stack_prefix_quality": {
+          "strong": {
+            "period": 89258340791,
+            "roi_share": 0.3054566306454933,
+            "residual_share": 0.8762573839452458
+          },
+          "weak-unknown-frame": {
+            "period": 12427793896,
+            "roi_share": 0.04252994192125468,
+            "residual_share": 0.1220048016915154
+          },
+          "weak-short-stack": {
+            "period": 177019252,
+            "roi_share": 0.0006057888125202255,
+            "residual_share": 0.0017378143632388085
+          }
+        },
+        "quality_reason": {
+          "no-quality-blocker": {
+            "period": 89258340791,
+            "roi_share": 0.3054566306454933,
+            "residual_share": 0.8762573839452458
+          },
+          "unknown-dso": {
+            "period": 2961338450,
+            "roi_share": 0.010134184179560227,
+            "residual_share": 0.029071733354863287
+          },
+          "unknown-frame-in-prefix": {
+            "period": 9436889031,
+            "roi_share": 0.032294576637204586,
+            "residual_share": 0.09264281210702754
+          },
+          "unknown-dso-and-symbol": {
+            "period": 23338420,
+            "roi_share": 7.986788769109859e-05,
+            "residual_share": 0.0002291154268988769
+          },
+          "short-stack": {
+            "period": 177016465,
+            "roi_share": 0.0006057792749507158,
+            "residual_share": 0.0017377870030021356
+          },
+          "unknown-symbol": {
+            "period": 6230782,
+            "roi_share": 2.1322754368278517e-05,
+            "residual_share": 6.116816296235298e-05
+          }
+        },
+        "path_source_evidence_grade": {
+          "no_old_slice_path_candidate": {
+            "period": 101863153939,
+            "roi_share": 0.3485923613792682,
+            "residual_share": 1.0
+          }
+        },
+        "documented_legacy_mechanism_not_sampled_in_reference": {},
+        "R5_reason": {
+          "unknown-dso": {
+            "period": 2961338450,
+            "roi_share": 0.010134184179560227,
+            "residual_share": 0.9901136359124203
+          },
+          "unknown-dso-and-symbol": {
+            "period": 23338420,
+            "roi_share": 7.986788769109859e-05,
+            "residual_share": 0.007803122902973535
+          },
+          "unknown-symbol": {
+            "period": 6230782,
+            "roi_share": 2.1322754368278517e-05,
+            "residual_share": 0.002083241184606124
+          }
+        }
+      },
+      "interpretation": "R is outside the unchanged union of actual path match A and old-selected-slice sampled native mechanism B; it is not proven uncovered/new computation."
+    },
+    "manufacturing": {
+      "same_environment_control": "tlc",
+      "reference_slice_ids": [
+        "X-S1",
+        "X-S2",
+        "X-S3",
+        "X-S4",
+        "X-S5",
+        "X-S6",
+        "X-S7",
+        "X-S8"
+      ],
+      "reference_mechanism_count": 11,
+      "reference_leaf_function_count": 1134,
+      "reference_stack_prefix_count": 3519,
+      "reference_sample_sources": {
+        "r1": {
+          "samples_jsonl": "raw/tlc/r1/out/samples.jsonl",
+          "samples_sha256": "10c3fd0d7a294bede75110d7063483023a647d7236f91534d551613fdd6627cf",
+          "raw_index_sha256": "10c3fd0d7a294bede75110d7063483023a647d7236f91534d551613fdd6627cf"
+        },
+        "r2": {
+          "samples_jsonl": "raw/tlc/r2/out/samples.jsonl",
+          "samples_sha256": "4625a7a4ec7bb129ca1ae59225c49f56bfba344b6e951d8537322fc6c5b5d9c5",
+          "raw_index_sha256": "4625a7a4ec7bb129ca1ae59225c49f56bfba344b6e951d8537322fc6c5b5d9c5"
+        }
+      },
+      "reference_method": "recomputed from raw samples within timestamped/source-matched old-slice process scopes; unknown leaves and weak prefixes excluded",
+      "roi_period": 160118367815,
+      "residual_period": 56941907879,
+      "coverage_residual_share": 0.3556238341424416,
+      "computed_residual_share": 0.3556238341424415,
+      "per_repeat": {
+        "r1": {
+          "roi_period": 80832043809,
+          "residual_period": 26071552433,
+          "residual_roi_share": 0.32253981471265414,
+          "coverage_residual_share": 0.32253981471265414,
+          "categories": {
+            "R1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 10131716890,
+              "roi_share": 0.12534282708402722,
+              "residual_share": 0.38861195228159123,
+              "sample_count": 7416
+            },
+            "R2": {
+              "label": "仅叶函数匹配",
+              "period": 8792569129,
+              "roi_share": 0.10877578636729977,
+              "residual_share": 0.3372476246512589,
+              "sample_count": 15262
+            },
+            "R3": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "R4": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 4759902901,
+              "roi_share": 0.05888633611995869,
+              "residual_share": 0.18257075075342138,
+              "sample_count": 837
+            },
+            "R5": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 2387363513,
+              "roi_share": 0.02953486514136843,
+              "residual_share": 0.09156967231372846,
+              "sample_count": 80878
+            }
+          },
+          "diagnostics": {
+            "upper_operation": {
+              "unknown": 26071552433
+            },
+            "stack_prefix_quality": {
+              "strong": 21851571459,
+              "weak-unknown-frame": 4103732868,
+              "weak-short-stack": 116248106
+            },
+            "quality_reason": {
+              "no-quality-blocker": 21851571459,
+              "unknown-dso": 2366924738,
+              "unknown-frame-in-prefix": 1716369956,
+              "unknown-dso-and-symbol": 11307581,
+              "short-stack": 116247505,
+              "unknown-symbol": 9131194
+            },
+            "path_source_evidence_grade": {
+              "no_old_slice_path_candidate": 26071552433
+            },
+            "R5_reason": {
+              "unknown-dso": 2366924738,
+              "unknown-dso-and-symbol": 11307581,
+              "unknown-symbol": 9131194
+            }
+          },
+          "sample_source": {
+            "samples_jsonl": "raw/manufacturing/r1/out/samples.jsonl",
+            "samples_sha256": "057e3d4d8cc65dae0c8c5ec210bee0a5e71a6cdee2d2f1326491fea41827dc97",
+            "raw_index_sha256": "057e3d4d8cc65dae0c8c5ec210bee0a5e71a6cdee2d2f1326491fea41827dc97",
+            "identity_jsonl": "raw/manufacturing/r1/out/monitor/identity.jsonl",
+            "identity_sha256_from_raw_index": "a72ea4fef51c07c03d7345617501ba4a79ef0fb6ca7cc05b6ee34a4ff53493f0"
+          }
+        },
+        "r2": {
+          "roi_period": 79286324006,
+          "residual_period": 30870355446,
+          "residual_roi_share": 0.38935284026617106,
+          "coverage_residual_share": 0.3893528402661711,
+          "categories": {
+            "R1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 10284922442,
+              "roi_share": 0.1297187449530601,
+              "residual_share": 0.33316501521956593,
+              "sample_count": 5041
+            },
+            "R2": {
+              "label": "仅叶函数匹配",
+              "period": 14031335958,
+              "roi_share": 0.1769704439436261,
+              "residual_share": 0.4545245999044076,
+              "sample_count": 11645
+            },
+            "R3": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "R4": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 5476352144,
+              "roi_share": 0.06907057695833617,
+              "residual_share": 0.1773984155634202,
+              "sample_count": 808
+            },
+            "R5": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 1077744902,
+              "roi_share": 0.013593074411148655,
+              "residual_share": 0.034911969312606275,
+              "sample_count": 69054
+            }
+          },
+          "diagnostics": {
+            "upper_operation": {
+              "unknown": 30870355446
+            },
+            "stack_prefix_quality": {
+              "strong": 23633271947,
+              "weak-unknown-frame": 7177026653,
+              "weak-short-stack": 60056846
+            },
+            "quality_reason": {
+              "no-quality-blocker": 23633271947,
+              "unknown-dso": 1003352818,
+              "unknown-frame-in-prefix": 6099282281,
+              "unknown-dso-and-symbol": 70169085,
+              "short-stack": 60056316,
+              "unknown-symbol": 4222999
+            },
+            "path_source_evidence_grade": {
+              "no_old_slice_path_candidate": 30870355446
+            },
+            "R5_reason": {
+              "unknown-dso": 1003352818,
+              "unknown-dso-and-symbol": 70169085,
+              "unknown-symbol": 4222999
+            }
+          },
+          "sample_source": {
+            "samples_jsonl": "raw/manufacturing/r2/out/samples.jsonl",
+            "samples_sha256": "795180be2e5cea6d8f587df14320ec5f4a0ef104af4d4a4f194748c741d74c74",
+            "raw_index_sha256": "795180be2e5cea6d8f587df14320ec5f4a0ef104af4d4a4f194748c741d74c74",
+            "identity_jsonl": "raw/manufacturing/r2/out/monitor/identity.jsonl",
+            "identity_sha256_from_raw_index": "579ae905fb3e64e407532c0829cbafb185f2e82d6f97f77298dc25d962daf8a8"
+          }
+        }
+      },
+      "categories": {
+        "R1": {
+          "label": "规范化栈前缀指纹匹配",
+          "period": 20416639332,
+          "roi_share": 0.12750966432276706,
+          "residual_share": 0.35855207688834034,
+          "sample_count": 12457,
+          "per_repeat": {
+            "r1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 10131716890,
+              "roi_share": 0.12534282708402722,
+              "residual_share": 0.38861195228159123,
+              "sample_count": 7416
+            },
+            "r2": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 10284922442,
+              "roi_share": 0.1297187449530601,
+              "residual_share": 0.33316501521956593,
+              "sample_count": 5041
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_Py_call_instrumentation_line",
+                "entity_symbol": "_PyEval_EvalFrameDefault",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 653203253,
+                "roi_share": 0.004079502320150477,
+                "residual_share": 0.011471397382540098,
+                "representative_stack": [
+                  "_Py_call_instrumentation_line [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]",
+                  "pymain_run_file [inlined]",
+                  "pymain_run_python [inlined]",
+                  "Py_RunMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-summary-export",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_PyFrame_Initialize",
+                "entity_symbol": "_PyFunction_Vectorcall",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 610065364,
+                "roi_share": 0.0038100898249529163,
+                "residual_share": 0.010713820220010405,
+                "representative_stack": [
+                  "_PyFrame_Initialize [inlined]",
+                  "_PyEvalFramePushAndInit [inlined]",
+                  "_PyEval_Vector [inlined]",
+                  "_PyFunction_Vectorcall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_FastCallDictTstate [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_Call_Prepend [inlined]",
+                  "slot_tp_init [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "type_call [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_Call [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyCFunction_Call [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_DK_ENTRIES",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 576735060,
+                "roi_share": 0.003601929421778499,
+                "residual_share": 0.01012848149074222,
+                "representative_stack": [
+                  "_DK_ENTRIES [inlined]",
+                  "DK_ENTRIES [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_GetItemWithError [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "makeuniversal [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "expat_start_handler [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "doContent [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "contentProcessor [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "callProcessor [inlined]",
+                  "PyExpat_XML_ParseBuffer [inlined]",
+                  "PyExpat_XML_Parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "expat_parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "traverse_slots",
+                "entity_symbol": "subtype_traverse",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 558863938,
+                "roi_share": 0.003490317479664224,
+                "residual_share": 0.009814633172944795,
+                "representative_stack": [
+                  "traverse_slots [inlined]",
+                  "subtype_traverse [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "subtract_refs [inlined]",
+                  "deduce_unreachable [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "gc_collect_main [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "gc_collect_with_callback [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyGC_Collect [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_FinalizeEx [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_RunMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_BytesMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "__libc_start_call_main [/usr/lib64/libc.so.6]",
+                  "__libc_start_main_impl [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-summary-export",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "maybe_freelist_pop",
+                "entity_symbol": "_PyObject_MakeTpCall",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 468053229,
+                "roi_share": 0.0029231701233726442,
+                "residual_share": 0.00821983748761282,
+                "representative_stack": [
+                  "maybe_freelist_pop [inlined]",
+                  "tuple_alloc [inlined]",
+                  "_PyTuple_FromArray [inlined]",
+                  "_PyObject_MakeTpCall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]"
+                ]
+              }
+            ],
+            "contributor_count": 244,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 20416639332,
+            "below_threshold_roi_share": 0.12750966432276706,
+            "below_threshold_residual_share": 0.35855207688834034,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 20416639332,
+            "all_contributors_roi_share": 0.12750966432276706
+          }
+        },
+        "R2": {
+          "label": "仅叶函数匹配",
+          "period": 22823905087,
+          "roi_share": 0.1425439529421798,
+          "residual_share": 0.4008278952559892,
+          "sample_count": 26907,
+          "per_repeat": {
+            "r1": {
+              "label": "仅叶函数匹配",
+              "period": 8792569129,
+              "roi_share": 0.10877578636729977,
+              "residual_share": 0.3372476246512589,
+              "sample_count": 15262
+            },
+            "r2": {
+              "label": "仅叶函数匹配",
+              "period": 14031335958,
+              "roi_share": 0.1769704439436261,
+              "residual_share": 0.4545245999044076,
+              "sample_count": 11645
+            }
+          },
+          "contributors": {
+            "top_contributors": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "unicodekeys_lookup_unicode",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1264282361,
+                "roi_share": 0.007895923361276988,
+                "residual_share": 0.022203020729241553,
+                "representative_stack": [
+                  "unicodekeys_lookup_unicode [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "insertdict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyDict_FromItems [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyIter_Next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "zip_longest_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_PyObject_GC_TRACK",
+                "entity_symbol": "PyTuple_Pack",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 931148879,
+                "roi_share": 0.0058153782836198094,
+                "residual_share": 0.016352611173104104,
+                "representative_stack": [
+                  "_PyObject_GC_TRACK [inlined]",
+                  "PyTuple_Pack [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "treebuilder_append_event [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "treebuilder_handle_end [inlined]",
+                  "expat_end_handler [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "doContent [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "contentProcessor [inlined]",
+                  "doProlog [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "prologProcessor [inlined]",
+                  "prologInitProcessor [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "callProcessor [inlined]",
+                  "PyExpat_XML_ParseBuffer [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-enhance",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_Py_dict_lookup",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 905119628,
+                "roi_share": 0.005652815728460154,
+                "residual_share": 0.015895491768968376,
+                "representative_stack": [
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "insertdict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "finalize_remove_modules [inlined]",
+                  "finalize_modules [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_FinalizeEx [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_RunMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_BytesMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "__libc_start_call_main [/usr/lib64/libc.so.6]",
+                  "__libc_start_main_impl [inlined]",
+                  "_start [/opt/python-3.12.3/bin/python3.12]"
+                ]
+              }
+            ],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "unicodekeys_lookup_unicode",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1264282361,
+                "roi_share": 0.007895923361276988,
+                "residual_share": 0.022203020729241553,
+                "representative_stack": [
+                  "unicodekeys_lookup_unicode [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "insertdict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyDict_FromItems [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyIter_Next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "zip_longest_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_PyObject_GC_TRACK",
+                "entity_symbol": "PyTuple_Pack",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 931148879,
+                "roi_share": 0.0058153782836198094,
+                "residual_share": 0.016352611173104104,
+                "representative_stack": [
+                  "_PyObject_GC_TRACK [inlined]",
+                  "PyTuple_Pack [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "treebuilder_append_event [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "treebuilder_handle_end [inlined]",
+                  "expat_end_handler [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "doContent [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "contentProcessor [inlined]",
+                  "doProlog [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "prologProcessor [inlined]",
+                  "prologInitProcessor [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "callProcessor [inlined]",
+                  "PyExpat_XML_ParseBuffer [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-enhance",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_Py_dict_lookup",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 905119628,
+                "roi_share": 0.005652815728460154,
+                "residual_share": 0.015895491768968376,
+                "representative_stack": [
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "insertdict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "finalize_remove_modules [inlined]",
+                  "finalize_modules [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_FinalizeEx [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_RunMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_BytesMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "__libc_start_call_main [/usr/lib64/libc.so.6]",
+                  "__libc_start_main_impl [inlined]",
+                  "_start [/opt/python-3.12.3/bin/python3.12]"
+                ]
+              },
+              {
+                "role": "xlsx-enhance",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_io_TextIOWrapper_write_impl",
+                "entity_symbol": "_io_TextIOWrapper_write",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 787654860,
+                "roi_share": 0.00491920365382473,
+                "residual_share": 0.013832603952676562,
+                "representative_stack": [
+                  "_io_TextIOWrapper_write_impl [inlined]",
+                  "_io_TextIOWrapper_write [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyVectorcall_Call [inlined]",
+                  "_PyObject_Call [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "partial_call [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_MakeTpCall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "PyObject_Free",
+                "entity_symbol": "_PyEval_EvalFrameDefault",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 780010176,
+                "roi_share": 0.004871459699746753,
+                "residual_share": 0.013698349863118396,
+                "representative_stack": [
+                  "PyObject_Free [inlined]",
+                  "_PyFloat_ExactDealloc [inlined]",
+                  "float_dealloc [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "_PyEval_Vector [inlined]",
+                  "_PyFunction_Vectorcall [inlined]",
+                  "_PyObject_VectorcallTstate [inlined]",
+                  "method_vectorcall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyVectorcall_Call [inlined]",
+                  "_PyObject_Call [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyCFunction_Call [inlined]"
+                ]
+              }
+            ],
+            "contributor_count": 310,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 19723354219,
+            "below_threshold_roi_share": 0.12317983556882287,
+            "below_threshold_residual_share": 0.3463767715846752,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 22823905087,
+            "all_contributors_roi_share": 0.1425439529421798
+          }
+        },
+        "R3": {
+          "label": "具体原生机制已知，旧切片参考未观察到",
+          "period": 0,
+          "roi_share": 0.0,
+          "residual_share": 0.0,
+          "sample_count": 0,
+          "per_repeat": {
+            "r1": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "r2": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [],
+            "contributor_count": 0,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 0,
+            "below_threshold_roi_share": 0.0,
+            "below_threshold_residual_share": 0.0,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 0,
+            "all_contributors_roi_share": 0.0
+          }
+        },
+        "R4": {
+          "label": "符号/DSO 已解析，机制不够具体",
+          "period": 10236255045,
+          "roi_share": 0.06392929920961297,
+          "residual_share": 0.1797666328067504,
+          "sample_count": 1645,
+          "per_repeat": {
+            "r1": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 4759902901,
+              "roi_share": 0.05888633611995869,
+              "residual_share": 0.18257075075342138,
+              "sample_count": 837
+            },
+            "r2": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 5476352144,
+              "roi_share": 0.06907057695833617,
+              "residual_share": 0.1773984155634202,
+              "sample_count": 808
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "tok_get",
+                "entity_symbol": "_PyPegen_fill_token",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 791155322,
+                "roi_share": 0.004941065368053821,
+                "residual_share": 0.013894078218825816,
+                "representative_stack": [
+                  "tok_get [inlined]",
+                  "_PyTokenizer_Get [inlined]",
+                  "_PyPegen_fill_token [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyPegen_expect_token [inlined]",
+                  "_tmp_7_rule [inlined]",
+                  "_PyPegen_lookahead_with_name [inlined]",
+                  "compound_stmt_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "statement_rule [inlined]",
+                  "_loop1_3_rule [inlined]",
+                  "statements_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "block_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "class_def_raw_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_PyCompile_InstrSize",
+                "entity_symbol": "_PyAssemble_MakeCodeObject",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 498505828,
+                "roi_share": 0.0031133581662284447,
+                "residual_share": 0.00875463865839043,
+                "representative_stack": [
+                  "_PyCompile_InstrSize [inlined]",
+                  "assemble_location_info [inlined]",
+                  "assemble_emit [inlined]",
+                  "_PyAssemble_MakeCodeObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "optimize_and_assemble_code_unit [inlined]",
+                  "optimize_and_assemble [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_class_body [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_class [inlined]",
+                  "compiler_visit_stmt [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_body [inlined]",
+                  "compiler_codegen [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_mod [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_PyPegen_is_memoized",
+                "entity_symbol": "shift_expr_rule",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 444568081,
+                "roi_share": 0.0027764964573811536,
+                "residual_share": 0.007807397004411848,
+                "representative_stack": [
+                  "_PyPegen_is_memoized [inlined]",
+                  "shift_expr_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "bitwise_and_raw [inlined]",
+                  "bitwise_and_rule [inlined]",
+                  "bitwise_xor_raw [inlined]",
+                  "bitwise_xor_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "bitwise_or_raw [inlined]",
+                  "bitwise_or_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "comparison_rule [inlined]",
+                  "inversion_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "conjunction_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "disjunction_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_Py_GetBaseOpcode",
+                "entity_symbol": "code_hash",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 389550925,
+                "roi_share": 0.0024328934295038862,
+                "residual_share": 0.006841199030910328,
+                "representative_stack": [
+                  "_Py_GetBaseOpcode [inlined]",
+                  "code_hash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_Hash [inlined]",
+                  "tuplehash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_Hash [inlined]",
+                  "code_hash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_Hash [inlined]",
+                  "tuplehash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_Hash [inlined]",
+                  "tuplehash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_SetDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyCompile_ConstCacheMergeOne [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "tok_nextc",
+                "entity_symbol": "tok_nextc",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 350515237,
+                "roi_share": 0.0021891007370558736,
+                "residual_share": 0.006155663729161223,
+                "representative_stack": [
+                  "tok_nextc [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "tok_get_normal_mode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "tok_get [inlined]",
+                  "_PyTokenizer_Get [inlined]",
+                  "_PyPegen_fill_token [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              }
+            ],
+            "contributor_count": 270,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 10236255045,
+            "below_threshold_roi_share": 0.06392929920961297,
+            "below_threshold_residual_share": 0.1797666328067504,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 10236255045,
+            "all_contributors_roi_share": 0.06392929920961297
+          }
+        },
+        "R5": {
+          "label": "证据不足（未知项或采样质量限制）",
+          "period": 3465108415,
+          "roi_share": 0.021640917667881614,
+          "residual_share": 0.060853395048920046,
+          "sample_count": 149932,
+          "per_repeat": {
+            "r1": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 2387363513,
+              "roi_share": 0.02953486514136843,
+              "residual_share": 0.09156967231372846,
+              "sample_count": 80878
+            },
+            "r2": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 1077744902,
+              "roi_share": 0.013593074411148655,
+              "residual_share": 0.034911969312606275,
+              "sample_count": 69054
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "translate_newlines",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 792814578,
+                "roi_share": 0.004951428051752403,
+                "residual_share": 0.013923217670976346,
+                "representative_stack": [
+                  "translate_newlines [inlined]",
+                  "decode_str [inlined]",
+                  "_PyTokenizer_FromString [inlined]",
+                  "_PyPegen_run_parser_from_string [inlined]",
+                  "_PyParser_ASTFromString [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_CompileStringObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "builtin_compile_impl [inlined]",
+                  "builtin_compile [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_VectorcallTstate [inlined]",
+                  "object_vacall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_CallMethodObjArgs [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "new_reference",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 264260782,
+                "roi_share": 0.0016504089168915689,
+                "residual_share": 0.004640883873465338,
+                "representative_stack": [
+                  "new_reference [inlined]",
+                  "_Py_NewReference [inlined]",
+                  "maybe_freelist_pop [inlined]",
+                  "tuple_alloc [inlined]",
+                  "PyTuple_Pack [inlined]",
+                  "dictiter_new [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_GetIter [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "_PyEval_Vector [inlined]",
+                  "_PyFunction_Vectorcall [inlined]",
+                  "_PyObject_VectorcallTstate [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "index",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 237040259,
+                "roi_share": 0.0014804064157953145,
+                "residual_share": 0.004162843638883756,
+                "representative_stack": [
+                  "index [inlined]",
+                  "tok_underflow_string [inlined]",
+                  "tok_nextc [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "tok_get_normal_mode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "tok_get [inlined]",
+                  "_PyTokenizer_Get [inlined]",
+                  "_PyPegen_fill_token [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "__GI_strnlen",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 175697816,
+                "roi_share": 0.0010972995690475711,
+                "residual_share": 0.0030855625064996604,
+                "representative_stack": [
+                  "__GI_strnlen [inlined]",
+                  "__GI_strncpy [inlined]",
+                  "format_float_short [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyOS_double_to_string [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "formatfloat [inlined]",
+                  "unicode_format_arg_format [inlined]",
+                  "unicode_format_arg [inlined]",
+                  "PyUnicode_Format [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "binary_op1 [inlined]",
+                  "binary_op [inlined]",
+                  "PyNumber_Remainder [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "PyType_IsSubtype",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 174895736,
+                "roi_share": 0.0010922902749175767,
+                "residual_share": 0.0030714765717307657,
+                "representative_stack": [
+                  "PyType_IsSubtype [inlined]",
+                  "PyObject_TypeCheck [inlined]",
+                  "object_isinstance [inlined]",
+                  "object_recursive_isinstance [inlined]",
+                  "object_recursive_isinstance [inlined]",
+                  "object_recursive_isinstance [inlined]",
+                  "object_recursive_isinstance [inlined]",
+                  "PyObject_IsInstance [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              }
+            ],
+            "contributor_count": 168,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 3465108415,
+            "below_threshold_roi_share": 0.021640917667881614,
+            "below_threshold_residual_share": 0.060853395048920046,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 3465108415,
+            "all_contributors_roi_share": 0.021640917667881614
+          }
+        }
+      },
+      "diagnostics": {
+        "upper_operation": {
+          "unknown": {
+            "period": 56941907879,
+            "roi_share": 0.3556238341424415,
+            "residual_share": 1.0
+          }
+        },
+        "stack_prefix_quality": {
+          "strong": {
+            "period": 45484843406,
+            "roi_share": 0.28407011654373704,
+            "residual_share": 0.7987938075881484
+          },
+          "weak-unknown-frame": {
+            "period": 11280759521,
+            "roi_share": 0.07045262623482233,
+            "residual_share": 0.19810996752991322
+          },
+          "weak-short-stack": {
+            "period": 176304952,
+            "roi_share": 0.0011010913638821369,
+            "residual_share": 0.0030962248819383295
+          }
+        },
+        "quality_reason": {
+          "no-quality-blocker": {
+            "period": 45484843406,
+            "roi_share": 0.28407011654373704,
+            "residual_share": 0.7987938075881484
+          },
+          "unknown-dso": {
+            "period": 3370277556,
+            "roi_share": 0.021048662948488225,
+            "residual_share": 0.05918799846260416
+          },
+          "unknown-frame-in-prefix": {
+            "period": 7815652237,
+            "roi_share": 0.04881171563046513,
+            "residual_share": 0.13725659234334134
+          },
+          "unknown-dso-and-symbol": {
+            "period": 81476666,
+            "roi_share": 0.0005088527138506542,
+            "residual_share": 0.0014308734820255003
+          },
+          "short-stack": {
+            "period": 176303821,
+            "roi_share": 0.0011010843003577242,
+            "residual_share": 0.003096205019590155
+          },
+          "unknown-symbol": {
+            "period": 13354193,
+            "roi_share": 8.340200554273306e-05,
+            "residual_share": 0.00023452310429038128
+          }
+        },
+        "path_source_evidence_grade": {
+          "no_old_slice_path_candidate": {
+            "period": 56941907879,
+            "roi_share": 0.3556238341424415,
+            "residual_share": 1.0
+          }
+        },
+        "documented_legacy_mechanism_not_sampled_in_reference": {},
+        "R5_reason": {
+          "unknown-dso": {
+            "period": 3370277556,
+            "roi_share": 0.021048662948488225,
+            "residual_share": 0.9726326430106805
+          },
+          "unknown-dso-and-symbol": {
+            "period": 81476666,
+            "roi_share": 0.0005088527138506542,
+            "residual_share": 0.02351345361873764
+          },
+          "unknown-symbol": {
+            "period": 13354193,
+            "roi_share": 8.340200554273306e-05,
+            "residual_share": 0.003853903370581841
+          }
+        }
+      },
+      "interpretation": "R is outside the unchanged union of actual path match A and old-selected-slice sampled native mechanism B; it is not proven uncovered/new computation."
+    },
+    "hr": {
+      "same_environment_control": "tlc",
+      "reference_slice_ids": [
+        "X-S1",
+        "X-S2",
+        "X-S3",
+        "X-S4",
+        "X-S5",
+        "X-S6",
+        "X-S7",
+        "X-S8"
+      ],
+      "reference_mechanism_count": 11,
+      "reference_leaf_function_count": 1134,
+      "reference_stack_prefix_count": 3519,
+      "reference_sample_sources": {
+        "r1": {
+          "samples_jsonl": "raw/tlc/r1/out/samples.jsonl",
+          "samples_sha256": "10c3fd0d7a294bede75110d7063483023a647d7236f91534d551613fdd6627cf",
+          "raw_index_sha256": "10c3fd0d7a294bede75110d7063483023a647d7236f91534d551613fdd6627cf"
+        },
+        "r2": {
+          "samples_jsonl": "raw/tlc/r2/out/samples.jsonl",
+          "samples_sha256": "4625a7a4ec7bb129ca1ae59225c49f56bfba344b6e951d8537322fc6c5b5d9c5",
+          "raw_index_sha256": "4625a7a4ec7bb129ca1ae59225c49f56bfba344b6e951d8537322fc6c5b5d9c5"
+        }
+      },
+      "reference_method": "recomputed from raw samples within timestamped/source-matched old-slice process scopes; unknown leaves and weak prefixes excluded",
+      "roi_period": 298398733857,
+      "residual_period": 116354590531,
+      "coverage_residual_share": 0.38992990696388136,
+      "computed_residual_share": 0.38992990696388136,
+      "per_repeat": {
+        "r1": {
+          "roi_period": 148345141319,
+          "residual_period": 58476302211,
+          "residual_roi_share": 0.39419088276880676,
+          "coverage_residual_share": 0.39419088276880676,
+          "categories": {
+            "R1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 36759356903,
+              "roi_share": 0.24779616356934148,
+              "residual_share": 0.6286197230864776,
+              "sample_count": 4883
+            },
+            "R2": {
+              "label": "仅叶函数匹配",
+              "period": 13031578956,
+              "roi_share": 0.08784634832075164,
+              "residual_share": 0.2228523087690833,
+              "sample_count": 9757
+            },
+            "R3": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "R4": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 3872025094,
+              "roi_share": 0.02610146216837418,
+              "residual_share": 0.0662152863228009,
+              "sample_count": 465
+            },
+            "R5": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 4813341258,
+              "roi_share": 0.032446908710339464,
+              "residual_share": 0.08231268182163817,
+              "sample_count": 40515
+            }
+          },
+          "diagnostics": {
+            "upper_operation": {
+              "unknown": 58476302211
+            },
+            "stack_prefix_quality": {
+              "strong": 48309859237,
+              "weak-unknown-frame": 9989475505,
+              "weak-short-stack": 176967469
+            },
+            "quality_reason": {
+              "no-quality-blocker": 48309859237,
+              "unknown-frame-in-prefix": 5176134820,
+              "unknown-dso": 4741577940,
+              "unknown-dso-and-symbol": 65195023,
+              "short-stack": 176966896,
+              "unknown-symbol": 6568295
+            },
+            "path_source_evidence_grade": {
+              "no_old_slice_path_candidate": 58476302211
+            },
+            "R5_reason": {
+              "unknown-dso": 4741577940,
+              "unknown-dso-and-symbol": 65195023,
+              "unknown-symbol": 6568295
+            }
+          },
+          "sample_source": {
+            "samples_jsonl": "raw/hr/r1/out/samples.jsonl",
+            "samples_sha256": "3063d7316547ba7c00eb06253e0383fdd6708464111bf406d4d86d47a327db5b",
+            "raw_index_sha256": "3063d7316547ba7c00eb06253e0383fdd6708464111bf406d4d86d47a327db5b",
+            "identity_jsonl": "raw/hr/r1/out/monitor/identity.jsonl",
+            "identity_sha256_from_raw_index": "28d1e489aebcfb53ebfc5d750f5a5afb1678ac5b004caba04deba1ec95434fd0"
+          }
+        },
+        "r2": {
+          "roi_period": 150053592538,
+          "residual_period": 57878288320,
+          "residual_roi_share": 0.38571744495449345,
+          "coverage_residual_share": 0.38571744495449345,
+          "categories": {
+            "R1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 35039190845,
+              "roi_share": 0.23351117592287285,
+              "residual_share": 0.6053943864281852,
+              "sample_count": 5044
+            },
+            "R2": {
+              "label": "仅叶函数匹配",
+              "period": 14558401819,
+              "roi_share": 0.09702134799147304,
+              "residual_share": 0.25153476789964613,
+              "sample_count": 9767
+            },
+            "R3": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 2,
+              "roi_share": 1.3328571253590709e-11,
+              "residual_share": 3.4555272072703895e-11,
+              "sample_count": 2
+            },
+            "R4": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 5171547824,
+              "roi_share": 0.03446467183176799,
+              "residual_share": 0.0893521210476599,
+              "sample_count": 504
+            },
+            "R5": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 3109147830,
+              "roi_share": 0.020720249195050965,
+              "residual_share": 0.05371872458995346,
+              "sample_count": 44312
+            }
+          },
+          "diagnostics": {
+            "upper_operation": {
+              "unknown": 57878288320
+            },
+            "stack_prefix_quality": {
+              "strong": 50542361659,
+              "weak-unknown-frame": 7275470262,
+              "weak-short-stack": 60456399
+            },
+            "quality_reason": {
+              "no-quality-blocker": 50542361659,
+              "unknown-dso": 2864630365,
+              "unknown-frame-in-prefix": 4166322732,
+              "unknown-dso-and-symbol": 238773216,
+              "short-stack": 60456099,
+              "unknown-symbol": 5744249
+            },
+            "path_source_evidence_grade": {
+              "no_old_slice_path_candidate": 57878288320
+            },
+            "R5_reason": {
+              "unknown-dso": 2864630365,
+              "unknown-dso-and-symbol": 238773216,
+              "unknown-symbol": 5744249
+            }
+          },
+          "sample_source": {
+            "samples_jsonl": "raw/hr/r2/out/samples.jsonl",
+            "samples_sha256": "fd50779466b96b47ea9d21cb40cd34a0aa400d087a644cd473ed0817bedd1487",
+            "raw_index_sha256": "fd50779466b96b47ea9d21cb40cd34a0aa400d087a644cd473ed0817bedd1487",
+            "identity_jsonl": "raw/hr/r2/out/monitor/identity.jsonl",
+            "identity_sha256_from_raw_index": "e8359ca8f94c42ef4cf3bfd8ca2b416d55b6f4cd6668999b440da7b48644c403"
+          }
+        }
+      },
+      "categories": {
+        "R1": {
+          "label": "规范化栈前缀指纹匹配",
+          "period": 71798547748,
+          "roi_share": 0.2406127761333184,
+          "residual_share": 0.6170667390116502,
+          "sample_count": 9927,
+          "per_repeat": {
+            "r1": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 36759356903,
+              "roi_share": 0.24779616356934148,
+              "residual_share": 0.6286197230864776,
+              "sample_count": 4883
+            },
+            "r2": {
+              "label": "规范化栈前缀指纹匹配",
+              "period": 35039190845,
+              "roi_share": 0.23351117592287285,
+              "residual_share": 0.6053943864281852,
+              "sample_count": 5044
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "arena_map_is_used",
+                "entity_symbol": "PyObject_GC_Del",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1223095547,
+                "roi_share": 0.004098863058802848,
+                "residual_share": 0.01051179451896343,
+                "representative_stack": [
+                  "arena_map_is_used [inlined]",
+                  "address_in_range [inlined]",
+                  "pymalloc_free [inlined]",
+                  "_PyObject_Free [inlined]",
+                  "PyObject_Free [inlined]",
+                  "PyObject_GC_Del [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "element_dealloc [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "Py_DECREF [inlined]",
+                  "dealloc_extra [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "clear_extra [inlined]",
+                  "_elementtree_Element_clear_impl [inlined]",
+                  "_elementtree_Element_clear [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "PyObject_GetItem",
+                "entity_symbol": "PyObject_GetItem",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1176823726,
+                "roi_share": 0.003943795976573958,
+                "residual_share": 0.01011411514259476,
+                "representative_stack": [
+                  "PyObject_GetItem [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]",
+                  "pymain_run_file [inlined]",
+                  "pymain_run_python [inlined]",
+                  "Py_RunMain [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "dictkeys_generic_lookup",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1107706421,
+                "roi_share": 0.0037121686365158644,
+                "residual_share": 0.009520092124812876,
+                "representative_stack": [
+                  "dictkeys_generic_lookup [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "insertdict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyDict_SetItem_Take2 [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "untrack_dicts",
+                "entity_symbol": "gc_collect_main",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 1070851909,
+                "roi_share": 0.0035886610347119585,
+                "residual_share": 0.009203349039457933,
+                "representative_stack": [
+                  "untrack_dicts [inlined]",
+                  "gc_collect_main [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "gc_collect_with_callback [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "gc_collect_generations [inlined]",
+                  "_Py_RunGC [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_Py_HandlePending [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "wrap_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_MakeTpCall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "unicodekeys_lookup_unicode",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 1047805804,
+                "roi_share": 0.003511428451643948,
+                "residual_share": 0.009005281177289144,
+                "representative_stack": [
+                  "unicodekeys_lookup_unicode [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_Contains [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PySequence_Contains [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]"
+                ]
+              }
+            ],
+            "contributor_count": 577,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 71798547748,
+            "below_threshold_roi_share": 0.2406127761333184,
+            "below_threshold_residual_share": 0.6170667390116502,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 71798547748,
+            "all_contributors_roi_share": 0.2406127761333184
+          }
+        },
+        "R2": {
+          "label": "仅叶函数匹配",
+          "period": 27589980775,
+          "roi_share": 0.09246011341395904,
+          "residual_share": 0.23711983041742804,
+          "sample_count": 19524,
+          "per_repeat": {
+            "r1": {
+              "label": "仅叶函数匹配",
+              "period": 13031578956,
+              "roi_share": 0.08784634832075164,
+              "residual_share": 0.2228523087690833,
+              "sample_count": 9757
+            },
+            "r2": {
+              "label": "仅叶函数匹配",
+              "period": 14558401819,
+              "roi_share": 0.09702134799147304,
+              "residual_share": 0.25153476789964613,
+              "sample_count": 9767
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "ld",
+                "leaf_dso": "/usr/lib/ld-linux-aarch64.so.1",
+                "leaf_symbol": "_dl_tlsdesc_return",
+                "entity_symbol": "_dl_tlsdesc_return",
+                "entity_dso": "/usr/lib/ld-linux-aarch64.so.1",
+                "mechanism": "M-NATIVE-OTHER-UNSPECIFIED",
+                "native_status": "known-dso-mechanism-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 841961678,
+                "roi_share": 0.0028215993651081934,
+                "residual_share": 0.007236170693030617,
+                "representative_stack": [
+                  "_dl_tlsdesc_return [/usr/lib/ld-linux-aarch64.so.1]",
+                  "_PyThreadState_GET [inlined]",
+                  "PyErr_Occurred [inlined]",
+                  "find_name_in_mro [inlined]",
+                  "update_one_slot [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "fixup_slot_dispatchers [inlined]",
+                  "type_new_impl [inlined]",
+                  "type_new [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "tp_new_wrapper [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "cfunction_call [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_MakeTpCall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-enhance",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "unicodekeys_lookup_unicode",
+                "entity_symbol": "_Py_dict_lookup",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 835456691,
+                "roi_share": 0.002799799718320425,
+                "residual_share": 0.00718026411495481,
+                "representative_stack": [
+                  "unicodekeys_lookup_unicode [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "insertdict [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyDict_FromItems [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "move_legacy_finalizers",
+                "entity_symbol": "gc_collect_main",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 781292921,
+                "roi_share": 0.0026182849736031883,
+                "residual_share": 0.006714758029180142,
+                "representative_stack": [
+                  "move_legacy_finalizers [inlined]",
+                  "gc_collect_main [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "gc_collect_with_callback [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "gc_collect_generations [inlined]",
+                  "_Py_RunGC [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_Py_HandlePending [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]",
+                  "gen_send_ex2 [inlined]",
+                  "gen_iternext [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "wrap_next [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_MakeTpCall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "arena_map_is_used",
+                "entity_symbol": "_PyPegen_Parser_Free",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 768000180,
+                "roi_share": 0.0025737380654170085,
+                "residual_share": 0.006600514655202916,
+                "representative_stack": [
+                  "arena_map_is_used [inlined]",
+                  "address_in_range [inlined]",
+                  "pymalloc_free [inlined]",
+                  "_PyObject_Free [inlined]",
+                  "PyMem_Free [inlined]",
+                  "_PyPegen_Parser_Free [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyPegen_run_parser_from_string [inlined]",
+                  "_PyParser_ASTFromString [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "Py_CompileStringObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "builtin_compile_impl [inlined]",
+                  "builtin_compile [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libc",
+                "leaf_dso": "/usr/lib64/libc.so.6",
+                "leaf_symbol": "__memset_generic",
+                "entity_symbol": "__memset_generic",
+                "entity_dso": "/usr/lib64/libc.so.6",
+                "mechanism": "M-NATIVE-OTHER-UNSPECIFIED",
+                "native_status": "known-dso-mechanism-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 762290361,
+                "roi_share": 0.0025546032020541624,
+                "residual_share": 0.006551442083386519,
+                "representative_stack": [
+                  "__memset_generic [/usr/lib64/libc.so.6]",
+                  "_PyMem_RawCalloc [inlined]",
+                  "PyMem_RawCalloc [inlined]",
+                  "_PyObject_Calloc [inlined]",
+                  "PyObject_Calloc [inlined]",
+                  "_PyCompile_EnsureArrayLargeEnough [inlined]",
+                  "instr_sequence_next_inst [inlined]",
+                  "instr_sequence_addop [inlined]",
+                  "cfg_to_instr_sequence [inlined]",
+                  "optimize_and_assemble_code_unit [inlined]",
+                  "optimize_and_assemble [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_mod [inlined]"
+                ]
+              }
+            ],
+            "contributor_count": 372,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 27589980775,
+            "below_threshold_roi_share": 0.09246011341395904,
+            "below_threshold_residual_share": 0.23711983041742804,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 27589980775,
+            "all_contributors_roi_share": 0.09246011341395904
+          }
+        },
+        "R3": {
+          "label": "具体原生机制已知，旧切片参考未观察到",
+          "period": 2,
+          "roi_share": 6.702441307805445e-12,
+          "residual_share": 1.7188836219290774e-11,
+          "sample_count": 2,
+          "per_repeat": {
+            "r1": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 0,
+              "roi_share": 0.0,
+              "residual_share": 0.0,
+              "sample_count": 0
+            },
+            "r2": {
+              "label": "具体原生机制已知，旧切片参考未观察到",
+              "period": 2,
+              "roi_share": 1.3328571253590709e-11,
+              "residual_share": 3.4555272072703895e-11,
+              "sample_count": 2
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "pillow",
+                "leaf_dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+                "leaf_symbol": "_init",
+                "entity_symbol": "_init",
+                "entity_dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+                "mechanism": "M-IMAGE-PROCESS",
+                "native_status": "known-native-mechanism",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 1,
+                "roi_share": 3.3512206539027224e-12,
+                "residual_share": 8.594418109645387e-12,
+                "representative_stack": [
+                  "_init [/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so]",
+                  "call_init [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "pillow",
+                "leaf_dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+                "leaf_symbol": "call_weak_fn",
+                "entity_symbol": "call_weak_fn",
+                "entity_dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+                "mechanism": "M-IMAGE-PROCESS",
+                "native_status": "known-native-mechanism",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-frame-in-prefix",
+                "period": 1,
+                "roi_share": 3.3512206539027224e-12,
+                "residual_share": 8.594418109645387e-12,
+                "representative_stack": [
+                  "call_weak_fn [/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so]",
+                  "_init [/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so]",
+                  "call_init [inlined]"
+                ]
+              }
+            ],
+            "contributor_count": 2,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 2,
+            "below_threshold_roi_share": 6.702441307805445e-12,
+            "below_threshold_residual_share": 1.7188836219290774e-11,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 2,
+            "all_contributors_roi_share": 6.702441307805445e-12
+          }
+        },
+        "R4": {
+          "label": "符号/DSO 已解析，机制不够具体",
+          "period": 9043572918,
+          "roi_share": 0.03030700834787691,
+          "residual_share": 0.07772424686235777,
+          "sample_count": 969,
+          "per_repeat": {
+            "r1": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 3872025094,
+              "roi_share": 0.02610146216837418,
+              "residual_share": 0.0662152863228009,
+              "sample_count": 465
+            },
+            "r2": {
+              "label": "符号/DSO 已解析，机制不够具体",
+              "period": 5171547824,
+              "roi_share": 0.03446467183176799,
+              "residual_share": 0.0893521210476599,
+              "sample_count": 504
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "runner",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_Py_GetBaseOpcode",
+                "entity_symbol": "code_hash",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 888394635,
+                "roi_share": 0.0029772064496283706,
+                "residual_share": 0.007635234939555803,
+                "representative_stack": [
+                  "_Py_GetBaseOpcode [inlined]",
+                  "code_hash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_Hash [inlined]",
+                  "tuplehash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_Hash [inlined]",
+                  "code_hash [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_GetItemWithError [inlined]",
+                  "dict_add_o [inlined]",
+                  "compiler_add_const [inlined]",
+                  "compiler_addop_load_const [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_make_closure [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "compiler_class_body [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "sum_raw",
+                "entity_symbol": "sum_rule",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 786912525,
+                "roi_share": 0.0026371175065947423,
+                "residual_share": 0.006763055255566778,
+                "representative_stack": [
+                  "sum_raw [inlined]",
+                  "sum_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "shift_expr_raw [inlined]",
+                  "shift_expr_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "bitwise_and_raw [inlined]",
+                  "bitwise_and_rule [inlined]",
+                  "bitwise_xor_raw [inlined]",
+                  "bitwise_xor_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "bitwise_or_raw [inlined]",
+                  "bitwise_or_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "comparison_rule [inlined]",
+                  "inversion_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "init_code",
+                "entity_symbol": "_PyCode_New",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 620583154,
+                "roi_share": 0.0020797110831488937,
+                "residual_share": 0.0053335510972784515,
+                "representative_stack": [
+                  "init_code [inlined]",
+                  "_PyCode_New [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "r_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "r_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "r_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "read_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "marshal_loads_impl [inlined]",
+                  "marshal_loads [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_VectorcallTstate [inlined]",
+                  "object_vacall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_CallMethodObjArgs [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "r_byte",
+                "entity_symbol": "r_object",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 429003935,
+                "roi_share": 0.001437686847577541,
+                "residual_share": 0.003687039188073132,
+                "representative_stack": [
+                  "r_byte [inlined]",
+                  "r_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "r_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "r_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "r_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "read_object [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "marshal_loads_impl [inlined]",
+                  "marshal_loads [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyObject_VectorcallTstate [inlined]",
+                  "object_vacall [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyObject_CallMethodObjArgs [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "libpython",
+                "leaf_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "leaf_symbol": "_PyPegen_is_memoized",
+                "entity_symbol": "term_raw",
+                "entity_dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+                "mechanism": "M-PY-RUNTIME-OTHER",
+                "native_status": "known-runtime-operation-unspecified",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "strong",
+                "quality_reason": "no-quality-blocker",
+                "period": 359336108,
+                "roi_share": 0.0012042145868226193,
+                "residual_share": 0.0030882847540446906,
+                "representative_stack": [
+                  "_PyPegen_is_memoized [inlined]",
+                  "term_rule [inlined]",
+                  "term_raw [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "term_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "sum_raw [inlined]",
+                  "sum_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "shift_expr_raw [inlined]",
+                  "shift_expr_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "bitwise_and_raw [inlined]",
+                  "bitwise_and_rule [inlined]",
+                  "bitwise_xor_raw [inlined]",
+                  "bitwise_xor_rule [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              }
+            ],
+            "contributor_count": 197,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 9043572918,
+            "below_threshold_roi_share": 0.03030700834787691,
+            "below_threshold_residual_share": 0.07772424686235777,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 9043572918,
+            "all_contributors_roi_share": 0.03030700834787691
+          }
+        },
+        "R5": {
+          "label": "证据不足（未知项或采样质量限制）",
+          "period": 7922489088,
+          "roi_share": 0.026550009062024545,
+          "residual_share": 0.06808918369137516,
+          "sample_count": 84827,
+          "per_repeat": {
+            "r1": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 4813341258,
+              "roi_share": 0.032446908710339464,
+              "residual_share": 0.08231268182163817,
+              "sample_count": 40515
+            },
+            "r2": {
+              "label": "证据不足（未知项或采样质量限制）",
+              "period": 3109147830,
+              "roi_share": 0.020720249195050965,
+              "residual_share": 0.05371872458995346,
+              "sample_count": 44312
+            }
+          },
+          "contributors": {
+            "top_contributors": [],
+            "largest_contributors_all": [
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "element_add_subelement",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 802641226,
+                "roi_share": 0.002689827854245003,
+                "residual_share": 0.006898234288282375,
+                "representative_stack": [
+                  "element_add_subelement [inlined]",
+                  "treebuilder_handle_start [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "expat_start_handler [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "doContent [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "contentProcessor [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "callProcessor [inlined]",
+                  "PyExpat_XML_ParseBuffer [inlined]",
+                  "PyExpat_XML_Parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "expat_parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_elementtree_XMLParser_feed [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyEval_EvalFrame [inlined]"
+                ]
+              },
+              {
+                "role": "xlsx-summary-export",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "unlink_chunk",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 795498805,
+                "roi_share": 0.0026658920254709344,
+                "residual_share": 0.006836849335893264,
+                "representative_stack": [
+                  "unlink_chunk [inlined]",
+                  "_int_malloc [/usr/lib64/libc.so.6]",
+                  "_PyMem_RawMalloc [inlined]",
+                  "PyMem_RawMalloc [inlined]",
+                  "_PyObject_Malloc [inlined]",
+                  "PyObject_Malloc [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyBytes_FromSize [inlined]",
+                  "PyBytes_FromStringAndSize [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "save_unconsumed_input [/opt/python-3.12.3/lib/python3.12/lib-dynload/zlib.cpython-312-aarch64-linux-gnu.so]",
+                  "zlib_Decompress_decompress_impl [inlined]",
+                  "zlib_Decompress_decompress [/opt/python-3.12.3/lib/python3.12/lib-dynload/zlib.cpython-312-aarch64-linux-gnu.so]",
+                  "method_vectorcall_FASTCALL_KEYWORDS_METHOD [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "Py_IS_TYPE",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 634711673,
+                "roi_share": 0.002127058867830751,
+                "residual_share": 0.00545497749683452,
+                "representative_stack": [
+                  "Py_IS_TYPE [inlined]",
+                  "treebuilder_extend_element_text_or_tail [inlined]",
+                  "treebuilder_handle_end [inlined]",
+                  "expat_end_handler [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "doContent [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "contentProcessor [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "callProcessor [inlined]",
+                  "PyExpat_XML_ParseBuffer [inlined]",
+                  "PyExpat_XML_Parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so]",
+                  "expat_parse [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_elementtree_XMLParser_feed [/opt/python-3.12.3/lib/python3.12/lib-dynload/_elementtree.cpython-312-aarch64-linux-gnu.so]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-verify",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "__GI___memcmpeq",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 615442522,
+                "roi_share": 0.0020624836910163808,
+                "residual_share": 0.005289370356522629,
+                "representative_stack": [
+                  "__GI___memcmpeq [inlined]",
+                  "unicode_eq [inlined]",
+                  "unicodekeys_lookup_unicode [inlined]",
+                  "_Py_dict_lookup [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyDict_GetItemWithError [inlined]",
+                  "_PyDict_GetItemStringWithError [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PySys_GetObject [inlined]",
+                  "PySys_GetObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "import_find_and_load [inlined]",
+                  "PyImport_ImportModuleLevelObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "builtin___import___impl [inlined]",
+                  "builtin___import__ [/opt/python-3.12.3/lib/libpython3.12.so.1.0]"
+                ]
+              },
+              {
+                "role": "xlsx-inspect-tool",
+                "leaf_dso_class": "unknown",
+                "leaf_dso": "[unknown]",
+                "leaf_symbol": "__GI___memcmpeq",
+                "entity_symbol": null,
+                "entity_dso": null,
+                "mechanism": "M-UNCLASSIFIED",
+                "native_status": "unknown-dso",
+                "upper_operation": "unknown",
+                "stack_prefix_status": "weak-unknown-frame",
+                "quality_reason": "unknown-dso",
+                "period": 601617338,
+                "roi_share": 0.002016152448851575,
+                "residual_share": 0.0051705509447838496,
+                "representative_stack": [
+                  "__GI___memcmpeq [inlined]",
+                  "unicode_compare_eq [inlined]",
+                  "_PyUnicode_Equal [inlined]",
+                  "_PyEval_EvalFrameDefault [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "PyEval_EvalCode [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_eval_code_obj [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "run_mod [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pyrun_file [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_SimpleFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "_PyRun_AnyFileObject [/opt/python-3.12.3/lib/libpython3.12.so.1.0]",
+                  "pymain_run_file_obj [inlined]",
+                  "pymain_run_file [inlined]"
+                ]
+              }
+            ],
+            "contributor_count": 193,
+            "display_threshold_roi_share": 0.005,
+            "below_threshold_period": 7922489088,
+            "below_threshold_roi_share": 0.026550009062024545,
+            "below_threshold_residual_share": 0.06808918369137516,
+            "eligible_beyond_top_n_period": 0,
+            "eligible_beyond_top_n_roi_share": 0.0,
+            "all_contributors_period": 7922489088,
+            "all_contributors_roi_share": 0.026550009062024545
+          }
+        }
+      },
+      "diagnostics": {
+        "upper_operation": {
+          "unknown": {
+            "period": 116354590531,
+            "roi_share": 0.38992990696388136,
+            "residual_share": 1.0
+          }
+        },
+        "stack_prefix_quality": {
+          "strong": {
+            "period": 98852220896,
+            "roi_share": 0.3312756043508295,
+            "residual_share": 0.8495773174472485
+          },
+          "weak-unknown-frame": {
+            "period": 17264945767,
+            "roi_share": 0.05785864284288078,
+            "residual_share": 0.14838216256195025
+          },
+          "weak-short-stack": {
+            "period": 237423868,
+            "roi_share": 0.0007956597701710737,
+            "residual_share": 0.002040519990801256
+          }
+        },
+        "quality_reason": {
+          "no-quality-blocker": {
+            "period": 98852220896,
+            "roi_share": 0.3312756043508295,
+            "residual_share": 0.8495773174472485
+          },
+          "unknown-frame-in-prefix": {
+            "period": 9342457552,
+            "roi_share": 0.03130863670647187,
+            "residual_share": 0.0802929863735021
+          },
+          "unknown-dso": {
+            "period": 7606208305,
+            "roi_share": 0.02549008236960242,
+            "residual_share": 0.06537093440222713
+          },
+          "unknown-dso-and-symbol": {
+            "period": 303968239,
+            "roi_share": 0.001018664640667239,
+            "residual_share": 0.002612430138018617
+          },
+          "short-stack": {
+            "period": 237422995,
+            "roi_share": 0.0007956568445554428,
+            "residual_share": 0.002040512487874246
+          },
+          "unknown-symbol": {
+            "period": 12312544,
+            "roi_share": 4.126205175488604e-05,
+            "residual_share": 0.00010581915112940565
+          }
+        },
+        "path_source_evidence_grade": {
+          "no_old_slice_path_candidate": {
+            "period": 116354590531,
+            "roi_share": 0.38992990696388136,
+            "residual_share": 1.0
+          }
+        },
+        "documented_legacy_mechanism_not_sampled_in_reference": {},
+        "R5_reason": {
+          "unknown-dso": {
+            "period": 7606208305,
+            "roi_share": 0.02549008236960242,
+            "residual_share": 0.9600781043070085
+          },
+          "unknown-dso-and-symbol": {
+            "period": 303968239,
+            "roi_share": 0.001018664640667239,
+            "residual_share": 0.03836776998032263
+          },
+          "unknown-symbol": {
+            "period": 12312544,
+            "roi_share": 4.126205175488604e-05,
+            "residual_share": 0.0015541257126689527
+          }
+        }
+      },
+      "interpretation": "R is outside the unchanged union of actual path match A and old-selected-slice sampled native mechanism B; it is not proven uncovered/new computation."
+    }
+  }
+}

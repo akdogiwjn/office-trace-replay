@@ -1,0 +1,27 @@
+{
+  "generated_utc": "2026-10-18T17:08:46.763432+00:00",
+  "analysis_code_sha256": {
+    "scripts/parse_native.py": "d93dce56f99857ec192723fbc0ee21953f00b99fa4d3464a436011186906aed5",
+    "scripts/rename_parallelism_schema.py": "a8c1b024fa92a9414f65afc37e631e41ddcda20df62f5c0df3165a7a833dd8a6",
+    "scripts/build_profiles.py": "5baae41adfae265210f30bb4e580f29bf12877ce9b731ac4a496f624ff57576e",
+    "scripts/analyze_comparison.py": "ba90da41bd6c4fc680f6f1021a15ad4e8c9fcb8b3ec5612c1cae8dfbde4828d9",
+    "scripts/generate_report.py": "9c234edf5f7f10e58a335f2ce326ab4762356d2dca8a06f571b7686ecf78f368",
+    "scripts/build_raw_index.py": "dc464b1667dcae8455937b8cc05397d7ac8179a5073347eaa844a97f51dcdb74",
+    "scripts/run_collection2.sh": "8c2d075f9089fea68570ed1789375017b19415b7f92db495d00ca661f89b179e",
+    "scripts/analyze_unconfirmed_residuals.py": "7f95b2150402de07417b1c4de4f74afd7386de049d3f55249443239c30f46701",
+    "scripts/generate_final_summary.py": "d7953f7b8c1bf50ebeb63fa50142cbd50c810b3c50b1525ed40f36402e40ba9b",
+    "scripts/profile_artifacts.py": "93bee2cfc6e3817df1cfeb52715af824a2aa288dc415fd8daffa174fc0c346db",
+    "config/mechanism-taxonomy.json": "559ce93e135f7b4203d89f42cd196037667022de914ef8fbd5edb48ee19967ad"
+  },
+  "result_inputs": [
+    "processed/all-profiles.json",
+    "raw/*/out/samples.jsonl",
+    "raw/*/out/roi.json"
+  ],
+  "recompute_commands_from_repository_root": [
+    "python3 analysis/hotspot-comparison/scripts/rename_parallelism_schema.py",
+    "python3 analysis/hotspot-comparison/scripts/build_profiles.py",
+    "python3 analysis/hotspot-comparison/scripts/analyze_comparison.py",
+    "python3 analysis/hotspot-comparison/scripts/generate_report.py"
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "schema_version": "hotspot-legacy-slices-v1",
+  "description": "Frozen inventory of the OLD selected slices (the replayable unit set chosen in the historical document-bench slicing work). Distinguishes: (a) selected slices, (b) mechanisms each slice covers, (c) parts of the old workload that were explicitly NOT sliced (unwrapped). Sources are the five evidence documents under legacy/evidence/ plus their original absolute paths recorded for provenance only.",
+  "provenance": {
+    "ANALYSIS-python3123.md": {
+      "original_path": "/home/lcq/document_perf/python-3.12.3/ANALYSIS.md",
+      "sha256_16": "385bb1bdcb1581eb",
+      "scope": "Python 3.12.3 white-box retest of the two OLD workloads (OPM single-applicant PDF, TLC XLSX) on the current image lineage; process/library/function composition, IPC, scheduling, syscalls."
+    },
+    "AUTO_ANALYSIS-python3123.md": {
+      "original_path": "/home/lcq/document_perf/python-3.12.3/AUTO_ANALYSIS.md",
+      "sha256_16": "a614ca7398c5df2c",
+      "scope": "Machine-generated per-process/DSO/symbol tables for the same runs."
+    },
+    "REPORT-pdf10-weight.md": {
+      "original_path": "/home/lcq/document_perf/pdf/pdf10-weight/REPORT.md",
+      "sha256_16": "10da6da51653da64",
+      "scope": "N=10 PDF slice weight measurement (instructions:u / cycles:u per slice, 3 repeats, single CPU bound) and execution timeline."
+    },
+    "README-slicing-pdf.md": {
+      "original_path": "/home/lcq/tmp/document-bench-slicing-pdf/README.md",
+      "sha256_16": "06fe66f96d433257",
+      "scope": "The six PDF slice definitions and standalone replay harness."
+    },
+    "README-slicing-xlsx.md": {
+      "original_path": "/home/lcq/tmp/document-bench-slicing-xlsx/README.md",
+      "sha256_16": "c07515aa4116b306",
+      "scope": "The eight XLSX slice definitions and standalone replay harness."
+    }
+  },
+  "pdf_slices": [
+    {
+      "slice_id": "PDF-S1",
+      "script": "check_fillable_fields.py",
+      "input_state": "original form PDF (of306_aug2023.pdf)",
+      "process_scope": "the check_fillable_fields.py python process",
+      "primary_libraries": ["libpython", "pypdf (pure python)"],
+      "key_functions": "pypdf form field enumeration (python-level; native view is libpython interpreter + object machinery)",
+      "mechanism": "M-PDF-QPDF-PARSE",
+      "old_weight_note": "S1+S2 combined = 3.348% of cycles:u at N=10 (REPORT-pdf10-weight)",
+      "covered_mechanisms": ["M-PDF-QPDF-PARSE"]
+    },
+    {
+      "slice_id": "PDF-S2",
+      "script": "extract_form_field_info.py",
+      "input_state": "original form PDF",
+      "process_scope": "the extract python process",
+      "primary_libraries": ["libpython", "pypdf"],
+      "key_functions": "pypdf field schema extraction",
+      "mechanism": "M-PDF-QPDF-PARSE",
+      "old_weight_note": "combined with S1 above",
+      "covered_mechanisms": ["M-PDF-QPDF-PARSE"]
+    },
+    {
+      "slice_id": "PDF-S3",
+      "script": "convert_pdf_to_images.py (template)",
+      "input_state": "original blank form PDF",
+      "process_scope": "the conversion python process plus its pdfinfo and pdftoppm children (Poppler address spaces)",
+      "primary_libraries": ["libpoppler", "libfreetype", "Pillow _imaging", "zlib", "libpython"],
+      "key_functions": "convert_from_path -> pdfinfo + pdftoppm rasterization; then per-page Pillow size check/resize + PNG encode + zlib",
+      "mechanism": "M-POPPLER-RASTER + M-PILLOW-IMG",
+      "old_weight_note": "convert_from_path (11 calls incl. template) 17.256% cycles; conversion-other (python side) 32.500% cycles at N=10",
+      "covered_mechanisms": ["M-POPPLER-RASTER", "M-PILLOW-IMG"]
+    },
+    {
+      "slice_id": "PDF-S4",
+      "script": "fill_fillable_fields.py",
+      "input_state": "original form PDF + applicant field values JSON",
+      "process_scope": "the fill python process",
+      "primary_libraries": ["libpython", "pypdf", "zlib (stream re-compression on save)"],
+      "key_functions": "pypdf AcroForm fill + document write",
+      "mechanism": "M-PDF-FORMFILL",
+      "old_weight_note": "33.053% cycles at N=10 (10 fills, ~3.30% each)",
+      "covered_mechanisms": ["M-PDF-FORMFILL", "M-PDF-QPDF-PARSE"]
+    },
+    {
+      "slice_id": "PDF-S5",
+      "script": "convert_pdf_to_images.py (filled)",
+      "input_state": "filled applicant PDF",
+      "process_scope": "conversion python process + Poppler children",
+      "primary_libraries": ["libpoppler", "libfreetype", "Pillow", "zlib", "libpython"],
+      "key_functions": "same two-phase conversion as S3 on filled documents",
+      "mechanism": "M-POPPLER-RASTER + M-PILLOW-IMG",
+      "old_weight_note": "included in the S3 combined weights above",
+      "covered_mechanisms": ["M-POPPLER-RASTER", "M-PILLOW-IMG"]
+    },
+    {
+      "slice_id": "PDF-S6",
+      "script": "verify_pdf_batch.py",
+      "input_state": "filled PDFs, field-value JSONs, rendered PNGs, template renders",
+      "process_scope": "the verify python process (single process, no children)",
+      "primary_libraries": ["libpython", "pypdf", "Pillow _imaging"],
+      "key_functions": "pypdf re-read + /V field verification + Pillow pixel comparison of renders",
+      "mechanism": "M-PDF-QPDF-PARSE + M-PILLOW-IMG(verify)",
+      "old_weight_note": "10.224% cycles at N=10",
+      "covered_mechanisms": ["M-PDF-QPDF-PARSE", "M-PILLOW-IMG"]
+    }
+  ],
+  "xlsx_slices": [
+    {
+      "slice_id": "X-S1",
+      "script": "inspect_xlsx_structure.py",
+      "input_state": "original workbook (monthly_operations_template.xlsx)",
+      "process_scope": "the inspect python process",
+      "primary_libraries": ["libpython", "pyexpat", "_elementtree", "zlib (zip inflate)", "libc"],
+      "key_functions": "openpyxl load_workbook: zip read, expat XML parse, cell object construction, GC",
+      "mechanism": "M-XLSX-LOAD + M-XLSX-TRAVERSE",
+      "old_weight_note": "13.58% of py-spy python samples (ANALYSIS-python3123 section 5)",
+      "covered_mechanisms": ["M-XLSX-LOAD", "M-XLSX-TRAVERSE"]
+    },
+    {
+      "slice_id": "X-S2",
+      "script": "inspect_xlsx_features.py",
+      "input_state": "original workbook",
+      "process_scope": "the inspect python process",
+      "primary_libraries": ["libpython", "pyexpat", "_elementtree", "zlib"],
+      "key_functions": "openpyxl load + feature inspection traversal",
+      "mechanism": "M-XLSX-LOAD + M-XLSX-TRAVERSE",
+      "old_weight_note": "11.09% of py-spy python samples",
+      "covered_mechanisms": ["M-XLSX-LOAD", "M-XLSX-TRAVERSE"]
+    },
+    {
+      "slice_id": "X-S3",
+      "script": "run_xlsx_helper_atomic.py (window) -> enhance_workbook.py (child)",
+      "input_state": "original workbook",
+      "process_scope": "full helper window; main compute in the enhance_workbook.py child",
+      "primary_libraries": ["libpython", "pyexpat", "zlib (inflate+deflate)", "et_xmlfile (write path)"],
+      "key_functions": "openpyxl load + enhancement edits + save (XML write + zip deflate)",
+      "mechanism": "M-XLSX-LOAD + M-XLSX-SAVE + M-XLSX-TRAVERSE",
+      "old_weight_note": "23.45% of py-spy python samples (enhance child)",
+      "covered_mechanisms": ["M-XLSX-LOAD", "M-XLSX-SAVE", "M-XLSX-TRAVERSE"]
+    },
+    {
+      "slice_id": "X-S4",
+      "script": "recalc.py",
+      "input_state": "enhanced, not-yet-recalculated workbook",
+      "process_scope": "recalc.py window including the LibreOffice (soffice.bin + worker threads) child",
+      "primary_libraries": ["libmergedlo", "libsclo", "libscfiltlo", "libxml2 (sax parser)", "libuno_sal", "libuno_cppuhelper"],
+      "key_functions": "LibreOffice headless load + calculateAll + store; python side spawns and reads back",
+      "mechanism": "M-LO-RECALC",
+      "old_weight_note": "12.61% of py-spy python samples (python side only); native LibreOffice share of whole workload ~7.47% cycles",
+      "covered_mechanisms": ["M-LO-RECALC"]
+    },
+    {
+      "slice_id": "X-S5",
+      "script": "inspect_xlsx_formulas.py",
+      "input_state": "recalculated workbook",
+      "process_scope": "the inspect python process",
+      "primary_libraries": ["libpython", "pyexpat", "zlib"],
+      "key_functions": "openpyxl load + formula structure check",
+      "mechanism": "M-XLSX-LOAD + M-XLSX-TRAVERSE",
+      "old_weight_note": "9.31% of py-spy python samples",
+      "covered_mechanisms": ["M-XLSX-LOAD", "M-XLSX-TRAVERSE"]
+    },
+    {
+      "slice_id": "X-S6",
+      "script": "inspect_xlsx_cached_values.py",
+      "input_state": "recalculated workbook",
+      "process_scope": "the inspect python process",
+      "primary_libraries": ["libpython", "pyexpat", "zlib"],
+      "key_functions": "openpyxl load (data_only) + cached value check",
+      "mechanism": "M-XLSX-LOAD + M-XLSX-TRAVERSE",
+      "old_weight_note": "9.28% of py-spy python samples",
+      "covered_mechanisms": ["M-XLSX-LOAD", "M-XLSX-TRAVERSE"]
+    },
+    {
+      "slice_id": "X-S7",
+      "script": "verify_xlsx_enhanced.py",
+      "input_state": "recalculated workbook + recalc JSON + 2 CSV deliverables",
+      "process_scope": "the verify python process",
+      "primary_libraries": ["libpython", "pyexpat", "zlib"],
+      "key_functions": "openpyxl load + business verification + report JSON write",
+      "mechanism": "M-XLSX-LOAD + M-XLSX-TRAVERSE",
+      "old_weight_note": "11.04% of py-spy python samples",
+      "covered_mechanisms": ["M-XLSX-LOAD", "M-XLSX-TRAVERSE"]
+    },
+    {
+      "slice_id": "X-S8",
+      "script": "write_xlsx_summary.py",
+      "input_state": "recalculated workbook + verification + recalc JSONs + CSVs",
+      "process_scope": "the summary python process",
+      "primary_libraries": ["libpython", "pyexpat", "zlib"],
+      "key_functions": "openpyxl load (data_only) + summary JSON write",
+      "mechanism": "M-XLSX-LOAD + M-XLSX-TRAVERSE",
+      "old_weight_note": "8.82% of py-spy python samples",
+      "covered_mechanisms": ["M-XLSX-LOAD", "M-XLSX-TRAVERSE"]
+    }
+  ],
+  "old_workload_unsliced_parts": {
+    "pdf_n10": {
+      "cycles_share": 0.03647,
+      "contents": "outer runner, bash, applicant data generation (generate_and_run_batch.py), batch scheduling parent, batch summary writer, short commands (REPORT-pdf10-weight: 7.024% instructions / 3.647% cycles)",
+      "note": "field-value JSON generation and batch drivers were explicitly NOT part of the selected slices"
+    },
+    "xlsx": {
+      "contents": "outer runner, bash, CSV export step, final assertion commands, workspace reset (copytree) — the old timeline shows a ~2.06 s non-slice gap between cached-value check and final verification for CSV export, plus reset/orchestration inside each loop",
+      "note": "no cycles-level unwrapped share was published for XLSX; the old py-spy script shares (summing to ~100%) covered only the 8 slice scripts"
+    }
+  },
+  "old_workload_full_profile": {
+    "pdf_n1_python3123": {
+      "process": {"python3": 0.9064, "pdftoppm": 0.0923, "pdfinfo": 0.0009, "bash": 0.0004},
+      "library": {"libpython": 0.5358, "zlib": 0.1814, "Pillow _imaging": 0.1521, "Poppler": 0.0627, "FreeType": 0.0188},
+      "collection": "cycles:u, 99 Hz, DWARF, 10 loops of the single-applicant version, CPU 8 bound"
+    },
+    "xlsx_python3123": {
+      "process": {"python3": 0.9252, "LibreOffice and threads": 0.0747},
+      "library": {"libpython": 0.7965, "pyexpat": 0.0561, "_elementtree": 0.0349, "zlib": 0.0142, "LibreOffice DSOs": "remaining ~7%"},
+      "collection": "cycles:u, 49 Hz, DWARF, 2 loops, CPUs 8-11 bound, 81,106 samples, 659 lost (0.8%)"
+    }
+  }
+}

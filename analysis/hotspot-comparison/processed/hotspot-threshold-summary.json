@@ -1,0 +1,402 @@
+{
+  "opm-n1": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.410668565930717,
+    "below_threshold_or_function_retention_residual_share": 0.589331434069283,
+    "unknown_mechanism_share": 0.03320315813488605,
+    "unknown_below_threshold_or_unlisted_share": 0.03320315813488605,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-PDF-FORMFILL",
+      "M-PDF-QPDF-PARSE",
+      "M-PILLOW-IMG",
+      "M-POPPLER-RASTER"
+    ],
+    "period_partition_sum": 1.0,
+    "repeat_count": 2,
+    "legacy_control": "opm-n1",
+    "reference_slice_ids": [
+      "PDF-S1",
+      "PDF-S2",
+      "PDF-S3",
+      "PDF-S4",
+      "PDF-S5",
+      "PDF-S6"
+    ],
+    "reference_mechanism_ids": [
+      "M-IMAGE-PROCESS",
+      "M-LIBC-PRIMITIVE",
+      "M-PDF-RASTER",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "opm-n10": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.46603434047217723,
+    "below_threshold_or_function_retention_residual_share": 0.5339656595278228,
+    "unknown_mechanism_share": 0.029466916110725015,
+    "unknown_below_threshold_or_unlisted_share": 0.029466916110725015,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-PDF-FORMFILL",
+      "M-PDF-QPDF-PARSE",
+      "M-PILLOW-IMG",
+      "M-POPPLER-RASTER"
+    ],
+    "period_partition_sum": 1.0,
+    "repeat_count": 2,
+    "legacy_control": "opm-n10",
+    "reference_slice_ids": [
+      "PDF-S1",
+      "PDF-S2",
+      "PDF-S3",
+      "PDF-S4",
+      "PDF-S5",
+      "PDF-S6"
+    ],
+    "reference_mechanism_ids": [
+      "M-IMAGE-PROCESS",
+      "M-LIBC-PRIMITIVE",
+      "M-PDF-RASTER",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "irs_w4-n1": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.4388738863625823,
+    "below_threshold_or_function_retention_residual_share": 0.5611261136374177,
+    "unknown_mechanism_share": 0.029884304650943192,
+    "unknown_below_threshold_or_unlisted_share": 0.029884304650943192,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-PDF-FORMFILL",
+      "M-PDF-QPDF-PARSE",
+      "M-PILLOW-IMG",
+      "M-POPPLER-RASTER"
+    ],
+    "period_partition_sum": 0.9999999999999999,
+    "repeat_count": 2,
+    "legacy_control": "opm-n1",
+    "reference_slice_ids": [
+      "PDF-S1",
+      "PDF-S2",
+      "PDF-S3",
+      "PDF-S4",
+      "PDF-S5",
+      "PDF-S6"
+    ],
+    "reference_mechanism_ids": [
+      "M-IMAGE-PROCESS",
+      "M-LIBC-PRIMITIVE",
+      "M-PDF-RASTER",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "irs_w4-n10": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.48891030379559713,
+    "below_threshold_or_function_retention_residual_share": 0.5110896962044029,
+    "unknown_mechanism_share": 0.030928855136608587,
+    "unknown_below_threshold_or_unlisted_share": 0.030928855136608587,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-PDF-FORMFILL",
+      "M-PDF-QPDF-PARSE",
+      "M-PILLOW-IMG",
+      "M-POPPLER-RASTER"
+    ],
+    "period_partition_sum": 1.0,
+    "repeat_count": 2,
+    "legacy_control": "opm-n10",
+    "reference_slice_ids": [
+      "PDF-S1",
+      "PDF-S2",
+      "PDF-S3",
+      "PDF-S4",
+      "PDF-S5",
+      "PDF-S6"
+    ],
+    "reference_mechanism_ids": [
+      "M-IMAGE-PROCESS",
+      "M-LIBC-PRIMITIVE",
+      "M-PDF-RASTER",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "sba1919-n1": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.5125052795857817,
+    "below_threshold_or_function_retention_residual_share": 0.48749472041421826,
+    "unknown_mechanism_share": 0.024657040884213114,
+    "unknown_below_threshold_or_unlisted_share": 0.024657040884213114,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-PDF-FORMFILL",
+      "M-PDF-QPDF-PARSE",
+      "M-PILLOW-IMG",
+      "M-POPPLER-RASTER"
+    ],
+    "period_partition_sum": 1.0,
+    "repeat_count": 2,
+    "legacy_control": "opm-n1",
+    "reference_slice_ids": [
+      "PDF-S1",
+      "PDF-S2",
+      "PDF-S3",
+      "PDF-S4",
+      "PDF-S5",
+      "PDF-S6"
+    ],
+    "reference_mechanism_ids": [
+      "M-IMAGE-PROCESS",
+      "M-LIBC-PRIMITIVE",
+      "M-PDF-RASTER",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "sba1919-n10": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.5386911175124229,
+    "below_threshold_or_function_retention_residual_share": 0.46130888248757707,
+    "unknown_mechanism_share": 0.027809225162353422,
+    "unknown_below_threshold_or_unlisted_share": 0.02153341192367406,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-PDF-FORMFILL",
+      "M-PDF-QPDF-PARSE",
+      "M-PILLOW-IMG",
+      "M-POPPLER-RASTER"
+    ],
+    "period_partition_sum": 1.0,
+    "repeat_count": 2,
+    "legacy_control": "opm-n10",
+    "reference_slice_ids": [
+      "PDF-S1",
+      "PDF-S2",
+      "PDF-S3",
+      "PDF-S4",
+      "PDF-S5",
+      "PDF-S6"
+    ],
+    "reference_mechanism_ids": [
+      "M-IMAGE-PROCESS",
+      "M-LIBC-PRIMITIVE",
+      "M-PDF-RASTER",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "tlc": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.12431000956787908,
+    "below_threshold_or_function_retention_residual_share": 0.8756899904321209,
+    "unknown_mechanism_share": 0.021321471431256046,
+    "unknown_below_threshold_or_unlisted_share": 0.021321471431256046,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-XLSX-LOAD",
+      "M-XLSX-SAVE",
+      "M-XLSX-TRAVERSE"
+    ],
+    "period_partition_sum": 1.0000000000000002,
+    "repeat_count": 2,
+    "legacy_control": "tlc",
+    "reference_slice_ids": [
+      "X-S1",
+      "X-S2",
+      "X-S3",
+      "X-S4",
+      "X-S5",
+      "X-S6",
+      "X-S7",
+      "X-S8"
+    ],
+    "reference_mechanism_ids": [
+      "M-LIBC-PRIMITIVE",
+      "M-LIBREOFFICE-NATIVE",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "retail": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.22340761130919828,
+    "below_threshold_or_function_retention_residual_share": 0.7765923886908017,
+    "unknown_mechanism_share": 0.03133802937052482,
+    "unknown_below_threshold_or_unlisted_share": 0.025687381305893892,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-XLSX-LOAD",
+      "M-XLSX-SAVE",
+      "M-XLSX-TRAVERSE"
+    ],
+    "period_partition_sum": 1.0000000000000002,
+    "repeat_count": 2,
+    "legacy_control": "tlc",
+    "reference_slice_ids": [
+      "X-S1",
+      "X-S2",
+      "X-S3",
+      "X-S4",
+      "X-S5",
+      "X-S6",
+      "X-S7",
+      "X-S8"
+    ],
+    "reference_mechanism_ids": [
+      "M-LIBC-PRIMITIVE",
+      "M-LIBREOFFICE-NATIVE",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "manufacturing": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.2094536833260062,
+    "below_threshold_or_function_retention_residual_share": 0.7905463166739938,
+    "unknown_mechanism_share": 0.06869736193981825,
+    "unknown_below_threshold_or_unlisted_share": 0.0530115886817379,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-XLSX-LOAD",
+      "M-XLSX-SAVE",
+      "M-XLSX-TRAVERSE"
+    ],
+    "period_partition_sum": 0.9999999999999999,
+    "repeat_count": 2,
+    "legacy_control": "tlc",
+    "reference_slice_ids": [
+      "X-S1",
+      "X-S2",
+      "X-S3",
+      "X-S4",
+      "X-S5",
+      "X-S6",
+      "X-S7",
+      "X-S8"
+    ],
+    "reference_mechanism_ids": [
+      "M-LIBC-PRIMITIVE",
+      "M-LIBREOFFICE-NATIVE",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  },
+  "hr": {
+    "threshold_share": 0.005,
+    "merge_method": "period-weighted across all repeats; absent function in a repeat contributes zero",
+    "listed_hotspot_share": 0.1403995826975497,
+    "below_threshold_or_function_retention_residual_share": 0.8596004173024503,
+    "unknown_mechanism_share": 0.05005976517366373,
+    "unknown_below_threshold_or_unlisted_share": 0.043346938526886016,
+    "documented_legacy_mechanism_without_matched_slice_samples_share": 0.0,
+    "documented_legacy_mechanism_candidate_ids": [
+      "M-XLSX-LOAD",
+      "M-XLSX-SAVE",
+      "M-XLSX-TRAVERSE"
+    ],
+    "period_partition_sum": 1.0000000000000002,
+    "repeat_count": 2,
+    "legacy_control": "tlc",
+    "reference_slice_ids": [
+      "X-S1",
+      "X-S2",
+      "X-S3",
+      "X-S4",
+      "X-S5",
+      "X-S6",
+      "X-S7",
+      "X-S8"
+    ],
+    "reference_mechanism_ids": [
+      "M-LIBC-PRIMITIVE",
+      "M-LIBREOFFICE-NATIVE",
+      "M-PY-ALLOC",
+      "M-PY-CONTAINER",
+      "M-PY-GC",
+      "M-PY-INTERPRETER",
+      "M-PY-REFCOUNT",
+      "M-PY-TYPECHECK",
+      "M-XML-PARSE",
+      "M-ZIP-COMPRESS",
+      "M-ZIP-DECOMPRESS"
+    ]
+  }
+}
