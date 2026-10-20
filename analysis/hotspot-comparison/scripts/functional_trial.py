@@ -13,7 +13,7 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[3]
-IMAGE = 'office-trace-replay:openeuler-v11'
+IMAGE = 'office-trace-replay:openeuler-v12'
 DATASETS = ('hr_metro', 'retail_online')
 PYTHON = '/opt/document-bench/.venv/bin/python'
 REPO_CONTAINER = Path('/opt/office-trace-replay')

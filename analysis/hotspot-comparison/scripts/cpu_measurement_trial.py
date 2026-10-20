@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Minimal CPU-measurement launcher: one measured loop per dataset, in-container.
 
-Reuses the proven functional-trial launcher pattern (v11 image, read-only repo
+Reuses the proven functional-trial launcher pattern (qualified image, read-only repo
 and runner mounts, removable workspace child) and adds only the measurement
 machinery:
 
@@ -32,7 +32,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-IMAGE = 'office-trace-replay:openeuler-v11'
+IMAGE = 'office-trace-replay:openeuler-v12'
 PYTHON = '/opt/document-bench/.venv/bin/python'
 REPO_MOUNT_DST = '/opt/office-trace-replay'
 RUNNER_SOURCE = ROOT / 'legacy/document-oe/bin/run_document_scene_loop.py'

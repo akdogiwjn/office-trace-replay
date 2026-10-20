@@ -87,6 +87,7 @@ def main():
         raise ValueError(f'expected 43 frozen legacy workload files, found {len(workload)}')
 
     build_command = ['docker', 'build', '--pull=false', '--network=none', '-t', args.tag,
+                     '--build-arg', 'BASE_IMAGE=' + environment['base_image'],
                      '-f', 'runtime/Dockerfile', '.']
     build_record = {
         'schema_version': 'office-replay-image-build-v2', 'status': 'in_progress',

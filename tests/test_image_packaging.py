@@ -1,5 +1,7 @@
 """Small build-entry checks; never start Docker or a workload."""
 import importlib.util
+import json
+import subprocess
 from pathlib import Path
 import sys
 import tempfile
@@ -13,6 +15,55 @@ spec.loader.exec_module(builder)
 
 
 class ImagePackagingTests(unittest.TestCase):
+    def test_operator_defaults_use_the_retained_release(self):
+        release = json.loads((ROOT / 'reports/evidence/v12/index.json').read_text())
+        for name in ('functional_trial.py', 'cpu_measurement_trial.py', 'collector_smoke.py'):
+            code = (ROOT / 'analysis/hotspot-comparison/scripts' / name).read_text()
+            self.assertIn(release['image_tag'], code)
+            self.assertNotIn('office-trace-replay:openeuler-v11', code)
+        smoke = (ROOT / 'analysis/hotspot-comparison/scripts/collector_smoke.py').read_text()
+        self.assertIn(release['image_id'], smoke)
+
+    def test_future_base_matches_the_qualified_v12_image(self):
+        environment = json.loads((ROOT / 'runtime/environment-lock.json').read_text())
+        release = json.loads((ROOT / 'reports/evidence/v12/index.json').read_text())
+        self.assertEqual(environment['base_image'], release['image_tag'])
+        self.assertEqual(environment['base_image_id'], release['image_id'])
+        dockerfile = (ROOT / 'runtime/Dockerfile').read_text()
+        self.assertIn('ARG BASE_IMAGE=' + environment['base_image'] + '\n', dockerfile)
+
+    def test_build_passes_validated_base_tag_to_docker(self):
+        base_id = 'sha256:' + 'a' * 64
+        base = {'Id': base_id, 'RootFS': {'Layers': ['shared-runtime']}, 'Size': 100}
+        image = {'Id': 'sha256:' + 'b' * 64, 'Architecture': 'arm64',
+                 'RootFS': {'Layers': ['shared-runtime', 'new-project']}, 'Size': 120}
+        environment = {'base_image': 'qualified-base', 'base_image_id': base_id,
+                       'document_runner_sha256': 'runner-hash'}
+
+        def read(path):
+            return environment if path.name == 'environment-lock.json' else {'workload': list(range(43))}
+
+        def output(command, **kwargs):
+            if '--format' in command:
+                return base_id + '\n'
+            return json.dumps([base if command[-1] == base_id else image])
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(builder, 'ROOT', root), \
+                    patch('sys.argv', ['build_image.py', '--tag', 'new-release']), \
+                    patch.object(builder, 'local_image_id', return_value=None), \
+                    patch.object(builder, 'read', side_effect=read), \
+                    patch.object(builder, 'digest', return_value='runner-hash'), \
+                    patch.object(builder, 'git_source_identity', return_value={}), \
+                    patch.object(builder, 'context_estimate', return_value={}), \
+                    patch.object(builder.subprocess, 'check_output', side_effect=output), \
+                    patch.object(builder.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0, '{}', '')) as run:
+                builder.main()
+            command = next(call.args[0] for call in run.call_args_list
+                           if call.args[0][:2] == ['docker', 'build'])
+            self.assertEqual(command[command.index('--build-arg') + 1], 'BASE_IMAGE=qualified-base')
+
     def test_context_keeps_frozen_nested_reports_but_excludes_host_reports(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

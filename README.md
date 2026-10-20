@@ -108,4 +108,6 @@ make image          # 默认 v12 已存在，构建器会拒绝覆盖；新构�
 
 43 个旧 workload 文件（recipe、输入、helper、Skill、recalc、verifier 等）保持字节冻结；runner 与 timed wrapper 属独立版本化 executor。`assets/project-lock.json` 保护执行资产与代码，文档、分析和交付报告不参与该运行锁。后续只修改说明/证据关联，不要求重建 v12。
 
+后续离线构建锁定 v12 的完整 image ID，构建器核对标签对应的 ID 后显式传入该标签，并在构建后检查基础层身份；新构建需选新 tag，例如 `make image IMAGE=office-trace-replay:openeuler-v13`。现有 v12 的历史构建基础仍为 v4，旧记录不改写；移除 v4 标签不影响 v12 保留的共享层。此次构建基础迁移不重建 v12，也不改变其运行代码、输入或验收结果。
+
 当前流程与维护说明见 [docs/compatible-workflow.md](docs/compatible-workflow.md)；历史文档分类见 [docs/README.md](docs/README.md)。清理只忽略本地临时目录和缓存，不删除 canonical、输入、历史报告或 raw。旧采样删除记录见分析目录的 `metadata/storage-cleanup-*.json`，不把历史索引当作当前文件均存在的证明。
