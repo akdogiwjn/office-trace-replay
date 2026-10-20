@@ -1,9 +1,27 @@
-# 新旧数据集计算热点对比分析（hotspot-comparison）
+# Office 热点与总 CPU 分析
+
+## 当前版本与入口（2026-10-20）
+
+正式 XLSX 比较选择为 TLC、HR Metro、Retail Online、Industry Productivity；PDF 为 OPM、W-4、SBA。选择与证据版本见 [config/next-comparison-suite.json](config/next-comparison-suite.json)。旧 hr/retail/manufacturing 只保留历史用途。
+
+- **功能交付**：v12 七个用例各一次裸镜像运行通过；PDF N=1。报告快照见 [release evidence](../../reports/evidence/v12/index.json)。功能验收期间未采集性能。
+- **当前 prepared-v2 总 CPU**：[重算 v2](reports/total-cpu-recalculation-v2-20261020T104020Z/comparison-report.md)、[JSON](reports/total-cpu-recalculation-v2-20261020T104020Z/comparison.json)。TLC、HR Metro、Retail Online、Industry 的读写占整轮 CPU 分别为 **82.5%、83.5%、77.2%、75.8%**。它们来自 v11 加挂载的测量期代码，各一轮；分母为 ROI 内所有已观察线程 user+sys 的轮询估计，包含 LO，仍有轮询/边界/测量开销限制。
+- **历史 native/py-spy**：[new-xlsx-hotspot-io-v1](reports/new-xlsx-hotspot-io-v1/comparison-report.md) 和 [hotspot-version-comparison-v2](reports/hotspot-version-comparison-v2/comparison-report.md)。HR Metro/Retail Online 的这些 profile **早于 prepared-v2 计算改造**；不能当作当前版本的热点比例。py-spy 样本比例、native cycles:u 和总 CPU 计时是三种口径，不互相替换。
+
+早期总 CPU summary 的分母未覆盖完整的已观察解释器退出 CPU，其较高占比已被重算 v2 取代；保留原报告，不覆盖原始记录。历史分析报告中的“当前”只表示该报告生成时的版本。
+
+## 本地数据与提交边界
+
+`raw/`、`replay-runs/`、小表试跑目录及根 `results/` 是本地运行材料，不提交完整目录。`reports/evidence/v12` 提交小型验收快照、原路径和 hash；分析报告、代码、配置及历史轻量材料可提交。完整工作簿、monitor 流、perf.data 等仍需在采集机读取，clone 不包含这些原始实验数据。
+
+以下为旧切片覆盖率分析和历史复现说明；不会自动对 prepared-v2 重新产生 native/py-spy 画像，也不是本次收尾需要执行的步骤。
+
+## 历史覆盖率分析
 
 研究目标：进程—库—函数/调用栈三层热点画像，判断旧切片（OPM/TLC 的 6+8 个
 选中切片）覆盖了多少新增 workload 的计算，以及旧结论在新数据集上的适用性。
 
-最终结论见 [reports/final-conclusions.md](reports/final-conclusions.md)。
+该轮历史结论见 [reports/final-conclusions.md](reports/final-conclusions.md)。
 完整对比表见 [reports/comparison-report.md](reports/comparison-report.md)，
 余量解释见 [reports/unconfirmed-residual-report.md](reports/unconfirmed-residual-report.md)。
 
@@ -45,7 +63,27 @@ profiles 中。发布后更新派生 profiles 时，运行 `profile_artifacts.py
 
 ## 当前复现边界
 
-以下分析命令在仓库根目录执行，路径均以 `analysis/hotspot-comparison/` 为基准：
+2026-10-19 清理明细见 [storage-cleanup-20261019.json](metadata/storage-cleanup-20261019.json)。
+旧 `raw/current-loop-verifier-v1/{retail,hr,industry_productivity}/r1/raw/` 的失败/不完整
+`.data` 与文本导出已删除，保留失败日志、验证工作簿和历史记录，并关联了后续合格采集。
+这些旧失败采集无法再从本地原始字节重新解析。
+
+随后按用户要求保留新版，追加清理旧 Retail、HR、Manufacturing、旧 W-4/SBA 的
+`raw/<config>/r1|r2` 中 native `.data`、文本导出及逐样本 JSONL，并删除 OPM 的
+`.data.old` 备份，释放约 23.32 GiB；明细见
+[storage-cleanup-20261019-legacy-perf.json](metadata/storage-cleanup-20261019-legacy-perf.json)。
+保留最新合格 XLSX/PDF、Retail 原采集与恢复链接、OPM/TLC 两次 native 对照，以及
+canonical trace、历史报告、压缩汇总、元数据和小型旁证。历史索引未为清理而改写，
+属于采集时的文件快照，不能再当作当前所有文件均在场的清单。
+
+已核对压缩备份的 11 份展开 profiles JSON 已删除以节省空间；下列分析若依赖
+`processed/<config>.json`，应先执行上面的 `profile_artifacts.py restore`。
+报告及已提交的压缩 profiles 可直接查看；清理没有重新生成热点结论。
+
+以下为历史分析命令参考，在仓库根目录执行，路径均以 `analysis/hotspot-comparison/`
+为基准。仅对仍保留对应输入的配置适用；已删除旧 native 的配置不能重建逐样本画像或
+重算旧余量分析，查看其历史汇总应使用压缩 profiles。最新 v2 分析依赖的采集仍在场。
+不要为清理重新生成或覆盖历史 `raw/index.json`。
 
 ```bash
 python3 analysis/hotspot-comparison/scripts/parse_native.py analysis/hotspot-comparison/raw/<config>/<r1-or-r2> <config>
@@ -55,7 +93,6 @@ python3 analysis/hotspot-comparison/scripts/build_profiles.py
 python3 analysis/hotspot-comparison/scripts/analyze_comparison.py
 python3 analysis/hotspot-comparison/scripts/generate_report.py
 python3 analysis/hotspot-comparison/scripts/analyze_unconfirmed_residuals.py
-python3 analysis/hotspot-comparison/scripts/build_raw_index.py
 ```
 
 `raw/` 被 git 忽略，含原始 perf.data、perf script、monitor 和独立 py-spy/strace 文件；只有保留这些文件的采集机可复核采样解析。clone 仓库可复核已提交的配置、脚本、metadata、派生表和报告，但不能凭 clone 重建缺失的原始样本。历史环境中未记录的镜像 digest、环境变量或 stdout 缓冲误差均标为未知，不作追溯推断。
@@ -88,7 +125,6 @@ analysis/hotspot-comparison/scripts/run_collection2.sh syscalls
 # 2) 解析与索引（在仓库根目录运行）
 python3 analysis/hotspot-comparison/scripts/parse_native.py analysis/hotspot-comparison/raw/<config>/<rep> <config>
 python3 analysis/hotspot-comparison/scripts/parse_pyspy.py analysis/hotspot-comparison/raw/<config>/pyspy/raw/<config>.pyspy.raw analysis/hotspot-comparison/raw/<config>/pyspy/out
-python3 analysis/hotspot-comparison/scripts/build_raw_index.py
 
 # 3) 分析
 python3 analysis/hotspot-comparison/scripts/build_profiles.py

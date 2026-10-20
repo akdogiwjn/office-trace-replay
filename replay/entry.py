@@ -10,12 +10,15 @@ Formal single-dataset entry is the runner itself:
     python run_document_scene_loop.py --scene xlsx --dataset retail
     python run_document_scene_loop.py --scene xlsx --dataset manufacturing
     python run_document_scene_loop.py --scene xlsx --dataset hr
+    python run_document_scene_loop.py --scene xlsx --dataset hr_metro
+    python run_document_scene_loop.py --scene xlsx --dataset retail_online
+    python run_document_scene_loop.py --scene xlsx --dataset industry_productivity
 
 `--scene pdf` defaults to the byte-preserved `opm` workload and `--scene xlsx`
 defaults to the byte-preserved `tlc` workload. This module is the high-level
 suite/old-interface compatibility layer: it selects datasets, prepares the
 environment, starts one unified runner process per dataset, and for the
-canonicalized datasets performs post-loop acceptance and archival.
+registered compatible datasets perform post-loop acceptance and archival.
 
 Historical aliases `--dataset opm_v2` / `--dataset tlc_v2` replay the frozen
 parent recipes through the derived-v1 engine (replay/run.py). They are kept for
@@ -38,13 +41,17 @@ from replay import suite
 
 OLD = {'pdf': 'pdf', 'opm': 'pdf', 'xlsx': 'xlsx', 'tlc': 'xlsx'}
 NEW = {'irs_w4': 'irs_w4', 'sba1919': 'sba1919', 'hr': 'hr',
-       'manufacturing': 'manufacturing', 'retail': 'retail'}
+       'manufacturing': 'manufacturing', 'retail': 'retail',
+       'industry_productivity': 'industry_productivity',
+       'hr_metro': 'hr_metro', 'retail_online': 'retail_online'}
 # Historical aliases replay the frozen parent recipes (recipes/opm.json,
 # recipes/tlc.json) through the derived-v1 engine (replay/run.py). They are
 # not canonicalized workloads, have no compatibility entries, and ignore
 # formal-suite-only parameters such as --timed / --pdf-applicant-count.
 HISTORICAL = {'opm_v2': 'opm', 'tlc_v2': 'tlc'}
-DEFAULT = ['pdf', 'xlsx', 'irs_w4', 'sba1919', 'hr', 'manufacturing', 'retail']
+# The default formal selection is recorded in the public suite index so the
+# dispatcher, installation acceptance and documentation share one source.
+DEFAULT = read(ROOT / 'suites/default.json')['default_datasets']
 
 
 def main(argv=None):
@@ -78,6 +85,9 @@ def main(argv=None):
     if args.loops < 1:
         parser.error('--loops must be positive')
     selected = args.dataset or DEFAULT
+    manual_only = {'hr_metro', 'retail_online'}
+    if args.workflow == 'derived-v1' and manual_only.intersection(selected):
+        parser.error('manual workflow adaptations do not have Agent parent recipes for derived-v1')
     historical = [name for name in selected if name in HISTORICAL]
     # Reject unsupported parameter combinations before any workload runs; the
     # historical derived-v1 engine has no timing mode.
@@ -91,10 +101,29 @@ def main(argv=None):
         from replay.compatible import validate
         validate()
         print('executor, workload and compatible workflow bindings valid')
+        # Static binding validity and formal-execution readiness are separate
+        # statements.  Report readiness per requested dataset and fail loudly
+        # (without touching any workload) when a prepared v2 workload is not
+        # ready to execute.
+        from replay.readiness import readiness_report
+        selected_datasets = [NEW[name] for name in selected if name in NEW]
+        report = readiness_report(selected_datasets)
+        ready = [name for name, item in report.items() if item['status'] == 'ready']
+        not_ready = [name for name, item in report.items() if item['status'] != 'ready']
+        for name in not_ready:
+            item = report[name]
+            print(f'formal execution NOT ready for {name}: {item["reason"]}: {item["detail"]}')
+        if not_ready:
+            print('static bindings are valid; formal preparation is missing. Generate the '
+                  'frozen preparation artifacts (approved run of '
+                  'scripts/prepare_xlsx_selection.py) before executing these workloads.')
+            return 1
+        if ready:
+            print('formal preparation ready for: ' + ', '.join(sorted(ready)))
         return 0
     core = document_executor()
     # Execution order: old byte-preserved workloads first, then the
-    # canonicalized formal datasets, and the historical derived-v1 engine LAST,
+    # compatible formal datasets, and the historical derived-v1 engine LAST,
     # because the derived engine replaces the Skill links and source context
     # and must never run before a unified-runner workload in the same
     # invocation.

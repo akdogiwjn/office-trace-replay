@@ -1,0 +1,364 @@
+{
+  "schema_version": "office-verification-v1",
+  "dataset_id": "retail_online",
+  "kind": "xlsx",
+  "status": "failed",
+  "checks": {
+    "input:input/Online Retail.xlsx": {
+      "ok": true,
+      "detail": null
+    },
+    "workbook_file": {
+      "ok": true,
+      "detail": null
+    },
+    "source:worksheets": {
+      "ok": true,
+      "detail": [
+        "Online Retail",
+        "Sales Overview",
+        "Chart Data"
+      ]
+    },
+    "source:relative_order": {
+      "ok": true,
+      "detail": null
+    },
+    "source:data:Online Retail": {
+      "ok": true,
+      "detail": {
+        "missing": [],
+        "changed": [],
+        "added": []
+      }
+    },
+    "source:formulas:Online Retail": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats_meaning:Online Retail": {
+      "ok": false,
+      "detail": [
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E19",
+        "E20",
+        "E21",
+        "E22",
+        "E23",
+        "E24",
+        "E25"
+      ]
+    },
+    "source:merged_regions_removed:Online Retail": {
+      "ok": true,
+      "detail": []
+    },
+    "source:charts:Online Retail": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_names": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_names_damaged": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_name_shadowing": {
+      "ok": true,
+      "detail": []
+    },
+    "overview_added": {
+      "ok": true,
+      "detail": null
+    },
+    "metric_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Sales Overview!B2": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:gross_eligible_sales_gbp": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:gross_eligible_sales_gbp": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:gross_eligible_sales_gbp": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Sales Overview!B3": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:eligible_line_count": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:eligible_line_count": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:eligible_line_count": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Sales Overview!B4": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:eligible_quantity_units": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:eligible_quantity_units": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:eligible_quantity_units": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:default": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dropdown": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:selector_color": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dimension_inventory:Base": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Base:sales_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dimension_inventory:Higher": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Higher:sales_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dimension_inventory:Lower": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Lower:sales_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "projection_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Sales Overview!B10": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:projection:projected_sales_gbp": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:scenario_dependency:projected_sales_gbp": {
+      "ok": true,
+      "detail": null
+    },
+    "chart_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "chart:references:monthly_2010_sales": {
+      "ok": true,
+      "detail": [
+        "Chart Data!A2:A13",
+        "Chart Data!B1",
+        "Chart Data!B2:B13"
+      ]
+    },
+    "semantic:chart:monthly_2010_sales": {
+      "ok": true,
+      "detail": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          823746.14
+        ]
+      ]
+    },
+    "semantic:chart_dependency:monthly_2010_sales": {
+      "ok": true,
+      "detail": null
+    },
+    "chart:monthly_2010_sales": {
+      "ok": true,
+      "detail": null
+    },
+    "format:conditional_rules": {
+      "ok": true,
+      "detail": null
+    },
+    "format:comments": {
+      "ok": true,
+      "detail": null
+    },
+    "format:freeze_panes": {
+      "ok": true,
+      "detail": null
+    },
+    "no_external_links": {
+      "ok": true,
+      "detail": null
+    },
+    "zero_formula_errors": {
+      "ok": true,
+      "detail": []
+    },
+    "recalc_report": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:retail_online_enhanced.xlsx": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:workbook_features.json": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:formula_recalc.json": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:xlsx_enhancement_summary.json": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:metrics.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:scenario.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:xlsx_business_diagnostics.json": {
+      "ok": true,
+      "detail": null
+    },
+    "csv_matches_workbook:metrics.csv": {
+      "ok": true,
+      "detail": {
+        "rows": 3,
+        "expected_rows": 3
+      }
+    },
+    "csv_matches_workbook:scenario.csv": {
+      "ok": true,
+      "detail": {
+        "rows": 1,
+        "expected_rows": 1
+      }
+    }
+  },
+  "failures": [
+    "source:number_formats_meaning:Online Retail"
+  ],
+  "diagnostics": {
+    "source:number_formats:Online Retail": {
+      "ok": true,
+      "detail": []
+    },
+    "source:empty_string_normalized:Online Retail": {
+      "ok": true,
+      "detail": []
+    },
+    "source:merged_regions:Online Retail": {
+      "ok": true,
+      "detail": []
+    },
+    "source:styles:Online Retail": {
+      "ok": true,
+      "detail": [
+        "A1:font",
+        "A1:alignment",
+        "B1:font",
+        "B1:alignment",
+        "C1:font",
+        "C1:alignment",
+        "D1:font",
+        "D1:alignment",
+        "E1:font",
+        "E1:alignment",
+        "F1:font",
+        "F1:alignment",
+        "G1:font",
+        "G1:alignment",
+        "H1:font",
+        "H1:alignment",
+        "A2:font",
+        "A2:alignment",
+        "B2:font",
+        "B2:alignment",
+        "C2:font",
+        "C2:alignment",
+        "D2:font",
+        "D2:alignment"
+      ]
+    },
+    "source:defined_names_serialization": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_names_added": {
+      "ok": true,
+      "detail": []
+    }
+  },
+  "diagnostics_total": 6,
+  "diagnostic_diff_count": 1,
+  "validation_contract": "office-independent-acceptance-v3",
+  "validation_scope": "independent"
+}

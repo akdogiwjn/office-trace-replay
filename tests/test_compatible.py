@@ -14,24 +14,36 @@ from replay.entry import main
 class CanonicalizedWorkflowTests(unittest.TestCase):
     def test_native_defaults_and_effective_operations(self):
         index = validate()
-        self.assertEqual(len(index['entries']), 7)
+        self.assertEqual({e['variant_id'] for e in index['entries']}, {
+            'irs_w4-n1', 'irs_w4-n10', 'sba1919-n1', 'sba1919-n10',
+            'hr', 'manufacturing', 'retail', 'industry_productivity',
+            'hr_metro', 'retail_online'})
         for entry in index['entries']:
             recipe = read(ROOT / entry['recipe_path'])
+            manual = recipe.get('origin_type') == 'manual_workflow_adaptation'
+            build_role = 'build_analysis' if manual else 'build'
+            recalc_role = 'recalculate_in_place' if manual else 'recalculate'
             roles = [c['role'] for s in recipe['key_operations'] for c in s['source_tool_calls']]
-            self.assertEqual(roles.count('build'), 1)
+            self.assertEqual(roles.count(build_role), 1)
             self.assertNotIn('runtime/bin/soffice', json.dumps(recipe))
-            self.assertEqual(recipe['classification'], 'canonicalized_deterministic_replay_derived_from_successful_agent_executions')
+            self.assertEqual(recipe['classification'], 'manual_workflow_adaptation' if manual else
+                             'canonicalized_deterministic_replay_derived_from_successful_agent_executions')
+            if manual:
+                self.assertFalse(recipe['agent_generated'])
+                self.assertFalse(recipe['requires_llm'])
+                self.assertNotIn('parent', recipe)
             if recipe['case_kind'] == 'xlsx':
                 self.assertEqual(recipe['workflow_contract'], 'spreadsheet-semantic-v3')
-                self.assertEqual(roles.count('recalculate'), 1)
-                self.assertEqual(recipe['recalc_timeout'], 600)
+                self.assertEqual(roles.count(recalc_role), 1)
+                self.assertEqual(recipe['recalc_timeout'],
+                                 180 if entry['dataset_id'] == 'industry_productivity' else 600)
                 self.assertEqual(roles.count('export_csv'), 1)
                 recalc = next(c['tool_call']['arguments']['command'] for s in recipe['key_operations']
-                              for c in s['source_tool_calls'] if c['role'] == 'recalculate')
+                              for c in s['source_tool_calls'] if c['role'] == recalc_role)
                 self.assertIn('2> output/formula_recalc.stderr.log', recalc)
                 self.assertNotIn('2>&1', recalc)
                 build = next(c['tool_call']['arguments']['command'] for s in recipe['key_operations']
-                             for c in s['source_tool_calls'] if c['role'] == 'build')
+                             for c in s['source_tool_calls'] if c['role'] == build_role)
                 self.assertIn('run_xlsx_helper_atomic.py', build)
                 calls_text = json.dumps(recipe['key_operations'])
                 for legacy_call in ('assemble_output', 'inject_caches', 'patch.py'):
@@ -78,7 +90,9 @@ class CanonicalizedWorkflowTests(unittest.TestCase):
                 selected_records({'pdf_execution': {'record_ids': ids, 'record_count': count}}, records)
 
     def test_new_xlsx_helper_hashes_are_frozen_and_match_content(self):
-        files = {'retail': 'retail_build_enhance.py', 'manufacturing': 'manufacturing_build_enhanced.py', 'hr': 'hr_build.py'}
+        files = {'retail': 'retail_build_enhance.py', 'manufacturing': 'manufacturing_build_enhanced.py',
+                 'hr': 'hr_build.py', 'industry_productivity': 'industry_productivity_build.py',
+                 'hr_metro': 'hr_metro_build.py', 'retail_online': 'retail_online_build.py'}
         for entry in read(ROOT / 'compatibility/suite.json')['entries']:
             if entry['record_count'] is not None:
                 continue
@@ -243,11 +257,18 @@ class CanonicalizedWorkflowTests(unittest.TestCase):
         self.assertEqual(read(ROOT / 'compatibility/contract.json')['python']['default'], 'venv')
         self.assertTrue(all(e['python_default'] == 'venv-3.12.3' for e in default['datasets']))
         for entry in default['datasets'][2:]:
-            self.assertEqual(entry['mode'], 'canonicalized_deterministic_replay')
+            if entry.get('origin_type') == 'manual_workflow_adaptation':
+                self.assertEqual(entry['mode'], 'manual_workflow_adaptation')
+            else:
+                self.assertEqual(entry['mode'], 'canonicalized_deterministic_replay')
             self.assertEqual(entry['recipe_sha256'], digest(ROOT / entry['recipe_path']))
         for entry in index['entries']:
             recipe = read(ROOT / entry['recipe_path'])
-            self.assertEqual(recipe['parent']['recipe_sha256'], digest(ROOT / recipe['parent']['recipe_path']))
+            if recipe.get('origin_type') == 'manual_workflow_adaptation':
+                self.assertEqual(freeze.validate_recipe_origin(recipe), 'manual_workflow_adaptation')
+                self.assertNotIn('parent', recipe)
+            else:
+                self.assertEqual(recipe['parent']['recipe_sha256'], digest(ROOT / recipe['parent']['recipe_path']))
             self.assertEqual(recipe['prompt_sha256'], digest(ROOT / recipe['prompt_path']))
 
     def test_active_helpers_are_written_inside_native_build_phase(self):

@@ -1,0 +1,29 @@
+{
+  "schema_version": "new-xlsx-performance-plan-v1",
+  "purpose": "One native cycles:u profile followed by one separate py-spy profile for each new XLSX workload; strict stop on any failed phase.",
+  "image": "office-trace-replay:openeuler-v11",
+  "image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+  "entry": "/opt/office-trace-replay/replay/entry.py",
+  "python": "/opt/document-bench/.venv/bin/python",
+  "scene": "xlsx",
+  "loops": 1,
+  "operation_timeout_seconds": 900,
+  "recalc_timeout_seconds": 600,
+  "cpu_affinity": {"workload": "0-7", "monitor": "9"},
+  "sampling": {
+    "native_event": "cycles:u",
+    "native_frequency_hz": 49,
+    "native_call_graph": "dwarf,16384",
+    "pyspy_frequency_hz": 49,
+    "pyspy_mode": "record --subprocesses --format raw",
+    "workload_cpu_affinity": "0-7",
+    "monitor_cpu_affinity": "9"
+  },
+  "order": ["hr_metro", "retail_online"],
+  "configs": [
+    {"config_id": "hr_metro", "scene": "xlsx", "dataset": "hr_metro", "record_count": null, "loops": 1, "rate_hz": 49},
+    {"config_id": "retail_online", "scene": "xlsx", "dataset": "retail_online", "record_count": null, "loops": 1, "rate_hz": 49}
+  ],
+  "modes": ["native", "pyspy"],
+  "excluded": ["Agent", "stat", "strace", "timed", "independent deep audit", "extra repeats", "old TLC/OPM/PDF"]
+}

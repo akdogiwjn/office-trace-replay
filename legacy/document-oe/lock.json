@@ -21,8 +21,8 @@
     },
     "bin/run_document_scene_loop.py": {
       "mode": 493,
-      "sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
-      "size": 36682
+      "sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+      "size": 38191
     },
     "bin/run_document_scene_loop_timed.py": {
       "mode": 420,
@@ -232,7 +232,7 @@
   },
   "policy": "Unified runner executor version and the byte-preserved workload are frozen separately. workload files are byte-identical to the original document-oe container export and are strictly verified; executor files (unified runner + timing wrapper) are versioned and validated against the frozen executor lock. The runner is the formal entry for every dataset; opm/tlc keep the original loop, workspace reset, timeout, error handling, exit status and timing semantics and never have their recipes/commands rewritten.",
   "executor": {
-    "version": "unified-dataset-runner-v1",
+    "version": "unified-dataset-runner-v2",
     "files": [
       "bin/run_document_scene_loop.py",
       "bin/run_document_scene_loop_timed.py"

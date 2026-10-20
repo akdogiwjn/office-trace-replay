@@ -252,7 +252,7 @@
       "poppler": "pdftoppm version 24.02.0"
     }
   },
-  "contract_sha256": "d6777c1168cc3c6bb684046e3a54a432719db8b4f7c2bfe0ab4a046fc05e5867",
+  "contract_sha256": "49c8988ac02b8a5d0b041439d6ff2a6349defaceb0de70d97bbe8e82aa732fc0",
   "adaptations": [
     "Use original native executor, original Skill tools and original runtime/timing boundaries.",
     "Canonicalized deterministic replay derived from successful Agent executions: P01 copies the official input to the final output workbook; P02 writes and runs the dataset-specific enhancement helper through the generic atomic XLSX helper, enhancing the final output workbook directly; P03 recalculates that final output with the original Skill recalc.py so LibreOffice saves the computed caches in place, then checks formulas/cached values and exports metrics; P04 runs the versioned semantic verifier, writes the summary and checks deliverables.",
@@ -263,11 +263,12 @@
   "prompt_path": "compatibility/prompts/xlsx.txt",
   "prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
   "input_hashes": {
-    "input/dataset_manifest.json": "70e298bff63eb8aa463e1784b4c65bb9715984a6a3e8ebcf65adf1aac23af501",
+    "input/dataset_manifest.json": "b03dcddd8eab4609e0315f5dd5590ecbddfd6d41e956a3d1228762c9b4d812f3",
     "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956",
-    "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+    "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb"
   },
   "workflow_contract": "spreadsheet-semantic-v3",
+  "loop_verification_contract": "document-oe-compatible-xlsx-loop-v1",
   "helper_hashes": {
     "helpers/build_enhance.py": "e3bd45d939955a4bf1ba76bd866595d0894978b2d01d0aa86d7f4a1c0bf58103"
   }

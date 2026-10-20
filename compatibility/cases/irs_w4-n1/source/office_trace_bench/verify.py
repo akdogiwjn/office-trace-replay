@@ -1,4 +1,23 @@
-"""Shared structural checks plus manifest-defined business expectations."""
+"""Versioned semantic verification contract for the canonicalized XLSX replay.
+
+Contract: spreadsheet-semantic-v3.
+
+Strict failures are limited to business-meaningful damage:
+  - official input hashes, worksheet presence and relative order,
+  - original data values / missing / suppression markers (missing or changed real
+    values, or values appearing where the source had none),
+  - original formulas (deleted, hardcoded, or wrongly overwritten) and charts'
+    data series / references,
+  - new Summary/Overview, metrics, scenario and charts per the manifest,
+  - formula usage and dependency correctness, cached values, no formula errors,
+  - recalc success and complete deliverables.
+
+Pure format or serialization differences (font/fill/alignment/border/protection
+representation, number-format serialization, style-table/shared-string/relationship
+representation, defined-name serialization, merged-region representation, and
+empty-string cells normalized to empty cells) are recorded as diagnostics and do
+not by themselves fail the run. See spreadsheet.original_content.
+"""
 import gc
 import json
 import math
@@ -10,18 +29,29 @@ from .workbooks import chart_sources, logical_value, normalized_formula, sheet_d
 
 ERRORS = {'#REF!', '#DIV/0!', '#VALUE!', '#N/A', '#NAME?', '#NUM!', '#NULL!'}
 
+SEMANTIC_CONTRACTS = ('spreadsheet-semantic-v2', 'spreadsheet-semantic-v3')
+
 
 class Checks:
     def __init__(self, manifest):
         self.data = {'schema_version': 'office-verification-v1', 'dataset_id': manifest['dataset_id'],
-                     'kind': manifest['kind'], 'status': 'failed', 'checks': {}, 'failures': []}
+                     'kind': manifest['kind'], 'status': 'failed', 'checks': {}, 'failures': [],
+                     'diagnostics': {}, 'diagnostics_total': 0, 'diagnostic_diff_count': 0}
 
     def add(self, name, ok, detail=None):
         self.data['checks'][name] = {'ok': bool(ok), 'detail': detail}
         if not ok:
             self.data['failures'].append(name)
 
+    def diag(self, name, detail):
+        self.data['diagnostics'][name] = {'ok': True, 'detail': detail}
+
     def finish(self):
+        diagnostics = self.data['diagnostics']
+        self.data['diagnostics_total'] = len(diagnostics)
+        self.data['diagnostic_diff_count'] = sum(
+            1 for v in diagnostics.values()
+            if isinstance(v, dict) and v.get('detail'))
         self.data['status'] = 'failed' if self.data['failures'] else 'success'
         return self.data
 
@@ -172,6 +202,9 @@ def verify_pdf(manifest, expected, workspace, checks):
     req = manifest['requirements']
     records_data = read_json(workspace / 'input' / manifest['records'])
     records = records_data[manifest['records_key']]
+    from .pdf_loop import selected_records
+    selected = selected_records(manifest, records)
+    selected_ids = {record['id'] for record in selected}
     reader = PdfReader(workspace / 'input' / manifest['form'])
     field_schema = get_field_info(reader)
     checks.add('template_form', len(reader.pages) == req['page_count'] and len(field_schema) == req['field_count'])
@@ -196,19 +229,22 @@ def verify_pdf(manifest, expected, workspace, checks):
     for record in records:
         record_id = record['id']
         values_path = output / 'field_values' / (record_id + '.json')
-        pdf_path = output / 'filled' / (record_id + '.pdf')
         values = read_json(values_path)
         by_id = {v['field_id']: v for v in values}
-        fields = PdfReader(pdf_path).get_fields() or {}
-        checks.add('pages:' + record_id, len(PdfReader(pdf_path).pages) == req['page_count'])
-        checks.add('pdf_size:' + record_id, pdf_path.stat().st_size >= req.get('minimum_pdf_bytes', 1))
         wanted = expected_pdf_fields(record, records_data, req['field_rules'])
         rules_by_id = {rule['field_id']: rule for rule in req['field_rules']}
         checks.add('mapping:' + record_id, len(by_id) == len(values) and set(by_id) == set(wanted) and all(pdf_field_matches(by_id[fid].get('value'), v, rules_by_id[fid]) for fid, v in wanted.items()))
-        checks.add('field_values:' + record_id, all(pdf_field_matches(fields.get(fid, {}).get('/V'), v, rules_by_id[fid]) for fid, v in wanted.items()))
         schema_ids = {v['field_id']: v for v in field_schema}
         checks.add('mapping_pages:' + record_id, all(fid in schema_ids and item['page'] == schema_ids[fid]['page'] for fid, item in by_id.items()))
         protected = req['protected_blank']
+        if record_id not in selected_ids:
+            checks.add('protected_blank:' + record_id, not set(by_id).intersection(protected))
+            continue
+        pdf_path = output / 'filled' / (record_id + '.pdf')
+        fields = PdfReader(pdf_path).get_fields() or {}
+        checks.add('pages:' + record_id, len(PdfReader(pdf_path).pages) == req['page_count'])
+        checks.add('pdf_size:' + record_id, pdf_path.stat().st_size >= req.get('minimum_pdf_bytes', 1))
+        checks.add('field_values:' + record_id, all(pdf_field_matches(fields.get(fid, {}).get('/V'), v, rules_by_id[fid]) for fid, v in wanted.items()))
         checks.add('protected_blank:' + record_id, not set(by_id).intersection(protected) and all(pdf_value(fields.get(fid, {}).get('/V')) in ('', 'Off') for fid in protected))
         check_images(output / 'rendered' / record_id, record_id)
         for spec in req.get('visible_changes', []):
@@ -221,7 +257,7 @@ def verify_pdf(manifest, expected, workspace, checks):
                     changed = 0
             checks.add(f'visible_change:{record_id}:{spec["page"]}', changed > spec['minimum_changed_pixels'], changed)
     ids = {r['id'] for r in records}
-    checks.add('exact_pdf_inventory', {p.stem for p in (output / 'filled').glob('*.pdf')} == ids)
+    checks.add('exact_pdf_inventory', {p.stem for p in (output / 'filled').glob('*.pdf')} == selected_ids)
     checks.add('exact_mapping_inventory', {p.stem for p in (output / 'field_values').glob('*.json')} == ids)
     summary = read_json(output / 'batch_summary.json')
     for key, value in expected['summary_values'].items():
@@ -233,26 +269,38 @@ def verify_pdf(manifest, expected, workspace, checks):
         checks.add('deliverable:' + filename, (output / filename).exists())
 
 
-def verify(manifest_path, workspace, report_path=None, *, deferred_outputs=()):
-    manifest = load_manifest(manifest_path)
+def verify(manifest_path, workspace, report_path=None, *, deferred_outputs=(), scope='independent'):
+    if scope not in ('loop', 'independent'):
+        raise ValueError("scope must be 'loop' or 'independent'")
+    # The runner's frozen preflight validates the complete asset set before
+    # entering the timed loop.  Keep load_manifest's strict default for every
+    # other caller, but do not hash the same large inputs again inside ROI.
+    manifest = load_manifest(manifest_path, check_assets=(scope == 'independent'))
     expected = read_json(Path(manifest_path).parent / manifest['expected_file'])
     workspace = Path(workspace)
     checks = Checks(manifest)
+    checks.data['validation_contract'] = ('office-loop-validation-v1' if scope == 'loop'
+                                          else 'office-independent-acceptance-v3')
+    checks.data['validation_scope'] = scope
     try:
-        for relative, digest in manifest['input_files'].items():
-            p = workspace / relative
-            checks.add('input:' + relative, p.is_file() and sha256(p) == digest)
+        if scope == 'independent':
+            for relative, digest in manifest['input_files'].items():
+                p = workspace / relative
+                checks.add('input:' + relative, p.is_file() and sha256(p) == digest)
         if checks.data['failures']:
             return checks.finish()
         if manifest['kind'] == 'xlsx':
-            if manifest.get('workload_contract') == 'spreadsheet-semantic-v2':
-                from .spreadsheet import verify_semantic_xlsx
-                verify_semantic_xlsx(manifest, expected, workspace, checks, deferred_outputs)
+            if manifest.get('workload_contract') in SEMANTIC_CONTRACTS:
+                from .spreadsheet import verify_semantic_xlsx, verify_semantic_xlsx_loop
+                verifier = verify_semantic_xlsx_loop if scope == 'loop' else verify_semantic_xlsx
+                verifier(manifest, expected, workspace, checks, deferred_outputs)
             else:
                 verify_xlsx(manifest, expected, workspace, checks, deferred_outputs)
+        elif scope == 'loop':
+            from .pdf_loop import verify_pdf as verify_loop_pdf
+            verify_loop_pdf(manifest, expected, workspace, checks)
         else:
-            from .compatible_pdf import verify_pdf as verify_prepared_pdf
-            verify_prepared_pdf(manifest, expected, workspace, checks)
+            verify_pdf(manifest, expected, workspace, checks)
     except Exception as exc:
         checks.add('verification_exception', False, f'{type(exc).__name__}: {exc}')
     finally:

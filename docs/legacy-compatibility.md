@@ -6,7 +6,7 @@
 |---|---|
 | PDF recipe | 字节不变；21 个 read/write/exec 调用 |
 | XLSX recipe | 字节不变；15 个 read/write/exec 调用 |
-| 原 runner 与 timed runner | 原文件复制并从原绝对路径直接运行 |
+| runner 与 timed wrapper | 从原绝对路径运行，作为 executor 独立版本化；旧 workload 仍严格冻结 |
 | helpers、Skill、旧 verifier | 原文件及嵌在 recipe 中的 write 内容不变 |
 | CSV | 保留旧 export_xlsx_csv.py 执行，不用参考 CSV 复制替代 |
 | helper 写入时间 | 原配方仍在循环内写代码，不移到准备阶段 |
@@ -16,6 +16,6 @@
 | PDF 数量 | 原默认 1、原参数支持 10；不强制改为 10 |
 | 结果与计时格式 | 由原 loop/timed loop 生成，无额外 verifier 加入计时链 |
 
-45 个活动文件逐一记录 SHA256、mode 和 size；源容器与镜像安装文件均检查。源码、recipe、输入与业务参数相同不等于每次墙钟时间相同，性能比较仍使用用户原先相同的解释器、参数和采集入口。
+43 个 workload 文件与 2 个 executor 文件分开记录 SHA256、mode 和 size；源容器与镜像安装文件均检查。源码、recipe、输入与业务参数相同不等于每次墙钟时间相同，性能比较仍使用用户原先相同的解释器、参数和采集入口。
 
 原源目录的缓存字节码、Office 临时锁和未执行的旧 recipe 备份没有作为活动源码冻结；所有实际执行的文本脚本和输入字节保持原样。新 OPM/TLC 的历史结果只作衍生版本参考，不能覆盖这两个基线。

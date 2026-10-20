@@ -16,7 +16,9 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.workbook.defined_name import DefinedName
 
 from compatibility.verification.verify import Checks
-from compatibility.verification.spreadsheet import original_content
+from compatibility.verification.spreadsheet import (
+    compare_number_formats, format_meaning, original_content,
+)
 from compatibility.verification.workbooks import normalized_formula
 
 
@@ -430,6 +432,133 @@ class OriginalContentPositiveNegativeTests(unittest.TestCase):
             self.assertIn('source:styles:S1', report['diagnostics'])
             self.assertGreater(report['diagnostic_diff_count'], 0)
 
+
+class NumberFormatMeaningTests(unittest.TestCase):
+    def test_confirmed_date_serializations_are_equivalent(self):
+        pairs = (
+            ('m/d/yy h:mm', 'm/d/yyyy\\ h:mm'),
+            ('mm/dd/yyyy', 'm/d/yyyy'),
+            ('M/D/YY H:MM', 'm/d/yyyy h:mm'),
+        )
+        for source, output in pairs:
+            with self.subTest(source=source, output=output):
+                result = compare_number_formats(source, output)
+                self.assertTrue(result['equivalent'], result)
+                self.assertEqual(result['classification'], 'allowed_representation_change')
+
+    def test_date_fields_order_and_duration_units_are_preserved(self):
+        pairs = (
+            ('mm/dd/yyyy', 'dd/mm/yyyy'),
+            ('m/d/yy h:mm', 'm/d/yy'),
+            ('[h]', '[m]'),
+            ('[h]', '0'),
+        )
+        for source, output in pairs:
+            with self.subTest(source=source, output=output):
+                self.assertFalse(compare_number_formats(source, output)['equivalent'])
+
+    def test_currency_percent_literals_and_scaling_are_preserved(self):
+        pairs = (
+            ('$#,##0.00', '#,##0.00'),
+            ('[$$-409]#,##0.00', '#,##0.00'),
+            ('[$€-407]#,##0.00', '#,##0.00'),
+            ('0.00%', '0.00'),
+            ('0.00" kg"', '0.00" KG"'),
+            ('0,,', '0'),  # trailing commas scale; grouping commas do not.
+            ('#,##0', '0'),
+        )
+        for source, output in pairs:
+            with self.subTest(source=source, output=output):
+                self.assertFalse(compare_number_formats(source, output)['equivalent'])
+
+    def test_quoted_and_escaped_units_and_locale_colors(self):
+        self.assertTrue(compare_number_formats('0.00" kg"', r'0.00\ \k\g')['equivalent'])
+        self.assertTrue(compare_number_formats('$#,##0.00', '"$"#,##0.00')['equivalent'])
+        self.assertTrue(compare_number_formats('[$$-409]#,##0.00', '[$$-407]#,##0.00')['equivalent'])
+        self.assertTrue(compare_number_formats('[Red]0.00', '0.00')['equivalent'])
+        # Literal text remains case-sensitive; unsupported changed syntax is
+        # not silently treated as equivalent.
+        self.assertFalse(compare_number_formats('0.0"USD"', '0.0"usd"')['equivalent'])
+        self.assertFalse(compare_number_formats('[DBNum1]0', '[DBNum2]0')['equivalent'])
+        self.assertEqual(format_meaning('[DBNum1]0'), format_meaning('[DBNum1]0'))
+        self.assertEqual(compare_number_formats('0,,', '0')['reason'], 'numeric_scaling_changed')
+
+    def test_original_content_accepts_retail_date_format_and_reports_all_diffs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            src, dst = tmp / 'src.xlsx', tmp / 'dst.xlsx'
+            wb = Workbook()
+            ws = wb.active
+            ws.title = 'S1'
+            ws['A1'] = __import__('datetime').datetime(2010, 12, 1, 8, 26)
+            ws['A1'].number_format = 'm/d/yy h:mm'
+            ws['B1'] = 24.5
+            ws['B1'].number_format = '[$$-409]#,##0.00'
+            wb.save(src)
+            wb.close()
+            out = load_workbook(src, data_only=False)
+            out['S1']['A1'].number_format = 'm/d/yyyy\\ h:mm'
+            out['S1']['B1'].number_format = '#,##0.00'
+            out.save(dst)
+            out.close()
+
+            checks = Checks({'dataset_id': 'fixture', 'kind': 'xlsx'})
+            original_content(src, dst, checks)
+            self.assertIn('source:number_formats_meaning:S1', checks.data['failures'])
+            stats = checks.data['number_format_statistics']['S1']
+            self.assertEqual(stats['difference_count'], 2)
+            self.assertEqual(stats['distinct_format_pair_count'], 2)
+            self.assertEqual(stats['allowed_representation_change_count'], 1)
+            self.assertEqual(stats['strict_failure_count'], 1)
+            self.assertEqual(stats['cell_samples'][0]['cell'], 'A1')
+
+    def test_original_content_accepts_real_retail_date_representation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            src, dst = tmp / 'src.xlsx', tmp / 'dst.xlsx'
+            wb = Workbook()
+            ws = wb.active
+            ws.title = 'S1'
+            ws['E2'] = __import__('datetime').datetime(2010, 12, 1, 8, 26)
+            ws['E2'].number_format = 'm/d/yy h:mm'
+            wb.save(src)
+            wb.close()
+            out = load_workbook(src, data_only=False)
+            out['S1']['E2'].number_format = 'm/d/yyyy\\ h:mm'
+            out.save(dst)
+            out.close()
+            checks = Checks({'dataset_id': 'fixture', 'kind': 'xlsx'})
+            original_content(src, dst, checks)
+            self.assertNotIn('source:number_formats_meaning:S1', checks.data['failures'])
+            stats = checks.data['number_format_statistics']['S1']
+            self.assertEqual(stats['difference_count'], 1)
+            self.assertEqual(stats['allowed_representation_change_count'], 1)
+            self.assertEqual(stats['strict_failure_count'], 0)
+
+    def test_original_content_counts_every_difference_but_bounds_samples(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            src, dst = tmp / 'src.xlsx', tmp / 'dst.xlsx'
+            wb = Workbook()
+            ws = wb.active
+            ws.title = 'S1'
+            for row in range(1, 31):
+                ws.cell(row, 1, row).number_format = '0.00" kg"'
+            wb.save(src)
+            wb.close()
+            out = load_workbook(src, data_only=False)
+            for row in range(1, 31):
+                out['S1'].cell(row, 1).number_format = r'0.00\ \k\g'
+            out.save(dst)
+            out.close()
+            checks = Checks({'dataset_id': 'fixture', 'kind': 'xlsx'})
+            original_content(src, dst, checks)
+            stats = checks.data['number_format_statistics']['S1']
+            self.assertEqual(stats['difference_count'], 30)
+            self.assertEqual(stats['format_pairs'][0]['count'], 30)
+            self.assertEqual(stats['distinct_format_pair_count'], 1)
+            self.assertEqual(len(stats['cell_samples']), 24)
+            self.assertEqual(stats['strict_failure_count'], 0)
 
 class DiagnosticsCountingTests(unittest.TestCase):
     def test_total_slots_vs_nonempty_diffs(self):

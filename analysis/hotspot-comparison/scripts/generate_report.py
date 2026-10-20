@@ -20,13 +20,29 @@ MECH_NAME = {
     "M-ORCH": "调度与外壳（runner/bash/reset）",
     "M-UNCLASSIFIED": "未归类",
 }
-CONFIG_ORDER = ["opm-n1", "irs_w4-n1", "sba1919-n1", "opm-n10", "irs_w4-n10",
-                "sba1919-n10", "tlc", "retail", "manufacturing", "hr"]
+SELECTION_PATH = ROOT / "config" / "next-comparison-suite.json"
+
+
+def selected_config_order():
+    selection = json.loads(SELECTION_PATH.read_text())
+    result = []
+    for dataset in selection["baseline_datasets"] + selection["comparison_datasets"]:
+        if dataset in ("opm", "irs_w4", "sba1919"):
+            result.extend((dataset + "-n1", dataset + "-n10"))
+        else:
+            result.append(dataset)
+    return list(dict.fromkeys(result))
+
+
+CONFIG_ORDER = selected_config_order()
 CONFIG_KIND = {
     "opm-n1": "旧对照 N=1", "opm-n10": "旧对照 N=10",
     "irs_w4-n1": "新 N=1", "irs_w4-n10": "新 N=10",
     "sba1919-n1": "新 N=1", "sba1919-n10": "新 N=10",
-    "tlc": "旧对照", "retail": "新", "manufacturing": "新", "hr": "新",
+    "tlc": "旧对照", "retail": "历史 XLSX 对照", "manufacturing": "历史 XLSX 对照",
+    "hr": "历史 XLSX 对照", "retail_online": "新（手工适配，功能/深审/性能证据已存在）",
+    "hr_metro": "新（手工适配，功能/深审/性能证据已存在）",
+    "industry_productivity": "新 XLSX 对照",
 }
 
 
@@ -49,6 +65,11 @@ def main():
     w = lines.append
 
     w("# 新旧数据集计算热点对比报告")
+    w("")
+    selection = json.loads(SELECTION_PATH.read_text())
+    w("未来主分析选择（读取 `config/next-comparison-suite.json`）：" +
+      ", ".join(selection["baseline_datasets"] + selection["comparison_datasets"]) +
+      "。Manufacturing 历史原始数据、recipe、trace 与结果保留，但从后续 XLSX 主对比中排除。")
     w("")
     w("最终研究结论见 [final-conclusions.md](final-conclusions.md)；"
       "未确认覆盖余量的逐样本分解见 [unconfirmed-residual-report.md](unconfirmed-residual-report.md)。")

@@ -1,0 +1,156 @@
+{
+  "schema_version": "new-dataset-execution-flow-audit-v2",
+  "status": "updated_static_flow_audit_retail_independent_acceptance_failed",
+  "audit_campaign": "analysis/hotspot-comparison/audits/new-dataset-deep-audit-v2/20261020T000823Z",
+  "created_utc": "2026-10-20T00:08:23Z",
+  "checklist": [
+    {
+      "id": 1,
+      "topic": "legacy 43 workloads",
+      "status": "conforms",
+      "evidence": "legacy/document-oe/lock.json; host SHA256 recheck 43/43 matched."
+    },
+    {
+      "id": 2,
+      "topic": "manual adaptation provenance",
+      "status": "conforms",
+      "evidence": "both recipes declare origin_type=manual_workflow_adaptation, agent_generated=false, requires_llm=false; source provenance records have no Agent run/canonical claim."
+    },
+    {
+      "id": 3,
+      "topic": "shared execution infrastructure",
+      "status": "conforms",
+      "evidence": "unified runner, run_xlsx_helper_atomic.py, installed legacy Skill recalc.py, inspect_xlsx.py, export_xlsx.py, summary.py, source loop verifier."
+    },
+    {
+      "id": 4,
+      "topic": "P01-P04 order and actual run",
+      "status": "conforms_with_logging_limit",
+      "evidence": "archived runner summaries and iterations record all four ordered step IDs and success; frozen recipe commands define inspect source/copy, one helper, in-place recalc/formula/cache/export, loop verifier/summary/deliverable checks. Individual child command stdout is not separately persisted."
+    },
+    {
+      "id": 5,
+      "topic": "atomic helper publication",
+      "status": "conforms_by_code_review",
+      "evidence": "run_xlsx_helper_atomic.py writes same-directory temporary report/helper and publishes with os.replace only after successful helper and minimum-size check; temporary files removed in finally. Failure-injection was not repeated in this audit."
+    },
+    {
+      "id": 6,
+      "topic": "recalc/cache preservation",
+      "status": "hr_metro_independent_pass_retail_online_independent_failed",
+      "evidence": "Current independent verifier: HR Metro success (73/73 checks); Retail Online failed only source:number_formats_meaning:Online Retail at E2:E25. Both output workbook hashes unchanged. See audit-manifest.json."
+    },
+    {
+      "id": 7,
+      "topic": "input scale and preservation path",
+      "status": "hr_metro_source_preservation_pass_retail_number_format_semantics_failed",
+      "evidence": "HR Metro source/output preservation checks passed in independent acceptance. Retail Online independent check identified number-format meaning differences at E2:E25; no repair or relaxation performed."
+    },
+    {
+      "id": 8,
+      "topic": "loop verifier scope",
+      "status": "conforms",
+      "evidence": "scope=loop disables asset rehash; base dimensions/task outputs/caches/CSV checked; source-wide value/style/name and recursive dependency audits are only in independent scope."
+    },
+    {
+      "id": 9,
+      "topic": "diagnostics and summaries",
+      "status": "conforms",
+      "evidence": "both archives contain nonempty xlsx_business_diagnostics.json and xlsx_enhancement_summary.json plus business_verification.json; run archive-index hashes verify."
+    },
+    {
+      "id": 10,
+      "topic": "registry/recipe/manifest/contract bindings",
+      "status": "conforms_after_source_asset_repair_preflight",
+      "evidence": "reports/source-assets-repair-20261020.json records declared/source prompt SHA256 equality; both current container preflights succeeded with project, recipe, input, helper and source verifier hashes."
+    },
+    {
+      "id": 11,
+      "topic": "workspace/results/reset mounts",
+      "status": "conforms",
+      "evidence": "successful preflight records show workspace parent mount and removable child; actual workspace is not mount target; results bind outside reset subtree."
+    },
+    {
+      "id": 12,
+      "topic": "loop-only versus suite acceptance boundary",
+      "status": "conforms",
+      "evidence": "--scene path invokes legacy.launch directly; suite.run_dataset performs independent acceptance after loops. v2-02 used --scene xlsx --loops 1, no --timed, no independent audit in workload ROI."
+    },
+    {
+      "id": 13,
+      "topic": "load_workbook/save call locations",
+      "status": "static_call_inventory_complete_profiles_not_measured",
+      "evidence": "12 load_workbook calls per run from frozen recipes/code: 7 non-read-only, 5 read_only; one openpyxl save in helper. read_only delayed scans occur in Skill recalc and verifier; see xlsx-static-load-save.json. No py-spy proportion inferred."
+    },
+    {
+      "id": 14,
+      "topic": "TLC/Industry workflow differences",
+      "status": "static_semantic_differences_documented",
+      "evidence": "hr_metro uses selected NYC total plus five major groups (14 formulas); retail_online uses transaction-row eligibility, whole-period SUMPRODUCT KPIs and 12 2010 monthly formulas (16 total). Their work, formulas, and verifier inputs differ from TLC/Industry; no causal performance inference made."
+    }
+  ],
+  "independent_acceptance": {
+    "hr_metro": {
+      "status": "success",
+      "container_id": "851b08a953eb2fd14e4563b442176eda17bd8e1531a390b19a35e5ad55c882bf",
+      "image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+      "exit_code": 0,
+      "checks_total": 73,
+      "checks_passed": 73,
+      "failures": [],
+      "output_unchanged": true,
+      "report": "hr_metro/report/independent-verification.json"
+    },
+    "retail_online": {
+      "status": "failed",
+      "container_id": "0cbe51d6d2dcdb5fd05afd22357a71bd94331d2d64a8562561121f77ae561372",
+      "image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+      "exit_code": 1,
+      "checks_total": 60,
+      "checks_passed": 59,
+      "failures": [
+        "source:number_formats_meaning:Online Retail"
+      ],
+      "output_unchanged": true,
+      "report": "retail_online/report/independent-verification.json"
+    },
+    "checks_not_run": [
+      "performance collection and hotspot comparison",
+      "Retail source-format discrepancy remediation/reverification"
+    ]
+  },
+  "performance_collection": "not_started_due_to_retail_independent_acceptance_failure",
+  "performance_comparison": "deferred; no new profiles produced",
+  "code_sha256": {
+    "replay/entry.py": "906970de9f6ae5684d87418c83fdad8c602ae96c907ea45bb501aa410763aa27",
+    "replay/legacy.py": "8a92b3caa7aeaf8bb9b20df81246f3d6fb838ed3407fcc191f8e523c5d41bdec",
+    "replay/suite.py": "28be1ef0d4a7bb1c66e43e7e806dbfb0f367962116c5c95f0a04108fef4c1a34",
+    "replay/accept.py": "76f4a65c9aeaf8e658a9290ed9c437f7d299ee81d30b4e4ea869807b1e1cf760",
+    "replay/freeze.py": "18c79cadbeca28778fc10b6378c91943293801af4db4714038d8a97014923f24",
+    "legacy/document-oe/bin/run_document_scene_loop.py": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+    "legacy/document-oe/bin/run_document_scene_loop_timed.py": "1a8cbde481d31ab6389b7c3c266d6510acac804866e2fdf8e5577aa766d7367e",
+    "compatibility/tools/inspect_xlsx.py": "ff0a67adebc69f56782c23ef97a3365323c828c2883e33a6383a2519e8634efc",
+    "compatibility/tools/run_xlsx_helper_atomic.py": "2ad614458b54baa73eed8677a0ff6d8dea56a528299fde3985d50d8c559958ac",
+    "compatibility/tools/export_xlsx.py": "9592ae6ac07ca6aceda6f27024ab4b6c6ef14c8bad1763b8111f799e1e0bae50",
+    "compatibility/tools/summary.py": "5777143da5aef6f89cab40f1e1de7d61def640d227a009eb293a01f5437b1ff8",
+    "legacy/document-oe/skills/xlsx/scripts/recalc.py": "b4d04cd56ba59c67b15e6745bf8a825c7741861692d863e2eca81f7d704186c3",
+    "compatibility/verification/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "compatibility/verification/spreadsheet.py": "f0743806c9816f2c904aebb898f634dad4eb96bbad91fe22b6df9dbe9cb5e730",
+    "compatibility/cases/hr_metro/source/office_trace_bench/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py": "f0743806c9816f2c904aebb898f634dad4eb96bbad91fe22b6df9dbe9cb5e730",
+    "compatibility/cases/retail_online/source/office_trace_bench/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "compatibility/cases/retail_online/source/office_trace_bench/spreadsheet.py": "f0743806c9816f2c904aebb898f634dad4eb96bbad91fe22b6df9dbe9cb5e730",
+    "compatibility/helpers/hr_metro_build.py": "11f4ac4a26c3ed375fc80d23c9dbe9cc1db4e20ee83ea367f03f980939d74132",
+    "compatibility/helpers/retail_online_build.py": "df09b4afd15edc6c3d7a8b73459cac2b07bb597c277685dae4fa2205e8fbf106",
+    "compatibility/recipes/hr_metro.json": "25d2eadac4eecc1b75097265d65f26be517925c125dd60d1d77563051c844c94",
+    "compatibility/recipes/retail_online.json": "00e5a02c7ca5d4d41f09f589c5c5fbcaf1bb326ea475dc0bfee0f8b2bd3dacff",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/manifest.json": "bddee1caa7a98034a4f0bd92a3823b5d89b35d69d1a2f88fdaa839afe0c89279",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/manifest.json": "6eea4c7719efa81c99b453c81889a750df5ef6aa2dd140302900f8c3fa4af1ac",
+    "analysis/hotspot-comparison/scripts/functional_trial.py": "05a87b3997dbd69bbb7b76e2ad66e9a3c992db72f49bc7ace265d8259fb1b256",
+    "analysis/hotspot-comparison/scripts/preflight_replay.py": "88b3711516e9291741894ede7ee77134eb44f6ad55251ddf8a08f4827a4fdca2",
+    "reports/source-assets-repair-20261020.json": "df0800de17f880ad428b71be8b1dbddab6785c6d10615be760164d16771cbfd3",
+    "replay/compatible.py": "2d6d9dbccd030e3055c33ca883ae19efbb8da40b18e1a7fd140ed3b749e66913",
+    "compatibility/cases/hr_metro/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/retail_online/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579"
+  }
+}

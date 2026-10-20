@@ -19,8 +19,9 @@ def selected_records(manifest, records):
 
 def verify_pdf(manifest, expected, workspace, checks):
     from pypdf import PdfReader
-    from PIL import Image, ImageChops
+    from PIL import Image
     from .verify import read_json, expected_pdf_fields, pdf_field_matches, pdf_value
+    from .pdf_loop import check_representative_changes
 
     root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(root / 'vendor/skills/pdf/scripts'))
@@ -77,15 +78,8 @@ def verify_pdf(manifest, expected, workspace, checks):
         checks.add('field_values:' + ident, all(pdf_field_matches(fields.get(fid, {}).get('/V'), v, rules_by_id[fid]) for fid, v in wanted.items()))
         checks.add('protected_blank:' + ident, all(pdf_value(fields.get(fid, {}).get('/V')) in ('', 'Off') for fid in protected))
         check_images(output / 'rendered' / ident, ident)
-        for spec in req.get('visible_changes', []):
-            filename = f'page_{spec["page"]}.png'
-            with Image.open(template_dir / filename) as a, Image.open(output / 'rendered' / ident / filename) as b:
-                if a.size == b.size:
-                    diff = ImageChops.difference(a.convert('RGB'), b.convert('RGB')).convert('L')
-                    changed = sum(v > spec.get('pixel_threshold', 12) for v in diff.getdata())
-                else:
-                    changed = 0
-            checks.add(f'visible_change:{ident}:{spec["page"]}', changed > spec['minimum_changed_pixels'], changed)
+
+    check_representative_changes(template_dir, output / 'rendered', selected, req, checks)
 
     ids = {r['id'] for r in selected}
     checks.add('exact_pdf_inventory', {p.stem for p in (output / 'filled').glob('*.pdf')} == ids)

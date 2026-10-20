@@ -1,0 +1,28 @@
+{
+  "schema_version": "targeted-functional-hotspot-plan-v2",
+  "purpose": "One current-loop native and one separate py-spy sample per requested XLSX dataset; stop immediately on any failed stage.",
+  "image": "office-trace-replay:openeuler-v9",
+  "image_id": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+  "entry": "/opt/office-trace-replay/replay/entry.py",
+  "python": "/opt/document-bench/.venv/bin/python",
+  "scene": "xlsx",
+  "loops": 1,
+  "sampling": {
+    "native_event": "cycles:u",
+    "native_frequency_hz": 49,
+    "native_call_graph": "dwarf,16384",
+    "pyspy_frequency_hz": 49,
+    "pyspy_mode": "record --subprocesses --format raw",
+    "cpu_affinity": "0-7",
+    "monitor_cpu": 9
+  },
+  "order": ["retail", "hr", "industry_productivity"],
+  "configs": [
+    {"config_id": "retail", "scene": "xlsx", "dataset": "retail", "record_count": null, "loops": 1, "rate_hz": 49},
+    {"config_id": "hr", "scene": "xlsx", "dataset": "hr", "record_count": null, "loops": 1, "rate_hz": 49},
+    {"config_id": "industry_productivity", "scene": "xlsx", "dataset": "industry_productivity", "record_count": null, "loops": 1, "rate_hz": 49}
+  ],
+  "modes": ["native", "pyspy"],
+  "mode_policy": "For each dataset run native first, then a separate py-spy replay. Do not start the next mode or dataset unless every previous stage is successful.",
+  "excluded": ["stat", "strace", "timed", "independent deep audit", "extra repeats", "Manufacturing"]
+}

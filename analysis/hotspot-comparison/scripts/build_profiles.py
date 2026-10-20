@@ -24,6 +24,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = ROOT.parent.parent
 RAW = ROOT / "raw"
 PROCESSED = ROOT / "processed"
+sys.path.insert(0, str(ROOT / "scripts"))
+from script_identity import role_for_command
 
 # ---------------------------------------------------------------- DSO classes
 DSO_CLASS_RULES = [
@@ -1004,52 +1006,20 @@ _CURRENT_SCENE = {}
 
 
 def script_role(cmd, scene):
-    pdf = scene == "pdf"
-    import re as _re
-    if _re.search(r"run_document_scene_loop\.py", cmd):
-        return "runner"
-    if _re.search(r"check_fillable_fields\.py", cmd):
-        return "pdf-check-fillable"
-    if _re.search(r"extract_form_field_info\.py", cmd):
-        return "pdf-extract-fields"
-    if _re.search(r"convert_pdf_to_images\.py", cmd):
-        return "pdf-convert"
-    if _re.search(r"fill_fillable_fields\.py", cmd):
-        return "pdf-fill"
-    if _re.search(r"verify_pdf_batch\.py", cmd):
-        return "pdf-verify"
-    if _re.search(r"verify_office\.py", cmd):
-        return "pdf-verify" if pdf else "xlsx-verify"
-    if _re.search(r"generate_and_run_batch\.py|build_field_values\.py|"
-                   r"run_batch_fill_render\.py|pdf_batch\.py", cmd):
-        return "pdf-mapping-driver"
-    if _re.search(r"write_pdf_batch_summary\.py", cmd):
-        return "pdf-summary-writer"
-    if _re.search(r"summary\.py", cmd):
-        return "pdf-summary-writer" if pdf else "xlsx-summary-export"
-    if _re.search(r"inspect_xlsx_structure\.py", cmd):
-        return "xlsx-inspect-structure"
-    if _re.search(r"inspect_xlsx_features\.py", cmd):
-        return "xlsx-inspect-features"
-    if _re.search(r"enhance_workbook\.py|build_enhance|build_enhanced", cmd):
-        return "xlsx-enhance"
-    if _re.search(r"[/ ]build\.py|\.build\.runtime\.py", cmd):
-        return "xlsx-enhance"
-    if _re.search(r"run_xlsx_helper_atomic\.py", cmd):
-        return "xlsx-atomic-helper"
-    if _re.search(r"recalc\.py", cmd):
-        return "xlsx-recalc"
-    if _re.search(r"inspect_xlsx_formulas\.py", cmd):
-        return "xlsx-inspect-formulas"
-    if _re.search(r"inspect_xlsx_cached_values\.py", cmd):
-        return "xlsx-inspect-cached"
-    if _re.search(r"verify_xlsx_enhanced\.py", cmd):
-        return "xlsx-verify"
-    if _re.search(r"write_xlsx_summary\.py|export_xlsx\.py", cmd):
-        return "xlsx-summary-export"
-    if _re.search(r"inspect_xlsx\.py", cmd):
-        return "xlsx-inspect-tool"
-    if _re.search(r"\bpython3?\s+-c\b", cmd):
+    role = role_for_command(cmd, scene)
+    if role:
+        return role
+    try:
+        argv = shlex.split(cmd)
+    except ValueError:
+        argv = []
+    if argv and Path(argv[0]).name in {"soffice.bin", "soffice"}:
+        return "soffice.bin" if Path(argv[0]).name == "soffice.bin" else "soffice-wrapper"
+    if argv and Path(argv[0]).name in {"pdftoppm", "pdfinfo"}:
+        return Path(argv[0]).name
+    if argv and Path(argv[0]).name in {"bash", "sh", "dash"}:
+        return "bash"
+    if argv and Path(argv[0]).name.startswith("python") and "-c" in argv:
         return "python-inline"
     if _re.search(r"pdftoppm", cmd):
         return "pdftoppm"

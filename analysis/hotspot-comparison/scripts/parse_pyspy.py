@@ -14,12 +14,16 @@ import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+from script_identity import role_for_command, role_for_script
 
 PROC = re.compile(r'^process (\d+):"(.*)"$')
 MODULE_FRAME = re.compile(r'<module> \(([^)(]+\.py):\d+\)')
 
 ROLE_RULES = [
     (r"run_document_scene_loop\.py", "runner"),
+    (r"replay/entry\.py", "runner"),
     (r"check_fillable_fields\.py", "pdf-check-fillable"),
     (r"extract_form_field_info\.py", "pdf-extract-fields"),
     (r"convert_pdf_to_images\.py", "pdf-convert"),
@@ -88,16 +92,8 @@ PRELOOP_FRAMES = re.compile(
 
 
 def script_role(name, scene):
-    """Scene-aware role from a script name or command line."""
-    pdf = scene == "pdf"
-    if re.search(r"verify_office\.py", name):
-        return "pdf-verify" if pdf else "xlsx-verify"
-    if re.search(r"summary\.py", name):
-        return "pdf-summary-writer" if pdf else "xlsx-summary-export"
-    for pattern, role in ROLE_RULES:
-        if re.search(pattern, name):
-            return role
-    return None
+    """Resolve exact script operand or the basename-only module frame."""
+    return role_for_command(name, scene) or role_for_script(name, scene)
 
 
 def classify(leaf, role):
@@ -132,17 +128,33 @@ def main():
                                  "functions": Counter(), "cmdlines": Counter()})
     dropped_preloop = 0
     stale_cmdline_samples = 0
+    integrity = {
+        "raw_nonempty_line_count": 0,
+        "parsed_stack_line_count": 0,
+        "raw_positive_count_sum": 0,
+        "parsed_count_sum": 0,
+        "malformed_line_count": 0,
+        "missing_process_identity_count": 0,
+        "nonpositive_count_line_count": 0,
+    }
     out_path = out_dir / "pyspy-samples.jsonl"
     with open(args.raw_file) as fh, open(out_path, "w") as out:
         for line in fh:
             line = line.rstrip("\n")
-            if not line or " " not in line:
+            if not line:
+                continue
+            integrity["raw_nonempty_line_count"] += 1
+            if " " not in line:
+                integrity["malformed_line_count"] += 1
                 continue
             stack_part, _, count_s = line.rpartition(" ")
             try:
                 count = int(count_s)
             except ValueError:
+                integrity["malformed_line_count"] += 1
                 continue
+            if count > 0:
+                integrity["raw_positive_count_sum"] += count
             segments = stack_part.split(";")
             proc_chain = []
             frames = []
@@ -152,8 +164,14 @@ def main():
                     proc_chain.append((m.group(1), m.group(2)))
                 else:
                     frames.append(seg)
-            if not proc_chain or not frames:
+            if not proc_chain or count <= 0:
+                if not proc_chain:
+                    integrity["missing_process_identity_count"] += 1
+                if count <= 0:
+                    integrity["nonpositive_count_line_count"] += 1
                 continue
+            integrity["parsed_stack_line_count"] += 1
+            integrity["parsed_count_sum"] += count
             sampled_pid, sampled_cmd = proc_chain[-1]
             role = script_role(sampled_cmd, scene)
             if role is None or (role == "runner" and len(proc_chain) > 1
@@ -176,8 +194,8 @@ def main():
             if role == "runner" and any(PRELOOP_FRAMES.search(f) for f in frames):
                 dropped_preloop += count
                 continue
-            leaf = frames[-1]
-            mech = classify(leaf, role)
+            leaf = frames[-1] if frames else '[no-python-frame]'
+            mech = classify(leaf, role) if frames else 'M-UNCLASSIFIED'
             entry = roles[role]
             entry["samples"] += count
             entry["mech"][mech] += count
@@ -196,7 +214,14 @@ def main():
             "top_functions": entry["functions"].most_common(25),
             "cmdlines": entry["cmdlines"].most_common(4),
         }
-    summary = {"roles": result,
+    integrity["status"] = (
+        "complete" if integrity["raw_nonempty_line_count"] == integrity["parsed_stack_line_count"]
+        and integrity["malformed_line_count"] == 0
+        and integrity["missing_process_identity_count"] == 0
+        and integrity["nonpositive_count_line_count"] == 0
+        and integrity["raw_positive_count_sum"] == integrity["parsed_count_sum"]
+        else "incomplete")
+    summary = {"roles": result, "parse_integrity": integrity,
                "dropped_preloop_runner_samples": dropped_preloop,
                "recovered_from_stale_cmdline_samples": stale_cmdline_samples,
                "scene": scene}

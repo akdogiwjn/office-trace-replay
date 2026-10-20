@@ -80,6 +80,141 @@
     "minimum_comments": 2,
     "minimum_conditional_formats": 2,
     "recalc_timeout": 180,
+    "base_sheets": [
+      "national_M2025_dl",
+      "Field Descriptions",
+      "UpdateTime",
+      "Filler"
+    ],
+    "base_dimensions": {
+      "national_M2025_dl": [
+        1402,
+        32
+      ],
+      "Field Descriptions": [
+        48,
+        3
+      ],
+      "UpdateTime": [
+        2,
+        1
+      ],
+      "Filler": [
+        0,
+        0
+      ]
+    },
+    "base_dimension_details": {
+      "national_M2025_dl": {
+        "declared_dimension": [
+          1402,
+          32
+        ],
+        "serialized_cell_range": [
+          1402,
+          32
+        ],
+        "effective_data_range": [
+          1402,
+          32
+        ],
+        "effective_range_method": "preparation-time populated-cell extent",
+        "boundary_cells": [
+          "A1402",
+          "AA1402",
+          "AB1402",
+          "AC1402",
+          "AD1402",
+          "AF1",
+          "AF465",
+          "AF472",
+          "AF474",
+          "AF476",
+          "AF477",
+          "AF478",
+          "AF479",
+          "B1402",
+          "C1402",
+          "D1402",
+          "E1402",
+          "F1402",
+          "G1402",
+          "H1402",
+          "I1402",
+          "J1402",
+          "K1402",
+          "L1402",
+          "M1402",
+          "R1402",
+          "S1402",
+          "T1402",
+          "U1402",
+          "V1402",
+          "W1402",
+          "X1402",
+          "Y1402",
+          "Z1402"
+        ]
+      },
+      "Field Descriptions": {
+        "declared_dimension": [
+          48,
+          3
+        ],
+        "serialized_cell_range": [
+          48,
+          3
+        ],
+        "effective_data_range": [
+          48,
+          3
+        ],
+        "effective_range_method": "preparation-time populated-cell extent",
+        "boundary_cells": [
+          "A48",
+          "C21",
+          "C24",
+          "C26",
+          "C41",
+          "C42"
+        ]
+      },
+      "UpdateTime": {
+        "declared_dimension": [
+          2,
+          1
+        ],
+        "serialized_cell_range": [
+          2,
+          1
+        ],
+        "effective_data_range": [
+          2,
+          1
+        ],
+        "effective_range_method": "preparation-time populated-cell extent",
+        "boundary_cells": [
+          "A1",
+          "A2"
+        ]
+      },
+      "Filler": {
+        "declared_dimension": [
+          1,
+          1
+        ],
+        "serialized_cell_range": [
+          0,
+          0
+        ],
+        "effective_data_range": [
+          0,
+          0
+        ],
+        "effective_range_method": "preparation-time populated-cell extent",
+        "boundary_cells": []
+      }
+    },
     "empty_strings_policy": {
       "sheets": [
         "national_M2025_dl",
@@ -111,5 +246,6 @@
   "analysis_metadata": {
     "provenance.json": "9c31955d9728d0c3c74885b2cc4bc32f01364699adac66379a8098ba42c64bd3",
     "complexity.json": "af51330dd3a13895ef2861e1dffcb88db134f5c9b08201c6270cfb69d3a3a44d"
-  }
+  },
+  "loop_verification_contract": "document-oe-compatible-xlsx-loop-v1"
 }

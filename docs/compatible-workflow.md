@@ -1,59 +1,49 @@
-# 以旧执行为基线验证其他输入
+# 当前执行流程与维护边界
 
-此版本固定原 document-oe PDF/XLSX，新增输入使用 `document-oe-compatible-workflow-v2`。目标是检查旧用例中的瓶颈、热点或系统配置趋势是否在其他真实输入上重现。功能验收本身不证明代表性；尚未开展 CPU/OS 性能实验。
+本说明对应 v12 正式 suite；实际验收和使用入口见 [README](../README.md)。本项目比较不同真实输入下相近工具机制，允许原始文件复杂度不同，不以行业名称解释 CPU 因果关系。
 
-## 执行和计时边界
+## 入口与运行环境
 
-`entry.py` 对旧用例仍委托原程序。对五个新增用例启动 `compatible.py`，默认与旧用例一样使用原 venv Python 3.12.3、带该 venv 前缀的 PATH、原 PDF/XLSX Skill 工具、原 LibreOffice 重算实现。容器默认 `python3` 及脚本内部子进程也使用 3.12.3。`--legacy-python system` 会同时为旧、新用例显式选择历史系统 Python 3.11.6 环境。比较两侧必须使用同一模式。
+`replay/entry.py` 的默认数据集来自 `suites/default.json`：OPM、TLC、W-4、SBA、HR Metro、Retail Online、Industry Productivity。每个数据集在一个统一 runner 进程内完成指定轮数。默认容器命令为一轮；底层直接 runner 保留旧 20,000 轮默认值。
 
-兼容 launcher 导入安装在 `/opt/document-bench/bin` 的原执行器，只在新子进程内配置 `SCENES[kind]` 的 seed、workspace、recipe 路径，再调用原 `main()`，把完整 `--loops N` 传给它；不在外层逐轮重新启动。没有修改原文件或替换 `execute_call`、Shell、超时、workspace reset 和业务状态检查。新用例的配方和业务 helper 是显式适配版本。
+正式容器入口支持 `--dataset`、`--loops`、`--pdf-applicant-count 1|10`、`--legacy-python venv|system`、`--timed`。使用 `--scene` 会进入直接 runner 兼容入口，只有 loop 验证，不自动执行 suite 的循环外验收。
 
-`--timed` 对两侧均使用原 `run_document_scene_loop_timed.py` 和原 `timing_hooks/sitecustomize.py`。plain 与 timed 的结果应分别比较。新增用例没有额外的逐调用 stdout/stderr 文件重定向。
+runner 在循环前校验 executor、workload、recipe、input、helper、source、manifest、Prompt 与准备工件绑定，准备 Skill 链接和 source context，统一实际解释器及 PATH。默认 Python 3.12.3，与 openpyxl 3.1.5、锁定 Office/Poppler 环境一起冻结。系统 Python 3.11.6 仅为显式历史选项。
 
-原 iteration 总时间包含 workspace reset、四阶段、最终业务状态读取；扣除 reset_seconds 是原有净时间定义。哈希检查、环境记录在连续循环前执行；额外独立验收、输出/脚本归档在整个循环结束后执行，轮间不插入这些操作。原业务 verifier 仍在每一轮内执行。配方内 semantic verifier 仍在 verify_deliver 中，业务验收代码不同，应单独分析该阶段。原工具超时均保留，XLSX recalc=600 秒、operation=900 秒。
+## 四阶段
 
-## 流程与剩余差异
-
-| 类型 | 共同流程 | 明确保留的数据差异 |
+| 场景 | 循环内流程 | 保留的差异 |
 |---|---|---|
-| PDF | 检查/提取/模板渲染 → 写并执行 mapping helper → 单个 Python driver 按记录交替 fill/render → 从输出生成 summary → semantic verifier | 表单页数、字段、映射内容；均准备十份 mapping，按参数填写/渲染一份或十份 |
-| XLSX | 原式结构/特征检查 → 写并执行一次 openpyxl 构建 → 一次原 recalc → 公式/缓存检查及 CSV 导出 → semantic verifier/summary | 原始 workbook 复杂度、业务公式/图表、必要的缓存装配和源内容恢复 |
+| XLSX | 完整输入检查/复制 → 原子 helper 加少量 KPI、情景和图表并保存 → 原 Skill 原位重算、公式/缓存检查及 CSV → loop verifier 与 summary | 输入数据、表结构、引用位置、样式与 Office 工作量 |
+| PDF | 字段检查/提取/模板渲染 → 生成十份 mappings → 按选择记录交替 fill/render → summary 和 loop verifier | 表单页数、字段、业务内容；实际执行 N=1 或 N=10 |
 
-HR 不再重建第二次。三个新 XLSX 都保留 clean build，在副本上重算，再通过冻结的原 Agent assembly helper 保留源数据和新公式缓存。此额外处理标为 `source_preservation`，不会声称原 TLC 也执行了同样步骤。公式/缓存装配阶段可从配方角色和原 per-call/nested log 单独识别。
+新 XLSX 不执行旧 assemble_output/inject_caches/patch 保存回填链；LibreOffice 保存之后不再用 openpyxl 保存。helper 在循环内按 recipe 写入和执行。HR Metro/Retail Online 的业务选择/聚合由循环外冻结的小工件提供，但循环内仍完整加载和保存原始工作簿。
 
-新 XLSX 导出真实 metric 与 scenario projection CSV。没有生成 TLC 的 Reconciliation Sheet，也没有将原始 spreadsheet 重写成统一模板。不同业务的 CSV 行数仍不同。
+TLC 的冻结基线原本具有预汇总结构；Industry 使用已知源单元格。它们与 prepared-v2 HR/Retail 的共同机制是完整读写、有限单元格引用/计算、图表/格式、重算与验证，不要求所有公式或 sheet 相同。
 
-PDF n1/n10 均沿用完整原十条 synthetic records，records 文件和 records_contract 的 hash 与父 trace 一致。两者只冻结不同的 `pdf_execution`（按原顺序选择第一条或前十条），不删减输入、不重新生成数据。原 mapping helper 不修改，均一次生成十份字段 JSON；一个 batch driver 按配置交替填写和渲染选中的记录。SBA 不再额外写入或运行 dry-run helper，与 W-4 使用同一个字段 ID 预检查。私有兼容 verifier 检查全部十份 mapping 的字段、值、页码、保护字段及精确数量，仅对选中的记录检查 PDF、PNG 和 summary。父 trace 的原 verifier、manifest、记录保持冻结。
+## 准备与验证
 
-各 input 的大小、Sheet/页数、cell、formula、chart/style、字段数量均是 workload 特征。不要把总 CPU 差异直接归因于行业。推荐先按阶段、调用角色和复杂度解释，再检查旧结论是否重现。
-
-## Trace、配方及 Prompt 身份
-
-`assets/canonical`、`assets/cases`、`recipes/*.json` 和 `legacy/document-oe` 是冻结历史，不覆盖。新增 `compatibility/recipes` 绑定父 canonical/run/trajectory、父 recipe hash、实际 input hash、兼容 contract/Prompt hash 和显式 adaptations。所有运行代码及 helper 内容受 project-lock 约束。
-
-这些是从真实 Agent trace 的最终 helper 适配出的 replay recipes，**不是重新运行 Agent 得到的新 trajectory**。未再次调用 LLM，模型/Prompt provenance 是父 trace 的证据；新 workflow Prompt 是后续生成相同流程任务的冻结定义，不能声称父 trace 使用了它。若未来需要研究 Agent 决策本身，应依据该 Prompt 重新生成并冻结新的 Agent trace。
-
-helper 在 native build 阶段通过配方 write 写入，而非在未计入执行的准备阶段提前恢复。输入 seed 只包含输入。执行后的脚本、中间工作簿、配置和最终输出会归档到 `workspace_artifacts/` 并记录 hash，方便后续追溯。
-
-## 使用
+`scripts/prepare_xlsx_selection.py` 只用于显式输入/workload 版本变更。它扫描输入、核对独立 expected 后原子发布准备工件。正式运行读取已有工件，不现场回退聚合。仅在确实需要更新准备数据时执行：
 
 ```bash
-# 默认七用例，单条 PDF，plain。
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v5 --loops 1
-
-# 两侧均使用原计时方式。
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v5 --loops 1 --timed
-
-# 原 PDF 和新增 PDF 同为十条 fill/render。
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v5 --dataset pdf --dataset irs_w4 \
-  --dataset sba1919 --pdf-applicant-count 10 --loops 1 --timed
-
-# 保留历史衍生配方的明确入口。
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v5 --dataset retail --workflow derived-v1 --loops 1
+python3 scripts/prepare_xlsx_selection.py --dataset hr_metro --dataset retail_online
+python3 scripts/compile_compatible.py --dataset hr_metro --dataset retail_online
+python3 scripts/freeze_project.py
+python3 replay/entry.py --validate-only
 ```
 
-兼容运行记录位于 `/results/compatible-<run-id>/<variant>/series/`：一个原 `pdf|xlsx/<native-run-id>/summary.json` 和包含 N 轮的 `iterations.jsonl`；timed 模式另有全部轮次的原 calls/nested_calls。外层保存一次 `environment.json`，在所有轮次成功后对最后一轮执行独立验收，并归档其 output 与 workspace_artifacts。外层 summary 明确标记 `archive_scope=final_iteration_only`，绑定全部轮次日志和最终产物哈希。前面轮次的产物按原 reset 逻辑被覆盖，不宣称逐轮保留。任何轮次失败、日志不完整或末轮独立验收失败，整组都不能标为成功；失败时保存最后仍存在的工作目录。
+这不是日常运行步骤。生成器支持 `--help` 与选择性生成；无参数是全量生成，应避免误触。
+
+loop verifier 检查当前工作负载必需的结构、KPI/情景/公式/缓存、图表特征、重算错误与交付一致性。新 XLSX 使用共同 loop contract；旧 TLC 保留原 verifier。新 PDF 对实际执行记录详细检查字段和代表页变化，未执行 mappings 的深查在 independent scope。
+
+suite 先核验所有轮次，再对新用例末轮执行 independent acceptance，归档末轮产物和全部轮次日志；一轮失败不能被末轮成功掩盖。旧 OPM/TLC 不自动追加独立 verifier，其完整 workspace 需要单独归档。直接 runner 的 output 不应与 suite 归档布局混淆。
+
+独立审计包含源数据/公式/图表/名称/格式保护及深层依赖检查。可对已有输出离线验收，不必重新生成工作簿；使用独立只读 workspace 和报告目录，记录审计前后 hash。`functional_trial.py --accept-archived` 适用于该脚本生成且通过来源校验的同 campaign 双数据集归档，不是任意 suite 目录的通用审计命令。
+
+## 冻结与证据
+
+`legacy/document-oe/lock.json` 分离 43 个冻结 workload 文件与版本化 executor。旧 OPM/TLC 的实际 recipe、helper、Skill 和 verifier 不变，不能通过刷新预期 hash 掩盖改动。
+
+Agent-derived recipe 绑定原 canonical/parent；`hr_metro`、`retail_online` 是人工适配，不产生 Agent trace。输入、准备工件、Prompt、manifest、helper、source 和 verifier 仍须按各自冻结身份关联。
+
+v12 七项裸镜像功能证据见 [release index](../reports/evidence/v12/index.json)。它不包含完整 output/raw；原始工作目录保留在本地。性能证据来自独立采集，按版本和测量口径登记在 [分析选择配置](../analysis/hotspot-comparison/config/next-comparison-suite.json)，不能用功能通过替代性能重测。

@@ -23,9 +23,77 @@ COVERED_MECHS = {
 UNCOVERED_MECHS = {"M-JSON-MAPPING", "M-ORCH"}
 
 # old control references (ANALYSIS-python3123, N=1 PDF / 2-loop XLSX)
+SELECTION_PATH = ROOT / "config" / "next-comparison-suite.json"
+PROJECT_ROOT = ROOT.parents[1]
+XLSX_SELECTION_IDS = {
+    "tlc", "retail", "retail_online", "hr", "hr_metro",
+    "manufacturing", "industry_productivity",
+}
+
+
+def active_comparison_selection():
+    """Read the forward-looking dataset selection without changing historical plans."""
+    selection = json.loads(SELECTION_PATH.read_text())
+    baseline = selection.get("baseline_datasets", [])
+    comparisons = selection.get("comparison_datasets", [])
+    if not baseline or not comparisons:
+        raise ValueError("next-comparison-suite.json must declare baseline and comparison datasets")
+    if "manufacturing" in comparisons or "industry_productivity" not in comparisons:
+        raise ValueError("future XLSX comparison must use industry_productivity instead of Manufacturing")
+    validate_manual_input_hashes(selection)
+    return selection
+
+
+def validate_manual_input_hashes(selection=None):
+    """Reject malformed or stale forward-selection hashes against formal manifests."""
+    selection = selection or json.loads(SELECTION_PATH.read_text())
+    for dataset, record in selection.get("manual_adaptations", {}).items():
+        claimed = record.get("input_sha256", "")
+        if not re.fullmatch(r"[0-9a-fA-F]{64}", claimed):
+            raise ValueError(f"{dataset}: input_sha256 must be 64 hexadecimal characters")
+        manifest_path = (PROJECT_ROOT / "assets/cases" / dataset / "source/datasets/xlsx"
+                         / dataset / "manifest.json")
+        manifest = json.loads(manifest_path.read_text())
+        workbook = manifest.get("workbook")
+        workbook_hash = manifest.get("input_files", {}).get("input/" + workbook) if workbook else None
+        if workbook_hash != claimed:
+            raise ValueError(f"{dataset}: analysis input hash does not match formal manifest")
+    return True
+
+
+def selected_dataset_ids():
+    selection = active_comparison_selection()
+    return set(selection["baseline_datasets"]) | set(selection["comparison_datasets"])
+
+
+def selected_xlsx_ids():
+    selection = active_comparison_selection()
+    selected = selection["baseline_datasets"] + selection["comparison_datasets"]
+    unknown = [dataset for dataset in selected
+               if dataset not in XLSX_SELECTION_IDS and dataset not in {"opm", "irs_w4", "sba1919"}]
+    if unknown:
+        raise ValueError(f"future selection contains unknown dataset ids: {unknown}")
+    return [dataset for dataset in selected if dataset in XLSX_SELECTION_IDS]
+
+
+def selected_profile_ids():
+    selection = active_comparison_selection()
+    result = []
+    for dataset in selection["baseline_datasets"] + selection["comparison_datasets"]:
+        if dataset == "opm":
+            result.extend(("opm-n1", "opm-n10"))
+        elif dataset == "tlc":
+            result.append("tlc")
+        elif dataset in ("irs_w4", "sba1919"):
+            result.extend((dataset + "-n1", dataset + "-n10"))
+        else:
+            result.append(dataset)
+    return list(dict.fromkeys(result))
+
+
 PDF_N1_CONFIGS = ["opm-n1", "irs_w4-n1", "sba1919-n1"]
 PDF_N10_CONFIGS = ["opm-n10", "irs_w4-n10", "sba1919-n10"]
-XLSX_CONFIGS = ["tlc", "retail", "manufacturing", "hr"]
+XLSX_CONFIGS = selected_xlsx_ids()
 LEGACY_MECHANISM_ALIASES = {"M-LO-RECALC": "M-LIBREOFFICE-NATIVE"}
 
 
@@ -177,7 +245,10 @@ def coverage_for(dataset, profile, reference):
 def new_hotspots(profiles, *, write_outputs=True):
     threshold = 0.005
     out, threshold_summary = [], {}
+    selected = set(selected_profile_ids())
     for cid, profile in profiles.items():
+        if cid not in selected:
+            continue
         reps = profile["repeats"]
         total_period = sum(d["total_period"] for d in reps.values())
         reference = legacy_slice_reference(profiles, cid)
@@ -324,7 +395,7 @@ def verify_claims(profiles, coverage):
 
     pdf_n1 = ["opm-n1", "irs_w4-n1", "sba1919-n1"]
     pdf_n10 = ["opm-n10", "irs_w4-n10", "sba1919-n10"]
-    xlsx = ["tlc", "retail", "manufacturing", "hr"]
+    xlsx = selected_xlsx_ids()
     profile_path = lambda cid: f"processed/{cid}.json (native r1/r2 period aggregates)"
 
     def point_in_repeat_range(values, point):
@@ -624,6 +695,15 @@ def refresh_source_evidence_from_identity(profiles):
 
 
 def main():
+    selection = active_comparison_selection()
+    json.dump({"schema_version": "hotspot-analysis-selection-used-v1",
+               "selection_path": str(SELECTION_PATH.relative_to(ROOT)),
+               "selection_sha256": hashlib.sha256(SELECTION_PATH.read_bytes()).hexdigest(),
+               "baseline_datasets": selection["baseline_datasets"],
+               "comparison_datasets": selection["comparison_datasets"],
+               "historical_manufacturing_profiles_retained": True,
+               "selection_scope": "future claim-comparison selection; historical processed profiles remain untouched"},
+              open(PROCESSED / "future-selection-used.json", "w"), indent=2)
     profiles = json.load(open(PROCESSED / "all-profiles.json"))
     refresh_source_evidence_from_identity(profiles)
     json.dump(profiles, open(PROCESSED / "all-profiles.json", "w"), indent=2)
@@ -801,7 +881,9 @@ def main():
     json.dump(impact, open(PROCESSED / "parser-correction-impact.json", "w"), indent=2)
     hotspots = new_hotspots(profiles)
     json.dump(hotspots, open(PROCESSED / "new-hotspots.json", "w"), indent=2)
-    table = verify_claims(profiles, coverage)
+    selected_profiles = {cid: profile for cid, profile in profiles.items()
+                         if cid in set(selected_profile_ids())}
+    table = verify_claims(selected_profiles, coverage)
     json.dump(table, open(PROCESSED / "claims-verification.json", "w"), indent=2)
     classifier_impact = {}
     for cid, profile in profiles.items():

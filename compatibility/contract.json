@@ -4,7 +4,7 @@
   "original_baselines": "legacy/document-oe/lock.json",
   "originals_must_remain_byte_identical": true,
   "executor_split": {
-    "version": "unified-dataset-runner-v1",
+    "version": "unified-dataset-runner-v2",
     "description": "Executor version and the byte-preserved workload are frozen separately; the unified runner is the formal entry for every dataset and old opm/tlc keep the original loop/timing semantics."
   },
   "native_executor": "/opt/document-bench/bin/run_document_scene_loop.py",
@@ -33,7 +33,11 @@
     "prepared_record_count": 10,
     "selection": "Prepare all frozen records; fill/render first 1 or 10 according to variant and native parameter",
     "mapping_precheck": "one common field-ID check; no separate SBA dry-run helper",
-    "verification": "Check all prepared mappings and exactly the selected PDFs and renders"
+    "verification": {
+      "loop_contract": "document-oe-compatible-pdf-loop-v1",
+      "independent_contract": "office-independent-acceptance-v3",
+      "note": "The loop checks detailed mappings and filled outputs only for executed records. Independent acceptance deeply checks all prepared mappings, and checks filled PDFs/renders only for the declared executed prefix; it never requires unexecuted records to have filled outputs."
+    }
   },
   "xlsx": {
     "build_invocations": 1,
@@ -68,6 +72,11 @@
         "merged-region representation",
         "empty-string cells normalized to empty cells"
       ]
+    },
+    "verification": {
+      "loop_contract": "document-oe-compatible-xlsx-loop-v1",
+      "independent_contract": "office-independent-acceptance-v3",
+      "note": "The loop contract is intentionally narrower than independent acceptance and is not labelled as the old full verifier."
     }
   },
   "measurement": {
@@ -108,8 +117,25 @@
   "loop_policy": {
     "native_processes_per_dataset": 1,
     "native_loops": "requested loops, uninterrupted by outer acceptance or archival",
-    "native_business_verification": "every iteration",
+    "native_business_verification": "versioned per-dataset loop contract on every iteration; deep source/acceptance checks execute once outside ROI",
     "independent_acceptance": "once after all native iterations succeed",
     "archive": "final iteration only; all native iteration logs retained"
+  },
+  "validation_contracts": {
+    "xlsx_loop": {
+      "version": "document-oe-compatible-xlsx-loop-v1",
+      "scope": "each measured iteration",
+      "checks": "Base sheet presence/scale, task KPIs/formulas/cached values, scenario, chart and feature checks, formula errors/recalc state, and deliverable/CSV consistency; excludes exhaustive source workbook comparisons and recursive audits."
+    },
+    "pdf_loop": {
+      "version": "document-oe-compatible-pdf-loop-v1",
+      "scope": "each measured iteration",
+      "checks": "Template scale and inspection output; detailed mapping and protected-blank checks for executed records; basic artifacts; one configured representative visible-change page; summary and deliverables."
+    },
+    "independent_acceptance": {
+      "version": "office-independent-acceptance-v3",
+      "scope": "once outside measured iterations",
+      "checks": "Strict semantic/source-content audit, deep checks for all relevant workbook content, and remaining prepared-record audit."
+    }
   }
 }

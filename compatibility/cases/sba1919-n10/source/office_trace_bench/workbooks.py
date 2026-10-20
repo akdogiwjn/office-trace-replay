@@ -1,9 +1,26 @@
-"""Logical fingerprints survive ZIP metadata and insignificant float changes."""
+"""Logical fingerprints for the replay-private semantic verifier.
+
+`normalized_formula` only applies explicitly supported serialization
+equivalences. It tokenizes the formula into:
+  - double-quoted string literals (preserved verbatim, including whitespace and
+    case),
+  - single-quoted sheet/workbook identifiers (content preserved after unescaping
+    doubled single quotes; the quoting itself is serialization),
+  - plain tokens (whitespace is collapsed only when adjacent to structural
+    characters, `$` and `_xlfn.` removed, case folded).
+
+Whitespace between two identifiers is Excel's reference-intersection operator
+and is preserved, so distinct references such as `'A B'!A1` and `AB!A1` are
+never merged.
+"""
 import datetime
 import hashlib
 import json
 import math
 import re
+
+_LITERAL_OR_IDENT = re.compile(r'"(?:[^"]|"")*"|\'(?:[^\']|\'\')*\'')
+_STRUCTURAL = set('()+-*/^&=<>%,:;!~')
 
 
 def logical_value(value):
@@ -27,8 +44,53 @@ def sheet_digest(sheet):
     return {'rows': sheet.max_row, 'columns': sheet.max_column, 'sha256': digest.hexdigest()}
 
 
+def _collapse_whitespace(text):
+    """Remove whitespace only when it is adjacent to structural characters or
+    a token edge; keep a single space between two identifiers (Excel's
+    reference-intersection operator)."""
+    out = []
+    i = 0
+    n = len(text)
+    while i < n:
+        ch = text[i]
+        if ch.isspace():
+            j = i
+            while j < n and text[j].isspace():
+                j += 1
+            before = text[i - 1] if i > 0 else None
+            after = text[j] if j < n else None
+            if before is None or after is None or before in _STRUCTURAL or after in _STRUCTURAL:
+                i = j
+                continue
+            out.append(' ')
+            i = j
+            continue
+        out.append(ch)
+        i += 1
+    return ''.join(out)
+
+
+def _clean_formula_tokens(text):
+    text = _collapse_whitespace(text)
+    return text.replace('$', '').replace('_xlfn.', '').upper()
+
+
 def normalized_formula(value):
-    return re.sub(r'\s+', '', str(value)).replace('$', '').replace("'", '').replace('_xlfn.', '').upper()
+    text = str(value)
+    out = []
+    pos = 0
+    for match in _LITERAL_OR_IDENT.finditer(text):
+        out.append(_clean_formula_tokens(text[pos:match.start()]))
+        token = match.group(0)
+        if token.startswith('"'):
+            out.append(token)  # double-quoted string literal, verbatim
+        else:
+            # single-quoted identifier: preserve meaningful whitespace,
+            # punctuation and escaped quotes; the quoting is serialization.
+            out.append(token[1:-1].replace("''", "'"))
+        pos = match.end()
+    out.append(_clean_formula_tokens(text[pos:]))
+    return ''.join(out)
 
 
 def chart_sources(chart):

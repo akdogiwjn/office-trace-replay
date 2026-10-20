@@ -1,4 +1,4 @@
-"""Suite orchestration for the canonicalized datasets.
+"""Suite orchestration for registered compatible datasets.
 
 Each dataset runs all requested loops inside one unified runner process. Every
 iteration keeps the native business verification; no extra independent
@@ -132,7 +132,6 @@ def _frozen_bindings(dataset_id, record_count, scene):
     bindings = {
         'recipe_sha256': entry['recipe_sha256'],
         'recipe_path': entry['recipe_path'],
-        'parent_recipe_sha256': recipe['parent']['recipe_sha256'],
         'prompt_sha256': recipe['prompt_sha256'],
         'contract_sha256': index['contract_sha256'],
         'input_hashes': recipe['input_hashes'],
@@ -140,6 +139,13 @@ def _frozen_bindings(dataset_id, record_count, scene):
         'verifier_contract': recipe.get('workflow_contract'),
         'executor_version': legacy.EXECUTOR_VERSION,
     }
+    if recipe.get('origin_type') == 'manual_workflow_adaptation':
+        bindings.update(origin_type=recipe['origin_type'],
+                        agent_generated=recipe['agent_generated'],
+                        requires_llm=recipe['requires_llm'],
+                        manual_source=recipe['manual_source'])
+    else:
+        bindings['parent_recipe_sha256'] = recipe['parent']['recipe_sha256']
     if scene == 'xlsx':
         bindings['verifier_hashes'] = {
             name: digest(ROOT / 'compatibility/verification' / name)

@@ -1,0 +1,258 @@
+{
+  "schema_version": "office-verification-v1",
+  "dataset_id": "sba1919",
+  "kind": "pdf",
+  "status": "success",
+  "checks": {
+    "input:input/pdf_dataset_sources.md": {
+      "ok": true,
+      "detail": null
+    },
+    "input:input/sba1919_2024.pdf": {
+      "ok": true,
+      "detail": null
+    },
+    "input:input/synthetic_applicants.json": {
+      "ok": true,
+      "detail": null
+    },
+    "template_form": {
+      "ok": true,
+      "detail": null
+    },
+    "field_inspection": {
+      "ok": true,
+      "detail": null
+    },
+    "record_count": {
+      "ok": true,
+      "detail": null
+    },
+    "render:template": {
+      "ok": true,
+      "detail": 7
+    },
+    "mapping:applicant_01": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_01": {
+      "ok": true,
+      "detail": null
+    },
+    "pages:applicant_01": {
+      "ok": true,
+      "detail": null
+    },
+    "pdf_size:applicant_01": {
+      "ok": true,
+      "detail": null
+    },
+    "field_values:applicant_01": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_01": {
+      "ok": true,
+      "detail": null
+    },
+    "render:applicant_01": {
+      "ok": true,
+      "detail": 7
+    },
+    "visible_change:applicant_01:1": {
+      "ok": true,
+      "detail": 17590
+    },
+    "visible_change:applicant_01:2": {
+      "ok": true,
+      "detail": 758
+    },
+    "visible_change:applicant_01:3": {
+      "ok": true,
+      "detail": 139
+    },
+    "mapping:applicant_02": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_02": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_02": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_03": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_03": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_03": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_04": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_04": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_04": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_05": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_05": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_05": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_06": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_06": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_06": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_07": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_07": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_07": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_08": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_08": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_08": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_09": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_09": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_09": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping:applicant_10": {
+      "ok": true,
+      "detail": null
+    },
+    "mapping_pages:applicant_10": {
+      "ok": true,
+      "detail": null
+    },
+    "protected_blank:applicant_10": {
+      "ok": true,
+      "detail": null
+    },
+    "exact_pdf_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "exact_mapping_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "summary:input_form": {
+      "ok": true,
+      "detail": "sba1919_2024.pdf"
+    },
+    "summary:applicant_count": {
+      "ok": true,
+      "detail": 1
+    },
+    "summary:filled_pdf_count": {
+      "ok": true,
+      "detail": 1
+    },
+    "summary:rendered_page_count": {
+      "ok": true,
+      "detail": 14
+    },
+    "summary:ssn_and_signatures_left_blank": {
+      "ok": true,
+      "detail": true
+    },
+    "summary:fill_script_invocations": {
+      "ok": true,
+      "detail": 1
+    },
+    "summary:render_script_invocations": {
+      "ok": true,
+      "detail": 2
+    },
+    "summary:prepared_record_count": {
+      "ok": true,
+      "detail": 10
+    },
+    "summary:field_values_count": {
+      "ok": true,
+      "detail": 10
+    },
+    "deliverable:check_fillable_fields.log": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:form_field_info.json": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:field_values": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:filled": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:rendered": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:batch_summary.json": {
+      "ok": true,
+      "detail": null
+    }
+  },
+  "failures": [],
+  "diagnostics": {},
+  "diagnostics_total": 0,
+  "diagnostic_diff_count": 0,
+  "validation_contract": "office-independent-acceptance-v3",
+  "validation_scope": "independent"
+}

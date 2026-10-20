@@ -1,0 +1,107 @@
+{
+  "schema_version": "xlsx-static-load-save-inventory-v1",
+  "scope": "one successful loops=1 functional iteration per dataset; code-path invocation counts, not time or CPU weights",
+  "counts_per_dataset_iteration": {
+    "load_workbook_calls": 12,
+    "non_read_only_calls": 7,
+    "read_only_calls": 5,
+    "openpyxl_Workbook_save_calls": 1,
+    "LibreOffice_recalc_and_store": 1
+  },
+  "by_phase": [
+    {
+      "phase": "P01",
+      "calls": [
+        {
+          "script": "inspect_xlsx.py source",
+          "load_workbook": 1,
+          "mode": "normal,data_only=False"
+        },
+        {
+          "script": "copy",
+          "load_workbook": 0,
+          "mode": "filesystem copy"
+        },
+        {
+          "script": "inspect_xlsx.py copy",
+          "load_workbook": 1,
+          "mode": "normal,data_only=False"
+        }
+      ]
+    },
+    {
+      "phase": "P02",
+      "calls": [
+        {
+          "script": "dataset helper via run_xlsx_helper_atomic.py",
+          "load_workbook": 1,
+          "mode": "normal,data_only=False",
+          "save": 1,
+          "note": "helper scans source rows and writes new sheets; atomic wrapper uses temporary copy then os.replace"
+        }
+      ]
+    },
+    {
+      "phase": "P03",
+      "calls": [
+        {
+          "script": "Skill recalc.py post-LibreOffice cache/error scan",
+          "load_workbook": 2,
+          "mode": "read_only: cached scan then formula scan",
+          "lazy_scan": "iterates every sheet/cell twice after opening"
+        },
+        {
+          "script": "inspect_xlsx.py formula",
+          "load_workbook": 1,
+          "mode": "normal,data_only=False"
+        },
+        {
+          "script": "inspect_xlsx.py cached",
+          "load_workbook": 1,
+          "mode": "normal,data_only=True"
+        },
+        {
+          "script": "export_xlsx.py",
+          "load_workbook": 1,
+          "mode": "read_only,data_only=True",
+          "lazy_scan": "reads only exported KPI/projection cells"
+        }
+      ],
+      "non_openpyxl_store": "LibreOffice macro calculateAll/store once; not Workbook.save"
+    },
+    {
+      "phase": "P04",
+      "calls": [
+        {
+          "script": "loop verify_semantic_xlsx_loop",
+          "load_workbook": 2,
+          "mode": "normal formulas + read_only cached",
+          "lazy_scan": "cached added-sheet values/formula-error scan; source full-content comparison excluded"
+        },
+        {
+          "script": "summary.py",
+          "load_workbook": 2,
+          "mode": "normal output + read_only source",
+          "lazy_scan": "source load reads sheet metadata/names only; output chart/sheet metadata, no save"
+        }
+      ]
+    }
+  ],
+  "percentages": null,
+  "reason": "No identity-matched py-spy profiles for hr_metro or retail_online; independent acceptance failed, so performance collection/analysis was stopped. Static call counts must not be reported as proportions.",
+  "caveats": [
+    "openpyxl load/save call counts do not measure disk I/O wait or bandwidth",
+    "read_only=True file parsing is deferred until iteration/access",
+    "LibreOffice recalc/store is separate from openpyxl Workbook.save",
+    "native cycles:u and py-spy activity are not interchangeable"
+  ],
+  "evidence_paths": [
+    "compatibility/tools/inspect_xlsx.py",
+    "compatibility/helpers/hr_metro_build.py",
+    "compatibility/helpers/retail_online_build.py",
+    "legacy/document-oe/skills/xlsx/scripts/recalc.py",
+    "compatibility/tools/export_xlsx.py",
+    "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py",
+    "compatibility/tools/summary.py"
+  ]
+}

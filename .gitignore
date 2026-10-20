@@ -3,3 +3,8 @@ __pycache__/
 results/
 qualification/
 .build/
+
+# Local run workspaces and fixture trials; small release reports live in reports/evidence/.
+/analysis/hotspot-comparison/replay-runs/
+/analysis/hotspot-comparison/retail-libreoffice-smoke-v1/
+.pytest_cache/

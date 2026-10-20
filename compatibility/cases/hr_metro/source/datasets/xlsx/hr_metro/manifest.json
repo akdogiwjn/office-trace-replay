@@ -1,0 +1,264 @@
+{
+  "schema_version": "office-dataset-v2",
+  "workload_contract": "spreadsheet-semantic-v3",
+  "loop_verification_contract": "document-oe-compatible-xlsx-loop-v1",
+  "kind": "xlsx",
+  "dataset_id": "hr_metro",
+  "domain": "hr_metro",
+  "task": "Analyze May 2025 employment and wages for one explicitly selected metropolitan area using its official all-occupations total and major occupation groups.",
+  "workbook": "MSA_M2025_dl.xlsx",
+  "output_workbook": "hr_metro_enhanced.xlsx",
+  "input_files": {
+    "input/MSA_M2025_dl.xlsx": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+    "input/prepared_selection.json": "43376fc82ee084ad80fe603bb412ea359bfe56833800a01b383d409597056744"
+  },
+  "expected_file": "expected.json",
+  "prompt_template": "xlsx.txt",
+  "prompt_template_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+  "runtime_case": "OFFICE-XLSX-HR-METRO",
+  "requirements": {
+    "summary_sheet": "Metro Summary",
+    "metrics": [
+      {
+        "id": "total_employment",
+        "name": "Employment, all occupations",
+        "meaning": "Published estimate from the selected MSA all-occupations total row.",
+        "unit": "employees"
+      },
+      {
+        "id": "annual_mean_wage",
+        "name": "Annual mean wage, all occupations",
+        "meaning": "Published estimate from the same selected MSA total row; not an average of occupation wages.",
+        "unit": "USD per year"
+      },
+      {
+        "id": "hourly_median_wage",
+        "name": "Hourly median wage, all occupations",
+        "meaning": "Published median from the same selected MSA total row; occupation medians are not averaged.",
+        "unit": "USD per hour"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "wage_multiplier",
+          "meaning": "Illustrative multiplier applied to published annual mean wage; not a forecast."
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "wage_multiplier": 1.0
+          }
+        },
+        {
+          "name": "Increase",
+          "assumptions": {
+            "wage_multiplier": 1.05
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_mean_wage",
+          "meaning": "Selected MSA published mean wage multiplied by the chosen scenario assumption.",
+          "unit": "USD per year"
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "major_employment",
+        "meaning": "Five largest unsuppressed major occupation groups for the same selected metro and all-industry/all-ownership scope.",
+        "unit": "employees"
+      }
+    ],
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "minimum_formula_count": 8,
+    "recalc_timeout": 600,
+    "base_sheets": [
+      "MSA_M2025_dl",
+      "Field Descriptions",
+      "UpdateTime",
+      "Filler"
+    ],
+    "base_dimensions": {
+      "MSA_M2025_dl": [
+        150024,
+        32
+      ],
+      "Field Descriptions": [
+        48,
+        3
+      ],
+      "UpdateTime": [
+        2,
+        1
+      ],
+      "Filler": [
+        0,
+        0
+      ]
+    },
+    "base_dimension_details": {
+      "MSA_M2025_dl": {
+        "declared_dimension": [
+          150024,
+          32
+        ],
+        "serialized_cell_range": [
+          150024,
+          32
+        ],
+        "effective_data_range": [
+          150024,
+          32
+        ],
+        "effective_range_method": "preparation-time read_only populated-value extent",
+        "boundary_cells": [
+          "A150024",
+          "AD150024",
+          "AF1",
+          "AF147551"
+        ]
+      },
+      "Field Descriptions": {
+        "declared_dimension": [
+          48,
+          3
+        ],
+        "serialized_cell_range": [
+          48,
+          3
+        ],
+        "effective_data_range": [
+          48,
+          3
+        ],
+        "effective_range_method": "preparation-time read_only populated-value extent",
+        "boundary_cells": [
+          "A48",
+          "C21",
+          "C42"
+        ]
+      },
+      "UpdateTime": {
+        "declared_dimension": [
+          2,
+          1
+        ],
+        "serialized_cell_range": [
+          2,
+          1
+        ],
+        "effective_data_range": [
+          2,
+          1
+        ],
+        "effective_range_method": "preparation-time read_only populated-value extent",
+        "boundary_cells": [
+          "A1",
+          "A2"
+        ]
+      },
+      "Filler": {
+        "declared_dimension": [
+          1,
+          1
+        ],
+        "serialized_cell_range": [
+          0,
+          0
+        ],
+        "effective_data_range": [
+          0,
+          0
+        ],
+        "effective_range_method": "preparation-time read_only populated-value extent",
+        "boundary_cells": []
+      }
+    },
+    "raw_sheets": [
+      "MSA_M2025_dl",
+      "Field Descriptions",
+      "UpdateTime",
+      "Filler"
+    ],
+    "empty_strings_policy": {
+      "sheets": [
+        "MSA_M2025_dl"
+      ],
+      "rule": "Only empty-string cells in the confirmed source table MSA_M2025_dl may normalize to blank during openpyxl serialization; nonempty values, formulas and suppression markers remain exact."
+    },
+    "diagnostics_bindings": {
+      "file": "xlsx_business_diagnostics.json",
+      "prepared_selection": "input/prepared_selection.json",
+      "keys": {
+        "area_code": "selection.scope.AREA",
+        "area_title": "selection.scope.AREA_TITLE",
+        "total_row": "selection.total.row",
+        "selected_chart_rows": "selection.chart_rows[].occupation_code",
+        "selected_record_count": "selection.diagnostics.selected_record_count",
+        "major_group_count": "selection.diagnostics.major_group_count",
+        "major_group_suppressed_employment_count": "selection.diagnostics.major_group_suppressed_employment_count"
+      }
+    }
+  },
+  "publish_files": [],
+  "trace_rules": [
+    {
+      "pattern": "\\bverify_office\\.py\\b",
+      "operation": "verify_business"
+    },
+    {
+      "pattern": "recalc\\.py",
+      "operation": "recalculate_formulas"
+    }
+  ],
+  "required_outputs": [
+    "hr_metro_enhanced.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "metrics.csv",
+    "scenario.csv",
+    "xlsx_business_diagnostics.json"
+  ],
+  "analysis_metadata": {
+    "complexity.json": "61bddb3803db3e36094ef82229ec309322836735a09af12d9831b6837c493c0a",
+    "content-summary.json": "347194b6025856b92729b144b80e137135a4954787a08d351a1b1149fdeeea9c",
+    "provenance.json": "e7ebe10285ba83526178f21b3ae4c4e97dbb56fde8edc3b4fe9a5c8a0b41fd5f"
+  },
+  "analysis_scope": {
+    "area_code": "35620",
+    "area_name": "New York-Newark-Jersey City, NY-NJ",
+    "area_type": "4 (metropolitan statistical area)",
+    "filters": {
+      "AREA": "35620",
+      "AREA_TITLE": "New York-Newark-Jersey City, NY-NJ",
+      "AREA_TYPE": "4",
+      "NAICS": "000000",
+      "I_GROUP": "cross-industry",
+      "OWN_CODE": "1235"
+    },
+    "occupation_rule": "Use the single O_GROUP=total / OCC_CODE=00-0000 row for total KPIs; use only O_GROUP=major rows for the comparison chart; do not combine major/detailed rows with the total.",
+    "suppression_policy": "Retain all source markers verbatim. Required total KPI cells must be numeric; suppressed major employment observations are excluded from ranking and counted, never replaced with zero."
+  },
+  "origin_type": "manual_workflow_adaptation",
+  "agent_generated": false,
+  "requires_llm": false,
+  "expected_sha256": "4925745764ff83b0f60d1260bab1ac7dd9de9acfaaa06e2605e881e83c6b5c81",
+  "preparation": {
+    "artifact": "input/prepared_selection.json",
+    "schema_version": "xlsx-prepared-selection-v1",
+    "workload_version": "manual-workflow-adaptation-v2",
+    "script": "scripts/prepare_xlsx_selection.py",
+    "script_sha256": "0a9bd2345f4251b93a2ff1abc1469a80ce4a24a9c4c6a109dbe4676a072460a8",
+    "input_sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+    "note": "Frozen preparation artifact derived once from the official input outside the measured loop; formal derived input, not official source data, not an Agent answer, and it contains no final script, tool order or formulas."
+  }
+}

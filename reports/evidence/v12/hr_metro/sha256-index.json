@@ -1,0 +1,177 @@
+{
+  "schema_version": "trial-sha256-index-v1",
+  "dataset": "hr_metro",
+  "container_finished": true,
+  "files": [
+    {
+      "path": "container-inspect.json",
+      "size_bytes": 8881,
+      "sha256": "7e8d91a7f890af4c9de8c8a48822a861f3c0e4e40880b67ce3d48c1ff6df4ca2"
+    },
+    {
+      "path": "container.log",
+      "size_bytes": 408,
+      "sha256": "1357f73deaedd6d1c81cd7995cfb90c65c1c53b6a7ab1cd4ec556789146ef2f5"
+    },
+    {
+      "path": "docker-argv.json",
+      "size_bytes": 421,
+      "sha256": "203564a9b619406dfcd9d5f3ffd8616a378933f6e1a078dda3c4e8dee7e771aa"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/evidence.json",
+      "size_bytes": 5948,
+      "sha256": "9236588e23ed27dfee8eb59594f8d3bc1280b111a05121d24bedf137906b344e"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/independent_verification.json",
+      "size_bytes": 13344,
+      "sha256": "0ae0091f7d3a0cad4701548e5caa8d7b941b0a298d6c4fb8a311e85319fe8a80"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/native_iterations.jsonl",
+      "size_bytes": 422,
+      "sha256": "1ebefe67261ef163381ed839ba803c134f5fa0ceb73f17b184469a176594724c"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/native_summary.json",
+      "size_bytes": 1555,
+      "sha256": "ca55d76235d1c3bc1d78e7878dbc294708d07091293ea82ebf5aeed9aacdde3b"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/business_verification.json",
+      "size_bytes": 10223,
+      "sha256": "7460d4880fbb2e5ef8d98984334e4eaa6ec81a0fa01f3d27701a7fc93b536eb9"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/formula_recalc.json",
+      "size_bytes": 227,
+      "sha256": "906c4b01375853f5733516300fdfc3404aead94815865aebc7b4b2c135983dd6"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/formula_recalc.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/hr_metro_enhanced.xlsx",
+      "size_bytes": 23851047,
+      "sha256": "84b23f1225e8bf418bb8e396cd01ce174afbcf28ecdd238d991d110c8d78fc07"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/metrics.csv",
+      "size_bytes": 90,
+      "sha256": "0cc3b0a6e8b3fb82010efcfda5b84653d628cc3080a8fea3ab8b7fc51424f53c"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/scenario.csv",
+      "size_bytes": 41,
+      "sha256": "30ebf115ef0a7da8ce1c962420743d69bec8906ea15cb64bf164a9d876e20f54"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/workbook_features.json",
+      "size_bytes": 907,
+      "sha256": "61b5d0ac4df2128ab728633fcfcd2b94f893e544656c8aab27b9122f8d8a013a"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/xlsx_business_diagnostics.json",
+      "size_bytes": 764,
+      "sha256": "52b424fa8ac37032c91903a9fa81cfec06b26c72835112dacca937bd24844e8b"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/output/xlsx_enhancement_summary.json",
+      "size_bytes": 594,
+      "sha256": "1bd7dc6b7d57b83f7ed2b05a2ff69f1979e01b9c954df1314a0fdfbcf5509c20"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/hr_metro_build.py",
+      "size_bytes": 9422,
+      "sha256": "59adc0392cac9beb4c88206fb196e2b707b3aef4fe766c8431ff54690a523fe8"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/input/MSA_M2025_dl.xlsx",
+      "size_bytes": 30628700,
+      "sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/input/dataset_manifest.json",
+      "size_bytes": 8330,
+      "sha256": "645d3c9fa72f32d122213998e7cdf55c5d1a20aa63065c5937fe16be49d9ef69"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/input/prepared_selection.json",
+      "size_bytes": 3575,
+      "sha256": "43376fc82ee084ad80fe603bb412ea359bfe56833800a01b383d409597056744"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/input/verify_office.py",
+      "size_bytes": 903,
+      "sha256": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/business_verification.json",
+      "size_bytes": 10223,
+      "sha256": "7460d4880fbb2e5ef8d98984334e4eaa6ec81a0fa01f3d27701a7fc93b536eb9"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/formula_recalc.json",
+      "size_bytes": 227,
+      "sha256": "906c4b01375853f5733516300fdfc3404aead94815865aebc7b4b2c135983dd6"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/formula_recalc.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/hr_metro_enhanced.xlsx",
+      "size_bytes": 23851047,
+      "sha256": "84b23f1225e8bf418bb8e396cd01ce174afbcf28ecdd238d991d110c8d78fc07"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/metrics.csv",
+      "size_bytes": 90,
+      "sha256": "0cc3b0a6e8b3fb82010efcfda5b84653d628cc3080a8fea3ab8b7fc51424f53c"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/scenario.csv",
+      "size_bytes": 41,
+      "sha256": "30ebf115ef0a7da8ce1c962420743d69bec8906ea15cb64bf164a9d876e20f54"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/workbook_features.json",
+      "size_bytes": 907,
+      "sha256": "61b5d0ac4df2128ab728633fcfcd2b94f893e544656c8aab27b9122f8d8a013a"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/xlsx_business_diagnostics.json",
+      "size_bytes": 764,
+      "sha256": "52b424fa8ac37032c91903a9fa81cfec06b26c72835112dacca937bd24844e8b"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/workspace_artifacts/output/xlsx_enhancement_summary.json",
+      "size_bytes": 594,
+      "sha256": "1bd7dc6b7d57b83f7ed2b05a2ff69f1979e01b9c954df1314a0fdfbcf5509c20"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/xlsx/20261020T110953Z-pid7/iterations.jsonl",
+      "size_bytes": 422,
+      "sha256": "1ebefe67261ef163381ed839ba803c134f5fa0ceb73f17b184469a176594724c"
+    },
+    {
+      "path": "hr_metro/20261020T110952Z-ae27c01d/xlsx/20261020T110953Z-pid7/summary.json",
+      "size_bytes": 1555,
+      "sha256": "ca55d76235d1c3bc1d78e7878dbc294708d07091293ea82ebf5aeed9aacdde3b"
+    },
+    {
+      "path": "run-control.json",
+      "size_bytes": 376,
+      "sha256": "992610f713489bba2d35f1be9476d49f8819d8028704905d67db22fe6b3341f4"
+    },
+    {
+      "path": "start-result.json",
+      "size_bytes": 240,
+      "sha256": "ab9af456b977a3d9af23deed76676bc1d18ea6d3824715a475a0da4277214392"
+    }
+  ]
+}

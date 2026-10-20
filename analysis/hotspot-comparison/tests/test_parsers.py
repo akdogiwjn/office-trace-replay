@@ -119,6 +119,36 @@ class ParserTests(unittest.TestCase):
             self.assertEqual(parsed[0][4][0]["address"], "7f00")
             self.assertEqual(stats["headers"], 1)
 
+    def test_perf_headers_from_right_support_spaced_comm_indent_and_empty_stack(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "samples.txt"
+            p.write_text(
+                "worker 12 1.000: 100 cycles:u:\n"
+                "    7f00 leaf (libx.so)\n\n"
+                "  CUPSManager cup      96 1336861.633686:     122566 cycles:u:\n\n"
+                "no-stack 15 2.500: 7 cycles:u:\n\n"
+            )
+            parsed, stats = native.parse_samples(p)
+            self.assertEqual([row[0] for row in parsed],
+                             ["worker", "CUPSManager cup", "no-stack"])
+            self.assertEqual([row[3] for row in parsed], [100, 122566, 7])
+            self.assertEqual(stats["parsed_sample_count"], 3)
+            self.assertEqual(stats["parsed_period_total"], 122673)
+            self.assertEqual(stats["samples_without_frames"], 2)
+            self.assertEqual(stats["unrecognized_sample_header_count"], 0)
+
+    def test_suspected_unrecognized_header_is_counted_with_bounded_example(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "samples.txt"
+            p.write_text("".join(
+                f"  odd process {n} 3.250: 41 cycles:k:\n\n" for n in range(8)))
+            parsed, stats = native.parse_samples(p)
+            self.assertEqual(parsed, [])
+            self.assertEqual(stats["unrecognized_sample_header_count"], 8)
+            self.assertEqual(stats["unrecognized_sample_header_period_sum"], 328)
+            self.assertEqual(len(stats["unrecognized_sample_header_examples"]), 5)
+            self.assertEqual(stats["unrecognized_sample_header_examples"][0]["event"], "cycles:k")
+
     def test_single_inline_frame_restores_same_address_dso(self):
         leaf = native.leaf_of([frame("a1", "normal_nameLength", "inlined", True),
                                frame("a1", "storeAtts", "pyexpat.so")])

@@ -5,6 +5,11 @@ ENV OFFICE_REPLAY_CONTAINER=1 PYTHONDONTWRITEBYTECODE=1 \
     LANG=C.UTF-8 LC_ALL=C.UTF-8 \
     VIRTUAL_ENV=/opt/document-bench/.venv \
     PATH=/opt/document-bench/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# COPY merges directories. Remove only the inherited project checkout so
+# files excluded by .dockerignore cannot survive from the locked base image.
+# The Python environment and native document-oe bundle live outside this tree.
+WORKDIR /opt
+RUN rm -rf /opt/office-trace-replay
 COPY . /opt/office-trace-replay
 # Restore the actual running document-oe bundle at its unchanged absolute root.
 COPY legacy/document-oe/ /opt/document-bench/

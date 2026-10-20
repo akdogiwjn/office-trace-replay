@@ -12,8 +12,8 @@ class LegacyCompatibilityTests(unittest.TestCase):
     def test_original_recipe_calls_and_defaults_are_preserved(self):
         lock = legacy.validate()
         self.assertEqual(lock['files']['bin/run_document_scene_loop.py']['sha256'],
-                         '3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80')
-        self.assertEqual(lock['executor']['version'], 'unified-dataset-runner-v1')
+                         digest(legacy.LEGACY / 'bin/run_document_scene_loop.py'))
+        self.assertEqual(lock['executor']['version'], 'unified-dataset-runner-v2')
         self.assertIn('bin/run_document_scene_loop_timed.py', lock['executor']['files'])
         self.assertIn('operations/xlsx_key_operations.json', lock['workload'])
         from replay.run import document_executor
@@ -73,12 +73,14 @@ class LegacyCompatibilityTests(unittest.TestCase):
             old = core.SCENES[scene]
             for key in ('seed', 'workspace', 'recipe', 'operation_timeout', 'recalc_timeout', 'step_order'):
                 self.assertEqual(layout[key], old[key])
-        # All seven formal datasets parse.
+        # All registered formal datasets parse.
         self.assertEqual(set(core.ALL_DATASETS),
-                         {'opm', 'irs_w4', 'sba1919', 'tlc', 'retail', 'manufacturing', 'hr'})
+                         {'opm', 'irs_w4', 'sba1919', 'tlc', 'retail', 'manufacturing', 'hr',
+                          'industry_productivity', 'hr_metro', 'retail_online'})
         for ds in ('opm', 'irs_w4', 'sba1919'):
             core.dataset_layout('pdf', ds, 1)
-        for ds in ('tlc', 'retail', 'manufacturing', 'hr'):
+        for ds in ('tlc', 'retail', 'manufacturing', 'hr', 'industry_productivity',
+                   'hr_metro', 'retail_online'):
             core.dataset_layout('xlsx', ds)
         # Illegal combinations are rejected.
         for scene, dataset, count in [('pdf', 'tlc', 1), ('xlsx', 'opm', 1), ('pdf', 'retail', 1), ('pdf', 'irs_w4', 5)]:
@@ -89,6 +91,7 @@ class LegacyCompatibilityTests(unittest.TestCase):
             layout = core.dataset_layout('xlsx', ds)
             self.assertEqual(layout['recalc_timeout'], 600)
             self.assertEqual(layout['operation_timeout'], 900)
+        self.assertEqual(core.dataset_layout('xlsx', 'industry_productivity')['recalc_timeout'], 180)
 
     def test_native_scene_and_timing_flags_are_forwarded_verbatim(self):
         arguments = ['--scene', 'pdf', '--loops', '3', '--pdf-applicant-count', '10', '--recalc-timeout', '180']
@@ -109,12 +112,17 @@ class LegacyCompatibilityTests(unittest.TestCase):
     def test_old_names_never_select_new_opm_tlc(self):
         self.assertEqual(OLD['opm'], 'pdf')
         self.assertEqual(OLD['tlc'], 'xlsx')
+        self.assertEqual(DEFAULT, ['opm', 'tlc', 'irs_w4', 'sba1919', 'hr_metro',
+                                   'retail_online', 'industry_productivity'])
         self.assertEqual(HISTORICAL['opm_v2'], 'opm')
         self.assertEqual(HISTORICAL['tlc_v2'], 'tlc')
         self.assertNotIn('opm_v2', DEFAULT)
         self.assertNotIn('tlc_v2', DEFAULT)
         self.assertNotIn('opm_v2', NEW)
         self.assertNotIn('tlc_v2', NEW)
+        self.assertNotIn('hr', DEFAULT)
+        self.assertNotIn('retail', DEFAULT)
+        self.assertNotIn('manufacturing', DEFAULT)
         with patch('replay.entry.legacy.validate'), \
              patch('replay.entry.suite.run_old_dataset', return_value=0) as run:
             self.assertEqual(main(['--dataset', 'opm', '--dataset', 'tlc', '--loops', '1']), 0)
@@ -176,7 +184,7 @@ class LegacyCompatibilityTests(unittest.TestCase):
             from replay.common import write
             lock = read(legacy.LEGACY / 'lock.json')
             lock = {
-                'executor': {'version': 'unified-dataset-runner-v1',
+                'executor': {'version': 'unified-dataset-runner-v2',
                              'files': ['bin/run_document_scene_loop.py', 'bin/run_document_scene_loop_timed.py']},
                 'workload': ['helper.py'],
                 'files': {'helper.py': {'sha256': '0' * 64, 'mode': 420}}}

@@ -1,0 +1,47 @@
+{
+  "dataset_id": "retail_online",
+  "input_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+  "sheets": [
+    {
+      "name": "Online Retail",
+      "headers": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "source_rows": 541909,
+      "eligible_line_count": 530104,
+      "eligible_sales_gbp": 10666684.544004016
+    }
+  ],
+  "eligible_line_count": 530104,
+  "eligible_quantity_units": 5588376.0,
+  "gross_eligible_sales_gbp": 10666684.544004016,
+  "distinct_invoice_ids": 19960,
+  "eligible_lines_missing_customer_id": 132220,
+  "exclusion_counts": {
+    "cancelled_invoice": 9288,
+    "nonpositive_unit_price": 1181,
+    "nonpositive_quantity": 1336
+  },
+  "monthly_2010_sales_gbp": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    823746.1399999646
+  ],
+  "counting_method": "one streaming read_only pass; one transaction line per row; no source rows are removed"
+}

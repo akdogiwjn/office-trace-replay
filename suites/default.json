@@ -35,7 +35,7 @@
       "dataset_id": "irs_w4",
       "kind": "pdf",
       "recipe_path": "compatibility/recipes/irs_w4-n1.json",
-      "recipe_sha256": "821da2cbfe2e2001580fc83ee25c69b6cdb8b224336aaf38cac70970580cb765",
+      "recipe_sha256": "0753c1efad482f375807b4620198dbe6eb7c037169cbde8bb2ebb6c3cf71733e",
       "canonical_path": "assets/canonical/irs_w4",
       "canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
       "mode": "canonicalized_deterministic_replay",
@@ -48,7 +48,7 @@
       "dataset_id": "sba1919",
       "kind": "pdf",
       "recipe_path": "compatibility/recipes/sba1919-n1.json",
-      "recipe_sha256": "8f24f37060fa8b5d35a6155a9321643fef1f56ce1fc53823b4410ae759836d40",
+      "recipe_sha256": "568bb8310291167c3ea4e55f6aed62cf467791771f78d976d6b62bda86b3e999",
       "canonical_path": "assets/canonical/sba1919",
       "canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
       "mode": "canonicalized_deterministic_replay",
@@ -61,7 +61,7 @@
       "dataset_id": "hr",
       "kind": "xlsx",
       "recipe_path": "compatibility/recipes/hr.json",
-      "recipe_sha256": "cf3583fa864b3b62b65ec30bb24ab200392a475b0334d143e57cd2efdaa2d32f",
+      "recipe_sha256": "bc7b48e492ff93c7fe6cf136935cbd961c1f24ea56650a0499de49289293f2c5",
       "canonical_path": "assets/canonical/hr",
       "canonical_sha256": "648bef3f71a6e753c292a4916e6b7408a482d515f0cceabbf27c028704738a53",
       "mode": "canonicalized_deterministic_replay",
@@ -74,7 +74,7 @@
       "dataset_id": "manufacturing",
       "kind": "xlsx",
       "recipe_path": "compatibility/recipes/manufacturing.json",
-      "recipe_sha256": "26262a7d0b090965969cbc3b5c1ef77b2b4dde3aa5e645d185334b244bb92cdd",
+      "recipe_sha256": "753a3fdbb05ee1ca404deeea646632549d368f1d9e763d0674d23faf172e9d3a",
       "canonical_path": "assets/canonical/manufacturing",
       "canonical_sha256": "7dd6a7f4b3476d354db7a8678438e8a3313f896b3350cbf6516ea78132c8ad0d",
       "mode": "canonicalized_deterministic_replay",
@@ -87,7 +87,7 @@
       "dataset_id": "retail",
       "kind": "xlsx",
       "recipe_path": "compatibility/recipes/retail.json",
-      "recipe_sha256": "59671120679dd9b583f22ac23c8ac59df923ee5bbfd189764d0c8a0b8ecd917b",
+      "recipe_sha256": "e7b2da2aa0d9adaeb601edf6c5fcb262e41505d24acd6e2b2e428289ae0887b5",
       "canonical_path": "assets/canonical/retail",
       "canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
       "mode": "canonicalized_deterministic_replay",
@@ -95,14 +95,63 @@
       "python_default": "venv-3.12.3",
       "parent_recipe_path": "recipes/retail.json",
       "python_system_option": "3.11.6"
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "kind": "xlsx",
+      "recipe_path": "compatibility/recipes/industry_productivity.json",
+      "recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3",
+      "mode": "canonicalized_deterministic_replay",
+      "variant_id": "industry_productivity",
+      "python_default": "venv-3.12.3",
+      "python_system_option": "3.11.6",
+      "canonical_path": "compatibility/cases/industry_productivity/canonical/xlsx-industry_productivity-20261019T043257Z-06a71220",
+      "canonical_sha256": "b3393b732fc10ead2557db2230d2cff231d1a297d17aff3d4db665e6926db8e1",
+      "parent_recipe_path": "compatibility/cases/industry_productivity/canonical/parent-run.json"
+    },
+    {
+      "dataset_id": "hr_metro",
+      "kind": "xlsx",
+      "recipe_path": "compatibility/recipes/hr_metro.json",
+      "recipe_sha256": "fe4b36933cf14381517d41ad71706aed935abca4d1c7a5da4b450e4a252c6480",
+      "mode": "manual_workflow_adaptation",
+      "variant_id": "hr_metro",
+      "python_default": "venv-3.12.3",
+      "python_system_option": "3.11.6",
+      "origin_type": "manual_workflow_adaptation"
+    },
+    {
+      "dataset_id": "retail_online",
+      "kind": "xlsx",
+      "recipe_path": "compatibility/recipes/retail_online.json",
+      "recipe_sha256": "c932c0fd747380f43c11ee89e76c86b06cf9a9d7d48c2d8502e78bdce0613f76",
+      "mode": "manual_workflow_adaptation",
+      "variant_id": "retail_online",
+      "python_default": "venv-3.12.3",
+      "python_system_option": "3.11.6",
+      "origin_type": "manual_workflow_adaptation"
     }
   ],
-  "legacy_lock_sha256": "f52cf9becae393704b4222c5c859bb4f4d55500143a995b7a28edd2adb0637c2",
+  "legacy_lock_sha256": "f83f7935e19669255ddeda86889305ac281b2c78f5f4e913716ae97e740124f0",
   "excluded_from_default": [
     "opm_v2",
     "tlc_v2"
   ],
-  "policy": "Unified runner entry: run_document_scene_loop.py --scene <scene> --dataset <dataset>. Old pdf/xlsx and opm/tlc aliases keep byte-identical workload recipes and original loop/timing semantics. Canonicalized new inputs run the same runner directly and recalibrate their final output with the original Skill recalc.py; historical derived recipes require --workflow derived-v1.",
-  "compatible_contract_sha256": "d6777c1168cc3c6bb684046e3a54a432719db8b4f7c2bfe0ab4a046fc05e5867",
-  "compatible_suite_sha256": "232885898b511244a8149059066b171b88b5e319eaf8efc5e6ed2d991c66b6e4"
+  "policy": "Default selection runs the seven formal controls declared by default_datasets. pdf→opm and xlsx→tlc remain accepted historical aliases; hr, retail and manufacturing stay registered for explicit historical comparison. opm_v2/tlc_v2 remain excluded historical derived-v1 routes.",
+  "compatible_contract_sha256": "7c8bc0df6df8491cfb4e52f2ce59c9ccb10e214fa2b0e0290309915e74752904",
+  "compatible_suite_sha256": "8ff3e62c0fd4e24f0dcdff0aed58d2277a19de40bc605d0ae640d7b2259a972d",
+  "default_datasets": [
+    "opm",
+    "tlc",
+    "irs_w4",
+    "sba1919",
+    "hr_metro",
+    "retail_online",
+    "industry_productivity"
+  ],
+  "historical_only_datasets": [
+    "hr",
+    "retail",
+    "manufacturing"
+  ]
 }

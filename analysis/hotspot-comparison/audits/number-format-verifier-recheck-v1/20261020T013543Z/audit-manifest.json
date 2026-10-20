@@ -1,0 +1,456 @@
+{
+  "schema_version": "number-format-verifier-offline-recheck-v1",
+  "created_at_utc": "2026-10-20T01:35:43Z",
+  "status": "success",
+  "scope": "Final verifier code: targeted fixtures and independent offline acceptance of the two existing archived workbooks. No workbook generation/save, helper, LibreOffice, workload, Agent, profiler, or image build.",
+  "previous_v2_report_correction": {
+    "report_path": "analysis/hotspot-comparison/audits/new-dataset-deep-audit-v2/20261020T000823Z/audit-report.md",
+    "displayed_output_unchanged": "否",
+    "prior_machine_value": true,
+    "correction": "The previous Markdown table showed “否” despite its machine manifest and identical before/after hashes. This report computes the status from the recorded SHA256 values; the historical report remains unchanged."
+  },
+  "rules": {
+    "normalization": "Normalize confirmed date zero-padding, yy/yyyy, format-code case, escaped/quoted serialization of the same literal; preserve ordered date/time fields, elapsed-time units, currency, percentage, units, and numeric scaling. Separate grouping commas from scaling commas and distinguish locale/color/condition bracket markers. Unsupported changed syntax fails conservatively. Parsed format strings are LRU-cached.",
+    "statistics": "The original_content existing row scan counts total format differences, unique source/output format pairs and per-pair counts, with 24 global coordinate samples. No extra source workbook scan."
+  },
+  "final_code_sha256": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+  "prior_v2_observed_verifier_sha256": "f0743806c9816f2c904aebb898f634dad4eb96bbad91fe22b6df9dbe9cb5e730",
+  "datasets": {
+    "retail_online": {
+      "functional_run_record": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/run-record.json",
+      "functional_run_record_sha256": "4c062c9ce06e4e5f941f4acc13bcaf5a60322bee27499fe530cf5124582a7d06",
+      "functional_source_verifier_hash_recorded_in_run_record": false,
+      "functional_project_lock_sha256": "a364f835f5754dd7f9f7a4836f86244d8a1bb0950248c92a216ef3aa2a7ddc75",
+      "functional_archive_output_sha256": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+      "workspace": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/workspace-parent/OFFICE-XLSX-RETAIL-ONLINE",
+      "preflight": {
+        "status": "success",
+        "path": "retail_online/report/preflight.json",
+        "sha256": "c434c08cc506a579c6070ef6514f30e8f4c9ef647e5bdc3b69b253181f44bc44",
+        "python": "3.12.3",
+        "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+        "recipe_sha256": "00e5a02c7ca5d4d41f09f589c5c5fbcaf1bb326ea475dc0bfee0f8b2bd3dacff",
+        "input_sha256": {
+          "input/dataset_manifest.json": "6eea4c7719efa81c99b453c81889a750df5ef6aa2dd140302900f8c3fa4af1ac",
+          "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb",
+          "input/Online Retail.xlsx": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d"
+        },
+        "helper_sha256": {
+          "retail_online_build.py": "df09b4afd15edc6c3d7a8b73459cac2b07bb597c277685dae4fa2205e8fbf106"
+        },
+        "source_verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        }
+      },
+      "independent_verification": {
+        "status": "success",
+        "contract": "office-independent-acceptance-v3",
+        "scope": "independent",
+        "checks_total": 60,
+        "checks_passed": 60,
+        "failures": [],
+        "path": "retail_online/report/independent-verification.json",
+        "sha256": "3a224fc4735ae600493546034e48158015e0b37d1b337f092d1c07c43a713434",
+        "number_format_statistics": {
+          "Online Retail": {
+            "difference_count": 541909,
+            "distinct_format_pair_count": 1,
+            "allowed_representation_change_count": 541909,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [
+              {
+                "cell": "E2",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E3",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E4",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E5",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E6",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E7",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E8",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E9",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E10",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E11",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E12",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E13",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E14",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E15",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E16",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E17",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E18",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E19",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E20",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E21",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E22",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E23",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E24",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E25",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              }
+            ],
+            "format_pairs": [
+              {
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key",
+                "count": 541909,
+                "cell_samples": [
+                  "E2",
+                  "E3",
+                  "E4",
+                  "E5",
+                  "E6"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "output_sha256_before_audit": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+      "output_sha256_after_audit": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+      "output_unchanged": true,
+      "audit_container_id": "892330bd5e08627726a142e1db1f1b603bccd5f3d9d4fa988707ca4a2c8549cd",
+      "audit_image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+      "container_status": "exited",
+      "container_exit_code": 0,
+      "mounts": {
+        "/audit/workspace": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/workspace-parent/OFFICE-XLSX-RETAIL-ONLINE",
+          "read_only": true
+        },
+        "/audit/report": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/audits/number-format-verifier-recheck-v1/20261020T013543Z/retail_online/report",
+          "read_only": false
+        },
+        "/opt/office-trace-replay": {
+          "source": "/home/lcq/office-trace-replay",
+          "read_only": true
+        },
+        "/opt/document-bench/bin/run_document_scene_loop.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop.py",
+          "read_only": true
+        },
+        "/opt/document-bench/bin/run_document_scene_loop_timed.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop_timed.py",
+          "read_only": true
+        }
+      },
+      "docker_argv_sha256": "e34a1f49743dfceff81853b052eae3052a62d27003a25c00e55632790068279b",
+      "container_log_sha256": "46f0aa446655c0e15cc7367a684e904976b327d858830b5c8cabbccba9931fe0"
+    },
+    "hr_metro": {
+      "functional_run_record": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/hr_metro/run-record.json",
+      "functional_run_record_sha256": "b037f3265108b7716d178c211ff7e871f373d594e62672038a50ae1b38477a76",
+      "functional_source_verifier_hash_recorded_in_run_record": false,
+      "functional_project_lock_sha256": "a364f835f5754dd7f9f7a4836f86244d8a1bb0950248c92a216ef3aa2a7ddc75",
+      "functional_archive_output_sha256": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0",
+      "workspace": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/hr_metro/workspace-parent/OFFICE-XLSX-HR-METRO",
+      "preflight": {
+        "status": "success",
+        "path": "hr_metro/report/preflight.json",
+        "sha256": "c9acd53bb6552b027408dcbbd51a31a9b77fbee81fa2de06fb1dec0471a76ff5",
+        "python": "3.12.3",
+        "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+        "recipe_sha256": "25d2eadac4eecc1b75097265d65f26be517925c125dd60d1d77563051c844c94",
+        "input_sha256": {
+          "input/dataset_manifest.json": "bddee1caa7a98034a4f0bd92a3823b5d89b35d69d1a2f88fdaa839afe0c89279",
+          "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb",
+          "input/MSA_M2025_dl.xlsx": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0"
+        },
+        "helper_sha256": {
+          "hr_metro_build.py": "11f4ac4a26c3ed375fc80d23c9dbe9cc1db4e20ee83ea367f03f980939d74132"
+        },
+        "source_verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        }
+      },
+      "independent_verification": {
+        "status": "success",
+        "contract": "office-independent-acceptance-v3",
+        "scope": "independent",
+        "checks_total": 73,
+        "checks_passed": 73,
+        "failures": [],
+        "path": "hr_metro/report/independent-verification.json",
+        "sha256": "45fa9b186dfadd55079ddf81ba74f1d389a97c9635b086f307ce5feda0454b7b",
+        "number_format_statistics": {
+          "MSA_M2025_dl": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          },
+          "Field Descriptions": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          },
+          "UpdateTime": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          },
+          "Filler": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          }
+        }
+      },
+      "output_sha256_before_audit": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0",
+      "output_sha256_after_audit": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0",
+      "output_unchanged": true,
+      "audit_container_id": "0dba030c54f2ca49642ec6799d3971b64a5c7be3ce7eb6cf6b0e2e0f0212a574",
+      "audit_image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+      "container_status": "exited",
+      "container_exit_code": 0,
+      "mounts": {
+        "/opt/document-bench/bin/run_document_scene_loop_timed.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop_timed.py",
+          "read_only": true
+        },
+        "/audit/workspace": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/hr_metro/workspace-parent/OFFICE-XLSX-HR-METRO",
+          "read_only": true
+        },
+        "/audit/report": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/audits/number-format-verifier-recheck-v1/20261020T013543Z/hr_metro/report",
+          "read_only": false
+        },
+        "/opt/office-trace-replay": {
+          "source": "/home/lcq/office-trace-replay",
+          "read_only": true
+        },
+        "/opt/document-bench/bin/run_document_scene_loop.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop.py",
+          "read_only": true
+        }
+      },
+      "docker_argv_sha256": "68399b3e767dab805ee62fb2900e997f5b6ff9126984a0e1389a0b00b69a7e79",
+      "container_log_sha256": "baa0ed10c877c6be5045d766c7033c97a33f00fd3f2ddc7fa4c58be73c634138"
+    }
+  },
+  "runtime": {
+    "image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+    "python": "3.12.3",
+    "openpyxl": "3.1.5",
+    "network": "none",
+    "entrypoint": "/bin/bash",
+    "workspace_mount": "read-only",
+    "report_mount": "separate writable",
+    "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7"
+  },
+  "binding_code_sha256": {
+    "compatibility/verification/spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+    "compatibility/verification/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "compatibility/verification/contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+    "compatibility/verification/workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e",
+    "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+    "compatibility/cases/retail_online/source/office_trace_bench/spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+    "analysis/hotspot-comparison/scripts/deep_audit_report.py": "d662998328f3950a29e9307bf7ab6093f3a66ec6507763596b73951a259c938f",
+    "analysis/hotspot-comparison/scripts/preflight_replay.py": "88b3711516e9291741894ede7ee77134eb44f6ad55251ddf8a08f4827a4fdca2",
+    "replay/accept.py": "76f4a65c9aeaf8e658a9290ed9c437f7d299ee81d30b4e4ea869807b1e1cf760",
+    "replay/freeze.py": "18c79cadbeca28778fc10b6378c91943293801af4db4714038d8a97014923f24",
+    "replay/source_assets.py": "3ded2f04a77d4bcb1291988e153f171e326cb78e874e500d70a61bd1c0d1e4f8",
+    "legacy/document-oe/bin/run_document_scene_loop.py": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+    "legacy/document-oe/bin/run_document_scene_loop_timed.py": "1a8cbde481d31ab6389b7c3c266d6510acac804866e2fdf8e5577aa766d7367e"
+  },
+  "binding_metadata_sha256": {
+    "compatibility/suite.json": "4e28e4f425ea4b029477f5dbb0bf474fabd0057e3f1783d25cf9de22d8675d20",
+    "suites/default.json": "0ca45d9a4d3ee591abc3569c2d31dbc6027d222b07bf3aad05f5f15f86113462",
+    "compatibility/contract.json": "7c8bc0df6df8491cfb4e52f2ce59c9ccb10e214fa2b0e0290309915e74752904",
+    "assets/project-lock.json": "4a23b322b24cb1dec2b04e892e4629ebe339dc672ed07db7ad3b5c7c4666c4de",
+    "compatibility/cases/hr_metro/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/manifest.json": "bddee1caa7a98034a4f0bd92a3823b5d89b35d69d1a2f88fdaa839afe0c89279",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/expected.json": "4925745764ff83b0f60d1260bab1ac7dd9de9acfaaa06e2605e881e83c6b5c81",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/provenance.json": "e7ebe10285ba83526178f21b3ae4c4e97dbb56fde8edc3b4fe9a5c8a0b41fd5f",
+    "compatibility/cases/retail_online/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/manifest.json": "6eea4c7719efa81c99b453c81889a750df5ef6aa2dd140302900f8c3fa4af1ac",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/expected.json": "0ae80231091509dd8f06af3a455508c4aa4f23063be68aa8af26f1ee658c61a0",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/provenance.json": "ffed056fbfb4c88cea1837e55b05fab8907c55bc4c0061adc379a5dfa1bb08e8"
+  },
+  "binding_validation": {
+    "targeted_preflight": "success for hr_metro and retail_online",
+    "source_asset_loader": "passed via preflight",
+    "prompt/manifest/expected/input/provenance/recipe/helper/source hashes": "passed via selected dataset preflight",
+    "public_default_suite_index": "passed by validate_public_suite",
+    "project_lock": "passed in both container preflights",
+    "active_xlsx_source_copies": "6 copies exactly match central verifier and project-lock"
+  },
+  "validation": {
+    "targeted_tests": "31 passed",
+    "test_command": "python3 -m unittest tests.test_verifier.NumberFormatMeaningTests tests.test_verifier.OriginalContentPositiveNegativeTests tests.test_deep_audit_report",
+    "py_compile": "passed",
+    "old_workload_files": "not modified in this task; prior repair evidence reports 0 differences in the 43 workload files",
+    "input_and_helper_hashes": "match frozen bindings",
+    "outputs_before_after": "identical for both datasets"
+  },
+  "performance_collection": "not_started",
+  "limitations": [
+    "The format parser covers a documented subset, not the complete Excel number-format language.",
+    "No performance sampling or hotspot comparison was performed.",
+    "Original functional run records do not contain an explicit per-run source-verifier hash; current audit identities are recorded from container preflight."
+  ]
+}

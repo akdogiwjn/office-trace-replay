@@ -1,0 +1,351 @@
+{
+  "schema_version": "hotspot-next-comparison-selection-v3",
+  "status": "v12_function_qualified_with_versioned_performance_evidence",
+  "baseline_datasets": [
+    "opm",
+    "tlc"
+  ],
+  "comparison_datasets": [
+    "irs_w4",
+    "sba1919",
+    "retail_online",
+    "hr_metro",
+    "industry_productivity"
+  ],
+  "excluded_from_future_comparisons": {
+    "manufacturing": "Owner requested replacement in future analysis; Census M3 workbook is too small for the intended comparison",
+    "hr": "Replaced by hr_metro for current large-workbook comparisons; retained as historical runnable input.",
+    "retail": "Replaced by retail_online for current large-workbook comparisons; retained as historical runnable input."
+  },
+  "replacement": {
+    "previous_dataset": "manufacturing",
+    "new_dataset": "industry_productivity",
+    "input_path": "assets/cases/industry_productivity/source/datasets/xlsx/industry_productivity/input/labor-productivity-detailed-industries.xlsx",
+    "input_sha256": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+    "business_focus": "Manufacturing series within the full official multi-industry workbook"
+  },
+  "historical_policy": "Keep existing Manufacturing inputs, recipes, traces, profiles and reports unchanged as historical evidence",
+  "manual_adaptations": {
+    "retail_online": {
+      "origin_type": "manual_workflow_adaptation",
+      "agent_generated": false,
+      "requires_llm": false,
+      "runtime_status": "v12_bare_image_single_iteration_success",
+      "independent_audit_status": "success",
+      "preparation_status": "ready_frozen_selection",
+      "input_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+      "workload_version": "manual-workflow-adaptation-v2",
+      "readiness_artifact": "compatibility/cases/retail_online/seed/input/prepared_selection.json",
+      "readiness_artifact_sha256": "e3a9dc6fe3d849f9403b2620822e3541f728ff7812d5d3322d433d2d1ca41bc1",
+      "functional_record": "reports/evidence/v12/retail_online/native_summary.json",
+      "functional_record_sha256": "60ad9511eb56cff0e5f0a54e1a919a8501093e965fae6e03efbd69a5931815b4",
+      "independent_audit": "reports/evidence/v12/retail_online/independent_verification.json",
+      "independent_audit_sha256": "ff7afbf7fcf079daffe75ee58a5cb86cf90f1012231edecc9a768ca89d695358",
+      "notes": "Manual adaptation, no Agent parent. Current prepared-v2 function/audit evidence is separate from pre-preparation native/py-spy profiles; current total-CPU evidence is a v11 mounted-source run, not v12 profiling.",
+      "current_native_profile_status": "not_collected_for_prepared_v2",
+      "current_pyspy_profile_status": "not_collected_for_prepared_v2",
+      "total_cpu_reference": "current_total_cpu",
+      "prepared_v2_qualification": {
+        "trial-record.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/retail_online/trial-record.json",
+          "sha256": "e4388f12c5cbc5a2a48c1b307006d73335d122535a521e54fe1c7e4177560efb"
+        },
+        "acceptance-record.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/retail_online/acceptance-record.json",
+          "sha256": "edbb8b804f6c617e157017053532bf825444be51ac23f54fabcb3e4075b806ac"
+        },
+        "independent-verification.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/retail_online/independent-verification.json",
+          "sha256": "ff7afbf7fcf079daffe75ee58a5cb86cf90f1012231edecc9a768ca89d695358"
+        },
+        "audit-identity.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/retail_online/audit-identity.json",
+          "sha256": "05df273b6418fb47a7f8fa826a7a55ee56f688ed86091debb591cb51040eab50"
+        }
+      }
+    },
+    "hr_metro": {
+      "origin_type": "manual_workflow_adaptation",
+      "agent_generated": false,
+      "requires_llm": false,
+      "runtime_status": "v12_bare_image_single_iteration_success",
+      "independent_audit_status": "success",
+      "preparation_status": "ready_frozen_selection",
+      "input_sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+      "workload_version": "manual-workflow-adaptation-v2",
+      "readiness_artifact": "compatibility/cases/hr_metro/seed/input/prepared_selection.json",
+      "readiness_artifact_sha256": "43376fc82ee084ad80fe603bb412ea359bfe56833800a01b383d409597056744",
+      "functional_record": "reports/evidence/v12/hr_metro/native_summary.json",
+      "functional_record_sha256": "ca55d76235d1c3bc1d78e7878dbc294708d07091293ea82ebf5aeed9aacdde3b",
+      "independent_audit": "reports/evidence/v12/hr_metro/independent_verification.json",
+      "independent_audit_sha256": "0ae0091f7d3a0cad4701548e5caa8d7b941b0a298d6c4fb8a311e85319fe8a80",
+      "notes": "Manual adaptation, no Agent parent. Current prepared-v2 function/audit evidence is separate from pre-preparation native/py-spy profiles; current total-CPU evidence is a v11 mounted-source run, not v12 profiling.",
+      "current_native_profile_status": "not_collected_for_prepared_v2",
+      "current_pyspy_profile_status": "not_collected_for_prepared_v2",
+      "total_cpu_reference": "current_total_cpu",
+      "prepared_v2_qualification": {
+        "trial-record.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/hr_metro/trial-record.json",
+          "sha256": "f413dd07638862edfa4497953fbc6908e8aa743e7d4a31743b617f1c9ced1ef8"
+        },
+        "acceptance-record.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/hr_metro/acceptance-record.json",
+          "sha256": "a88fcf6ab9a2396e6a27821fa76c96fe950316d3f9ca11e9d21c03bc45d7e8e1"
+        },
+        "independent-verification.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/hr_metro/independent-verification.json",
+          "sha256": "0ae0091f7d3a0cad4701548e5caa8d7b941b0a298d6c4fb8a311e85319fe8a80"
+        },
+        "audit-identity.json": {
+          "path": "reports/evidence/v12/prepared-v2-qualification/hr_metro/audit-identity.json",
+          "sha256": "0851acc70d36a995a3cc24c0f498fa930752ebc86f7c8e55000ad9636ad7ea49"
+        }
+      }
+    }
+  },
+  "execution_policy": "Default execution and analysis selection are separate. V12 bare-image function evidence covers all seven formal datasets (PDF N=1). Prepared-v2 HR/Retail total CPU uses the corrected measurement report. Earlier native/py-spy profiles are historical, not current prepared-v2 captures. Keep historical records and raw local workspaces unchanged.",
+  "dataset_evidence": {
+    "hr_metro": {
+      "role": "comparison",
+      "functional_status": "bare_image_single_iteration_passed",
+      "functional_record": "reports/evidence/v12/hr_metro/native_summary.json",
+      "functional_record_sha256": "ca55d76235d1c3bc1d78e7878dbc294708d07091293ea82ebf5aeed9aacdde3b",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "recipe_sha256": "fe4b36933cf14381517d41ad71706aed935abca4d1c7a5da4b450e4a252c6480",
+      "independent_acceptance_status": "success",
+      "historical_profile_reference": "historical_profiles.dataset_evidence.hr_metro",
+      "independent_audit": "reports/evidence/v12/hr_metro/independent_verification.json",
+      "independent_audit_sha256": "0ae0091f7d3a0cad4701548e5caa8d7b941b0a298d6c4fb8a311e85319fe8a80",
+      "total_cpu_reference": "current_total_cpu",
+      "read_write_share": 0.8348
+    },
+    "retail_online": {
+      "role": "comparison",
+      "functional_status": "bare_image_single_iteration_passed",
+      "functional_record": "reports/evidence/v12/retail_online/native_summary.json",
+      "functional_record_sha256": "60ad9511eb56cff0e5f0a54e1a919a8501093e965fae6e03efbd69a5931815b4",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "recipe_sha256": "c932c0fd747380f43c11ee89e76c86b06cf9a9d7d48c2d8502e78bdce0613f76",
+      "independent_acceptance_status": "success",
+      "historical_profile_reference": "historical_profiles.dataset_evidence.retail_online",
+      "independent_audit": "reports/evidence/v12/retail_online/independent_verification.json",
+      "independent_audit_sha256": "ff7afbf7fcf079daffe75ee58a5cb86cf90f1012231edecc9a768ca89d695358",
+      "total_cpu_reference": "current_total_cpu",
+      "read_write_share": 0.7725
+    },
+    "irs_w4": {
+      "role": "comparison",
+      "functional_status": "bare_image_single_iteration_passed",
+      "functional_record": "reports/evidence/v12/irs_w4/native_summary.json",
+      "functional_record_sha256": "73654a15985469fead4659ac807db507d38d272283ff0fa1752ab53189b2c2a5",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "recipe_sha256": "0753c1efad482f375807b4620198dbe6eb7c037169cbde8bb2ebb6c3cf71733e",
+      "independent_acceptance_status": "success",
+      "historical_profile_reference": "historical_profiles.dataset_evidence.irs_w4",
+      "independent_audit": "reports/evidence/v12/irs_w4/independent_verification.json",
+      "independent_audit_sha256": "22aa3e5f85caf6675fa25b68c7c70bac1c799ed8e3c03fb6bdc5e734d897bfec"
+    },
+    "opm": {
+      "role": "baseline",
+      "functional_status": "bare_image_single_iteration_passed",
+      "functional_record": "reports/evidence/v12/opm/summary.json",
+      "functional_record_sha256": "33fcb536e8837203b953d01a3d3aab7cb0c28cff55b4de6fa85d2fce48442363",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+      "independent_acceptance_status": "not_applicable_old_opm_runner_loop_verifier_only",
+      "historical_profile_reference": "historical_profiles.dataset_evidence.opm"
+    },
+    "sba1919": {
+      "role": "comparison",
+      "functional_status": "bare_image_single_iteration_passed",
+      "functional_record": "reports/evidence/v12/sba1919/native_summary.json",
+      "functional_record_sha256": "b11a9df853ec1377f12ffbbf7e31fda5ffc94791072dfea5bebba535505dc672",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "recipe_sha256": "568bb8310291167c3ea4e55f6aed62cf467791771f78d976d6b62bda86b3e999",
+      "independent_acceptance_status": "success",
+      "historical_profile_reference": "historical_profiles.dataset_evidence.sba1919",
+      "independent_audit": "reports/evidence/v12/sba1919/independent_verification.json",
+      "independent_audit_sha256": "43f1a95b93696d8b6dcc7be23d8b6efe59b2b1890159ada4fae6900108e203c3"
+    },
+    "tlc": {
+      "role": "baseline",
+      "functional_status": "bare_image_single_iteration_passed",
+      "functional_record": "reports/evidence/v12/tlc/summary.json",
+      "functional_record_sha256": "aa0eba93a75e184e0678065a143ff9f9da46f082ca71e734e298ca6e0a40bc6a",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "recipe_sha256": "53a475924f0bf6f2b2fef4e85c13bae467241e5785ba7867e195422d2e9b07f2",
+      "independent_acceptance_status": "not_applicable_old_tlc_runner_loop_verifier_only",
+      "historical_profile_reference": "historical_profiles.dataset_evidence.tlc",
+      "total_cpu_reference": "current_total_cpu",
+      "read_write_share": 0.8252
+    },
+    "industry_productivity": {
+      "role": "comparison",
+      "functional_status": "bare_image_single_iteration_passed",
+      "functional_record": "reports/evidence/v12/industry_productivity/native_summary.json",
+      "functional_record_sha256": "05d5bd0a0aec5cca1d1bf5c322952026a298409710f8478b433fac0e487140af",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3",
+      "independent_acceptance_status": "success",
+      "historical_profile_reference": "historical_profiles.dataset_evidence.industry_productivity",
+      "independent_audit": "reports/evidence/v12/industry_productivity/independent_verification.json",
+      "independent_audit_sha256": "5f957650ee97a2ab3d889bad496510cb4e2da223c47ff3df7d080d05d816fda1",
+      "total_cpu_reference": "current_total_cpu",
+      "read_write_share": 0.7579
+    }
+  },
+  "functional_release": {
+    "image_tag": "office-trace-replay:openeuler-v12",
+    "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "evidence_index": "reports/evidence/v12/index.json",
+    "evidence_index_sha256": "91d48e5aa221e7df686ac9f1c0b322205c397db1d07dcad1b99508e8915b1e0d",
+    "scope": "Seven datasets passed one bare-image iteration; PDF N=1 only. No v12 performance capture."
+  },
+  "historical_profiles": {
+    "scope": "Earlier native/py-spy snapshots, with their original execution identities. HR Metro and Retail Online predate prepared-v2 computation changes; never substitute them for current prepared-v2 profiles.",
+    "dataset_evidence": {
+      "opm": {
+        "role": "pdf_baseline",
+        "current_native": "eligible_existing_two_repeat_profile",
+        "historical_comparison": "report_level_only",
+        "evidence": "analysis/hotspot-comparison/reports/hotspot-version-comparison-v2/comparison.json",
+        "evidence_sha256": "792408efd63f2c8ce6697f7ba3f2d4c0a1e19a702782890345948052e9f64bfa",
+        "execution_version": "v9 historical document-oe runner; current profile described in v2 comparison; historical environment identity incomplete"
+      },
+      "tlc": {
+        "role": "xlsx_baseline",
+        "native": "eligible_existing_two_repeat_profile",
+        "pyspy": "eligible_existing_profile",
+        "historical_comparison": "report_level_only",
+        "evidence": "analysis/hotspot-comparison/reports/hotspot-version-comparison-v2/comparison.json",
+        "evidence_sha256": "792408efd63f2c8ce6697f7ba3f2d4c0a1e19a702782890345948052e9f64bfa",
+        "execution_version": "v9/current-loop older runner; per-container image ID not recorded in retained capture metadata"
+      },
+      "irs_w4": {
+        "role": "pdf_comparison",
+        "native": "eligible_n1_and_n10_profiles",
+        "pyspy": "eligible_n1_and_n10_profiles",
+        "evidence": "analysis/hotspot-comparison/reports/hotspot-version-comparison-v2/comparison.json",
+        "evidence_sha256": "792408efd63f2c8ce6697f7ba3f2d4c0a1e19a702782890345948052e9f64bfa",
+        "execution_version": "v9/current-loop collector and runner; one native repeat per N variant"
+      },
+      "sba1919": {
+        "role": "pdf_comparison",
+        "native": "eligible_n1_and_n10_profiles",
+        "pyspy": "eligible_n1_and_n10_profiles",
+        "evidence": "analysis/hotspot-comparison/reports/hotspot-version-comparison-v2/comparison.json",
+        "evidence_sha256": "792408efd63f2c8ce6697f7ba3f2d4c0a1e19a702782890345948052e9f64bfa",
+        "execution_version": "v9/current-loop collector and runner; one native repeat per N variant"
+      },
+      "industry_productivity": {
+        "role": "xlsx_comparison",
+        "native": "eligible_single_iteration_profile",
+        "pyspy": "eligible_single_iteration_profile",
+        "evidence": "analysis/hotspot-comparison/reports/new-xlsx-hotspot-io-v1/comparison.json",
+        "evidence_sha256": "e6850469a70b37c6e578afb002b1cda37d172e02d4493a725a1e978f597290a9",
+        "execution_version": "v9/current-loop runner; one native and one py-spy profile"
+      },
+      "hr_metro": {
+        "role": "xlsx_comparison",
+        "native": "eligible_single_iteration_profile",
+        "pyspy": "eligible_single_iteration_profile",
+        "evidence": "analysis/hotspot-comparison/reports/new-xlsx-hotspot-io-v1/comparison.json",
+        "evidence_sha256": "e6850469a70b37c6e578afb002b1cda37d172e02d4493a725a1e978f597290a9",
+        "execution_version": "v11 image with current mounted runner/verifier; one native and one py-spy profile"
+      },
+      "retail_online": {
+        "role": "xlsx_comparison",
+        "native": "eligible_offline_same_image_no_inline_recovery",
+        "pyspy": "eligible_single_iteration_profile",
+        "evidence": "analysis/hotspot-comparison/reports/new-xlsx-hotspot-io-v1/comparison.json",
+        "evidence_sha256": "e6850469a70b37c6e578afb002b1cda37d172e02d4493a725a1e978f597290a9",
+        "execution_version": "v11 image; native profile is same-image --no-inline offline recovery, py-spy is current one-loop collection"
+      }
+    },
+    "manual_adaptations": {
+      "retail_online": {
+        "origin_type": "manual_workflow_adaptation",
+        "agent_generated": false,
+        "requires_llm": false,
+        "runtime_status": "single_iteration_function_success",
+        "independent_audit_status": "passed_60_of_60",
+        "preparation_status": "ready_frozen_selection",
+        "input_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+        "workload_version": "manual-workflow-adaptation-v2",
+        "readiness_artifact": "compatibility/cases/retail_online/seed/input/prepared_selection.json",
+        "readiness_artifact_sha256": "e3a9dc6fe3d849f9403b2620822e3541f728ff7812d5d3322d433d2d1ca41bc1",
+        "functional_record": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/run-record.json",
+        "functional_record_sha256": "4c062c9ce06e4e5f941f4acc13bcaf5a60322bee27499fe530cf5124582a7d06",
+        "independent_audit": "analysis/hotspot-comparison/audits/number-format-verifier-recheck-v1/20261020T013543Z/retail_online/report/independent-verification.json",
+        "independent_audit_sha256": "3a224fc4735ae600493546034e48158015e0b37d1b337f092d1c07c43a713434",
+        "native_profile_status": "eligible_offline_same_image_no_inline_recovery",
+        "pyspy_profile_status": "eligible_single_iteration",
+        "profile_reference": "analysis/hotspot-comparison/reports/new-xlsx-hotspot-io-v1/comparison.json",
+        "profile_reference_sha256": "e6850469a70b37c6e578afb002b1cda37d172e02d4493a725a1e978f597290a9",
+        "notes": "No Agent run, parent trace or canonical trajectory by design. Independent audit reuses the frozen output without rewriting it."
+      },
+      "hr_metro": {
+        "origin_type": "manual_workflow_adaptation",
+        "agent_generated": false,
+        "requires_llm": false,
+        "runtime_status": "single_iteration_function_success",
+        "independent_audit_status": "passed_73_of_73",
+        "preparation_status": "ready_frozen_selection",
+        "input_sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+        "workload_version": "manual-workflow-adaptation-v2",
+        "readiness_artifact": "compatibility/cases/hr_metro/seed/input/prepared_selection.json",
+        "readiness_artifact_sha256": "43376fc82ee084ad80fe603bb412ea359bfe56833800a01b383d409597056744",
+        "functional_record": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/hr_metro/run-record.json",
+        "functional_record_sha256": "b037f3265108b7716d178c211ff7e871f373d594e62672038a50ae1b38477a76",
+        "independent_audit": "analysis/hotspot-comparison/audits/number-format-verifier-recheck-v1/20261020T013543Z/hr_metro/report/independent-verification.json",
+        "independent_audit_sha256": "45fa9b186dfadd55079ddf81ba74f1d389a97c9635b086f307ce5feda0454b7b",
+        "native_profile_status": "eligible_single_iteration",
+        "pyspy_profile_status": "eligible_single_iteration",
+        "profile_reference": "analysis/hotspot-comparison/reports/new-xlsx-hotspot-io-v1/comparison.json",
+        "profile_reference_sha256": "e6850469a70b37c6e578afb002b1cda37d172e02d4493a725a1e978f597290a9",
+        "notes": "No Agent run, parent trace or canonical trajectory by design. Independent audit reuses the frozen output without rewriting it."
+      }
+    }
+  },
+  "current_total_cpu": {
+    "path": "analysis/hotspot-comparison/reports/total-cpu-recalculation-v2-20261020T104020Z/comparison.json",
+    "sha256": "2fecec9b974467524a6bcb914386c1e4a52016e1a514d7fc2afe711aa34f34f9",
+    "measurement_image": "office-trace-replay:openeuler-v11 with mounted measurement-time source",
+    "scope": "One measured iteration per XLSX; prepared-v2 HR/Retail. Denominator is polled ROI user+sys CPU. This is not a v12 measurement or a native/py-spy profile.",
+    "supersedes": "Uncorrected 20261020-total-cpu-v1 summary ratios; old files remain historical.",
+    "measurement_bindings": {
+      "hr_metro": {
+        "path": "reports/evidence/v12/measurement-origin/hr_metro/host-bindings.json",
+        "sha256": "fb962a366204c57df7f5cfae9aa893c945f7cd12d0537bae064574cda6795fcf",
+        "native_summary": {
+          "path": "reports/evidence/v12/measurement-origin/hr_metro/native_summary.json",
+          "sha256": "b0137110f34fb988d317f53ceb4c94a72898afe8b60a987ee5632ded7ce52404"
+        }
+      },
+      "retail_online": {
+        "path": "reports/evidence/v12/measurement-origin/retail_online/host-bindings.json",
+        "sha256": "b504d97382d0c378c974f4a0ae07fad76ca46a63496f1551e55f205e17fd4c28",
+        "native_summary": {
+          "path": "reports/evidence/v12/measurement-origin/retail_online/native_summary.json",
+          "sha256": "ce1850535066dabe93741435ac30722dbb370ef84f798b878feb73901a011254"
+        }
+      },
+      "tlc": {
+        "path": "reports/evidence/v12/measurement-origin/tlc/host-bindings.json",
+        "sha256": "43d26fc554abc270a6588d5abef3219b68cbffb758c75d32e361518ee189cc31",
+        "native_summary": {
+          "path": "reports/evidence/v12/measurement-origin/tlc/native_summary.json",
+          "sha256": "19ca1bf80582b9e66c40604c7fb1d0d128b982efe4e271b37c6efa93b11900cf"
+        }
+      },
+      "industry_productivity": {
+        "path": "reports/evidence/v12/measurement-origin/industry_productivity/host-bindings.json",
+        "sha256": "899edd3e0dbc4d769babf84c813c93a764f3378ce42385731f002ec927f7934e",
+        "native_summary": {
+          "path": "reports/evidence/v12/measurement-origin/industry_productivity/native_summary.json",
+          "sha256": "a60b9ba055219aceabbd5560f3f79a2ae4a827ff4779714758a44df621411b7f"
+        }
+      }
+    }
+  }
+}

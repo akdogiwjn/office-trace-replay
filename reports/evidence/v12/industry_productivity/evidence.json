@@ -1,0 +1,90 @@
+{
+  "dataset_id": "industry_productivity",
+  "variant_id": "industry_productivity",
+  "run_stamp": "20261020T120534Z-ecea0912",
+  "requested_iterations": 1,
+  "scene": "xlsx",
+  "record_count": null,
+  "status": "success",
+  "archive_scope": "final_iteration_only",
+  "acceptance_scope": "native business verifier each iteration; independent verifier after entire loop",
+  "run_dir": "/results/industry_productivity/20261020T120534Z-ecea0912",
+  "native_run_id": "20261020T120535Z-pid7",
+  "native_summary": "xlsx/20261020T120535Z-pid7/summary.json",
+  "native_summary_sha256": "05d5bd0a0aec5cca1d1bf5c322952026a298409710f8478b433fac0e487140af",
+  "native_events_sha256": "ce19f9c1920128bc1a58586b0ef61ecbfa79615b6942eca6e213b1b514860b4d",
+  "native_iterations": [
+    {
+      "abstraction": "steps",
+      "elapsed_seconds": 482.501831,
+      "failed_step": "",
+      "finished_at": "2026-10-20T12:13:37.741+00:00",
+      "iteration": 1,
+      "reset_seconds": 0.004063,
+      "scene": "xlsx",
+      "schema_version": "document-step-scene-iteration-v2",
+      "status": "success",
+      "step_seconds": {
+        "XLSX-P01-inspect_prepare": 84.735484,
+        "XLSX-P02-build": 100.34098,
+        "XLSX-P03-process_publish": 196.659814,
+        "XLSX-P04-verify_deliver": 100.761286
+      }
+    }
+  ],
+  "completed_iterations": 1,
+  "recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3",
+  "recipe_path": "compatibility/recipes/industry_productivity.json",
+  "prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+  "contract_sha256": "7c8bc0df6df8491cfb4e52f2ce59c9ccb10e214fa2b0e0290309915e74752904",
+  "input_hashes": {
+    "input/dataset_manifest.json": "ab1927c8c15dd775e656fc97cee56d208a06fa1aea6a3bb38464d6f533f340e5",
+    "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+    "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+  },
+  "helper_hashes": {
+    "helpers/industry_productivity_build.py": "a7ed376b86b5691adbaf2f9b2d793974eb1e47799fe02fde66291dd081fcae90"
+  },
+  "verifier_contract": "spreadsheet-semantic-v3",
+  "executor_version": "unified-dataset-runner-v2",
+  "parent_recipe_sha256": "fcc05e408b8bb6ebe00ddfe4ebc41c1b0a7262b0fad012365607c90ec3edd4c8",
+  "verifier_hashes": {
+    "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "spreadsheet.py": "6c1cb9cee50cdff090c19685cb03aa4c84faa1d220ef893fd8f1da0a3897d1a8",
+    "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+    "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+  },
+  "environment": {
+    "libreoffice": "LibreOfficeDev 25.8.7.3",
+    "packages": {
+      "et_xmlfile": "2.0.0",
+      "openpyxl": "3.1.5",
+      "pdf2image": "1.17.0",
+      "pillow": "12.2.0",
+      "pypdf": "6.10.0"
+    },
+    "python3_executable": "/opt/document-bench/.venv/bin/python3",
+    "python3_openpyxl": "3.1.5",
+    "python3_version": "3.12.3",
+    "python_executable": "/opt/document-bench/.venv/bin/python",
+    "python_version": "3.12.3"
+  },
+  "python_mode": "venv",
+  "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+  "independent_acceptance_seconds": 309.685533,
+  "independent_verification_sha256": "5f957650ee97a2ab3d889bad496510cb4e2da223c47ff3df7d080d05d816fda1",
+  "artifact_hashes": {
+    "output/xlsx_enhancement_summary.json": "fbd0547ad265d7119cb340a8e440fd1f6895305db4bd19d4e956ae6e57697f3c",
+    "output/scenario.csv": "80721521edbc0af028b92d9f064eb8ba6a10af3a37674f8b8228a0cae6f98eab",
+    "output/business_verification.json": "38975d27eb0b1460a5bb5254a0a8041c5134eab3f39a74c96e8e6100e2a180aa",
+    "output/formula_recalc.stderr.log": "c95c54f85c2057d6952ef305b8165389353a023a999236f785d44258ffabb3ee",
+    "output/formula_recalc.json": "37e039ab604c39a1f432b2b3f27a34278d88867c7e433c5a5c52c229b6d5a561",
+    "output/industry_productivity_enhanced.xlsx": "13a4f8a09865edf145261de44b07c0a3a66d0d830e3b0a3d16892656ae91d8c8",
+    "output/workbook_features.json": "e23ea37cb4dd23352b95cf566c772f22782a6c662dccc65243443f43f8cc78b2",
+    "output/metrics.csv": "a96b11ba1161cca2286b747806202853fd6446d13efc10210f66cba561788c16",
+    "input/dataset_manifest.json": "ab1927c8c15dd775e656fc97cee56d208a06fa1aea6a3bb38464d6f533f340e5",
+    "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+    "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790",
+    "helpers/industry_productivity_build.py": "a7ed376b86b5691adbaf2f9b2d793974eb1e47799fe02fde66291dd081fcae90"
+  }
+}

@@ -6,8 +6,9 @@
 set -euo pipefail
 
 SCRIPTS="$(cd "$(dirname "$0")" && pwd)"
-RUNNER=/opt/document-bench/bin/run_document_scene_loop.py
+ENTRY=${HOTSPOT_ENTRY:-/opt/office-trace-replay/replay/entry.py}
+PYTHON=${HOTSPOT_PYTHON:-/opt/document-bench/.venv/bin/python}
 WORKCPUS="${HOTSPOT_WORKCPUS:-0-7}"
 
 python3 "$SCRIPTS/roi_marker.py"
-exec taskset -c "$WORKCPUS" python3 "$RUNNER" "$@"
+exec taskset -c "$WORKCPUS" "$PYTHON" "$ENTRY" "$@"

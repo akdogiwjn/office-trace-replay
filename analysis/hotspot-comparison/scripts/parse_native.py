@@ -23,9 +23,19 @@ import json
 import re
 import sys
 from pathlib import Path
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+from script_identity import role_for_command
 
+# perf writes the event tuple at the right edge. Keep the complete comm field,
+# which may itself contain spaces, and accept leading whitespace from exporters.
 HEADER = re.compile(
-    r"^(\S+)\s+(\d+)\s+([0-9]+\.[0-9]+):\s+(\d+)\s+cycles:u:\s*$")
+    r"^\s*(?P<comm>.+?)\s+(?P<tid>\d+)\s+"
+    r"(?P<time>[0-9]+\.[0-9]+):\s+(?P<period>\d+)\s+cycles:u:\s*$")
+SAMPLE_HEADER_SHAPE = re.compile(
+    r"^\s*(?P<comm>.+?)\s+(?P<tid>\d+)\s+"
+    r"(?P<time>[0-9]+\.[0-9]+):\s+(?P<period>\d+)\s+(?P<event>\S+):\s*$")
+MAX_UNRECOGNIZED_HEADER_EXAMPLES = 5
 # Demangled C++ names contain spaces; capture the final parenthesized field as DSO.
 FRAME = re.compile(r"^\s+([0-9a-fA-F]+)\s+(.+?)\s+\(([^()]*)\)\s*$")
 
@@ -33,19 +43,44 @@ FRAME = re.compile(r"^\s+([0-9a-fA-F]+)\s+(.+?)\s+\(([^()]*)\)\s*$")
 def parse_samples(path):
     samples = []
     stats = {"headers": 0, "frames": 0, "malformed_frame_lines": 0,
-             "samples_without_frames": 0, "samples_with_unresolved_stack": 0}
+             "samples_without_frames": 0, "samples_with_unresolved_stack": 0,
+             "unrecognized_sample_header_count": 0,
+             "unrecognized_sample_header_period_sum": 0,
+             "unrecognized_sample_header_examples": []}
     comm = tid = time_s = period = None
     frames = []
+    def finish_sample():
+        nonlocal comm, tid, time_s, period, frames
+        if comm is None:
+            return
+        samples.append((comm, int(tid), float(time_s), int(period), frames))
+        if not frames:
+            stats["samples_without_frames"] += 1
+        comm = tid = time_s = period = None
+        frames = []
+
     with open(path) as fh:
-        for line in fh:
+        for line_number, line in enumerate(fh, 1):
             m = HEADER.match(line)
             if m:
-                if comm is not None:
-                    samples.append((comm, int(tid), float(time_s), int(period), frames))
-                    if not frames: stats["samples_without_frames"] += 1
-                comm, tid, time_s, period = m.group(1), m.group(2), m.group(3), m.group(4)
+                finish_sample()
+                comm = m.group("comm").strip()
+                tid, time_s, period = m.group("tid"), m.group("time"), m.group("period")
                 frames = []
                 stats["headers"] += 1
+                continue
+            candidate = SAMPLE_HEADER_SHAPE.match(line)
+            if candidate:
+                finish_sample()
+                stats["unrecognized_sample_header_count"] += 1
+                stats["unrecognized_sample_header_period_sum"] += int(candidate.group("period"))
+                if len(stats["unrecognized_sample_header_examples"]) < MAX_UNRECOGNIZED_HEADER_EXAMPLES:
+                    stats["unrecognized_sample_header_examples"].append({
+                        "line": line_number,
+                        "text": line.rstrip("\n")[:240],
+                        "event": candidate.group("event"),
+                        "period": int(candidate.group("period")),
+                    })
                 continue
             m = FRAME.match(line)
             if m and comm is not None:
@@ -60,12 +95,10 @@ def parse_samples(path):
             if comm is not None and line.strip() and re.match(r"^\s+[0-9a-fA-F]+\s+", line):
                 stats["malformed_frame_lines"] += 1
             if line.strip() == "" and comm is not None:
-                samples.append((comm, int(tid), float(time_s), int(period), frames))
-                if not frames: stats["samples_without_frames"] += 1
-                comm = None
-    if comm is not None:
-        samples.append((comm, int(tid), float(time_s), int(period), frames))
-        if not frames: stats["samples_without_frames"] += 1
+                finish_sample()
+    finish_sample()
+    stats["parsed_sample_count"] = len(samples)
+    stats["parsed_period_total"] = sum(sample[3] for sample in samples)
     stats["samples_with_unresolved_stack"] = sum(
         not f or leaf_of(f)["dso"] == "[unknown]" for _, _, _, _, f in samples)
     stats["samples_with_single_frame_stack"] = sum(len(f) == 1 for _, _, _, _, f in samples)
@@ -140,53 +173,16 @@ def load_identities(mon_dir):
 
 
 def script_role(cmd, scene):
-    """Role from a cmdline; verify_office.py / summary.py are scene-dependent
-    (both PDF and XLSX recipes use them)."""
-    pdf = scene == "pdf"
-    if re.search(r"run_document_scene_loop\.py", cmd):
-        return "runner"
-    if re.search(r"check_fillable_fields\.py", cmd):
-        return "pdf-check-fillable"
-    if re.search(r"extract_form_field_info\.py", cmd):
-        return "pdf-extract-fields"
-    if re.search(r"convert_pdf_to_images\.py", cmd):
-        return "pdf-convert"
-    if re.search(r"fill_fillable_fields\.py", cmd):
-        return "pdf-fill"
-    if re.search(r"verify_pdf_batch\.py", cmd):
-        return "pdf-verify"
-    if re.search(r"verify_office\.py", cmd):
-        return "pdf-verify" if pdf else "xlsx-verify"
-    if re.search(r"generate_and_run_batch\.py|build_field_values\.py|"
-                 r"run_batch_fill_render\.py|pdf_batch\.py", cmd):
-        return "pdf-mapping-driver"
-    if re.search(r"write_pdf_batch_summary\.py", cmd):
-        return "pdf-summary-writer"
-    if re.search(r"summary\.py", cmd):
-        return "pdf-summary-writer" if pdf else "xlsx-summary-export"
-    if re.search(r"inspect_xlsx_structure\.py", cmd):
-        return "xlsx-inspect-structure"
-    if re.search(r"inspect_xlsx_features\.py", cmd):
-        return "xlsx-inspect-features"
-    if re.search(r"enhance_workbook\.py|build_enhance|build_enhanced", cmd):
-        return "xlsx-enhance"
-    if re.search(r"[/ ]build\.py|\.build\.runtime\.py", cmd):
-        return "xlsx-enhance"
-    if re.search(r"run_xlsx_helper_atomic\.py", cmd):
-        return "xlsx-atomic-helper"
-    if re.search(r"recalc\.py", cmd):
-        return "xlsx-recalc"
-    if re.search(r"inspect_xlsx_formulas\.py", cmd):
-        return "xlsx-inspect-formulas"
-    if re.search(r"inspect_xlsx_cached_values\.py", cmd):
-        return "xlsx-inspect-cached"
-    if re.search(r"verify_xlsx_enhanced\.py", cmd):
-        return "xlsx-verify"
-    if re.search(r"write_xlsx_summary\.py|export_xlsx\.py", cmd):
-        return "xlsx-summary-export"
-    if re.search(r"inspect_xlsx\.py", cmd):
-        return "xlsx-inspect-tool"
-    if re.search(r"\bpython3?\s+-c\b", cmd):
+    """Resolve from the executed script operand, not arbitrary command text."""
+    role = role_for_command(cmd, scene)
+    if role:
+        return role
+    try:
+        import shlex
+        argv = shlex.split(cmd)
+    except ValueError:
+        argv = []
+    if argv and Path(argv[0]).name.startswith("python") and "-c" in argv:
         return "python-inline"
     return None
 

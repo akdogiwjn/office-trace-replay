@@ -22,7 +22,7 @@ from .common import ROOT, digest, read, relative
 LEGACY = ROOT / 'legacy/document-oe'
 NATIVE = Path('/opt/document-bench')
 
-EXECUTOR_VERSION = 'unified-dataset-runner-v1'
+EXECUTOR_VERSION = 'unified-dataset-runner-v2'
 EXECUTOR_FILES = ('bin/run_document_scene_loop.py', 'bin/run_document_scene_loop_timed.py')
 
 

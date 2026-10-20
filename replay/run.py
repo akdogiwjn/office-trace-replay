@@ -151,7 +151,7 @@ def iteration(doc, recipe, destination):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--dataset', action='append', choices=['irs_w4', 'opm', 'sba1919', 'hr', 'manufacturing', 'retail', 'tlc'])
+    parser.add_argument('--dataset', action='append', choices=['irs_w4', 'opm', 'sba1919', 'hr', 'manufacturing', 'retail', 'industry_productivity', 'tlc'])
     parser.add_argument('--loops', type=int, default=1)
     parser.add_argument('--runtime', choices=['original', 'openeuler'], default='openeuler')
     parser.add_argument('--results-dir', type=Path, default=Path('/results'))
