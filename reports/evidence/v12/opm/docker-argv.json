@@ -1,0 +1,21 @@
+[
+  "docker",
+  "--host",
+  "unix:///var/run/docker.sock",
+  "create",
+  "--name",
+  "office-v12-remaining-opm-n1-20261020t115040z",
+  "--network",
+  "none",
+  "--mount",
+  "type=bind,src=/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/opm,dst=/results",
+  "office-trace-replay:openeuler-v12",
+  "--dataset",
+  "opm",
+  "--pdf-applicant-count",
+  "1",
+  "--loops",
+  "1",
+  "--results-dir",
+  "/results"
+]

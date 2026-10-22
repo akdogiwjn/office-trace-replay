@@ -1,0 +1,36 @@
+{
+  "schema_version": "office-semantic-oracle-v2",
+  "metric_values": {
+    "gross_eligible_sales_gbp": 10666684.544004016,
+    "eligible_line_count": 530104,
+    "eligible_quantity_units": 5588376.0
+  },
+  "scenario_values": {
+    "Base": {
+      "projected_sales_gbp": 10666684.544004016
+    },
+    "Higher": {
+      "projected_sales_gbp": 11200018.771204216
+    },
+    "Lower": {
+      "projected_sales_gbp": 10133350.316803815
+    }
+  },
+  "chart_values": {
+    "monthly_2010_sales": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      823746.1399999646
+    ]
+  },
+  "oracle_provenance": "Independent one-pass aggregation of eligible transaction lines from the unmodified source sheets; helper code is not imported."
+}

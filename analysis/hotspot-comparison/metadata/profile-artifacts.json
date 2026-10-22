@@ -1,0 +1,94 @@
+{
+  "schema_version": "derived-profile-artifacts-v1",
+  "files": [
+    {
+      "path": "processed/all-profiles.json",
+      "sha256": "1c1b345c36d62c89a2d8f73758a6b20e3f05ffceb0d4bca9aaab18e0f1e33d90",
+      "size_bytes": 194911616,
+      "archive": "processed/packed/all-profiles.json.gz",
+      "archive_sha256": "372a6d2fd9b18d0bc6edcc2f3512e475071c227b70466bf081c6249420801326",
+      "archive_size_bytes": 10941662
+    },
+    {
+      "path": "processed/opm-n1.json",
+      "sha256": "f37da320892fb83d1a221e366c3da3d13f8b2294982a9649f2cf38e7442d7f72",
+      "size_bytes": 10334716,
+      "archive": "processed/packed/opm-n1.json.gz",
+      "archive_sha256": "eba22c10099757b72f4b9c19e187f5b7cc3eb9bd41dcfb00538654b1f38895b8",
+      "archive_size_bytes": 594509
+    },
+    {
+      "path": "processed/opm-n10.json",
+      "sha256": "f07bac17e9cdaca095d962657a627dbb2b2b5f1ce016b77532a66bf951f73d3d",
+      "size_bytes": 12818551,
+      "archive": "processed/packed/opm-n10.json.gz",
+      "archive_sha256": "c8a70e48da2c8090eb917be1380a4cd14ca98468a5472c8656ce08971caeb8d8",
+      "archive_size_bytes": 717051
+    },
+    {
+      "path": "processed/irs_w4-n1.json",
+      "sha256": "6ec6894c1e165963efa85018e06c3ddedbf87f3f59acd192b6f736730d14663c",
+      "size_bytes": 11391722,
+      "archive": "processed/packed/irs_w4-n1.json.gz",
+      "archive_sha256": "4d1e8a551bb6abce0860d1da24ad64e592b4a544acb0370b45af3378b676cd12",
+      "archive_size_bytes": 664150
+    },
+    {
+      "path": "processed/irs_w4-n10.json",
+      "sha256": "22a30494a6a417b79dc090b4a7366a4cd118eb8c7a94837d31e54912e318b0fb",
+      "size_bytes": 12885525,
+      "archive": "processed/packed/irs_w4-n10.json.gz",
+      "archive_sha256": "5f84ae0ef558eb1bc0790e61f25999a03585dc9c3783cf1cb053d92b1b94d6fa",
+      "archive_size_bytes": 720483
+    },
+    {
+      "path": "processed/sba1919-n1.json",
+      "sha256": "32e17cb25b70cd84479c861a15d4da9daa90231db9cb006fcf03e556f9c2c152",
+      "size_bytes": 12801590,
+      "archive": "processed/packed/sba1919-n1.json.gz",
+      "archive_sha256": "2aa31dc0031019ce4dbb407447366b94f8f7038216b8c002f8447ff5f80a7611",
+      "archive_size_bytes": 748342
+    },
+    {
+      "path": "processed/sba1919-n10.json",
+      "sha256": "21d0ba029c4ac3a21ae61634ed7a6418f3b3f14f6887ad10e8b6c7b4e0a07798",
+      "size_bytes": 16171209,
+      "archive": "processed/packed/sba1919-n10.json.gz",
+      "archive_sha256": "7ff33d106c73c1995cdc63f1d70be2bf3428b6ba5741b7afc94eefb3c5dc4366",
+      "archive_size_bytes": 909443
+    },
+    {
+      "path": "processed/tlc.json",
+      "sha256": "cf292b4cb4b744c6d3b87fcf101d11d372bdc3e856b1997a622afb5629dee950",
+      "size_bytes": 53736298,
+      "archive": "processed/packed/tlc.json.gz",
+      "archive_sha256": "b99fdcd6672670f6773120dc0040d50ba677d7bde5af84914d7c1c2cf855469c",
+      "archive_size_bytes": 2777541
+    },
+    {
+      "path": "processed/retail.json",
+      "sha256": "a60c97906a26d9f64c42af13405502b974784bbb328895d52d7c1651fcc403af",
+      "size_bytes": 22824557,
+      "archive": "processed/packed/retail.json.gz",
+      "archive_sha256": "050c2c4322b2f450db2a28ecc6de26e7363be35f42bc18d5befcb04d8088b634",
+      "archive_size_bytes": 1414070
+    },
+    {
+      "path": "processed/manufacturing.json",
+      "sha256": "63de65348513ab1c5cfb51b4c732048595e8d43cb89f0675e3e64d3d76c6d7eb",
+      "size_bytes": 16636999,
+      "archive": "processed/packed/manufacturing.json.gz",
+      "archive_sha256": "f15ed4f865697e96b59240ce3717db96240d14e958e2929fce62d9bc1d35ff27",
+      "archive_size_bytes": 1096476
+    },
+    {
+      "path": "processed/hr.json",
+      "sha256": "544d0b94ce807e0734537f9c0b86b297cb679dd082635689f1996dabcaccf6f7",
+      "size_bytes": 19679512,
+      "archive": "processed/packed/hr.json.gz",
+      "archive_sha256": "1b1a8fef5b52ac4d69ed205fa1f6632e0005aef26bd06586a7d8980413714744",
+      "archive_size_bytes": 1188478
+    }
+  ],
+  "scope": "Derived profiles only; original perf/monitor data stays local."
+}

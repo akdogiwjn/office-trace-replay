@@ -1,0 +1,221 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_id": "SUB-MEM-PDF-SBA1919-01",
+  "case_kind": "pdf",
+  "dataset_id": "sba1919",
+  "scope": "final_effective_tool_execution",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "PDF-P01-inspect_prepare",
+      "PDF-P02-build",
+      "PDF-P03-process_publish",
+      "PDF-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "PDF-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_aFz0gqOlM8qpcLb2wT4N8251",
+          "source_event_index": 14,
+          "source_step_id": 9,
+          "adaptation": "archived_call",
+          "source_call_sha256": "61df2658b651f50638f94b77b072653a38f2b2b18eb52f1f8f088044bf5b69fd",
+          "tool_call": {
+            "tool_call_id": "call_00_aFz0gqOlM8qpcLb2wT4N8251",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01\nmkdir -p output/field_values output/filled output/rendered/template helpers\nWS=/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01\nSC=/root/.openclaw/skills/pdf/scripts\n# Step 1: check fillable fields -> log\npython3 \"$SC/check_fillable_fields.py\" \"$WS/input/sba1919_2024.pdf\" > \"$WS/output/check_fillable_fields.log\" 2>&1\necho \"check exit: $?\"; cat \"$WS/output/check_fillable_fields.log\"\n# Step 2: extract field info\npython3 \"$SC/extract_form_field_info.py\" \"$WS/input/sba1919_2024.pdf\" \"$WS/output/form_field_info.json\"\necho \"extract exit: $?\""
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_2ftxpy5bBAPV7yO0KPmH8499",
+          "source_event_index": 15,
+          "source_step_id": 10,
+          "adaptation": "archived_call",
+          "source_call_sha256": "12205ed8f3e34f064430308b8e5a4a44665568950243327713e2200e87746e77",
+          "tool_call": {
+            "tool_call_id": "call_00_2ftxpy5bBAPV7yO0KPmH8499",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01\nWS=/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01\nSC=/root/.openclaw/skills/pdf/scripts\n# Step 3: render blank template (render invocation #1)\npython3 \"$SC/convert_pdf_to_images.py\" \"$WS/input/sba1919_2024.pdf\" \"$WS/output/rendered/template\"\necho \"render exit: $?\"\nls -la \"$WS/output/rendered/template/\""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P02-build",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_iPjr65QxBahGdvViKpot8846",
+          "source_event_index": 20,
+          "source_step_id": 14,
+          "adaptation": "archived_call",
+          "source_call_sha256": "6e304f494dd987463ad197e581bd797b2df3750d97c95e64351ec9bd37df97a0",
+          "tool_call": {
+            "tool_call_id": "call_00_iPjr65QxBahGdvViKpot8846",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01\npython3 helpers/build_field_values.py && echo \"---DRYRUN---\" && python3 helpers/verify_mapping_dryrun.py && echo \"---SAMPLE applicant_01---\" && cat output/field_values/applicant_01.json && echo \"---files---\" && ls output/field_values/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_TRyGbSg4naaP5TbSw5mD5954",
+          "source_event_index": 23,
+          "source_step_id": 16,
+          "adaptation": "archived_call",
+          "source_call_sha256": "9ff61cc090b9ebf2c128a41b2040d77e0af4a24b5f3086884785a40288df856d",
+          "tool_call": {
+            "tool_call_id": "call_00_TRyGbSg4naaP5TbSw5mD5954",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01\nbash helpers/run_fill.sh\necho \"=== exit $? ===\"\nls -la output/filled/"
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_KGSjqKuqYR1ETVi9xloq9026",
+          "source_event_index": 24,
+          "source_step_id": 17,
+          "adaptation": "archived_call",
+          "source_call_sha256": "74538bf698fc18a6816337a6fa1eefd69c735f4a780cdb57ebd71f570a28fdb5",
+          "tool_call": {
+            "tool_call_id": "call_00_KGSjqKuqYR1ETVi9xloq9026",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01\nbash helpers/run_render.sh\necho \"=== exit $? ===\"\necho \"rendered dirs:\"; ls output/rendered/\necho \"page counts per dir:\"; for d in output/rendered/*/; do echo -n \"$d: \"; ls \"$d\" | tr '\\n' ' '; echo; done\necho \"min png sizes:\"; find output/rendered -name 'page_*.png' -printf '%s %p\\n' | sort -n | head -3"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_ET_IrTNcx3PwVwZyCsdVUyX9263",
+          "source_event_index": 26,
+          "source_step_id": 19,
+          "adaptation": "explicit_shell_reduction",
+          "source_call_sha256": "ff8df2d11156f926f67872983cfd26c4b0e39d48d5cb140454855c0fa25fc745",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && python3 helpers/write_summary.py && python3 input/verify_office.py"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "requires_llm": false,
+  "source": {
+    "canonical_sha256": "86a92c2378a2ec34efcf4940de6e75236128197e2aadb622f5398f9a17c73110",
+    "original_run_id": "pdf-sba1919-20261009T060857Z-b7a0ae3b",
+    "trajectory_sha256": "0378b2448dae7c681a504ebb2a38f904e127dabbcd058f26a8e36f8bac56e89d",
+    "tool_events_sha256": "c77b9b167df7e41e08fd458df3cec60872a2dc5736c304caf7448eb195269b5a",
+    "manifest_sha256": "2b65a2ca089abdf246fd9695cd539bb2890d6aaaa752083a352e4b2835e6b446",
+    "prompt_sha256": "81726279fdc6ff9e7f846b7247906f63fc6b66393696cd74380405a6a2b26bb0",
+    "skill_and_context_hashes": {
+      "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+      "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+      "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+      "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+      "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+      "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+      "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+      "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+      "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+    },
+    "input_hashes": {
+      "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+      "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
+      "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2"
+    },
+    "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "original_runtime_versions": {
+      "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+      "node": "v24.14.0",
+      "python": "Python 3.12.3",
+      "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+      "poppler": "pdftoppm version 24.02.0"
+    }
+  },
+  "helper_hashes": {
+    "helpers/build_field_values.py": "35a73a7733ce15cb8029a60ac63fd608f57dde57775865c04c98dff5da1a654f",
+    "helpers/run_fill.sh": "140a70be7c46e53b6038ccca69309213f3ca935afa6f21d76168af1aa39d209a",
+    "helpers/run_render.sh": "263ec2b5695c7548608fccd79a54885d79d2a4a5c87d19ee27bbc23aeac0005c",
+    "helpers/verify_mapping_dryrun.py": "72b9c9bf4e604560981adc103b610493784532b9762fc96ddac31329d042000b",
+    "helpers/write_summary.py": "605eac0ad2046eb51e39e6b6b73e7ea12d32c7ad901f048162c5f4c10ae32e1c",
+    "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+    "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+  },
+  "review": {
+    "method": "explicit per-run manual selection, frozen final helper staging, dependency reconstruction and executable qualification",
+    "note": "Successful dry-run, fill/render shell helpers and generated summary writer retained.",
+    "selected_call_ids": [
+      "call_00_aFz0gqOlM8qpcLb2wT4N8251",
+      "call_00_2ftxpy5bBAPV7yO0KPmH8499",
+      "call_00_iPjr65QxBahGdvViKpot8846",
+      "call_00_TRyGbSg4naaP5TbSw5mD5954",
+      "call_00_KGSjqKuqYR1ETVi9xloq9026",
+      "call_00_ET_IrTNcx3PwVwZyCsdVUyX9263"
+    ],
+    "excluded_call_ids": [
+      "call_00_Ke3tv1UdIoavveRTb2lM3207",
+      "call_01_xKCxuIG6K1kXviWhqLTi8143",
+      "call_00_3ZrYudr6cSrp4vwkEv806449",
+      "call_01_B5o1WIzeGkvH6BU0qgZF2538",
+      "call_02_hqWegDPj35fTNuurYjcA5836",
+      "call_00_Y1mT4HINsqWEvUVVYROA8774",
+      "call_01_rYUx6hHdZVuqcAdSkekq8047",
+      "call_00_V94I07lytZneVdXG9UGF4800",
+      "call_01_OuqiUmSk2t7JZE6psfVn4207",
+      "call_00_dP9wrR7KYnseHT5c7bCw4255",
+      "call_01_01MjNsGdwCO1STZoau8F2024",
+      "call_00_4VJRhGQrsdiIGJ1tp2JK2224",
+      "call_00_1DBNmTam5OCMC4qE46q12617",
+      "call_01_vFiENoh0mBAwDAylROtj7288",
+      "call_01_zS6zL7dLeRsyQX2SspjO7120",
+      "call_00_Kq98wGrUG6yWNhrbDUf05124",
+      "call_00_z2p122MVXd5j6uhINEAD1932",
+      "call_00_5CyyR4LIfDwwVwR9dedM7006",
+      "call_00_jkNEXWZQOLIG0LpvLxeC8023",
+      "call_01_xvRwuWUEJpLffKug0H2a8137",
+      "call_00_Q7hejH1AqiRTmnWRFSS73956",
+      "call_00_ggfhAmrFm9cOxeQ9XIZe7866"
+    ],
+    "capture_gap_decisions": [],
+    "qualifications": "Recipe existence alone is not replay qualification. Read reports/qualification.json for runtime-specific results."
+  },
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01",
+  "source_path": "assets/cases/sba1919/source",
+  "seed_path": "assets/cases/sba1919/seed",
+  "scratch_files": [],
+  "operation_timeout": 900,
+  "recalc_timeout": 180
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "number-format-audit-build-v1",
+  "created_at_utc": "2026-10-20T01:35:43Z",
+  "code_sha256": {
+    "compatibility/verification/spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+    "compatibility/verification/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "compatibility/verification/contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+    "compatibility/verification/workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e",
+    "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+    "compatibility/cases/retail_online/source/office_trace_bench/spreadsheet.py": "2d934873bf4a4dd4c16502e688daa0c13426da10931b848e447d279dec2e2801",
+    "analysis/hotspot-comparison/scripts/deep_audit_report.py": "d662998328f3950a29e9307bf7ab6093f3a66ec6507763596b73951a259c938f",
+    "analysis/hotspot-comparison/scripts/preflight_replay.py": "88b3711516e9291741894ede7ee77134eb44f6ad55251ddf8a08f4827a4fdca2",
+    "replay/accept.py": "76f4a65c9aeaf8e658a9290ed9c437f7d299ee81d30b4e4ea869807b1e1cf760",
+    "replay/freeze.py": "18c79cadbeca28778fc10b6378c91943293801af4db4714038d8a97014923f24",
+    "replay/source_assets.py": "3ded2f04a77d4bcb1291988e153f171e326cb78e874e500d70a61bd1c0d1e4f8",
+    "legacy/document-oe/bin/run_document_scene_loop.py": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+    "legacy/document-oe/bin/run_document_scene_loop_timed.py": "1a8cbde481d31ab6389b7c3c266d6510acac804866e2fdf8e5577aa766d7367e"
+  },
+  "source_assets_sha256": {
+    "compatibility/suite.json": "4e28e4f425ea4b029477f5dbb0bf474fabd0057e3f1783d25cf9de22d8675d20",
+    "suites/default.json": "0ca45d9a4d3ee591abc3569c2d31dbc6027d222b07bf3aad05f5f15f86113462",
+    "compatibility/contract.json": "7c8bc0df6df8491cfb4e52f2ce59c9ccb10e214fa2b0e0290309915e74752904",
+    "assets/project-lock.json": "4a23b322b24cb1dec2b04e892e4629ebe339dc672ed07db7ad3b5c7c4666c4de",
+    "compatibility/cases/hr_metro/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/manifest.json": "bddee1caa7a98034a4f0bd92a3823b5d89b35d69d1a2f88fdaa839afe0c89279",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/expected.json": "4925745764ff83b0f60d1260bab1ac7dd9de9acfaaa06e2605e881e83c6b5c81",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/provenance.json": "e7ebe10285ba83526178f21b3ae4c4e97dbb56fde8edc3b4fe9a5c8a0b41fd5f",
+    "compatibility/cases/retail_online/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/manifest.json": "6eea4c7719efa81c99b453c81889a750df5ef6aa2dd140302900f8c3fa4af1ac",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/expected.json": "0ae80231091509dd8f06af3a455508c4aa4f23063be68aa8af26f1ee658c61a0",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/provenance.json": "ffed056fbfb4c88cea1837e55b05fab8907c55bc4c0061adc379a5dfa1bb08e8"
+  },
+  "functional_run_records_sha256": {
+    "retail_online": "4c062c9ce06e4e5f941f4acc13bcaf5a60322bee27499fe530cf5124582a7d06",
+    "hr_metro": "b037f3265108b7716d178c211ff7e871f373d594e62672038a50ae1b38477a76"
+  },
+  "independent_verification_reports_sha256": {
+    "retail_online": "3a224fc4735ae600493546034e48158015e0b37d1b337f092d1c07c43a713434",
+    "hr_metro": "45fa9b186dfadd55079ddf81ba74f1d389a97c9635b086f307ce5feda0454b7b"
+  },
+  "output_workbook_sha256_before_after": {
+    "retail_online": {
+      "before": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+      "after": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87"
+    },
+    "hr_metro": {
+      "before": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0",
+      "after": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0"
+    }
+  },
+  "generated_report": "audit-report.md",
+  "report_hash_table_generator": "analysis/hotspot-comparison/scripts/deep_audit_report.py"
+}

@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "check_scope": "read-only archived metadata and file-existence validation; no workbook/PDF reload",
+  "note": "Native PDF summary has record_count=null; N is represented by pdf_applicant_count=1 and batch_summary applicant_count=1. An earlier local assertion incorrectly expected record_count=1; no workload retry occurred. A write attempt inside the container-owned run directory was denied, so this check is stored at the writable dataset result root; no chmod was used.",
+  "native_summary": {
+    "dataset": "irs_w4",
+    "record_count": null,
+    "pdf_applicant_count": 1,
+    "requested_iterations": 1,
+    "completed_iterations": 1,
+    "successes": 1,
+    "failures": 0
+  },
+  "iteration_statuses": [
+    "success"
+  ],
+  "business_verification": "success",
+  "independent_acceptance": "success",
+  "prepared_mappings": 10,
+  "filled_pdf_count": 1,
+  "rendered_pages": 5,
+  "template_pages": 5,
+  "missing_or_empty": [],
+  "batch_summary": {
+    "input_form": "fw4_2026.pdf",
+    "applicant_count": 1,
+    "filled_pdf_count": 1,
+    "rendered_page_count": 10,
+    "fill_script_invocations": 1,
+    "render_script_invocations": 2,
+    "ssn_and_signatures_left_blank": true,
+    "prepared_record_count": 10,
+    "field_values_count": 10
+  }
+}

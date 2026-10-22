@@ -1,0 +1,260 @@
+{
+  "schema_version": "office-dataset-v2",
+  "workload_contract": "spreadsheet-semantic-v3",
+  "loop_verification_contract": "document-oe-compatible-xlsx-loop-v1",
+  "kind": "xlsx",
+  "dataset_id": "retail_online",
+  "domain": "retail_online",
+  "task": "Analyze transaction-line sales in the complete Online Retail workbook. Keep each source row and report transparent positive-sale KPIs, a 2010 monthly trend, and an illustrative sales scenario.",
+  "workbook": "Online Retail.xlsx",
+  "output_workbook": "retail_online_enhanced.xlsx",
+  "input_files": {
+    "input/Online Retail.xlsx": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+    "input/prepared_selection.json": "e3a9dc6fe3d849f9403b2620822e3541f728ff7812d5d3322d433d2d1ca41bc1"
+  },
+  "expected_file": "expected.json",
+  "prompt_template": "xlsx.txt",
+  "prompt_template_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+  "runtime_case": "OFFICE-XLSX-RETAIL-ONLINE",
+  "requirements": {
+    "summary_sheet": "Sales Overview",
+    "metrics": [
+      {
+        "id": "gross_eligible_sales_gbp",
+        "name": "Gross eligible sales",
+        "meaning": "Sum of Quantity × UnitPrice for eligible positive transaction lines under the manifest policy.",
+        "unit": "GBP"
+      },
+      {
+        "id": "eligible_line_count",
+        "name": "Eligible transaction lines",
+        "meaning": "Count of eligible source rows, not unique InvoiceNo values.",
+        "unit": "lines"
+      },
+      {
+        "id": "eligible_quantity_units",
+        "name": "Eligible quantity",
+        "meaning": "Sum of positive Quantity for eligible transaction lines.",
+        "unit": "items"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "sales_multiplier",
+          "meaning": "Illustrative gross-sales multiplier; not a forecast."
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "sales_multiplier": 1.0
+          }
+        },
+        {
+          "name": "Higher",
+          "assumptions": {
+            "sales_multiplier": 1.05
+          }
+        },
+        {
+          "name": "Lower",
+          "assumptions": {
+            "sales_multiplier": 0.95
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_sales_gbp",
+          "meaning": "All-period gross eligible sales scaled by the selected illustrative assumption.",
+          "unit": "GBP"
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "monthly_2010_sales",
+        "meaning": "Eligible gross transaction-line sales by calendar month during 2010.",
+        "unit": "GBP"
+      }
+    ],
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "minimum_formula_count": 4,
+    "recalc_timeout": 600,
+    "base_sheets": [
+      "Online Retail"
+    ],
+    "base_dimensions": {
+      "Online Retail": [
+        541910,
+        8
+      ]
+    },
+    "base_dimension_details": {
+      "Online Retail": {
+        "declared_dimension": [
+          541910,
+          8
+        ],
+        "serialized_cell_range": [
+          541910,
+          8
+        ],
+        "effective_data_range": [
+          541910,
+          8
+        ],
+        "effective_range_method": "preparation-time read_only populated-value extent",
+        "boundary_cells": [
+          "A541910",
+          "H1",
+          "H541910"
+        ]
+      }
+    },
+    "raw_sheets": [
+      "Online Retail"
+    ],
+    "empty_strings_policy": {
+      "sheets": [],
+      "rule": "No source empty-string values are task inputs; source blanks are preserved."
+    },
+    "derived_sheets": {
+      "Derived Totals": {
+        "provenance": "Frozen preparation artifact derived once from the complete original Online Retail worksheet; not an official source worksheet.",
+        "prepared_selection": "input/prepared_selection.json",
+        "metric_anchors": {
+          "gross_eligible_sales_gbp": "B4",
+          "eligible_line_count": "B5",
+          "eligible_quantity_units": "B6"
+        },
+        "metric_value_paths": {
+          "gross_eligible_sales_gbp": "selection.totals.gross_eligible_sales_gbp",
+          "eligible_line_count": "selection.totals.eligible_line_count",
+          "eligible_quantity_units": "selection.totals.eligible_quantity_units"
+        },
+        "chart_series": {
+          "monthly_2010_sales": {
+            "value_range": "B20:B31",
+            "category_range": "A20:A31",
+            "value_path": "selection.monthly_2010_sales_gbp",
+            "category_dates": {
+              "start": "2010-01-01",
+              "months": 12
+            }
+          }
+        },
+        "frozen_cells": [
+          {
+            "address": "B9",
+            "path": "selection.totals.eligible_lines_missing_customer_id"
+          },
+          {
+            "address": "B11",
+            "path": "selection.totals.exclusion_counts.cancelled_invoice"
+          },
+          {
+            "address": "B12",
+            "path": "selection.totals.exclusion_counts.missing_invoice"
+          },
+          {
+            "address": "B13",
+            "path": "selection.totals.exclusion_counts.nonpositive_quantity"
+          },
+          {
+            "address": "B14",
+            "path": "selection.totals.exclusion_counts.nonpositive_unit_price"
+          },
+          {
+            "address": "B15",
+            "path": "selection.totals.exclusion_counts.missing_or_invalid_quantity"
+          },
+          {
+            "address": "B16",
+            "path": "selection.totals.exclusion_counts.missing_or_invalid_unit_price"
+          },
+          {
+            "address": "B17",
+            "path": "selection.totals.exclusion_counts.missing_or_invalid_invoice_date"
+          },
+          {
+            "address": "B18",
+            "path": "selection.currency"
+          }
+        ],
+        "max_rows": 40
+      }
+    },
+    "diagnostics_bindings": {
+      "file": "xlsx_business_diagnostics.json",
+      "prepared_selection": "input/prepared_selection.json",
+      "keys": {
+        "gross_eligible_sales_gbp": "selection.totals.gross_eligible_sales_gbp",
+        "eligible_line_count": "selection.totals.eligible_line_count",
+        "eligible_quantity_units": "selection.totals.eligible_quantity_units",
+        "eligible_lines_missing_customer_id": "selection.totals.eligible_lines_missing_customer_id",
+        "exclusion_counts": "selection.totals.exclusion_counts",
+        "currency": "selection.currency"
+      }
+    }
+  },
+  "publish_files": [],
+  "trace_rules": [
+    {
+      "pattern": "\\bverify_office\\.py\\b",
+      "operation": "verify_business"
+    },
+    {
+      "pattern": "recalc\\.py",
+      "operation": "recalculate_formulas"
+    }
+  ],
+  "required_outputs": [
+    "retail_online_enhanced.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "metrics.csv",
+    "scenario.csv",
+    "xlsx_business_diagnostics.json"
+  ],
+  "analysis_metadata": {
+    "complexity.json": "f3200e45ee6bfd720dda5519ce4b6450e87a8a473ffdc65d9cc5f18f32c11db0",
+    "content-summary.json": "8b69f05842781d0ab84bcde63732994dc5a3751db56e3cfc7b0699cfc372c1a9",
+    "provenance.json": "ffed056fbfb4c88cea1837e55b05fab8907c55bc4c0061adc379a5dfa1bb08e8"
+  },
+  "analysis_scope": {
+    "row_semantics": {
+      "row_unit": "one source transaction line; InvoiceNo is not unique per row",
+      "currency": "GBP, as stated for UnitPrice in the Online Retail dataset convention; no FX conversion",
+      "eligible_sales": "InvoiceNo is not blank after trimming ASCII spaces and is not prefixed C; Quantity and UnitPrice are native numeric cells greater than zero; InvoiceDate is a numeric Excel date serial in the valid range 1..2958465 (date-like text is excluded)",
+      "cancellations": "InvoiceNo beginning C (case-insensitive) excluded from positive-sales metrics",
+      "returns": "Quantity <= 0 excluded from positive-sales metrics; original rows remain unchanged",
+      "price": "UnitPrice <= 0 excluded; original values remain unchanged",
+      "missing_fields": "Blank InvoiceNo after ASCII-space trimming, nonnumeric/missing Quantity or UnitPrice, and nonnumeric/out-of-range/missing InvoiceDate are excluded from positive-sale metrics; missing CustomerID is retained and counted diagnostically",
+      "invoice_metric": "distinct InvoiceNo identifiers among eligible lines, not a count of unique orders or customers",
+      "monthly_chart": "eligible gross line sales for native dates from 2010-01-01 inclusive to 2011-01-01 exclusive; full-period KPIs use all eligible dates"
+    },
+    "sheets": [
+      "Online Retail"
+    ]
+  },
+  "origin_type": "manual_workflow_adaptation",
+  "agent_generated": false,
+  "requires_llm": false,
+  "expected_sha256": "0ae80231091509dd8f06af3a455508c4aa4f23063be68aa8af26f1ee658c61a0",
+  "preparation": {
+    "artifact": "input/prepared_selection.json",
+    "schema_version": "xlsx-prepared-selection-v1",
+    "workload_version": "manual-workflow-adaptation-v2",
+    "script": "scripts/prepare_xlsx_selection.py",
+    "script_sha256": "0a9bd2345f4251b93a2ff1abc1469a80ce4a24a9c4c6a109dbe4676a072460a8",
+    "input_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+    "note": "Frozen preparation artifact derived once from the official input outside the measured loop; formal derived input, not official source data, not an Agent answer, and it contains no final script, tool order or formulas."
+  }
+}

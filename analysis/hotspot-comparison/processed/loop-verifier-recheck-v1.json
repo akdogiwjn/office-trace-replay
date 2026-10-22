@@ -1,0 +1,3721 @@
+{
+  "schema_version": "loop-verifier-posthoc-recheck-v1",
+  "datasets": {
+    "retail": {
+      "dataset": "retail",
+      "scope": "loop verifier only; preserved output artifact; no workload or independent audit",
+      "status": "success",
+      "failures": [],
+      "checks": {
+        "workbook_file": {
+          "ok": true,
+          "detail": null
+        },
+        "base_sheets_present": {
+          "ok": true,
+          "detail": [
+            "2026",
+            "2025",
+            "2024",
+            "2023",
+            "2022",
+            "2021",
+            "2020",
+            "2019",
+            "2018",
+            "2017",
+            "2016",
+            "2015",
+            "2014",
+            "2013",
+            "2012",
+            "2011",
+            "2010",
+            "2009",
+            "2008",
+            "2007",
+            "2006",
+            "2005",
+            "2004",
+            "2003",
+            "2002",
+            "2001",
+            "2000",
+            "1999",
+            "1998",
+            "1997",
+            "1996",
+            "1995",
+            "1994",
+            "1993",
+            "1992",
+            "Overview"
+          ]
+        },
+        "base_sheet_order": {
+          "ok": true,
+          "detail": [
+            "2026",
+            "2025",
+            "2024",
+            "2023",
+            "2022",
+            "2021",
+            "2020",
+            "2019",
+            "2018",
+            "2017",
+            "2016",
+            "2015",
+            "2014",
+            "2013",
+            "2012",
+            "2011",
+            "2010",
+            "2009",
+            "2008",
+            "2007",
+            "2006",
+            "2005",
+            "2004",
+            "2003",
+            "2002",
+            "2001",
+            "2000",
+            "1999",
+            "1998",
+            "1997",
+            "1996",
+            "1995",
+            "1994",
+            "1993",
+            "1992"
+          ]
+        },
+        "base_sheet_scale:2026": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              124,
+              11
+            ],
+            "output_serialized_cell_range": [
+              124,
+              16
+            ],
+            "source_declared_dimension": [
+              124,
+              16
+            ],
+            "source_serialized_cell_range": [
+              124,
+              16
+            ],
+            "boundary_cells": [
+              "A124",
+              "K10",
+              "K11",
+              "K12",
+              "K13",
+              "K14",
+              "K15",
+              "K16",
+              "K17",
+              "K18",
+              "K19",
+              "K20",
+              "K21",
+              "K22",
+              "K26",
+              "K27",
+              "K28",
+              "K29",
+              "K30",
+              "K31",
+              "K32",
+              "K33",
+              "K34",
+              "K35",
+              "K36",
+              "K37",
+              "K38",
+              "K39",
+              "K40",
+              "K41",
+              "K43",
+              "K44",
+              "K45",
+              "K46",
+              "K48",
+              "K49",
+              "K5",
+              "K50",
+              "K51",
+              "K52",
+              "K53",
+              "K54",
+              "K55",
+              "K56",
+              "K57",
+              "K58",
+              "K59",
+              "K60",
+              "K61",
+              "K62",
+              "K63",
+              "K64",
+              "K65",
+              "K66",
+              "K68",
+              "K7",
+              "K70",
+              "K8",
+              "K9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2025": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2024": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2023": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2022": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2021": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2020": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2019": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2018": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2017": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              119,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A119",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2016": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              120,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2015": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2014": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2013": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              120,
+              16
+            ],
+            "source_declared_dimension": [
+              121,
+              16
+            ],
+            "source_serialized_cell_range": [
+              120,
+              16
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2012": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2011": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2010": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2009": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2008": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2007": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2006": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2005": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2004": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2003": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2002": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2001": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              116,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A116",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O25",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O31",
+              "O32",
+              "O33",
+              "O34",
+              "O35",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O45",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:2000": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1999": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1998": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1997": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1996": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1995": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1994": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1993": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:1992": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              118,
+              15
+            ],
+            "output_serialized_cell_range": [
+              118,
+              17
+            ],
+            "source_declared_dimension": [
+              118,
+              17
+            ],
+            "source_serialized_cell_range": [
+              118,
+              17
+            ],
+            "boundary_cells": [
+              "A118",
+              "O10",
+              "O11",
+              "O12",
+              "O13",
+              "O14",
+              "O15",
+              "O16",
+              "O17",
+              "O18",
+              "O19",
+              "O20",
+              "O21",
+              "O22",
+              "O23",
+              "O24",
+              "O26",
+              "O27",
+              "O28",
+              "O29",
+              "O30",
+              "O32",
+              "O33",
+              "O34",
+              "O36",
+              "O37",
+              "O38",
+              "O39",
+              "O40",
+              "O41",
+              "O42",
+              "O43",
+              "O44",
+              "O46",
+              "O47",
+              "O48",
+              "O49",
+              "O5",
+              "O50",
+              "O51",
+              "O52",
+              "O53",
+              "O54",
+              "O55",
+              "O56",
+              "O57",
+              "O58",
+              "O59",
+              "O60",
+              "O61",
+              "O62",
+              "O63",
+              "O64",
+              "O65",
+              "O66",
+              "O67",
+              "O68",
+              "O69",
+              "O7",
+              "O70",
+              "O8",
+              "O9"
+            ],
+            "boundary_cells_present": true
+          }
+        },
+        "overview_added": {
+          "ok": true,
+          "detail": null
+        },
+        "metric_inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:Overview!B6": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:metric:adjusted_sales": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:source_dependency:adjusted_sales": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:metric_color:adjusted_sales": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:Overview!B7": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:metric:monthly_growth": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:source_dependency:monthly_growth": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:metric_color:monthly_growth": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:Overview!B8": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:metric:annual_growth": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:source_dependency:annual_growth": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:metric_color:annual_growth": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:default": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:dropdown": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:selector_color": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:dimension_inventory:Base": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:assumption:Base:sales_multiplier": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:dimension_inventory:Higher": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:assumption:Higher:sales_multiplier": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:dimension_inventory:Lower": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:assumption:Lower:sales_multiplier": {
+          "ok": true,
+          "detail": null
+        },
+        "projection_inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:Overview!B19": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:projection:projected_sales": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:scenario_dependency:projected_sales": {
+          "ok": true,
+          "detail": {
+            "direct_references": [
+              [
+                "Overview",
+                "A14",
+                "A16"
+              ],
+              [
+                "Overview",
+                "B11",
+                "B11"
+              ],
+              [
+                "Overview",
+                "B14",
+                "B16"
+              ],
+              [
+                "Overview",
+                "B6",
+                "B6"
+              ]
+            ],
+            "link_basis": "direct_selector_reference",
+            "scope": "loop checks direct or one-cell formula-intermediate structure and cached business result; transitive path is independent-audit scope"
+          }
+        },
+        "chart_inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "chart:references:adjusted_trend": {
+          "ok": true,
+          "detail": [
+            "OVERVIEW!B22:D22",
+            "OVERVIEW!B23:D23"
+          ]
+        },
+        "semantic:chart:adjusted_trend": {
+          "ok": true,
+          "detail": [
+            [
+              731415,
+              732898,
+              729538
+            ]
+          ]
+        },
+        "semantic:chart_dependency:adjusted_trend": {
+          "ok": true,
+          "detail": {
+            "scope": "chart range and cached result in loop; transitive source path is independent-audit scope"
+          }
+        },
+        "chart:adjusted_trend": {
+          "ok": true,
+          "detail": null
+        },
+        "added_formula_count": {
+          "ok": true,
+          "detail": 7
+        },
+        "format:conditional_rules": {
+          "ok": true,
+          "detail": null
+        },
+        "format:comments": {
+          "ok": true,
+          "detail": null
+        },
+        "format:freeze_panes": {
+          "ok": true,
+          "detail": null
+        },
+        "no_external_links": {
+          "ok": true,
+          "detail": null
+        },
+        "zero_formula_errors": {
+          "ok": true,
+          "detail": []
+        },
+        "recalc_report": {
+          "ok": true,
+          "detail": null
+        },
+        "deliverable:retail_enhanced.xlsx": {
+          "ok": true,
+          "detail": null
+        },
+        "deliverable:workbook_features.json": {
+          "ok": true,
+          "detail": null
+        },
+        "deliverable:formula_recalc.json": {
+          "ok": true,
+          "detail": null
+        },
+        "csv_matches_workbook:metrics.csv": {
+          "ok": true,
+          "detail": {
+            "rows": 3,
+            "expected_rows": 3
+          }
+        },
+        "csv_matches_workbook:scenario.csv": {
+          "ok": true,
+          "detail": {
+            "rows": 1,
+            "expected_rows": 1
+          }
+        }
+      },
+      "evidence": {
+        "output_workbook": "analysis/hotspot-comparison/raw/current-loop-verifier-v1/retail/r1/failure-workspace/output/retail_enhanced.xlsx",
+        "output_workbook_sha256": "669749cd7629d758fe55bc8278d8de4d56dd41d922bc540c6ac46aeaa2f4724d",
+        "manifest": "compatibility/cases/retail/source/datasets/xlsx/retail/manifest.json",
+        "manifest_sha256": "f1912ef4ba54534a53e757ca896f93ba7374ba5db2e70a6815a638272b45ba98",
+        "expected": "compatibility/cases/retail/source/datasets/xlsx/retail/expected.json",
+        "expected_sha256": "7cde3d7e0a79aa0d49c2e7d1136d9d1b4a40417d0c0cb8268dbbaa3fdae736c0",
+        "original_failure_record": "analysis/hotspot-comparison/raw/current-loop-verifier-v1/retail/r1/failure-record.json",
+        "original_failure_record_sha256": "8f65c97c8e79fbd03c5df374ab6d0a6046b30b73ed1964450affe750c5a2386d",
+        "verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "1ea6463e5c7eaa7b16a4bba15a33371ce71ad1354cae8218718e3edab5dfe3b8",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        }
+      }
+    },
+    "hr": {
+      "dataset": "hr",
+      "scope": "loop verifier only; preserved output artifact; no workload or independent audit",
+      "status": "success",
+      "failures": [],
+      "checks": {
+        "workbook_file": {
+          "ok": true,
+          "detail": null
+        },
+        "base_sheets_present": {
+          "ok": true,
+          "detail": [
+            "national_M2025_dl",
+            "Field Descriptions",
+            "UpdateTime",
+            "Filler",
+            "OEWS Summary",
+            "Chart Data"
+          ]
+        },
+        "base_sheet_order": {
+          "ok": true,
+          "detail": [
+            "national_M2025_dl",
+            "Field Descriptions",
+            "UpdateTime",
+            "Filler"
+          ]
+        },
+        "base_sheet_scale:national_M2025_dl": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              1402,
+              32
+            ],
+            "output_serialized_cell_range": [
+              1402,
+              32
+            ],
+            "source_declared_dimension": null,
+            "source_serialized_cell_range": null,
+            "boundary_cells": [],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:Field Descriptions": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              48,
+              3
+            ],
+            "output_serialized_cell_range": [
+              48,
+              3
+            ],
+            "source_declared_dimension": null,
+            "source_serialized_cell_range": null,
+            "boundary_cells": [],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:UpdateTime": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              2,
+              1
+            ],
+            "output_serialized_cell_range": [
+              2,
+              1
+            ],
+            "source_declared_dimension": null,
+            "source_serialized_cell_range": null,
+            "boundary_cells": [],
+            "boundary_cells_present": true
+          }
+        },
+        "base_sheet_scale:Filler": {
+          "ok": true,
+          "detail": {
+            "source_effective_data_range": [
+              1,
+              1
+            ],
+            "output_serialized_cell_range": [
+              1,
+              1
+            ],
+            "source_declared_dimension": null,
+            "source_serialized_cell_range": null,
+            "boundary_cells": [],
+            "boundary_cells_present": true
+          }
+        },
+        "overview_added": {
+          "ok": true,
+          "detail": null
+        },
+        "metric_inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:OEWS Summary!B6": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:metric:total_employment": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:source_dependency:total_employment": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:metric_color:total_employment": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:OEWS Summary!B7": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:metric:annual_mean_wage": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:source_dependency:annual_mean_wage": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:metric_color:annual_mean_wage": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:OEWS Summary!B8": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:metric:hourly_median_wage": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:source_dependency:hourly_median_wage": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:metric_color:hourly_median_wage": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:default": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:dropdown": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:selector_color": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:dimension_inventory:Base": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:assumption:Base:wage_multiplier": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:dimension_inventory:Increase": {
+          "ok": true,
+          "detail": null
+        },
+        "scenario:assumption:Increase:wage_multiplier": {
+          "ok": true,
+          "detail": null
+        },
+        "projection_inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "feature:formula:OEWS Summary!B18": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:projection:projected_mean_wage": {
+          "ok": true,
+          "detail": null
+        },
+        "semantic:scenario_dependency:projected_mean_wage": {
+          "ok": true,
+          "detail": {
+            "direct_references": [
+              [
+                "OEWS Summary",
+                "B17",
+                "B17"
+              ],
+              [
+                "OEWS Summary",
+                "B7",
+                "B7"
+              ]
+            ],
+            "link_basis": "single_formula_intermediate",
+            "scope": "loop checks direct or one-cell formula-intermediate structure and cached business result; transitive path is independent-audit scope"
+          }
+        },
+        "chart_inventory": {
+          "ok": true,
+          "detail": null
+        },
+        "chart:references:major_employment": {
+          "ok": true,
+          "detail": [
+            "Chart Data!C28:C32",
+            "Chart Data!D27",
+            "Chart Data!D28:D32"
+          ]
+        },
+        "semantic:chart:major_employment": {
+          "ok": true,
+          "detail": [
+            [
+              17753430,
+              13680750,
+              13677150,
+              13424300,
+              11132700
+            ]
+          ]
+        },
+        "semantic:chart_dependency:major_employment": {
+          "ok": true,
+          "detail": {
+            "scope": "chart range and cached result in loop; transitive source path is independent-audit scope"
+          }
+        },
+        "chart:major_employment": {
+          "ok": true,
+          "detail": null
+        },
+        "added_formula_count": {
+          "ok": true,
+          "detail": 86
+        },
+        "format:conditional_rules": {
+          "ok": true,
+          "detail": null
+        },
+        "format:comments": {
+          "ok": true,
+          "detail": null
+        },
+        "format:freeze_panes": {
+          "ok": true,
+          "detail": null
+        },
+        "no_external_links": {
+          "ok": true,
+          "detail": null
+        },
+        "zero_formula_errors": {
+          "ok": true,
+          "detail": []
+        },
+        "recalc_report": {
+          "ok": true,
+          "detail": null
+        },
+        "deliverable:hr_enhanced.xlsx": {
+          "ok": true,
+          "detail": null
+        },
+        "deliverable:workbook_features.json": {
+          "ok": true,
+          "detail": null
+        },
+        "deliverable:formula_recalc.json": {
+          "ok": true,
+          "detail": null
+        },
+        "csv_matches_workbook:metrics.csv": {
+          "ok": true,
+          "detail": {
+            "rows": 3,
+            "expected_rows": 3
+          }
+        },
+        "csv_matches_workbook:scenario.csv": {
+          "ok": true,
+          "detail": {
+            "rows": 1,
+            "expected_rows": 1
+          }
+        }
+      },
+      "evidence": {
+        "output_workbook": "analysis/hotspot-comparison/raw/current-loop-verifier-v1/hr/r1/failure-workspace/output/hr_enhanced.xlsx",
+        "output_workbook_sha256": "8b624ed1b166d559554d3a9f2b10b0e907660211120a53702d05986fe161ea4f",
+        "manifest": "compatibility/cases/hr/source/datasets/xlsx/hr/manifest.json",
+        "manifest_sha256": "7bdd7903f9c4ecf3cf9cdfca5730fe5723649074eb6c477747f0ce7328616088",
+        "expected": "compatibility/cases/hr/source/datasets/xlsx/hr/expected.json",
+        "expected_sha256": "d7f9a987801f88829c549e37e9acb56f5ec4157da6cf79f375c966ee1210b13a",
+        "original_failure_record": "analysis/hotspot-comparison/raw/current-loop-verifier-v1/hr/r1/out/collection-record.json",
+        "original_failure_record_sha256": "c46672801334dc8e7ed035ad52557fa90d3c096cabf7c89b20561894676eade5",
+        "verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "1ea6463e5c7eaa7b16a4bba15a33371ce71ad1354cae8218718e3edab5dfe3b8",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        }
+      }
+    }
+  },
+  "limitation": "A post-hoc verifier pass does not rewrite or promote the original failed collection/profile record."
+}

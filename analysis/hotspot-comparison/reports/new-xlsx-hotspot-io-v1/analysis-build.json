@@ -1,0 +1,34 @@
+{
+  "schema": "new-xlsx-hotspot-io-analysis-build-v1",
+  "analysis_script": "scripts/analyze_new_xlsx_hotspots_v1.py",
+  "analysis_script_sha256": "4947183f286373e66cfa6ae1898dab3419629a7a16153c5ba47f40b0b3361186",
+  "classifier_sources": [
+    {
+      "path": "scripts/build_profiles.py",
+      "sha256": "250d4ba69ca918fabc5c390818c43d5407da3edb359f7ce99ae3719a4d417387"
+    },
+    {
+      "path": "scripts/analyze_hotspot_version_v2.py",
+      "sha256": "1a9c24dcec9875760eb764340f863acc97b2400f6e5d6ffe196fd918e8a43e84"
+    },
+    {
+      "path": "scripts/analyze_script_io_comparison.py",
+      "sha256": "1796e7b55af51673ef4b63495371eee25858dd2be7b2f7b700e2c315b9331c16"
+    },
+    {
+      "path": "scripts/parse_pyspy.py",
+      "sha256": "c9e60b73b31e36a8985e3a0841f2d9a5f995fe572b5009a94643b8b373e7e886"
+    }
+  ],
+  "historical_comparison_reference": {
+    "path": "reports/hotspot-version-comparison-v2/comparison.json",
+    "sha256": "792408efd63f2c8ce6697f7ba3f2d4c0a1e19a702782890345948052e9f64bfa"
+  },
+  "retail_pyspy_campaign_manifest": {
+    "path": "raw/new-xlsx-performance-v1/20261020T032424Z-retail-online-pyspy/campaign-manifest.json",
+    "sha256": "8a377caa6ad67811498ed608a3d221fef4bb441569f5b91bde99c6a1056c275e"
+  },
+  "raw_perf_data_policy": "No perf.data or large perf script export was read or rehashed. Native summaries consume existing parsed samples; source hashes come from existing stage indexes where present.",
+  "comparison_json_sha256": "e6850469a70b37c6e578afb002b1cda37d172e02d4493a725a1e978f597290a9",
+  "comparison_report_sha256": "a6071184f26fe9c37090ce3e124231954b8db83ea443bf411aa71c04ad2f296e"
+}

@@ -1,0 +1,45 @@
+{
+  "abstraction": "steps",
+  "completed_iterations": 1,
+  "dataset": "irs_w4",
+  "elapsed_seconds": 14.684308,
+  "environment": {
+    "libreoffice": "LibreOfficeDev 25.8.7.3",
+    "packages": {
+      "et_xmlfile": "2.0.0",
+      "openpyxl": "3.1.5",
+      "pdf2image": "1.17.0",
+      "pillow": "12.2.0",
+      "pypdf": "6.10.0"
+    },
+    "python3_executable": "/opt/document-bench/.venv/bin/python3",
+    "python3_openpyxl": "3.1.5",
+    "python3_version": "3.12.3",
+    "python_executable": "/opt/document-bench/.venv/bin/python",
+    "python_version": "3.12.3"
+  },
+  "events_file": "/results/c/irs_w4-n10/20261017T151342Z-e1b1559d/pdf/20261017T151343Z-pid9101/iterations.jsonl",
+  "failures": 0,
+  "finished_at": "2026-10-17T15:13:58.059+00:00",
+  "interrupted": false,
+  "operation_timeout_seconds": 300,
+  "pdf_applicant_count": 10,
+  "python_mode": "venv",
+  "recalc_timeout_seconds": 180,
+  "recipe": "/opt/office-trace-replay/compatibility/recipes/irs_w4-n10.json",
+  "recipe_sha256": "816239c4dbab1189e44851a4340acbe55a4959dfcc2567856245c31206884998",
+  "requested_iterations": 1,
+  "run_id": "20261017T151343Z-pid9101",
+  "scene": "pdf",
+  "schema_version": "document-step-scene-loop-v2",
+  "seed": "/opt/office-trace-replay/compatibility/cases/irs_w4-n10/seed",
+  "started_at": "2026-10-17T15:13:43.374+00:00",
+  "step_order": [
+    "PDF-P01-inspect_prepare",
+    "PDF-P02-build",
+    "PDF-P03-process_publish",
+    "PDF-P04-verify_deliver"
+  ],
+  "successes": 1,
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01"
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "xlsx-prepared-selection-v1",
+  "dataset_id": "hr_metro",
+  "workload_version": "manual-workflow-adaptation-v2",
+  "input_file": "MSA_M2025_dl.xlsx",
+  "input_sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+  "prepared_by": {
+    "script": "scripts/prepare_xlsx_selection.py",
+    "script_sha256": "0a9bd2345f4251b93a2ff1abc1469a80ce4a24a9c4c6a109dbe4676a072460a8",
+    "oracle_module": "scripts/prepare_manual_xlsx_assets.py",
+    "method": "single read-only streaming pass over the official input; independent of the enhancement helper",
+    "checked_against_expected": true
+  },
+  "selection": {
+    "sheet": "MSA_M2025_dl",
+    "header_row": 1,
+    "scope": {
+      "AREA": "35620",
+      "AREA_TITLE": "New York-Newark-Jersey City, NY-NJ",
+      "AREA_TYPE": "4",
+      "NAICS": "000000",
+      "I_GROUP": "cross-industry",
+      "OWN_CODE": "1235"
+    },
+    "columns": {
+      "AREA": "A",
+      "AREA_TITLE": "B",
+      "AREA_TYPE": "C",
+      "NAICS": "E",
+      "I_GROUP": "G",
+      "OWN_CODE": "H",
+      "O_GROUP": "K",
+      "OCC_CODE": "I",
+      "OCC_TITLE": "J",
+      "TOT_EMP": "L",
+      "A_MEAN": "S",
+      "H_MEDIAN": "W"
+    },
+    "occupation_rule": "Use the single O_GROUP=total / OCC_CODE=00-0000 row for total KPIs; use only O_GROUP=major rows ranked by TOT_EMP for the comparison chart; suppressed employment observations are excluded from ranking and counted.",
+    "total": {
+      "row": 93966,
+      "o_group": "total",
+      "occ_code": "00-0000",
+      "occ_title": "All Occupations",
+      "kpis": {
+        "total_employment": {
+          "cell": "L93966",
+          "value": 9492000.0
+        },
+        "annual_mean_wage": {
+          "cell": "S93966",
+          "value": 86310.0
+        },
+        "hourly_median_wage": {
+          "cell": "W93966",
+          "value": 29.53
+        }
+      }
+    },
+    "chart_rows": [
+      {
+        "row": 94460,
+        "occupation_code": "43-0000",
+        "occupation_title": "Office and Administrative Support Occupations",
+        "occupation_title_cell": "J94460",
+        "employment_cell": "L94460",
+        "employment": 1109360
+      },
+      {
+        "row": 94336,
+        "occupation_code": "31-0000",
+        "occupation_title": "Healthcare Support Occupations",
+        "occupation_title_cell": "J94336",
+        "employment_cell": "L94336",
+        "employment": 843730
+      },
+      {
+        "row": 94437,
+        "occupation_code": "41-0000",
+        "occupation_title": "Sales and Related Occupations",
+        "occupation_title_cell": "J94437",
+        "employment_cell": "L94437",
+        "employment": 751110
+      },
+      {
+        "row": 94004,
+        "occupation_code": "13-0000",
+        "occupation_title": "Business and Financial Operations Occupations",
+        "occupation_title_cell": "J94004",
+        "employment_cell": "L94004",
+        "employment": 725700
+      },
+      {
+        "row": 93967,
+        "occupation_code": "11-0000",
+        "occupation_title": "Management Occupations",
+        "occupation_title_cell": "J93967",
+        "employment_cell": "L93967",
+        "employment": 713690
+      }
+    ],
+    "diagnostics": {
+      "selected_record_count": 792,
+      "major_group_count": 22,
+      "major_group_suppressed_employment_count": 0,
+      "suppression_marker_counts": {
+        "H_MEAN": 64,
+        "H_MEDIAN": 64,
+        "TOT_EMP": 27,
+        "A_MEAN": 12,
+        "A_MEDIAN": 12
+      },
+      "counting_method": "one streaming read_only pass over the original worksheet"
+    }
+  }
+}

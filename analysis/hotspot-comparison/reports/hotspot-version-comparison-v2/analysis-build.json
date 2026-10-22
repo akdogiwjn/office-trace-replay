@@ -1,0 +1,76 @@
+{
+  "schema": "hotspot-version-comparison-build-v2",
+  "generated_utc": "2026-10-19",
+  "analysis_script": "scripts/analyze_hotspot_version_v2.py",
+  "analysis_script_sha256": "1a9c24dcec9875760eb764340f863acc97b2400f6e5d6ffe196fd918e8a43e84",
+  "script_io_classifier_sha256": "0d3661923e23d4b3001d172eb8df070b3f3cbee98ea36d754608ee1c55d28b6b",
+  "profile_builder_sha256": "5baae41adfae265210f30bb4e580f29bf12877ce9b731ac4a496f624ff57576e",
+  "evidence_inventory": {
+    "path": "raw/current-loop-hotspots-v2/20261019T124014Z-845e640e-remaining-modes/evidence-inventory.json",
+    "sha256": "4be59da073b768c91cae28df84078b200c3d9235b859f1955a45a1c6d2d30b5c"
+  },
+  "retail_recovery_record": {
+    "path": "raw/current-loop-hotspots-v2/recovery/20261019T122928Z-a6a55875-retail-native-offline/retail/r1/out/recovery-record.json",
+    "sha256": "fe66f75c61e91fc905b2e85b9dc7fda3d2b0ffe1f89e81d3ffb01585786eb075"
+  },
+  "historical_report": {
+    "path": "legacy/evidence/ANALYSIS-python3123.md",
+    "sha256": "385bb1bdcb1581ebacdae35a58617a43c7dca0d35b5dd91d856a9c57d5206ba6"
+  },
+  "current_old_run_provenance": {
+    "path": "metadata/run-provenance.json",
+    "sha256": "12031fc7d58ec89d0b073bfaa39eb1e632860a56635810c38c69c40198aecbd7"
+  },
+  "historical_xlsx_pyspy_svg": {
+    "path": "legacy/evidence/python3123-pyspy/xlsx-python.svg",
+    "sha256": "912fdd4701ba960a6ea56d71e2c8684bccb8f95dcb0d87d8f6e50c9fe5cda660"
+  },
+  "raw_hash_policy": "Large raw data hashes are referenced from existing campaign SHA256 indexes; this build did not rehash perf.data, samples.txt, or py-spy raw captures.",
+  "versions": {
+    "new_xlsx_campaign_image_id": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+    "new_xlsx_runner_sha256": "559a5c9a06dc863303edcff3ca169d4a695d8fdd7d2be06e23b37a51a48b03ba",
+    "new_xlsx_python": "3.12.3",
+    "retail_workload_identity_from_original_run": {
+      "image": "office-trace-replay:openeuler-v9",
+      "image_id": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+      "runner_sha256": "559a5c9a06dc863303edcff3ca169d4a695d8fdd7d2be06e23b37a51a48b03ba",
+      "recipe_sha256": "3cf5a6db3ed7fb246cccdec98fc1287c4d1274e5b72c108256e63b9813793fce",
+      "verifier_sha256": {
+        "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+        "spreadsheet.py": "8bbd78a81125d84e59fc77a984271e2e778c2bdc1b6c8b283d2d18f1bfeedfc5",
+        "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+        "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+      },
+      "input_sha256": {
+        "input/dataset_manifest.json": "f1912ef4ba54534a53e757ca896f93ba7374ba5db2e70a6815a638272b45ba98",
+        "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_sha256": {
+        "helpers/build_enhance.py": "e3bd45d939955a4bf1ba76bd866595d0894978b2d01d0aa86d7f4a1c0bf58103"
+      },
+      "python_version": "3.12.3",
+      "packages": {
+        "et_xmlfile": "2.0.0",
+        "openpyxl": "3.1.5",
+        "pdf2image": "1.17.0",
+        "pillow": "12.2.0",
+        "pypdf": "6.10.0"
+      },
+      "sampling": {
+        "native_event": "cycles:u",
+        "frequency_hz": 49,
+        "pyspy_frequency_hz": 49,
+        "mode": "native"
+      },
+      "cpu_affinity": {
+        "workload": "0-7",
+        "monitor": "9"
+      },
+      "run_id": "20261019T120106Z-pid25",
+      "workload_status": "success",
+      "requested_loops": 1,
+      "completed_loops": 1
+    }
+  }
+}

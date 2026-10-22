@@ -1,0 +1,248 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_id": "OFFICE-XLSX-MANUFACTURING",
+  "case_kind": "xlsx",
+  "dataset_id": "manufacturing",
+  "scope": "final_effective_tool_execution",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "XLSX-P01-inspect_prepare",
+      "XLSX-P02-build",
+      "XLSX-P03-process_publish",
+      "XLSX-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "XLSX-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_01_2MYDhibHkOFtYu4qu7JK4908",
+          "source_event_index": 5,
+          "source_step_id": 4,
+          "adaptation": "archived_call",
+          "source_call_sha256": "e202d68e9ea8c27a055a4d032a19885061d31f5949009bd19533b77ac504db57",
+          "tool_call": {
+            "tool_call_id": "call_01_2MYDhibHkOFtYu4qu7JK4908",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING && python3 -c \"\nfrom openpyxl import load_workbook\nwb = load_workbook('input/text.xlsx')\nprint('SHEETS:', wb.sheetnames)\nfor ws in wb.worksheets:\n    print('===', ws.title, 'dims', ws.dimensions, 'max_row', ws.max_row, 'max_col', ws.max_column)\n    print('  merged:', list(ws.merged_cells.ranges)[:20])\n    print('  charts:', len(ws._charts))\n\""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P02-build",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_Wv8i587vEWVrGds8kcEh7270",
+          "source_event_index": 22,
+          "source_step_id": 17,
+          "adaptation": "archived_call",
+          "source_call_sha256": "72e2472b0afa678d91c6b47d1da7469b8795137d49e0a5374c63560be79aaa92",
+          "tool_call": {
+            "tool_call_id": "call_00_Wv8i587vEWVrGds8kcEh7270",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING && python3 build_enhanced.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_qMdbxANiW2IJSSarh8E27032",
+          "source_event_index": 24,
+          "source_step_id": 19,
+          "adaptation": "archived_call",
+          "source_call_sha256": "c8db59289ae0e5ed777388bd366651c0cec7bcfcfbf652023a3f852594fc425a",
+          "tool_call": {
+            "tool_call_id": "call_00_qMdbxANiW2IJSSarh8E27032",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING && cp build/enhanced_base.xlsx build/recalc_work.xlsx && cd /root/.openclaw/skills/xlsx/scripts && python3 recalc.py /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING/build/recalc_work.xlsx 180 | tee /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING/build/recalc_attempt1.json"
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_ET_9URTL9CKaHnJTx0EMsE42720",
+          "source_event_index": 32,
+          "source_step_id": 27,
+          "adaptation": "explicit_shell_reduction",
+          "source_call_sha256": "7649135471200a8a8400f7e6457e6fc4fa2e5566cbf823ae84e79b5d2a324a85",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING && python3 inject_caches.py"
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_o5SrvrXtdQDkmZxNzcgh7803",
+          "source_event_index": 33,
+          "source_step_id": 28,
+          "adaptation": "archived_call",
+          "source_call_sha256": "d6b8460d792d1c35b01d90f211caad5ff6aa9ddee9f635b23c256ab2c6c1d39c",
+          "tool_call": {
+            "tool_call_id": "call_00_o5SrvrXtdQDkmZxNzcgh7803",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING && cp build/recalc_attempt1.json output/formula_recalc.json && cat > output/workbook_features.json <<'EOF'\n{\n  \"summary_sheet\": \"Overview\",\n  \"metrics\": {\n    \"total_shipments\": {\"sheet\": \"Overview\", \"cell\": \"B6\"},\n    \"monthly_growth\": {\"sheet\": \"Overview\", \"cell\": \"B7\"},\n    \"durable_share\": {\"sheet\": \"Overview\", \"cell\": \"B8\"},\n    \"nondurable_shipments\": {\"sheet\": \"Overview\", \"cell\": \"B9\"}\n  },\n  \"scenario\": {\n    \"selector\": {\"sheet\": \"Overview\", \"cell\": \"B12\"},\n    \"assumptions\": {\n      \"Base\": {\"shipments_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B15\"}},\n      \"Expansion\": {\"shipments_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B16\"}},\n      \"Contraction\": {\"shipments_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B17\"}}\n    },\n    \"projections\": {\n      \"projected_shipments\": {\"sheet\": \"Overview\", \"cell\": \"B18\"}\n    }\n  },\n  \"charts\": {\n    \"durability_mix\": {\"sheet\": \"Overview\", \"index\": 0},\n    \"shipment_trend\": {\"sheet\": \"Overview\", \"index\": 1}\n  }\n}\nEOF\necho written && cat output/formula_recalc.json"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_4sry1nwJUYVCpgzvZ9UC5922",
+          "source_event_index": 36,
+          "source_step_id": 31,
+          "adaptation": "archived_call",
+          "source_call_sha256": "d82e6372afd73a179e2ad96af4fa9195f8da57ee52ae5ab0f09dcc78f3791f1a",
+          "tool_call": {
+            "tool_call_id": "call_00_4sry1nwJUYVCpgzvZ9UC5922",
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING/output/xlsx_enhancement_summary.json",
+              "content": "{\n  \"dataset_id\": \"manufacturing\",\n  \"output_workbook\": \"manufacturing_enhanced.xlsx\",\n  \"added_sheets\": [\"Overview\"],\n  \"summary_sheet\": \"Overview\",\n  \"original_sheets_preserved\": [\"Table 1\", \"Table 2\", \"Table 3\", \"Table 4\", \"Table 5\", \"Table 6\", \"Table 7\", \"Sheet1\"],\n  \"feature_counts\": {\n    \"metrics\": 4,\n    \"scenario_selector\": 1,\n    \"scenario_dimensions\": 1,\n    \"scenario_rows\": 3,\n    \"scenario_assumptions\": 3,\n    \"projections\": 1,\n    \"charts\": 2,\n    \"comments\": 3,\n    \"conditional_format_rules\": 4,\n    \"freeze_panes\": 1,\n    \"data_validation_dropdowns\": 1,\n    \"new_formulas\": 10,\n    \"cross_sheet_formulas\": 9,\n    \"local_formulas\": 1,\n    \"editable_input_cells\": 4\n  },\n  \"helper_filenames\": [\n    \"build_enhanced.py\",\n    \"inject_caches.py\",\n    \"build/enhanced_base.xlsx\",\n    \"build/recalc_work.xlsx\",\n    \"build/recalc_attempt1.json\"\n  ],\n  \"helper_attempts\": [\n    {\"helper\": \"build_enhanced.py\", \"attempt\": 1, \"success\": true, \"note\": \"Built Overview sheet with metrics, scenario, projections and charts; appended after originals.\"},\n    {\"helper\": \"inject_caches.py\", \"attempt\": 1, \"success\": false, \"note\": \"Relationship Target regex failed (attribute order); repaired in run 2.\"},\n    {\"helper\": \"inject_caches.py\", \"attempt\": 2, \"success\": true, \"note\": \"Injected recalculated caches into Overview formula cells at XML level.\"},\n    {\"helper\": \"input/verify_office.py\", \"attempt\": 1, \"success\": true, \"note\": \"business_verification.json status=success, 103 checks, 0 failures.\"}\n  ],\n  \"recalc_invocations\": 2,\n  \"recalc_attempts\": [\n    {\"target\": \"/tmp/rtest/copy.xlsx\", \"purpose\": \"environment probe\", \"timeout\": 180, \"status\": \"success\", \"total_errors\": 0, \"total_formulas\": 0},\n    {\"target\": \"build/recalc_work.xlsx\", \"purpose\": \"recalculate enhanced formulas\", \"timeout\": 180, \"status\": \"success\", \"total_errors\": 0, \"total_formulas\": 10}\n  ],\n  \"recalc_report_file\": \"formula_recalc.json\",\n  \"source_restoration\": \"LibreOffice recalc altered original-sheet styles/merged ranges, so the output package was built from the pristine openpyxl serialization (which preserves source content) and only the added sheet's <v/> placeholders were patched with recalculated caches via XML injection; originals were never re-serialized through the spreadsheet engine.\",\n  \"final_verifier_status\": \"success\"\n}\n"
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_zxv9LxFhMaGlH23iWxrn2793",
+          "source_event_index": 37,
+          "source_step_id": 32,
+          "adaptation": "explicit_shell_reduction",
+          "source_call_sha256": "f4406ebc8ff895afa1cad39da998b869909f25ce6298264c64c81e81390b1f90",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING && python3 input/verify_office.py"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "requires_llm": false,
+  "source": {
+    "canonical_sha256": "7dd6a7f4b3476d354db7a8678438e8a3313f896b3350cbf6516ea78132c8ad0d",
+    "original_run_id": "xlsx-manufacturing-20261009T101352Z-bd60f53e",
+    "trajectory_sha256": "1ef604c890dff1e83d10ac1cfeb154733d26a179b2652648f352014d9f919400",
+    "tool_events_sha256": "5f98c61b94482fdafa0dc5ac52e0934803eb1273fc63d3d6769edfaed2aa0105",
+    "manifest_sha256": "d1b0226702960d952bfdc95e2c0d61a6b1232244acaa0675f8186437c6bec8b0",
+    "prompt_sha256": "394c2ece661271c6b7f5d32816e9b04907f6d94bf2c8ee725d33a873fd5ef77c",
+    "skill_and_context_hashes": {
+      "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+      "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+      "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+      "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+      "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+      "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+      "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+      "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+      "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+    },
+    "input_hashes": {
+      "input/text.xlsx": "3a675ad4067e5463600ba46237c1f38123a4b83519035d1450b511496c130e43"
+    },
+    "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "original_runtime_versions": {
+      "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+      "node": "v24.14.0",
+      "python": "Python 3.12.3",
+      "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+      "poppler": "pdftoppm version 24.02.0"
+    }
+  },
+  "helper_hashes": {
+    "build_enhanced.py": "9556402190d51384820dfd83400f5b14438bb706c532e610f8fc0c483fd4b53e",
+    "inject_caches.py": "31cf8389c808e63e7bb84fd4affd8b3c451cc4bd74dea07bea6cc19de5056120",
+    "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+  },
+  "review": {
+    "method": "explicit per-run manual selection, frozen final helper staging, dependency reconstruction and executable qualification",
+    "note": "Pristine build and independent recalculated copy retained. Final edited cache injector replaces the failed initial version.",
+    "selected_call_ids": [
+      "call_01_2MYDhibHkOFtYu4qu7JK4908",
+      "call_00_Wv8i587vEWVrGds8kcEh7270",
+      "call_00_qMdbxANiW2IJSSarh8E27032",
+      "call_00_ET_9URTL9CKaHnJTx0EMsE42720",
+      "call_00_o5SrvrXtdQDkmZxNzcgh7803",
+      "call_00_4sry1nwJUYVCpgzvZ9UC5922",
+      "call_00_zxv9LxFhMaGlH23iWxrn2793"
+    ],
+    "excluded_call_ids": [
+      "call_00_xukW1G3FfhdOTUsV1Khp8585",
+      "call_01_7kHjn7BsmO15CqR2KYXA4668",
+      "call_00_QEPhz4mH2ftZLKfCAvv08250",
+      "call_01_13i6NybSWgABYw8RQiZo2984",
+      "call_00_Og5T0JwdNoSAorykYv4J8388",
+      "call_00_BQmzVaWM4fLbthTES8d92709",
+      "call_00_NB3yw6bhPqiIU5YeyCJ70885",
+      "call_00_CbkEAnIQp9Nx4ktAV72l2267",
+      "call_01_1pOSQLlhFIsf0NldTrXT6747",
+      "call_00_ET_B4reLeggADsQ2NpjKU6U0182",
+      "call_01_ET_Miyh4XlZdff2xMZ5Jyam7477",
+      "call_00_7AB0xrPMMZanSbJbLSN54424",
+      "call_00_4SLNbiRF2g57ikSF6jHB2728",
+      "call_01_GGzkZ1LTJS1kqsHgVizC2895",
+      "call_00_KJXdWqKGKE51Y55y9SXR8140",
+      "call_00_AnzL8teVGFhzN0OvgItS0143",
+      "call_01_3lg2G15FOiNbtVygkpwh6594",
+      "call_00_jT81vbLe3lJtJboCcP970209",
+      "call_00_exxwRnWS1ZCQnYo2uHis3346",
+      "call_00_IFvqgdb02z62jrfiwJpz0837",
+      "call_00_sRwnbMyph1qA2AGdjgWO4910",
+      "call_00_ZYNu1CL9FCt20zj53FIr0872",
+      "call_00_Qerx8X7HCe69VgkBhdFq1330",
+      "call_00_NeTPtjYar6WLL0PmCPLf0344",
+      "call_00_i1UcwI1auTNj2N1Goppu8272",
+      "call_00_zvXd4TYBCV0J0QAQ0lU35890",
+      "call_00_ET_X0j5UeFWRg0pX6JeClot5372",
+      "call_00_mnoI1ykGSwbUMESiE8HH7598",
+      "call_00_WSr41iIG5wi31wMsDtdC9813",
+      "call_00_IgG42u6IbQ6H9JUsmZLq6467",
+      "call_00_S1PrzbY9sUx8cuRvRxVS5625",
+      "call_00_PeD6r6XI8cahG8dJeO8k6364"
+    ],
+    "capture_gap_decisions": [
+      {
+        "path": "workspace/output/business_verification.json.tmp",
+        "reason": "FileNotFoundError",
+        "classification": "ephemeral_in_selected_recipe",
+        "final_artifact_sha256": "1ebbfd7178bcbcfab01f098f15369abc3fcd5456bc35403dc3597273be96b0c6",
+        "evidence": "captured moved_to final report; selected verifier regenerates it; no selected consumer reads the tmp path"
+      }
+    ],
+    "qualifications": "Recipe existence alone is not replay qualification. Read reports/qualification.json for runtime-specific results."
+  },
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-MANUFACTURING",
+  "source_path": "assets/cases/manufacturing/source",
+  "seed_path": "assets/cases/manufacturing/seed",
+  "scratch_files": [],
+  "operation_timeout": 900,
+  "recalc_timeout": 180
+}

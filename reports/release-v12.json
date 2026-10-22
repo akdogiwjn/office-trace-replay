@@ -1,0 +1,55 @@
+{
+  "schema_version": "office-replay-release-closeout-v1",
+  "release": "office-trace-replay:openeuler-v12",
+  "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+  "status": "seven_bare_image_single_iteration_checks_passed",
+  "functional_evidence": {
+    "path": "reports/evidence/v12/index.json",
+    "sha256": "91d48e5aa221e7df686ac9f1c0b322205c397db1d07dcad1b99508e8915b1e0d"
+  },
+  "versioned_analysis_selection": {
+    "path": "analysis/hotspot-comparison/config/next-comparison-suite.json",
+    "sha256": "f1de33f5bc328df53126fd209e9d17b70a9fd113cda679ec48d333423d56a9ce"
+  },
+  "closeout_changes": [
+    "Separate current prepared-v2 function/CPU evidence from historical native and py-spy captures",
+    "Freeze small byte-identical v12 reports and measurement-origin bindings",
+    "Replace obsolete README and current workflow instructions with release entry points",
+    "Ignore local replay workspaces and fixture trial directories without deleting them"
+  ],
+  "runtime_or_workload_changed_during_closeout": false,
+  "image_rebuilt": false,
+  "workload_executed_during_closeout": false,
+  "validation": {
+    "targeted_tests": {
+      "passed": 18,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0,
+      "modules": [
+        "tests.test_release_evidence",
+        "tests.test_future_analysis_selection",
+        "tests.test_image_packaging",
+        "analysis/hotspot-comparison/tests/test_cpu_measurement_analysis.py"
+      ]
+    },
+    "self_contained_staged_snapshot": true,
+    "static_bindings_and_readiness": "passed",
+    "frozen_legacy_workload_files": 43,
+    "legacy_mismatches_against_previous_HEAD": 0,
+    "all_frozen_project_paths_tracked": true,
+    "full_test_suite_run": false,
+    "whitespace_check": "Closeout docs/config/evidence/tests passed; imported frozen vendor/evidence whitespace retained without changing source bytes."
+  },
+  "retention": {
+    "committed": "Code, required inputs/canonical assets, prepared artifacts, small evidence snapshots and analysis reports",
+    "local_only": "Full results/replay workspaces, perf raw, monitor streams, fixture-run outputs",
+    "historical_records_rewritten": false
+  },
+  "limitations": [
+    "PDF v12 functional checks use N=1, not a new N=10 qualification",
+    "CPU results use v11 with mounted measurement-time code; no v12 performance capture",
+    "One measured iteration per XLSX; polling/ROI/overhead limits remain",
+    "Evidence snapshots are not complete output artifacts or performance raw"
+  ]
+}

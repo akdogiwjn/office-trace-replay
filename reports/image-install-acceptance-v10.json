@@ -1,0 +1,27 @@
+{
+  "schema_version": "office-replay-image-install-acceptance-v1",
+  "status": "failed",
+  "image": "office-trace-replay:openeuler-v10",
+  "image_id": "sha256:c24b655d2e5fe07ef0222447e38d49bc95c35a234d759bf07a566f203ceea54a",
+  "architecture": "arm64",
+  "image_size_bytes": 19544728846,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--entrypoint",
+    "/opt/document-bench/.venv/bin/python",
+    "office-trace-replay:openeuler-v10",
+    "scripts/accept_install.py"
+  ],
+  "network": "none",
+  "host_source_mounts": [],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/opt/office-trace-replay/scripts/accept_install.py\", line 159, in <module>\n    main()\n  File \"/opt/office-trace-replay/scripts/accept_install.py\", line 144, in main\n    require(not present_excluded, 'excluded host-only content is present in image: '\n  File \"/opt/office-trace-replay/scripts/accept_install.py\", line 20, in require\n    raise RuntimeError(message)\nRuntimeError: excluded host-only content is present in image: reports, tests\n",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "checked_at_utc": "2026-10-19T14:41:32.076036+00:00"
+}

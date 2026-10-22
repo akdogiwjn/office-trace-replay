@@ -1,0 +1,276 @@
+{
+  "Id": "0cbe51d6d2dcdb5fd05afd22357a71bd94331d2d64a8562561121f77ae561372",
+  "Created": "2026-10-20T00:28:48.491455813Z",
+  "Path": "/bin/bash",
+  "Args": [
+    "-lc",
+    "set -euo pipefail; /opt/document-bench/.venv/bin/python /opt/office-trace-replay/analysis/hotspot-comparison/scripts/preflight_replay.py --dataset retail_online --scene xlsx --output /audit/report/preflight.json; /opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/accept.py --source /opt/office-trace-replay/compatibility/cases/retail_online/source --dataset retail_online --kind xlsx --workspace /audit/workspace --report /audit/report/independent-verification.json"
+  ],
+  "State": {
+    "Status": "created",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "0001-01-01T00:00:00Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+  "ResolvConfPath": "",
+  "HostnamePath": "",
+  "HostsPath": "",
+  "LogPath": "",
+  "Name": "/office-audit-v2-retail-20261020",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": [
+      "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop.py:/opt/document-bench/bin/run_document_scene_loop.py:ro",
+      "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop_timed.py:/opt/document-bench/bin/run_document_scene_loop_timed.py:ro",
+      "/home/lcq/office-trace-replay/analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/workspace-parent/OFFICE-XLSX-RETAIL-ONLINE:/audit/workspace:ro",
+      "/home/lcq/office-trace-replay/analysis/hotspot-comparison/audits/new-dataset-deep-audit-v2/20261020T000823Z/retail_online/report:/audit/report:rw",
+      "/home/lcq/office-trace-replay:/opt/office-trace-replay:ro"
+    ],
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {
+        "max-file": "5",
+        "max-size": "50m"
+      }
+    },
+    "NetworkMode": "none",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": null,
+    "CgroupnsMode": "host",
+    "Dns": [],
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": false,
+    "SecurityOpt": null,
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 0,
+    "NanoCpus": 0,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 0,
+    "MemorySwappiness": null,
+    "OomKillDisable": false,
+    "PidsLimit": null,
+    "Ulimits": [
+      {
+        "Name": "nofile",
+        "Hard": 1024,
+        "Soft": 1024
+      }
+    ],
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "MaskedPaths": [
+      "/proc/asound",
+      "/proc/acpi",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/sys/firmware",
+      "/sys/devices/virtual/powercap"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "GraphDriver": {
+    "Data": {
+      "LowerDir": "/home/e2b/docker-data/overlay2/02669824db76b0081f542a5eaaec4aa817aad358336996f89e7583773c5ecbd7-init/diff:/home/e2b/docker-data/overlay2/jxfnmzcdmped7l6ulfyk0bjug/diff:/home/e2b/docker-data/overlay2/r4vs7smco40tiy97re796eeur/diff:/home/e2b/docker-data/overlay2/qvqudl3r6gbsgss2w4anlx0ev/diff:/home/e2b/docker-data/overlay2/x4srnpdfz8efkgswilypshewx/diff:/home/e2b/docker-data/overlay2/wt8z70zi6jku4c1w9slqcocer/diff:/home/e2b/docker-data/overlay2/elooyme5rqrafg05i8t0rx8iq/diff:/home/e2b/docker-data/overlay2/w31nxgzpy9y6syrb0uxnzkva6/diff:/home/e2b/docker-data/overlay2/w2m70vkxa5u3nr1cjt6j26vb2/diff:/home/e2b/docker-data/overlay2/2vu93fxsgjf42phfjru90z3kk/diff:/home/e2b/docker-data/overlay2/v1shl2cl2y6lr5abqrq93kjn3/diff:/home/e2b/docker-data/overlay2/0cad8e54d3ec9ea4994d4784b84934e03a579675756da4d3c5bb406194609ff0/diff:/home/e2b/docker-data/overlay2/0qm858stgxu9hla56h0bmu2d9/diff:/home/e2b/docker-data/overlay2/mofl3xwdcfal34z7tngl162v3/diff:/home/e2b/docker-data/overlay2/cby65qzqimx07ehxy34uc56os/diff:/home/e2b/docker-data/overlay2/epu67ilp0a7z8dr7t84pc2gaa/diff:/home/e2b/docker-data/overlay2/wk31adu7w63gb6yesbjren4uk/diff:/home/e2b/docker-data/overlay2/8n9u9yd4u88nu1zz0nh6285d1/diff:/home/e2b/docker-data/overlay2/lmrk2ipzifh3632cp1t1m36vw/diff:/home/e2b/docker-data/overlay2/3na7kihrt2qje747svrmaqu8w/diff:/home/e2b/docker-data/overlay2/o2pmj89arwazu6rv4up8qrj50/diff:/home/e2b/docker-data/overlay2/7dbdztzqkx7mimcy2m4tb7e2x/diff:/home/e2b/docker-data/overlay2/73baw39zbxrn4x7vf3e3omddh/diff:/home/e2b/docker-data/overlay2/osyj1pm4klh4n0fgtwdgupdc8/diff:/home/e2b/docker-data/overlay2/86cb54b06842b9fdb72ff91fd9bce3cc1ed53319fa9be143718f51f413f119e1/diff",
+      "MergedDir": "/home/e2b/docker-data/overlay2/02669824db76b0081f542a5eaaec4aa817aad358336996f89e7583773c5ecbd7/merged",
+      "UpperDir": "/home/e2b/docker-data/overlay2/02669824db76b0081f542a5eaaec4aa817aad358336996f89e7583773c5ecbd7/diff",
+      "WorkDir": "/home/e2b/docker-data/overlay2/02669824db76b0081f542a5eaaec4aa817aad358336996f89e7583773c5ecbd7/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "/home/lcq/office-trace-replay",
+      "Destination": "/opt/office-trace-replay",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop.py",
+      "Destination": "/opt/document-bench/bin/run_document_scene_loop.py",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop_timed.py",
+      "Destination": "/opt/document-bench/bin/run_document_scene_loop_timed.py",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/workspace-parent/OFFICE-XLSX-RETAIL-ONLINE",
+      "Destination": "/audit/workspace",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/audits/new-dataset-deep-audit-v2/20261020T000823Z/retail_online/report",
+      "Destination": "/audit/report",
+      "Mode": "rw",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "0cbe51d6d2dc",
+    "Domainname": "",
+    "User": "",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PATH=/opt/document-bench/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "DOCUMENT_BENCH_ROOT=/opt/document-bench",
+      "LANG=C.UTF-8",
+      "LC_ALL=C.UTF-8",
+      "http_proxy=",
+      "https_proxy=",
+      "HTTP_PROXY=",
+      "HTTPS_PROXY=",
+      "no_proxy=",
+      "NO_PROXY=",
+      "OFFICE_REPLAY_CONTAINER=1",
+      "VIRTUAL_ENV=/opt/document-bench/.venv"
+    ],
+    "Cmd": [
+      "-lc",
+      "set -euo pipefail; /opt/document-bench/.venv/bin/python /opt/office-trace-replay/analysis/hotspot-comparison/scripts/preflight_replay.py --dataset retail_online --scene xlsx --output /audit/report/preflight.json; /opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/accept.py --source /opt/office-trace-replay/compatibility/cases/retail_online/source --dataset retail_online --kind xlsx --workspace /audit/workspace --report /audit/report/independent-verification.json"
+    ],
+    "Image": "office-trace-replay:openeuler-v11",
+    "Volumes": null,
+    "WorkingDir": "/opt/office-trace-replay",
+    "Entrypoint": [
+      "/bin/bash"
+    ],
+    "OnBuild": null,
+    "Labels": {
+      "io.document-bench.abstraction": "steps",
+      "io.document-bench.asset-root": "/opt/document-bench",
+      "io.document-bench.scenes": "xlsx,pdf",
+      "org.opencontainers.image.description": "Self-contained step-level XLSX and PDF benchmark on openEuler",
+      "org.opencontainers.image.ref.name": "openEuler",
+      "org.opencontainers.image.title": "Document benchmark",
+      "org.opencontainers.image.version": "24.03-LTS-SP3"
+    }
+  },
+  "NetworkSettings": {
+    "Bridge": "",
+    "SandboxID": "",
+    "SandboxKey": "",
+    "Ports": {},
+    "HairpinMode": false,
+    "LinkLocalIPv6Address": "",
+    "LinkLocalIPv6PrefixLen": 0,
+    "SecondaryIPAddresses": null,
+    "SecondaryIPv6Addresses": null,
+    "EndpointID": "",
+    "Gateway": "",
+    "GlobalIPv6Address": "",
+    "GlobalIPv6PrefixLen": 0,
+    "IPAddress": "",
+    "IPPrefixLen": 0,
+    "IPv6Gateway": "",
+    "MacAddress": "",
+    "Networks": {
+      "none": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "MacAddress": "",
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DriverOpts": null,
+        "DNSNames": null
+      }
+    }
+  }
+}

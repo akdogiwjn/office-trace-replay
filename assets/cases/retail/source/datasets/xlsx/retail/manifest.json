@@ -1,0 +1,113 @@
+{
+  "schema_version": "office-dataset-v2",
+  "workload_contract": "spreadsheet-semantic-v2",
+  "kind": "xlsx",
+  "dataset_id": "retail",
+  "domain": "retail",
+  "task": "Analyze the frozen native Census MRTS historical workbook, focusing on July 2026 adjusted sales",
+  "workbook": "mrtssales92-present.xlsx",
+  "output_workbook": "retail_enhanced.xlsx",
+  "input_files": {
+    "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956"
+  },
+  "expected_file": "expected.json",
+  "expected_sha256": "7cde3d7e0a79aa0d49c2e7d1136d9d1b4a40417d0c0cb8268dbbaa3fdae736c0",
+  "prompt_template": "xlsx.txt",
+  "prompt_template_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+  "agent_context": {
+    "profile": "legacy-host-v1",
+    "sha256": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5"
+  },
+  "runtime_case": "OFFICE-XLSX-RETAIL",
+  "requirements": {
+    "metrics": [
+      {
+        "id": "adjusted_sales",
+        "name": "Adjusted retail and food services sales",
+        "meaning": "Published total retail and food services seasonally adjusted sales for July 2026. Use the total, not a sum of overlapping categories.",
+        "unit": "USD million"
+      },
+      {
+        "id": "monthly_growth",
+        "name": "Month-over-month growth",
+        "meaning": "Relative change in adjusted total sales from June to July 2026; compute from sales levels.",
+        "unit": "fraction"
+      },
+      {
+        "id": "annual_growth",
+        "name": "Year-over-year growth",
+        "meaning": "Relative change in adjusted total sales from July 2025 to July 2026; compute from sales levels.",
+        "unit": "fraction"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "sales_multiplier",
+          "meaning": "Hypothetical sales level multiplier, not a Census forecast"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "sales_multiplier": 1
+          }
+        },
+        {
+          "name": "Higher",
+          "assumptions": {
+            "sales_multiplier": 1.04
+          }
+        },
+        {
+          "name": "Lower",
+          "assumptions": {
+            "sales_multiplier": 0.96
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_sales",
+          "meaning": "Adjusted sales scaled by the selected sales multiplier",
+          "unit": "USD million"
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "adjusted_trend",
+        "meaning": "May, June and July 2026 adjusted total retail and food services sales in chronological order",
+        "unit": "USD million"
+      }
+    ],
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "recalc_timeout": 180
+  },
+  "publish_files": [],
+  "trace_rules": [
+    {
+      "pattern": "\\bverify_office\\.py\\b",
+      "operation": "verify_business"
+    },
+    {
+      "pattern": "recalc\\.py",
+      "operation": "recalculate_formulas"
+    }
+  ],
+  "required_outputs": [
+    "retail_enhanced.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json"
+  ],
+  "analysis_metadata": {
+    "provenance.json": "c23da9ed04cd8c5baf79b90bb855c65b2a62e64bf7996b1fc2798d5bd63e1cf2",
+    "complexity.json": "497b1b0e09c42276d8adbe2cca6815edfdf41ee61a3625736710981b49460fd2"
+  },
+  "suite_revision": "native-xlsx-v3"
+}

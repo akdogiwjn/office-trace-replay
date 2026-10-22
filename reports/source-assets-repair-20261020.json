@@ -1,0 +1,130 @@
+{
+  "schema_version": "runtime-source-asset-repair-v1",
+  "created_at_utc": "2026-10-19T17:52:19.583249+00:00",
+  "scope": "asset preflight and targeted fixtures; no workbook business audit, workload, container or profiler started",
+  "runtime_source_assets": [
+    {
+      "variant_id": "irs_w4-n1",
+      "status": "success",
+      "manifest_path": "compatibility/cases/irs_w4-n1/source/datasets/pdf/irs_w4/manifest.json",
+      "source_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "declared_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "irs_w4-n10",
+      "status": "success",
+      "manifest_path": "compatibility/cases/irs_w4-n10/source/datasets/pdf/irs_w4/manifest.json",
+      "source_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "declared_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "sba1919-n1",
+      "status": "success",
+      "manifest_path": "compatibility/cases/sba1919-n1/source/datasets/pdf/sba1919/manifest.json",
+      "source_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "declared_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "sba1919-n10",
+      "status": "success",
+      "manifest_path": "compatibility/cases/sba1919-n10/source/datasets/pdf/sba1919/manifest.json",
+      "source_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "declared_prompt_sha256": "bcd3fde01752dbcfe98527e199cf00da932f9d9371d74f83e483e1d17d1d2c74",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "hr",
+      "status": "success",
+      "manifest_path": "compatibility/cases/hr/source/datasets/xlsx/hr/manifest.json",
+      "source_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "declared_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "manufacturing",
+      "status": "success",
+      "manifest_path": "compatibility/cases/manufacturing/source/datasets/xlsx/manufacturing/manifest.json",
+      "source_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "declared_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "retail",
+      "status": "success",
+      "manifest_path": "compatibility/cases/retail/source/datasets/xlsx/retail/manifest.json",
+      "source_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "declared_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "industry_productivity",
+      "status": "success",
+      "manifest_path": "compatibility/cases/industry_productivity/source/datasets/xlsx/industry_productivity/manifest.json",
+      "source_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "declared_prompt_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": true
+    },
+    {
+      "variant_id": "hr_metro",
+      "status": "success",
+      "manifest_path": "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/manifest.json",
+      "source_prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+      "declared_prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": false
+    },
+    {
+      "variant_id": "retail_online",
+      "status": "success",
+      "manifest_path": "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/manifest.json",
+      "source_prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+      "declared_prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+      "expected_and_input_and_analysis_assets": "validated_by_runtime_source_loader",
+      "agent_context_validated": false
+    }
+  ],
+  "public_suite_bindings": "valid",
+  "default_dataset_ids": [
+    "pdf",
+    "xlsx",
+    "irs_w4",
+    "sba1919",
+    "hr",
+    "manufacturing",
+    "retail"
+  ],
+  "legacy_workload_count": 43,
+  "legacy_workload_byte_differences": [],
+  "historical_trial_archives": [
+    {
+      "dataset_id": "hr_metro",
+      "archived_file_count": 17,
+      "mismatches": []
+    },
+    {
+      "dataset_id": "retail_online",
+      "archived_file_count": 17,
+      "mismatches": []
+    }
+  ],
+  "source_code_sha256": {
+    "replay/source_assets.py": "3ded2f04a77d4bcb1291988e153f171e326cb78e874e500d70a61bd1c0d1e4f8",
+    "replay/freeze.py": "18c79cadbeca28778fc10b6378c91943293801af4db4714038d8a97014923f24",
+    "replay/compatible.py": "2d6d9dbccd030e3055c33ca883ae19efbb8da40b18e1a7fd140ed3b749e66913",
+    "scripts/compile_compatible.py": "2dcb37594c609a308ba5933229a4d255a0d8d050ae1f2ebd03553fb1ba053796"
+  },
+  "project_lock_sha256": "44952f2cc37115bbc4cee4840d6433908ccfef6ccdaeb61976520c42dd0c06fe",
+  "independent_business_audit_status": "not_rerun; original failed audit retained",
+  "performance_collection_status": "not_started"
+}

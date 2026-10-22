@@ -1,0 +1,141 @@
+{
+  "schema_version": "document-oe-canonicalized-workflow-v3",
+  "purpose": "Test whether observations from the frozen original workloads recur on other native inputs under a shared execution workflow.",
+  "original_baselines": "legacy/document-oe/lock.json",
+  "originals_must_remain_byte_identical": true,
+  "executor_split": {
+    "version": "unified-dataset-runner-v2",
+    "description": "Executor version and the byte-preserved workload are frozen separately; the unified runner is the formal entry for every dataset and old opm/tlc keep the original loop/timing semantics."
+  },
+  "native_executor": "/opt/document-bench/bin/run_document_scene_loop.py",
+  "native_timing_wrapper": "/opt/document-bench/bin/run_document_scene_loop_timed.py",
+  "python": {
+    "default": "venv",
+    "system_version": "3.11.6",
+    "venv_version": "3.12.3"
+  },
+  "path_policy": "Original venv prefix by default for BOTH baselines and added workloads; explicit system mode restores original system PATH; never inject runtime/bin/soffice.",
+  "skills_policy": "Use installed byte-preserved document-oe PDF/XLSX tools including its isolated-profile recalc.py.",
+  "stages": [
+    "inspect_prepare",
+    "build",
+    "process_publish",
+    "verify_deliver"
+  ],
+  "pdf": {
+    "default_record_count": 1,
+    "allowed_record_counts": [
+      1,
+      10
+    ],
+    "driver": "one Python batch driver, alternating one fill and one render per record",
+    "template_render_count": 1,
+    "prepared_record_count": 10,
+    "selection": "Prepare all frozen records; fill/render first 1 or 10 according to variant and native parameter",
+    "mapping_precheck": "one common field-ID check; no separate SBA dry-run helper",
+    "verification": {
+      "loop_contract": "document-oe-compatible-pdf-loop-v1",
+      "independent_contract": "office-independent-acceptance-v3",
+      "note": "The loop checks detailed mappings and filled outputs only for executed records. Independent acceptance deeply checks all prepared mappings, and checks filled PDFs/renders only for the declared executed prefix; it never requires unexecuted records to have filled outputs."
+    }
+  },
+  "xlsx": {
+    "build_invocations": 1,
+    "recalc_invocations": 1,
+    "recalc_target": "the final output workbook; original Skill recalc.py recalculates it in place so LibreOffice saves the computed caches directly",
+    "recalc_timeout_seconds": 600,
+    "operation_timeout_seconds": 900,
+    "enhancement_helper": "written and run through the generic atomic XLSX helper; enhances the final output workbook directly",
+    "removed_preservation_calls": [
+      "retail assemble_output.py",
+      "manufacturing inject_caches.py",
+      "hr patch.py"
+    ],
+    "semantic_verifier": {
+      "contract": "spreadsheet-semantic-v3",
+      "strict": [
+        "input hashes",
+        "original worksheets and relative order",
+        "original data values and missing/suppression markers",
+        "original formulas and chart data series/references",
+        "new summary/KPI/scenario/chart compliance",
+        "formula usage and dependency correctness",
+        "LibreOffice recalc success and required cached values",
+        "no new formula errors",
+        "complete deliverables and business_verification.status"
+      ],
+      "diagnostics": [
+        "font/fill/alignment/border/protection representation",
+        "number-format serialization",
+        "style table / relationship ID / shared strings representation",
+        "defined-name serialization",
+        "merged-region representation",
+        "empty-string cells normalized to empty cells"
+      ]
+    },
+    "verification": {
+      "loop_contract": "document-oe-compatible-xlsx-loop-v1",
+      "independent_contract": "office-independent-acceptance-v3",
+      "note": "The loop contract is intentionally narrower than independent acceptance and is not labelled as the old full verifier."
+    }
+  },
+  "measurement": {
+    "native_iteration": "Original run_iteration elapsed time includes workspace reset, four phases and original final status read.",
+    "net_iteration": "Native iteration elapsed time minus native reset_seconds.",
+    "stage_times": "Original native execute_step boundaries, including each phase's actual helper calls.",
+    "outside_native_iteration": [
+      "hash validation",
+      "environment probe",
+      "independent acceptance",
+      "output archival"
+    ],
+    "verification_caveat": "Native verify_deliver is included, but dataset-specific semantic verifiers differ; compare it separately.",
+    "instrumentation": "Either original plain mode for both sides or original timed wrapper for both sides. No per-call stdout redirection added."
+  },
+  "trace_policy": {
+    "requires_llm": false,
+    "classification": "canonicalized deterministic replay derived from successful Agent executions; not a newly generated Agent trajectory",
+    "retain_parent_trace_and_recipes": true,
+    "freeze_input_helper_prompt_adapter_and_recipe_hashes": true,
+    "positioning_note": "Execution-structure alignment and functional passing do not prove representativeness. Standardized recipes are not faithful call-for-call replays of the original Agent final implementation, and input differences must not be attributed to industry effects without covariate evidence."
+  },
+  "interpretation": {
+    "supported_question": "Does an observed bottleneck or system-configuration trend persist for other inputs using this workflow?",
+    "not_established_by_qualification": [
+      "representativeness itself",
+      "all Office or unconstrained Agent workloads",
+      "strict industry-only causal comparison"
+    ],
+    "required_covariates": [
+      "native workbook/PDF complexity",
+      "record count",
+      "dataset-specific helper work",
+      "source-preservation work",
+      "semantic verification work"
+    ]
+  },
+  "loop_policy": {
+    "native_processes_per_dataset": 1,
+    "native_loops": "requested loops, uninterrupted by outer acceptance or archival",
+    "native_business_verification": "versioned per-dataset loop contract on every iteration; deep source/acceptance checks execute once outside ROI",
+    "independent_acceptance": "once after all native iterations succeed",
+    "archive": "final iteration only; all native iteration logs retained"
+  },
+  "validation_contracts": {
+    "xlsx_loop": {
+      "version": "document-oe-compatible-xlsx-loop-v1",
+      "scope": "each measured iteration",
+      "checks": "Base sheet presence/scale, task KPIs/formulas/cached values, scenario, chart and feature checks, formula errors/recalc state, and deliverable/CSV consistency; excludes exhaustive source workbook comparisons and recursive audits."
+    },
+    "pdf_loop": {
+      "version": "document-oe-compatible-pdf-loop-v1",
+      "scope": "each measured iteration",
+      "checks": "Template scale and inspection output; detailed mapping and protected-blank checks for executed records; basic artifacts; one configured representative visible-change page; summary and deliverables."
+    },
+    "independent_acceptance": {
+      "version": "office-independent-acceptance-v3",
+      "scope": "once outside measured iterations",
+      "checks": "Strict semantic/source-content audit, deep checks for all relevant workbook content, and remaining prepared-record audit."
+    }
+  }
+}

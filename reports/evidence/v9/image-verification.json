@@ -1,0 +1,43 @@
+{
+  "image": "office-trace-replay:openeuler-v9",
+  "image_id": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+  "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+  "verifier_sha256": "e13d8a90b32d9999b04f5cfd772165cab6141188a4f65040d545a00a832cb231",
+  "project_lock_sha256": "0ec5e5690f2b7c3dea4dfc552790f1b6a7ca504b777a1f471b2a73a475d071de",
+  "validate": "passed (image-internal, no host source mount)",
+  "workload_files": "43/43 match the frozen lock",
+  "verifier_fixtures": {
+    "shadowing_negative_rejected": true,
+    "unused_added_name_allowed": true,
+    "equivalent_target_allowed": true
+  },
+  "interpreter_modes": {
+    "venv": "3.12.3",
+    "system": "3.11.6"
+  },
+  "pdf_modes": {
+    "n1_filled": 1,
+    "n10_filled": 10,
+    "prepared_mappings": 10
+  },
+  "timed_logs": [
+    "calls.jsonl",
+    "iterations.jsonl",
+    "nested_calls.jsonl",
+    "summary.json"
+  ],
+  "reverification_of_v8_artifacts": {
+    "reverify_hr.json": {
+      "path": "reports/evidence/v9/reverify_hr.json",
+      "sha256": "73cebfd33baed6fff4fab1c5906607213ab50963ffd288a044d389bfd578e513"
+    },
+    "reverify_manufacturing.json": {
+      "path": "reports/evidence/v9/reverify_manufacturing.json",
+      "sha256": "2ce08d369a0617e94ea0fe81d03635aef0f69b8156579bc86e1e652da1fb8755"
+    },
+    "reverify_retail.json": {
+      "path": "reports/evidence/v9/reverify_retail.json",
+      "sha256": "e6f9c671ddaae3e71d7eadd548cb0b33286e22752150c6c62ac1e4c123108fac"
+    }
+  }
+}

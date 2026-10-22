@@ -1,0 +1,158 @@
+{
+  "schema_version": "office-dataset-v2",
+  "workload_contract": "spreadsheet-semantic-v2",
+  "kind": "xlsx",
+  "dataset_id": "tlc",
+  "domain": "tlc",
+  "task": "Enhance the existing NYC TLC January 2024 operations workbook",
+  "workbook": "monthly_operations_template.xlsx",
+  "output_workbook": "monthly_operations_report.xlsx",
+  "input_files": {
+    "input/monthly_operations_template.xlsx": "51e34e9d59e43b9c330a00448645f025f1d4ea2d4c33e9998e6e1c6fef7b189f",
+    "input/template_manifest.json": "0ce06d540beea2b174de7da82bca932156511a10cc3df2687b6f6e928214ed8b",
+    "input/dataset_sources.md": "f526508c1d91d6120d1adf16388a5bcd4edbaccec8c34bf4329610ecad6f0214",
+    "input/prepared_monthly_operations_summary.csv": "280b7b8a8d849d2573da352a0ce55de0d4dc9afbde3b5c9b4bd6652102a32f02",
+    "input/prepared_reconciliation_summary.csv": "dec960c9f205e73ba05b4b80f3dfc718dfe77bf9e8229b349762a8c158cdc832"
+  },
+  "expected_file": "expected.json",
+  "expected_sha256": "d7c4964637cf50f7b3555288e4c97dea7752c0d59facb9939b304b11ea8c8ca4",
+  "prompt_template": "xlsx.txt",
+  "prompt_template_sha256": "a3502cdc6b95681fc9dc332305c05b9015201d33bab2b3bc12884d89f02c10b4",
+  "agent_context": {
+    "profile": "legacy-host-v1",
+    "sha256": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5"
+  },
+  "runtime_case": "SUB-MEM-OFFICE-01",
+  "requirements": {
+    "metrics": [
+      {
+        "id": "total_trips",
+        "name": "Total trips",
+        "meaning": "Trip count represented by the original workbook full-population summaries, rather than counting only sample rows.",
+        "unit": "trips"
+      },
+      {
+        "id": "fare_revenue",
+        "name": "Fare revenue",
+        "meaning": "Total fare revenue for the cleaned full population.",
+        "unit": "USD"
+      },
+      {
+        "id": "average_fare",
+        "name": "Average fare",
+        "meaning": "Overall average fare from the original population summaries.",
+        "unit": "USD per trip"
+      },
+      {
+        "id": "removal_rate",
+        "name": "Removal rate",
+        "meaning": "Fraction of original trips removed during cleaning.",
+        "unit": "fraction"
+      },
+      {
+        "id": "reconciliation_status",
+        "name": "Reconciliation status",
+        "meaning": "PASS only when both original population consistency checks indicate consistency; otherwise REVIEW.",
+        "unit": "text"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "fare_multiplier",
+          "meaning": "Hypothetical average-fare multiplier"
+        },
+        {
+          "id": "trip_multiplier",
+          "meaning": "Hypothetical trip-volume multiplier"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "fare_multiplier": 1,
+            "trip_multiplier": 1
+          }
+        },
+        {
+          "name": "Upside",
+          "assumptions": {
+            "fare_multiplier": 1.08,
+            "trip_multiplier": 1.05
+          }
+        },
+        {
+          "name": "Downside",
+          "assumptions": {
+            "fare_multiplier": 0.93,
+            "trip_multiplier": 0.95
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_trips",
+          "meaning": "Population trip count scaled by selected trip-volume multiplier",
+          "unit": "trips"
+        },
+        {
+          "id": "projected_fare",
+          "meaning": "Population fare revenue scaled by both selected fare and trip multipliers",
+          "unit": "USD"
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "daily_trips",
+        "meaning": "Daily full-population trip count trend in date order",
+        "unit": "trips"
+      },
+      {
+        "id": "payment_mix",
+        "meaning": "Payment-method full-population trip count mix",
+        "unit": "trips"
+      }
+    ],
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "recalc_timeout": 180
+  },
+  "publish_files": [
+    {
+      "input": "prepared_monthly_operations_summary.csv",
+      "output": "monthly_operations_summary.csv",
+      "sha256": "280b7b8a8d849d2573da352a0ce55de0d4dc9afbde3b5c9b4bd6652102a32f02"
+    },
+    {
+      "input": "prepared_reconciliation_summary.csv",
+      "output": "reconciliation_summary.csv",
+      "sha256": "dec960c9f205e73ba05b4b80f3dfc718dfe77bf9e8229b349762a8c158cdc832"
+    }
+  ],
+  "trace_rules": [
+    {
+      "pattern": "\\bverify_office\\.py\\b",
+      "operation": "verify_business"
+    },
+    {
+      "pattern": "recalc\\.py",
+      "operation": "recalculate_formulas"
+    }
+  ],
+  "required_outputs": [
+    "monthly_operations_report.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "monthly_operations_summary.csv",
+    "reconciliation_summary.csv"
+  ],
+  "analysis_metadata": {
+    "provenance.json": "6df054c5277c6525a87b7010b0cb7e078475b07666c167a8f0fc4915230c6711",
+    "complexity.json": "233f7d19b8badaf3ebd278109248d1ec436df6bc4d8a70ac0b42e5344efffb6a"
+  }
+}

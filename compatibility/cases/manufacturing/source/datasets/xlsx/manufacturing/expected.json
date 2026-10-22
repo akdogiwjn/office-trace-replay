@@ -1,0 +1,32 @@
+{
+  "schema_version": "office-semantic-oracle-v2",
+  "metric_values": {
+    "total_shipments": 601257,
+    "monthly_growth": -0.001453169736868376,
+    "durable_share": 0.4977788200386856,
+    "nondurable_shipments": 301964
+  },
+  "scenario_values": {
+    "Base": {
+      "projected_shipments": 601257
+    },
+    "Expansion": {
+      "projected_shipments": 619294.71
+    },
+    "Contraction": {
+      "projected_shipments": 583219.29
+    }
+  },
+  "chart_values": {
+    "durability_mix": [
+      299293,
+      301964
+    ],
+    "shipment_trend": [
+      598328,
+      602132,
+      601257
+    ]
+  },
+  "oracle_provenance": "Independent calculations over the full unmodified native Census workbook. These values and source locations are not Agent task instructions."
+}

@@ -1,0 +1,569 @@
+{
+  "schema_version": "hotspot-version-evidence-inventory-v1",
+  "created_utc": "2026-10-19",
+  "image": "office-trace-replay:openeuler-v9",
+  "image_id": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+  "current_mounted_runner_sha256": "559a5c9a06dc863303edcff3ca169d4a695d8fdd7d2be06e23b37a51a48b03ba",
+  "current_project_lock_sha256": "97721cc0506af03283000883260e3ac3544c3255e164ffb745a60ffe81fc187c",
+  "current_contract_sha256": "49c8988ac02b8a5d0b041439d6ff2a6349defaceb0de70d97bbe8e82aa732fc0",
+  "historical_evidence": {
+    "pdf_n1": "legacy/evidence/ANALYSIS-python3123.md and legacy/evidence/AUTO_ANALYSIS-python3123.md (aggregate reported values; no underlying raw profile in this repository).",
+    "pdf_n10": "legacy/evidence/REPORT-pdf10-weight.md (three-run aggregate/slice report; limited to its stated setup).",
+    "xlsx": "legacy/evidence/ANALYSIS-python3123.md (Python 3.11.6 aggregate baseline and Python 3.12.3 report; raw samples not present).",
+    "python_stacks": "legacy/evidence/python3123-pyspy/pdf-python.svg and xlsx-python.svg; N=1 PDF / two-loop XLSX, no historical N=10 py-spy baseline."
+  },
+  "current_old_control_profiles": {
+    "opm-n1": {
+      "image_id_from_run_plan": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+      "native": [
+        {
+          "repeat": "r1",
+          "collector_rc": 0,
+          "samples": 2359,
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+          "requested_iterations": 10,
+          "completed_iterations": 10,
+          "failures": 0,
+          "parsed_samples_exists": true,
+          "roi_exists": true
+        },
+        {
+          "repeat": "r2",
+          "collector_rc": 0,
+          "samples": 2424,
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+          "requested_iterations": 10,
+          "completed_iterations": 10,
+          "failures": 0,
+          "parsed_samples_exists": true,
+          "roi_exists": true
+        }
+      ],
+      "pyspy": {
+        "collector_rc": 0,
+        "samples_exists": true,
+        "runner_summary": {
+          "abstraction": "steps",
+          "completed_iterations": 10,
+          "dataset": "opm",
+          "elapsed_seconds": 22.008362,
+          "environment": {
+            "libreoffice": "LibreOfficeDev 25.8.7.3",
+            "packages": {
+              "et_xmlfile": "2.0.0",
+              "openpyxl": "3.1.5",
+              "pdf2image": "1.17.0",
+              "pillow": "12.2.0",
+              "pypdf": "6.10.0"
+            },
+            "python3_executable": "/opt/document-bench/.venv/bin/python3",
+            "python3_openpyxl": "3.1.5",
+            "python3_version": "3.12.3",
+            "python_executable": "/opt/document-bench/.venv/bin/python3",
+            "python_version": "3.12.3"
+          },
+          "events_file": "/data/out/runner-results/pdf/20261017T194323Z-pid17/iterations.jsonl",
+          "failures": 0,
+          "finished_at": "2026-10-17T19:43:45.389+00:00",
+          "interrupted": false,
+          "operation_timeout_seconds": 300,
+          "pdf_applicant_count": 1,
+          "python_mode": "venv",
+          "recalc_timeout_seconds": 180,
+          "recipe": "/opt/document-bench/operations/pdf_key_operations.json",
+          "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+          "requested_iterations": 10,
+          "run_id": "20261017T194323Z-pid17",
+          "scene": "pdf",
+          "schema_version": "document-step-scene-loop-v2",
+          "seed": "/opt/document-bench/pdf",
+          "started_at": "2026-10-17T19:43:23.380+00:00",
+          "step_order": [
+            "PDF-P01-inspect_prepare",
+            "PDF-P02-build",
+            "PDF-P03-process_publish",
+            "PDF-P04-verify_deliver"
+          ],
+          "successes": 10,
+          "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01"
+        }
+      }
+    },
+    "opm-n10": {
+      "image_id_from_run_plan": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+      "native": [
+        {
+          "repeat": "r1",
+          "collector_rc": 0,
+          "samples": 3367,
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+          "requested_iterations": 3,
+          "completed_iterations": 3,
+          "failures": 0,
+          "parsed_samples_exists": true,
+          "roi_exists": true
+        },
+        {
+          "repeat": "r2",
+          "collector_rc": 0,
+          "samples": 3360,
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+          "requested_iterations": 3,
+          "completed_iterations": 3,
+          "failures": 0,
+          "parsed_samples_exists": true,
+          "roi_exists": true
+        }
+      ],
+      "pyspy": {
+        "collector_rc": 0,
+        "samples_exists": true,
+        "runner_summary": {
+          "abstraction": "steps",
+          "completed_iterations": 3,
+          "dataset": "opm",
+          "elapsed_seconds": 32.844839,
+          "environment": {
+            "libreoffice": "LibreOfficeDev 25.8.7.3",
+            "packages": {
+              "et_xmlfile": "2.0.0",
+              "openpyxl": "3.1.5",
+              "pdf2image": "1.17.0",
+              "pillow": "12.2.0",
+              "pypdf": "6.10.0"
+            },
+            "python3_executable": "/opt/document-bench/.venv/bin/python3",
+            "python3_openpyxl": "3.1.5",
+            "python3_version": "3.12.3",
+            "python_executable": "/opt/document-bench/.venv/bin/python3",
+            "python_version": "3.12.3"
+          },
+          "events_file": "/data/out/runner-results/pdf/20261017T194346Z-pid17/iterations.jsonl",
+          "failures": 0,
+          "finished_at": "2026-10-17T19:44:19.816+00:00",
+          "interrupted": false,
+          "operation_timeout_seconds": 300,
+          "pdf_applicant_count": 10,
+          "python_mode": "venv",
+          "recalc_timeout_seconds": 180,
+          "recipe": "/opt/document-bench/operations/pdf_key_operations.json",
+          "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+          "requested_iterations": 3,
+          "run_id": "20261017T194346Z-pid17",
+          "scene": "pdf",
+          "schema_version": "document-step-scene-loop-v2",
+          "seed": "/opt/document-bench/pdf",
+          "started_at": "2026-10-17T19:43:46.971+00:00",
+          "step_order": [
+            "PDF-P01-inspect_prepare",
+            "PDF-P02-build",
+            "PDF-P03-process_publish",
+            "PDF-P04-verify_deliver"
+          ],
+          "successes": 3,
+          "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01"
+        }
+      }
+    },
+    "tlc": {
+      "image_id_from_run_plan": "sha256:d258914a7b0094de2ba1a06281e6c6150060a13fc73603e1bc7c9292285ec702",
+      "native": [
+        {
+          "repeat": "r1",
+          "collector_rc": 0,
+          "samples": 37447,
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "53a475924f0bf6f2b2fef4e85c13bae467241e5785ba7867e195422d2e9b07f2",
+          "requested_iterations": 1,
+          "completed_iterations": 1,
+          "failures": 0,
+          "parsed_samples_exists": true,
+          "roi_exists": true
+        },
+        {
+          "repeat": "r2",
+          "collector_rc": 0,
+          "samples": 36412,
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "53a475924f0bf6f2b2fef4e85c13bae467241e5785ba7867e195422d2e9b07f2",
+          "requested_iterations": 1,
+          "completed_iterations": 1,
+          "failures": 0,
+          "parsed_samples_exists": true,
+          "roi_exists": true
+        }
+      ],
+      "pyspy": {
+        "collector_rc": 0,
+        "samples_exists": true,
+        "runner_summary": {
+          "abstraction": "steps",
+          "completed_iterations": 1,
+          "dataset": "tlc",
+          "elapsed_seconds": 242.900804,
+          "environment": {
+            "libreoffice": "LibreOfficeDev 25.8.7.3",
+            "packages": {
+              "et_xmlfile": "2.0.0",
+              "openpyxl": "3.1.5",
+              "pdf2image": "1.17.0",
+              "pillow": "12.2.0",
+              "pypdf": "6.10.0"
+            },
+            "python3_executable": "/opt/document-bench/.venv/bin/python3",
+            "python3_openpyxl": "3.1.5",
+            "python3_version": "3.12.3",
+            "python_executable": "/opt/document-bench/.venv/bin/python3",
+            "python_version": "3.12.3"
+          },
+          "events_file": "/data/out/runner-results/xlsx/20261017T194725Z-pid17/iterations.jsonl",
+          "failures": 0,
+          "finished_at": "2026-10-17T19:51:28.441+00:00",
+          "interrupted": false,
+          "operation_timeout_seconds": 900,
+          "pdf_applicant_count": null,
+          "python_mode": "venv",
+          "recalc_timeout_seconds": 600,
+          "recipe": "/opt/document-bench/operations/xlsx_key_operations.json",
+          "recipe_sha256": "53a475924f0bf6f2b2fef4e85c13bae467241e5785ba7867e195422d2e9b07f2",
+          "requested_iterations": 1,
+          "run_id": "20261017T194725Z-pid17",
+          "scene": "xlsx",
+          "schema_version": "document-step-scene-loop-v2",
+          "seed": "/opt/document-bench/xlsx",
+          "started_at": "2026-10-17T19:47:25.540+00:00",
+          "step_order": [
+            "XLSX-P01-inspect_prepare",
+            "XLSX-P02-build",
+            "XLSX-P03-process_publish",
+            "XLSX-P04-verify_deliver"
+          ],
+          "successes": 1,
+          "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01"
+        }
+      }
+    }
+  },
+  "new_dataset_profiles": {
+    "irs_w4-n1": {
+      "existing_native_runs": [
+        {
+          "repeat": "r1",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "821da2cbfe2e2001580fc83ee25c69b6cdb8b224336aaf38cac70970580cb765",
+          "collector_rc": 0
+        },
+        {
+          "repeat": "r2",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "821da2cbfe2e2001580fc83ee25c69b6cdb8b224336aaf38cac70970580cb765",
+          "collector_rc": 0
+        }
+      ],
+      "existing_pyspy_rc": 1,
+      "existing_recipe_matches_current": false,
+      "existing_runner_matches_mounted_current": false,
+      "eligible_current_loop_version": false,
+      "reason": "pre-loop-verifier-era profile: runner and/or recipe identity differs from current loop contract"
+    },
+    "irs_w4-n10": {
+      "existing_native_runs": [
+        {
+          "repeat": "r1",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "816239c4dbab1189e44851a4340acbe55a4959dfcc2567856245c31206884998",
+          "collector_rc": 0
+        },
+        {
+          "repeat": "r2",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "816239c4dbab1189e44851a4340acbe55a4959dfcc2567856245c31206884998",
+          "collector_rc": 0
+        }
+      ],
+      "existing_pyspy_rc": 0,
+      "existing_recipe_matches_current": false,
+      "existing_runner_matches_mounted_current": false,
+      "eligible_current_loop_version": false,
+      "reason": "pre-loop-verifier-era profile: runner and/or recipe identity differs from current loop contract"
+    },
+    "sba1919-n1": {
+      "existing_native_runs": [
+        {
+          "repeat": "r1",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "8f24f37060fa8b5d35a6155a9321643fef1f56ce1fc53823b4410ae759836d40",
+          "collector_rc": 0
+        },
+        {
+          "repeat": "r2",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "8f24f37060fa8b5d35a6155a9321643fef1f56ce1fc53823b4410ae759836d40",
+          "collector_rc": 0
+        }
+      ],
+      "existing_pyspy_rc": 0,
+      "existing_recipe_matches_current": false,
+      "existing_runner_matches_mounted_current": false,
+      "eligible_current_loop_version": false,
+      "reason": "pre-loop-verifier-era profile: runner and/or recipe identity differs from current loop contract"
+    },
+    "sba1919-n10": {
+      "existing_native_runs": [
+        {
+          "repeat": "r1",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "d8aef029104d6f5a7d7b9cb06f1230307f10bc178befbf7a4fae5d09a2399383",
+          "collector_rc": 0
+        },
+        {
+          "repeat": "r2",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "d8aef029104d6f5a7d7b9cb06f1230307f10bc178befbf7a4fae5d09a2399383",
+          "collector_rc": 0
+        }
+      ],
+      "existing_pyspy_rc": 0,
+      "existing_recipe_matches_current": false,
+      "existing_runner_matches_mounted_current": false,
+      "eligible_current_loop_version": false,
+      "reason": "pre-loop-verifier-era profile: runner and/or recipe identity differs from current loop contract"
+    },
+    "retail": {
+      "existing_native_runs": [
+        {
+          "repeat": "r1",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "59671120679dd9b583f22ac23c8ac59df923ee5bbfd189764d0c8a0b8ecd917b",
+          "collector_rc": 0
+        },
+        {
+          "repeat": "r2",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "59671120679dd9b583f22ac23c8ac59df923ee5bbfd189764d0c8a0b8ecd917b",
+          "collector_rc": 0
+        }
+      ],
+      "existing_pyspy_rc": 0,
+      "existing_recipe_matches_current": false,
+      "existing_runner_matches_mounted_current": false,
+      "eligible_current_loop_version": false,
+      "reason": "pre-loop-verifier-era profile: runner and/or recipe identity differs from current loop contract"
+    },
+    "hr": {
+      "existing_native_runs": [
+        {
+          "repeat": "r1",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "cf3583fa864b3b62b65ec30bb24ab200392a475b0334d143e57cd2efdaa2d32f",
+          "collector_rc": 0
+        },
+        {
+          "repeat": "r2",
+          "runner_sha256": "3623f72779249b9cc95517adc09064f96286d02105e1793cf09733e20f771e80",
+          "recipe_sha256": "cf3583fa864b3b62b65ec30bb24ab200392a475b0334d143e57cd2efdaa2d32f",
+          "collector_rc": 0
+        }
+      ],
+      "existing_pyspy_rc": 0,
+      "existing_recipe_matches_current": false,
+      "existing_runner_matches_mounted_current": false,
+      "eligible_current_loop_version": false,
+      "reason": "pre-loop-verifier-era profile: runner and/or recipe identity differs from current loop contract"
+    },
+    "industry_productivity": {
+      "existing_profile": "absent",
+      "eligible_current_loop_version": false,
+      "reason": "no native or py-spy profile; only minimal functional Industry run without profiling"
+    }
+  },
+  "current_bindings": {
+    "irs_w4-n1": {
+      "recipe_path": "compatibility/recipes/irs_w4-n1.json",
+      "recipe_sha256": "4d3d48b1aaaa7ed11029f78c7e3cf0fe8f9e55b958c599168cf3216e55d29ff3",
+      "frozen_suite_recipe_sha256": "4d3d48b1aaaa7ed11029f78c7e3cf0fe8f9e55b958c599168cf3216e55d29ff3",
+      "workflow_contract": null,
+      "input_hashes": {
+        "input/dataset_manifest.json": "1a0736e279e918357f7f0e004e619aab2515fdfb2d8d6393307038d8e2513c05",
+        "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+        "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
+        "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_hashes": {},
+      "seed_path": "compatibility/cases/irs_w4-n1/seed",
+      "source_path": "compatibility/cases/irs_w4-n1/source",
+      "verifiers": {
+        "pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5",
+        "pdf_loop.py": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+        "compatible_pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+      }
+    },
+    "irs_w4-n10": {
+      "recipe_path": "compatibility/recipes/irs_w4-n10.json",
+      "recipe_sha256": "4f097d5fc6dfb5568b25ebfa80351b18d7243ddcae312de81b5f3ca14388d141",
+      "frozen_suite_recipe_sha256": "4f097d5fc6dfb5568b25ebfa80351b18d7243ddcae312de81b5f3ca14388d141",
+      "workflow_contract": null,
+      "input_hashes": {
+        "input/dataset_manifest.json": "052bd0d197e658ed96db13bc4c51a219f0a5a18b24f2fab7450ff27c1e727614",
+        "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+        "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
+        "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_hashes": {},
+      "seed_path": "compatibility/cases/irs_w4-n10/seed",
+      "source_path": "compatibility/cases/irs_w4-n10/source",
+      "verifiers": {
+        "pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5",
+        "pdf_loop.py": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+        "compatible_pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+      }
+    },
+    "sba1919-n1": {
+      "recipe_path": "compatibility/recipes/sba1919-n1.json",
+      "recipe_sha256": "76653e32fc02d2784679a2ca4822425a0f835eb9e1fe942695d5efe1c9fb18ec",
+      "frozen_suite_recipe_sha256": "76653e32fc02d2784679a2ca4822425a0f835eb9e1fe942695d5efe1c9fb18ec",
+      "workflow_contract": null,
+      "input_hashes": {
+        "input/dataset_manifest.json": "1b965b7952d98c0e18e024e5bbf30693a49eecb9da96a89ef8cf94f51210d87f",
+        "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+        "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
+        "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_hashes": {},
+      "seed_path": "compatibility/cases/sba1919-n1/seed",
+      "source_path": "compatibility/cases/sba1919-n1/source",
+      "verifiers": {
+        "pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5",
+        "pdf_loop.py": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+        "compatible_pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+      }
+    },
+    "sba1919-n10": {
+      "recipe_path": "compatibility/recipes/sba1919-n10.json",
+      "recipe_sha256": "c19e4d003c92359714ed3125b59f5e8ef5653e34017afbb05054aa66bf88b63f",
+      "frozen_suite_recipe_sha256": "c19e4d003c92359714ed3125b59f5e8ef5653e34017afbb05054aa66bf88b63f",
+      "workflow_contract": null,
+      "input_hashes": {
+        "input/dataset_manifest.json": "fa2cc6b47397a7ab9727b41c9e2c31cd14f0cc4886bd6d07844918c5861daa7a",
+        "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+        "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
+        "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_hashes": {},
+      "seed_path": "compatibility/cases/sba1919-n10/seed",
+      "source_path": "compatibility/cases/sba1919-n10/source",
+      "verifiers": {
+        "pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5",
+        "pdf_loop.py": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+        "compatible_pdf.py": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+      }
+    },
+    "retail": {
+      "recipe_path": "compatibility/recipes/retail.json",
+      "recipe_sha256": "a53a4939b26909969078c402a6454d13204575b984c9503dc1c7471fa84b33e3",
+      "frozen_suite_recipe_sha256": "a53a4939b26909969078c402a6454d13204575b984c9503dc1c7471fa84b33e3",
+      "workflow_contract": "spreadsheet-semantic-v3",
+      "input_hashes": {
+        "input/dataset_manifest.json": "8d12df73eee99a1c06b11591ac1a0a5bb9574b15b63a8316dc8f43865feac596",
+        "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_hashes": {
+        "helpers/build_enhance.py": "e3bd45d939955a4bf1ba76bd866595d0894978b2d01d0aa86d7f4a1c0bf58103"
+      },
+      "seed_path": "compatibility/cases/retail/seed",
+      "source_path": "compatibility/cases/retail/source",
+      "verifiers": {
+        "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+        "spreadsheet.py": "70e12dad4e13c3b8f44db3ca6ebf2dc8d8a5db4599d7fbeb13ce9f4bc1488105",
+        "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+        "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+      }
+    },
+    "hr": {
+      "recipe_path": "compatibility/recipes/hr.json",
+      "recipe_sha256": "1603264921ce6ef29bf8ac667e83207af03b772c9b02dc9bfb941b4a9ace8c26",
+      "frozen_suite_recipe_sha256": "1603264921ce6ef29bf8ac667e83207af03b772c9b02dc9bfb941b4a9ace8c26",
+      "workflow_contract": "spreadsheet-semantic-v3",
+      "input_hashes": {
+        "input/dataset_manifest.json": "7bdd7903f9c4ecf3cf9cdfca5730fe5723649074eb6c477747f0ce7328616088",
+        "input/national_M2025_dl.xlsx": "852250997ceff9b721ff68f63e877d818f9c1ec8b1b69dd367958faedd5282b2",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_hashes": {
+        "helpers/build.py": "b2dd02381de26a70cee9b3840b9ebe2acf9158c3f85e321e87e673670e21cd14"
+      },
+      "seed_path": "compatibility/cases/hr/seed",
+      "source_path": "compatibility/cases/hr/source",
+      "verifiers": {
+        "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+        "spreadsheet.py": "70e12dad4e13c3b8f44db3ca6ebf2dc8d8a5db4599d7fbeb13ce9f4bc1488105",
+        "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+        "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+      }
+    },
+    "industry_productivity": {
+      "recipe_path": "compatibility/recipes/industry_productivity.json",
+      "recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3",
+      "frozen_suite_recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3",
+      "workflow_contract": "spreadsheet-semantic-v3",
+      "input_hashes": {
+        "input/dataset_manifest.json": "ab1927c8c15dd775e656fc97cee56d208a06fa1aea6a3bb38464d6f533f340e5",
+        "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+        "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+      },
+      "helper_hashes": {
+        "helpers/industry_productivity_build.py": "a7ed376b86b5691adbaf2f9b2d793974eb1e47799fe02fde66291dd081fcae90"
+      },
+      "seed_path": "compatibility/cases/industry_productivity/seed",
+      "source_path": "compatibility/cases/industry_productivity/source",
+      "verifiers": {
+        "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+        "spreadsheet.py": "70e12dad4e13c3b8f44db3ca6ebf2dc8d8a5db4599d7fbeb13ce9f4bc1488105",
+        "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+        "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+      }
+    }
+  },
+  "minimum_additional_collection": {
+    "configs": [
+      "irs_w4-n1",
+      "irs_w4-n10",
+      "sba1919-n1",
+      "sba1919-n10",
+      "retail",
+      "hr",
+      "industry_productivity"
+    ],
+    "modes": [
+      "native",
+      "pyspy"
+    ],
+    "one collection per mode/config": true,
+    "explicit_loops": {
+      "irs_w4-n1": 10,
+      "irs_w4-n10": 3,
+      "sba1919-n1": 10,
+      "sba1919-n10": 3,
+      "retail": 5,
+      "hr": 8,
+      "industry_productivity": 1
+    },
+    "excluded": [
+      "Manufacturing",
+      "perf stat",
+      "strace",
+      "independent audit",
+      "additional native repeats"
+    ],
+    "reason": "Existing new-dataset profiles were recorded with runner SHA 3623… and old recipe SHA values; current loop verifier bindings differ. Industry has only an unprofiled functional run."
+  }
+}

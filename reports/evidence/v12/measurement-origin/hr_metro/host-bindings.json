@@ -1,0 +1,50 @@
+{
+  "validate_only": null,
+  "validate_only_exit": 0,
+  "validate_only_output": [
+    "executor, workload and compatible workflow bindings valid",
+    "formal preparation ready for: hr_metro"
+  ],
+  "recipe": {
+    "path": "compatibility/recipes/hr_metro.json",
+    "sha256": "fe4b36933cf14381517d41ad71706aed935abca4d1c7a5da4b450e4a252c6480",
+    "helper_hashes": {
+      "hr_metro_build.py": "59adc0392cac9beb4c88206fb196e2b707b3aef4fe766c8431ff54690a523fe8"
+    },
+    "input_hashes": {
+      "input/dataset_manifest.json": "645d3c9fa72f32d122213998e7cdf55c5d1a20aa63065c5937fe16be49d9ef69",
+      "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb",
+      "input/MSA_M2025_dl.xlsx": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+      "input/prepared_selection.json": "43376fc82ee084ad80fe603bb412ea359bfe56833800a01b383d409597056744"
+    },
+    "operation_timeout": 900,
+    "recalc_timeout": 600
+  },
+  "manual_source": {
+    "record_path": "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/provenance.json",
+    "record_sha256": "e7ebe10285ba83526178f21b3ae4c4e97dbb56fde8edc3b4fe9a5c8a0b41fd5f",
+    "manifest_path": "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/manifest.json",
+    "manifest_sha256": "645d3c9fa72f32d122213998e7cdf55c5d1a20aa63065c5937fe16be49d9ef69",
+    "helper_path": "compatibility/helpers/hr_metro_build.py",
+    "helper_sha256": "59adc0392cac9beb4c88206fb196e2b707b3aef4fe766c8431ff54690a523fe8",
+    "references": [
+      {
+        "dataset_id": "hr",
+        "workflow_role": "workflow shape reference only",
+        "recipe_path": "compatibility/recipes/hr.json",
+        "recipe_sha256": "bc7b48e492ff93c7fe6cf136935cbd961c1f24ea56650a0499de49289293f2c5",
+        "helper_path": "compatibility/helpers/hr_build.py",
+        "helper_sha256": "b2dd02381de26a70cee9b3840b9ebe2acf9158c3f85e321e87e673670e21cd14",
+        "not_parent_execution": true
+      }
+    ]
+  },
+  "measurement_code": {
+    "cpu_ledger_sha256": "de009e3bf0b12ee6d339a8c2dab0690c359e65c55392038f5cc397b642a76970",
+    "sitecustomize_sha256": "7672a9715000a3a08c1404214d33b57c96ac8ffabf2de797560661f2dd0044a0",
+    "monitor_sha256": "81e2eb112cee6b416a09cf695f8b405a84082ea8b53849198dc5a0b845f9026b",
+    "probe_sha256": "a210577322909cdfe28973ea1e1fe1bbd74c70857b7562ad4985877877639448"
+  },
+  "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+  "image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4"
+}

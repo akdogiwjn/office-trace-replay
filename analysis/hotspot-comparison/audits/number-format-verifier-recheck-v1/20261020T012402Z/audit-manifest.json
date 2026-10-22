@@ -1,0 +1,463 @@
+{
+  "schema_version": "number-format-verifier-offline-recheck-v1",
+  "created_at_utc": "2026-10-20T01:24:02Z",
+  "status": "success",
+  "scope": "Targeted number-format semantic repair and independent offline verification of archived Retail Online and HR Metro workbooks. No workbook regeneration/save, helper, LibreOffice, workload, Agent, profiler or image build.",
+  "historical_v2_report_correction": {
+    "path": "analysis/hotspot-comparison/audits/new-dataset-deep-audit-v2/20261020T000823Z/audit-report.md",
+    "markdown_output_unchanged_display": "否",
+    "machine_record_output_unchanged": true,
+    "correction": "Old report table contradicts its machine manifest and the archived before/after hashes. Historical report and failed audit remain unchanged; this campaign renders status from verified hashes."
+  },
+  "repair": {
+    "central_file": "compatibility/verification/spreadsheet.py",
+    "central_sha256": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+    "source_verifier_copies_synced": [
+      "compatibility/cases/hr/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/manufacturing/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/retail/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/industry_productivity/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/retail_online/source/office_trace_bench/spreadsheet.py"
+    ],
+    "project_lock_updated_paths": [
+      "compatibility/verification/spreadsheet.py",
+      "compatibility/cases/hr/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/manufacturing/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/retail/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/industry_productivity/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py",
+      "compatibility/cases/retail_online/source/office_trace_bench/spreadsheet.py"
+    ],
+    "rule_summary": "Case-insensitive date tokens, date-field order preserved, day/month zero-padding and 2-/4-digit year normalized, quoted and escaped literals parsed, [h]/[m]/[s] retained as elapsed units, direct/bracket currency and percent retained, locale/color metadata separated, scaling commas distinct from grouping, unknown syntax exact-only (changed opaque syntax fails). Format parser cached by source format string."
+  },
+  "datasets": {
+    "retail_online": {
+      "functional_record_path": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/run-record.json",
+      "functional_record_sha256": "4c062c9ce06e4e5f941f4acc13bcaf5a60322bee27499fe530cf5124582a7d06",
+      "functional_archive_output_sha256": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+      "workspace_path": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/workspace-parent/OFFICE-XLSX-RETAIL-ONLINE",
+      "preflight": {
+        "status": "success",
+        "path": "retail_online/report/preflight.json",
+        "sha256": "bc7a4c0883cb26c717fd51a7866877207b6f3309f860c6501ec951ed6e4e55de",
+        "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+        "recipe_sha256": "00e5a02c7ca5d4d41f09f589c5c5fbcaf1bb326ea475dc0bfee0f8b2bd3dacff",
+        "input_sha256": {
+          "input/dataset_manifest.json": "6eea4c7719efa81c99b453c81889a750df5ef6aa2dd140302900f8c3fa4af1ac",
+          "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb",
+          "input/Online Retail.xlsx": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d"
+        },
+        "helper_sha256": {
+          "retail_online_build.py": "df09b4afd15edc6c3d7a8b73459cac2b07bb597c277685dae4fa2205e8fbf106"
+        },
+        "central_verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        },
+        "source_verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        }
+      },
+      "independent_verification": {
+        "status": "success",
+        "scope": "independent",
+        "contract": "office-independent-acceptance-v3",
+        "checks_total": 60,
+        "checks_passed": 60,
+        "failures": [],
+        "path": "retail_online/report/independent-verification.json",
+        "sha256": "3a224fc4735ae600493546034e48158015e0b37d1b337f092d1c07c43a713434",
+        "number_format_statistics": {
+          "Online Retail": {
+            "difference_count": 541909,
+            "distinct_format_pair_count": 1,
+            "allowed_representation_change_count": 541909,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [
+              {
+                "cell": "E2",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E3",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E4",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E5",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E6",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E7",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E8",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E9",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E10",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E11",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E12",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E13",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E14",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E15",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E16",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E17",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E18",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E19",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E20",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E21",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E22",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E23",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E24",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              },
+              {
+                "cell": "E25",
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key"
+              }
+            ],
+            "format_pairs": [
+              {
+                "source": "m/d/yy h:mm",
+                "output": "m/d/yyyy\\ h:mm",
+                "classification": "allowed_representation_change",
+                "reason": "same_semantic_format_key",
+                "count": 541909,
+                "cell_samples": [
+                  "E2",
+                  "E3",
+                  "E4",
+                  "E5",
+                  "E6"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "output_sha256_before_audit": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+      "output_sha256_after_audit": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+      "output_unchanged": true,
+      "audit_container_id": "2859b1f25137ff4fcdf9d41be670a58397b4c7d7aa1f31ad1f84479d48ef666b",
+      "audit_image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+      "audit_container_status": "exited",
+      "audit_exit_code": 0,
+      "mounts": {
+        "/audit/report": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/audits/number-format-verifier-recheck-v1/20261020T012402Z/retail_online/report",
+          "read_only": false
+        },
+        "/opt/office-trace-replay": {
+          "source": "/home/lcq/office-trace-replay",
+          "read_only": true
+        },
+        "/opt/document-bench/bin/run_document_scene_loop.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop.py",
+          "read_only": true
+        },
+        "/opt/document-bench/bin/run_document_scene_loop_timed.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop_timed.py",
+          "read_only": true
+        },
+        "/audit/workspace": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/retail_online/workspace-parent/OFFICE-XLSX-RETAIL-ONLINE",
+          "read_only": true
+        }
+      },
+      "container_log_sha256": "8c6c98aef959ceb38fa4ae4cfa89763d6f7f17da79d1dd15e5ea2fa1d3322162",
+      "docker_argv_sha256": "9e3693ad063ed509bffe190f699cd1620a7a3214c33f18a9d723d2fe7036a44c"
+    },
+    "hr_metro": {
+      "functional_record_path": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/hr_metro/run-record.json",
+      "functional_record_sha256": "b037f3265108b7716d178c211ff7e871f373d594e62672038a50ae1b38477a76",
+      "functional_archive_output_sha256": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0",
+      "workspace_path": "analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/hr_metro/workspace-parent/OFFICE-XLSX-HR-METRO",
+      "preflight": {
+        "status": "success",
+        "path": "hr_metro/report/preflight.json",
+        "sha256": "6fd02ed8e61da2b6de124341494523d15d3ec870aa08266a7a6f8198a9301ce1",
+        "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+        "recipe_sha256": "25d2eadac4eecc1b75097265d65f26be517925c125dd60d1d77563051c844c94",
+        "input_sha256": {
+          "input/dataset_manifest.json": "bddee1caa7a98034a4f0bd92a3823b5d89b35d69d1a2f88fdaa839afe0c89279",
+          "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb",
+          "input/MSA_M2025_dl.xlsx": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0"
+        },
+        "helper_sha256": {
+          "hr_metro_build.py": "11f4ac4a26c3ed375fc80d23c9dbe9cc1db4e20ee83ea367f03f980939d74132"
+        },
+        "central_verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        },
+        "source_verifier_sha256": {
+          "verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+          "contracts.py": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d",
+          "workbooks.py": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        }
+      },
+      "independent_verification": {
+        "status": "success",
+        "scope": "independent",
+        "contract": "office-independent-acceptance-v3",
+        "checks_total": 73,
+        "checks_passed": 73,
+        "failures": [],
+        "path": "hr_metro/report/independent-verification.json",
+        "sha256": "45fa9b186dfadd55079ddf81ba74f1d389a97c9635b086f307ce5feda0454b7b",
+        "number_format_statistics": {
+          "MSA_M2025_dl": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          },
+          "Field Descriptions": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          },
+          "UpdateTime": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          },
+          "Filler": {
+            "difference_count": 0,
+            "distinct_format_pair_count": 0,
+            "allowed_representation_change_count": 0,
+            "strict_failure_count": 0,
+            "cell_sample_limit": 24,
+            "cell_samples": [],
+            "format_pairs": []
+          }
+        }
+      },
+      "output_sha256_before_audit": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0",
+      "output_sha256_after_audit": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0",
+      "output_unchanged": true,
+      "audit_container_id": "c986680c89a9110de9c349701e06dff9e1a090b52ed988253ed2c25ed22bc395",
+      "audit_image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+      "audit_container_status": "exited",
+      "audit_exit_code": 0,
+      "mounts": {
+        "/opt/document-bench/bin/run_document_scene_loop_timed.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop_timed.py",
+          "read_only": true
+        },
+        "/audit/workspace": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/replay-runs/20261019T-functional-trials-v2-02/trials/hr_metro/workspace-parent/OFFICE-XLSX-HR-METRO",
+          "read_only": true
+        },
+        "/audit/report": {
+          "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison/audits/number-format-verifier-recheck-v1/20261020T012402Z/hr_metro/report",
+          "read_only": false
+        },
+        "/opt/office-trace-replay": {
+          "source": "/home/lcq/office-trace-replay",
+          "read_only": true
+        },
+        "/opt/document-bench/bin/run_document_scene_loop.py": {
+          "source": "/home/lcq/office-trace-replay/legacy/document-oe/bin/run_document_scene_loop.py",
+          "read_only": true
+        }
+      },
+      "container_log_sha256": "723a502809de3bde3874a8ca21121a20a023351147fbc9b943577d11d6351c84",
+      "docker_argv_sha256": "5b1febc309839d560b5b2f0ee4b2c28813b566cb22e55e1897dacd8b516a9ce6"
+    }
+  },
+  "runtime": {
+    "image_id": "sha256:a005ce959428863b81c17d1f296b2bbf888e5cf51dc7332d93a9b35d504293e4",
+    "python": "3.12.3",
+    "openpyxl": "3.1.5",
+    "network": "none",
+    "workspace_mount": "read-only",
+    "reports_mount": "separate writable directory",
+    "entrypoint": "/bin/bash",
+    "runner_sha256": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7"
+  },
+  "binding_files_sha256": {
+    "compatibility/verification/spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+    "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+    "compatibility/cases/retail_online/source/office_trace_bench/spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+    "compatibility/cases/hr_metro/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/retail_online/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/manifest.json": "bddee1caa7a98034a4f0bd92a3823b5d89b35d69d1a2f88fdaa839afe0c89279",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/expected.json": "4925745764ff83b0f60d1260bab1ac7dd9de9acfaaa06e2605e881e83c6b5c81",
+    "compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/provenance.json": "e7ebe10285ba83526178f21b3ae4c4e97dbb56fde8edc3b4fe9a5c8a0b41fd5f",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/manifest.json": "6eea4c7719efa81c99b453c81889a750df5ef6aa2dd140302900f8c3fa4af1ac",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/expected.json": "0ae80231091509dd8f06af3a455508c4aa4f23063be68aa8af26f1ee658c61a0",
+    "compatibility/cases/retail_online/source/datasets/xlsx/retail_online/provenance.json": "ffed056fbfb4c88cea1837e55b05fab8907c55bc4c0061adc379a5dfa1bb08e8",
+    "compatibility/suite.json": "4e28e4f425ea4b029477f5dbb0bf474fabd0057e3f1783d25cf9de22d8675d20",
+    "suites/default.json": "0ca45d9a4d3ee591abc3569c2d31dbc6027d222b07bf3aad05f5f15f86113462",
+    "assets/project-lock.json": "73de4d4aa0f0b047e618cd2c5ffd0823195f94a04a87d9a2b893265666b7adc1"
+  },
+  "analysis_code_sha256": {
+    "compatibility/verification/spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+    "analysis/hotspot-comparison/scripts/deep_audit_report.py": "d662998328f3950a29e9307bf7ab6093f3a66ec6507763596b73951a259c938f",
+    "replay/accept.py": "76f4a65c9aeaf8e658a9290ed9c437f7d299ee81d30b4e4ea869807b1e1cf760",
+    "analysis/hotspot-comparison/scripts/preflight_replay.py": "88b3711516e9291741894ede7ee77134eb44f6ad55251ddf8a08f4827a4fdca2"
+  },
+  "verification": {
+    "targeted_test_command": "python3 -m unittest tests.test_verifier.NumberFormatMeaningTests tests.test_verifier.OriginalContentPositiveNegativeTests tests.test_deep_audit_report",
+    "targeted_tests_passed": 30,
+    "py_compile": "passed",
+    "source_copy_and_project_lock_check": "passed for six active XLSX source copies",
+    "workbook_hash_pre_post": "passed for both archived workbooks",
+    "preflight": "success for both datasets"
+  },
+  "performance_collection": "not_started",
+  "limitations": [
+    "No performance profiles collected or compared in this task.",
+    "Format parser intentionally handles a conservative subset of Excel formats; changed unsupported syntax is rejected rather than assumed equivalent.",
+    "No workload/helper or LibreOffice regeneration was run."
+  ]
+}

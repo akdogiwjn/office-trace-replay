@@ -1,0 +1,80 @@
+{
+  "schema_version": "compatible-pdf-negative-checks-v1",
+  "status": "success",
+  "dataset": "sba1919",
+  "recipe_sha256": "b2202ecbf97930c72f2e8240d3e0ca0cc00693aeaae12262009408e58b510767",
+  "project_lock_sha256": "65ae2400d3722b983f2ec0c9ee713b29818bb3057132bc9cd67c2fcc204e0f81",
+  "results": [
+    {
+      "scenario": "clean",
+      "passed": true,
+      "verifier_status": "success",
+      "failures": [],
+      "verification_sha256": "d50d1c6d18b465d8ef99dabd70bec6856a0b17a2349f823eaec49b68633cb13e"
+    },
+    {
+      "scenario": "inactive_value",
+      "passed": true,
+      "verifier_status": "failed",
+      "failures": [
+        "mapping:applicant_10"
+      ],
+      "verification_sha256": "6c7139be4aed243b467a300bf0303b5ddece8b0430d2ecf29472f4acce79cc18"
+    },
+    {
+      "scenario": "inactive_page",
+      "passed": true,
+      "verifier_status": "failed",
+      "failures": [
+        "mapping_pages:applicant_10"
+      ],
+      "verification_sha256": "acbba08ae9e2060da7f5a2804093fa93b600bb8e8e2542d4eabf6cf9f294e31c"
+    },
+    {
+      "scenario": "inactive_protected",
+      "passed": true,
+      "verifier_status": "failed",
+      "failures": [
+        "mapping:applicant_10",
+        "mapping_protected_blank:applicant_10"
+      ],
+      "verification_sha256": "c88d5668f053180264dec064167b3e60bac0bde23c907a2059c29c3dd8732740"
+    },
+    {
+      "scenario": "missing_mapping",
+      "passed": true,
+      "verifier_status": "failed",
+      "failures": [
+        "verification_exception"
+      ],
+      "verification_sha256": "3d45926059c18f1fc56c45abf04ea879d5e2c8bb46f50e06f2826d8cac53b6a8"
+    },
+    {
+      "scenario": "extra_mapping",
+      "passed": true,
+      "verifier_status": "failed",
+      "failures": [
+        "exact_mapping_inventory"
+      ],
+      "verification_sha256": "5b3112c6f59aaa84bbd26d1d25642da3afaa9866403bd744de6f3c4d183d466e"
+    },
+    {
+      "scenario": "extra_pdf",
+      "passed": true,
+      "verifier_status": "failed",
+      "failures": [
+        "exact_pdf_inventory"
+      ],
+      "verification_sha256": "aa62294fc9d08a86d90926378245fb8acded21bfc701115dc4d9161509da1dce"
+    },
+    {
+      "scenario": "extra_render",
+      "passed": true,
+      "verifier_status": "failed",
+      "failures": [
+        "exact_render_inventory"
+      ],
+      "verification_sha256": "23188f83d3500f80d260214b2abdfb54a34a5ff658b319786c424aa1165c18d8"
+    }
+  ]
+}

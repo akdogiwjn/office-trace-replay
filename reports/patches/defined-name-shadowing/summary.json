@@ -1,0 +1,72 @@
+{
+  "schema_version": "office-replay-local-verifier-patch-v1",
+  "patch": "defined-name-shadowing",
+  "status": "success",
+  "verified_at_utc": "2026-10-17T12:52:31.656960+00:00",
+  "base_image": "office-trace-replay:openeuler-v8",
+  "base_image_id": "sha256:8bf017d1b4bfe7b481f9aed1e6a44d396444a6c49b40c9a91d7dee84232f53a0",
+  "included_in_image": false,
+  "validation_method": "Existing v8 image with read-only working-tree mount; existing v8 XLSX outputs independently reverified; no new Agent run or workload replay.",
+  "image_project_lock_sha256": "44e6f25e5557c2ee60cfdd0d6e6d82fc30caba91d19c2911d9d5f0d65ddef4fe",
+  "working_tree_project_lock_sha256": "bf4cfca8b71cb4508f7a9b89a587fd6dbe51b47f8e9025d9987d3bff66af0aaa",
+  "source_sha256": "e13d8a90b32d9999b04f5cfd772165cab6141188a4f65040d545a00a832cb231",
+  "tests": {
+    "passed": 55,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0,
+    "host": true,
+    "mounted_container": true,
+    "isolated_snapshot": true
+  },
+  "regression_cases": [
+    "Reject local shadowing of an original formula name, including case-insensitive and sheet-qualified references.",
+    "Allow unused additions, names inside string literals, and equivalent range targets."
+  ],
+  "xlsx_reverification": [
+    {
+      "dataset": "hr",
+      "exit_code": 0,
+      "status": "success",
+      "failures": [],
+      "report_sha256": "73cebfd33baed6fff4fab1c5906607213ab50963ffd288a044d389bfd578e513"
+    },
+    {
+      "dataset": "manufacturing",
+      "exit_code": 0,
+      "status": "success",
+      "failures": [],
+      "report_sha256": "2ce08d369a0617e94ea0fe81d03635aef0f69b8156579bc86e1e652da1fb8755"
+    },
+    {
+      "dataset": "retail",
+      "exit_code": 0,
+      "status": "success",
+      "failures": [],
+      "report_sha256": "e6f9c671ddaae3e71d7eadd548cb0b33286e22752150c6c62ac1e4c123108fac"
+    }
+  ],
+  "old_workload_files_unchanged": 43,
+  "files": {
+    "hr.json": {
+      "path": "reports/patches/defined-name-shadowing/hr.json",
+      "sha256": "73cebfd33baed6fff4fab1c5906607213ab50963ffd288a044d389bfd578e513"
+    },
+    "manufacturing.json": {
+      "path": "reports/patches/defined-name-shadowing/manufacturing.json",
+      "sha256": "2ce08d369a0617e94ea0fe81d03635aef0f69b8156579bc86e1e652da1fb8755"
+    },
+    "retail.json": {
+      "path": "reports/patches/defined-name-shadowing/retail.json",
+      "sha256": "e6f9c671ddaae3e71d7eadd548cb0b33286e22752150c6c62ac1e4c123108fac"
+    },
+    "tests.log": {
+      "path": "reports/patches/defined-name-shadowing/tests.log",
+      "sha256": "3df16187f24e6db66b72dd1ec0f499c5fd1317c5414e4c6c6b13181a796398b7"
+    },
+    "self-contained.json": {
+      "path": "reports/patches/defined-name-shadowing/self-contained.json",
+      "sha256": "0dba3caf98ba850c33fdfc4b98b97ab8610ce14cc837964c8f14bdd71056a8b6"
+    }
+  }
+}

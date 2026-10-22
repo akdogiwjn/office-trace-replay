@@ -1,0 +1,264 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_kind": "xlsx",
+  "case_id": "OFFICE-XLSX-HR",
+  "dataset_id": "hr",
+  "variant_id": "hr",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "XLSX-P01-inspect_prepare",
+      "XLSX-P02-build",
+      "XLSX-P03-process_publish",
+      "XLSX-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "XLSX-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_skill",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/xlsx/SKILL.md"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_verifier",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && cat input/verify_office.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "copy_input",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && cp input/national_M2025_dl.xlsx output/hr_enhanced.xlsx"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py source"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py copy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P02-build",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "write_helper",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR/helpers/build.py",
+              "content": "\"\"\"Build hr_enhanced.xlsx directly into the final output from the source workbook.\n\nAdds analysis/presentation sheets only; never modifies original sheets.\nAlso emits workbook_features.json recording chosen feature locations.\n\"\"\"\nimport json\nfrom pathlib import Path\nimport openpyxl\nfrom openpyxl.styles import Font, PatternFill, Alignment, Border, Side\nfrom openpyxl.comments import Comment\nfrom openpyxl.worksheet.datavalidation import DataValidation\nfrom openpyxl.formatting.rule import CellIsRule, DataBarRule\nfrom openpyxl.chart import BarChart, Reference\n\nROOT = Path('/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR')\nSRC = ROOT / 'input/national_M2025_dl.xlsx'\nOUT = ROOT / 'output'\nOUT.mkdir(exist_ok=True)\nTARGET = '/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR/output/hr_enhanced.xlsx'\n\nSRC_SHEET = 'national_M2025_dl'\nSUMMARY = 'OEWS Summary'\nCHART_SHEET = 'Chart Data'\n\nwb = openpyxl.load_workbook(SRC)\n\n# ---- discover source layout -------------------------------------------------\nsrc = wb[SRC_SHEET]\nlast = src.max_row\n# rows holding the cross-industry all-ownerships majors (o_group == 'major')\nmajor_rows = []\nfor r in range(2, last + 1):\n    if str(src.cell(r, 11).value) == 'major':\n        major_rows.append(r)\n# the single all-occupations total row (o_group == 'total')\ntotal_row = next(r for r in range(2, last + 1) if str(src.cell(r, 11).value) == 'total')\n\nM = f\"'{SRC_SHEET}'\"\ndef gref(col, row):\n    return f\"{M}!${col}${row}\"\n\n# ---- styles -----------------------------------------------------------------\nCAL = 'Calibri'\nGREEN = 'FF008000'\nBLUE = 'FF0000FF'\nBLACK = 'FF000000'\nhdr_fill = PatternFill('solid', fgColor='FFD9E1F2')\nsec_fill = PatternFill('solid', fgColor='FFB4C6E7')\nin_fill = PatternFill('solid', fgColor='FFFFF2CC')\nthin = Side(style='thin', color='FFBFBFBF')\nbox = Border(left=thin, right=thin, top=thin, bottom=thin)\nbold = Font(name=CAL, bold=True)\ntitle_f = Font(name=CAL, bold=True, size=14)\ngreen_f = Font(name=CAL, color=GREEN)\nblue_f = Font(name=CAL, color=BLUE)\nblack_f = Font(name=CAL, color=BLACK)\nitalic_f = Font(name=CAL, italic=True, size=9)\n\n# ---- summary sheet ----------------------------------------------------------\nws = wb.create_sheet(SUMMARY)\nws['A1'] = 'May 2025 OEWS National Analysis'\nws['A1'].font = title_f\nws['A2'] = ('Source: national_M2025_dl.xlsx — BLS Occupational Employment and Wage '\n            'Statistics, May 2025 (U.S., cross-industry, all ownerships).')\nws['A2'].font = italic_f\n\nws['A4'] = 'Published National Totals (All Occupations)'\nws['A4'].font = bold\nws['A4'].fill = sec_fill\nfor c in 'BCD':\n    ws[f'{c}4'].fill = sec_fill\n\nheaders = ['Metric', 'Value', 'Unit', 'Source / method']\nfor i, h in enumerate(headers):\n    cell = ws.cell(5, 1 + i, h)\n    cell.font = bold\n    cell.fill = hdr_fill\n    cell.border = box\n\nmetrics = [\n    ('total_employment', 'National employment (all occupations)', 'employees',\n     f'=INDEX({M}!$L$2:$L${last},MATCH(\"total\",{M}!$K$2:$K${last},0))', '#,##0'),\n    ('annual_mean_wage', 'Annual mean wage (all occupations)', 'USD per year',\n     f'=INDEX({M}!$S$2:$S${last},MATCH(\"total\",{M}!$K$2:$K${last},0))', '$#,##0'),\n    ('hourly_median_wage', 'Hourly median wage (all occupations)', 'USD per hour',\n     f'=INDEX({M}!$W$2:$W${last},MATCH(\"total\",{M}!$K$2:$K${last},0))', '$#,##0.00'),\n]\nmetric_cells = {}\nsrc_notes = {\n    'total_employment': f'Source: {SRC_SHEET}!L{total_row} (TOT_EMP, All Occupations, o_group=total).',\n    'annual_mean_wage': f'Source: {SRC_SHEET}!S{total_row} (A_MEAN, All Occupations).',\n    'hourly_median_wage': f'Source: {SRC_SHEET}!W{total_row} (H_MEDIAN, All Occupations).',\n}\nfor i, (mid, label, unit, formula, nf) in enumerate(metrics):\n    r = 6 + i\n    ws.cell(r, 1, label).font = Font(name=CAL)\n    vc = ws.cell(r, 2, formula)\n    vc.font = green_f\n    vc.number_format = nf\n    vc.border = box\n    ws.cell(r, 3, unit)\n    note = ws.cell(r, 4, src_notes[mid])\n    note.font = italic_f\n    vc.comment = Comment(src_notes[mid] + ' Published aggregate estimate (not a sum of records).', 'Analyst')\n    metric_cells[mid] = vc.coordinate\n\n# ---- scenario section -------------------------------------------------------\nws['A10'] = 'Scenario Analysis'\nws['A10'].font = bold\nws['A10'].fill = sec_fill\nws['B10'].fill = sec_fill\n\nws['A11'] = 'Scenario'\nws['A11'].font = bold\nsel = ws['B11']\nsel.value = 'Base'\nsel.font = blue_f\nsel.fill = in_fill\nsel.border = box\nsel.comment = Comment('Editable scenario selector (Base / Increase). Drives the wage multiplier assumption.', 'Analyst')\n\nws['A13'] = 'Assumptions — wage multiplier'\nws['A13'].font = bold\nws['B13'] = 'Wage multiplier'\nws['B13'].font = bold\nws['B13'].fill = hdr_fill\n\nws['A14'] = 'Base'\nbase_cell = ws['B14']\nbase_cell.value = 1\nbase_cell.font = blue_f\nbase_cell.fill = in_fill\nbase_cell.number_format = '0.00'\nbase_cell.border = box\n\nws['A15'] = 'Increase'\ninc_cell = ws['B15']\ninc_cell.value = 1.05\ninc_cell.font = blue_f\ninc_cell.fill = in_fill\ninc_cell.number_format = '0.00'\ninc_cell.border = box\n\nws['A17'] = 'Selected wage multiplier'\nws['A17'].font = bold\nmult = ws['B17']\nmult.value = f'=INDEX($B$14:$B$15,MATCH($B$11,$A$14:$A$15,0))'\nmult.font = black_f\nmult.number_format = '0.00\"x\"'\nmult.border = box\n\nws['A18'] = 'Projected annual mean wage (selected scenario)'\nws['A18'].font = bold\nproj = ws['B18']\nproj.value = f'={metric_cells[\"annual_mean_wage\"]}*$B$17'\nproj.font = black_f\nproj.number_format = '$#,##0'\nproj.border = box\nproj.comment = Comment('Projection = published all-occupations annual mean wage × selected wage multiplier. Illustrative; no new employment records.', 'Analyst')\n\nws['A20'] = 'Notes'\nws['A20'].font = bold\nws['A21'] = ('Published aggregate estimates only. Suppressed / unavailable values are kept as source markers: '\n             '\"*\" wage not available, \"**\" employment not available, \"#\" wage >= $115.00/hr or $239,200/yr, \"~\" <0.5% reporting.')\nws['A21'].font = italic_f\nws['A22'] = 'Original worksheets, data, formulas, charts, merged regions and formatting are preserved unchanged.'\nws['A22'].font = italic_f\n\n# data validation dropdown for the selector\ndv = DataValidation(type='list', formula1='\"Base,Increase\"', allow_blank=False)\ndv.prompt = 'Choose Base or Increase'\ndv.promptTitle = 'Scenario'\nws.add_data_validation(dv)\ndv.add(sel)\n\n# conditional formatting (>=2 on added sheets)\nws.conditional_formatting.add('B14:B15',\n    CellIsRule(operator='greaterThan', formula=['1'], fill=PatternFill('solid', fgColor='FFFCE4D6')))\nws.conditional_formatting.add('B18',\n    CellIsRule(operator='greaterThan', formula=['$B$14*0'], fill=PatternFill('solid', fgColor='FFE2EFDA')))\n\nwidths = {'A': 44, 'B': 16, 'C': 16, 'D': 58}\nfor col, w in widths.items():\n    ws.column_dimensions[col].width = w\nws.freeze_panes = 'A5'\n\n# ---- chart data sheet -------------------------------------------------------\ncs = wb.create_sheet(CHART_SHEET)\ncs['A1'] = 'Five largest major occupational groups by employment'\ncs['A1'].font = title_f\ncs['A2'] = ('National, cross-industry, all ownerships; major groups only '\n            '(totals and detailed/broad/minor rows excluded).')\ncs['A2'].font = italic_f\n\nfor i, h in enumerate(['SOC Code', 'Major occupation group', 'Employment']):\n    cell = cs.cell(3, 1 + i, h)\n    cell.font = bold\n    cell.fill = hdr_fill\n    cell.border = box\nfor k, r in enumerate(major_rows):\n    rr = 4 + k\n    code = cs.cell(rr, 1, f'={gref(\"I\", r)}')\n    code.font = green_f\n    title = cs.cell(rr, 2, f'={gref(\"J\", r)}')\n    title.font = green_f\n    emp = cs.cell(rr, 3, f'={gref(\"L\", r)}')\n    emp.font = green_f\n    emp.number_format = '#,##0'\n\nn_major = len(major_rows)\nfirst_helper = 4\nlast_helper = 3 + n_major  # = 3 + 22 = 25\nemp_range = f'$C${first_helper}:$C${last_helper}'\ntitle_range = f'$B${first_helper}:$B${last_helper}'\ncode_range = f'$A${first_helper}:$A${last_helper}'\n\ncs['A27'] = 'Rank'\ncs['B27'] = 'SOC Code'\ncs['C27'] = 'Major occupation group'\ncs['D27'] = 'Employment'\nfor c in 'ABCD':\n    cell = cs[f'{c}27']\n    cell.font = bold\n    cell.fill = hdr_fill\n    cell.border = box\n\ntop_cells = []\nfor k in range(5):\n    rr = 28 + k\n    cs.cell(rr, 1, k + 1).font = bold\n    emp = cs.cell(rr, 4, f'=LARGE({emp_range},{k + 1})')\n    emp.font = black_f\n    emp.number_format = '#,##0'\n    emp.border = box\n    title = cs.cell(rr, 3, f'=INDEX({title_range},MATCH(D{rr},{emp_range},0))')\n    title.font = black_f\n    code = cs.cell(rr, 2, f'=INDEX({code_range},MATCH(D{rr},{emp_range},0))')\n    code.font = black_f\n    top_cells.append(emp.coordinate)\n\ncs.conditional_formatting.add(f'D28:D32', DataBarRule(start_type='min', end_type='max', color='FF638EC6'))\n\nchart = BarChart()\nchart.type = 'col'\nchart.style = 10\nchart.title = 'Top 5 major occupational groups by employment (May 2025 OEWS)'\nchart.y_axis.title = 'Employment (employees)'\nchart.x_axis.title = 'Major occupational group'\ndata = Reference(cs, min_col=4, min_row=27, max_row=32)\ncats = Reference(cs, min_col=3, min_row=28, max_row=32)\nchart.add_data(data, titles_from_data=True)\nchart.set_categories(cats)\nchart.width = 24\nchart.height = 12\ncs.add_chart(chart, 'F3')\n\ncs.column_dimensions['A'].width = 12\ncs.column_dimensions['B'].width = 46\ncs.column_dimensions['C'].width = 18\ncs.freeze_panes = 'A4'\n\nwb.save(TARGET)\nprint('saved', TARGET)\n\nfeatures = {\n    'summary_sheet': SUMMARY,\n    'metrics': {\n        'total_employment': {'sheet': SUMMARY, 'cell': metric_cells['total_employment']},\n        'annual_mean_wage': {'sheet': SUMMARY, 'cell': metric_cells['annual_mean_wage']},\n        'hourly_median_wage': {'sheet': SUMMARY, 'cell': metric_cells['hourly_median_wage']},\n    },\n    'scenario': {\n        'selector': {'sheet': SUMMARY, 'cell': sel.coordinate},\n        'assumptions': {\n            'Base': {'wage_multiplier': {'sheet': SUMMARY, 'cell': base_cell.coordinate}},\n            'Increase': {'wage_multiplier': {'sheet': SUMMARY, 'cell': inc_cell.coordinate}},\n        },\n        'projections': {\n            'projected_mean_wage': {'sheet': SUMMARY, 'cell': proj.coordinate},\n        },\n    },\n    'charts': {\n        'major_employment': {'sheet': CHART_SHEET, 'index': 0},\n    },\n}\n(OUT / 'workbook_features.json').write_text(json.dumps(features, indent=2) + '\\n')\nprint('wrote workbook_features.json')\n"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "build",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /opt/office-trace-replay/compatibility/tools/run_xlsx_helper_atomic.py helpers/build.py output/hr_enhanced.xlsx"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "recalculate",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/hr_enhanced.xlsx __DOCUMENT_RECALC_TIMEOUT__ > output/formula_recalc.json 2> output/formula_recalc.stderr.log"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py formula"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py cached"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "inspect_log",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && cat output/formula_recalc.json"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "export_csv",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /opt/office-trace-replay/compatibility/tools/export_xlsx.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "semantic_verification",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 input/verify_office.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "write_summary",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && python3 /opt/office-trace-replay/compatibility/tools/summary.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "check_deliverables",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR && test -s output/hr_enhanced.xlsx && test -s output/metrics.csv && test -s output/scenario.csv && test -s output/xlsx_enhancement_summary.json"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR",
+  "seed_path": "compatibility/cases/hr/seed",
+  "source_path": "compatibility/cases/hr/source",
+  "record_count": null,
+  "prepared_record_count": null,
+  "operation_timeout": 900,
+  "recalc_timeout": 600,
+  "requires_llm": false,
+  "classification": "canonicalized_deterministic_replay_derived_from_successful_agent_executions",
+  "parent": {
+    "recipe_path": "recipes/hr.json",
+    "recipe_sha256": "79c89d5d91009096431d9a89a42d472e1b7fa9418efb8ecdae6df1dd6275f908",
+    "canonical_sha256": "648bef3f71a6e753c292a4916e6b7408a482d515f0cceabbf27c028704738a53",
+    "original_run_id": "xlsx-hr-20261009T060833Z-5e454df8",
+    "trajectory_sha256": "8e6de648af39d18a706a7a688b2be91ff96cd91873d1c0b24e70f79015294ad0",
+    "tool_events_sha256": "3b44b22ee9f03179eeaad4e1e3ae5000c437a2f0e5b3eb8a0fcf4f9eba3e67c1",
+    "manifest_sha256": "0342aee27f185225d32ad21dd4b4aa6b668c4aa82eeaf90430eae74e485557b1",
+    "prompt_sha256": "183955ba6d639ff13ed451b9b2725705d0abd0fe44e21f69e7081e60b1b618e0",
+    "skill_and_context_hashes": {
+      "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+      "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+      "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+      "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+      "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+      "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+      "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+      "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+      "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+    },
+    "input_hashes": {
+      "input/national_M2025_dl.xlsx": "852250997ceff9b721ff68f63e877d818f9c1ec8b1b69dd367958faedd5282b2"
+    },
+    "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "original_runtime_versions": {
+      "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+      "node": "v24.14.0",
+      "python": "Python 3.12.3",
+      "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+      "poppler": "pdftoppm version 24.02.0"
+    }
+  },
+  "contract_sha256": "49c8988ac02b8a5d0b041439d6ff2a6349defaceb0de70d97bbe8e82aa732fc0",
+  "adaptations": [
+    "Use original native executor, original Skill tools and original runtime/timing boundaries.",
+    "Canonicalized deterministic replay derived from successful Agent executions: P01 copies the official input to the final output workbook; P02 writes and runs the dataset-specific enhancement helper through the generic atomic XLSX helper, enhancing the final output workbook directly; P03 recalculates that final output with the original Skill recalc.py so LibreOffice saves the computed caches in place, then checks formulas/cached values and exports metrics; P04 runs the versioned semantic verifier, writes the summary and checks deliverables.",
+    "Enhancement helper writes the final output workbook directly; original recalc.py recalcs it in place.",
+    "No assemble_output.py / inject_caches.py / patch.py preservation call in the formal recipe.",
+    "Semantic verification uses the versioned spreadsheet-semantic-v3 contract; format/serialization differences are diagnostics."
+  ],
+  "prompt_path": "compatibility/prompts/xlsx.txt",
+  "prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+  "input_hashes": {
+    "input/national_M2025_dl.xlsx": "852250997ceff9b721ff68f63e877d818f9c1ec8b1b69dd367958faedd5282b2",
+    "input/dataset_manifest.json": "eb25346a421b0ad219dd404ae07f131f25c1b85d52bc6630aed29a3e995059b3",
+    "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb"
+  },
+  "workflow_contract": "spreadsheet-semantic-v3",
+  "loop_verification_contract": "document-oe-compatible-xlsx-loop-v1",
+  "helper_hashes": {
+    "helpers/build.py": "b2dd02381de26a70cee9b3840b9ebe2acf9158c3f85e321e87e673670e21cd14"
+  }
+}

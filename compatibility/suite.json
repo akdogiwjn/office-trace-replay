@@ -1,0 +1,79 @@
+{
+  "schema_version": "document-oe-compatible-suite-v1",
+  "contract_sha256": "7c8bc0df6df8491cfb4e52f2ce59c9ccb10e214fa2b0e0290309915e74752904",
+  "legacy_lock_sha256": "f83f7935e19669255ddeda86889305ac281b2c78f5f4e913716ae97e740124f0",
+  "entries": [
+    {
+      "dataset_id": "irs_w4",
+      "variant_id": "irs_w4-n1",
+      "record_count": 1,
+      "recipe_path": "compatibility/recipes/irs_w4-n1.json",
+      "recipe_sha256": "0753c1efad482f375807b4620198dbe6eb7c037169cbde8bb2ebb6c3cf71733e"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "variant_id": "irs_w4-n10",
+      "record_count": 10,
+      "recipe_path": "compatibility/recipes/irs_w4-n10.json",
+      "recipe_sha256": "86f3fe3b10ceb0dfb5e817a44310abb3e852f8d94cc28a17119e8e0833c24924"
+    },
+    {
+      "dataset_id": "sba1919",
+      "variant_id": "sba1919-n1",
+      "record_count": 1,
+      "recipe_path": "compatibility/recipes/sba1919-n1.json",
+      "recipe_sha256": "568bb8310291167c3ea4e55f6aed62cf467791771f78d976d6b62bda86b3e999"
+    },
+    {
+      "dataset_id": "sba1919",
+      "variant_id": "sba1919-n10",
+      "record_count": 10,
+      "recipe_path": "compatibility/recipes/sba1919-n10.json",
+      "recipe_sha256": "fc30a1e400e53b9e21a64ca31539c26f0e527f99a1e9a1cdd2c182d62fbdba81"
+    },
+    {
+      "dataset_id": "hr",
+      "variant_id": "hr",
+      "record_count": null,
+      "recipe_path": "compatibility/recipes/hr.json",
+      "recipe_sha256": "bc7b48e492ff93c7fe6cf136935cbd961c1f24ea56650a0499de49289293f2c5"
+    },
+    {
+      "dataset_id": "manufacturing",
+      "variant_id": "manufacturing",
+      "record_count": null,
+      "recipe_path": "compatibility/recipes/manufacturing.json",
+      "recipe_sha256": "753a3fdbb05ee1ca404deeea646632549d368f1d9e763d0674d23faf172e9d3a"
+    },
+    {
+      "dataset_id": "retail",
+      "variant_id": "retail",
+      "record_count": null,
+      "recipe_path": "compatibility/recipes/retail.json",
+      "recipe_sha256": "e7b2da2aa0d9adaeb601edf6c5fcb262e41505d24acd6e2b2e428289ae0887b5"
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "variant_id": "industry_productivity",
+      "record_count": null,
+      "recipe_path": "compatibility/recipes/industry_productivity.json",
+      "recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3"
+    },
+    {
+      "dataset_id": "hr_metro",
+      "variant_id": "hr_metro",
+      "record_count": null,
+      "recipe_path": "compatibility/recipes/hr_metro.json",
+      "recipe_sha256": "fe4b36933cf14381517d41ad71706aed935abca4d1c7a5da4b450e4a252c6480",
+      "origin_type": "manual_workflow_adaptation"
+    },
+    {
+      "dataset_id": "retail_online",
+      "variant_id": "retail_online",
+      "record_count": null,
+      "recipe_path": "compatibility/recipes/retail_online.json",
+      "recipe_sha256": "c932c0fd747380f43c11ee89e76c86b06cf9a9d7d48c2d8502e78bdce0613f76",
+      "origin_type": "manual_workflow_adaptation"
+    }
+  ]
+}

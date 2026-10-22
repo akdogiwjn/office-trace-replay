@@ -1,0 +1,35 @@
+{
+  "schema_version": "audit-analysis-build-v1",
+  "created_utc": "2026-10-20T00:08:23Z",
+  "analysis_code_sha256": {
+    "analysis/hotspot-comparison/scripts/preflight_replay.py": "88b3711516e9291741894ede7ee77134eb44f6ad55251ddf8a08f4827a4fdca2",
+    "replay/accept.py": "76f4a65c9aeaf8e658a9290ed9c437f7d299ee81d30b4e4ea869807b1e1cf760",
+    "replay/freeze.py": "18c79cadbeca28778fc10b6378c91943293801af4db4714038d8a97014923f24",
+    "replay/entry.py": "906970de9f6ae5684d87418c83fdad8c602ae96c907ea45bb501aa410763aa27",
+    "compatibility/verification/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "compatibility/verification/spreadsheet.py": "f0743806c9816f2c904aebb898f634dad4eb96bbad91fe22b6df9dbe9cb5e730",
+    "compatibility/cases/hr_metro/source/office_trace_bench/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "compatibility/cases/retail_online/source/office_trace_bench/verify.py": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+    "replay/compatible.py": "2d6d9dbccd030e3055c33ca883ae19efbb8da40b18e1a7fd140ed3b749e66913",
+    "legacy/document-oe/bin/run_document_scene_loop.py": "43918a1aaa60061e83c61fb3820d21dea1d43c46e04ddd835a88fd29ab0b35e7",
+    "legacy/document-oe/bin/run_document_scene_loop_timed.py": "1a8cbde481d31ab6389b7c3c266d6510acac804866e2fdf8e5577aa766d7367e",
+    "compatibility/cases/hr_metro/source/office_trace_bench/spreadsheet.py": "f0743806c9816f2c904aebb898f634dad4eb96bbad91fe22b6df9dbe9cb5e730",
+    "compatibility/cases/retail_online/source/office_trace_bench/spreadsheet.py": "f0743806c9816f2c904aebb898f634dad4eb96bbad91fe22b6df9dbe9cb5e730",
+    "compatibility/cases/hr_metro/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+    "compatibility/cases/retail_online/source/prompts/xlsx.txt": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579"
+  },
+  "input_evidence_sha256": {
+    "source_asset_repair_report": "df0800de17f880ad428b71be8b1dbddab6785c6d10615be760164d16771cbfd3",
+    "prior_audit_manifest": "f4480260eb1f44b57204f736b14ca3341a282b62f83c3fcd93339fe2d433a9cf",
+    "hr_metro_functional_record": "b037f3265108b7716d178c211ff7e871f373d594e62672038a50ae1b38477a76",
+    "retail_online_functional_record": "4c062c9ce06e4e5f941f4acc13bcaf5a60322bee27499fe530cf5124582a7d06"
+  },
+  "derived_reports": [
+    "audit-manifest.json",
+    "execution-flow-audit.json",
+    "audit-report.md"
+  ],
+  "raw_workbooks_rehashed": false,
+  "workbook_identity": "Pre/post output hashes verified; original input hashes verified by container preflight.",
+  "source_asset_repair_report_sha256": "df0800de17f880ad428b71be8b1dbddab6785c6d10615be760164d16771cbfd3"
+}

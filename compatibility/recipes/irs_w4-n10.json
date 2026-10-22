@@ -1,0 +1,324 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_kind": "pdf",
+  "case_id": "SUB-MEM-PDF-IRSW4-01",
+  "dataset_id": "irs_w4",
+  "variant_id": "irs_w4-n10",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "PDF-P01-inspect_prepare",
+      "PDF-P02-build",
+      "PDF-P03-process_publish",
+      "PDF-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "PDF-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_skill",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/pdf/SKILL.md"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_skill",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/pdf/forms.md"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_verifier",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/verify_office.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_tool",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/pdf/scripts/check_fillable_fields.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_tool",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/pdf/scripts/extract_form_field_info.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_tool",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "read_tool",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "prepare",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && mkdir -p output/field_values output/filled output/rendered/template"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "check_fields",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/fw4_2026.pdf > output/check_fillable_fields.log 2>&1"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "inspect_log",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && cat output/check_fillable_fields.log"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "extract_fields",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 /root/.openclaw/skills/pdf/scripts/extract_form_field_info.py input/fw4_2026.pdf output/form_field_info.json"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "inspect_schema",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/form_field_info.json"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "render_template",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py input/fw4_2026.pdf output/rendered/template"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P02-build",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "write_helper",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/build_field_values.py",
+              "content": "#!/usr/bin/env python3\n\"\"\"Build per-record field_values JSON for the IRS W-4 batch.\n\nReads the frozen manifest (field_rules, protected_blank), the supplied records,\nand the inspected form_field_info.json (real field IDs + page numbers).\nWrites output/field_values/<ID>.json for every supplied record.\n\nOnly the manifest's declared field_rules are populated. Protected fields are\nomitted entirely (left blank). No eligibility inference, no signatures.\n\"\"\"\nimport json\nfrom pathlib import Path\n\nWS = Path(__file__).resolve().parent\nIN = WS / \"input\"\nOUT = WS / \"output\"\n\nmanifest = json.load(open(IN / \"dataset_manifest.json\"))\nrecords = json.load(open(IN / manifest[\"records\"]))[manifest[\"records_key\"]]\nfield_info = json.load(open(OUT / \"form_field_info.json\"))\npage_by_id = {f[\"field_id\"]: f[\"page\"] for f in field_info}\n\nfield_rules = manifest[\"requirements\"][\"field_rules\"]\nprotected = set(manifest[\"requirements\"][\"protected_blank\"])\n\n\ndef resolve(record, dotted):\n    cur = record\n    for part in dotted.split(\".\"):\n        cur = cur[part]\n    return cur\n\n\ndef coerce(value, rule):\n    if \"choices\" in rule:\n        key = \"true\" if value else \"false\"\n        return rule[\"choices\"][key]\n    return value\n\n\ndef build(record):\n    rows = []\n    for rule in field_rules:\n        fid = rule[\"field_id\"]\n        assert fid in page_by_id, f\"field {fid} not in inspection\"\n        assert fid not in protected, f\"field {fid} is protected\"\n        raw = resolve(record, rule[\"value_from\"])\n        value = coerce(raw, rule)\n        rows.append({\n            \"field_id\": fid,\n            \"description\": rule[\"semantic\"],\n            \"page\": page_by_id[fid],\n            \"value\": value,\n        })\n    return rows\n\n\ndef main():\n    (OUT / \"field_values\").mkdir(parents=True, exist_ok=True)\n    ids = []\n    for rec in records:\n        rows = build(rec)\n        (OUT / \"field_values\" / f\"{rec['id']}.json\").write_text(\n            json.dumps(rows, indent=2) + \"\\n\"\n        )\n        ids.append(rec[\"id\"])\n    (WS / \"batch_ids.json\").write_text(json.dumps(ids, indent=2) + \"\\n\")\n    print(f\"records={len(ids)} fields_per_record={len(field_rules)}\")\n    print(\"ids=\" + \",\".join(ids))\n\n\nif __name__ == \"__main__\":\n    main()\n"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "build",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 build_field_values.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "validate_mapping",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 -c \"import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')\""
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "write_helper",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/run_batch_fill_render.py",
+              "content": "\"\"\"The old fill/render subprocess pattern, with manifest paths and record IDs.\"\"\"\nimport json\nimport os\nfrom pathlib import Path\nimport subprocess\n\nWS = Path.cwd()\nmanifest = json.loads((WS / 'input/dataset_manifest.json').read_text())\nrecords = json.loads((WS / 'input' / manifest['records']).read_text())[manifest['records_key']]\nselection = manifest['pdf_execution']\ncount = int(os.environ.get('DOCUMENT_BENCH_PDF_APPLICANT_COUNT', str(selection['record_count'])))\nif count != selection['record_count'] or [r['id'] for r in records[:count]] != selection['record_ids']:\n    raise ValueError('PDF runtime selection differs from the frozen execution contract')\nrecords = records[:count]\nskill = Path('/root/.openclaw/skills/pdf')\nfor record in records:\n    ident = record['id']\n    filled = WS / 'output/filled' / (ident + '.pdf')\n    rendered = WS / 'output/rendered' / ident\n    filled.parent.mkdir(parents=True, exist_ok=True)\n    rendered.mkdir(parents=True, exist_ok=True)\n    for command in (\n        ['python3', str(skill / 'scripts/fill_fillable_fields.py'),\n         str(WS / 'input' / manifest['form']), str(WS / 'output/field_values' / (ident + '.json')), str(filled)],\n        ['python3', str(skill / 'scripts/convert_pdf_to_images.py'), str(filled), str(rendered)],\n    ):\n        result = subprocess.run(command, capture_output=True, text=True, cwd=skill)\n        if result.returncode:\n            raise RuntimeError(f'{ident}: {command[1]}: {result.stderr}')\n    print('filled and rendered', ident)\n"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "fill_render_batch",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 run_batch_fill_render.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "write_summary",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 /opt/office-trace-replay/compatibility/tools/summary.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "PDF-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "semantic_verification",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 input/verify_office.py"
+            }
+          }
+        },
+        {
+          "adaptation": "document-oe-compatible-workflow-v2",
+          "role": "check_deliverables",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && find output -type f | sort"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01",
+  "seed_path": "compatibility/cases/irs_w4-n10/seed",
+  "source_path": "compatibility/cases/irs_w4-n10/source",
+  "record_count": 10,
+  "prepared_record_count": 10,
+  "operation_timeout": 300,
+  "recalc_timeout": 180,
+  "requires_llm": false,
+  "classification": "canonicalized_deterministic_replay_derived_from_successful_agent_executions",
+  "parent": {
+    "recipe_path": "recipes/irs_w4.json",
+    "recipe_sha256": "57b147ce2d2d528083edc99d38fa194693e638e31a82c33b6fbea21f8c887edb",
+    "canonical_sha256": "33511c033b87703152e38d1b0291f773045c9651c7e604b365753a2a95abd48f",
+    "original_run_id": "pdf-irs_w4-20261009T060857Z-ef1696a0",
+    "trajectory_sha256": "3361b484e8daf305b45a03bac6dbbac0e5cd740999168fffa73fd2faaee90f45",
+    "tool_events_sha256": "748b256d6a93b9394d989f02d70c0b4b246fdfca33f933c3abafdf76be5866d3",
+    "manifest_sha256": "ea7e0817247d77740b4c5d46330f981b53814dd91ca28079cd824aa0650404f9",
+    "prompt_sha256": "2f4c91b992f7e1e85996a9975a0db3bde82f84cd0b378049a8cbb9b543c1e4b0",
+    "skill_and_context_hashes": {
+      "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+      "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+      "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+      "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+      "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+      "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+      "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+      "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+      "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+    },
+    "input_hashes": {
+      "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+      "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
+      "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc"
+    },
+    "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "original_runtime_versions": {
+      "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+      "node": "v24.14.0",
+      "python": "Python 3.12.3",
+      "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+      "poppler": "pdftoppm version 24.02.0"
+    }
+  },
+  "contract_sha256": "49c8988ac02b8a5d0b041439d6ff2a6349defaceb0de70d97bbe8e82aa732fc0",
+  "adaptations": [
+    "Use original native executor, original Skill tools and original runtime/timing boundaries.",
+    "Prepare all ten original mappings; explicitly fill/render first 10 records.",
+    "Same field-ID precheck for both new PDFs; complete mapping checks remain in final verification.",
+    "One subprocess batch driver alternates fill/render per selected record, matching the old driver pattern.",
+    "Private verifier checks all prepared mappings and exactly the selected PDFs/renders."
+  ],
+  "prompt_path": "compatibility/prompts/pdf.txt",
+  "prompt_sha256": "045d706ffd68a38158f2af57560dfc6ea25d34531a469e448449ed3116ba8b38",
+  "input_hashes": {
+    "input/dataset_manifest.json": "b52b3014443a833a13b804524191d82876ce626aeb5123d3a1224966e857c36e",
+    "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+    "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc",
+    "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
+    "input/verify_office.py": "cdfa547d5626e7155f66461549bfc3e765ead79ad7c0e7d0cad8242518644dbb"
+  }
+}

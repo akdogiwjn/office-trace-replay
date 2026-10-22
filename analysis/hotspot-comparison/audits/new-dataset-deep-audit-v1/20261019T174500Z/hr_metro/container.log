@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/opt/office-trace-replay/replay/accept.py", line 18, in <module>
+    report = verify(dataset_path(args.kind, args.dataset), args.workspace, args.report)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-trace-replay/compatibility/cases/hr_metro/source/office_trace_bench/verify.py", line 278, in verify
+    manifest = load_manifest(manifest_path, check_assets=(scope == 'independent'))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-trace-replay/compatibility/cases/hr_metro/source/office_trace_bench/contracts.py", line 55, in load_manifest
+    raise ValueError('prompt template hash mismatch')
+ValueError: prompt template hash mismatch

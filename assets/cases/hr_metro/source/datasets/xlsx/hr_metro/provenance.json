@@ -1,0 +1,35 @@
+{
+  "schema_version": "office-input-provenance-manual-adaptation-v1",
+  "dataset_id": "hr_metro",
+  "origin_type": "manual_workflow_adaptation",
+  "agent_generated": false,
+  "requires_llm": false,
+  "filename": "MSA_M2025_dl.xlsx",
+  "sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+  "file_size_bytes": 30628700,
+  "source_assessment": "BLS MSA May 2025 OEWS-style workbook; exact acquisition URL/source not independently verified in this repository.",
+  "synthetic_expansion": false,
+  "conversion": "None; the complete supplied workbook bytes are preserved.",
+  "references": [
+    {
+      "dataset_id": "hr",
+      "workflow_role": "workflow shape reference only",
+      "recipe_path": "compatibility/recipes/hr.json",
+      "recipe_sha256": "bc7b48e492ff93c7fe6cf136935cbd961c1f24ea56650a0499de49289293f2c5",
+      "helper_path": "compatibility/helpers/hr_build.py",
+      "helper_sha256": "b2dd02381de26a70cee9b3840b9ebe2acf9158c3f85e321e87e673670e21cd14",
+      "not_parent_execution": true
+    }
+  ],
+  "agent_parent_run": null,
+  "canonical_trajectory": null,
+  "status": "registered_not_run",
+  "reference_binding_history": [
+    {
+      "recipe_path": "compatibility/recipes/hr.json",
+      "previous_sha256": "1603264921ce6ef29bf8ac667e83207af03b772c9b02dc9bfb941b4a9ace8c26",
+      "current_sha256": "bc7b48e492ff93c7fe6cf136935cbd961c1f24ea56650a0499de49289293f2c5",
+      "reason": "The compatible workflow recipe was regenerated from the current verifier contract; referenced helper content is unchanged."
+    }
+  ]
+}

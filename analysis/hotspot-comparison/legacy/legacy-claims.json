@@ -1,0 +1,134 @@
+{
+  "schema_version": "hotspot-legacy-claims-v1",
+  "description": "Frozen inventory of conclusions drawn from the OLD two-workload (OPM PDF, TLC XLSX) analysis. Each claim records its original wording, applicability conditions, the original evidence, and what new evidence is required to test it on the new datasets. Verification status is filled in by the analysis, never by hand-editing.",
+  "claims": [
+    {
+      "claim_id": "CLM-01",
+      "original": "PDF 场景进程构成：全部 python3 进程约占 cycles:u 的 90.6%，pdftoppm 约 9.2%（其余 pdfinfo/bash 合计 <0.2%）。",
+      "source": "ANALYSIS-python3123.md section 4 / AUTO_ANALYSIS-python3123.md",
+      "applicability": "旧 OPM 单申请人（P03 N=1）完整四步骤，10 轮，CPU 8 绑核，cycles:u 99 Hz",
+      "original_evidence": "pdf-native.data perf report（进程排序）",
+      "new_evidence_needed": "新采集的 OPM/IRS-W4/SBA-1919 N=1 进程层 cycles:u 权重表（ROI 内）"
+    },
+    {
+      "claim_id": "CLM-02",
+      "original": "PDF 库层构成：libpython ≈53.6%，zlib ≈18.1%，Pillow _imaging ≈15.2%，Poppler ≈6.3%，FreeType ≈1.9%。",
+      "source": "ANALYSIS-python3123.md section 4",
+      "applicability": "同 CLM-01 口径",
+      "original_evidence": "pdf-native.data perf report（comm,dso 排序）",
+      "new_evidence_needed": "新采集三个 PDF 数据集的库层权重表（ROI 内）"
+    },
+    {
+      "claim_id": "CLM-03",
+      "original": "PDF Python 层：时间分布在 6 类脚本（检查/提取/模板转换/填写/填写后转换/验证），热点是 pypdf 填写、Pillow/zlib 图像处理、Poppler 渲染和最终验证，没有出现新的业务热点。",
+      "source": "ANALYSIS-python3123.md section 5",
+      "applicability": "旧 OPM N=1，py-spy --subprocesses 99 Hz",
+      "original_evidence": "pdf-python.svg（py-spy 火焰图）",
+      "new_evidence_needed": "新 PDF 数据集的 py-spy 每脚本占比 + 函数热点（注意新流程脚本集合不同：新增 build_field_values/run_batch_fill_render/summary，需按机制归类）"
+    },
+    {
+      "claim_id": "CLM-04",
+      "original": "XLSX 场景进程构成：全部 python3 进程 ≈92.5%，LibreOffice 及其线程 ≈7.5% cycles:u。",
+      "source": "ANALYSIS-python3123.md section 4",
+      "applicability": "旧 TLC 完整工作簿 2 轮，CPU 8-11 绑核，49 Hz",
+      "original_evidence": "xlsx-native.data perf report",
+      "new_evidence_needed": "TLC 重采对照 + Retail/Manufacturing/HR 的进程层权重（同一采集设置）"
+    },
+    {
+      "claim_id": "CLM-05",
+      "original": "XLSX 库层构成：libpython ≈79.7%，Expat ≈5.6%，_elementtree ≈3.5%，zlib ≈1.4%（LibreOffice DSO 合计约 7%）。",
+      "source": "ANALYSIS-python3123.md section 4",
+      "applicability": "同 CLM-04 口径",
+      "original_evidence": "xlsx-native.data perf report（comm,dso 排序）",
+      "new_evidence_needed": "TLC 重采对照 + 三个新 XLSX 数据集的库层权重"
+    },
+    {
+      "claim_id": "CLM-06",
+      "original": "XLSX Python 层：8 个切片脚本按序执行；函数路径集中在 load_workbook()、XML 解析、单元格对象构造、工作簿遍历及保存压缩。",
+      "source": "ANALYSIS-python3123.md section 5",
+      "applicability": "旧 TLC，py-spy 49 Hz",
+      "original_evidence": "xlsx-python.svg；各脚本 py-spy 占比（13.58%~8.82%）",
+      "new_evidence_needed": "新 XLSX 数据集 py-spy 每脚本占比与函数热点（新流程脚本集合不同，需按机制归类）"
+    },
+    {
+      "claim_id": "CLM-07",
+      "original": "IPC/用户-内核构成：PDF 用户态 IPC 2.55、内核态占 13.93% cycles；XLSX 用户态 IPC 2.53、内核态占 2.17% cycles。",
+      "source": "ANALYSIS-python3123.md section 6",
+      "applicability": "旧 OPM N=1 与旧 TLC；perf stat 硬件计数",
+      "original_evidence": "pdf-stat.csv / xlsx-stat.csv",
+      "new_evidence_needed": "新数据集 perf stat（cycles:u/k, instructions:u/k）。注意口径差异：新 runner 含约 0.4-0.55s 预运行校验/探测（旧 runner 没有），短 PDF 用例需扣除或注明"
+    },
+    {
+      "claim_id": "CLM-08",
+      "original": "PDF 是多个父子进程串行接力，不是同时并行执行（单任务占比 100%，峰值并行度 1）。",
+      "source": "ANALYSIS-python3123.md section 7",
+      "applicability": "旧 OPM 绑定 1 核（CPU 8）。绑定单核本身会强制串行，该结论只证明在该预算下串行",
+      "original_evidence": "pdf-sched.data 调度事件分析",
+      "new_evidence_needed": "新 PDF 数据集在多核预算（本采集统一 8 核）下的并行度证据：task-clock/墙钟 + 进程线程 CPU 时间重叠分析。只有在多核预算下仍近似串行才能支持天然串行的推断"
+    },
+    {
+      "claim_id": "CLM-09",
+      "original": "XLSX 是长时间单任务 + LibreOffice 短暂多线程：单任务活跃时间 ≈98.31%，多任务 ≈1.69%，峰值并行度 4，平均并行度 ≈0.999。",
+      "source": "ANALYSIS-python3123.md section 7",
+      "applicability": "旧 TLC 绑定 4 核（CPU 8-11）",
+      "original_evidence": "xlsx-sched.data 调度事件分析",
+      "new_evidence_needed": "TLC 重采 + 新 XLSX 数据集在统一 8 核预算下的并行度（线程 CPU 时间重叠）；注意 LibreOffice 线程池规模可能随可见核数变化"
+    },
+    {
+      "claim_id": "CLM-10",
+      "original": "XLSX 系统调用以 LibreOffice 的 futex 同步为主，两轮总数约 55.6 万，基本稳定。",
+      "source": "ANALYSIS-python3123.md section 8",
+      "applicability": "旧 TLC 2 轮",
+      "original_evidence": "xlsx-syscalls.txt (strace -f -c)",
+      "new_evidence_needed": "新 XLSX 数据集 strace -f -c（短用例）；TLC 重跑成本高，优先验证新用例是否同样 futex 主导"
+    },
+    {
+      "claim_id": "CLM-11",
+      "original": "切片划分与插桩位置可继续使用：PDF 需分别覆盖 Python 脚本进程和 pdftoppm 进程；XLSX 需分别覆盖各 Python 进程和 LibreOffice 进程（含其线程）。",
+      "source": "ANALYSIS-python3123.md section 9",
+      "applicability": "结构结论",
+      "original_evidence": "切片重放验证",
+      "new_evidence_needed": "本次采集的进程角色识别是否覆盖全部热点进程（未知角色占比）"
+    },
+    {
+      "claim_id": "CLM-12",
+      "original": "Expat 在 3.12 环境体现为 pyexpat.cpython-312-*.so，旧环境为 libexpat.so，属于打包/链接呈现变化，业务仍是 XML 解析热点。",
+      "source": "ANALYSIS-python3123.md section 4 注",
+      "applicability": "库归一化规则",
+      "original_evidence": "DSO 名称对比",
+      "new_evidence_needed": "新数据集中 XML 解析热点是否同样出现在 pyexpat/_elementtree"
+    },
+    {
+      "claim_id": "CLM-13",
+      "original": "PDF N=10 切片权重（cycles:u，分母为完整命令）：字段检查+提取 3.348%；convert_from_path()（11 次，含 Poppler 子进程）17.256%；转换其他部分（Python 侧）32.500%；字段填写（10 次）33.053%；最终验证 10.224%；所选切片合计 96.353%；未单独切片 3.647%。",
+      "source": "REPORT-pdf10-weight.md 切片汇总权重表",
+      "applicability": "旧 OPM N=10 完整四步骤，CPU 100 单核，instructions:u/cycles:u 计数，3 轮中位数",
+      "original_evidence": "baseline/ + full-wrapped-stats/ + convert-clean-stats/ PMU 计数",
+      "new_evidence_needed": "OMN N=10 重采的进程角色权重（pdftoppm+pdfinfo ≈ convert_from_path 近似；转换 Python 进程 ≈ 转换其他；等），需注明类别映射近似性；以及新 PDF 数据集 N=10 的对应权重"
+    },
+    {
+      "claim_id": "CLM-14",
+      "original": "N=10 执行时序：批处理父进程按申请人顺序执行填写→转换，前一子进程退出后才启动下一个；最终验证在全部完成后启动（严格串行）。",
+      "source": "REPORT-pdf10-weight.md 执行时序",
+      "applicability": "旧 OPM N=10，单核绑定",
+      "original_evidence": "full-wrapped-results/ 时间戳",
+      "new_evidence_needed": "新 PDF 数据集 N=10 在 8 核预算下的进程时间线（monitor 进程树），确认驱动是否仍逐记录串行 subprocess.run"
+    },
+    {
+      "claim_id": "CLM-15",
+      "original": "十次填写非常一致（单次填写指令权重 2.938%-2.943%，cycles 3.296%-3.310%），没有明显异常申请人。",
+      "source": "REPORT-pdf10-weight.md 十个申请人逐次权重表",
+      "applicability": "旧 OPM N=10",
+      "original_evidence": "full-wrapped-stats/ 逐进程计数",
+      "new_evidence_needed": "新 PDF N=10 数据集逐记录 fill/convert 进程 CPU 时间一致性（monitor utime+stime）"
+    },
+    {
+      "claim_id": "CLM-16",
+      "original": "六个 PDF 切片与八个 XLSX 切片构成可独立重放的单元集合，每个切片可从固定阶段输入独立运行。",
+      "source": "README-slicing-pdf.md / README-slicing-xlsx.md",
+      "applicability": "切片工程结论",
+      "original_evidence": "run_slice.sh 重放",
+      "new_evidence_needed": "覆盖率分析本身的机制映射是否依赖切片可分性（结构前提）"
+    }
+  ]
+}

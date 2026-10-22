@@ -1,0 +1,266 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_id": "OFFICE-XLSX-RETAIL",
+  "case_kind": "xlsx",
+  "dataset_id": "retail",
+  "scope": "final_effective_tool_execution",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "XLSX-P01-inspect_prepare",
+      "XLSX-P02-build",
+      "XLSX-P03-process_publish",
+      "XLSX-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "XLSX-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_S021JiGeCcfKVcG7xzUb5433",
+          "source_event_index": 5,
+          "source_step_id": 5,
+          "adaptation": "archived_call",
+          "source_call_sha256": "972a83b5d85ef9fc477ccc2257ff764495711309a41992bcf874db1f2778cd8f",
+          "tool_call": {
+            "tool_call_id": "call_00_S021JiGeCcfKVcG7xzUb5433",
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 -c \"\nimport openpyxl\nwb = openpyxl.load_workbook('input/mrtssales92-present.xlsx', data_only=False)\nws = wb['2026']\nfor r in range(1, 40):\n    row=[]\n    for c in range(1, 17):\n        v = ws.cell(r,c).value\n        if v is not None:\n            row.append(f'{openpyxl.utils.get_column_letter(c)}{r}={repr(v)}')\n    if row: print(' | '.join(row))\n\""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P02-build",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_lRdiBbozql4Ab5uthrM97419",
+          "source_event_index": 30,
+          "source_step_id": 28,
+          "adaptation": "read_final_helper_after_staging",
+          "source_call_sha256": "b488160f20b5e59785b15d93dda14353f5454987c03f772fd83c20b06b437e14",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/helpers/build_enhance.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_ET_A7htm4MyU7Mh5FYv2tim5782",
+          "source_event_index": 47,
+          "source_step_id": 45,
+          "adaptation": "explicit_shell_reduction",
+          "source_call_sha256": "909211df29bbd1b86c410df963fef3405adc61b6364cece3f4991476fbaeb756",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && bash helpers/run_pipeline.sh"
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_1zgioYPCALh7XjAoJa3D0100",
+          "source_event_index": 41,
+          "source_step_id": 39,
+          "adaptation": "archived_call",
+          "source_call_sha256": "93b25976c8291f770a94d74f8511c0ea19824059c95fdd86048795f9b6a9909a",
+          "tool_call": {
+            "tool_call_id": "call_00_1zgioYPCALh7XjAoJa3D0100",
+            "function_name": "write",
+            "arguments": {
+              "content": "{\n  \"summary_sheet\": \"Overview\",\n  \"metrics\": {\n    \"adjusted_sales\": {\"sheet\": \"Overview\", \"cell\": \"B6\"},\n    \"monthly_growth\": {\"sheet\": \"Overview\", \"cell\": \"B7\"},\n    \"annual_growth\": {\"sheet\": \"Overview\", \"cell\": \"B8\"}\n  },\n  \"scenario\": {\n    \"selector\": {\"sheet\": \"Overview\", \"cell\": \"B11\"},\n    \"assumptions\": {\n      \"Base\": {\"sales_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B14\"}},\n      \"Higher\": {\"sales_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B15\"}},\n      \"Lower\": {\"sales_multiplier\": {\"sheet\": \"Overview\", \"cell\": \"B16\"}}\n    },\n    \"projections\": {\n      \"projected_sales\": {\"sheet\": \"Overview\", \"cell\": \"B19\"}\n    }\n  },\n  \"charts\": {\n    \"adjusted_trend\": {\"sheet\": \"Overview\", \"index\": 0}\n  }\n}\n",
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/output/workbook_features.json"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "tool_call_id": "call_00_a0mFD3PlRRyaveINc1uG6810",
+          "source_event_index": 54,
+          "source_step_id": 52,
+          "adaptation": "emit_captured_final_agent_metadata",
+          "source_call_sha256": "5fb97cf161ab31feb30f9c56bfe0e6b832802c57591f5d4c1a688e062afdfb6e",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL/output/xlsx_enhancement_summary.json",
+              "content": "{\n  \"output_workbook\": \"retail_enhanced.xlsx\",\n  \"added_sheets\": [\"Overview\"],\n  \"feature_counts\": {\n    \"new_sheets\": 1,\n    \"metrics\": 3,\n    \"scenario_selectors\": 1,\n    \"scenario_dimensions\": 1,\n    \"scenario_assumptions\": 3,\n    \"scenario_projections\": 1,\n    \"charts\": 1,\n    \"added_formula_cells\": 7,\n    \"conditional_format_ranges\": 4,\n    \"comments\": 3,\n    \"data_validations\": 1,\n    \"freeze_panes\": 1\n  },\n  \"helper_filenames\": [\n    \"helpers/build_enhance.py\",\n    \"helpers/assemble_output.py\",\n    \"helpers/run_pipeline.sh\",\n    \"helpers/diag_roundtrip.py\",\n    \"helpers/build_enhance.v1.py\",\n    \"helpers/assemble_output.v1.py\",\n    \"helpers/office/soffice.py\",\n    \"helpers/office/pack.py\",\n    \"helpers/office/unpack.py\",\n    \"helpers/office/validate.py\"\n  ],\n  \"helper_execution\": {\n    \"build_enhance.py\": {\"attempts\": 2, \"successes\": 2},\n    \"assemble_output.py\": {\"attempts\": 2, \"successes\": 1},\n    \"run_pipeline.sh\": {\"attempts\": 1, \"successes\": 1},\n    \"diag_roundtrip.py\": {\"attempts\": 1, \"successes\": 1},\n    \"recalc.py\": {\"attempts\": 3, \"successes\": 3},\n    \"verify_office.py\": {\"attempts\": 2, \"successes\": 1}\n  },\n  \"helper_execution_totals\": {\"attempts\": 11, \"successes\": 9},\n  \"recalc_invocation_count\": 3,\n  \"recalc_report\": {\"status\": \"success\", \"total_errors\": 0, \"total_formulas\": 7},\n  \"final_verifier_status\": \"success\"\n}\n"
+            }
+          }
+        },
+        {
+          "tool_call_id": "call_00_r6tIhLwPessLGF7yAuhR0065",
+          "source_event_index": 55,
+          "source_step_id": 53,
+          "adaptation": "explicit_shell_reduction",
+          "source_call_sha256": "e99cb53a5436da604d85018a156a008de14d462bc8475199eab8d29cfed8a338",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "set -e\nset -o pipefail\ncd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL && python3 input/verify_office.py"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "requires_llm": false,
+  "source": {
+    "canonical_sha256": "444625027976edfefc32a9a6f0c7c7d7b0628cc1c435673de595b760a5e745be",
+    "original_run_id": "xlsx-retail-20261009T101352Z-725a21b6",
+    "trajectory_sha256": "a82aa4b889938382ac73a74a6bbd0109ce5c4d51028338b6a9d9fe500ef96cc6",
+    "tool_events_sha256": "b1b1eaaf14f1cbea9673bb6d51df60b0658fd8a815422a1fbe96605a09c7ec6c",
+    "manifest_sha256": "5604a33257c5acb1a803272226bbdfd931ad37e1159b228ae8f52cac3df0674b",
+    "prompt_sha256": "92d26ab1bb61ddcdf5d21604825cc6158128845e95559c82245976aaa634c389",
+    "skill_and_context_hashes": {
+      "vendor/skills/pdf/reference.md": "03a5f964f8abecbbe156f363356e927e864d7ee964f1012c84ee1bfc8acbeb95",
+      "vendor/skills/pdf/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/pdf/forms.md": "9530b3f57034792e0242a3abfe8b3c296466329551916f2ff6c5a70db78f7e44",
+      "vendor/skills/pdf/SKILL.md": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+      "vendor/skills/pdf/scripts/fill_fillable_fields.py": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+      "vendor/skills/pdf/scripts/extract_form_field_info.py": "bb235b36f497bbb1c7c6821cecf527bbba7213520de11219da99f7b13a38c109",
+      "vendor/skills/pdf/scripts/check_fillable_fields.py": "1fe10b9980a5493c9bbec8c20630c603eaa475b45403751c08f26738736647b8",
+      "vendor/skills/pdf/scripts/convert_pdf_to_images.py": "7f58e292a67e18a8ff000d30bad2469389546731f7e8a698cc1d0aed001ea15d",
+      "vendor/skills/xlsx/LICENSE.txt": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "vendor/skills/xlsx/SKILL.md": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc",
+      "vendor/skills/xlsx/scripts/recalc.py": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+      "vendor/skills/xlsx/scripts/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+      "vendor/skills/xlsx/scripts/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+      "vendor/skills/xlsx/scripts/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+      "vendor/skills/xlsx/scripts/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+      "runtime_context/profiles/legacy-host-v1/profile.json": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5",
+      "runtime_context/profiles/legacy-host-v1/skills/agent-browser/SKILL.md": "9643b9c65476eedd5ab353956c31a4d4ce9ad225f9a786d23376a43893f59979",
+      "runtime_context/profiles/legacy-host-v1/workspace/TOOLS.md": "4bd351aacb7fa76abb0be06ab3205d6d77bca2cdd9ca57b8fc23257878f3be77",
+      "runtime_context/profiles/legacy-host-v1/workspace/USER.md": "e418ca9a680553b3ad8f54aecb0d403330810bb77826ab5251cc1dc13368fe16",
+      "runtime_context/profiles/legacy-host-v1/workspace/AGENTS.md": "c9a664b73200ae5d6b0da0908de3256cdb4dda8ba6fe99f5e6c5115c3983604c",
+      "runtime_context/profiles/legacy-host-v1/workspace/IDENTITY.md": "2f6da67d69bd362f7aaa13c1214dcbba9f0f7cb51ff42ec5313e24d6bf6f9e55",
+      "runtime_context/profiles/legacy-host-v1/workspace/HEARTBEAT.md": "ecce558615751a35aa173731e892ff3993f44bb4f5a1219c0a02994790c85528",
+      "runtime_context/profiles/legacy-host-v1/workspace/SOUL.md": "29c66a31acce424ed6cf9b1c9e77dcdc5ae79d5fe2a035765c302a34b9025e0e"
+    },
+    "input_hashes": {
+      "input/mrtssales92-present.xlsx": "6b2cb26926ba0a438f2b45c4b38b218045273f63a674c11b1cbb7bf1cf9a7956"
+    },
+    "original_runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "original_runtime_versions": {
+      "openclaw": "OpenClaw 2026.6.6 (8c802aa)",
+      "node": "v24.14.0",
+      "python": "Python 3.12.3",
+      "libreoffice": "LibreOffice 24.2.7.2 420(Build:2)",
+      "poppler": "pdftoppm version 24.02.0"
+    }
+  },
+  "helper_hashes": {
+    "helpers/assemble_output.py": "065c60ed18f85c6bf286c3fb002b3397fffee9cc603c3a5d84ef3c215c12e949",
+    "helpers/assemble_output.v1.py": "a96746cef94eacc5ab8609db203ac438466ec34b7e56baed94410ee45b295f30",
+    "helpers/build_enhance.py": "d74b325b1c0a08e1400afe6fb17225fc69908014bdc6b6bab812c435ca3cb6fa",
+    "helpers/build_enhance.v1.py": "a172d7acf8c5445c116a92349927cc07acc33ad8b34a67f338d2c15e8b2b0438",
+    "helpers/diag_roundtrip.py": "3951233b77535a8e9b0b05478d33ce5d707f3c7766de8d8441e2a9329a5f387d",
+    "helpers/office/pack.py": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683",
+    "helpers/office/soffice.py": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0",
+    "helpers/office/unpack.py": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62",
+    "helpers/office/validate.py": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514",
+    "helpers/run_pipeline.sh": "6abc53d4bdd650a702d2bc245363ce47e2f9b95cf491585f55fff383b69b2f90",
+    "input/verify_office.py": "c6338492488dedd3be936c5e102a62d5c25f0fbe47551f8c87545a5e17e1c593"
+  },
+  "review": {
+    "method": "explicit per-run manual selection, frozen final helper staging, dependency reconstruction and executable qualification",
+    "note": "Final run_pipeline.sh executes build, recalc and assembly. Final helper versions selected after fixes; diagnostics and fabricated retrospective diagnostic log excluded.",
+    "selected_call_ids": [
+      "call_00_S021JiGeCcfKVcG7xzUb5433",
+      "call_00_lRdiBbozql4Ab5uthrM97419",
+      "call_00_ET_A7htm4MyU7Mh5FYv2tim5782",
+      "call_00_1zgioYPCALh7XjAoJa3D0100",
+      "call_00_a0mFD3PlRRyaveINc1uG6810",
+      "call_00_r6tIhLwPessLGF7yAuhR0065"
+    ],
+    "excluded_call_ids": [
+      "call_00_i6hmnlIfTURzzra1kUsx6629",
+      "call_01_cYwIO5aJRgWrQK51ULKi8389",
+      "call_00_F2fEHlqiiZCV3yzUqz1r5579",
+      "call_01_XHgQQnKzZG4N6adJorPP4061",
+      "call_00_roSM6LG8oZT7GoP1SIuY5370",
+      "call_00_bTVKy2SsbsbU6TdgU6tE1539",
+      "call_00_ynZh1eTGmhi2odHbryA73725",
+      "call_00_6oxL3Yu0PFRntS2lCAV66144",
+      "call_00_zdDoMC0QEAQJozyoMrNw7872",
+      "call_00_N1tZCsZtBUIPPQeRkxT72871",
+      "call_00_ET_YOoNAh15M3PRCDhr4Njw3176",
+      "call_00_u5ny8lWENWGkO80FnN963912",
+      "call_00_fRtqmjILUAxxcF1CTVlb7334",
+      "call_01_ewhP0eY7YACnDNX9eENp4263",
+      "call_00_Y7h8EqgPtPjMFQlTWrSd1182",
+      "call_01_qcO1mGaFqZvAqZ0Vy1d72590",
+      "call_00_JxyHASZBJY9V4IC2Ph1d2655",
+      "call_00_R9qQ4LWzWB1cIdjJhqUE1547",
+      "call_00_s6zWnEPJ5I7UpVyIXuFE9519",
+      "call_00_V2tdxERp8NHjztzThGzg4080",
+      "call_00_Cr9ofozC1YVciy06zLpQ0454",
+      "call_00_0mdgsTHgNIy5MvXm7YwT4416",
+      "call_00_d38HCSWHB9Qg5LZRmetl6820",
+      "call_00_PDZA4epAHpNJhltK6gMT9884",
+      "call_00_xfKI06EuGKHQXQLB4ejp3133",
+      "call_00_IPZfldBBwmfJhw0PagRv3099",
+      "call_00_DN4UahGePbJVhpOTc3Il4766",
+      "call_00_XJpBXa8gA6IEmoBuI9tE5418",
+      "call_00_bg9G4sJ7gg68hJrnij3I6442",
+      "call_00_ET_ykEyuoMUByAJ7aDdUiBL2546",
+      "call_00_6piJnvRKVJ3wcYivRqw30756",
+      "call_00_y0rba51gLt8qL9p9e6fc0590",
+      "call_00_CI1BrqPqyT06uvFJD26A6887",
+      "call_00_viueIh0v2XqFoQhBHylW4901",
+      "call_00_OuWxHBamRw22FVprEvz95117",
+      "call_00_4m04mTNhefmQ7DAf8tBf9992",
+      "call_00_pxJzYiSxjIiXVlWe9ud16426",
+      "call_00_X23bppPRv50ChlQXC2gn4303",
+      "call_00_ET_uNlwdQmB75FCFqQ31cst8893",
+      "call_00_ET_3ArJrnTySrNcM0SzpHtQ5966",
+      "call_00_ET_5slFC1WLWDICTvtySlU58034",
+      "call_00_SgiO8oj8vsGjQlyn2Hl72813",
+      "call_00_aUxOFbkyka8fDCQhHlF01425",
+      "call_00_DhUIz9edOU2imM5vVpJX7893",
+      "call_00_0xyiA6ty1WXpuGc1woq10545",
+      "call_00_gfwHAbHyF6Q88Q2ohiVW9007",
+      "call_00_qDB0kK6pASJek2H9BYCR3818",
+      "call_00_YkE1qoBGmHQsUIJRXCc61451",
+      "call_00_v88TXhrBsTs9ffZP2oyC7407",
+      "call_00_8u9ok5P2sUyPX860Mx636265",
+      "call_00_7CVvKsMLHCOX1nTBzckD3312"
+    ],
+    "capture_gap_decisions": [
+      {
+        "path": "workspace/output/business_verification.json.tmp",
+        "reason": "FileNotFoundError",
+        "classification": "ephemeral_in_selected_recipe",
+        "final_artifact_sha256": "05cc11bca57a9a8419977121eb0b902d14b66c5e99e8092a74c6b61b0395166d",
+        "evidence": "captured moved_to final report; selected verifier regenerates it; no selected consumer reads the tmp path"
+      },
+      {
+        "path": "workspace/output/business_verification.json.tmp",
+        "reason": "FileNotFoundError",
+        "classification": "ephemeral_in_selected_recipe",
+        "final_artifact_sha256": "05cc11bca57a9a8419977121eb0b902d14b66c5e99e8092a74c6b61b0395166d",
+        "evidence": "captured moved_to final report; selected verifier regenerates it; no selected consumer reads the tmp path"
+      }
+    ],
+    "qualifications": "Recipe existence alone is not replay qualification. Read reports/qualification.json for runtime-specific results."
+  },
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL",
+  "source_path": "assets/cases/retail/source",
+  "seed_path": "assets/cases/retail/seed",
+  "scratch_files": [],
+  "operation_timeout": 900,
+  "recalc_timeout": 180
+}

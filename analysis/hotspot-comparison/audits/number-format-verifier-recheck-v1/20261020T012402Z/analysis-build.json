@@ -1,0 +1,27 @@
+{
+  "schema_version": "number-format-audit-build-v1",
+  "created_at_utc": "2026-10-20T01:24:02Z",
+  "analysis_code_sha256": {
+    "compatibility/verification/spreadsheet.py": "a7c204c5e18ca5e8efc2d731f7a22b95ffd10a1e84f90ead9a3d43aba9614c62",
+    "analysis/hotspot-comparison/scripts/deep_audit_report.py": "d662998328f3950a29e9307bf7ab6093f3a66ec6507763596b73951a259c938f",
+    "replay/accept.py": "76f4a65c9aeaf8e658a9290ed9c437f7d299ee81d30b4e4ea869807b1e1cf760",
+    "analysis/hotspot-comparison/scripts/preflight_replay.py": "88b3711516e9291741894ede7ee77134eb44f6ad55251ddf8a08f4827a4fdca2"
+  },
+  "evidence_inputs": {
+    "prior_audit_manifest_sha256": "2bf852b2ade7564453dbb6a6b5078a2a5fc7c302e4a7e5064af6da8091976465",
+    "source_asset_repair_report_sha256": "df0800de17f880ad428b71be8b1dbddab6785c6d10615be760164d16771cbfd3",
+    "functional_records": {
+      "retail_online": "4c062c9ce06e4e5f941f4acc13bcaf5a60322bee27499fe530cf5124582a7d06",
+      "hr_metro": "b037f3265108b7716d178c211ff7e871f373d594e62672038a50ae1b38477a76"
+    },
+    "independent_reports": {
+      "retail_online": "3a224fc4735ae600493546034e48158015e0b37d1b337f092d1c07c43a713434",
+      "hr_metro": "45fa9b186dfadd55079ddf81ba74f1d389a97c9635b086f307ce5feda0454b7b"
+    }
+  },
+  "output_workbook_sha256": {
+    "retail_online": "06b6cffb708df1cdd96f4105aba8c2174a28e62b1da5a0e7cf778733cdfcce87",
+    "hr_metro": "0c4a170ed1c110bce030595d730966824187b926dc00a6219f3996e95cc366b0"
+  },
+  "derived_report": "audit-report.md"
+}

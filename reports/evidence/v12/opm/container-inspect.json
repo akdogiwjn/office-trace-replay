@@ -1,0 +1,259 @@
+{
+  "Id": "0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212",
+  "Created": "2026-10-20T11:52:38.042066049Z",
+  "Path": "/opt/document-bench/.venv/bin/python",
+  "Args": [
+    "/opt/office-trace-replay/replay/entry.py",
+    "--dataset",
+    "opm",
+    "--pdf-applicant-count",
+    "1",
+    "--loops",
+    "1",
+    "--results-dir",
+    "/results"
+  ],
+  "State": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-20T11:53:29.932325515Z",
+    "FinishedAt": "2026-10-20T11:53:33.087591906Z"
+  },
+  "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+  "ResolvConfPath": "/home/e2b/docker-data/containers/0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212/resolv.conf",
+  "HostnamePath": "/home/e2b/docker-data/containers/0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212/hostname",
+  "HostsPath": "/home/e2b/docker-data/containers/0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212/hosts",
+  "LogPath": "/home/e2b/docker-data/containers/0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212/0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212-json.log",
+  "Name": "/office-v12-remaining-opm-n1-20261020t115040z",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": null,
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {
+        "max-file": "5",
+        "max-size": "50m"
+      }
+    },
+    "NetworkMode": "none",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": null,
+    "CgroupnsMode": "host",
+    "Dns": [],
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": false,
+    "SecurityOpt": null,
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 0,
+    "NanoCpus": 0,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 0,
+    "MemorySwappiness": null,
+    "OomKillDisable": false,
+    "PidsLimit": null,
+    "Ulimits": [
+      {
+        "Name": "nofile",
+        "Hard": 1024,
+        "Soft": 1024
+      }
+    ],
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/opm",
+        "Target": "/results"
+      }
+    ],
+    "MaskedPaths": [
+      "/proc/asound",
+      "/proc/acpi",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/sys/firmware",
+      "/sys/devices/virtual/powercap"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "GraphDriver": {
+    "Data": {
+      "LowerDir": "/home/e2b/docker-data/overlay2/5e8f2e497197529363803fbec2b26ce2a0b6291a4e990cbfd2695411e5ee3809-init/diff:/home/e2b/docker-data/overlay2/3sxgpanxao78jlefqujg3tyje/diff:/home/e2b/docker-data/overlay2/qwkebtvdzs4fm5ns8el6v3f5j/diff:/home/e2b/docker-data/overlay2/ate66c73cjljpt2pvee1wza67/diff:/home/e2b/docker-data/overlay2/jsqe7f855rxc3aopogo286152/diff:/home/e2b/docker-data/overlay2/wt8z70zi6jku4c1w9slqcocer/diff:/home/e2b/docker-data/overlay2/elooyme5rqrafg05i8t0rx8iq/diff:/home/e2b/docker-data/overlay2/w31nxgzpy9y6syrb0uxnzkva6/diff:/home/e2b/docker-data/overlay2/w2m70vkxa5u3nr1cjt6j26vb2/diff:/home/e2b/docker-data/overlay2/2vu93fxsgjf42phfjru90z3kk/diff:/home/e2b/docker-data/overlay2/v1shl2cl2y6lr5abqrq93kjn3/diff:/home/e2b/docker-data/overlay2/0cad8e54d3ec9ea4994d4784b84934e03a579675756da4d3c5bb406194609ff0/diff:/home/e2b/docker-data/overlay2/0qm858stgxu9hla56h0bmu2d9/diff:/home/e2b/docker-data/overlay2/mofl3xwdcfal34z7tngl162v3/diff:/home/e2b/docker-data/overlay2/cby65qzqimx07ehxy34uc56os/diff:/home/e2b/docker-data/overlay2/epu67ilp0a7z8dr7t84pc2gaa/diff:/home/e2b/docker-data/overlay2/wk31adu7w63gb6yesbjren4uk/diff:/home/e2b/docker-data/overlay2/8n9u9yd4u88nu1zz0nh6285d1/diff:/home/e2b/docker-data/overlay2/lmrk2ipzifh3632cp1t1m36vw/diff:/home/e2b/docker-data/overlay2/3na7kihrt2qje747svrmaqu8w/diff:/home/e2b/docker-data/overlay2/o2pmj89arwazu6rv4up8qrj50/diff:/home/e2b/docker-data/overlay2/7dbdztzqkx7mimcy2m4tb7e2x/diff:/home/e2b/docker-data/overlay2/73baw39zbxrn4x7vf3e3omddh/diff:/home/e2b/docker-data/overlay2/osyj1pm4klh4n0fgtwdgupdc8/diff:/home/e2b/docker-data/overlay2/86cb54b06842b9fdb72ff91fd9bce3cc1ed53319fa9be143718f51f413f119e1/diff",
+      "MergedDir": "/home/e2b/docker-data/overlay2/5e8f2e497197529363803fbec2b26ce2a0b6291a4e990cbfd2695411e5ee3809/merged",
+      "UpperDir": "/home/e2b/docker-data/overlay2/5e8f2e497197529363803fbec2b26ce2a0b6291a4e990cbfd2695411e5ee3809/diff",
+      "WorkDir": "/home/e2b/docker-data/overlay2/5e8f2e497197529363803fbec2b26ce2a0b6291a4e990cbfd2695411e5ee3809/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/opm",
+      "Destination": "/results",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "0714259239ab",
+    "Domainname": "",
+    "User": "",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "PATH=/opt/document-bench/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "DOCUMENT_BENCH_ROOT=/opt/document-bench",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "LANG=C.UTF-8",
+      "LC_ALL=C.UTF-8",
+      "http_proxy=",
+      "https_proxy=",
+      "HTTP_PROXY=",
+      "HTTPS_PROXY=",
+      "no_proxy=",
+      "NO_PROXY=",
+      "OFFICE_REPLAY_CONTAINER=1",
+      "VIRTUAL_ENV=/opt/document-bench/.venv"
+    ],
+    "Cmd": [
+      "--dataset",
+      "opm",
+      "--pdf-applicant-count",
+      "1",
+      "--loops",
+      "1",
+      "--results-dir",
+      "/results"
+    ],
+    "Image": "office-trace-replay:openeuler-v12",
+    "Volumes": null,
+    "WorkingDir": "/opt/office-trace-replay",
+    "Entrypoint": [
+      "/opt/document-bench/.venv/bin/python",
+      "/opt/office-trace-replay/replay/entry.py"
+    ],
+    "OnBuild": null,
+    "Labels": {
+      "io.document-bench.abstraction": "steps",
+      "io.document-bench.asset-root": "/opt/document-bench",
+      "io.document-bench.scenes": "xlsx,pdf",
+      "org.opencontainers.image.description": "Self-contained step-level XLSX and PDF benchmark on openEuler",
+      "org.opencontainers.image.ref.name": "openEuler",
+      "org.opencontainers.image.title": "Document benchmark",
+      "org.opencontainers.image.version": "24.03-LTS-SP3"
+    }
+  },
+  "NetworkSettings": {
+    "Bridge": "",
+    "SandboxID": "b571c44f871e665dbdebff95e204b29c18cec06e2e4c126973e504d6efee9330",
+    "SandboxKey": "/var/run/docker/netns/b571c44f871e",
+    "Ports": {},
+    "HairpinMode": false,
+    "LinkLocalIPv6Address": "",
+    "LinkLocalIPv6PrefixLen": 0,
+    "SecondaryIPAddresses": null,
+    "SecondaryIPv6Addresses": null,
+    "EndpointID": "",
+    "Gateway": "",
+    "GlobalIPv6Address": "",
+    "GlobalIPv6PrefixLen": 0,
+    "IPAddress": "",
+    "IPPrefixLen": 0,
+    "IPv6Gateway": "",
+    "MacAddress": "",
+    "Networks": {
+      "none": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "MacAddress": "",
+        "NetworkID": "f2b87c39da06abbe1dd7d2ab09ea1d531b58d8f012fdb760e00e7f217c3b2e68",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DriverOpts": null,
+        "DNSNames": null
+      }
+    }
+  }
+}

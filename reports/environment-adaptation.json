@@ -1,0 +1,42 @@
+{
+  "schema_version": "office-replay-environment-adaptation-v1",
+  "original_project_lock_sha256": "bd48273df3ea446f92f568bab3a2112860e9d79944cd6a693b315cb020fc8784",
+  "current_project_lock_sha256": "c4aa5d56ef8933a9a2658d2b9104d54725bfa1c0cb9d5ad4978e63a74bc5e81f",
+  "changed_files": {
+    "runtime/Dockerfile": {
+      "original": "f3db7331b1c142f49cb7d381e41b73efc8ca89c2f48b5aa5732a58a69c945cb2",
+      "current": "6d8ea8a26f8c78806bb6c96fcaba6e6be4b27e3ef0fedaf9278e4d0e1357b4e4"
+    },
+    "runtime/bin/soffice": {
+      "original": null,
+      "current": "616146853031c5dd704786975fea6842c4f50dcfdd808f4e91fcb0d525c8a1a9"
+    },
+    "runtime/environment-lock.json": {
+      "original": "22895b61a68c8a4c9b8071b63c47cc945d3ab02c432deda0d7fc7a94e62e65f1",
+      "current": "e2eed24b45fa7cb561442469a5885c3f670f54fad49a930f5dd5c59b8d1edf7a"
+    }
+  },
+  "execution_code_recipes_helpers_and_frozen_verifier_unchanged": true,
+  "reason": "symbols-build bootstraprc UserInstallation=$ORIGIN/.. differs from frozen Skill macro path; explicit UserInstallation adapter matches standard profile",
+  "failed_attempts": [
+    {
+      "runtime": "original",
+      "summary": "qualification/original/20261009T121122Z-d5ce1cec/summary.json",
+      "summary_sha256": "e4d5a9ba041bbf8392f2e969a051100dc253e123973aadf3a6e4d57ff2a688cb",
+      "error": "StepFailure: XLSX-P03-process_publish call 1 (call_00_ET_TupTPIwlpuMDZcqg8bZK4162) exec failed: RuntimeError: exit_code=1: no command output"
+    },
+    {
+      "runtime": "openeuler",
+      "summary": "qualification/openeuler/20261009T121217Z-234df4c1/summary.json",
+      "summary_sha256": "4e6c61d748c43b61825438ab1a035f8616904527203784aa7246e285d56faa55",
+      "error": "StepFailure: XLSX-P03-process_publish call 1 (call_00_ET_TupTPIwlpuMDZcqg8bZK4162) exec failed: RuntimeError: exit_code=1: no command output"
+    },
+    {
+      "runtime": "openeuler",
+      "summary": "qualification/openeuler/20261009T121717Z-d79dd3ca/summary.json",
+      "summary_sha256": "841390dd0ad3de396175b49bb2327ba07d6036ee996d9f166aa3e74568b5a7f8",
+      "error": "StepFailure: XLSX-P03-process_publish call 1 (call_00_ET_TupTPIwlpuMDZcqg8bZK4162) exec failed: RuntimeError: exit_code=124: no command output"
+    }
+  ],
+  "limitations": "Operational migration qualifier, not a performance comparison."
+}

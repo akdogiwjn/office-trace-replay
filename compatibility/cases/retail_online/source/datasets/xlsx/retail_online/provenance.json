@@ -1,0 +1,35 @@
+{
+  "schema_version": "office-input-provenance-manual-adaptation-v1",
+  "dataset_id": "retail_online",
+  "origin_type": "manual_workflow_adaptation",
+  "agent_generated": false,
+  "requires_llm": false,
+  "filename": "Online Retail.xlsx",
+  "sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+  "file_size_bytes": 23715344,
+  "source_assessment": "Project-provided Online Retail workbook; acquisition URL and publisher attribution are not independently verified in this repository.",
+  "synthetic_expansion": false,
+  "conversion": "None; the complete supplied workbook bytes are preserved.",
+  "references": [
+    {
+      "dataset_id": "retail",
+      "workflow_role": "workflow shape reference only",
+      "recipe_path": "compatibility/recipes/retail.json",
+      "recipe_sha256": "e7b2da2aa0d9adaeb601edf6c5fcb262e41505d24acd6e2b2e428289ae0887b5",
+      "helper_path": "compatibility/helpers/retail_build_enhance.py",
+      "helper_sha256": "e3bd45d939955a4bf1ba76bd866595d0894978b2d01d0aa86d7f4a1c0bf58103",
+      "not_parent_execution": true
+    }
+  ],
+  "agent_parent_run": null,
+  "canonical_trajectory": null,
+  "status": "registered_not_run",
+  "reference_binding_history": [
+    {
+      "recipe_path": "compatibility/recipes/retail.json",
+      "previous_sha256": "3cf5a6db3ed7fb246cccdec98fc1287c4d1274e5b72c108256e63b9813793fce",
+      "current_sha256": "e7b2da2aa0d9adaeb601edf6c5fcb262e41505d24acd6e2b2e428289ae0887b5",
+      "reason": "The compatible workflow recipe was regenerated from the current verifier contract; referenced helper content is unchanged."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "abstraction": "steps",
+  "completed_iterations": 1,
+  "dataset": "industry_productivity",
+  "elapsed_seconds": 482.502365,
+  "environment": {
+    "libreoffice": "LibreOfficeDev 25.8.7.3",
+    "packages": {
+      "et_xmlfile": "2.0.0",
+      "openpyxl": "3.1.5",
+      "pdf2image": "1.17.0",
+      "pillow": "12.2.0",
+      "pypdf": "6.10.0"
+    },
+    "python3_executable": "/opt/document-bench/.venv/bin/python3",
+    "python3_openpyxl": "3.1.5",
+    "python3_version": "3.12.3",
+    "python_executable": "/opt/document-bench/.venv/bin/python",
+    "python_version": "3.12.3"
+  },
+  "events_file": "/results/industry_productivity/20261020T120534Z-ecea0912/xlsx/20261020T120535Z-pid7/iterations.jsonl",
+  "failures": 0,
+  "finished_at": "2026-10-20T12:13:37.741+00:00",
+  "interrupted": false,
+  "operation_timeout_seconds": 900,
+  "pdf_applicant_count": null,
+  "python_mode": "venv",
+  "recalc_timeout_seconds": 180,
+  "recipe": "/opt/office-trace-replay/compatibility/recipes/industry_productivity.json",
+  "recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3",
+  "requested_iterations": 1,
+  "run_id": "20261020T120535Z-pid7",
+  "scene": "xlsx",
+  "schema_version": "document-step-scene-loop-v2",
+  "seed": "/opt/office-trace-replay/compatibility/cases/industry_productivity/seed",
+  "started_at": "2026-10-20T12:05:35.239+00:00",
+  "step_order": [
+    "XLSX-P01-inspect_prepare",
+    "XLSX-P02-build",
+    "XLSX-P03-process_publish",
+    "XLSX-P04-verify_deliver"
+  ],
+  "successes": 1,
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY"
+}

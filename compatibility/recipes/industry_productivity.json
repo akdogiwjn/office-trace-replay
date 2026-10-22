@@ -1,0 +1,248 @@
+{
+  "schema_version": "scene-key-operations-v2",
+  "case_kind": "xlsx",
+  "case_id": "OFFICE-XLSX-INDUSTRY-PRODUCTIVITY",
+  "dataset_id": "industry_productivity",
+  "variant_id": "industry_productivity",
+  "operation_count": 4,
+  "workflow": {
+    "success_path": [
+      "XLSX-P01-inspect_prepare",
+      "XLSX-P02-build",
+      "XLSX-P03-process_publish",
+      "XLSX-P04-verify_deliver"
+    ]
+  },
+  "key_operations": [
+    {
+      "operation_id": "XLSX-P01-inspect_prepare",
+      "source_tool_calls": [
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "read_skill",
+          "tool_call": {
+            "function_name": "read",
+            "arguments": {
+              "path": "/root/.openclaw/skills/xlsx/SKILL.md"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "read_verifier",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && cat input/verify_office.py"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "copy_input",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && cp input/labor-productivity-detailed-industries.xlsx output/industry_productivity_enhanced.xlsx"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py source"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py copy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P02-build",
+      "source_tool_calls": [
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "write_helper",
+          "tool_call": {
+            "function_name": "write",
+            "arguments": {
+              "path": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/helpers/industry_productivity_build.py",
+              "content": "#!/usr/bin/env python3\n\"\"\"Build the enhanced BLS labor-productivity workbook.\n\nLoads the pristine input workbook, inserts two new worksheets (Summary, Analysis)\nwith live formulas linked to the original Annual sheet, a scenario dropdown with\neditable assumption cells and a formula-driven projection, a bar chart over\nformula-linked values, plus formatting, freeze panes, conditional formatting,\nand source/assumption comments. Saves output/industry_productivity_enhanced.xlsx\nand output/workbook_features.json.\n\nSkill color conventions applied to new content only:\n  blue  (FF0000FF) = editable inputs (selector + assumption cells)\n  green (FF008000) = formulas pulling from other worksheets (Annual)\n  black (FF000000) = local formulas / labels\n\"\"\"\nimport json\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, '/workspace/vendor/wheels/openpyxl-3.1.5-py2.py3-none-any.whl')\nfrom openpyxl import load_workbook\nfrom openpyxl.chart import BarChart, Reference\nfrom openpyxl.chart.label import DataLabelList\nfrom openpyxl.comments import Comment\nfrom openpyxl.formatting.rule import ColorScaleRule, DataBarRule, FormulaRule\nfrom openpyxl.styles import Alignment, Font, PatternFill\nfrom openpyxl.worksheet.datavalidation import DataValidation\n\nROOT = Path(__file__).resolve().parents[1]\nINPUT = ROOT / 'input/labor-productivity-detailed-industries.xlsx'\nTARGET = '/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx'\nOUTPUT = Path(TARGET)\nFEATURES = ROOT / 'output/workbook_features.json'\n\nBLUE = 'FF0000FF'\nGREEN = 'FF008000'\nBLACK = 'FF000000'\n\nTITLE_FILL = PatternFill('solid', start_color='1F4E79')\nSECTION_FILL = PatternFill('solid', start_color='D9E2F3')\nNOTE_FILL = PatternFill('solid', start_color='FFF2CC')\nHEADER_FONT = Font(name='Arial', size=11, bold=True, color='FFFFFFFF')\nTITLE_FONT = Font(name='Arial', size=14, bold=True, color='FFFFFFFF')\nSECTION_FONT = Font(name='Arial', size=11, bold=True, color='FF1F4E79')\nNOTE_FONT = Font(name='Arial', size=9, italic=True, color='FF404040')\nWRAP = Alignment(wrap_text=True, vertical='top')\nLEFT = Alignment(horizontal='left', vertical='center')\nRIGHT = Alignment(horizontal='right', vertical='center')\n\n\ndef font(color=BLACK, bold=False, italic=False, size=11):\n    return Font(name='Arial', size=size, bold=bold, italic=italic, color=color)\n\n\ndef build_summary(wb):\n    ws = wb.create_sheet('Summary', 0)\n    widths = {'A': 52, 'B': 30, 'C': 18, 'D': 34, 'E': 12}\n    for col, w in widths.items():\n        ws.column_dimensions[col].width = w\n\n    # Title block\n    ws.merge_cells('A1:E1')\n    ws['A1'] = 'Labor Productivity in Food Manufacturing - BLS Detailed Industries Analysis'\n    ws['A1'].font = TITLE_FONT\n    ws['A1'].fill = TITLE_FILL\n    ws['A1'].alignment = Alignment(horizontal='left', vertical='center')\n    ws.row_dimensions[1].height = 24\n    ws.merge_cells('A2:E2')\n    ws['A2'] = ('Source: U.S. Bureau of Labor Statistics, Office of Productivity and Technology, '\n                'labor-productivity-detailed-industries.xlsx, Annual tab (released September 24, 2026).')\n    ws['A2'].font = font(italic=True, size=10)\n    ws['A2'].alignment = WRAP\n    ws.row_dimensions[2].height = 28\n    ws.merge_cells('A3:E3')\n    ws['A3'] = ('The MachineReadable tab holds the same published series in long form; '\n                'all calculations below use the Annual tab only. Suppression markers (N.A.) are retained.')\n    ws['A3'].font = font(italic=True, size=10)\n    ws['A3'].alignment = WRAP\n    ws.row_dimensions[3].height = 28\n\n    # Section 1: published metrics\n    ws.merge_cells('A5:E5')\n    ws['A5'] = 'PUBLISHED METRICS - NAICS 311 Food Manufacturing, All workers'\n    ws['A5'].font = SECTION_FONT\n    ws['A5'].fill = SECTION_FILL\n    ws['A5'].alignment = Alignment(horizontal='left', vertical='center')\n    for col, text in (('A6', 'Metric'), ('B6', 'Unit'), ('C6', 'Value')):\n        ws[col].font = HEADER_FONT\n        ws[col].fill = TITLE_FILL\n        ws[col].alignment = LEFT\n\n    ws['A7'] = 'Labor productivity index, 2025'\n    ws['A7'].font = font()\n    ws['A7'].alignment = LEFT\n    ws['B7'] = 'index (2017=100)'\n    ws['B7'].font = font()\n    ws['B7'].alignment = LEFT\n    ws['C7'] = '=Annual!AT487'\n    ws['C7'].font = font(color=GREEN)\n    ws['C7'].number_format = '0.000'\n    ws['C7'].alignment = RIGHT\n    ws['C7'].comment = Comment(\n        'Source: Annual tab, NAICS 311 Food manufacturing, All workers, Labor productivity, '\n        'Units \"Index (2017=100)\", year 2025 (cell Annual!AT487). '\n        'Published level; MachineReadable tab carries the same series in long form.',\n        'Productivity Analysis')\n\n    ws['A8'] = 'Year-over-year change, 2024 to 2025'\n    ws['A8'].font = font()\n    ws['A8'].alignment = LEFT\n    ws['B8'] = 'fraction'\n    ws['B8'].font = font()\n    ws['B8'].alignment = LEFT\n    ws['C8'] = '=(Annual!AT487-Annual!AS487)/Annual!AS487'\n    ws['C8'].font = font(color=GREEN)\n    ws['C8'].number_format = '0.0000'\n    ws['C8'].alignment = RIGHT\n    ws['C8'].comment = Comment(\n        'Formula: (2025 index - 2024 index) / 2024 index using published Annual tab levels '\n        '(Annual!AT487 and Annual!AS487). Not seasonally adjusted; published levels as reported.',\n        'Productivity Analysis')\n\n    ws['A9'] = 'Change since 2020, 2020 to 2025'\n    ws['A9'].font = font()\n    ws['A9'].alignment = LEFT\n    ws['B9'] = 'fraction'\n    ws['B9'].font = font()\n    ws['B9'].alignment = LEFT\n    ws['C9'] = '=(Annual!AT487-Annual!AO487)/Annual!AO487'\n    ws['C9'].font = font(color=GREEN)\n    ws['C9'].number_format = '0.0000'\n    ws['C9'].alignment = RIGHT\n    ws['C9'].comment = Comment(\n        'Formula: (2025 index - 2020 index) / 2020 index using published Annual tab levels '\n        '(Annual!AT487 and Annual!AO487).',\n        'Productivity Analysis')\n\n    # Section 2: illustrative scenario\n    ws.merge_cells('A11:E11')\n    ws['A11'] = 'ILLUSTRATIVE SCENARIO - assumption-driven projection (not a forecast)'\n    ws['A11'].font = SECTION_FONT\n    ws['A11'].fill = SECTION_FILL\n    ws['A11'].alignment = Alignment(horizontal='left', vertical='center')\n\n    ws['A12'] = 'Scenario selector (dropdown):'\n    ws['A12'].font = font(bold=True)\n    ws['A12'].alignment = LEFT\n    ws['C12'] = 'Base'\n    ws['C12'].font = font(color=BLUE, bold=True)\n    ws['C12'].alignment = LEFT\n    ws['D12'] = 'Select Base, Higher, or Lower from the dropdown.'\n    ws['D12'].font = NOTE_FONT\n    ws['D12'].alignment = WRAP\n    ws['C12'].comment = Comment(\n        'Editable input (blue). Illustrative scenario selector; the chosen multiplier is applied '\n        'to the published 2025 index to form the projection. Not a forecast - assumptions are user-editable.',\n        'Productivity Analysis')\n    dv = DataValidation(type='list', formula1='\"Base,Higher,Lower\"', allow_blank=False,\n                        showErrorMessage=True)\n    dv.error = 'Choose Base, Higher, or Lower.'\n    dv.errorTitle = 'Invalid scenario'\n    ws.add_data_validation(dv)\n    dv.add('C12')\n\n    for col, text in (('A13', 'Scenario'), ('B13', 'Productivity multiplier (illustrative)')):\n        ws[col].font = HEADER_FONT\n        ws[col].fill = TITLE_FILL\n        ws[col].alignment = LEFT\n\n    assumptions = [('Base', 1.0, 'B14', 14), ('Higher', 1.05, 'B15', 15), ('Lower', 0.95, 'B16', 16)]\n    for name, value, cell, row in assumptions:\n        ws[f'A{row}'] = name\n        ws[f'A{row}'].font = font()\n        ws[f'A{row}'].alignment = LEFT\n        ws[cell] = value\n        ws[cell].font = font(color=BLUE)\n        ws[cell].number_format = '0.00'\n        ws[cell].alignment = RIGHT\n\n    ws['A18'] = 'Projected productivity index (2025 index x selected multiplier)'\n    ws['A18'].font = font(bold=True)\n    ws['A18'].alignment = LEFT\n    ws['B18'] = 'index (2017=100)'\n    ws['B18'].font = font()\n    ws['B18'].alignment = LEFT\n    ws['C18'] = '=C7*INDEX(B14:B16,MATCH(C12,A14:A16,0))'\n    ws['C18'].font = font(color=BLACK, bold=True)\n    ws['C18'].number_format = '0.000'\n    ws['C18'].alignment = RIGHT\n    ws['C18'].comment = Comment(\n        'Local formula (black): published 2025 index (Summary!C7, linked to Annual!AT487) multiplied by '\n        'the selected scenario multiplier via INDEX/MATCH over the assumptions table (B14:B16 / A14:A16).',\n        'Productivity Analysis')\n\n    ws.merge_cells('A20:E20')\n    ws['A20'] = ('Note: NAICS 316 (Leather and allied products) 2025 productivity is suppressed '\n                 '(\"N.A.\") in the source and is excluded from the industry comparison chart.')\n    ws['A20'].font = NOTE_FONT\n    ws['A20'].fill = NOTE_FILL\n    ws['A20'].alignment = WRAP\n    ws.row_dimensions[20].height = 28\n    ws.merge_cells('A21:E21')\n    ws['A21'] = ('All change metrics are computed from published annual index levels; '\n                 'no missing observations are inferred or combined across industries or representations.')\n    ws['A21'].font = NOTE_FONT\n    ws['A21'].fill = NOTE_FILL\n    ws['A21'].alignment = WRAP\n    ws.row_dimensions[21].height = 28\n\n    # Conditional formatting on Summary\n    ws.conditional_formatting.add('C7:C9', ColorScaleRule(\n        start_type='min', start_color='F8696B',\n        mid_type='percentile', mid_value=50, mid_color='FFEB84',\n        end_type='max', end_color='63BE7B'))\n    ws.conditional_formatting.add('A14:C16', FormulaRule(\n        formula=['$C$12=$A14'], fill=PatternFill('solid', start_color='FFF2CC'), stopIfTrue=False))\n\n    ws.freeze_panes = 'A5'\n    return ws\n\n\ndef build_analysis(wb):\n    ws = wb.create_sheet('Analysis', 1)\n    widths = {'A': 36, 'B': 12, 'C': 20, 'D': 8, 'E': 12, 'F': 12, 'G': 12, 'H': 12}\n    for col, w in widths.items():\n        ws.column_dimensions[col].width = w\n\n    ws.merge_cells('A1:H1')\n    ws['A1'] = '2025 Labor Productivity Index by 3-Digit Manufacturing Industry'\n    ws['A1'].font = TITLE_FONT\n    ws['A1'].fill = TITLE_FILL\n    ws['A1'].alignment = Alignment(horizontal='left', vertical='center')\n    ws.row_dimensions[1].height = 24\n    ws.merge_cells('A2:H2')\n    ws['A2'] = ('Source: Annual tab (All workers, Labor productivity, Index (2017=100)); published levels '\n                'as reported. NAICS 316 is suppressed (\"N.A.\") in 2025 and is not shown.')\n    ws['A2'].font = font(italic=True, size=10)\n    ws['A2'].alignment = WRAP\n    ws.row_dimensions[2].height = 28\n\n    headers = (('A4', 'Industry'), ('B4', 'NAICS'), ('C4', '2025 Index (2017=100)'))\n    for col, text in headers:\n        ws[col].font = HEADER_FONT\n        ws[col].fill = TITLE_FILL\n        ws[col].alignment = LEFT\n\n    rows = [\n        ('Food manufacturing', 311, 'AT487', 5),\n        ('Beverages and tobacco products', 312, 'AT510', 6),\n        ('Textile mills', 313, 'AT533', 7),\n        ('Textile product mills', 314, 'AT556', 8),\n        ('Apparel', 315, 'AT579', 9),\n    ]\n    for name, naics, cell, row in rows:\n        ws[f'A{row}'] = name\n        ws[f'A{row}'].font = font()\n        ws[f'A{row}'].alignment = LEFT\n        ws[f'B{row}'] = naics\n        ws[f'B{row}'].font = font()\n        ws[f'B{row}'].alignment = LEFT\n        ws[f'C{row}'] = f'=Annual!{cell}'\n        ws[f'C{row}'].font = font(color=GREEN)\n        ws[f'C{row}'].number_format = '0.000'\n        ws[f'C{row}'].alignment = RIGHT\n    ws['C5'].comment = Comment(\n        'Formula-linked value: Annual tab, NAICS 311 Food manufacturing, All workers, '\n        'Labor productivity, Index (2017=100), year 2025 (Annual!AT487).',\n        'Productivity Analysis')\n\n    ws.merge_cells('A11:H11')\n    ws['A11'] = ('Published levels are compared as reported. Levels are not combined across industries '\n                 'or between the Annual and MachineReadable representations.')\n    ws['A11'].font = NOTE_FONT\n    ws['A11'].fill = NOTE_FILL\n    ws['A11'].alignment = WRAP\n    ws.row_dimensions[11].height = 28\n\n    # Bar chart over formula-linked values\n    chart = BarChart()\n    chart.type = 'col'\n    chart.style = 10\n    chart.title = '2025 Labor Productivity Index (2017=100)'\n    chart.y_axis.title = 'Index (2017=100)'\n    chart.x_axis.title = 'Industry'\n    chart.legend = None\n    chart.width = 17\n    chart.height = 9\n    data = Reference(ws, min_col=3, min_row=5, max_row=9)\n    cats = Reference(ws, min_col=1, min_row=5, max_row=9)\n    chart.add_data(data, titles_from_data=False)\n    chart.set_categories(cats)\n    chart.dataLabels = DataLabelList()\n    chart.dataLabels.showVal = True\n    ws.add_chart(chart, 'E4')\n\n    # Conditional formatting on Analysis\n    ws.conditional_formatting.add('C5:C9', DataBarRule(\n        start_type='min', end_type='max', color='638EC6', showValue=True))\n    ws.conditional_formatting.add('C5:C9', ColorScaleRule(\n        start_type='min', start_color='F8696B',\n        mid_type='percentile', mid_value=50, mid_color='FFEB84',\n        end_type='max', end_color='63BE7B'))\n    return ws\n\n\ndef main():\n    OUTPUT.parent.mkdir(exist_ok=True)\n    print('loading input workbook...', flush=True)\n    wb = load_workbook(INPUT, data_only=False)\n    print('input sheets:', wb.sheetnames, flush=True)\n    build_summary(wb)\n    build_analysis(wb)\n    print('output sheets:', wb.sheetnames, flush=True)\n    wb.save(OUTPUT)\n    wb.close()\n\n    features = {\n        'summary_sheet': 'Summary',\n        'metrics': {\n            'food_productivity_2025': {'sheet': 'Summary', 'cell': 'C7'},\n            'food_productivity_yoy_change': {'sheet': 'Summary', 'cell': 'C8'},\n            'food_productivity_change_since_2020': {'sheet': 'Summary', 'cell': 'C9'},\n        },\n        'scenario': {\n            'selector': {'sheet': 'Summary', 'cell': 'C12'},\n            'assumptions': {\n                'Base': {'productivity_multiplier': {'sheet': 'Summary', 'cell': 'B14'}},\n                'Higher': {'productivity_multiplier': {'sheet': 'Summary', 'cell': 'B15'}},\n                'Lower': {'productivity_multiplier': {'sheet': 'Summary', 'cell': 'B16'}},\n            },\n            'projections': {\n                'projected_productivity_index': {'sheet': 'Summary', 'cell': 'C18'},\n            },\n        },\n        'charts': {\n            'manufacturing_subindustry_2025': {'sheet': 'Analysis', 'index': 0},\n        },\n    }\n    FEATURES.write_text(json.dumps(features, indent=2) + '\\n')\n    print('wrote', FEATURES, flush=True)\n    print('saved', OUTPUT, flush=True)\n\n\nif __name__ == '__main__':\n    main()\n"
+            }
+          },
+          "parent_tool_call_id": "call_utk1ojy6td6trysc9i9pymlj"
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "build",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /opt/office-trace-replay/compatibility/tools/run_xlsx_helper_atomic.py helpers/industry_productivity_build.py output/industry_productivity_enhanced.xlsx"
+            }
+          },
+          "parent_tool_call_id": "call_lngjg4s16n3azuqcha5nduc5"
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P03-process_publish",
+      "source_tool_calls": [
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "recalculate",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/industry_productivity_enhanced.xlsx __DOCUMENT_RECALC_TIMEOUT__ > output/formula_recalc.json 2> output/formula_recalc.stderr.log"
+            }
+          },
+          "parent_tool_call_id": "call_ash3dlddj1ujhlkc1eqzm53v"
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py formula"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "inspect_workbook",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx.py cached"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "inspect_log",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && cat output/formula_recalc.json"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "export_csv",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /opt/office-trace-replay/compatibility/tools/export_xlsx.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "XLSX-P04-verify_deliver",
+      "source_tool_calls": [
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "semantic_verification",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 input/verify_office.py"
+            }
+          },
+          "parent_tool_call_id": "call_sggy0m1cwbh3lqc1j9w2qxgp"
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "write_summary",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /opt/office-trace-replay/compatibility/tools/summary.py"
+            }
+          }
+        },
+        {
+          "adaptation": "industry-productivity-canonical-replay-v1",
+          "role": "check_deliverables",
+          "tool_call": {
+            "function_name": "exec",
+            "arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && test -s output/industry_productivity_enhanced.xlsx && test -s output/metrics.csv && test -s output/scenario.csv && test -s output/xlsx_enhancement_summary.json"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "parent": {
+    "run_id": "xlsx-industry_productivity-20261019T043257Z-06a71220",
+    "canonical_path": "compatibility/cases/industry_productivity/canonical/xlsx-industry_productivity-20261019T043257Z-06a71220",
+    "canonical_sha256": "b3393b732fc10ead2557db2230d2cff231d1a297d17aff3d4db665e6926db8e1",
+    "recipe_path": "compatibility/cases/industry_productivity/canonical/parent-run.json",
+    "recipe_sha256": "fcc05e408b8bb6ebe00ddfe4ebc41c1b0a7262b0fad012365607c90ec3edd4c8"
+  },
+  "prompt_path": "compatibility/prompts/xlsx.txt",
+  "prompt_sha256": "b2190fbd466e9b81db54684e388510310418449d728573be7239c4d6a5088579",
+  "seed_path": "compatibility/cases/industry_productivity/seed",
+  "input_hashes": {
+    "input/dataset_manifest.json": "ab1927c8c15dd775e656fc97cee56d208a06fa1aea6a3bb38464d6f533f340e5",
+    "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+    "input/verify_office.py": "cb2150377c0ff7b10d8b490d2017c8f4b4ff6451d2ab4c3455b6bde63972e790"
+  },
+  "workflow_contract": "spreadsheet-semantic-v3",
+  "loop_verification_contract": "document-oe-compatible-xlsx-loop-v1",
+  "contract_sha256": "49c8988ac02b8a5d0b041439d6ff2a6349defaceb0de70d97bbe8e82aa732fc0",
+  "helper_hashes": {
+    "helpers/industry_productivity_build.py": "a7ed376b86b5691adbaf2f9b2d793974eb1e47799fe02fde66291dd081fcae90"
+  },
+  "derivation": {
+    "type": "canonicalized-deterministic-replay",
+    "parent_run_id": "xlsx-industry_productivity-20261019T043257Z-06a71220",
+    "parent_trace_sha256": "777f1fc431ed34f6686c1d16fbed3c9ef490d5f9f4a4a8b514f0fd12d66a0961",
+    "selected_parent_tool_call_ids": {
+      "helper_write": "call_utk1ojy6td6trysc9i9pymlj",
+      "helper_build": "call_lngjg4s16n3azuqcha5nduc5",
+      "recalc": "call_ash3dlddj1ujhlkc1eqzm53v",
+      "loop_verify": "call_sggy0m1cwbh3lqc1j9w2qxgp"
+    },
+    "adaptations": [
+      "P01 stages the unchanged full input as output.",
+      "P02 executes the successful Agent helper through the generic atomic XLSX helper runner.",
+      "P03 uses the existing recalc.py and generic CSV export.",
+      "P04 runs one loop verifier and shared workbook-reading summary.",
+      "Agent-only full source audit and duplicate manual verifier calls are excluded from timed replay.",
+      "Added the generic atomic-helper TARGET adapter around the Agent-authored output path; workbook analysis logic is unchanged."
+    ]
+  },
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY",
+  "source_path": "compatibility/cases/industry_productivity/source",
+  "record_count": null,
+  "prepared_record_count": null,
+  "operation_timeout": 900,
+  "recalc_timeout": 180,
+  "requires_llm": false,
+  "classification": "canonicalized_deterministic_replay_derived_from_successful_agent_executions",
+  "adaptations": [
+    "P01 stages the unchanged full input as output.",
+    "P02 executes the successful Agent helper through the generic atomic XLSX helper runner.",
+    "P03 uses the existing recalc.py and generic CSV export.",
+    "P04 runs one loop verifier and shared workbook-reading summary.",
+    "Agent-only full source audit and duplicate manual verifier calls are excluded from timed replay."
+  ]
+}

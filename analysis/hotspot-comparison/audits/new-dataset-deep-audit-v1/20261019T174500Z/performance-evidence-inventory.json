@@ -1,0 +1,59 @@
+{
+  "schema_version": "deep-audit-performance-evidence-inventory-v1",
+  "status": "collection_and_analysis_stopped_before_new_samples",
+  "gate_reason": "HR independent acceptance rejected source prompt hash before workbook semantic audit; user-specified gate requires audit pass first.",
+  "new_dataset_profiles": {
+    "hr_metro": {
+      "native": "missing",
+      "pyspy": "missing"
+    },
+    "retail_online": {
+      "native": "missing",
+      "pyspy": "missing"
+    }
+  },
+  "existing_comparison_available": {
+    "comparison_path": "analysis/hotspot-comparison/reports/hotspot-version-comparison-v2/comparison.json",
+    "sha256": "792408efd63f2c8ce6697f7ba3f2d4c0a1e19a702782890345948052e9f64bfa",
+    "profile_keys": {
+      "native": [
+        "opm-n1",
+        "opm-n10",
+        "tlc",
+        "irs_w4-n1",
+        "irs_w4-n10",
+        "sba1919-n1",
+        "sba1919-n10",
+        "retail",
+        "hr",
+        "industry_productivity"
+      ],
+      "pyspy": [
+        "opm-n1",
+        "opm-n10",
+        "tlc",
+        "irs_w4-n1",
+        "irs_w4-n10",
+        "sba1919-n1",
+        "sba1919-n10",
+        "retail",
+        "hr",
+        "industry_productivity"
+      ]
+    },
+    "status": "existing profiles for TLC, Industry Productivity, and legacy IDs only; not used to infer new-dataset values"
+  },
+  "historical_campaign_failures_preserved": [
+    "analysis/hotspot-comparison/raw/current-loop-verifier-v1/retail/r1/failure-record.json",
+    "analysis/hotspot-comparison/raw/current-loop-verifier-v1/industry_productivity/r1/failure-record.json"
+  ],
+  "collection_attempts_this_audit": 0,
+  "profiles_eligible_for_new_dataset_percentage": 0,
+  "not_started": [
+    "hr_metro native/py-spy",
+    "retail_online native/py-spy",
+    "new hotspot comparison",
+    "py-spy load/lazy/save proportions"
+  ],
+  "no_repeat_variance_estimate_available": true
+}
