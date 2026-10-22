@@ -21,6 +21,19 @@
 
 `hr_metro`、`retail_online` 是人工适配的 `manual_workflow_adaptation`，没有 Agent parent trace。其他 Agent-derived recipe 是基于成功 Agent 执行整理的固定工具配方，不宣称逐条重现原 Agent 的全部调试、失败和重试。来源登记中的 `registered_not_run` 是创建时快照，当前运行状态由验收证据单独记录。
 
+## 瘦身交付
+
+`slim-v12` 发布分支/源码包外置大工作簿、canonical 大对象和离线 wheel；全部分析代码、最新/历史分析数据及证据保留。完整 main 和本地 raw/results 不删除或改写。
+
+使用瘦身源码前，先从配套的本地资产包恢复：
+
+```bash
+python3 distribution/assets.py restore --bundle /path/to/office-trace-replay-assets-v12.tar
+make assets-verify
+```
+
+恢复后原路径和字节不变，可继续离线构建及运行分析。现有 v12 镜像不受影响。普通 clone main 仍包含旧历史；要缩小下载，应明确选择独立 slim 分支或源码包。详见 [distribution/README.md](distribution/README.md)。
+
 ## 运行
 
 以下命令使用本地已有镜像，只挂载可写结果目录，不需要宿主源码、输入或 Skill 挂载。
