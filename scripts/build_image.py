@@ -63,7 +63,7 @@ def evidence_paths(tag, root=ROOT):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--tag', default='office-trace-replay:openeuler-v12')
+    parser.add_argument('--tag', default='office-trace-replay:openeuler-release')
     args = parser.parse_args()
     build_record_path, acceptance_path = evidence_paths(args.tag, ROOT)
     if build_record_path.exists() or acceptance_path.exists():

@@ -1,0 +1,508 @@
+{
+  "schema_version": "office-image-cleanup-v1",
+  "status": "success",
+  "started_at_utc": "2026-10-26T12:14:14.673294+00:00",
+  "retained_image": {
+    "tag": "office-trace-replay:openeuler-release",
+    "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a"
+  },
+  "scope": "Only office-trace-replay:openeuler-v1 through openeuler-v12, and stopped containers explicitly created from those tag/image pairs; no global prune or volume deletion.",
+  "old_tags": [
+    {
+      "tag": "office-trace-replay:openeuler-v12",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded"
+    }
+  ],
+  "target_containers": [
+    {
+      "Id": "3ef9973efec2e77720c76806cb3d74c65068fc458c5b364c6c13db5508a44840",
+      "Name": "/office-v12-remaining-industry-productivity-20261020t115040z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T12:05:34.241712653Z",
+        "FinishedAt": "2026-10-20T12:18:47.503025246Z"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/industry_productivity",
+          "Destination": "/results",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "--dataset",
+        "industry_productivity",
+        "--loops",
+        "1",
+        "--results-dir",
+        "/results"
+      ]
+    },
+    {
+      "Id": "8dffe111e4290b548ca9f1a13bae646250ccd1fda1c394691b72b086ed21a95d",
+      "Name": "/office-v12-remaining-tlc-20261020t115040z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T11:57:46.023239413Z",
+        "FinishedAt": "2026-10-20T12:01:52.062669793Z"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/tlc",
+          "Destination": "/results",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "--dataset",
+        "tlc",
+        "--loops",
+        "1",
+        "--results-dir",
+        "/results"
+      ]
+    },
+    {
+      "Id": "5ecb59622b46fd989ee2a44e88fd3646b4e48bb72c91037288751670f2da4963",
+      "Name": "/office-v12-remaining-sba1919-n1-20261020t115040z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T11:55:47.381200058Z",
+        "FinishedAt": "2026-10-20T11:55:53.122058Z"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/sba1919",
+          "Destination": "/results",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "--dataset",
+        "sba1919",
+        "--pdf-applicant-count",
+        "1",
+        "--loops",
+        "1",
+        "--results-dir",
+        "/results"
+      ]
+    },
+    {
+      "Id": "0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212",
+      "Name": "/office-v12-remaining-opm-n1-20261020t115040z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T11:53:29.932325515Z",
+        "FinishedAt": "2026-10-20T11:53:33.087591906Z"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/opm",
+          "Destination": "/results",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "--dataset",
+        "opm",
+        "--pdf-applicant-count",
+        "1",
+        "--loops",
+        "1",
+        "--results-dir",
+        "/results"
+      ]
+    },
+    {
+      "Id": "db0c655c3420983b3dd2ba6f6ee56ec5b2c290f056de2b5bf76b669d7c0251c8",
+      "Name": "/office-v12-final-irs-w4-n1-20261020t110841z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T11:41:01.578922405Z",
+        "FinishedAt": "2026-10-20T11:41:06.169981544Z"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/home/lcq/office-trace-replay/results/v12-final-function-check-20261020T110841Z-132243af/irs_w4",
+          "Destination": "/results",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "--dataset",
+        "irs_w4",
+        "--pdf-applicant-count",
+        "1",
+        "--loops",
+        "1",
+        "--results-dir",
+        "/results"
+      ]
+    },
+    {
+      "Id": "203db254f7c2435f08c3451d4b7d646be2eea59de1b21871033d338bf02c9d23",
+      "Name": "/office-v12-final-retail-online-20261020t110841z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T11:22:06.942383754Z",
+        "FinishedAt": "2026-10-20T11:32:56.869674052Z"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/home/lcq/office-trace-replay/results/v12-final-function-check-20261020T110841Z-132243af/retail_online",
+          "Destination": "/results",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "--dataset",
+        "retail_online",
+        "--loops",
+        "1",
+        "--results-dir",
+        "/results"
+      ]
+    },
+    {
+      "Id": "bfd8cc60d258c76a70d306697725c3560023d6293ba0eeeecda74bfa0e9ff2dc",
+      "Name": "/office-v12-final-hr-metro-20261020t110841z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T11:09:52.704460421Z",
+        "FinishedAt": "2026-10-20T11:19:41.694410843Z"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/home/lcq/office-trace-replay/results/v12-final-function-check-20261020T110841Z-132243af/hr_metro",
+          "Destination": "/results",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "--dataset",
+        "hr_metro",
+        "--loops",
+        "1",
+        "--results-dir",
+        "/results"
+      ]
+    },
+    {
+      "Id": "623aa0269bba3e14e8e20c0d443b96e2e581cfa2a9b06e4cb6ffcee300fa25b7",
+      "Name": "/office-trace-replay-v12-install-acceptance-20261020t110241z",
+      "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-20T11:02:41.599535505Z",
+        "FinishedAt": "2026-10-20T11:02:44.638842586Z"
+      },
+      "Mounts": [],
+      "configured_image": "office-trace-replay:openeuler-v12",
+      "command": [
+        "/opt/office-trace-replay/scripts/accept_install.py"
+      ]
+    }
+  ],
+  "protected_containers": [
+    {
+      "id": "b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7",
+      "name": "/office-trace-replay-release-install-20261026t121133z",
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "running": false,
+      "started_at": "2026-10-26T12:11:33.99655249Z"
+    },
+    {
+      "id": "0cd61e23a117094b2594785d9705f63c61df54c6e177ba15b6259da6d5527e32",
+      "name": "/start-33f5b690-d7b1-52a9-f0f0-629634155181",
+      "image_id": "sha256:9d4722a05483eda029ca4e6924f8039f6cbe3f7b155fcba77357d76a09cf58ff",
+      "running": true,
+      "started_at": "2026-10-04T00:42:30.132341129Z"
+    },
+    {
+      "id": "60454df5cc8d298de156340b042c19be989afd15b347e9cfa2ad5654f502ee2c",
+      "name": "/start-c9d61367-229b-d9ee-0031-db04ce8998c4",
+      "image_id": "sha256:b6d1398a8e44b65426490430144c6c668089b1fde176e6c3d28c68c7db3c2e0c",
+      "running": true,
+      "started_at": "2026-10-04T00:42:20.336301182Z"
+    },
+    {
+      "id": "9ff32bcd5dfb2e4df67f216ba555ca538ccb99f4e16c30c4a591641477c41636",
+      "name": "/start-13357be8-0ea0-89a6-6721-2e1d6f8ab1f4",
+      "image_id": "sha256:7d74ba167cbdf637071573dbe634d0e225356545f90f61f44a79bf8a6ce36976",
+      "running": true,
+      "started_at": "2026-10-04T00:42:12.270005418Z"
+    },
+    {
+      "id": "45229b577d271c260a4da7a8cdfd5ccfe3bea30a8241746e8b416745566ab99c",
+      "name": "/e2b-otel-sink",
+      "image_id": "sha256:6e6baa0e1348d48f9db785a67b0e1ab8b88fda1f7ab09eec3f8ffe16801f6c7e",
+      "running": true,
+      "started_at": "2026-10-04T00:40:24.250198041Z"
+    },
+    {
+      "id": "55f017dd2ed2abc0ce6baaa224b155b4dfe23eca1d446542b01a4cebe1c0b601",
+      "name": "/mbuild2",
+      "image_id": "sha256:e302d8f25f83ca78c63e7b12d4952d8c342817fdf9b8aa911b39e3e294a44728",
+      "running": false,
+      "started_at": "2026-09-16T01:50:30.471509217Z"
+    },
+    {
+      "id": "5c0c0d753f066ca90c859272dce20c8ae77361972fc13aecedadcee6fedad51f",
+      "name": "/mbuild1",
+      "image_id": "sha256:d0aaac4d70364509bfd1dc3c587576556eb16f179fe2aa3993be861515fdc640",
+      "running": false,
+      "started_at": "2026-09-15T14:10:38.587576492Z"
+    },
+    {
+      "id": "3ddf07ba1577b82d3f0087074543311efd8a91fc96634c9e7151bff68e9556a1",
+      "name": "/document-oe-lo-symbols-test",
+      "image_id": "sha256:231657f74b5628367ec6807b93c2e510949a1b06e66efeb31e64ec6bf906420b",
+      "running": false,
+      "started_at": "2026-08-21T09:37:13.807315151Z"
+    },
+    {
+      "id": "8b2437fed5988285e78f8594b5ec9f986bdb635075958583b2fbe0ff18f36315",
+      "name": "/document-oe",
+      "image_id": "sha256:231657f74b5628367ec6807b93c2e510949a1b06e66efeb31e64ec6bf906420b",
+      "running": true,
+      "started_at": "2026-10-08T08:42:37.948575258Z"
+    },
+    {
+      "id": "0303d8d889a3461ce9e6a71b7e0540eae2797922435e01f1ae13f9e82530adda",
+      "name": "/harbor-jobservice",
+      "image_id": "sha256:d3e888762fbeeec60c69bf2c3f88d6df406f76af9080dc74bcdadc7e7e59b222",
+      "running": true,
+      "started_at": "2026-10-04T00:41:25.448505617Z"
+    },
+    {
+      "id": "19bd1d44b81d0bececa30ed45222c3043f24d8df680e775cef30a4f6a1bce41f",
+      "name": "/nginx",
+      "image_id": "sha256:c7067490c4c6f28622a0c29406837907c81c9b1246626fe2f96732ed90b6f715",
+      "running": true,
+      "started_at": "2026-10-04T00:41:25.864820195Z"
+    },
+    {
+      "id": "3770a270f3733c34b5ef76bc73388eb140360930120a69362d0206fd90ca98eb",
+      "name": "/harbor-core",
+      "image_id": "sha256:f45fa2806bd91792db059be6559666d253c396b7e912bd23e7c1af43a3724516",
+      "running": true,
+      "started_at": "2026-10-04T00:40:22.869180525Z"
+    },
+    {
+      "id": "b05a317022fc7fe8fab792c67d50312e952355cfc634a1e1022cdf01de1225dd",
+      "name": "/harbor-db",
+      "image_id": "sha256:ad8cf578d760bacce6f1686e9e6642f57793512fec9f06a9de755b5924aef738",
+      "running": true,
+      "started_at": "2026-10-04T00:40:23.087648843Z"
+    },
+    {
+      "id": "26fecca2cdd7eb1df7ffd76fcec21547fe683d7aa59509a41f4265a82f4f7f94",
+      "name": "/registryctl",
+      "image_id": "sha256:5f3d06e9c00f9e58eb6b63158b63c53b19d9002ab4d798ada6a28745e24b2443",
+      "running": true,
+      "started_at": "2026-10-04T00:40:22.873815187Z"
+    },
+    {
+      "id": "11941ccbd3325be079764be0c01c1931ffd1c0befea1b71156661f77a737d590",
+      "name": "/registry",
+      "image_id": "sha256:82e6ededb1bf6dc4b717f55794943378ebdeaf2ab00d05c43e5b2b03cd64d4cb",
+      "running": true,
+      "started_at": "2026-10-04T00:40:53.741700486Z"
+    },
+    {
+      "id": "9f4c568d3bc1ce2f968f40f0a2369e99389e2e35a97de21fd744006ee855f9aa",
+      "name": "/redis",
+      "image_id": "sha256:b5246d53756a5f2dff2b5496d66a3f01f7086b59b2e8cc31eeb23aac665b1eb2",
+      "running": true,
+      "started_at": "2026-10-04T00:40:53.317660344Z"
+    },
+    {
+      "id": "085d876893e695bf1cef3d628edd1d1f8136ea3555ee59d4425248c7802c80c0",
+      "name": "/harbor-portal",
+      "image_id": "sha256:2b4bddae2c464b6a6912058f7ddff06c2f6ee54e5cae26075fe29817bb7757e9",
+      "running": true,
+      "started_at": "2026-10-04T00:40:54.088330434Z"
+    },
+    {
+      "id": "beaddd7f617030cdbbc8c5f53163141ab0d024275c4d54797d184d424b5cb4d5",
+      "name": "/harbor-log",
+      "image_id": "sha256:654e8d91a77d2f153badaaefa930dc4c7300b7d9628cf17bd0e89a1b841b31c3",
+      "running": true,
+      "started_at": "2026-10-04T00:40:22.585858581Z"
+    },
+    {
+      "id": "1f69de9928cbc44a55a1ee38622df08f2ba87a297125574cce4b1b54c2901d3b",
+      "name": "/postgres",
+      "image_id": "sha256:740280d0a29c593b3c291a61e33243e28cc3dc5c7c3c5380f0892c3312b61c64",
+      "running": true,
+      "started_at": "2026-10-04T00:40:21.427361947Z"
+    }
+  ],
+  "removed_containers": [
+    {
+      "id": "3ef9973efec2e77720c76806cb3d74c65068fc458c5b364c6c13db5508a44840",
+      "name": "/office-v12-remaining-industry-productivity-20261020t115040z",
+      "stdout": "3ef9973efec2e77720c76806cb3d74c65068fc458c5b364c6c13db5508a44840"
+    },
+    {
+      "id": "8dffe111e4290b548ca9f1a13bae646250ccd1fda1c394691b72b086ed21a95d",
+      "name": "/office-v12-remaining-tlc-20261020t115040z",
+      "stdout": "8dffe111e4290b548ca9f1a13bae646250ccd1fda1c394691b72b086ed21a95d"
+    },
+    {
+      "id": "5ecb59622b46fd989ee2a44e88fd3646b4e48bb72c91037288751670f2da4963",
+      "name": "/office-v12-remaining-sba1919-n1-20261020t115040z",
+      "stdout": "5ecb59622b46fd989ee2a44e88fd3646b4e48bb72c91037288751670f2da4963"
+    },
+    {
+      "id": "0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212",
+      "name": "/office-v12-remaining-opm-n1-20261020t115040z",
+      "stdout": "0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212"
+    },
+    {
+      "id": "db0c655c3420983b3dd2ba6f6ee56ec5b2c290f056de2b5bf76b669d7c0251c8",
+      "name": "/office-v12-final-irs-w4-n1-20261020t110841z",
+      "stdout": "db0c655c3420983b3dd2ba6f6ee56ec5b2c290f056de2b5bf76b669d7c0251c8"
+    },
+    {
+      "id": "203db254f7c2435f08c3451d4b7d646be2eea59de1b21871033d338bf02c9d23",
+      "name": "/office-v12-final-retail-online-20261020t110841z",
+      "stdout": "203db254f7c2435f08c3451d4b7d646be2eea59de1b21871033d338bf02c9d23"
+    },
+    {
+      "id": "bfd8cc60d258c76a70d306697725c3560023d6293ba0eeeecda74bfa0e9ff2dc",
+      "name": "/office-v12-final-hr-metro-20261020t110841z",
+      "stdout": "bfd8cc60d258c76a70d306697725c3560023d6293ba0eeeecda74bfa0e9ff2dc"
+    },
+    {
+      "id": "623aa0269bba3e14e8e20c0d443b96e2e581cfa2a9b06e4cb6ffcee300fa25b7",
+      "name": "/office-trace-replay-v12-install-acceptance-20261020t110241z",
+      "stdout": "623aa0269bba3e14e8e20c0d443b96e2e581cfa2a9b06e4cb6ffcee300fa25b7"
+    }
+  ],
+  "removed_tags": [
+    {
+      "tag": "office-trace-replay:openeuler-v12",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+      "stdout": "Untagged: office-trace-replay:openeuler-v12\nDeleted: sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded"
+    }
+  ],
+  "backup_files": [
+    "reports/storage/formal-release-old-container-snapshots/3ef9973efec2e77720c76806cb3d74c65068fc458c5b364c6c13db5508a44840.json",
+    "reports/storage/formal-release-old-container-snapshots/8dffe111e4290b548ca9f1a13bae646250ccd1fda1c394691b72b086ed21a95d.json",
+    "reports/storage/formal-release-old-container-snapshots/5ecb59622b46fd989ee2a44e88fd3646b4e48bb72c91037288751670f2da4963.json",
+    "reports/storage/formal-release-old-container-snapshots/0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212.json",
+    "reports/storage/formal-release-old-container-snapshots/db0c655c3420983b3dd2ba6f6ee56ec5b2c290f056de2b5bf76b669d7c0251c8.json",
+    "reports/storage/formal-release-old-container-snapshots/203db254f7c2435f08c3451d4b7d646be2eea59de1b21871033d338bf02c9d23.json",
+    "reports/storage/formal-release-old-container-snapshots/bfd8cc60d258c76a70d306697725c3560023d6293ba0eeeecda74bfa0e9ff2dc.json",
+    "reports/storage/formal-release-old-container-snapshots/623aa0269bba3e14e8e20c0d443b96e2e581cfa2a9b06e4cb6ffcee300fa25b7.json"
+  ],
+  "original_functional_results_retained": true,
+  "finished_at_utc": "2026-10-26T12:14:15.434197+00:00",
+  "remaining_office_image_tags": [
+    "office-trace-replay:openeuler-release"
+  ],
+  "protected_containers_unchanged": true,
+  "unrelated_image_tags_unchanged": true,
+  "document_oe_unchanged": true
+}

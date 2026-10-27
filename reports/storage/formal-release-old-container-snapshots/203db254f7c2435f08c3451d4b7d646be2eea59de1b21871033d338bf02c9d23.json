@@ -1,0 +1,42 @@
+{
+  "inspect": {
+    "Id": "203db254f7c2435f08c3451d4b7d646be2eea59de1b21871033d338bf02c9d23",
+    "Name": "/office-v12-final-retail-online-20261020t110841z",
+    "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-20T11:22:06.942383754Z",
+      "FinishedAt": "2026-10-20T11:32:56.869674052Z"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/lcq/office-trace-replay/results/v12-final-function-check-20261020T110841Z-132243af/retail_online",
+        "Destination": "/results",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "configured_image": "office-trace-replay:openeuler-v12",
+    "command": [
+      "--dataset",
+      "retail_online",
+      "--loops",
+      "1",
+      "--results-dir",
+      "/results"
+    ]
+  },
+  "stdout_tail": "[xlsx/retail_online] start: loops=1, steps=4, workspace=/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL-ONLINE, results=/results/retail_online/20261020T112207Z-108afc63/xlsx/20261020T112207Z-pid7\n[xlsx/retail_online] 1/1: success in 392.37s\n[xlsx/retail_online] finished: completed=1, successes=1, failures=0, summary=/results/retail_online/20261020T112207Z-108afc63/xlsx/20261020T112207Z-pid7/summary.json\nretail_online success []\n",
+  "stderr_tail": "",
+  "logs_returncode": 0
+}

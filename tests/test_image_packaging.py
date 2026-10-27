@@ -16,17 +16,24 @@ spec.loader.exec_module(builder)
 
 class ImagePackagingTests(unittest.TestCase):
     def test_operator_defaults_use_the_retained_release(self):
-        release = json.loads((ROOT / 'reports/evidence/v12/index.json').read_text())
+        release_path = ROOT / 'reports/formal-image-release.json'
+        if release_path.is_file():
+            release = json.loads(release_path.read_text())
+        else:
+            release = json.loads((ROOT / 'reports/evidence/v12/index.json').read_text())
+        tag = 'office-trace-replay:openeuler-release'
         for name in ('functional_trial.py', 'cpu_measurement_trial.py', 'collector_smoke.py'):
             code = (ROOT / 'analysis/hotspot-comparison/scripts' / name).read_text()
-            self.assertIn(release['image_tag'], code)
+            self.assertIn(tag, code)
             self.assertNotIn('office-trace-replay:openeuler-v11', code)
         smoke = (ROOT / 'analysis/hotspot-comparison/scripts/collector_smoke.py').read_text()
         self.assertIn(release['image_id'], smoke)
 
-    def test_future_base_matches_the_qualified_v12_image(self):
+    def test_future_base_matches_the_retained_image(self):
         environment = json.loads((ROOT / 'runtime/environment-lock.json').read_text())
-        release = json.loads((ROOT / 'reports/evidence/v12/index.json').read_text())
+        release_path = ROOT / 'reports/formal-image-release.json'
+        release = json.loads((release_path if release_path.is_file()
+                              else ROOT / 'reports/evidence/v12/index.json').read_text())
         self.assertEqual(environment['base_image'], release['image_tag'])
         self.assertEqual(environment['base_image_id'], release['image_id'])
         dockerfile = (ROOT / 'runtime/Dockerfile').read_text()
@@ -89,7 +96,7 @@ class ImagePackagingTests(unittest.TestCase):
     def test_existing_evidence_refuses_before_docker(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            record, _ = builder.evidence_paths('office-trace-replay:openeuler-v12', root)
+            record, _ = builder.evidence_paths('office-trace-replay:openeuler-release', root)
             record.parent.mkdir()
             record.write_text('preserve me')
             with patch.object(builder, 'ROOT', root), \

@@ -1,0 +1,3177 @@
+{
+  "schema_version": "formal-process-cpu-comparison-v1",
+  "created_at_utc": "2026-10-26T13:02:22.508875+00:00",
+  "image": "office-trace-replay:openeuler-release",
+  "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "measurement": "All observed workload thread user+sys CPU within one complete iteration; /proc polling estimate.",
+  "workload_cpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "monitor_cpu": 9,
+  "nominal_poll_interval_ms": 10,
+  "workload_source_mounts": [],
+  "campaign": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/campaign.json",
+  "campaign_sha256": "a7489fb816292f017977b120072989a5d79c398f08992f74e6c2d93775f43365",
+  "configurations": {
+    "tlc": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "tlc",
+      "scene": "xlsx",
+      "pdf_count": null,
+      "denominator_seconds": 247.69,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.02,
+        "python_other": 0.0,
+        "libreoffice": 22.48,
+        "other": 0.0,
+        "inspect": 97.38,
+        "atomic_helper": 0.02,
+        "helper": 52.99,
+        "shell": 0.0,
+        "recalc": 27.78,
+        "export": 1.84,
+        "verifier": 24.78,
+        "summary": 20.4
+      },
+      "role_share": {
+        "runner": 8.074609390770722e-05,
+        "python_other": 0.0,
+        "libreoffice": 0.0907586095522629,
+        "other": 0.0,
+        "inspect": 0.3931527312366264,
+        "atomic_helper": 8.074609390770722e-05,
+        "helper": 0.2139367758084703,
+        "shell": 0.0,
+        "recalc": 0.11215632443780532,
+        "export": 0.007428640639509064,
+        "verifier": 0.10004441035164924,
+        "summary": 0.08236101578586136
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene xlsx --dataset tlc --loops 1 --results-dir /results/workload",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 25,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "inspect",
+          "command": "python3 /opt/document-bench/bin/inspect_xlsx_structure.py input/monthly_operations_template.xlsx",
+          "cpu_seconds": 31.13
+        },
+        {
+          "pid": 28,
+          "role": "inspect",
+          "command": "python3 /opt/document-bench/bin/inspect_xlsx_features.py output/monthly_operations_report.xlsx",
+          "cpu_seconds": 25.54
+        },
+        {
+          "pid": 29,
+          "role": "atomic_helper",
+          "command": "python3 /opt/document-bench/bin/run_xlsx_helper_atomic.py enhance_workbook_recorded.py enhance_workbook.py output/monthly_operations_report.xlsx",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 30,
+          "role": "helper",
+          "command": "/opt/document-bench/.venv/bin/python3 /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01/enhance_workbook.py",
+          "cpu_seconds": 52.99
+        },
+        {
+          "pid": 31,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01 && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/monthly_operations_report.xlsx 600 > output/formula_recalc.json 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 32,
+          "role": "recalc",
+          "command": "python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/monthly_operations_report.xlsx 600",
+          "cpu_seconds": 27.78
+        },
+        {
+          "pid": 33,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-6d2n205b --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.05
+        },
+        {
+          "pid": 46,
+          "role": "other",
+          "command": "/opt/libreoffice25.8-symbols/program/javaldx -env:UserInstallation=file:///tmp/document-bench-lo-profile-6d2n205b -env:INIFILENAME=vnd.sun.star.pathname:/opt/libreoffice25.8-symbols/program/redirectrc",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 48,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-6d2n205b --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.12
+        },
+        {
+          "pid": 52,
+          "role": "other",
+          "command": "timeout --kill-after=30s 600 soffice -env:UserInstallation=file:///tmp/document-bench-lo-profile-6d2n205b --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01/output/monthly_operations_report.xlsx",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 53,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-6d2n205b --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01/output/monthly_operations_report.xlsx",
+          "cpu_seconds": 0.05
+        },
+        {
+          "pid": 68,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-6d2n205b --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01/output/monthly_operations_report.xlsx",
+          "cpu_seconds": 22.26
+        },
+        {
+          "pid": 93,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 94,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 95,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 99,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 101,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3096,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01 && python3 inspect_xlsx_formulas.py output/monthly_operations_report.xlsx 2>&1 | head -40",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3097,
+          "role": "inspect",
+          "command": "python3 inspect_xlsx_formulas.py output/monthly_operations_report.xlsx",
+          "cpu_seconds": 20.93
+        },
+        {
+          "pid": 3098,
+          "role": "other",
+          "command": "head -40",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3099,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01 && python3 inspect_xlsx_cached_values.py output/monthly_operations_report.xlsx 2>&1 | head -20",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3100,
+          "role": "inspect",
+          "command": "python3 inspect_xlsx_cached_values.py output/monthly_operations_report.xlsx",
+          "cpu_seconds": 19.78
+        },
+        {
+          "pid": 3101,
+          "role": "other",
+          "command": "head -20",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3102,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3103,
+          "role": "export",
+          "command": "python3 /opt/document-bench/bin/export_xlsx_csv.py output/monthly_operations_report.xlsx output/monthly_operations_summary.csv output/reconciliation_summary.csv",
+          "cpu_seconds": 1.84
+        },
+        {
+          "pid": 3104,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01 && python3 input/verify_xlsx_enhanced.py output/monthly_operations_report.xlsx output/formula_recalc.json output/business_verification.json output/monthly_operations_summary.csv output/reconciliation_summary.csv 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3105,
+          "role": "verifier",
+          "command": "python3 input/verify_xlsx_enhanced.py output/monthly_operations_report.xlsx output/formula_recalc.json output/business_verification.json output/monthly_operations_summary.csv output/reconciliation_summary.csv",
+          "cpu_seconds": 24.78
+        },
+        {
+          "pid": 3106,
+          "role": "summary",
+          "command": "python3 /opt/document-bench/bin/write_xlsx_summary.py output/monthly_operations_report.xlsx output/business_verification.json output/formula_recalc.json output/xlsx_enhancement_summary.json output/monthly_operations_summary.csv output/reconciliation_summary.csv",
+          "cpu_seconds": 20.4
+        },
+        {
+          "pid": 3107,
+          "role": "python_other",
+          "command": "python3 -c import json; verification=json.load(open('output/business_verification.json')); recalc=json.load(open('output/formula_recalc.json')); summary=json.load(open('output/xlsx_enhancement_summary.json')); assert verification['status']=='success' and not verification['failures']; assert recalc['status']=='success'; assert summary['verifier']['status']=='success' and not summary['verifier']['failures']; print('all XLSX deliverables verified')",
+          "cpu_seconds": 0.0
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1943672015629261,
+        "mono_end_ns": 1943915108442261,
+        "elapsed_seconds": 243.092813
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.060738,
+        "maximum": 14.170095
+      },
+      "whole_command_waited_cpu_seconds": 250.16949799999998,
+      "whole_command_observed_cpu_seconds": 248.57,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "53a475924f0bf6f2b2fef4e85c13bae467241e5785ba7867e195422d2e9b07f2",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/tlc/collection-record.json",
+      "collection_record_sha256": "2ca94f53ae8fcd373d7f51c5f735ca9843ad6c921290ab9d481ff6503fed0edc",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/tlc/sha256-index.json",
+      "archive_index_sha256": "d88de22111a29aac805fb402eaf8961d3e3393311133449c29f9524721a661d8",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 250.16949799999998,
+        "observed_seconds": 248.57,
+        "waited_minus_observed_seconds": 1.5994979999999828,
+        "difference_fraction_of_waited": 0.006393657151600404,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "hr_metro": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "hr_metro",
+      "scene": "xlsx",
+      "pdf_count": null,
+      "denominator_seconds": 372.11,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.0,
+        "python_other": 0.0,
+        "libreoffice": 30.82,
+        "inspect": 141.04,
+        "atomic_helper": 0.03,
+        "helper": 83.36,
+        "shell": 0.0,
+        "recalc": 46.29,
+        "other": 0.0,
+        "export": 0.15,
+        "verifier": 36.35,
+        "summary": 34.07
+      },
+      "role_share": {
+        "runner": 0.0,
+        "python_other": 0.0,
+        "libreoffice": 0.08282497111069308,
+        "inspect": 0.37902770686087445,
+        "atomic_helper": 8.062132165219961e-05,
+        "helper": 0.22401977909757867,
+        "shell": 0.0,
+        "recalc": 0.12439869930934401,
+        "other": 0.0,
+        "export": 0.0004031066082609981,
+        "verifier": 0.09768616806858187,
+        "summary": 0.0915589476230147
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene xlsx --dataset hr_metro --loops 1 --results-dir /results/workload",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 25,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_structure.py",
+          "cpu_seconds": 35.74
+        },
+        {
+          "pid": 26,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/document-bench/bin/run_document_scene_loop.py --scene xlsx --dataset hr_metro --loops 1 --results-dir /results/workload --legacy-python venv",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_features.py",
+          "cpu_seconds": 35.58
+        },
+        {
+          "pid": 28,
+          "role": "atomic_helper",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/run_xlsx_helper_atomic.py enhance_workbook.py output/hr_metro_enhanced.xlsx",
+          "cpu_seconds": 0.03
+        },
+        {
+          "pid": 29,
+          "role": "helper",
+          "command": "/opt/document-bench/.venv/bin/python3 /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO/.enhance_workbook.runtime.py",
+          "cpu_seconds": 83.36
+        },
+        {
+          "pid": 30,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/hr_metro_enhanced.xlsx 600 > output/formula_recalc.json 2> output/formula_recalc.stderr.log",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 31,
+          "role": "recalc",
+          "command": "python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/hr_metro_enhanced.xlsx 600",
+          "cpu_seconds": 46.29
+        },
+        {
+          "pid": 32,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.06
+        },
+        {
+          "pid": 45,
+          "role": "other",
+          "command": "/opt/libreoffice25.8-symbols/program/javaldx -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 -env:INIFILENAME=vnd.sun.star.pathname:/opt/libreoffice25.8-symbols/program/redirectrc",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 47,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.12
+        },
+        {
+          "pid": 51,
+          "role": "other",
+          "command": "timeout --kill-after=30s 600 soffice -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO/output/hr_metro_enhanced.xlsx",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 52,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO/output/hr_metro_enhanced.xlsx",
+          "cpu_seconds": 0.05
+        },
+        {
+          "pid": 67,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO/output/hr_metro_enhanced.xlsx",
+          "cpu_seconds": 30.59
+        },
+        {
+          "pid": 84,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO/output/hr_metro_enhanced.xlsx",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 86,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 87,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 88,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-1yliu2a8 --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO/output/hr_metro_enhanced.xlsx",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 90,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 91,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 92,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 93,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 3134,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_formulas.py",
+          "cpu_seconds": 34.99
+        },
+        {
+          "pid": 3135,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_cached_values.py",
+          "cpu_seconds": 34.73
+        },
+        {
+          "pid": 3136,
+          "role": "export",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/export_xlsx_csv.py",
+          "cpu_seconds": 0.15
+        },
+        {
+          "pid": 3137,
+          "role": "verifier",
+          "command": "python3 input/verify_xlsx_enhanced.py",
+          "cpu_seconds": 36.35
+        },
+        {
+          "pid": 3138,
+          "role": "summary",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/write_xlsx_summary.py",
+          "cpu_seconds": 34.07
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1943922824067099,
+        "mono_end_ns": 1944285935442099,
+        "elapsed_seconds": 363.111375
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.060709,
+        "maximum": 16.341024
+      },
+      "whole_command_waited_cpu_seconds": 375.136896,
+      "whole_command_observed_cpu_seconds": 373.06,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "d9dd70811f649a1b8fd38ece3b56996a4c728f273eaaa5498417e17d6f0e8df5",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/hr_metro/collection-record.json",
+      "collection_record_sha256": "7c56f02e7484fbb3b0f3098b169b2ae4b60e4e7fc5434cb0724d4b699b575914",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/hr_metro/sha256-index.json",
+      "archive_index_sha256": "8f8b6e5409930a19dab04438a6e0900eb9ec9224083b3f2772772906f8ec2579",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 375.136896,
+        "observed_seconds": 373.06,
+        "waited_minus_observed_seconds": 2.0768959999999765,
+        "difference_fraction_of_waited": 0.005536368248885806,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "retail_online": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "retail_online",
+      "scene": "xlsx",
+      "pdf_count": null,
+      "denominator_seconds": 405.43,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.01,
+        "python_other": 0.0,
+        "libreoffice": 34.65,
+        "shell": 0.0,
+        "inspect": 152.87,
+        "copy": 0.0,
+        "atomic_helper": 0.02,
+        "helper": 83.56,
+        "recalc": 50.87,
+        "other": 0.0,
+        "export": 0.2,
+        "verifier": 42.94,
+        "summary": 40.31
+      },
+      "role_share": {
+        "runner": 2.4665170313001012e-05,
+        "python_other": 0.0,
+        "libreoffice": 0.0854648151345485,
+        "shell": 0.0,
+        "inspect": 0.3770564585748465,
+        "copy": 0.0,
+        "atomic_helper": 4.9330340626002024e-05,
+        "helper": 0.20610216313543644,
+        "recalc": 0.12547172138223614,
+        "other": 0.0,
+        "export": 0.0004933034062600203,
+        "verifier": 0.10591224132402634,
+        "summary": 0.09942530153170707
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene xlsx --dataset retail_online --loops 1 --results-dir /results/workload",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 15,
+          "role": "shell",
+          "command": "/bin/sh /usr/local/bin/soffice --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 25,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_structure.py",
+          "cpu_seconds": 34.94
+        },
+        {
+          "pid": 26,
+          "role": "copy",
+          "command": "cp input/Online Retail.xlsx output/retail_online_enhanced.xlsx",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_features.py",
+          "cpu_seconds": 34.87
+        },
+        {
+          "pid": 28,
+          "role": "atomic_helper",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/run_xlsx_helper_atomic.py enhance_workbook.py output/retail_online_enhanced.xlsx",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 29,
+          "role": "helper",
+          "command": "/opt/document-bench/.venv/bin/python3 /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL-ONLINE/.enhance_workbook.runtime.py",
+          "cpu_seconds": 83.56
+        },
+        {
+          "pid": 30,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL-ONLINE && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/retail_online_enhanced.xlsx 600 > output/formula_recalc.json 2> output/formula_recalc.stderr.log",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 31,
+          "role": "recalc",
+          "command": "python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/retail_online_enhanced.xlsx 600",
+          "cpu_seconds": 50.87
+        },
+        {
+          "pid": 32,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-k1ovc_6w --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.05
+        },
+        {
+          "pid": 39,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 45,
+          "role": "other",
+          "command": "/opt/libreoffice25.8-symbols/program/javaldx -env:UserInstallation=file:///tmp/document-bench-lo-profile-k1ovc_6w -env:INIFILENAME=vnd.sun.star.pathname:/opt/libreoffice25.8-symbols/program/redirectrc",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 47,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-k1ovc_6w --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.12
+        },
+        {
+          "pid": 51,
+          "role": "other",
+          "command": "timeout --kill-after=30s 600 soffice -env:UserInstallation=file:///tmp/document-bench-lo-profile-k1ovc_6w --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL-ONLINE/output/retail_online_enhanced.xlsx",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 52,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-k1ovc_6w --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL-ONLINE/output/retail_online_enhanced.xlsx",
+          "cpu_seconds": 0.05
+        },
+        {
+          "pid": 67,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-k1ovc_6w --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-RETAIL-ONLINE/output/retail_online_enhanced.xlsx",
+          "cpu_seconds": 34.43
+        },
+        {
+          "pid": 85,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 86,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 87,
+          "role": "libreoffice",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 2754,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_formulas.py",
+          "cpu_seconds": 42.68
+        },
+        {
+          "pid": 2755,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_cached_values.py",
+          "cpu_seconds": 40.38
+        },
+        {
+          "pid": 2756,
+          "role": "export",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/export_xlsx_csv.py",
+          "cpu_seconds": 0.2
+        },
+        {
+          "pid": 2757,
+          "role": "verifier",
+          "command": "python3 input/verify_xlsx_enhanced.py",
+          "cpu_seconds": 42.94
+        },
+        {
+          "pid": 2758,
+          "role": "summary",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/write_xlsx_summary.py",
+          "cpu_seconds": 40.31
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1944293868905909,
+        "mono_end_ns": 1944686435441909,
+        "elapsed_seconds": 392.566536
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.060449,
+        "maximum": 13.227113
+      },
+      "whole_command_waited_cpu_seconds": 408.391416,
+      "whole_command_observed_cpu_seconds": 406.37,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "6e72f581563ce6aa750d4b1643d357bf5c552327f90974e3f98f1289a6266259",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/retail_online/collection-record.json",
+      "collection_record_sha256": "82c3667022c91cdfa4825c07eac3f3826cfbac89979f4e1a5922dedc4d2ca5b3",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/retail_online/sha256-index.json",
+      "archive_index_sha256": "a8b172b6e5d5e02f5197e6e82f1cbfbf086362503aaa7a7794989816dbc7dc69",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 408.391416,
+        "observed_seconds": 406.37,
+        "waited_minus_observed_seconds": 2.021415999999988,
+        "difference_fraction_of_waited": 0.004949702468770764,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "industry_productivity": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "industry_productivity",
+      "scene": "xlsx",
+      "pdf_count": null,
+      "denominator_seconds": 499.16,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.01,
+        "python_other": 0.0,
+        "libreoffice": 55.66000000000001,
+        "inspect": 179.09,
+        "atomic_helper": 0.03,
+        "helper": 101.61,
+        "shell": 0.0,
+        "recalc": 64.06,
+        "other": 0.06,
+        "export": 0.13,
+        "verifier": 51.0,
+        "summary": 47.51
+      },
+      "role_share": {
+        "runner": 2.0033656542992227e-05,
+        "python_other": 0.0,
+        "libreoffice": 0.11150733231829475,
+        "inspect": 0.3587827550284478,
+        "atomic_helper": 6.0100969628976676e-05,
+        "helper": 0.203561984133344,
+        "shell": 0.0,
+        "recalc": 0.1283356038144082,
+        "other": 0.00012020193925795335,
+        "export": 0.00026043753505889896,
+        "verifier": 0.10217164836926035,
+        "summary": 0.09517990223575606
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene xlsx --dataset industry_productivity --loops 1 --results-dir /results/workload",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 26,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/document-bench/bin/run_document_scene_loop.py --scene xlsx --dataset industry_productivity --loops 1 --results-dir /results/workload --legacy-python venv",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_structure.py",
+          "cpu_seconds": 41.15
+        },
+        {
+          "pid": 28,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_features.py",
+          "cpu_seconds": 40.96
+        },
+        {
+          "pid": 29,
+          "role": "atomic_helper",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/run_xlsx_helper_atomic.py helpers/enhance_workbook.py output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.03
+        },
+        {
+          "pid": 30,
+          "role": "helper",
+          "command": "/opt/document-bench/.venv/bin/python3 /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/helpers/.enhance_workbook.runtime.py",
+          "cpu_seconds": 101.61
+        },
+        {
+          "pid": 31,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/industry_productivity_enhanced.xlsx 180 > output/formula_recalc.json 2> output/formula_recalc.stderr.log",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 32,
+          "role": "recalc",
+          "command": "python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/industry_productivity_enhanced.xlsx 180",
+          "cpu_seconds": 64.06
+        },
+        {
+          "pid": 33,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.05
+        },
+        {
+          "pid": 46,
+          "role": "other",
+          "command": "/opt/libreoffice25.8-symbols/program/javaldx -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx -env:INIFILENAME=vnd.sun.star.pathname:/opt/libreoffice25.8-symbols/program/redirectrc",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 48,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore --terminate_after_init",
+          "cpu_seconds": 0.12
+        },
+        {
+          "pid": 52,
+          "role": "other",
+          "command": "timeout --kill-after=30s 180 soffice -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 53,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.05
+        },
+        {
+          "pid": 66,
+          "role": "other",
+          "command": "/opt/libreoffice25.8-symbols/program/javaldx -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx -env:INIFILENAME=vnd.sun.star.pathname:/opt/libreoffice25.8-symbols/program/redirectrc",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 68,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 55.35
+        },
+        {
+          "pid": 84,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 85,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 86,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 87,
+          "role": "other",
+          "command": "/usr/bin/gpgconf --list-components",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 88,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 89,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 90,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 91,
+          "role": "other",
+          "command": "/usr/bin/gpgsm --version",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 92,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin -env:UserInstallation=file:///tmp/document-bench-lo-profile-irofp1cx --headless --norestore vnd.sun.star.script:Standard.Module1.RecalculateAndSave?language=Basic&location=application /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 93,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 3731,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_formulas.py",
+          "cpu_seconds": 48.69
+        },
+        {
+          "pid": 3732,
+          "role": "inspect",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/inspect_xlsx_cached_values.py",
+          "cpu_seconds": 48.29
+        },
+        {
+          "pid": 3734,
+          "role": "export",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/export_xlsx_csv.py",
+          "cpu_seconds": 0.13
+        },
+        {
+          "pid": 3735,
+          "role": "verifier",
+          "command": "python3 input/verify_xlsx_enhanced.py",
+          "cpu_seconds": 51.0
+        },
+        {
+          "pid": 3736,
+          "role": "summary",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/write_xlsx_summary.py",
+          "cpu_seconds": 47.51
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1944694985673385,
+        "mono_end_ns": 1945174835442385,
+        "elapsed_seconds": 479.849769
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.060669,
+        "maximum": 15.072779
+      },
+      "whole_command_waited_cpu_seconds": 503.081527,
+      "whole_command_observed_cpu_seconds": 500.09,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "1a6dbeb77b9787584dc5d840391bb0afaebe67dbbee43b8535d247999d7ad1d8",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/industry_productivity/collection-record.json",
+      "collection_record_sha256": "0e63d88a5da8e9bfb6fccbda7f660cd77c2db3db96d7ea85cebf0a518bfe63ef",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/industry_productivity/sha256-index.json",
+      "archive_index_sha256": "03b3c18f0647ee4b11184bdcdffc3c4562fabbf83962a9a0fca32774101758bb",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 503.081527,
+        "observed_seconds": 500.09,
+        "waited_minus_observed_seconds": 2.991527000000019,
+        "difference_fraction_of_waited": 0.005946405978846485,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "opm-n1": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "opm",
+      "scene": "pdf",
+      "pdf_count": 1,
+      "denominator_seconds": 1.9500000000000002,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.01,
+        "python_other": 0.01,
+        "libreoffice": 0.0,
+        "other": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.17,
+        "pdf-extract-fields": 0.18,
+        "pdf-convert": 0.66,
+        "pdfinfo": 0.0,
+        "pdftoppm": 0.27,
+        "pdf-mapping-driver": 0.03,
+        "pdf-fill": 0.33,
+        "pdf-summary-writer": 0.02,
+        "pdf-verify": 0.27
+      },
+      "role_share": {
+        "runner": 0.005128205128205128,
+        "python_other": 0.005128205128205128,
+        "libreoffice": 0.0,
+        "other": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.08717948717948718,
+        "pdf-extract-fields": 0.0923076923076923,
+        "pdf-convert": 0.3384615384615384,
+        "pdfinfo": 0.0,
+        "pdftoppm": 0.13846153846153847,
+        "pdf-mapping-driver": 0.015384615384615382,
+        "pdf-fill": 0.1692307692307692,
+        "pdf-summary-writer": 0.010256410256410256,
+        "pdf-verify": 0.13846153846153847
+      },
+      "processes": [
+        {
+          "pid": 10,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene pdf --dataset opm --loops 1 --results-dir /results/workload --pdf-applicant-count 1",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 11,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 12,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 16,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 25,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 26,
+          "role": "shell",
+          "command": "/bin/bash -c mkdir -p /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/template /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/skills/pdf && python3 scripts/check_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf > /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/check_fillable_fields.log 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 28,
+          "role": "pdf-check-fillable",
+          "command": "python3 scripts/check_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf",
+          "cpu_seconds": 0.17
+        },
+        {
+          "pid": 29,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 30,
+          "role": "pdf-extract-fields",
+          "command": "python3 scripts/extract_form_field_info.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/form_field_info.json",
+          "cpu_seconds": 0.18
+        },
+        {
+          "pid": 31,
+          "role": "pdf-convert",
+          "command": "python3 scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/template",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 32,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 33,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 34,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf -f 1 -l 3",
+          "cpu_seconds": 0.13
+        },
+        {
+          "pid": 35,
+          "role": "pdf-mapping-driver",
+          "command": "python3 generate_and_run_batch.py",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 36,
+          "role": "shell",
+          "command": "/bin/bash -c python3 -c \"\nimport json\n# Verify all field IDs exist in field_info\nwith open('/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/form_field_info.json') as f:\n    fi = json.load(f)\nvalid_ids = {x['field_id'] for x in fi}\nfor i in range(1, 11):\n    with open(f'/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_{i:02d}.json') as f:\n        vals = json.load(f)\n    for v in vals:\n        fid = v['field_id']\n        if fid not in valid_ids:\n            print(f'ERROR: {fid} not in field_info')\n        fi_entry = [x for x in fi if x['field_id'] == fid][0]\n        if v['page'] != fi_entry.get('page'):\n            print(f'ERROR: page mismatch for {fid}')\n    # Check no forbidden fields\n    forbidden = {'Social Security Number','17a Applicants Signature','17b Appointees Signature 1','Date','Date_2','Appointing Officer Enter Date of Appointment or Conversion MM  DD  YYYY','When did you leave your last Federal job','Did you waive Basic Life Insurance or any type of optional life insurance','If yes to 18b did you later cancel the waivers'}\n    provided_ids = {v['field_id'] for v in vals}\n    overlap = provided_ids & forbidden\n    if overlap:\n        print(f'ERROR: applicant_{i:02d} includes forbidden fields: {overlap}')\nprint('Validation complete')\n\" 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 37,
+          "role": "python_other",
+          "command": "python3 -c \nimport json\n# Verify all field IDs exist in field_info\nwith open('/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/form_field_info.json') as f:\n    fi = json.load(f)\nvalid_ids = {x['field_id'] for x in fi}\nfor i in range(1, 11):\n    with open(f'/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_{i:02d}.json') as f:\n        vals = json.load(f)\n    for v in vals:\n        fid = v['field_id']\n        if fid not in valid_ids:\n            print(f'ERROR: {fid} not in field_info')\n        fi_entry = [x for x in fi if x['field_id'] == fid][0]\n        if v['page'] != fi_entry.get('page'):\n            print(f'ERROR: page mismatch for {fid}')\n    # Check no forbidden fields\n    forbidden = {'Social Security Number','17a Applicants Signature','17b Appointees Signature 1','Date','Date_2','Appointing Officer Enter Date of Appointment or Conversion MM  DD  YYYY','When did you leave your last Federal job','Did you waive Basic Life Insurance or any type of optional life insurance','If yes to 18b did you later cancel the waivers'}\n    provided_ids = {v['field_id'] for v in vals}\n    overlap = provided_ids & forbidden\n    if overlap:\n        print(f'ERROR: applicant_{i:02d} includes forbidden fields: {overlap}')\nprint('Validation complete')",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 38,
+          "role": "pdf-mapping-driver",
+          "command": "python3 run_batch_fill_render.py",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 39,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_01.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 40,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_01",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 41,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 42,
+          "role": "pdftoppm",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 43,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf -f 1 -l 3",
+          "cpu_seconds": 0.14
+        },
+        {
+          "pid": 44,
+          "role": "pdf-summary-writer",
+          "command": "python3 /opt/document-bench/bin/write_pdf_batch_summary.py output output/batch_summary.json",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 45,
+          "role": "pdf-verify",
+          "command": "python3 input/verify_pdf_batch.py input/of306_aug2023.pdf input/synthetic_applicants.json output output/business_verification.json",
+          "cpu_seconds": 0.27
+        },
+        {
+          "pid": 46,
+          "role": "python_other",
+          "command": "python3 -c import json; r=json.load(open('/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/business_verification.json')); print(r['status'])",
+          "cpu_seconds": 0.01
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1945181443935173,
+        "mono_end_ns": 1945183658442173,
+        "elapsed_seconds": 2.214507
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.061569,
+        "maximum": 10.085539
+      },
+      "whole_command_waited_cpu_seconds": 3.192719,
+      "whole_command_observed_cpu_seconds": 2.82,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/opm-n1/collection-record.json",
+      "collection_record_sha256": "6536f2eddaa208477f0e08bf8fc89bfa2e1c298cb1946c6625ae949f0bc762d1",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/opm-n1/sha256-index.json",
+      "archive_index_sha256": "0fd5b820de9957139ea46883a221e0047c68d17162685d8a462f22d3cc36783b",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 3.192719,
+        "observed_seconds": 2.82,
+        "waited_minus_observed_seconds": 0.372719,
+        "difference_fraction_of_waited": 0.11674030818246142,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "irs_w4-n1": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "irs_w4",
+      "scene": "pdf",
+      "pdf_count": 1,
+      "denominator_seconds": 2.76,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.0,
+        "python_other": 0.01,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.11,
+        "other": 0.0,
+        "pdf-extract-fields": 0.12,
+        "pdf-convert": 1.03,
+        "pdfinfo": 0.0,
+        "pdftoppm": 0.37,
+        "pdf-mapping-driver": 0.02,
+        "pdf-fill": 0.47,
+        "pdf-summary-writer": 0.02,
+        "pdf-verify": 0.61
+      },
+      "role_share": {
+        "runner": 0.0,
+        "python_other": 0.003623188405797102,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.03985507246376812,
+        "other": 0.0,
+        "pdf-extract-fields": 0.043478260869565216,
+        "pdf-convert": 0.3731884057971015,
+        "pdfinfo": 0.0,
+        "pdftoppm": 0.13405797101449277,
+        "pdf-mapping-driver": 0.007246376811594204,
+        "pdf-fill": 0.17028985507246377,
+        "pdf-summary-writer": 0.007246376811594204,
+        "pdf-verify": 0.2210144927536232
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene pdf --dataset irs_w4 --loops 1 --results-dir /results/workload --pdf-applicant-count 1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 25,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && mkdir -p output/field_values output/filled output/rendered/template",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 26,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/fw4_2026.pdf > output/check_fillable_fields.log 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "pdf-check-fillable",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/fw4_2026.pdf",
+          "cpu_seconds": 0.11
+        },
+        {
+          "pid": 28,
+          "role": "other",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 29,
+          "role": "pdf-extract-fields",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/extract_form_field_info.py input/fw4_2026.pdf output/form_field_info.json",
+          "cpu_seconds": 0.12
+        },
+        {
+          "pid": 30,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py input/fw4_2026.pdf output/rendered/template",
+          "cpu_seconds": 0.51
+        },
+        {
+          "pid": 31,
+          "role": "pdfinfo",
+          "command": "pdfinfo input/fw4_2026.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 32,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 33,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 input/fw4_2026.pdf -f 1 -l 5",
+          "cpu_seconds": 0.18
+        },
+        {
+          "pid": 34,
+          "role": "pdf-mapping-driver",
+          "command": "python3 build_field_values.py",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 35,
+          "role": "python_other",
+          "command": "python3 -c import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 36,
+          "role": "pdf-mapping-driver",
+          "command": "python3 run_batch_fill_render.py",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 37,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_01.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf",
+          "cpu_seconds": 0.47
+        },
+        {
+          "pid": 38,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_01",
+          "cpu_seconds": 0.52
+        },
+        {
+          "pid": 39,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 40,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 41,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 42,
+          "role": "pdf-summary-writer",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/summary.py",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 43,
+          "role": "pdf-verify",
+          "command": "python3 input/verify_office.py",
+          "cpu_seconds": 0.61
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1945186523565207,
+        "mono_end_ns": 1945189505442207,
+        "elapsed_seconds": 2.981877
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.062019,
+        "maximum": 10.08331
+      },
+      "whole_command_waited_cpu_seconds": 3.976426,
+      "whole_command_observed_cpu_seconds": 3.65,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "0753c1efad482f375807b4620198dbe6eb7c037169cbde8bb2ebb6c3cf71733e",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/irs_w4-n1/collection-record.json",
+      "collection_record_sha256": "f79a37182f7df8d37ad6d69bb872a8b3612ebd207923497f7eee7bfeb194aa61",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/irs_w4-n1/sha256-index.json",
+      "archive_index_sha256": "1b33e3af3a92dcb603d81683194d4c739df2bc96c83db02ac0ec7e5a01e6b0b8",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 3.976426,
+        "observed_seconds": 3.65,
+        "waited_minus_observed_seconds": 0.3264260000000001,
+        "difference_fraction_of_waited": 0.08209029917820679,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "sba1919-n1": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "sba1919",
+      "scene": "pdf",
+      "pdf_count": 1,
+      "denominator_seconds": 3.6899999999999995,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.01,
+        "python_other": 0.01,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.19,
+        "pdf-extract-fields": 0.23,
+        "pdf-convert": 1.38,
+        "pdfinfo": 0.01,
+        "pdftoppm": 0.61,
+        "pdf-mapping-driver": 0.03,
+        "pdf-fill": 0.48,
+        "pdf-summary-writer": 0.01,
+        "pdf-verify": 0.73
+      },
+      "role_share": {
+        "runner": 0.002710027100271003,
+        "python_other": 0.002710027100271003,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.05149051490514906,
+        "pdf-extract-fields": 0.062330623306233075,
+        "pdf-convert": 0.3739837398373984,
+        "pdfinfo": 0.002710027100271003,
+        "pdftoppm": 0.16531165311653118,
+        "pdf-mapping-driver": 0.008130081300813009,
+        "pdf-fill": 0.13008130081300814,
+        "pdf-summary-writer": 0.002710027100271003,
+        "pdf-verify": 0.19783197831978322
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene pdf --dataset sba1919 --loops 1 --results-dir /results/workload --pdf-applicant-count 1",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 25,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/document-bench/bin/run_document_scene_loop.py --scene pdf --dataset sba1919 --loops 1 --results-dir /results/workload --pdf-applicant-count 1 --legacy-python venv",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 26,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/sba1919_2024.pdf > output/check_fillable_fields.log 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "pdf-check-fillable",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/sba1919_2024.pdf",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 29,
+          "role": "pdf-extract-fields",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/extract_form_field_info.py input/sba1919_2024.pdf output/form_field_info.json",
+          "cpu_seconds": 0.23
+        },
+        {
+          "pid": 30,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py input/sba1919_2024.pdf output/rendered/template",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 31,
+          "role": "pdfinfo",
+          "command": "pdfinfo input/sba1919_2024.pdf",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 32,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 33,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 input/sba1919_2024.pdf -f 1 -l 7",
+          "cpu_seconds": 0.3
+        },
+        {
+          "pid": 34,
+          "role": "pdf-mapping-driver",
+          "command": "python3 helpers/build_field_values.py",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 35,
+          "role": "python_other",
+          "command": "python3 -c import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 36,
+          "role": "pdf-mapping-driver",
+          "command": "python3 run_batch_fill_render.py",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 37,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_01.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.48
+        },
+        {
+          "pid": 38,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_01",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 39,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 40,
+          "role": "pdftoppm",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 41,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 42,
+          "role": "pdf-summary-writer",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/summary.py",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 43,
+          "role": "pdf-verify",
+          "command": "python3 input/verify_office.py",
+          "cpu_seconds": 0.73
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1945196606669559,
+        "mono_end_ns": 1945200482442559,
+        "elapsed_seconds": 3.875773
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.06148,
+        "maximum": 10.104099
+      },
+      "whole_command_waited_cpu_seconds": 4.890833000000001,
+      "whole_command_observed_cpu_seconds": 4.56,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "568bb8310291167c3ea4e55f6aed62cf467791771f78d976d6b62bda86b3e999",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/sba1919-n1/collection-record.json",
+      "collection_record_sha256": "b648c6b8e2963d09f7c7cd3073f2537bb2bbb7766d06f1263d9c0ed645bbc694",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/sba1919-n1/sha256-index.json",
+      "archive_index_sha256": "e265d051ef1c7812199c54e3bc42f68460970ca707624ba97c6415ffcf92f75e",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 4.890833000000001,
+        "observed_seconds": 4.56,
+        "waited_minus_observed_seconds": 0.33083300000000104,
+        "difference_fraction_of_waited": 0.06764348731596458,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "opm-n10": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "opm",
+      "scene": "pdf",
+      "pdf_count": 10,
+      "denominator_seconds": 10.12,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.0,
+        "python_other": 0.01,
+        "libreoffice": 0.0,
+        "other": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.17,
+        "pdf-extract-fields": 0.17,
+        "pdf-convert": 3.66,
+        "pdfinfo": 0.0,
+        "pdftoppm": 1.5699999999999998,
+        "pdf-mapping-driver": 0.04,
+        "pdf-fill": 3.42,
+        "pdf-summary-writer": 0.02,
+        "pdf-verify": 1.06
+      },
+      "role_share": {
+        "runner": 0.0,
+        "python_other": 0.0009881422924901187,
+        "libreoffice": 0.0,
+        "other": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.01679841897233202,
+        "pdf-extract-fields": 0.01679841897233202,
+        "pdf-convert": 0.3616600790513834,
+        "pdfinfo": 0.0,
+        "pdftoppm": 0.1551383399209486,
+        "pdf-mapping-driver": 0.003952569169960475,
+        "pdf-fill": 0.33794466403162055,
+        "pdf-summary-writer": 0.0019762845849802375,
+        "pdf-verify": 0.10474308300395259
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene pdf --dataset opm --loops 1 --results-dir /results/workload --pdf-applicant-count 10",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 18,
+          "role": "other",
+          "command": "dirname /opt/libreoffice25.8-symbols/program/soffice",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 26,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/skills/pdf && python3 scripts/check_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf > /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/check_fillable_fields.log 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "pdf-check-fillable",
+          "command": "python3 scripts/check_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf",
+          "cpu_seconds": 0.17
+        },
+        {
+          "pid": 29,
+          "role": "pdf-extract-fields",
+          "command": "python3 scripts/extract_form_field_info.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/form_field_info.json",
+          "cpu_seconds": 0.17
+        },
+        {
+          "pid": 30,
+          "role": "pdf-convert",
+          "command": "python3 scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/template",
+          "cpu_seconds": 0.32
+        },
+        {
+          "pid": 31,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 32,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 33,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf -f 1 -l 3",
+          "cpu_seconds": 0.14
+        },
+        {
+          "pid": 34,
+          "role": "pdf-mapping-driver",
+          "command": "python3 generate_and_run_batch.py",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 35,
+          "role": "shell",
+          "command": "/bin/bash -c python3 -c \"\nimport json\n# Verify all field IDs exist in field_info\nwith open('/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/form_field_info.json') as f:\n    fi = json.load(f)\nvalid_ids = {x['field_id'] for x in fi}\nfor i in range(1, 11):\n    with open(f'/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_{i:02d}.json') as f:\n        vals = json.load(f)\n    for v in vals:\n        fid = v['field_id']\n        if fid not in valid_ids:\n            print(f'ERROR: {fid} not in field_info')\n        fi_entry = [x for x in fi if x['field_id'] == fid][0]\n        if v['page'] != fi_entry.get('page'):\n            print(f'ERROR: page mismatch for {fid}')\n    # Check no forbidden fields\n    forbidden = {'Social Security Number','17a Applicants Signature','17b Appointees Signature 1','Date','Date_2','Appointing Officer Enter Date of Appointment or Conversion MM  DD  YYYY','When did you leave your last Federal job','Did you waive Basic Life Insurance or any type of optional life insurance','If yes to 18b did you later cancel the waivers'}\n    provided_ids = {v['field_id'] for v in vals}\n    overlap = provided_ids & forbidden\n    if overlap:\n        print(f'ERROR: applicant_{i:02d} includes forbidden fields: {overlap}')\nprint('Validation complete')\n\" 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 36,
+          "role": "python_other",
+          "command": "python3 -c \nimport json\n# Verify all field IDs exist in field_info\nwith open('/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/form_field_info.json') as f:\n    fi = json.load(f)\nvalid_ids = {x['field_id'] for x in fi}\nfor i in range(1, 11):\n    with open(f'/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_{i:02d}.json') as f:\n        vals = json.load(f)\n    for v in vals:\n        fid = v['field_id']\n        if fid not in valid_ids:\n            print(f'ERROR: {fid} not in field_info')\n        fi_entry = [x for x in fi if x['field_id'] == fid][0]\n        if v['page'] != fi_entry.get('page'):\n            print(f'ERROR: page mismatch for {fid}')\n    # Check no forbidden fields\n    forbidden = {'Social Security Number','17a Applicants Signature','17b Appointees Signature 1','Date','Date_2','Appointing Officer Enter Date of Appointment or Conversion MM  DD  YYYY','When did you leave your last Federal job','Did you waive Basic Life Insurance or any type of optional life insurance','If yes to 18b did you later cancel the waivers'}\n    provided_ids = {v['field_id'] for v in vals}\n    overlap = provided_ids & forbidden\n    if overlap:\n        print(f'ERROR: applicant_{i:02d} includes forbidden fields: {overlap}')\nprint('Validation complete')",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 37,
+          "role": "pdf-mapping-driver",
+          "command": "python3 run_batch_fill_render.py",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 38,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_01.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 39,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_01",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 40,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 41,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 42,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_01.pdf -f 1 -l 3",
+          "cpu_seconds": 0.14
+        },
+        {
+          "pid": 43,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_02.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_02.pdf",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 44,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_02.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_02",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 45,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_02.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 46,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 47,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_02.pdf -f 1 -l 3",
+          "cpu_seconds": 0.15
+        },
+        {
+          "pid": 48,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_03.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_03.pdf",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 49,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_03.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_03",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 50,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_03.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 51,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 52,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_03.pdf -f 1 -l 3",
+          "cpu_seconds": 0.14
+        },
+        {
+          "pid": 53,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_04.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_04.pdf",
+          "cpu_seconds": 0.35
+        },
+        {
+          "pid": 54,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_04.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_04",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 55,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_04.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 56,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 57,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_04.pdf -f 1 -l 3",
+          "cpu_seconds": 0.14
+        },
+        {
+          "pid": 58,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_05.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_05.pdf",
+          "cpu_seconds": 0.35
+        },
+        {
+          "pid": 59,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_05.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_05",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 60,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_05.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 61,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 62,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_05.pdf -f 1 -l 3",
+          "cpu_seconds": 0.15
+        },
+        {
+          "pid": 63,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_06.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_06.pdf",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 64,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_06.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_06",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 65,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_06.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 66,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 67,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_06.pdf -f 1 -l 3",
+          "cpu_seconds": 0.14
+        },
+        {
+          "pid": 68,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_07.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_07.pdf",
+          "cpu_seconds": 0.35
+        },
+        {
+          "pid": 69,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_07.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_07",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 70,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_07.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 71,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 72,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_07.pdf -f 1 -l 3",
+          "cpu_seconds": 0.15
+        },
+        {
+          "pid": 73,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_08.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_08.pdf",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 74,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_08.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_08",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 75,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_08.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 76,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 77,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_08.pdf -f 1 -l 3",
+          "cpu_seconds": 0.14
+        },
+        {
+          "pid": 78,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_09.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_09.pdf",
+          "cpu_seconds": 0.33
+        },
+        {
+          "pid": 79,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_09.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_09",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 80,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_09.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 82,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_09.pdf -f 1 -l 3",
+          "cpu_seconds": 0.15
+        },
+        {
+          "pid": 83,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/input/of306_aug2023.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/field_values/applicant_10.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_10.pdf",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 84,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_10.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/rendered/applicant_10",
+          "cpu_seconds": 0.34
+        },
+        {
+          "pid": 85,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_10.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 86,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 87,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/filled/applicant_10.pdf -f 1 -l 3",
+          "cpu_seconds": 0.13
+        },
+        {
+          "pid": 88,
+          "role": "pdf-summary-writer",
+          "command": "python3 /opt/document-bench/bin/write_pdf_batch_summary.py output output/batch_summary.json",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 89,
+          "role": "pdf-verify",
+          "command": "python3 input/verify_pdf_batch.py input/of306_aug2023.pdf input/synthetic_applicants.json output output/business_verification.json",
+          "cpu_seconds": 1.06
+        },
+        {
+          "pid": 90,
+          "role": "python_other",
+          "command": "python3 -c import json; r=json.load(open('/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01/output/business_verification.json')); print(r['status'])",
+          "cpu_seconds": 0.01
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1945206741820397,
+        "mono_end_ns": 1945217609442397,
+        "elapsed_seconds": 10.867622
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.061519,
+        "maximum": 10.093239
+      },
+      "whole_command_waited_cpu_seconds": 11.964461,
+      "whole_command_observed_cpu_seconds": 10.99,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "f1f90debf96d444f8fd56e9f4f2a3193f54e7786697c5b6fcbb2526d2a2e57b5",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/opm-n10/collection-record.json",
+      "collection_record_sha256": "c86d9ec364ded3793b0144f0273b4f512ca27734dc72cde65b9defbe2b545838",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/opm-n10/sha256-index.json",
+      "archive_index_sha256": "78154d7c0a331221a6caedc9e1f4e7f539df822852dab30ed0a67363bfbe5591",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 11.964461,
+        "observed_seconds": 10.99,
+        "waited_minus_observed_seconds": 0.9744609999999998,
+        "difference_fraction_of_waited": 0.08144629331818623,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "irs_w4-n10": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "irs_w4",
+      "scene": "pdf",
+      "pdf_count": 10,
+      "denominator_seconds": 14.249999999999998,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.0,
+        "python_other": 0.01,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.11,
+        "pdf-extract-fields": 0.13,
+        "pdf-convert": 5.6499999999999995,
+        "pdfinfo": 0.02,
+        "pdftoppm": 2.13,
+        "pdf-mapping-driver": 0.04,
+        "pdf-fill": 4.510000000000001,
+        "pdf-summary-writer": 0.01,
+        "pdf-verify": 1.64
+      },
+      "role_share": {
+        "runner": 0.0,
+        "python_other": 0.0007017543859649123,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.007719298245614036,
+        "pdf-extract-fields": 0.00912280701754386,
+        "pdf-convert": 0.39649122807017545,
+        "pdfinfo": 0.0014035087719298247,
+        "pdftoppm": 0.14947368421052631,
+        "pdf-mapping-driver": 0.0028070175438596493,
+        "pdf-fill": 0.31649122807017555,
+        "pdf-summary-writer": 0.0007017543859649123,
+        "pdf-verify": 0.11508771929824563
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene pdf --dataset irs_w4 --loops 1 --results-dir /results/workload --pdf-applicant-count 10",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 25,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && mkdir -p output/field_values output/filled output/rendered/template",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 26,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/fw4_2026.pdf > output/check_fillable_fields.log 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "pdf-check-fillable",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/fw4_2026.pdf",
+          "cpu_seconds": 0.11
+        },
+        {
+          "pid": 29,
+          "role": "pdf-extract-fields",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/extract_form_field_info.py input/fw4_2026.pdf output/form_field_info.json",
+          "cpu_seconds": 0.13
+        },
+        {
+          "pid": 30,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py input/fw4_2026.pdf output/rendered/template",
+          "cpu_seconds": 0.51
+        },
+        {
+          "pid": 31,
+          "role": "pdfinfo",
+          "command": "pdfinfo input/fw4_2026.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 32,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 33,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 input/fw4_2026.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 34,
+          "role": "pdf-mapping-driver",
+          "command": "python3 build_field_values.py",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 35,
+          "role": "python_other",
+          "command": "python3 -c import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 36,
+          "role": "pdf-mapping-driver",
+          "command": "python3 run_batch_fill_render.py",
+          "cpu_seconds": 0.03
+        },
+        {
+          "pid": 37,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_01.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf",
+          "cpu_seconds": 0.45
+        },
+        {
+          "pid": 38,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_01",
+          "cpu_seconds": 0.52
+        },
+        {
+          "pid": 39,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 41,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_01.pdf -f 1 -l 5",
+          "cpu_seconds": 0.2
+        },
+        {
+          "pid": 42,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_02.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_02.pdf",
+          "cpu_seconds": 0.45
+        },
+        {
+          "pid": 43,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_02.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_02",
+          "cpu_seconds": 0.52
+        },
+        {
+          "pid": 44,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_02.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 46,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_02.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 47,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_03.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_03.pdf",
+          "cpu_seconds": 0.44
+        },
+        {
+          "pid": 48,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_03.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_03",
+          "cpu_seconds": 0.52
+        },
+        {
+          "pid": 49,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_03.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 51,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_03.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 52,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_04.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_04.pdf",
+          "cpu_seconds": 0.44
+        },
+        {
+          "pid": 53,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_04.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_04",
+          "cpu_seconds": 0.51
+        },
+        {
+          "pid": 54,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_04.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 55,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 56,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_04.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 57,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_05.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_05.pdf",
+          "cpu_seconds": 0.45
+        },
+        {
+          "pid": 58,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_05.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_05",
+          "cpu_seconds": 0.51
+        },
+        {
+          "pid": 59,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_05.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 60,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 61,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_05.pdf -f 1 -l 5",
+          "cpu_seconds": 0.2
+        },
+        {
+          "pid": 62,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_06.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_06.pdf",
+          "cpu_seconds": 0.45
+        },
+        {
+          "pid": 63,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_06.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_06",
+          "cpu_seconds": 0.51
+        },
+        {
+          "pid": 64,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_06.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 66,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_06.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 67,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_07.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_07.pdf",
+          "cpu_seconds": 0.47
+        },
+        {
+          "pid": 68,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_07.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_07",
+          "cpu_seconds": 0.51
+        },
+        {
+          "pid": 69,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_07.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 70,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 71,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_07.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 72,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_08.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_08.pdf",
+          "cpu_seconds": 0.46
+        },
+        {
+          "pid": 73,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_08.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_08",
+          "cpu_seconds": 0.5
+        },
+        {
+          "pid": 74,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_08.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 75,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 76,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_08.pdf -f 1 -l 5",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 77,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_09.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_09.pdf",
+          "cpu_seconds": 0.44
+        },
+        {
+          "pid": 78,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_09.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_09",
+          "cpu_seconds": 0.51
+        },
+        {
+          "pid": 79,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_09.pdf",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 80,
+          "role": "pdftoppm",
+          "command": "",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 81,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_09.pdf -f 1 -l 5",
+          "cpu_seconds": 0.2
+        },
+        {
+          "pid": 82,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/field_values/employee_10.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_10.pdf",
+          "cpu_seconds": 0.46
+        },
+        {
+          "pid": 83,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_10.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/employee_10",
+          "cpu_seconds": 0.53
+        },
+        {
+          "pid": 84,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_10.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 86,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/filled/employee_10.pdf -f 1 -l 5",
+          "cpu_seconds": 0.2
+        },
+        {
+          "pid": 87,
+          "role": "pdf-summary-writer",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/summary.py",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 88,
+          "role": "pdf-verify",
+          "command": "python3 input/verify_office.py",
+          "cpu_seconds": 1.64
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1945221904964347,
+        "mono_end_ns": 1945236757442347,
+        "elapsed_seconds": 14.852478
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.060179,
+        "maximum": 14.057385
+      },
+      "whole_command_waited_cpu_seconds": 16.109582,
+      "whole_command_observed_cpu_seconds": 15.15,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "86f3fe3b10ceb0dfb5e817a44310abb3e852f8d94cc28a17119e8e0833c24924",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/irs_w4-n10/collection-record.json",
+      "collection_record_sha256": "52bddf24d3ac1ceea27f36f3a791eb866e6fcd116825aab268d49f567d450bd5",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/irs_w4-n10/sha256-index.json",
+      "archive_index_sha256": "7bf45468cef6ba4d197474f2c0a25afee829425b2cf832cf79413d7f375be500",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 16.109582,
+        "observed_seconds": 15.15,
+        "waited_minus_observed_seconds": 0.9595819999999993,
+        "difference_fraction_of_waited": 0.05956591549054465,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    },
+    "sba1919-n10": {
+      "schema_version": "formal-process-cpu-v1",
+      "status": "success",
+      "checks": {
+        "one_successful_iteration": true,
+        "iteration_success": true,
+        "business_success": true,
+        "positive_cpu": true,
+        "recipe_binding": true,
+        "dataset_binding": true,
+        "roi_monitored": true
+      },
+      "dataset": "sba1919",
+      "scene": "pdf",
+      "pdf_count": 10,
+      "denominator_seconds": 18.18,
+      "denominator": "observed workload thread user+sys CPU within iteration ROI",
+      "role_cpu_seconds": {
+        "runner": 0.0,
+        "python_other": 0.0,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.19,
+        "pdf-extract-fields": 0.21,
+        "pdf-convert": 7.619999999999999,
+        "pdfinfo": 0.01,
+        "pdftoppm": 3.44,
+        "pdf-mapping-driver": 0.05,
+        "pdf-fill": 4.84,
+        "pdf-summary-writer": 0.0,
+        "pdf-verify": 1.82
+      },
+      "role_share": {
+        "runner": 0.0,
+        "python_other": 0.0,
+        "libreoffice": 0.0,
+        "shell": 0.0,
+        "pdf-check-fillable": 0.010451045104510451,
+        "pdf-extract-fields": 0.01155115511551155,
+        "pdf-convert": 0.4191419141914191,
+        "pdfinfo": 0.00055005500550055,
+        "pdftoppm": 0.18921892189218922,
+        "pdf-mapping-driver": 0.0027502750275027505,
+        "pdf-fill": 0.2662266226622662,
+        "pdf-summary-writer": 0.0,
+        "pdf-verify": 0.10011001100110012
+      },
+      "processes": [
+        {
+          "pid": 9,
+          "role": "runner",
+          "command": "/opt/document-bench/.venv/bin/python /opt/office-trace-replay/replay/entry.py --scene pdf --dataset sba1919 --loops 1 --results-dir /results/workload --pdf-applicant-count 10",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 10,
+          "role": "python_other",
+          "command": "python3 -c import sys,importlib.metadata;print(sys.version.split()[0]);print(importlib.metadata.version('openpyxl'))",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 11,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/oosplash --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 24,
+          "role": "libreoffice",
+          "command": "/opt/libreoffice25.8-symbols/program/soffice.bin --version",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 26,
+          "role": "shell",
+          "command": "/bin/bash -c cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/sba1919_2024.pdf > output/check_fillable_fields.log 2>&1",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 27,
+          "role": "pdf-check-fillable",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/sba1919_2024.pdf",
+          "cpu_seconds": 0.19
+        },
+        {
+          "pid": 29,
+          "role": "pdf-extract-fields",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/extract_form_field_info.py input/sba1919_2024.pdf output/form_field_info.json",
+          "cpu_seconds": 0.21
+        },
+        {
+          "pid": 30,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py input/sba1919_2024.pdf output/rendered/template",
+          "cpu_seconds": 0.7
+        },
+        {
+          "pid": 31,
+          "role": "pdfinfo",
+          "command": "pdfinfo input/sba1919_2024.pdf",
+          "cpu_seconds": 0.01
+        },
+        {
+          "pid": 32,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 33,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 input/sba1919_2024.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 34,
+          "role": "pdf-mapping-driver",
+          "command": "python3 helpers/build_field_values.py",
+          "cpu_seconds": 0.02
+        },
+        {
+          "pid": 35,
+          "role": "python_other",
+          "command": "python3 -c import json,pathlib; ids={v['field_id'] for v in json.load(open('output/form_field_info.json'))}; rows=[json.load(open(p)) for p in pathlib.Path('output/field_values').glob('*.json')]; assert all(v['field_id'] in ids for r in rows for v in r); print('mapping checked')",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 36,
+          "role": "pdf-mapping-driver",
+          "command": "python3 run_batch_fill_render.py",
+          "cpu_seconds": 0.03
+        },
+        {
+          "pid": 37,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_01.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.48
+        },
+        {
+          "pid": 38,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_01",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 39,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 40,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 41,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_01.pdf -f 1 -l 7",
+          "cpu_seconds": 0.32
+        },
+        {
+          "pid": 42,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_02.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_02.pdf",
+          "cpu_seconds": 0.5
+        },
+        {
+          "pid": 43,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_02.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_02",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 44,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_02.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 45,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 46,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_02.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 47,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_03.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_03.pdf",
+          "cpu_seconds": 0.49
+        },
+        {
+          "pid": 48,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_03.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_03",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 49,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_03.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 50,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 51,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_03.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 52,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_04.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_04.pdf",
+          "cpu_seconds": 0.49
+        },
+        {
+          "pid": 53,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_04.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_04",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 54,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_04.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 55,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 56,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_04.pdf -f 1 -l 7",
+          "cpu_seconds": 0.32
+        },
+        {
+          "pid": 57,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_05.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_05.pdf",
+          "cpu_seconds": 0.49
+        },
+        {
+          "pid": 58,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_05.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_05",
+          "cpu_seconds": 0.7
+        },
+        {
+          "pid": 59,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_05.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 60,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 61,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_05.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 62,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_06.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_06.pdf",
+          "cpu_seconds": 0.47
+        },
+        {
+          "pid": 63,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_06.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_06",
+          "cpu_seconds": 0.7
+        },
+        {
+          "pid": 64,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_06.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 65,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 66,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_06.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 67,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_07.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_07.pdf",
+          "cpu_seconds": 0.48
+        },
+        {
+          "pid": 68,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_07.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_07",
+          "cpu_seconds": 0.7
+        },
+        {
+          "pid": 69,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_07.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 70,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 71,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_07.pdf -f 1 -l 7",
+          "cpu_seconds": 0.32
+        },
+        {
+          "pid": 72,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_08.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_08.pdf",
+          "cpu_seconds": 0.47
+        },
+        {
+          "pid": 73,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_08.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_08",
+          "cpu_seconds": 0.68
+        },
+        {
+          "pid": 74,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_08.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 75,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 76,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_08.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 77,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_09.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_09.pdf",
+          "cpu_seconds": 0.48
+        },
+        {
+          "pid": 78,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_09.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_09",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 79,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_09.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 80,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 81,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_09.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 82,
+          "role": "pdf-fill",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/fill_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/input/sba1919_2024.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/field_values/applicant_10.json /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_10.pdf",
+          "cpu_seconds": 0.49
+        },
+        {
+          "pid": 83,
+          "role": "pdf-convert",
+          "command": "python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_10.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/rendered/applicant_10",
+          "cpu_seconds": 0.69
+        },
+        {
+          "pid": 84,
+          "role": "pdfinfo",
+          "command": "pdfinfo /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_10.pdf",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 85,
+          "role": "pdftoppm",
+          "command": "pdftoppm -v",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 86,
+          "role": "pdftoppm",
+          "command": "pdftoppm -r 200 /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01/output/filled/applicant_10.pdf -f 1 -l 7",
+          "cpu_seconds": 0.31
+        },
+        {
+          "pid": 87,
+          "role": "pdf-summary-writer",
+          "command": "python3 /opt/office-trace-replay/compatibility/tools/summary.py",
+          "cpu_seconds": 0.0
+        },
+        {
+          "pid": 88,
+          "role": "pdf-verify",
+          "command": "python3 input/verify_office.py",
+          "cpu_seconds": 1.82
+        }
+      ],
+      "roi": {
+        "mono_start_ns": 1945242046321189,
+        "mono_end_ns": 1945260767442189,
+        "elapsed_seconds": 18.721121
+      },
+      "actual_poll_gap_ms": {
+        "median": 10.060319,
+        "maximum": 10.257042
+      },
+      "whole_command_waited_cpu_seconds": 20.062928,
+      "whole_command_observed_cpu_seconds": 19.08,
+      "limitations": [
+        "One iteration; /proc polling can miss short processes and final CPU ticks.",
+        "ROI uses container clock anchor and iteration timestamps, without independent offset calibration.",
+        "Whole-command waited CPU includes preflight/finalization and is not the ROI denominator.",
+        "No library/function sampling, no read/write ledger; no stability or optimization-benefit claim."
+      ],
+      "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "recipe_sha256": "fc30a1e400e53b9e21a64ca31539c26f0e527f99a1e9a1cdd2c182d62fbdba81",
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/sba1919-n10/collection-record.json",
+      "collection_record_sha256": "32b169f2e259c558477e4a2c99f947855c996579453cc6e6c1a091d865905ee9",
+      "archive_index": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/sba1919-n10/sha256-index.json",
+      "archive_index_sha256": "3a2daffbfe303fe561cba107cd3a5b7068cb4fda454abff80ae21ddc2c6754e6",
+      "whole_command_cpu_crosscheck": {
+        "waited_seconds": 20.062928,
+        "observed_seconds": 19.08,
+        "waited_minus_observed_seconds": 0.9829280000000011,
+        "difference_fraction_of_waited": 0.04899225078213913,
+        "scope": "Whole command including preflight/finalization; not an ROI error bound or a per-role correction."
+      }
+    }
+  },
+  "independent_acceptance_rerun": false,
+  "limitations": [
+    "Single iteration per configuration; no stability claim.",
+    "Polling may miss short processes and final CPU counters; no global error bound.",
+    "Clock-anchor ROI alignment has not been independently calibrated.",
+    "No native/py-spy profile or read/write CPU ledger was collected."
+  ]
+}

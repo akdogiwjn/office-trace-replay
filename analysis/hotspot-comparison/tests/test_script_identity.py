@@ -11,6 +11,8 @@ from script_identity import python_script_operand, role_for_command, role_for_sc
 class ScriptIdentityTests(unittest.TestCase):
     def test_new_helpers_and_atomic_runtime_variants(self):
         cases = {
+            '/opt/python /workspace/enhance_workbook.py': 'xlsx-enhance',
+            '/opt/python /workspace/.enhance_workbook.runtime.py': 'xlsx-enhance',
             '/opt/python /workspace/hr_metro_build.py': 'xlsx-enhance',
             '/opt/python /workspace/.hr_metro_build.runtime.py': 'xlsx-enhance',
             '/opt/python /workspace/retail_online_build.py': 'xlsx-enhance',

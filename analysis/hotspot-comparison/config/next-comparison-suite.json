@@ -1,6 +1,6 @@
 {
   "schema_version": "hotspot-next-comparison-selection-v3",
-  "status": "v12_function_qualified_with_versioned_performance_evidence",
+  "status": "formal_image_single_iteration_process_cpu_collected",
   "baseline_datasets": [
     "opm",
     "tlc"
@@ -347,5 +347,29 @@
         }
       }
     }
+  },
+  "dataset_evidence_scope": "The dataset_evidence and functional_release sections retain historical v12 qualification; current formal-image loop/process measurements are linked by current_process_cpu.",
+  "current_process_cpu": {
+    "path": "analysis/hotspot-comparison/reports/formal-process-cpu-20261026/comparison.json",
+    "sha256": "3080ac33edf9e4f43a3c1e02f54af0329eb19bef994f71d0908dba9a86e8e625",
+    "image": "office-trace-replay:openeuler-release",
+    "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+    "scope": "Ten single-iteration configurations: four XLSX and three PDF at N=1/N=10; installed image with measurement-only mounts; user+sys process CPU polling, no native/py-spy or read/write ledger.",
+    "previous_selection": {
+      "path": "analysis/hotspot-comparison/reports/formal-process-cpu-20261026/previous-analysis-selection.json",
+      "sha256": "f1de33f5bc328df53126fd209e9d17b70a9fd113cda679ec48d333423d56a9ce"
+    },
+    "configurations": [
+      "tlc",
+      "hr_metro",
+      "retail_online",
+      "industry_productivity",
+      "opm-n1",
+      "irs_w4-n1",
+      "sba1919-n1",
+      "opm-n10",
+      "irs_w4-n10",
+      "sba1919-n10"
+    ]
   }
 }

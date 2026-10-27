@@ -2,7 +2,14 @@
 
 用不同领域的真实 Office 输入，执行与原 document-oe 基线大体一致的工具工作负载，研究进程、库、函数热点及 CPU/OS 行为。执行时不调用 LLM。
 
-**当前交付版本为 `office-trace-replay:openeuler-v12`。七个正式用例均已完成无源码挂载的单轮功能检查。** PDF 本轮均为 N=1；这不等于性能稳定性或代表性已经证明。
+**当前正式镜像为 `office-trace-replay:openeuler-release`。** 已完成安装态检查及七个用例的单轮重跑；PDF N=1、N=10 分别执行，共 10 个配置，循环内业务验证全部成功。此次只挂载测量辅助程序和结果目录，业务源码、runner、输入和 Skill 均来自镜像，没有现场覆盖。新进程 CPU 结果见 [代表性评估](docs/representativeness-assessment.md)，本轮未重复独立深审。
+
+源码中的三个新增正式 XLSX 用例已将执行入口名与 TLC 对齐，仍共用 manifest 驱动实现。
+此命名调整已打包进正式镜像并完成真实单轮 replay，新结果单独保存，不套用 v12 的成功记录。旧 v1～v12
+镜像标签及关联停止容器已清理，历史性能数据、结果目录和证据保留。映射与边界见 [XLSX 脚本命名](docs/xlsx-script-names.md)。
+
+镜像 ID 为 `sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a`；
+构建、实际安装检查和离线构建基础见 [正式镜像记录](reports/formal-image-release.json)。
 
 ## 正式集合
 
@@ -41,15 +48,15 @@ make assets-verify
 ```bash
 # 七个正式用例，各一轮；PDF 默认 N=1
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v12 --loops 1 --results-dir /results
+  office-trace-replay:openeuler-release --loops 1 --results-dir /results
 
 # 单个数据集
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v12 --dataset retail_online --loops 1 --results-dir /results
+  office-trace-replay:openeuler-release --dataset retail_online --loops 1 --results-dir /results
 
 # PDF N=10（opm、irs_w4、sba1919 均支持）
 docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v12 --dataset irs_w4 --pdf-applicant-count 10 --loops 1
+  office-trace-replay:openeuler-release --dataset irs_w4 --pdf-applicant-count 10 --loops 1
 ```
 
 容器默认入口为 `replay/entry.py`，负责 suite 调度、完整轮次核验，以及新用例循环结束后的独立验收和末轮归档。旧 OPM/TLC 保留原循环 verifier，没有自动独立验收和同样的 workspace 归档；本次验收另从停止容器提取其产物。
@@ -75,7 +82,9 @@ PDF 共用检查/提取字段、准备 mappings、按记录填写/渲染、summa
 
 准备、执行前预检、循环外验收和归档不进入被测循环；循环内的检查、重算和业务验证仍计入。阶段分组相近不表示每个输入的工作量相同。
 
-## v12 验收与证据
+## 历史 v12 验收与证据
+
+下表保留改名前镜像的功能结果。正式镜像的安装态结果见 [实际容器检查](reports/image-install-acceptance-release-inspected.json)，不能据此声称已重新跑过七项 workload。
 
 | 项目 | 结果 |
 |---|---|
@@ -94,6 +103,8 @@ PDF 共用检查/提取字段、准备 mappings、按记录填写/渲染、summa
 七项原始检查分属 `results/v12-final-function-check-20261020T110841Z-132243af/` 和 `results/v12-remaining-formal-check-20261020T115040Z-74371dd4/`。它们仍在本地，不提交完整临时目录。
 
 ## 性能结论的版本与口径
+
+最新进程占比来自 [正式镜像新采集](analysis/hotspot-comparison/reports/formal-process-cpu-20261026/comparison.json)：四个 XLSX 各一轮，三个 PDF 的 N=1/N=10 各一轮，统一使用 ROI 内已观察 workload 线程的 user+sys CPU 轮询估计。无 perf、py-spy 或读写插桩；PDF 短轮的计数遗漏更明显，限制见报告。本轮没有重新测量下表的 load/read_only/save 操作占比。
 
 当前 prepared-v2 XLSX 总 CPU 结果以 [离线重算 v2](analysis/hotspot-comparison/reports/total-cpu-recalculation-v2-20261020T104020Z/comparison-report.md) 为准：
 
@@ -116,11 +127,13 @@ PDF 共用检查/提取字段、准备 mappings、按记录填写/渲染、summa
 make validate       # 静态冻结绑定与 preparation readiness；不运行 workload
 make test           # 仓库测试，显式需要时执行；本次收尾未重新跑完整套件
 make replay DATASET=hr_metro
-make image          # 默认 v12 已存在，构建器会拒绝覆盖；新构建请显式选择新 tag
+make image          # 正式 tag 已存在，构建器会拒绝覆盖；新构建请显式选择新 tag
 ```
 
-43 个旧 workload 文件（recipe、输入、helper、Skill、recalc、verifier 等）保持字节冻结；runner 与 timed wrapper 属独立版本化 executor。`assets/project-lock.json` 保护执行资产与代码，文档、分析和交付报告不参与该运行锁。后续只修改说明/证据关联，不要求重建 v12。
+43 个旧 workload 文件（recipe、输入、helper、Skill、recalc、verifier 等）保持字节冻结；runner 与 timed wrapper 属独立版本化 executor。`assets/project-lock.json` 保护执行资产与代码，文档、分析和交付报告不参与该运行锁。只修改说明或历史证据关联不要求重建镜像。
 
-后续离线构建锁定 v12 的完整 image ID，构建器核对标签对应的 ID 后显式传入该标签，并在构建后检查基础层身份；新构建需选新 tag，例如 `make image IMAGE=office-trace-replay:openeuler-v13`。现有 v12 的历史构建基础仍为 v4，旧记录不改写；移除 v4 标签不影响 v12 保留的共享层。此次构建基础迁移不重建 v12，也不改变其运行代码、输入或验收结果。
+后续离线构建锁定正式镜像的完整 image ID，核对标签对应的 ID 后传入构建，并检查基础层身份。新构建需选不同标签，例如 `make image IMAGE=office-trace-replay:openeuler-release-20261027`。本次正式镜像实际继承 v12，历史构建记录保留；删除 v12 标签不删除正式镜像仍引用的共享层。构建完成后，仅将宿主的基础镜像配置、Dockerfile 默认值和对应项目锁切换到正式镜像，用于后续构建；本镜像内的构建期锁保持原样，未因此二次构建或改写运行脚本。
+
+旧镜像/容器清理记录见 [formal-release-old-images-cleanup.json](reports/storage/formal-release-old-images-cleanup.json)。其他项目镜像和容器、`document-oe`、宿主结果及性能 raw 均未删除。
 
 当前流程与维护说明见 [docs/compatible-workflow.md](docs/compatible-workflow.md)；历史文档分类见 [docs/README.md](docs/README.md)。清理只忽略本地临时目录和缓存，不删除 canonical、输入、历史报告或 raw。旧采样删除记录见分析目录的 `metadata/storage-cleanup-*.json`，不把历史索引当作当前文件均存在的证明。

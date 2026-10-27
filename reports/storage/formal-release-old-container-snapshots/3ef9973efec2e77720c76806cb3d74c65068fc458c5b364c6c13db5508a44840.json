@@ -1,0 +1,42 @@
+{
+  "inspect": {
+    "Id": "3ef9973efec2e77720c76806cb3d74c65068fc458c5b364c6c13db5508a44840",
+    "Name": "/office-v12-remaining-industry-productivity-20261020t115040z",
+    "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-20T12:05:34.241712653Z",
+      "FinishedAt": "2026-10-20T12:18:47.503025246Z"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/industry_productivity",
+        "Destination": "/results",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "configured_image": "office-trace-replay:openeuler-v12",
+    "command": [
+      "--dataset",
+      "industry_productivity",
+      "--loops",
+      "1",
+      "--results-dir",
+      "/results"
+    ]
+  },
+  "stdout_tail": "[xlsx/industry_productivity] start: loops=1, steps=4, workspace=/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY, results=/results/industry_productivity/20261020T120534Z-ecea0912/xlsx/20261020T120535Z-pid7\n[xlsx/industry_productivity] 1/1: success in 482.50s\n[xlsx/industry_productivity] finished: completed=1, successes=1, failures=0, summary=/results/industry_productivity/20261020T120534Z-ecea0912/xlsx/20261020T120535Z-pid7/summary.json\nindustry_productivity success []\n",
+  "stderr_tail": "/opt/office-trace-replay/compatibility/cases/industry_productivity/source/vendor/wheels/openpyxl-3.1.5-py2.py3-none-any.whl/openpyxl/worksheet/_reader.py:329: UserWarning: Unknown extension is not supported and will be removed\n/opt/office-trace-replay/compatibility/cases/industry_productivity/source/vendor/wheels/openpyxl-3.1.5-py2.py3-none-any.whl/openpyxl/worksheet/_reader.py:329: UserWarning: Conditional Formatting extension is not supported and will be removed\n",
+  "logs_returncode": 0
+}

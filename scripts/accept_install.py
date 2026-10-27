@@ -186,6 +186,34 @@ def main():
         'readiness': readiness,
         'aliases': {'pdf': 'opm', 'xlsx': 'tlc'},
     }
+    # Check the renamed executable entries without opening production XLSX
+    # inputs or executing their helpers/recalc. --help must remain side-effect free.
+    named_tools = ('inspect_xlsx_structure.py', 'inspect_xlsx_features.py',
+                   'inspect_xlsx_formulas.py', 'inspect_xlsx_cached_values.py',
+                   'export_xlsx_csv.py', 'write_xlsx_summary.py')
+    for name in named_tools:
+        tool = ROOT / 'compatibility/tools' / name
+        require(tool.is_file(), 'named XLSX entry is missing: ' + name)
+        subprocess.run([sys.executable, str(tool), '--help'],
+                       check=True, capture_output=True, text=True)
+    named_datasets = []
+    for dataset in ('hr_metro', 'retail_online', 'industry_productivity'):
+        entry = next(e for e in compatible_index['entries'] if e['dataset_id'] == dataset)
+        recipe = read(ROOT / entry['recipe_path'])
+        require(recipe.get('script_naming', {}).get('version') == 'document-oe-script-names-v1',
+                'named entry recipe version missing: ' + dataset)
+        seed = ROOT / recipe['seed_path']
+        require(digest(seed / 'input/verify_xlsx_enhanced.py')
+                == digest(seed / 'input/verify_office.py'),
+                'renamed verifier entry changed implementation: ' + dataset)
+        require(all(Path(name).name == 'enhance_workbook.py'
+                    for name in recipe['helper_hashes']),
+                'runtime enhancement helper basename is not aligned: ' + dataset)
+        named_datasets.append(dataset)
+    checks['named_xlsx_entries'] = {
+        'status': 'success', 'tools': list(named_tools), 'datasets': named_datasets,
+        'workload_executed': False,
+    }
     print(json.dumps({'status': 'success', 'workload_executed': False,
                       'project_lock_sha256': digest(ROOT / 'assets/project-lock.json'),
                       'environment_lock_sha256': digest(ROOT / 'runtime/environment-lock.json'),

@@ -1,0 +1,36 @@
+{
+  "generator": "analysis/hotspot-comparison/scripts/finish_formal_process_cpu_report.py",
+  "generator_sha256": "36b97163d958a47bd91b521ae8fb57060b4d1e0256c98c2c3c7a72299aff9123",
+  "collector_sha256": "887b26e84d1e32794507005138693b3a7e53507f49d187c0ffcdc624377c0081",
+  "monitor_sha256": "81e2eb112cee6b416a09cf695f8b405a84082ea8b53849198dc5a0b845f9026b",
+  "cpu_accounting_sha256": "b3308406bcbeb5d3c22a814f6d16dd18508115f87d7ee1579abd4ff3da986dfc",
+  "comparison_sha256": "3080ac33edf9e4f43a3c1e02f54af0329eb19bef994f71d0908dba9a86e8e625",
+  "report_sha256": "035915a7583d571fbcb27f59801c3748032365b98a53c6e10340ea7c8bcc8b55",
+  "previous_report_sha256": "c5a2e25462c7a8a101812934311187fad6c3bebf64500bb9849fb1eda5b46f12",
+  "raw_rehashed_and_verified": true,
+  "workload_rerun_by_this_generator": false,
+  "post_generation_change": "Added measured whole-command CPU cross-check differences and interpretation limits; ROI role CPU values unchanged.",
+  "previous_selection_sha256": "f1de33f5bc328df53126fd209e9d17b70a9fd113cda679ec48d333423d56a9ce",
+  "current_selection_sha256": "2d157f3361dc055f6924bf8a8a2edfb1439e4961bf1f455385dfae0f6d93e553",
+  "targeted_validation": {
+    "passed": 18,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0,
+    "full_test_suite_run": false,
+    "static_project_bindings": "passed",
+    "legacy_workload_files_byte_identical": 43,
+    "raw_indices_verified": true,
+    "pdf_execution_counts_verified": true,
+    "named_xlsx_entries_observed": true
+  },
+  "previous_role_grouped_presentation_sha256": "fbfab27c369064d579141e6891a772e2b12e3fffeeddc66a32fb2fadaef646f2",
+  "presentation": "Actual executed script basenames; XLSX inspection split into four rows; PDF mapping generation and batch driver split; no measurement or CPU value changed.",
+  "presentation_validation": {
+    "passed": 3,
+    "failed": 0,
+    "errors": 0,
+    "all_three_tables_checked_against_process_records": true,
+    "measurements_rerun": false
+  }
+}

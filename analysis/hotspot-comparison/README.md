@@ -1,10 +1,11 @@
 # Office 热点与总 CPU 分析
 
-## 当前版本与入口（2026-10-20）
+## 当前版本与入口（2026-10-26）
 
 正式 XLSX 比较选择为 TLC、HR Metro、Retail Online、Industry Productivity；PDF 为 OPM、W-4、SBA。选择与证据版本见 [config/next-comparison-suite.json](config/next-comparison-suite.json)。旧 hr/retail/manufacturing 只保留历史用途。
 
 - **功能交付**：v12 七个用例各一次裸镜像运行通过；PDF N=1。报告快照见 [release evidence](../../reports/evidence/v12/index.json)。功能验收期间未采集性能。
+- **最新进程 CPU**：[正式镜像新采集](reports/formal-process-cpu-20261026/comparison.json)与[报告](../../docs/representativeness-assessment.md)。正式镜像的七个用例共十个配置单轮执行通过（PDF N=1/N=10 分开），没有业务源码挂载；统一使用 user+sys CPU 轮询口径，不是 native cycles、py-spy 或操作级读写插桩。完整 raw、输出、容器和哈希索引在本地 `replay-runs/formal-process-cpu-20261026-fresh/`；本轮未重复独立深审。
 - **当前 prepared-v2 总 CPU**：[重算 v2](reports/total-cpu-recalculation-v2-20261020T104020Z/comparison-report.md)、[JSON](reports/total-cpu-recalculation-v2-20261020T104020Z/comparison.json)。TLC、HR Metro、Retail Online、Industry 的读写占整轮 CPU 分别为 **82.5%、83.5%、77.2%、75.8%**。它们来自 v11 加挂载的测量期代码，各一轮；分母为 ROI 内所有已观察线程 user+sys 的轮询估计，包含 LO，仍有轮询/边界/测量开销限制。
 - **历史 native/py-spy**：[new-xlsx-hotspot-io-v1](reports/new-xlsx-hotspot-io-v1/comparison-report.md) 和 [hotspot-version-comparison-v2](reports/hotspot-version-comparison-v2/comparison-report.md)。HR Metro/Retail Online 的这些 profile **早于 prepared-v2 计算改造**；不能当作当前版本的热点比例。py-spy 样本比例、native cycles:u 和总 CPU 计时是三种口径，不互相替换。
 
@@ -12,9 +13,9 @@
 
 ## 镜像保留策略
 
-本地只保留已验收的 v12，后续离线构建也以其锁定 image ID 为基础。操作工具 `functional_trial.py`、`cpu_measurement_trial.py`、`collector_smoke.py` 的默认镜像改为 v12；这只适用于未来新运行，不修改历史采集身份或结果。
+本地 Office replay 镜像只保留 `office-trace-replay:openeuler-release`，已完成安装态检查和最新单轮重跑；后续离线构建以其锁定 image ID 为基础。操作工具 `functional_trial.py`、`cpu_measurement_trial.py`、`collector_smoke.py` 的默认镜像使用正式标签；不修改历史采集身份或结果。镜像记录见 [formal-image-release.json](../../reports/formal-image-release.json)。
 
-旧 v9/v11 容器与镜像已清理，宿主 raw、results 与报告仍保留。历史 plan 中的 v9/v11 是当时的配置，不能直接执行来冒充当前版本采集；新采集需要明确使用 v12 和新的 campaign。旧镜像不在本地意味着不能承诺重建其全部容器现场；先前报告可继续按其原证据范围使用。
+旧 v1～v12 版本标签及关联停止容器已清理，宿主 raw、results 与报告仍保留。历史 plan 中的版本是当时的配置，不能直接执行来冒充当前版本采集；新采集需要明确使用正式镜像和新的 campaign。旧镜像不在本地意味着不能承诺重建其全部容器现场；先前报告可继续按其原证据范围使用。
 
 ## 本地数据与提交边界
 

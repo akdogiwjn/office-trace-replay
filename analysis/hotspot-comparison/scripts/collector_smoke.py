@@ -12,8 +12,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 SCRIPTS = Path(__file__).resolve().parent
-IMAGE = "office-trace-replay:openeuler-v12"
-EXPECTED_IMAGE = "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded"
+IMAGE = "office-trace-replay:openeuler-release"
+EXPECTED_IMAGE = "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a"
 
 
 def sha(path: Path) -> str:

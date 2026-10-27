@@ -49,7 +49,13 @@ class CompatibleGeneratorTests(unittest.TestCase):
             parent = {'run_id': 'accepted-run', 'canonical_sha256': 'a' * 64}
             write(parent_path, parent)
             recipe_path = recipes / 'industry_productivity.json'
+            seed = root / 'compatibility/cases/industry/seed/input'
+            seed.mkdir(parents=True)
+            (seed / 'verify_office.py').write_text('print("fixture verifier")\n')
             write(recipe_path, {
+                'dataset_id': 'industry_productivity',
+                'seed_path': 'compatibility/cases/industry/seed',
+                'input_hashes': {},
                 'parent': {'run_id': parent['run_id'], 'canonical_sha256': parent['canonical_sha256'],
                            'recipe_path': str(parent_path.relative_to(root))},
                 'key_operations': [{'source_tool_calls': [{
@@ -65,7 +71,7 @@ class CompatibleGeneratorTests(unittest.TestCase):
             self.assertEqual(updated['parent']['run_id'], parent['run_id'])
             self.assertEqual(updated['parent']['canonical_sha256'], parent['canonical_sha256'])
             command = updated['key_operations'][0]['source_tool_calls'][0]['tool_call']['arguments']['command']
-            self.assertIn('compatibility/tools/summary.py', command)
+            self.assertIn('compatibility/tools/write_xlsx_summary.py', command)
             self.assertNotIn('industry_productivity_summary.py', command)
             self.assertIn('shared workbook-reading summary', updated['adaptations'][0])
             self.assertEqual(index['entries'][0]['recipe_sha256'], digest(recipe_path))

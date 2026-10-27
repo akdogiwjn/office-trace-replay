@@ -1,0 +1,44 @@
+{
+  "inspect": {
+    "Id": "0714259239abfd32812007f80c0ce33561931e68a7d6685bec6e88061f4a4212",
+    "Name": "/office-v12-remaining-opm-n1-20261020t115040z",
+    "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-20T11:53:29.932325515Z",
+      "FinishedAt": "2026-10-20T11:53:33.087591906Z"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/opm",
+        "Destination": "/results",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "configured_image": "office-trace-replay:openeuler-v12",
+    "command": [
+      "--dataset",
+      "opm",
+      "--pdf-applicant-count",
+      "1",
+      "--loops",
+      "1",
+      "--results-dir",
+      "/results"
+    ]
+  },
+  "stdout_tail": "[pdf/opm] start: loops=1, steps=4, workspace=/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-01, results=/results/pdf/20261020T115330Z-pid7\n[pdf/opm] 1/1: success in 2.20s\n[pdf/opm] finished: completed=1, successes=1, failures=0, summary=/results/pdf/20261020T115330Z-pid7/summary.json\n",
+  "stderr_tail": "",
+  "logs_returncode": 0
+}

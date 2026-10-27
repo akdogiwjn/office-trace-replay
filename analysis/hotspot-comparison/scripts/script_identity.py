@@ -27,6 +27,7 @@ ROLE_BY_SCRIPT = {
     "inspect_xlsx_structure.py": "xlsx-inspect-structure",
     "inspect_xlsx_features.py": "xlsx-inspect-features",
     "enhance_workbook.py": "xlsx-enhance",
+    ".enhance_workbook.runtime.py": "xlsx-enhance",
     "hr_metro_build.py": "xlsx-enhance",
     ".hr_metro_build.runtime.py": "xlsx-enhance",
     "retail_online_build.py": "xlsx-enhance",

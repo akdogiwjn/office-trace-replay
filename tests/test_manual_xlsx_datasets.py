@@ -229,9 +229,10 @@ class ManualBindingAndGenerationTests(unittest.TestCase):
                 calls = [item['tool_call'].get('arguments', {}).get('command', '')
                          for step in recipe['key_operations'] for item in step['source_tool_calls']
                          if item['tool_call']['function_name'] == 'exec']
-                modes = [command.rsplit(' ', 1)[-1] for command in calls
-                         if 'inspect_xlsx.py' in command]
-                self.assertEqual(modes, ['source', 'copy', 'formula', 'cached'])
+                inspectors = [Path(command.rsplit(' ', 1)[-1]).name for command in calls
+                              if '/tools/inspect_xlsx_' in command]
+                self.assertEqual(inspectors, ['inspect_xlsx_structure.py', 'inspect_xlsx_features.py',
+                                              'inspect_xlsx_formulas.py', 'inspect_xlsx_cached_values.py'])
                 self.assertEqual(recipe['operation_timeout'], 900)
                 self.assertEqual(recipe['recalc_timeout'], 600)
                 self.assertIn('xlsx_business_diagnostics.json', calls[-1])

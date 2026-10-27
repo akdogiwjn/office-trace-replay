@@ -16,6 +16,20 @@ def digest(path):
     return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
 
 
+def qualified_recipe(ds, active_path):
+    """Keep v12 checks bound to v12 bytes after later entrypoint renames."""
+    alignment = ROOT / 'reports/script-entrypoint-alignment-v1.json'
+    if alignment.is_file():
+        entry = read(str(alignment.relative_to(ROOT)))['datasets'].get(ds)
+        if entry:
+            if entry['recipe_path'] != active_path or digest(active_path) != entry['recipe_sha256']:
+                raise ValueError('active named-entrypoint recipe differs from its frozen binding')
+            if digest(entry['previous_recipe_path']) != entry['previous_recipe_sha256']:
+                raise ValueError('v12 recipe snapshot changed')
+            return entry['previous_recipe_path']
+    return active_path
+
+
 class ReleaseEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.index = read('reports/evidence/v12/index.json')
@@ -29,7 +43,7 @@ class ReleaseEvidenceTests(unittest.TestCase):
             self.assertEqual(digest(item['path']), item['sha256'], item['path'])
             self.assertEqual((ROOT / item['path']).stat().st_size, item['size_bytes'])
 
-    def test_seven_function_results_match_current_recipes(self):
+    def test_seven_function_results_match_qualified_recipe_versions(self):
         self.assertEqual(set(self.index['datasets']),
                          set(read('suites/default.json')['default_datasets']))
         for ds, entry in self.index['datasets'].items():
@@ -44,6 +58,7 @@ class ReleaseEvidenceTests(unittest.TestCase):
             else:
                 suffix = '-n1' if ds in ('irs_w4', 'sba1919') else ''
                 recipe = f'compatibility/recipes/{ds}{suffix}.json'
+                recipe = qualified_recipe(ds, recipe)
                 self.assertEqual(read(entry['independent_acceptance']['path'])['status'], 'success')
                 evidence = read(entry['files']['evidence.json']['path'])
                 current = read(recipe)
@@ -91,7 +106,7 @@ class ReleaseEvidenceTests(unittest.TestCase):
             self.assertEqual(current['read_write_share'], data['datasets'][ds]['read_write_share'])
             if ds != 'tlc':
                 self.assertEqual(origin['recipe']['sha256'], current['recipe_sha256'])
-                recipe = read(origin['recipe']['path'])
+                recipe = read(qualified_recipe(ds, origin['recipe']['path']))
                 self.assertEqual(origin['recipe']['helper_hashes'], recipe['helper_hashes'])
                 self.assertEqual(origin['recipe']['input_hashes'], recipe['input_hashes'])
 

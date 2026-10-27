@@ -1,0 +1,44 @@
+{
+  "inspect": {
+    "Id": "db0c655c3420983b3dd2ba6f6ee56ec5b2c290f056de2b5bf76b669d7c0251c8",
+    "Name": "/office-v12-final-irs-w4-n1-20261020t110841z",
+    "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-20T11:41:01.578922405Z",
+      "FinishedAt": "2026-10-20T11:41:06.169981544Z"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/lcq/office-trace-replay/results/v12-final-function-check-20261020T110841Z-132243af/irs_w4",
+        "Destination": "/results",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "configured_image": "office-trace-replay:openeuler-v12",
+    "command": [
+      "--dataset",
+      "irs_w4",
+      "--pdf-applicant-count",
+      "1",
+      "--loops",
+      "1",
+      "--results-dir",
+      "/results"
+    ]
+  },
+  "stdout_tail": "[pdf/irs_w4] start: loops=1, steps=4, workspace=/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01, results=/results/irs_w4-n1/20261020T114101Z-71d8d6f3/pdf/20261020T114102Z-pid7\n[pdf/irs_w4] 1/1: success in 2.95s\n[pdf/irs_w4] finished: completed=1, successes=1, failures=0, summary=/results/irs_w4-n1/20261020T114101Z-71d8d6f3/pdf/20261020T114102Z-pid7/summary.json\nirs_w4 success []\n",
+  "stderr_tail": "",
+  "logs_returncode": 0
+}

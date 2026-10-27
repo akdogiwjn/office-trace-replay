@@ -1,0 +1,101 @@
+{
+  "schema_version": "office-xlsx-script-entrypoint-alignment-v1",
+  "status": "single_iteration_loop_verified_in_formal_image",
+  "image_rebuilt": true,
+  "workload_executed": true,
+  "historical_evidence_modified": false,
+  "datasets": {
+    "hr_metro": {
+      "recipe_path": "compatibility/recipes/hr_metro.json",
+      "previous_recipe_path": "reports/evidence/v12/script-recipes/hr_metro.json",
+      "previous_recipe_sha256": "fe4b36933cf14381517d41ad71706aed935abca4d1c7a5da4b450e4a252c6480",
+      "recipe_sha256": "d9dd70811f649a1b8fd38ece3b56996a4c728f273eaaa5498417e17d6f0e8df5",
+      "status": "single_iteration_loop_success_named_entries_observed",
+      "helper_content_unchanged": true,
+      "input_workbook_and_prepared_bytes_unchanged": true,
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/hr_metro/collection-record.json",
+      "collection_record_sha256": "7c56f02e7484fbb3b0f3098b169b2ae4b60e4e7fc5434cb0724d4b699b575914"
+    },
+    "retail_online": {
+      "recipe_path": "compatibility/recipes/retail_online.json",
+      "previous_recipe_path": "reports/evidence/v12/script-recipes/retail_online.json",
+      "previous_recipe_sha256": "c932c0fd747380f43c11ee89e76c86b06cf9a9d7d48c2d8502e78bdce0613f76",
+      "recipe_sha256": "6e72f581563ce6aa750d4b1643d357bf5c552327f90974e3f98f1289a6266259",
+      "status": "single_iteration_loop_success_named_entries_observed",
+      "helper_content_unchanged": true,
+      "input_workbook_and_prepared_bytes_unchanged": true,
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/retail_online/collection-record.json",
+      "collection_record_sha256": "82c3667022c91cdfa4825c07eac3f3826cfbac89979f4e1a5922dedc4d2ca5b3"
+    },
+    "industry_productivity": {
+      "recipe_path": "compatibility/recipes/industry_productivity.json",
+      "previous_recipe_path": "reports/evidence/v12/script-recipes/industry_productivity.json",
+      "previous_recipe_sha256": "24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3",
+      "recipe_sha256": "1a6dbeb77b9787584dc5d840391bb0afaebe67dbbee43b8535d247999d7ad1d8",
+      "status": "single_iteration_loop_success_named_entries_observed",
+      "helper_content_unchanged": true,
+      "input_workbook_and_prepared_bytes_unchanged": true,
+      "collection_record": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/industry_productivity/collection-record.json",
+      "collection_record_sha256": "0e63d88a5da8e9bfb6fccbda7f660cd77c2db3db96d7ea85cebf0a518bfe63ef"
+    }
+  },
+  "validation": {
+    "targeted_tests": {
+      "passed": 38,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0,
+      "modules": [
+        "tests.test_xlsx_named_entrypoints",
+        "tests.test_compatible_generator",
+        "tests.test_manual_xlsx_datasets",
+        "tests.test_compatible",
+        "tests.test_release_evidence",
+        "analysis/hotspot-comparison/tests/test_script_identity.py"
+      ]
+    },
+    "static_bindings_and_readiness": "passed",
+    "direct_runner_bindings": [
+      "hr_metro",
+      "retail_online",
+      "industry_productivity"
+    ],
+    "legacy_workload_files_byte_identical_to_head": 43,
+    "business_helpers_byte_identical_to_head": 3,
+    "full_tests_run": false,
+    "workbook_replay_run": false,
+    "image_rebuilt": false
+  },
+  "entrypoint_mapping": {
+    "inspect_xlsx.py source": "inspect_xlsx_structure.py",
+    "inspect_xlsx.py copy": "inspect_xlsx_features.py",
+    "inspect_xlsx.py formula": "inspect_xlsx_formulas.py",
+    "inspect_xlsx.py cached": "inspect_xlsx_cached_values.py",
+    "dataset_build.py": "enhance_workbook.py",
+    "verify_office.py": "verify_xlsx_enhanced.py",
+    "summary.py": "write_xlsx_summary.py",
+    "export_xlsx.py": "export_xlsx_csv.py"
+  },
+  "image_tag": "office-trace-replay:openeuler-release",
+  "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "installation_status": "success",
+  "fresh_process_cpu": {
+    "path": "analysis/hotspot-comparison/reports/formal-process-cpu-20261026/comparison.json",
+    "sha256": "3080ac33edf9e4f43a3c1e02f54af0329eb19bef994f71d0908dba9a86e8e625",
+    "campaign": "analysis/hotspot-comparison/replay-runs/formal-process-cpu-20261026-fresh/campaign.json",
+    "campaign_sha256": "a7489fb816292f017977b120072989a5d79c398f08992f74e6c2d93775f43365",
+    "configurations": [
+      "tlc",
+      "hr_metro",
+      "retail_online",
+      "industry_productivity",
+      "opm-n1",
+      "irs_w4-n1",
+      "sba1919-n1",
+      "opm-n10",
+      "irs_w4-n10",
+      "sba1919-n10"
+    ],
+    "independent_acceptance_rerun": false
+  }
+}

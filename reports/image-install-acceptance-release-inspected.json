@@ -1,0 +1,641 @@
+{
+  "schema_version": "office-replay-image-install-inspected-v1",
+  "status": "success",
+  "image_tag": "office-trace-replay:openeuler-release",
+  "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "container_id": "b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7",
+  "container_name": "office-trace-replay-release-install-20261026t121133z",
+  "checked_at_utc": "2026-10-26T12:11:37.394500+00:00",
+  "container_inspect": {
+    "Id": "b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7",
+    "Created": "2026-10-26T12:11:33.78838639Z",
+    "Path": "/opt/document-bench/.venv/bin/python",
+    "Args": [
+      "scripts/accept_install.py"
+    ],
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-26T12:11:33.99655249Z",
+      "FinishedAt": "2026-10-26T12:11:37.344764358Z"
+    },
+    "Image": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+    "ResolvConfPath": "/home/e2b/docker-data/containers/b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7/resolv.conf",
+    "HostnamePath": "/home/e2b/docker-data/containers/b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7/hostname",
+    "HostsPath": "/home/e2b/docker-data/containers/b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7/hosts",
+    "LogPath": "/home/e2b/docker-data/containers/b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7/b9bc9419a959d0e06e219d30d9117697586c9d35dd0bc20759a101658ab12bd7-json.log",
+    "Name": "/office-trace-replay-release-install-20261026t121133z",
+    "RestartCount": 0,
+    "Driver": "overlay2",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": null,
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {
+          "max-file": "5",
+          "max-size": "50m"
+        }
+      },
+      "NetworkMode": "none",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": null,
+      "CgroupnsMode": "host",
+      "Dns": [],
+      "DnsOptions": [],
+      "DnsSearch": [],
+      "ExtraHosts": null,
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": null,
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 0,
+      "NanoCpus": 0,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": [],
+      "BlkioDeviceReadBps": [],
+      "BlkioDeviceWriteBps": [],
+      "BlkioDeviceReadIOps": [],
+      "BlkioDeviceWriteIOps": [],
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": [],
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 0,
+      "MemorySwappiness": null,
+      "OomKillDisable": false,
+      "PidsLimit": null,
+      "Ulimits": [
+        {
+          "Name": "nofile",
+          "Hard": 1024,
+          "Soft": 1024
+        }
+      ],
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/asound",
+        "/proc/acpi",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/sys/firmware",
+        "/sys/devices/virtual/powercap"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "GraphDriver": {
+      "Data": {
+        "LowerDir": "/home/e2b/docker-data/overlay2/fde39ed6306a40e956a70e54d91bcb58797f39a986058b58034f98b30d44b12e-init/diff:/home/e2b/docker-data/overlay2/26gga84xrsxqfz9x4y2a1m46c/diff:/home/e2b/docker-data/overlay2/u34l3lsswck4n47rmrs9kw4az/diff:/home/e2b/docker-data/overlay2/d3h5js74hts1ar9ltjtgk7ngg/diff:/home/e2b/docker-data/overlay2/ppg5rj3wcc5a9ug1nkebamv6w/diff:/home/e2b/docker-data/overlay2/qytkyw8ga2obehjqypeq4s6sy/diff:/home/e2b/docker-data/overlay2/984x9f0i485kyb4v86krf58fg/diff:/home/e2b/docker-data/overlay2/3sxgpanxao78jlefqujg3tyje/diff:/home/e2b/docker-data/overlay2/qwkebtvdzs4fm5ns8el6v3f5j/diff:/home/e2b/docker-data/overlay2/ate66c73cjljpt2pvee1wza67/diff:/home/e2b/docker-data/overlay2/jsqe7f855rxc3aopogo286152/diff:/home/e2b/docker-data/overlay2/wt8z70zi6jku4c1w9slqcocer/diff:/home/e2b/docker-data/overlay2/elooyme5rqrafg05i8t0rx8iq/diff:/home/e2b/docker-data/overlay2/w31nxgzpy9y6syrb0uxnzkva6/diff:/home/e2b/docker-data/overlay2/w2m70vkxa5u3nr1cjt6j26vb2/diff:/home/e2b/docker-data/overlay2/2vu93fxsgjf42phfjru90z3kk/diff:/home/e2b/docker-data/overlay2/v1shl2cl2y6lr5abqrq93kjn3/diff:/home/e2b/docker-data/overlay2/0cad8e54d3ec9ea4994d4784b84934e03a579675756da4d3c5bb406194609ff0/diff:/home/e2b/docker-data/overlay2/0qm858stgxu9hla56h0bmu2d9/diff:/home/e2b/docker-data/overlay2/mofl3xwdcfal34z7tngl162v3/diff:/home/e2b/docker-data/overlay2/cby65qzqimx07ehxy34uc56os/diff:/home/e2b/docker-data/overlay2/epu67ilp0a7z8dr7t84pc2gaa/diff:/home/e2b/docker-data/overlay2/wk31adu7w63gb6yesbjren4uk/diff:/home/e2b/docker-data/overlay2/8n9u9yd4u88nu1zz0nh6285d1/diff:/home/e2b/docker-data/overlay2/lmrk2ipzifh3632cp1t1m36vw/diff:/home/e2b/docker-data/overlay2/3na7kihrt2qje747svrmaqu8w/diff:/home/e2b/docker-data/overlay2/o2pmj89arwazu6rv4up8qrj50/diff:/home/e2b/docker-data/overlay2/7dbdztzqkx7mimcy2m4tb7e2x/diff:/home/e2b/docker-data/overlay2/73baw39zbxrn4x7vf3e3omddh/diff:/home/e2b/docker-data/overlay2/osyj1pm4klh4n0fgtwdgupdc8/diff:/home/e2b/docker-data/overlay2/86cb54b06842b9fdb72ff91fd9bce3cc1ed53319fa9be143718f51f413f119e1/diff",
+        "MergedDir": "/home/e2b/docker-data/overlay2/fde39ed6306a40e956a70e54d91bcb58797f39a986058b58034f98b30d44b12e/merged",
+        "UpperDir": "/home/e2b/docker-data/overlay2/fde39ed6306a40e956a70e54d91bcb58797f39a986058b58034f98b30d44b12e/diff",
+        "WorkDir": "/home/e2b/docker-data/overlay2/fde39ed6306a40e956a70e54d91bcb58797f39a986058b58034f98b30d44b12e/work"
+      },
+      "Name": "overlay2"
+    },
+    "Mounts": [],
+    "Config": {
+      "Hostname": "b9bc9419a959",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/opt/document-bench/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "DOCUMENT_BENCH_ROOT=/opt/document-bench",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "http_proxy=",
+        "https_proxy=",
+        "HTTP_PROXY=",
+        "HTTPS_PROXY=",
+        "no_proxy=",
+        "NO_PROXY=",
+        "OFFICE_REPLAY_CONTAINER=1",
+        "VIRTUAL_ENV=/opt/document-bench/.venv"
+      ],
+      "Cmd": [
+        "scripts/accept_install.py"
+      ],
+      "Image": "office-trace-replay:openeuler-release",
+      "Volumes": null,
+      "WorkingDir": "/opt/office-trace-replay",
+      "Entrypoint": [
+        "/opt/document-bench/.venv/bin/python"
+      ],
+      "OnBuild": null,
+      "Labels": {
+        "io.document-bench.abstraction": "steps",
+        "io.document-bench.asset-root": "/opt/document-bench",
+        "io.document-bench.scenes": "xlsx,pdf",
+        "org.opencontainers.image.description": "Self-contained step-level XLSX and PDF benchmark on openEuler",
+        "org.opencontainers.image.ref.name": "openEuler",
+        "org.opencontainers.image.title": "Document benchmark",
+        "org.opencontainers.image.version": "24.03-LTS-SP3"
+      }
+    },
+    "NetworkSettings": {
+      "Bridge": "",
+      "SandboxID": "bf68ca9d7c6049be1e188d9386dc18304b464eab4716805e5143e42f539caeab",
+      "SandboxKey": "/var/run/docker/netns/bf68ca9d7c60",
+      "Ports": {},
+      "HairpinMode": false,
+      "LinkLocalIPv6Address": "",
+      "LinkLocalIPv6PrefixLen": 0,
+      "SecondaryIPAddresses": null,
+      "SecondaryIPv6Addresses": null,
+      "EndpointID": "",
+      "Gateway": "",
+      "GlobalIPv6Address": "",
+      "GlobalIPv6PrefixLen": 0,
+      "IPAddress": "",
+      "IPPrefixLen": 0,
+      "IPv6Gateway": "",
+      "MacAddress": "",
+      "Networks": {
+        "none": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "MacAddress": "",
+          "NetworkID": "f2b87c39da06abbe1dd7d2ab09ea1d531b58d8f012fdb760e00e7f217c3b2e68",
+          "EndpointID": "",
+          "Gateway": "",
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DriverOpts": null,
+          "DNSNames": null
+        }
+      }
+    }
+  },
+  "acceptance": {
+    "status": "success",
+    "workload_executed": false,
+    "project_lock_sha256": "30251fec25ec8ebd2b1490d83ebdda3b9489d55d7d63b8cbb27b00b37780648b",
+    "environment_lock_sha256": "ec36cb7ad28ada33182a401cb8e921e13d9f4355bc6aa611f8a6e93a0ca4c061",
+    "checks": {
+      "locked_runtime": {
+        "family": "openeuler",
+        "python": "3.12.3",
+        "python_executable": "/opt/document-bench/.venv/bin/python",
+        "architecture": "aarch64",
+        "packages": {
+          "openpyxl": "3.1.5",
+          "et_xmlfile": "2.0.0",
+          "pypdf": "6.10.0",
+          "pdf2image": "1.17.0",
+          "pillow": "12.2.0"
+        },
+        "libreoffice": "LibreOfficeDev 25.8.7.3",
+        "poppler": "pdftoppm version 23.12.0",
+        "libc": [
+          "glibc",
+          "2.38"
+        ],
+        "os_release": "NAME=\"openEuler\"\nVERSION=\"24.03 (LTS-SP3)\"\nID=\"openEuler\"\nVERSION_ID=\"24.03\"\nPRETTY_NAME=\"openEuler 24.03 (LTS-SP3)\"\nANSI_COLOR=\"0;31\"\n\n"
+      },
+      "legacy_workload_files_and_installed_modes": {
+        "workload_file_count": 43,
+        "status": "success"
+      },
+      "project_lock_and_compatibility_index": {
+        "project_lock_file_count": 1851,
+        "compatibility_entries": 10,
+        "status": "success"
+      },
+      "registry_and_dataset_bindings": [
+        {
+          "dataset_id": "irs_w4",
+          "scene": "pdf",
+          "record_count": 1,
+          "variant_id": "irs_w4-n1",
+          "recipe_path": "compatibility/recipes/irs_w4-n1.json",
+          "recipe_sha256": "0753c1efad482f375807b4620198dbe6eb7c037169cbde8bb2ebb6c3cf71733e",
+          "seed_path": "compatibility/cases/irs_w4-n1/seed",
+          "source_path": "compatibility/cases/irs_w4-n1/source"
+        },
+        {
+          "dataset_id": "irs_w4",
+          "scene": "pdf",
+          "record_count": 10,
+          "variant_id": "irs_w4-n10",
+          "recipe_path": "compatibility/recipes/irs_w4-n10.json",
+          "recipe_sha256": "86f3fe3b10ceb0dfb5e817a44310abb3e852f8d94cc28a17119e8e0833c24924",
+          "seed_path": "compatibility/cases/irs_w4-n10/seed",
+          "source_path": "compatibility/cases/irs_w4-n10/source"
+        },
+        {
+          "dataset_id": "sba1919",
+          "scene": "pdf",
+          "record_count": 1,
+          "variant_id": "sba1919-n1",
+          "recipe_path": "compatibility/recipes/sba1919-n1.json",
+          "recipe_sha256": "568bb8310291167c3ea4e55f6aed62cf467791771f78d976d6b62bda86b3e999",
+          "seed_path": "compatibility/cases/sba1919-n1/seed",
+          "source_path": "compatibility/cases/sba1919-n1/source"
+        },
+        {
+          "dataset_id": "sba1919",
+          "scene": "pdf",
+          "record_count": 10,
+          "variant_id": "sba1919-n10",
+          "recipe_path": "compatibility/recipes/sba1919-n10.json",
+          "recipe_sha256": "fc30a1e400e53b9e21a64ca31539c26f0e527f99a1e9a1cdd2c182d62fbdba81",
+          "seed_path": "compatibility/cases/sba1919-n10/seed",
+          "source_path": "compatibility/cases/sba1919-n10/source"
+        },
+        {
+          "dataset_id": "hr",
+          "scene": "xlsx",
+          "record_count": null,
+          "variant_id": "hr",
+          "recipe_path": "compatibility/recipes/hr.json",
+          "recipe_sha256": "bc7b48e492ff93c7fe6cf136935cbd961c1f24ea56650a0499de49289293f2c5",
+          "seed_path": "compatibility/cases/hr/seed",
+          "source_path": "compatibility/cases/hr/source"
+        },
+        {
+          "dataset_id": "manufacturing",
+          "scene": "xlsx",
+          "record_count": null,
+          "variant_id": "manufacturing",
+          "recipe_path": "compatibility/recipes/manufacturing.json",
+          "recipe_sha256": "753a3fdbb05ee1ca404deeea646632549d368f1d9e763d0674d23faf172e9d3a",
+          "seed_path": "compatibility/cases/manufacturing/seed",
+          "source_path": "compatibility/cases/manufacturing/source"
+        },
+        {
+          "dataset_id": "retail",
+          "scene": "xlsx",
+          "record_count": null,
+          "variant_id": "retail",
+          "recipe_path": "compatibility/recipes/retail.json",
+          "recipe_sha256": "e7b2da2aa0d9adaeb601edf6c5fcb262e41505d24acd6e2b2e428289ae0887b5",
+          "seed_path": "compatibility/cases/retail/seed",
+          "source_path": "compatibility/cases/retail/source"
+        },
+        {
+          "dataset_id": "industry_productivity",
+          "scene": "xlsx",
+          "record_count": null,
+          "variant_id": "industry_productivity",
+          "recipe_path": "compatibility/recipes/industry_productivity.json",
+          "recipe_sha256": "1a6dbeb77b9787584dc5d840391bb0afaebe67dbbee43b8535d247999d7ad1d8",
+          "seed_path": "compatibility/cases/industry_productivity/seed",
+          "source_path": "compatibility/cases/industry_productivity/source"
+        },
+        {
+          "dataset_id": "hr_metro",
+          "scene": "xlsx",
+          "record_count": null,
+          "variant_id": "hr_metro",
+          "recipe_path": "compatibility/recipes/hr_metro.json",
+          "recipe_sha256": "d9dd70811f649a1b8fd38ece3b56996a4c728f273eaaa5498417e17d6f0e8df5",
+          "seed_path": "compatibility/cases/hr_metro/seed",
+          "source_path": "compatibility/cases/hr_metro/source"
+        },
+        {
+          "dataset_id": "retail_online",
+          "scene": "xlsx",
+          "record_count": null,
+          "variant_id": "retail_online",
+          "recipe_path": "compatibility/recipes/retail_online.json",
+          "recipe_sha256": "6e72f581563ce6aa750d4b1643d357bf5c552327f90974e3f98f1289a6266259",
+          "seed_path": "compatibility/cases/retail_online/seed",
+          "source_path": "compatibility/cases/retail_online/source"
+        }
+      ],
+      "xlsx_source_verifiers": [
+        {
+          "dataset_id": "hr",
+          "file": "verify.py",
+          "sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae"
+        },
+        {
+          "dataset_id": "hr",
+          "file": "spreadsheet.py",
+          "sha256": "6c1cb9cee50cdff090c19685cb03aa4c84faa1d220ef893fd8f1da0a3897d1a8"
+        },
+        {
+          "dataset_id": "hr",
+          "file": "contracts.py",
+          "sha256": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d"
+        },
+        {
+          "dataset_id": "hr",
+          "file": "workbooks.py",
+          "sha256": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        },
+        {
+          "dataset_id": "manufacturing",
+          "file": "verify.py",
+          "sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae"
+        },
+        {
+          "dataset_id": "manufacturing",
+          "file": "spreadsheet.py",
+          "sha256": "6c1cb9cee50cdff090c19685cb03aa4c84faa1d220ef893fd8f1da0a3897d1a8"
+        },
+        {
+          "dataset_id": "manufacturing",
+          "file": "contracts.py",
+          "sha256": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d"
+        },
+        {
+          "dataset_id": "manufacturing",
+          "file": "workbooks.py",
+          "sha256": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        },
+        {
+          "dataset_id": "retail",
+          "file": "verify.py",
+          "sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae"
+        },
+        {
+          "dataset_id": "retail",
+          "file": "spreadsheet.py",
+          "sha256": "6c1cb9cee50cdff090c19685cb03aa4c84faa1d220ef893fd8f1da0a3897d1a8"
+        },
+        {
+          "dataset_id": "retail",
+          "file": "contracts.py",
+          "sha256": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d"
+        },
+        {
+          "dataset_id": "retail",
+          "file": "workbooks.py",
+          "sha256": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        },
+        {
+          "dataset_id": "industry_productivity",
+          "file": "verify.py",
+          "sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae"
+        },
+        {
+          "dataset_id": "industry_productivity",
+          "file": "spreadsheet.py",
+          "sha256": "6c1cb9cee50cdff090c19685cb03aa4c84faa1d220ef893fd8f1da0a3897d1a8"
+        },
+        {
+          "dataset_id": "industry_productivity",
+          "file": "contracts.py",
+          "sha256": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d"
+        },
+        {
+          "dataset_id": "industry_productivity",
+          "file": "workbooks.py",
+          "sha256": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        },
+        {
+          "dataset_id": "hr_metro",
+          "file": "verify.py",
+          "sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae"
+        },
+        {
+          "dataset_id": "hr_metro",
+          "file": "spreadsheet.py",
+          "sha256": "6c1cb9cee50cdff090c19685cb03aa4c84faa1d220ef893fd8f1da0a3897d1a8"
+        },
+        {
+          "dataset_id": "hr_metro",
+          "file": "contracts.py",
+          "sha256": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d"
+        },
+        {
+          "dataset_id": "hr_metro",
+          "file": "workbooks.py",
+          "sha256": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        },
+        {
+          "dataset_id": "retail_online",
+          "file": "verify.py",
+          "sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae"
+        },
+        {
+          "dataset_id": "retail_online",
+          "file": "spreadsheet.py",
+          "sha256": "6c1cb9cee50cdff090c19685cb03aa4c84faa1d220ef893fd8f1da0a3897d1a8"
+        },
+        {
+          "dataset_id": "retail_online",
+          "file": "contracts.py",
+          "sha256": "e75f1fb55b59fcd589014e7f7babaa05b83eb985bad314cb8dffb2737d780a7d"
+        },
+        {
+          "dataset_id": "retail_online",
+          "file": "workbooks.py",
+          "sha256": "f99dc071cc3e3756ba5944ff734f55a82374f2d1bb2272d2dda525f6b0911b5e"
+        }
+      ],
+      "pdf_source_dispatchers": [
+        {
+          "dataset_id": "irs_w4",
+          "verify_sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "pdf_loop_sha256": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+          "dispatcher_sha256": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+        },
+        {
+          "dataset_id": "irs_w4",
+          "verify_sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "pdf_loop_sha256": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+          "dispatcher_sha256": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+        },
+        {
+          "dataset_id": "sba1919",
+          "verify_sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "pdf_loop_sha256": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+          "dispatcher_sha256": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+        },
+        {
+          "dataset_id": "sba1919",
+          "verify_sha256": "9e495e018f6cdb257458eee9d9c84c191b91a1c6301c6c965ca37cf1566c29ae",
+          "pdf_loop_sha256": "54508c48720490dfbfb388f0a7e38adaa6f35085ab3bbc1c4b8a9e71468178b1",
+          "dispatcher_sha256": "44ac45c59f633bc203226da166566563cd391f87d81e735be1681c2485f16ef5"
+        }
+      ],
+      "industry_productivity": {
+        "input_sha256": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+        "helper_hashes": {
+          "helpers/enhance_workbook.py": "a7ed376b86b5691adbaf2f9b2d793974eb1e47799fe02fde66291dd081fcae90"
+        },
+        "canonical_path": "compatibility/cases/industry_productivity/canonical/xlsx-industry_productivity-20261019T043257Z-06a71220",
+        "canonical_sha256": "b3393b732fc10ead2557db2230d2cff231d1a297d17aff3d4db665e6926db8e1",
+        "recipe_path": "compatibility/recipes/industry_productivity.json",
+        "recipe_sha256": "1a6dbeb77b9787584dc5d840391bb0afaebe67dbbee43b8535d247999d7ad1d8",
+        "status": "success"
+      },
+      "manual_workflow_adaptations": [
+        {
+          "dataset_id": "hr_metro",
+          "origin_type": "manual_workflow_adaptation",
+          "status": "registered_not_run",
+          "record_sha256": "e7ebe10285ba83526178f21b3ae4c4e97dbb56fde8edc3b4fe9a5c8a0b41fd5f"
+        },
+        {
+          "dataset_id": "retail_online",
+          "origin_type": "manual_workflow_adaptation",
+          "status": "registered_not_run",
+          "record_sha256": "ffed056fbfb4c88cea1837e55b05fab8907c55bc4c0061adc379a5dfa1bb08e8"
+        }
+      ],
+      "entry_help": {
+        "status": "success",
+        "stdout_sha256": "51d98da974ae471a175f9345ebc1f98d8cab0c4a3c6db7d7a0789e432400b05c"
+      },
+      "entry_validate_only": {
+        "status": "success",
+        "stdout": "executor, workload and compatible workflow bindings valid\nformal preparation ready for: hr_metro, industry_productivity, irs_w4, retail_online, sba1919"
+      },
+      "excluded_host_only_content": {
+        "status": "success",
+        "checked_absent": [
+          "analysis",
+          "reports",
+          "results",
+          "qualification",
+          ".build",
+          ".git",
+          "tests"
+        ]
+      },
+      "default_dataset_selection": {
+        "status": "success",
+        "datasets": [
+          "opm",
+          "tlc",
+          "irs_w4",
+          "sba1919",
+          "hr_metro",
+          "retail_online",
+          "industry_productivity"
+        ],
+        "historical_only": [
+          "hr",
+          "retail",
+          "manufacturing"
+        ],
+        "readiness": {
+          "irs_w4": {
+            "dataset_id": "irs_w4",
+            "status": "ready",
+            "preparation": "not_required"
+          },
+          "sba1919": {
+            "dataset_id": "sba1919",
+            "status": "ready",
+            "preparation": "not_required"
+          },
+          "hr_metro": {
+            "dataset_id": "hr_metro",
+            "status": "ready",
+            "preparation": "declared_and_frozen",
+            "artifact": "compatibility/cases/hr_metro/seed/input/prepared_selection.json",
+            "artifact_sha256": "43376fc82ee084ad80fe603bb412ea359bfe56833800a01b383d409597056744",
+            "input_sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0"
+          },
+          "retail_online": {
+            "dataset_id": "retail_online",
+            "status": "ready",
+            "preparation": "declared_and_frozen",
+            "artifact": "compatibility/cases/retail_online/seed/input/prepared_selection.json",
+            "artifact_sha256": "e3a9dc6fe3d849f9403b2620822e3541f728ff7812d5d3322d433d2d1ca41bc1",
+            "input_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d"
+          },
+          "industry_productivity": {
+            "dataset_id": "industry_productivity",
+            "status": "ready",
+            "preparation": "not_required"
+          }
+        },
+        "aliases": {
+          "pdf": "opm",
+          "xlsx": "tlc"
+        }
+      },
+      "named_xlsx_entries": {
+        "status": "success",
+        "tools": [
+          "inspect_xlsx_structure.py",
+          "inspect_xlsx_features.py",
+          "inspect_xlsx_formulas.py",
+          "inspect_xlsx_cached_values.py",
+          "export_xlsx_csv.py",
+          "write_xlsx_summary.py"
+        ],
+        "datasets": [
+          "hr_metro",
+          "retail_online",
+          "industry_productivity"
+        ],
+        "workload_executed": false
+      }
+    }
+  },
+  "stderr": "",
+  "workload_executed": false
+}

@@ -1,0 +1,42 @@
+{
+  "inspect": {
+    "Id": "bfd8cc60d258c76a70d306697725c3560023d6293ba0eeeecda74bfa0e9ff2dc",
+    "Name": "/office-v12-final-hr-metro-20261020t110841z",
+    "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-20T11:09:52.704460421Z",
+      "FinishedAt": "2026-10-20T11:19:41.694410843Z"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/lcq/office-trace-replay/results/v12-final-function-check-20261020T110841Z-132243af/hr_metro",
+        "Destination": "/results",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "configured_image": "office-trace-replay:openeuler-v12",
+    "command": [
+      "--dataset",
+      "hr_metro",
+      "--loops",
+      "1",
+      "--results-dir",
+      "/results"
+    ]
+  },
+  "stdout_tail": "[xlsx/hr_metro] start: loops=1, steps=4, workspace=/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO, results=/results/hr_metro/20261020T110952Z-ae27c01d/xlsx/20261020T110953Z-pid7\n[xlsx/hr_metro] 1/1: success in 361.42s\n[xlsx/hr_metro] finished: completed=1, successes=1, failures=0, summary=/results/hr_metro/20261020T110952Z-ae27c01d/xlsx/20261020T110953Z-pid7/summary.json\nhr_metro success []\n",
+  "stderr_tail": "",
+  "logs_returncode": 0
+}

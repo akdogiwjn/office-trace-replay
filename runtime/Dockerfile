@@ -1,5 +1,5 @@
 # The builder checks this local tag against the locked immutable image ID.
-ARG BASE_IMAGE=office-trace-replay:openeuler-v12
+ARG BASE_IMAGE=office-trace-replay:openeuler-release
 FROM ${BASE_IMAGE}
 ENV OFFICE_REPLAY_CONTAINER=1 PYTHONDONTWRITEBYTECODE=1 \
     LANG=C.UTF-8 LC_ALL=C.UTF-8 \

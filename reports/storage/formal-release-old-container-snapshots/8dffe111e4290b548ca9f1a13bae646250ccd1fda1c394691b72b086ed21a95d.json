@@ -1,0 +1,42 @@
+{
+  "inspect": {
+    "Id": "8dffe111e4290b548ca9f1a13bae646250ccd1fda1c394691b72b086ed21a95d",
+    "Name": "/office-v12-remaining-tlc-20261020t115040z",
+    "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-20T11:57:46.023239413Z",
+      "FinishedAt": "2026-10-20T12:01:52.062669793Z"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/lcq/office-trace-replay/results/v12-remaining-formal-check-20261020T115040Z-74371dd4/tlc",
+        "Destination": "/results",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "configured_image": "office-trace-replay:openeuler-v12",
+    "command": [
+      "--dataset",
+      "tlc",
+      "--loops",
+      "1",
+      "--results-dir",
+      "/results"
+    ]
+  },
+  "stdout_tail": "[xlsx/tlc] start: loops=1, steps=4, workspace=/root/.openclaw/workspace/tool-modeling/SUB-MEM-OFFICE-01, results=/results/xlsx/20261020T115746Z-pid7\n[xlsx/tlc] 1/1: success in 245.07s\n[xlsx/tlc] finished: completed=1, successes=1, failures=0, summary=/results/xlsx/20261020T115746Z-pid7/summary.json\n",
+  "stderr_tail": "",
+  "logs_returncode": 0
+}

@@ -32,7 +32,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-IMAGE = 'office-trace-replay:openeuler-v12'
+IMAGE = 'office-trace-replay:openeuler-release'
 PYTHON = '/opt/document-bench/.venv/bin/python'
 REPO_MOUNT_DST = '/opt/office-trace-replay'
 RUNNER_SOURCE = ROOT / 'legacy/document-oe/bin/run_document_scene_loop.py'

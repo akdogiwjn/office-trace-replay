@@ -1,0 +1,28 @@
+{
+  "inspect": {
+    "Id": "623aa0269bba3e14e8e20c0d443b96e2e581cfa2a9b06e4cb6ffcee300fa25b7",
+    "Name": "/office-trace-replay-v12-install-acceptance-20261020t110241z",
+    "Image": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+    "State": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-20T11:02:41.599535505Z",
+      "FinishedAt": "2026-10-20T11:02:44.638842586Z"
+    },
+    "Mounts": [],
+    "configured_image": "office-trace-replay:openeuler-v12",
+    "command": [
+      "/opt/office-trace-replay/scripts/accept_install.py"
+    ]
+  },
+  "stdout_tail": "      \"input_sha256\": \"9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd\",\n      \"helper_hashes\": {\n        \"helpers/industry_productivity_build.py\": \"a7ed376b86b5691adbaf2f9b2d793974eb1e47799fe02fde66291dd081fcae90\"\n      },\n      \"canonical_path\": \"compatibility/cases/industry_productivity/canonical/xlsx-industry_productivity-20261019T043257Z-06a71220\",\n      \"canonical_sha256\": \"b3393b732fc10ead2557db2230d2cff231d1a297d17aff3d4db665e6926db8e1\",\n      \"recipe_path\": \"compatibility/recipes/industry_productivity.json\",\n      \"recipe_sha256\": \"24fa14598c0197d191f885d85bb9adf18702dcb818b4c828e948aa1044db19c3\",\n      \"status\": \"success\"\n    },\n    \"manual_workflow_adaptations\": [\n      {\n        \"dataset_id\": \"hr_metro\",\n        \"origin_type\": \"manual_workflow_adaptation\",\n        \"status\": \"registered_not_run\",\n        \"record_sha256\": \"e7ebe10285ba83526178f21b3ae4c4e97dbb56fde8edc3b4fe9a5c8a0b41fd5f\"\n      },\n      {\n        \"dataset_id\": \"retail_online\",\n        \"origin_type\": \"manual_workflow_adaptation\",\n        \"status\": \"registered_not_run\",\n        \"record_sha256\": \"ffed056fbfb4c88cea1837e55b05fab8907c55bc4c0061adc379a5dfa1bb08e8\"\n      }\n    ],\n    \"entry_help\": {\n      \"status\": \"success\",\n      \"stdout_sha256\": \"51d98da974ae471a175f9345ebc1f98d8cab0c4a3c6db7d7a0789e432400b05c\"\n    },\n    \"entry_validate_only\": {\n      \"status\": \"success\",\n      \"stdout\": \"executor, workload and compatible workflow bindings valid\\nformal preparation ready for: hr_metro, industry_productivity, irs_w4, retail_online, sba1919\"\n    },\n    \"excluded_host_only_content\": {\n      \"status\": \"success\",\n      \"checked_absent\": [\n        \"analysis\",\n        \"reports\",\n        \"results\",\n        \"qualification\",\n        \".build\",\n        \".git\",\n        \"tests\"\n      ]\n    },\n    \"default_dataset_selection\": {\n      \"status\": \"success\",\n      \"datasets\": [\n        \"opm\",\n        \"tlc\",\n        \"irs_w4\",\n        \"sba1919\",\n        \"hr_metro\",\n        \"retail_online\",\n        \"industry_productivity\"\n      ],\n      \"historical_only\": [\n        \"hr\",\n        \"retail\",\n        \"manufacturing\"\n      ],\n      \"readiness\": {\n        \"irs_w4\": {\n          \"dataset_id\": \"irs_w4\",\n          \"status\": \"ready\",\n          \"preparation\": \"not_required\"\n        },\n        \"sba1919\": {\n          \"dataset_id\": \"sba1919\",\n          \"status\": \"ready\",\n          \"preparation\": \"not_required\"\n        },\n        \"hr_metro\": {\n          \"dataset_id\": \"hr_metro\",\n          \"status\": \"ready\",\n          \"preparation\": \"declared_and_frozen\",\n          \"artifact\": \"compatibility/cases/hr_metro/seed/input/prepared_selection.json\",\n          \"artifact_sha256\": \"43376fc82ee084ad80fe603bb412ea359bfe56833800a01b383d409597056744\",\n          \"input_sha256\": \"faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0\"\n        },\n        \"retail_online\": {\n          \"dataset_id\": \"retail_online\",\n          \"status\": \"ready\",\n          \"preparation\": \"declared_and_frozen\",\n          \"artifact\": \"compatibility/cases/retail_online/seed/input/prepared_selection.json\",\n          \"artifact_sha256\": \"e3a9dc6fe3d849f9403b2620822e3541f728ff7812d5d3322d433d2d1ca41bc1\",\n          \"input_sha256\": \"43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d\"\n        },\n        \"industry_productivity\": {\n          \"dataset_id\": \"industry_productivity\",\n          \"status\": \"ready\",\n          \"preparation\": \"not_required\"\n        }\n      },\n      \"aliases\": {\n        \"pdf\": \"opm\",\n        \"xlsx\": \"tlc\"\n      }\n    }\n  }\n}\n",
+  "stderr_tail": "",
+  "logs_returncode": 0
+}

@@ -1,5 +1,5 @@
 PYTHON ?= python3
-IMAGE ?= office-trace-replay:openeuler-v12
+IMAGE ?= office-trace-replay:openeuler-release
 DATASET ?=
 DATASET_ARGS = $(foreach dataset,$(DATASET),--dataset $(dataset))
 ASSET_BUNDLE ?=

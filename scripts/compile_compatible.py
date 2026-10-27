@@ -51,6 +51,64 @@ XLSX_OUTPUTS = {'hr': 'hr_enhanced.xlsx', 'manufacturing': 'manufacturing_enhanc
                 'hr_metro': 'hr_metro_enhanced.xlsx',
                 'retail_online': 'retail_online_enhanced.xlsx'}
 MANUAL_XLSX = {'hr_metro': 'hr', 'retail_online': 'retail'}
+ALIGNED_XLSX = {'hr_metro', 'retail_online', 'industry_productivity'}
+XLSX_ENTRYPOINT_REPLACEMENTS = {
+    'compatibility/tools/inspect_xlsx.py source': 'compatibility/tools/inspect_xlsx_structure.py',
+    'compatibility/tools/inspect_xlsx.py copy': 'compatibility/tools/inspect_xlsx_features.py',
+    'compatibility/tools/inspect_xlsx.py formula': 'compatibility/tools/inspect_xlsx_formulas.py',
+    'compatibility/tools/inspect_xlsx.py cached': 'compatibility/tools/inspect_xlsx_cached_values.py',
+    'compatibility/tools/export_xlsx.py': 'compatibility/tools/export_xlsx_csv.py',
+    'compatibility/tools/summary.py': 'compatibility/tools/write_xlsx_summary.py',
+    'input/verify_office.py': 'input/verify_xlsx_enhanced.py',
+}
+
+
+def _align_xlsx_entrypoints(root, recipe):
+    """Align executable basenames, preserving helper bytes and shared logic.
+
+    Old recipes and canonical traces remain historical evidence. The original
+    verifier entry is retained for callers using its previous name. Helpers
+    stay in their original directory because Industry derives ROOT from it.
+    """
+    if recipe.get('dataset_id') not in ALIGNED_XLSX:
+        return
+    root = Path(root)
+    helper_renames = {}
+    for step in recipe['key_operations']:
+        for item in step['source_tool_calls']:
+            call = item.get('tool_call', {})
+            if call.get('function_name') != 'write' or item.get('role') != 'write_helper':
+                continue
+            args = call['arguments']
+            old_path = Path(args['path'])
+            new_path = old_path.with_name('enhance_workbook.py')
+            args['path'] = str(new_path)
+            for key in list(recipe.get('helper_hashes', {})):
+                if old_path.as_posix().endswith('/' + key):
+                    new_key = str(Path(key).with_name('enhance_workbook.py'))
+                    if new_key != key:
+                        helper_renames[key] = new_key
+                        recipe['helper_hashes'][new_key] = recipe['helper_hashes'].pop(key)
+    for step in recipe['key_operations']:
+        for item in step['source_tool_calls']:
+            call = item.get('tool_call', {})
+            if call.get('function_name') != 'exec':
+                continue
+            args = call['arguments']
+            command = args.get('command', '')
+            for old, new in {**XLSX_ENTRYPOINT_REPLACEMENTS, **helper_renames}.items():
+                command = command.replace(old, new)
+            args['command'] = command
+    seed = root / recipe['seed_path']
+    original = seed / 'input/verify_office.py'
+    alias = seed / 'input/verify_xlsx_enhanced.py'
+    shutil.copyfile(original, alias)
+    recipe['input_hashes']['input/verify_xlsx_enhanced.py'] = digest(alias)
+    recipe['script_naming'] = {
+        'version': 'document-oe-script-names-v1',
+        'scope': 'Executable entry basenames only; generic implementation and dataset helper bytes retained.',
+        'historical_profiles_renamed': False,
+    }
 
 
 def preserved_suite_entries(previous, selected_datasets):
@@ -117,6 +175,7 @@ def _update_industry_productivity_recipe(root, index):
             for text in recipe['derivation'].get('adaptations', [])]
     recipe['workflow_contract'] = XLSX_CONTRACT
     recipe['loop_verification_contract'] = 'document-oe-compatible-xlsx-loop-v1'
+    _align_xlsx_entrypoints(root, recipe)
     write(recipe_path, recipe)
     index['entries'].append({
         'dataset_id': 'industry_productivity', 'variant_id': 'industry_productivity',
@@ -249,6 +308,7 @@ def _compile_manual_xlsx(root, dataset, index):
         'loop_verification_contract': manifest['loop_verification_contract'],
         'helper_hashes': {Path(helper).name: digest(root / helper)},
     }
+    _align_xlsx_entrypoints(root, recipe)
     target = root / 'compatibility/recipes' / (dataset + '.json')
     write(target, recipe)
     index['entries'] = [e for e in index['entries'] if e['dataset_id'] != dataset]

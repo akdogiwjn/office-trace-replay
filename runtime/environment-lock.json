@@ -1,8 +1,8 @@
 {
   "schema_version": "office-replay-environment-v1",
   "architecture": "aarch64",
-  "base_image": "office-trace-replay:openeuler-v12",
-  "base_image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded",
+  "base_image": "office-trace-replay:openeuler-release",
+  "base_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
   "original_image": "office-trace-bench:runtime",
   "original_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
   "python": "3.12.3",
@@ -28,8 +28,12 @@
   "base_ancestry": {
     "original_base_image": "document-oe-snapshot:20260827",
     "original_base_image_id": "sha256:6eb99c666aab38fb4ba04886e42e5db219f4ac71d6e8307cd743b049a6a60111",
-    "reason": "Future offline builds use the qualified v12 image by immutable ID after old image-tag cleanup. V12 historically inherited v4; runtime dependency versions are unchanged.",
+    "reason": "Future offline builds inherit the install-qualified formal image by locked ID. Historical release build inherited v12; the previous version tag may be removed without changing shared runtime layers.",
     "previous_qualified_base": {
+      "image": "office-trace-replay:openeuler-v12",
+      "image_id": "sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded"
+    },
+    "earlier_qualified_base": {
       "image": "office-trace-replay:openeuler-v4",
       "image_id": "sha256:463d040e2bbe9d3adccae0ffe80899968dc4df00e01b077d2952f68c75c5a990"
     }
