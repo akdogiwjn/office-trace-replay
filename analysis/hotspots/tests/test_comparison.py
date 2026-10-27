@@ -14,6 +14,36 @@ import compare as c
 
 
 class Comparison(unittest.TestCase):
+    def test_role_grouping_preserves_period_shares_and_unknown_identity(self):
+        profile=dict(processes=[dict(script='enhance_workbook.py',share_roi=.2),
+            dict(script='enhance_workforce_v2.py',share_roi=.3),
+            dict(script='soffice.bin',share_roi=.1),dict(script='unknown:Parser',share_roi=.25),
+            dict(script='new_tool.py',share_roi=.15)])
+        rows={r['role']:r for r in c.group_xlsx_processes(profile)}
+        self.assertAlmostEqual(sum(r['share_roi'] for r in rows.values()),1)
+        self.assertEqual(rows['业务增强']['share_roi'],.5)
+        self.assertEqual(len(rows['业务增强']['scripts']),2)
+        self.assertEqual(rows['LibreOffice 主进程']['share_roi'],.1)
+        self.assertEqual(rows['未归属线程／进程']['scripts'],['unknown:Parser'])
+        self.assertEqual(rows['其他已识别脚本／程序']['scripts'],['new_tool.py'])
+
+    def test_reference_top10_markers_distinguish_target_rank_eleven(self):
+        functions=lambda keys:[dict(library='libpython',function=f,share_roi=(20-i)/300)
+                               for i,f in enumerate(keys)]
+        old=[f'f{i}' for i in range(12)]
+        new=['new',*old[:9],old[9],*old[10:]]
+        rows=c.function_table({'old':dict(functions=functions(old)),
+                               'new':dict(functions=functions(new))},['old','new'])
+        self.assertEqual([r['function'] for r in rows[:10]],old[:10])
+        self.assertEqual(rows[9]['reference_rank'],10)
+        self.assertEqual(rows[9]['datasets']['new']['rank'],11)
+        self.assertFalse(rows[9]['datasets']['new']['top10'])
+        self.assertNotIn('✓',c.hotspot_cell(rows[9],'new'))
+        self.assertTrue(c.hotspot_cell(rows[9],'new').startswith('**'))
+        self.assertIn('✓',c.hotspot_cell(rows[0],'new'))
+        self.assertEqual(sum(r['datasets']['new']['top10'] for r in rows if r['reference_rank']),9)
+        self.assertIsNone(rows[10]['reference_rank'])
+
     def test_seven_current_profiles_replace_historical_reference(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)

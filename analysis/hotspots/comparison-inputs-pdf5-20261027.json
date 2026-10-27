@@ -1,0 +1,407 @@
+{
+  "baseline": {
+    "path": "analysis/hotspots/baselines/legacy-opm-tlc.json",
+    "sha256": "890e5ef4de1ec3741091956c73247e854d5b7464765faa6004d96f0e984ff178"
+  },
+  "profiles": {
+    "opm-n10": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/opm-merged-profile.json",
+      "sha256": "d35338b26879e6d2275ecfb9542688d80cb2c678a3774546d31ba69789d6b3b3",
+      "dataset_id": "opm",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "irs_w4": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/irs_w4-merged-profile.json",
+      "sha256": "1cbf1c0b98a613026682525c29aadb17b633265e225d727506886a2b4cda4535",
+      "dataset_id": "irs_w4",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "sba1919": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/sba1919-merged-profile.json",
+      "sha256": "537b3b05edaf7203dae3cd0b7f8278026ac06aa78d498806a36ae2a2aa7b781f",
+      "dataset_id": "sba1919",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "tlc": {
+      "path": "analysis/hotspots/reports/tlc-native-pilot-20261027T114320Z-ab113278/profile.json",
+      "sha256": "0f2d5602811e7a960513a601524ce1c69c3c49cc2c349c17c0aad7eef5470a13",
+      "dataset_id": "tlc",
+      "pointer": {
+        "path": "analysis/hotspots/reports/latest-tlc.json",
+        "sha256": "a6ad031e6618c3e0a925c04981ab2bb044791e198736c8113ba0f19432d180f2"
+      },
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/tlc-native-pilot-20261027T114320Z-ab113278/evidence.json",
+          "sha256": "7b1232827b07578ed0774f13a64fb7d49edf69f066578cbb118fd86731ba83ca"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/launch.json",
+          "sha256": "2e507ed00c5f47368c9157deeec4c82c4def725c6193d88be0ccda551478206a"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/out/collection.json",
+          "sha256": "7115837b83030d5bddc83f8e456c5290bc89e9e4fa79a935f29a4c1275df0f5c"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/out/sha256-index.json",
+          "sha256": "54f468d979e710b9ebfef27a6909bb0eae8adec8ccf73062f7f0420d85539be3"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/evidence/container-inspect.before.json",
+          "sha256": "c38700098463c2f6f3d9635eeec8a0c4c48223122ff629d41a4b6b572974059d"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/evidence/container-inspect.after.json",
+          "sha256": "9a85afef73917b23ee1daef99808b1e0ba9b467b26a40acdf4599d83affff55a"
+        }
+      ]
+    },
+    "hr_metro": {
+      "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/profile.json",
+      "sha256": "7dded54f63c43f42f2d5c4e68ae51a440fab64fc6457a419c64988aa66346597",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence.json",
+          "sha256": "adffe34d9d2e0c5b2e198bd346772ae6c25cfa8a43173473d7b3700fcd04fedf"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/launch.json",
+          "sha256": "5025579246076da556f1a583cc398d23f24b285054c84fad7805f454c67b9b7b"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/out/collection.json",
+          "sha256": "bf8e075e836f22ff1b5d44b81f12a632c48d7bf7ff78904a2c36c5e7eb4725b5"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/out/sha256-index.json",
+          "sha256": "d99934fa922189a18bf43a536b3ccb8ec679efc640733cf98b4b7916ac0fa29a"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence/container-inspect.before.json",
+          "sha256": "7b2eb44db6f75a41e3655564c1e60f0a60f68ee6847719363b8b5b945162c218"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence/container-inspect.after.json",
+          "sha256": "a1d88ca8666f9293b6ce7c95a34ce756a1822abdb2504027d50c4174807ae107"
+        }
+      ]
+    },
+    "egrid": {
+      "path": "analysis/hotspots/reports/egrid-native-pilot-20261027T114921Z-89f0166e/profile.json",
+      "sha256": "4cf2adea70a401bee1f575ceb4e5a730cf9da7605e6ac6237ba546bf3b131e34",
+      "dataset_id": "egrid",
+      "pointer": {
+        "path": "analysis/hotspots/reports/latest-egrid.json",
+        "sha256": "a7a02c9c11abe4ee6803ce96c188d947e90408145887918ad2e2352e5079667a"
+      },
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/egrid-native-pilot-20261027T114921Z-89f0166e/evidence.json",
+          "sha256": "b2cbb82d0c1518abeb2be1c4880c8d982a110f640f9d4bc033be905bb8643abf"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/launch.json",
+          "sha256": "936aa0a5cf46ea64aae5d077b8c6b4c3059ab1b4f468ff2d7d414c2f3fb5b69b"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/out/collection.json",
+          "sha256": "08120f3eedad7a27f2860d45d12fcd7a5419efbf99ef2d536d79dc37dd135503"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/out/sha256-index.json",
+          "sha256": "f59bcb92aa42754fd0d00879c73d3c97eb47dd032c1d6ac2e4cb3f9c58fd9bc5"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/evidence/container-inspect.before.json",
+          "sha256": "33ddba8a25d42e8120b8304563bd48534228a8bcdd90cf9ceb242479287c685b"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/evidence/container-inspect.after.json",
+          "sha256": "3bafe94d234433dda5d739816ba0bcbaaf28b7fe9fba7c2f96a9f3ef6ad9f465"
+        }
+      ]
+    },
+    "industry_productivity": {
+      "path": "analysis/hotspots/reports/industry-productivity-native-pilot-20261027T115406Z-d1215698/profile.json",
+      "sha256": "3e18c645e5b61ad5981cf84c0ecd51f1935976b0d6f2d7a88e910206dee503c4",
+      "dataset_id": "industry_productivity",
+      "pointer": {
+        "path": "analysis/hotspots/reports/latest-industry_productivity.json",
+        "sha256": "aecf66dcb1ab06d1392c4ed7bba3ceb518082202eba77a7b0380910012b07ce0"
+      },
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence.json",
+          "sha256": "049e0a195b443dc65aadc2823858bb333a2bba620a9f5c8d97ac0dfa90eafac4"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/launch.json",
+          "sha256": "414a9da80b80b64124174d4767c81881ab48f8ce0a2ac2820ab46cbaef67d7a2"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/out/collection.json",
+          "sha256": "8e69cc66035ca626c164d00605fff20bbf72169158571899c51ef5213fc89a5e"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/out/sha256-index.json",
+          "sha256": "333ecaadc867aebe27d53ed899812ad1db93142a9274a7fb4ffc2ea9ce4d3f07"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence/container-inspect.before.json",
+          "sha256": "5807ca14e0c309704622e71a758cf65fd645f9fbf0f4d2f7f51dac5dcd56079a"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence/container-inspect.after.json",
+          "sha256": "7955fa13424305047e759d90a888db21f31fa7927c00bd814f438807f1280cff"
+        }
+      ]
+    }
+  },
+  "output": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027",
+  "findings": [
+    "PDF 三例的主要热点脚本共同集中在 convert_pdf_to_images.py、fill_fillable_fields.py、verify_pdf_batch.py 和 pdftoppm。五轮合并后，三例的 Top-5 函数集合完全相同：_PyEval_EvalFrameDefault、longest_match、deflate_slow、ImagingResampleHorizontal_8bpc 和 ImagingZipEncode，累计占比分别为 OPM 43.74%、W-4 51.65%、SBA 48.40%。W-4、SBA 与 OPM 的 Top-10 分别有 9、7 个共同函数；OPM 的 Top-10 在两者 Top-20 中分别出现 10、9 个。共同热点对应 Python 解释执行、zlib 压缩编码和 Pillow 图像处理；Poppler 渲染路径亦在三例中持续出现。",
+    "XLSX 四例共同以 libpython 为主要原生库，并集中出现 Expat、ElementTree、zlib 和 LibreOffice 路径。共同热点包括解释器执行、字典查找、对象遍历、垃圾回收、对象释放与 XML 解析。hr_metro：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 10 个；egrid：Top-10 共同函数 9 个，TLC Top-10 在其 Top-20 中出现 9 个；industry_productivity：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个。",
+    "四个 XLSX 的 libpython 周期占比分别为 TLC 79.33%、HR Metro 79.63%、eGRID 82.13%、Industry Productivity 78.82%。不同领域输入下，工作簿检查、增强、重算和验证仍呈现共同的主要原生计算机制。",
+    "**完整七例对比支持原 PDF/XLSX 用例在主要热点类型和底层文档处理机制层面的跨领域代表性。领域变化带来具体函数排名和权重的变化，而解释器、对象管理、XML 解析、压缩编码及文档渲染等主要路径持续出现。**"
+  ],
+  "assessment": {
+    "xlsx_datasets": [
+      [
+        "TLC（原基准）",
+        "交通出行；NYC TLC",
+        "7 个工作表；主表 100,000 行 × 25 列，约 250 万单元格",
+        "真实出租车行程样本及分组汇总；新增运营 Summary、指标、情景和图表"
+      ],
+      [
+        "eGRID",
+        "电力能源；美国 EPA",
+        "11 个工作表；约 273 万非空单元格",
+        "机组、发电机、电厂与区域统计；新增能源业务 Summary"
+      ],
+      [
+        "HR Metro",
+        "就业与工资；美国 BLS OEWS",
+        "4 个工作表；主表 150,023 条记录、32 列；约 421 万非空单元格",
+        "都会区／非都会区职业就业与工资统计；新增 Workforce Summary"
+      ],
+      [
+        "Industry Productivity",
+        "产业生产率；美国 BLS",
+        "3 个工作表；长表约 56.7 万条记录、9 列；约 580 万非空单元格",
+        "年度宽表与机器可读长表，涵盖生产率、产出、工时、就业和劳动补偿；新增产业 Summary"
+      ]
+    ],
+    "pdf_datasets": [
+      [
+        "OPM OF-306（原基准）",
+        "联邦雇佣申报；美国 OPM",
+        "08/2023",
+        "3 页、38 个字段；10 条记录"
+      ],
+      [
+        "IRS W-4",
+        "员工税务预扣；美国 IRS",
+        "2026",
+        "5 页、48 个字段；10 条记录"
+      ],
+      [
+        "SBA Form 1919",
+        "小企业贷款申请；美国 SBA",
+        "04/2024 可填写版本",
+        "7 页、127 个字段；10 条记录"
+      ]
+    ],
+    "trace_sources": [
+      [
+        "eGRID",
+        "xlsx-egrid-20261027T032347Z-225eb8e9",
+        "helpers/enhance_energy_report_v2.py"
+      ],
+      [
+        "HR Metro",
+        "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+        "helpers/enhance_workforce_v2.py"
+      ],
+      [
+        "Industry Productivity",
+        "xlsx-industry_productivity-20261027T015504Z-769d363e",
+        "helpers/enhance_workbook_v1.py"
+      ],
+      [
+        "IRS W-4",
+        "pdf-irs_w4-20261027T021455Z-c206db3d",
+        "build_field_values.py、run_batch.py"
+      ],
+      [
+        "SBA 1919",
+        "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+        "build_field_values.py、run_batch.py"
+      ]
+    ],
+    "metadata_sources": [
+      {
+        "path": "agent/datasets/egrid/provenance.json",
+        "sha256": "1142061cd64400c50fd5d3ad7ced322f16ba9ba2fda8de50c72ca93f295351ed"
+      },
+      {
+        "path": "agent/datasets/egrid/audit_source/datasets/xlsx/egrid/provenance.json",
+        "sha256": "89e75e55b7e0f850d7c7f78e9e023115798fcc4481ad7d25f74817d02cbc6161"
+      },
+      {
+        "path": "agent/datasets/egrid/audit_source/datasets/xlsx/egrid/complexity.json",
+        "sha256": "97a663d2edbb7541b9372ff50bd940cf2e9bdc03ff753bc1868f073000c38fc4"
+      },
+      {
+        "path": "agent/datasets/hr_metro/provenance.json",
+        "sha256": "03de33c52930ff1fdfea6e44dc0e363c96856eedeba613b38b3fb27dd9fba119"
+      },
+      {
+        "path": "agent/datasets/hr_metro/audit_source/datasets/xlsx/hr_metro/provenance.json",
+        "sha256": "d8298bf7042b36a9b62767922b4c405687b39a15c8028a2e9675cf87e92b4433"
+      },
+      {
+        "path": "agent/datasets/hr_metro/audit_source/datasets/xlsx/hr_metro/complexity.json",
+        "sha256": "61bddb3803db3e36094ef82229ec309322836735a09af12d9831b6837c493c0a"
+      },
+      {
+        "path": "agent/datasets/industry_productivity/provenance.json",
+        "sha256": "5f1aba6fd0a28e484655b2370881c8ff518fe9f44ff52b2ed794b42ac72416a2"
+      },
+      {
+        "path": "agent/datasets/industry_productivity/audit_source/datasets/xlsx/industry_productivity/provenance.json",
+        "sha256": "4395ffdc4a8c4cc60f1ab8a1e83e1f9572710c34eeb4ee476e095ba1c72e903a"
+      },
+      {
+        "path": "agent/datasets/industry_productivity/audit_source/datasets/xlsx/industry_productivity/complexity.json",
+        "sha256": "295cd1242b4d0c2d99a92f1540212f150402792ccc39d134a9f9739529f4b1a3"
+      },
+      {
+        "path": "agent/datasets/irs_w4/provenance.json",
+        "sha256": "90534b02dd0a2e0faaeaffc6ec22475b10e6d1be2c8791e7009067bd525b422f"
+      },
+      {
+        "path": "agent/datasets/irs_w4/audit_source/datasets/pdf/irs_w4/provenance.json",
+        "sha256": "2ad241889efe8c3d673fae3285bbe3d3804404eb37598b03eb368412b307c4a9"
+      },
+      {
+        "path": "agent/datasets/sba1919/provenance.json",
+        "sha256": "7c601b7b20b1eef6287f5d62073a79761de8dec327682f809ec864597d460979"
+      },
+      {
+        "path": "agent/datasets/sba1919/audit_source/datasets/pdf/sba1919/provenance.json",
+        "sha256": "37f4d496330f66c28d102edac2a62f095933d89b6156ab6d56c94607af5d3a77"
+      }
+    ],
+    "selection_rationale": {
+      "introduction": "这组输入按“业务领域不同、文档处理任务相近”选择。XLSX 从原有交通出行扩展到电力能源、就业工资和产业生产率，选择具有真实指标、分类维度和既有数据表的公开工作簿，便于继续执行保留原表、新增 Summary、公式、情景和图表的任务。PDF 从雇佣申报扩展到税务预扣和企业贷款申请，保留字段映射、批量填写、渲染与验证的共同任务形态。下表左侧资料说明输入本身的特征，右侧给出本评估据此作出的选择。",
+      "datasets": [
+        [
+          "TLC",
+          "官方行程数据包含上下车时间与地点、里程、分项车费和乘客数。[NYC TLC 数据说明](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)",
+          "保留原交通业务基准；行程明细与已有分组汇总可以自然支撑运营指标、收入情景和图表。"
+        ],
+        [
+          "eGRID",
+          "EPA 数据涵盖发电量、排放、排放率、热输入与能源结构，并提供详细 XLSX。[EPA 数据介绍](https://www.epa.gov/egrid)、[详细数据下载](https://www.epa.gov/egrid/detailed-data)",
+          "引入能源领域和多层级数据表；发电、排放等现成业务量适合新增跨表指标与能源 Summary。"
+        ],
+        [
+          "HR Metro",
+          "BLS 提供都会区／非都会区职业就业与工资估计及 XLSX，包括工资分位数。[BLS 地区数据说明](https://www.bls.gov/OES/current/oessrcma.htm)、[下载表目录](https://www.bls.gov/oes/tables.htm)",
+          "引入区域×职业的劳动市场统计，覆盖分类编码、就业量、工资和抑制标记；可自然构建 Workforce Summary。"
+        ],
+        [
+          "Industry Productivity",
+          "BLS 发布细分行业生产率 XLSX，含就业、工时、产出、劳动补偿的水平与指数序列。[BLS 表格目录](https://www.bls.gov/productivity/tables/home.htm)、[指标说明](https://www.bls.gov/news.release/prin.nr0.htm)",
+          "引入产业长期序列及宽表／长表两种组织形式；现成指标支持年度选择、变化率、情景和产业 Summary。"
+        ],
+        [
+          "OPM OF-306",
+          "用于联邦雇佣适任性申报，包含身份信息与背景问题。[OPM 表单说明](https://www.opm.gov/forms/pdf_fill/of0306.pdf)",
+          "保留原 PDF 基准，覆盖身份文本、日期、选择项及背景声明的填写与验证。"
+        ],
+        [
+          "IRS W-4",
+          "用于向雇主声明联邦所得税预扣信息。[IRS 用途说明](https://www.irs.gov/forms-pubs/about-form-w-4)",
+          "加入税务领域的身份、申报状态、金额与扣除项，继续执行逐条字段映射、填写和逐页渲染。"
+        ],
+        [
+          "SBA 1919",
+          "收集小企业 7(a) 贷款申请人、所有人、贷款需求及债务等信息。[SBA 用途说明](https://www.sba.gov/document/sba-form-1919-borrower-information-form)",
+          "加入企业融资领域与更长的多页表单，覆盖企业／个人信息及更多选择项；使用仓库冻结的 04/2024 可填写版本。"
+        ]
+      ],
+      "size_note": "XLSX 的规模同时考虑实际文档负载：本仓库四例约为 250 万至 580 万单元格，使各领域均具有百万级工作簿的读取、对象构建和保存工作量。PDF 保留 3／5／7 页及 38／48／127 个字段的结构差异，每轮统一处理十条虚构记录。以下精确规模、表单版本和字段数来自仓库冻结输入；官方链接用于支撑业务用途和数据内容。",
+      "sources_checked_on": "2026-10-27"
+    }
+  },
+  "reference_mode": "current-image",
+  "groups": [
+    {
+      "title": "PDF（每例五轮合并，每轮 N=10）",
+      "datasets": [
+        "opm-n10",
+        "irs_w4",
+        "sba1919"
+      ]
+    },
+    {
+      "title": "XLSX（四个领域）",
+      "datasets": [
+        "tlc",
+        "hr_metro",
+        "egrid",
+        "industry_productivity"
+      ],
+      "process_grouping": "xlsx-role"
+    }
+  ],
+  "comparison_description": "本轮覆盖七个正式用例。PDF 为 OPM、W-4、SBA 1919，各在五个独立容器中执行一轮，每轮处理十条记录，共 15 次成功运行；按各轮正式 ROI 的原始 sample period 合并统计。XLSX 为 TLC、HR Metro、eGRID 和 Industry Productivity，沿用已有同镜像单轮采样。主表以五轮合并 OPM 和单轮 TLC 为基准；七例使用同一回放镜像和 49 Hz 采样配置，工作负载绑定逻辑 CPU 0–7，监测进程绑定 CPU 9。",
+  "sampling_note": "PDF 每例固定五次独立重复，每次执行一轮、处理十份记录，汇总全部五次正式 ROI 的原始 period 后计算占比；表内仅采用五轮合并 PDF 结果。XLSX 沿用已有单轮结果，采样存在丢样记录，权重用于粗粒度结构观察。七例均按 49 Hz 采集用户态物理调用栈，以单调时钟标记正式循环区间。原始采样质量、未知项、ROI、容器身份及哈希见机器可读结果。",
+  "conclusions": [
+    "PDF 三例的主要热点脚本共同集中在 convert_pdf_to_images.py、fill_fillable_fields.py、verify_pdf_batch.py 和 pdftoppm。五轮合并后，三例的 Top-5 函数集合完全相同：_PyEval_EvalFrameDefault、longest_match、deflate_slow、ImagingResampleHorizontal_8bpc 和 ImagingZipEncode，累计占比分别为 OPM 43.74%、W-4 51.65%、SBA 48.40%。W-4、SBA 与 OPM 的 Top-10 分别有 9、7 个共同函数；OPM 的 Top-10 在两者 Top-20 中分别出现 10、9 个。共同热点对应 Python 解释执行、zlib 压缩编码和 Pillow 图像处理；Poppler 渲染路径亦在三例中持续出现。",
+    "XLSX 四例共同以 libpython 为主要原生库，并集中出现 Expat、ElementTree、zlib 和 LibreOffice 路径。共同热点包括解释器执行、字典查找、对象遍历、垃圾回收、对象释放与 XML 解析。hr_metro：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 10 个；egrid：Top-10 共同函数 9 个，TLC Top-10 在其 Top-20 中出现 9 个；industry_productivity：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个。",
+    "四个 XLSX 的 libpython 周期占比分别为 TLC 79.33%、HR Metro 79.63%、eGRID 82.13%、Industry Productivity 78.82%。不同领域输入下，工作簿检查、增强、重算和验证仍呈现共同的主要原生计算机制。",
+    "**完整七例对比支持原 PDF/XLSX 用例在主要热点类型和底层文档处理机制层面的跨领域代表性。领域变化带来具体函数排名和权重的变化，而解释器、对象管理、XML 解析、压缩编码及文档渲染等主要路径持续出现。**"
+  ]
+}

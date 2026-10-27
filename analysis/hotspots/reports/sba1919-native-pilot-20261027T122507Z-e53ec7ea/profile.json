@@ -1,0 +1,2853 @@
+{
+  "denominator": "Complete loop ROI cycles:u raw sample-period sum; unknown samples retained",
+  "roi_start_ns": 2029519054515354,
+  "roi_end_ns": 2029537933547300,
+  "roi_samples": 878,
+  "roi_period": 40206043103,
+  "total_samples": 945,
+  "total_period": 40739691382,
+  "outside_roi_samples": 67,
+  "outside_roi_period": 533648279,
+  "processes": [
+    {
+      "script": "convert_pdf_to_images.py",
+      "period": 18342747529,
+      "share_roi": 0.4562186704622854
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "period": 11183042552,
+      "share_roi": 0.2781433259510576
+    },
+    {
+      "script": "pdftoppm",
+      "period": 6317810819,
+      "share_roi": 0.1571358515140375
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "period": 4139284142,
+      "share_roi": 0.1029517908886474
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "period": 211965838,
+      "share_roi": 0.005271989522992479
+    },
+    {
+      "script": "pdfinfo",
+      "period": 6621998,
+      "share_roi": 0.00016470155949034176
+    },
+    {
+      "script": "unknown:pdftoppm",
+      "period": 1957719,
+      "share_roi": 4.869215791727397e-05
+    },
+    {
+      "script": "run_batch.py",
+      "period": 827789,
+      "share_roi": 2.058867115770052e-05
+    },
+    {
+      "script": "build_field_values.py",
+      "period": 622070,
+      "share_roi": 1.5472052258571643e-05
+    },
+    {
+      "script": "write_pdf_batch_summary.py",
+      "period": 583784,
+      "share_roi": 1.4519807345986767e-05
+    },
+    {
+      "script": "extract_form_field_info.py",
+      "period": 565106,
+      "share_roi": 1.4055250315289899e-05
+    },
+    {
+      "script": "unknown:python",
+      "period": 13757,
+      "share_roi": 3.4216249444784367e-07
+    }
+  ],
+  "libraries": [
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "period": 13949048241,
+      "share_roi": 0.3469390958285866
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "period": 11012729387,
+      "share_roi": 0.2739073168376094
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "period": 7660188051,
+      "share_roi": 0.19052330097184894
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "period": 3715658405,
+      "share_roi": 0.09241542112167596
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "period": 1984342404,
+      "share_roi": 0.0493543321066563
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "period": 1739871953,
+      "share_roi": 0.04327389165212774
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "period": 83898893,
+      "share_roi": 0.002086723450628242
+    },
+    {
+      "dso": "[vdso]",
+      "period": 57736734,
+      "share_roi": 0.001436021292920813
+    },
+    {
+      "dso": "[unknown]",
+      "period": 2554302,
+      "share_roi": 6.35303004937934e-05
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "period": 14416,
+      "share_roi": 3.5855306534565053e-07
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/select.cpython-312-aarch64-linux-gnu.so",
+      "period": 317,
+      "share_roi": 7.884386911388125e-09
+    }
+  ],
+  "functions": [
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "longest_match",
+      "period": 6446055360,
+      "share_roi": 0.16032553473333525
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyEval_EvalFrameDefault",
+      "period": 4378785805,
+      "share_roi": 0.10890864822938207
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingResampleHorizontal_8bpc",
+      "period": 3094234550,
+      "share_roi": 0.07695943970594614
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "deflate_slow",
+      "period": 2690111352,
+      "share_roi": 0.0669081348072095
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingResampleVertical_8bpc",
+      "period": 2078641805,
+      "share_roi": 0.05169973577541384
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingZipEncode",
+      "period": 1851116567,
+      "share_roi": 0.04604075467605211
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::compositeBackground(unsigned char const*)",
+      "period": 1800257518,
+      "share_roi": 0.044775794359770575
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "deduce_unreachable",
+      "period": 1058822349,
+      "share_roi": 0.026334905583409556
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "subtype_traverse",
+      "period": 1010694167,
+      "share_roi": 0.025137867071643925
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "method_vectorcall",
+      "period": 945803278,
+      "share_roi": 0.023523908472590487
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+      "period": 904171357,
+      "share_roi": 0.02248844420436227
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "slide_hash",
+      "period": 768683081,
+      "share_roi": 0.019118595655652677
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_dict_lookup",
+      "period": 748843771,
+      "share_roi": 0.018625154658507656
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "strchr",
+      "period": 603071437,
+      "share_roi": 0.014999522222444253
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_IO_file_write@@GLIBC_2.17",
+      "period": 523441813,
+      "share_roi": 0.013018983530884765
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "gray_render_line",
+      "period": 424573876,
+      "share_roi": 0.010559951769248344
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "compress_block",
+      "period": 411366552,
+      "share_roi": 0.010231460751961081
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "gray_conic_to",
+      "period": 390555759,
+      "share_roi": 0.009713857143302381
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "gc_collect_main",
+      "period": 349391737,
+      "share_roi": 0.008690030404258555
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "adler32_z",
+      "period": 348373982,
+      "share_roi": 0.008664716920974645
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memcpy_generic",
+      "period": 334856274,
+      "share_roi": 0.00832850606915393
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_GC_Del",
+      "period": 295658750,
+      "share_roi": 0.007353589838288246
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingUnpackRGB",
+      "period": 292615561,
+      "share_roi": 0.007277899997529633
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_RichCompare",
+      "period": 274334116,
+      "share_roi": 0.006823206036396314
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "inflate_fast",
+      "period": 231349772,
+      "share_roi": 0.005754104461543934
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "gray_convert_glyph",
+      "period": 210238852,
+      "share_roi": 0.005229036129255726
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+      "period": 206125435,
+      "share_roi": 0.005126727702896479
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Lexer::getChar(bool)",
+      "period": 182699641,
+      "share_roi": 0.004544084095317695
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyTraceBack_Here",
+      "period": 178729096,
+      "share_roi": 0.004445329164626598
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_MakeTpCall",
+      "period": 176081617,
+      "share_roi": 0.0043794813766903995
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyUnicode_FromFormatV",
+      "period": 175792863,
+      "share_roi": 0.004372299520986264
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "tupledealloc",
+      "period": 175200010,
+      "share_roi": 0.00435755415053334
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyType_GenericAlloc",
+      "period": 175073567,
+      "share_roi": 0.004354409275031015
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Vector_Transform",
+      "period": 171362950,
+      "share_roi": 0.0042621192431446615
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "load_truetype_glyph",
+      "period": 149692296,
+      "share_roi": 0.0037231292722966465
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "bytes_concat",
+      "period": 125952095,
+      "share_roi": 0.003132665770599097
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_GetAttr",
+      "period": 122570190,
+      "share_roi": 0.003048551425117841
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyLong_New",
+      "period": 120760087,
+      "share_roi": 0.003003530755081676
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "subtype_dealloc",
+      "period": 120386311,
+      "share_roi": 0.0029942342421410105
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GetMethod",
+      "period": 117414513,
+      "share_roi": 0.0029203200299817377
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "vgetargskeywords",
+      "period": 117068117,
+      "share_roi": 0.0029117045091976456
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "func_traverse",
+      "period": 117010265,
+      "share_roi": 0.0029102656210222588
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyBytes_FromStringAndSize",
+      "period": 116452187,
+      "share_roi": 0.0028963851703007015
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dict_get",
+      "period": 116326464,
+      "share_roi": 0.0028932582025541385
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dict_traverse",
+      "period": 116294086,
+      "share_roi": 0.002892452900726325
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyUnicode_AsEncodedString",
+      "period": 115716574,
+      "share_roi": 0.002878089089830522
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memset_sve_zva64",
+      "period": 115194242,
+      "share_roi": 0.002865097709438726
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "memcmp",
+      "period": 114471892,
+      "share_roi": 0.002847131504752792
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "PyLong_FromLong@plt",
+      "period": 113617287,
+      "share_roi": 0.0028258758691805303
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "image_item",
+      "period": 113523712,
+      "share_roi": 0.002823548482728691
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+      "period": 106161061,
+      "share_roi": 0.0026404254884778433
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "TT_Load_Simple_Glyph",
+      "period": 101445435,
+      "share_roi": 0.002523138990328312
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Outline_Get_CBox",
+      "period": 88527376,
+      "share_roi": 0.002201842538277398
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_Vectorcall",
+      "period": 81803005,
+      "share_roi": 0.002034594769508572
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FlateStream::getChars(int, unsigned char*)",
+      "period": 75114194,
+      "share_roi": 0.0018682314448992695
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+      "period": 72383269,
+      "share_roi": 0.001800308197814151
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "pthread_mutex_lock@@GLIBC_2.17",
+      "period": 71659169,
+      "share_roi": 0.0017822984673329643
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "resize_compact",
+      "period": 70719137,
+      "share_roi": 0.0017589181014115573
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_io_BytesIO_seek",
+      "period": 70452965,
+      "share_roi": 0.0017522979025693555
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GenericGetAttrWithDict",
+      "period": 67236664,
+      "share_roi": 0.0016723024404006344
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "slot_tp_new",
+      "period": 64737056,
+      "share_roi": 0.0016101324826757102
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_string_to_number_with_underscores",
+      "period": 64440094,
+      "share_roi": 0.0016027464785559006
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "bytes_contains",
+      "period": 62333605,
+      "share_roi": 0.0015503541306045344
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "tuplehash",
+      "period": 60599302,
+      "share_roi": 0.001507218749299862
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "CharCodeToUnicode::mapToUnicode(unsigned int, unsigned int const**) const",
+      "period": 60389601,
+      "share_roi": 0.001502003090562622
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dict_ass_sub",
+      "period": 59867087,
+      "share_roi": 0.0014890071834881204
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_decode_utf8",
+      "period": 59409858,
+      "share_roi": 0.0014776350372953536
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyBuffer_IsContiguous",
+      "period": 59146670,
+      "share_roi": 0.0014710890561520273
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_tlsdesc_return",
+      "period": 58819445,
+      "share_roi": 0.0014629503542369518
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__GI___pthread_self",
+      "period": 58653230,
+      "share_roi": 0.0014588162742039032
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "get_pixel_8",
+      "period": 58632752,
+      "share_roi": 0.001458306947783804
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "sre_ucs1_match",
+      "period": 58624581,
+      "share_roi": 0.0014581037196278012
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "BaseException_clear",
+      "period": 58617503,
+      "share_roi": 0.0014579276764399185
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "type_traverse",
+      "period": 58581403,
+      "share_roi": 0.0014570298014635742
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_Free",
+      "period": 58545528,
+      "share_roi": 0.0014561375226609054
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GenericSetAttrWithDict",
+      "period": 58487931,
+      "share_roi": 0.001454704976815684
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_type_getattro_impl",
+      "period": 58427893,
+      "share_roi": 0.0014532117187040564
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_bytes_isspace",
+      "period": 58423591,
+      "share_roi": 0.001453104719863385
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "meth_dealloc",
+      "period": 58379757,
+      "share_roi": 0.0014520144857439095
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "do_super_lookup",
+      "period": 58379324,
+      "share_roi": 0.0014520037162185698
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "build_tree",
+      "period": 58301702,
+      "share_roi": 0.001450073110916249
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyMem_Malloc",
+      "period": 58213534,
+      "share_roi": 0.0014478802067357968
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "inflate",
+      "period": 58209463,
+      "share_roi": 0.0014477789533000988
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "insertdict",
+      "period": 58207441,
+      "share_roi": 0.0014477286623526704
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_Free",
+      "period": 58207194,
+      "share_roi": 0.0014477225189975691
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyUnicode_Substring",
+      "period": 58136015,
+      "share_roi": 0.001445952163237425
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "bytearray_dealloc",
+      "period": 58112205,
+      "share_roi": 0.0014453599637031659
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyFloat_AsDouble",
+      "period": 58097427,
+      "share_roi": 0.0014449924070161738
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_SetAttr",
+      "period": 58076255,
+      "share_roi": 0.0014444658195092719
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_iter",
+      "period": 58062872,
+      "share_roi": 0.0014441329590990663
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "tuplecontains",
+      "period": 58002165,
+      "share_roi": 0.001442623061697711
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "sem_trywait@@GLIBC_2.34",
+      "period": 57991598,
+      "share_roi": 0.0014423602405100372
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyErr_Format",
+      "period": 57963086,
+      "share_roi": 0.0014416510933819063
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GC_New",
+      "period": 57943423,
+      "share_roi": 0.001441162037546453
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_subscript",
+      "period": 57941973,
+      "share_roi": 0.0014411259733161015
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyUnicode_FormatLong",
+      "period": 57930314,
+      "share_roi": 0.00144083599203219
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_type_getattro",
+      "period": 57922175,
+      "share_roi": 0.001440633559776443
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyEvalFrameClearAndPop",
+      "period": 57904859,
+      "share_roi": 0.0014402028782503939
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_dealloc",
+      "period": 57901856,
+      "share_roi": 0.0014401281879857413
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dictiter_iternextitem",
+      "period": 57901663,
+      "share_roi": 0.001440123387712322
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "stringlib_bytes_join.lto_priv.1",
+      "period": 57901619,
+      "share_roi": 0.00144012229334947
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_in_weak_set",
+      "period": 57899143,
+      "share_roi": 0.0014400607105671589
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "memset@plt",
+      "period": 57890252,
+      "share_roi": 0.0014398395746553952
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyBytesWriter_Prepare",
+      "period": 57832119,
+      "share_roi": 0.001438393697480885
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "list_dealloc",
+      "period": 57824470,
+      "share_roi": 0.0014382034524478085
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyMethod_New",
+      "period": 57815488,
+      "share_roi": 0.0014379800531946914
+    },
+    {
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingZipDecode",
+      "period": 57805817,
+      "share_roi": 0.0014377395172141866
+    },
+    {
+      "dso": "[vdso]",
+      "function": "[unknown]",
+      "period": 57736734,
+      "share_roi": 0.001436021292920813
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "object_dealloc",
+      "period": 57651803,
+      "share_roi": 0.001433908899025636
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "BaseException_dealloc",
+      "period": 57229129,
+      "share_roi": 0.0014233962007499767
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Parser::getObj(bool, unsigned char const*, CryptAlgorithm, int, int, int, int, bool, bool)",
+      "period": 55887064,
+      "share_roi": 0.0013900165170899384
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "ft_smooth_render",
+      "period": 54053849,
+      "share_roi": 0.0013444210080938489
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_GlyphLoader_Adjust_Points",
+      "period": 52016205,
+      "share_roi": 0.001293740964927702
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::fillChar(double, double, int, SplashFont*)",
+      "period": 51960907,
+      "share_roi": 0.0012923655995415004
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "malloc",
+      "period": 51688362,
+      "share_roi": 0.0012855868921889317
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Array::get(int, int) const",
+      "period": 50672061,
+      "share_roi": 0.0012603095726229044
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FlateStream::getHuffmanCodeWord(FlateHuffmanTab*)",
+      "period": 50388004,
+      "share_roi": 0.0012532445401532255
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Object::fetch(XRef*, int) const",
+      "period": 49657565,
+      "share_roi": 0.0012350771468056941
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "cfree@GLIBC_2.17",
+      "period": 49548422,
+      "share_roi": 0.0012323625548792915
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FileStream::getChar()",
+      "period": 49316106,
+      "share_roi": 0.001226584418507979
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Outline_Decompose",
+      "period": 48810254,
+      "share_roi": 0.0012140029267480438
+    },
+    {
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Set_Transform",
+      "period": 48595101,
+      "share_roi": 0.0012086516665046813
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "do_lookup_x",
+      "period": 10166976,
+      "share_roi": 0.0002528718375482561
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_relocate_object_no_relro",
+      "period": 5241015,
+      "share_roi": 0.00013035391188766194
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "strcmp",
+      "period": 2718970,
+      "share_roi": 6.762590372383903e-05
+    },
+    {
+      "dso": "[unknown]",
+      "function": "[unknown]",
+      "period": 2554302,
+      "share_roi": 6.35303004937934e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "check_match",
+      "period": 1307089,
+      "share_roi": 3.250976468018736e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_check_map_versions",
+      "period": 1198820,
+      "share_roi": 2.98169107795278e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_lookup_symbol_x",
+      "period": 1107983,
+      "share_roi": 2.755762354334558e-05
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyStaticCode_Init",
+      "period": 974541,
+      "share_roi": 2.4238669731896197e-05
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "siphash13",
+      "period": 827248,
+      "share_roi": 2.0575215468996858e-05
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "hashtable_rehash",
+      "period": 815886,
+      "share_roi": 2.0292621134336946e-05
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "getenv",
+      "period": 729283,
+      "share_roi": 1.813864145078191e-05
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_nl_intern_locale_data",
+      "period": 694711,
+      "share_roi": 1.7278770711663583e-05
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_IO_file_fopen@@GLIBC_2.17",
+      "period": 693255,
+      "share_roi": 1.72425572500138e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_runtime_resolve",
+      "period": 691680,
+      "share_roi": 1.7203384034286872e-05
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "pthread_key_create@@GLIBC_2.34",
+      "period": 680120,
+      "share_roi": 1.6915865066792718e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_init",
+      "period": 673351,
+      "share_roi": 1.674750729075743e-05
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__libc_early_init",
+      "period": 671426,
+      "share_roi": 1.6699628915980072e-05
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyMem_SetAllocator",
+      "period": 622072,
+      "share_roi": 1.5472102002337648e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_name_match_p",
+      "period": 542033,
+      "share_roi": 1.3481381358802649e-05
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "vgetargs1_impl",
+      "period": 495848,
+      "share_roi": 1.2332673442391101e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "version_check_doit",
+      "period": 492391,
+      "share_roi": 1.2246691342855868e-05
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Lexer::getObj(int)",
+      "period": 474621,
+      "share_roi": 1.1804717981924112e-05
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_map_object",
+      "period": 386856,
+      "share_roi": 9.621837170321654e-06
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_cache_libcmp",
+      "period": 378846,
+      "share_roi": 9.422613387481848e-06
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyFunction_NewWithQualName",
+      "period": 366801,
+      "share_roi": 9.1230315567321e-06
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "malloc_consolidate",
+      "period": 289198,
+      "share_roi": 7.192898820188085e-06
+    },
+    {
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "pqdownheap",
+      "period": 278123,
+      "share_roi": 6.917442715949526e-06
+    },
+    {
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_add_to_namespace_list",
+      "period": 173438,
+      "share_roi": 4.313729643966352e-06
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__close",
+      "period": 7856,
+      "share_roi": 1.9539351285761865e-07
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 7158,
+      "share_roi": 1.7803293852276404e-07
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 6756,
+      "share_roi": 1.6803444155627183e-07
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyOS_setsig",
+      "period": 588,
+      "share_roi": 1.4624667204719929e-08
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "close@plt",
+      "period": 502,
+      "share_roi": 1.2485685266614634e-08
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "update_one_slot",
+      "period": 490,
+      "share_roi": 1.2187222670599941e-08
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyCMethod_New",
+      "period": 489,
+      "share_roi": 1.2162350787598717e-08
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dictresize",
+      "period": 418,
+      "share_roi": 1.0396447094511787e-08
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "type_call",
+      "period": 402,
+      "share_roi": 9.998496966492196e-09
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/select.cpython-312-aarch64-linux-gnu.so",
+      "function": "PyEval_RestoreThread@plt",
+      "period": 317,
+      "share_roi": 7.884386911388125e-09
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 111,
+      "share_roi": 2.760779013135905e-09
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__poll",
+      "period": 3,
+      "share_roi": 7.461564900367311e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_bytes_isalnum",
+      "period": 2,
+      "share_roi": 4.9743766002448736e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyTuple_FromArray",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "Py_XDECREF.lto_priv.39",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "OSError_new",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "allocate_from_new_pool",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "list_resize",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_int_malloc",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "alloc_perturb",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Lexer::lookChar()",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_add_methods_to_object",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "stringlib_isalnum.lto_priv.1",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    }
+  ],
+  "contexts": [
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "longest_match",
+      "period": 6446055360,
+      "share_roi": 0.16032553473333525
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingResampleHorizontal_8bpc",
+      "period": 3094234550,
+      "share_roi": 0.07695943970594614
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "deflate_slow",
+      "period": 2690111352,
+      "share_roi": 0.0669081348072095
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyEval_EvalFrameDefault",
+      "period": 2331611292,
+      "share_roi": 0.05799156325895759
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingResampleVertical_8bpc",
+      "period": 2078641805,
+      "share_roi": 0.05169973577541384
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyEval_EvalFrameDefault",
+      "period": 2046703743,
+      "share_roi": 0.05090537603406399
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingZipEncode",
+      "period": 1851116567,
+      "share_roi": 0.04604075467605211
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::compositeBackground(unsigned char const*)",
+      "period": 1800257518,
+      "share_roi": 0.044775794359770575
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "subtype_traverse",
+      "period": 952153422,
+      "share_roi": 0.023681848511199415
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "method_vectorcall",
+      "period": 945803278,
+      "share_roi": 0.023523908472590487
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "deduce_unreachable",
+      "period": 942743973,
+      "share_roi": 0.023447817796565427
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+      "period": 904171357,
+      "share_roi": 0.02248844420436227
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "slide_hash",
+      "period": 768683081,
+      "share_roi": 0.019118595655652677
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "strchr",
+      "period": 603071437,
+      "share_roi": 0.014999522222444253
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_dict_lookup",
+      "period": 573241400,
+      "share_roi": 0.01425759303225806
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_IO_file_write@@GLIBC_2.17",
+      "period": 523441813,
+      "share_roi": 0.013018983530884765
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "gray_render_line",
+      "period": 424573876,
+      "share_roi": 0.010559951769248344
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "compress_block",
+      "period": 411366552,
+      "share_roi": 0.010231460751961081
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "gray_conic_to",
+      "period": 390555759,
+      "share_roi": 0.009713857143302381
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_GC_Del",
+      "period": 295658750,
+      "share_roi": 0.007353589838288246
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingUnpackRGB",
+      "period": 292615561,
+      "share_roi": 0.007277899997529633
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "adler32_z",
+      "period": 232768227,
+      "share_roi": 0.005789384108346435
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "gc_collect_main",
+      "period": 232538041,
+      "share_roi": 0.0057836589490859154
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "inflate_fast",
+      "period": 231349772,
+      "share_roi": 0.005754104461543934
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_RichCompare",
+      "period": 215695229,
+      "share_roi": 0.005364746499610298
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "gray_convert_glyph",
+      "period": 210238852,
+      "share_roi": 0.005229036129255726
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+      "period": 206125435,
+      "share_roi": 0.005126727702896479
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Lexer::getChar(bool)",
+      "period": 182699640,
+      "share_roi": 0.004544084070445812
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyTraceBack_Here",
+      "period": 178729096,
+      "share_roi": 0.004445329164626598
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_MakeTpCall",
+      "period": 176081617,
+      "share_roi": 0.0043794813766903995
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyUnicode_FromFormatV",
+      "period": 175792863,
+      "share_roi": 0.004372299520986264
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_dict_lookup",
+      "period": 175224208,
+      "share_roi": 0.004358156000358203
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyType_GenericAlloc",
+      "period": 175073567,
+      "share_roi": 0.004354409275031015
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Vector_Transform",
+      "period": 171362950,
+      "share_roi": 0.0042621192431446615
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "load_truetype_glyph",
+      "period": 149692296,
+      "share_roi": 0.0037231292722966465
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "bytes_concat",
+      "period": 125952095,
+      "share_roi": 0.003132665770599097
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_GetAttr",
+      "period": 122570190,
+      "share_roi": 0.003048551425117841
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyLong_New",
+      "period": 120760087,
+      "share_roi": 0.003003530755081676
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GetMethod",
+      "period": 117414513,
+      "share_roi": 0.0029203200299817377
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memcpy_generic",
+      "period": 117363501,
+      "share_roi": 0.0029190512654860795
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "vgetargskeywords",
+      "period": 117068117,
+      "share_roi": 0.0029117045091976456
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memcpy_generic",
+      "period": 117019061,
+      "share_roi": 0.0029104843941051375
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "gc_collect_main",
+      "period": 116853696,
+      "share_roi": 0.00290637145517264
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "tupledealloc",
+      "period": 116572376,
+      "share_roi": 0.0028993744970467355
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyBytes_FromStringAndSize",
+      "period": 116452187,
+      "share_roi": 0.0028963851703007015
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dict_traverse",
+      "period": 116294086,
+      "share_roi": 0.002892452900726325
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyUnicode_AsEncodedString",
+      "period": 115716574,
+      "share_roi": 0.002878089089830522
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "adler32_z",
+      "period": 115605755,
+      "share_roi": 0.002875332812628209
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "memcmp",
+      "period": 114471892,
+      "share_roi": 0.002847131504752792
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "PyLong_FromLong@plt",
+      "period": 113617287,
+      "share_roi": 0.0028258758691805303
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "image_item",
+      "period": 113523712,
+      "share_roi": 0.002823548482728691
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+      "period": 106161061,
+      "share_roi": 0.0026404254884778433
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "TT_Load_Simple_Glyph",
+      "period": 101445435,
+      "share_roi": 0.002523138990328312
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memcpy_generic",
+      "period": 100473712,
+      "share_roi": 0.002498970409562713
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Outline_Get_CBox",
+      "period": 88527376,
+      "share_roi": 0.002201842538277398
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_Vectorcall",
+      "period": 81803005,
+      "share_roi": 0.002034594769508572
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FlateStream::getChars(int, unsigned char*)",
+      "period": 75114194,
+      "share_roi": 0.0018682314448992695
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+      "period": 72383269,
+      "share_roi": 0.001800308197814151
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "pthread_mutex_lock@@GLIBC_2.17",
+      "period": 71659169,
+      "share_roi": 0.0017822984673329643
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "resize_compact",
+      "period": 70719137,
+      "share_roi": 0.0017589181014115573
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_io_BytesIO_seek",
+      "period": 70452965,
+      "share_roi": 0.0017522979025693555
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GenericGetAttrWithDict",
+      "period": 67236664,
+      "share_roi": 0.0016723024404006344
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "slot_tp_new",
+      "period": 64737056,
+      "share_roi": 0.0016101324826757102
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_string_to_number_with_underscores",
+      "period": 64440094,
+      "share_roi": 0.0016027464785559006
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "bytes_contains",
+      "period": 62333605,
+      "share_roi": 0.0015503541306045344
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "subtype_dealloc",
+      "period": 62196403,
+      "share_roi": 0.0015469416585130005
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "tuplehash",
+      "period": 60599302,
+      "share_roi": 0.001507218749299862
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "CharCodeToUnicode::mapToUnicode(unsigned int, unsigned int const**) const",
+      "period": 60389601,
+      "share_roi": 0.001502003090562622
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dict_ass_sub",
+      "period": 59867087,
+      "share_roi": 0.0014890071834881204
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_decode_utf8",
+      "period": 59409858,
+      "share_roi": 0.0014776350372953536
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyBuffer_IsContiguous",
+      "period": 59146670,
+      "share_roi": 0.0014710890561520273
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memset_sve_zva64",
+      "period": 58835976,
+      "share_roi": 0.001463361511334845
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_tlsdesc_return",
+      "period": 58819445,
+      "share_roi": 0.0014629503542369518
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "deduce_unreachable",
+      "period": 58744821,
+      "share_roi": 0.0014610943148398684
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__GI___pthread_self",
+      "period": 58653230,
+      "share_roi": 0.0014588162742039032
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_RichCompare",
+      "period": 58638887,
+      "share_roi": 0.0014584595367860167
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "get_pixel_8",
+      "period": 58632752,
+      "share_roi": 0.001458306947783804
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "tupledealloc",
+      "period": 58627634,
+      "share_roi": 0.0014581796534866038
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "sre_ucs1_match",
+      "period": 58624581,
+      "share_roi": 0.0014581037196278012
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "BaseException_clear",
+      "period": 58617503,
+      "share_roi": 0.0014579276764399185
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "type_traverse",
+      "period": 58581403,
+      "share_roi": 0.0014570298014635742
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_Free",
+      "period": 58545091,
+      "share_roi": 0.0014561266536480338
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "subtype_traverse",
+      "period": 58540745,
+      "share_roi": 0.0014560185604445106
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "func_traverse",
+      "period": 58532055,
+      "share_roi": 0.00145580242378123
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GenericSetAttrWithDict",
+      "period": 58487931,
+      "share_roi": 0.001454704976815684
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "func_traverse",
+      "period": 58478210,
+      "share_roi": 0.0014544631972410289
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_type_getattro_impl",
+      "period": 58427893,
+      "share_roi": 0.0014532117187040564
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_bytes_isspace",
+      "period": 58423591,
+      "share_roi": 0.001453104719863385
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "meth_dealloc",
+      "period": 58379757,
+      "share_roi": 0.0014520144857439095
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "do_super_lookup",
+      "period": 58379324,
+      "share_roi": 0.0014520037162185698
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "build_tree",
+      "period": 58301702,
+      "share_roi": 0.001450073110916249
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyMem_Malloc",
+      "period": 58213534,
+      "share_roi": 0.0014478802067357968
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "inflate",
+      "period": 58209463,
+      "share_roi": 0.0014477789533000988
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dict_get",
+      "period": 58208147,
+      "share_roi": 0.0014477462219020692
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "insertdict",
+      "period": 58207441,
+      "share_roi": 0.0014477286623526704
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_Free",
+      "period": 58207194,
+      "share_roi": 0.0014477225189975691
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "subtype_dealloc",
+      "period": 58189908,
+      "share_roi": 0.00144729258362801
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyUnicode_Substring",
+      "period": 58136015,
+      "share_roi": 0.001445952163237425
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dict_get",
+      "period": 58118317,
+      "share_roi": 0.0014455119806520693
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "bytearray_dealloc",
+      "period": 58112205,
+      "share_roi": 0.0014453599637031659
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyFloat_AsDouble",
+      "period": 58097427,
+      "share_roi": 0.0014449924070161738
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyObject_SetAttr",
+      "period": 58076255,
+      "share_roi": 0.0014444658195092719
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_iter",
+      "period": 58062872,
+      "share_roi": 0.0014441329590990663
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "tuplecontains",
+      "period": 58002165,
+      "share_roi": 0.001442623061697711
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "sem_trywait@@GLIBC_2.34",
+      "period": 57991598,
+      "share_roi": 0.0014423602405100372
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyErr_Format",
+      "period": 57963086,
+      "share_roi": 0.0014416510933819063
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_GC_New",
+      "period": 57943423,
+      "share_roi": 0.001441162037546453
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_subscript",
+      "period": 57941973,
+      "share_roi": 0.0014411259733161015
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyUnicode_FormatLong",
+      "period": 57930314,
+      "share_roi": 0.00144083599203219
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_type_getattro",
+      "period": 57922175,
+      "share_roi": 0.001440633559776443
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyEvalFrameClearAndPop",
+      "period": 57904859,
+      "share_roi": 0.0014402028782503939
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "unicode_dealloc",
+      "period": 57901856,
+      "share_roi": 0.0014401281879857413
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dictiter_iternextitem",
+      "period": 57901663,
+      "share_roi": 0.001440123387712322
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "stringlib_bytes_join.lto_priv.1",
+      "period": 57901619,
+      "share_roi": 0.00144012229334947
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_in_weak_set",
+      "period": 57899143,
+      "share_roi": 0.0014400607105671589
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "memset@plt",
+      "period": 57890252,
+      "share_roi": 0.0014398395746553952
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyBytesWriter_Prepare",
+      "period": 57832119,
+      "share_roi": 0.001438393697480885
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "list_dealloc",
+      "period": 57824470,
+      "share_roi": 0.0014382034524478085
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyMethod_New",
+      "period": 57815488,
+      "share_roi": 0.0014379800531946914
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/_imaging.cpython-312-aarch64-linux-gnu.so",
+      "function": "ImagingZipDecode",
+      "period": 57805817,
+      "share_roi": 0.0014377395172141866
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "[vdso]",
+      "function": "[unknown]",
+      "period": 57736734,
+      "share_roi": 0.001436021292920813
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "object_dealloc",
+      "period": 57651803,
+      "share_roi": 0.001433908899025636
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "deduce_unreachable",
+      "period": 57333555,
+      "share_roi": 0.0014259934720042625
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "BaseException_dealloc",
+      "period": 57229129,
+      "share_roi": 0.0014233962007499767
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memset_sve_zva64",
+      "period": 56358265,
+      "share_roi": 0.0014017361732319984
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Parser::getObj(bool, unsigned char const*, CryptAlgorithm, int, int, int, int, bool, bool)",
+      "period": 55887064,
+      "share_roi": 0.0013900165170899384
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "ft_smooth_render",
+      "period": 54053849,
+      "share_roi": 0.0013444210080938489
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_GlyphLoader_Adjust_Points",
+      "period": 52016205,
+      "share_roi": 0.001293740964927702
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Splash::fillChar(double, double, int, SplashFont*)",
+      "period": 51960907,
+      "share_roi": 0.0012923655995415004
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "malloc",
+      "period": 51006782,
+      "share_roi": 0.0012686347141729571
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Array::get(int, int) const",
+      "period": 50672061,
+      "share_roi": 0.0012603095726229044
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FlateStream::getHuffmanCodeWord(FlateHuffmanTab*)",
+      "period": 50388004,
+      "share_roi": 0.0012532445401532255
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Object::fetch(XRef*, int) const",
+      "period": 49657565,
+      "share_roi": 0.0012350771468056941
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "cfree@GLIBC_2.17",
+      "period": 49548422,
+      "share_roi": 0.0012323625548792915
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FileStream::getChar()",
+      "period": 49316105,
+      "share_roi": 0.0012265843936360961
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Outline_Decompose",
+      "period": 48810254,
+      "share_roi": 0.0012140029267480438
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libfreetype.so.6.20.1",
+      "function": "FT_Set_Transform",
+      "period": 48595101,
+      "share_roi": 0.0012086516665046813
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "do_lookup_x",
+      "period": 5342213,
+      "share_roi": 0.00013287089670361985
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "strcmp",
+      "period": 2355738,
+      "share_roi": 5.859163991753829e-05
+    },
+    {
+      "script": "unknown:pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "do_lookup_x",
+      "period": 1570863,
+      "share_roi": 3.907032074695232e-05
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_relocate_object_no_relro",
+      "period": 1522725,
+      "share_roi": 3.7873038043039376e-05
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "[unknown]",
+      "function": "[unknown]",
+      "period": 1440209,
+      "share_roi": 3.582070974531035e-05
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "do_lookup_x",
+      "period": 1384129,
+      "share_roi": 3.4425894546601686e-05
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "do_lookup_x",
+      "period": 1360750,
+      "share_roi": 3.384441479391606e-05
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_check_map_versions",
+      "period": 1198820,
+      "share_roi": 2.98169107795278e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_relocate_object_no_relro",
+      "period": 1162718,
+      "share_roi": 2.8918986059417597e-05
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyStaticCode_Init",
+      "period": 974541,
+      "share_roi": 2.4238669731896197e-05
+    },
+    {
+      "script": "run_batch.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "siphash13",
+      "period": 827248,
+      "share_roi": 2.0575215468996858e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "hashtable_rehash",
+      "period": 815886,
+      "share_roi": 2.0292621134336946e-05
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_relocate_object_no_relro",
+      "period": 739279,
+      "share_roi": 1.838726079326215e-05
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "getenv",
+      "period": 729283,
+      "share_roi": 1.813864145078191e-05
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "check_match",
+      "period": 723676,
+      "share_roi": 1.7999184802794048e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "[unknown]",
+      "function": "[unknown]",
+      "period": 714998,
+      "share_roi": 1.7783346602109422e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_nl_intern_locale_data",
+      "period": 694711,
+      "share_roi": 1.7278770711663583e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_IO_file_fopen@@GLIBC_2.17",
+      "period": 693255,
+      "share_roi": 1.72425572500138e-05
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_runtime_resolve",
+      "period": 691680,
+      "share_roi": 1.7203384034286872e-05
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "malloc",
+      "period": 681184,
+      "share_roi": 1.6942328750306022e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "pthread_key_create@@GLIBC_2.34",
+      "period": 680120,
+      "share_roi": 1.6915865066792718e-05
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_init",
+      "period": 673351,
+      "share_roi": 1.674750729075743e-05
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__libc_early_init",
+      "period": 671426,
+      "share_roi": 1.6699628915980072e-05
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_relocate_object_no_relro",
+      "period": 629916,
+      "share_roi": 1.5667197052599248e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyMem_SetAllocator",
+      "period": 622072,
+      "share_roi": 1.5472102002337648e-05
+    },
+    {
+      "script": "build_field_values.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_relocate_object_no_relro",
+      "period": 621670,
+      "share_roi": 1.5462103505371153e-05
+    },
+    {
+      "script": "write_pdf_batch_summary.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "check_match",
+      "period": 583413,
+      "share_roi": 1.4510579877393312e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_lookup_symbol_x",
+      "period": 574692,
+      "share_roi": 1.4293672185739635e-05
+    },
+    {
+      "script": "extract_form_field_info.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_relocate_object_no_relro",
+      "period": 564707,
+      "share_roi": 1.404532643397241e-05
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_name_match_p",
+      "period": 542033,
+      "share_roi": 1.3481381358802649e-05
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_lookup_symbol_x",
+      "period": 533291,
+      "share_roi": 1.3263951357605945e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "do_lookup_x",
+      "period": 509021,
+      "share_roi": 1.266031075716623e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "vgetargs1_impl",
+      "period": 495848,
+      "share_roi": 1.2332673442391101e-05
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "version_check_doit",
+      "period": 492391,
+      "share_roi": 1.2246691342855868e-05
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Lexer::getObj(int)",
+      "period": 474621,
+      "share_roi": 1.1804717981924112e-05
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyEval_EvalFrameDefault",
+      "period": 470770,
+      "share_roi": 1.1708936360486396e-05
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "[unknown]",
+      "function": "[unknown]",
+      "period": 398270,
+      "share_roi": 9.90572484289763e-06
+    },
+    {
+      "script": "unknown:pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_map_object",
+      "period": 386856,
+      "share_roi": 9.621837170321654e-06
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_cache_libcmp",
+      "period": 378846,
+      "share_roi": 9.422613387481848e-06
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_dict_lookup",
+      "period": 378163,
+      "share_roi": 9.40562589139201e-06
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyFunction_NewWithQualName",
+      "period": 366801,
+      "share_roi": 9.1230315567321e-06
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "strcmp",
+      "period": 363232,
+      "share_roi": 9.03426380630073e-06
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "malloc_consolidate",
+      "period": 289198,
+      "share_roi": 7.192898820188085e-06
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libz.so.1.2.13",
+      "function": "pqdownheap",
+      "period": 278123,
+      "share_roi": 6.917442715949526e-06
+    },
+    {
+      "script": "pdftoppm",
+      "dso": "/usr/lib/ld-linux-aarch64.so.1",
+      "function": "_dl_add_to_namespace_list",
+      "period": 173438,
+      "share_roi": 4.313729643966352e-06
+    },
+    {
+      "script": "unknown:python",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__close",
+      "period": 5047,
+      "share_roi": 1.2552839350717938e-07
+    },
+    {
+      "script": "unknown:python",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 4138,
+      "share_roi": 1.0291985185906644e-07
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 2938,
+      "share_roi": 7.30735922575972e-08
+    },
+    {
+      "script": "unknown:python",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 2598,
+      "share_roi": 6.46171520371809e-08
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__close",
+      "period": 1919,
+      "share_roi": 4.772914347934956e-08
+    },
+    {
+      "script": "unknown:python",
+      "dso": "[unknown]",
+      "function": "[unknown]",
+      "period": 825,
+      "share_roi": 2.0519303476010104e-08
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 818,
+      "share_roi": 2.0345200295001533e-08
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 798,
+      "share_roi": 1.9847762634977048e-08
+    },
+    {
+      "script": "unknown:python",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyOS_setsig",
+      "period": 588,
+      "share_roi": 1.4624667204719929e-08
+    },
+    {
+      "script": "run_batch.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 538,
+      "share_roi": 1.3381073054658711e-08
+    },
+    {
+      "script": "unknown:python",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "close@plt",
+      "period": 502,
+      "share_roi": 1.2485685266614634e-08
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "update_one_slot",
+      "period": 490,
+      "share_roi": 1.2187222670599941e-08
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "PyCMethod_New",
+      "period": 489,
+      "share_roi": 1.2162350787598717e-08
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 480,
+      "share_roi": 1.1938503840587697e-08
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__close",
+      "period": 451,
+      "share_roi": 1.121721923355219e-08
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 440,
+      "share_roi": 1.0943628520538722e-08
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__close",
+      "period": 439,
+      "share_roi": 1.0918756637537498e-08
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyObject_Free",
+      "period": 437,
+      "share_roi": 1.086901287153505e-08
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "dictresize",
+      "period": 418,
+      "share_roi": 1.0396447094511787e-08
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "type_call",
+      "period": 402,
+      "share_roi": 9.998496966492196e-09
+    },
+    {
+      "script": "build_field_values.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 397,
+      "share_roi": 9.874137551486074e-09
+    },
+    {
+      "script": "extract_form_field_info.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 396,
+      "share_roi": 9.84926566848485e-09
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "malloc",
+      "period": 396,
+      "share_roi": 9.84926566848485e-09
+    },
+    {
+      "script": "write_pdf_batch_summary.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "child_exec",
+      "period": 368,
+      "share_roi": 9.152852944450567e-09
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/select.cpython-312-aarch64-linux-gnu.so",
+      "function": "PyEval_RestoreThread@plt",
+      "period": 317,
+      "share_roi": 7.884386911388125e-09
+    },
+    {
+      "script": "unknown:python",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 59,
+      "share_roi": 1.4674410970722378e-09
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 21,
+      "share_roi": 5.223095430257118e-10
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 18,
+      "share_roi": 4.4769389402203864e-10
+    },
+    {
+      "script": "build_field_values.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 3,
+      "share_roi": 7.461564900367311e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__poll",
+      "period": 3,
+      "share_roi": 7.461564900367311e-11
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 2,
+      "share_roi": 4.9743766002448736e-11
+    },
+    {
+      "script": "extract_form_field_info.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 2,
+      "share_roi": 4.9743766002448736e-11
+    },
+    {
+      "script": "run_batch.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 2,
+      "share_roi": 4.9743766002448736e-11
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_Py_bytes_isalnum",
+      "period": 2,
+      "share_roi": 4.9743766002448736e-11
+    },
+    {
+      "script": "write_pdf_batch_summary.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 2,
+      "share_roi": 4.9743766002448736e-11
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__vfork",
+      "period": 2,
+      "share_roi": 4.9743766002448736e-11
+    },
+    {
+      "script": "check_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "extract_form_field_info.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_PyTuple_FromArray",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "Py_XDECREF.lto_priv.39",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "OSError_new",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "run_batch.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "allocate_from_new_pool",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "list_resize",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "_int_malloc",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "alloc_perturb",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "convert_pdf_to_images.py",
+      "dso": "/usr/lib64/libc.so.6",
+      "function": "__memset_sve_zva64",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "FileStream::getChar()",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Lexer::getChar(bool)",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "pdfinfo",
+      "dso": "/usr/lib64/libpoppler.so.133.0.0",
+      "function": "Lexer::lookChar()",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "_add_methods_to_object",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "fill_fillable_fields.py",
+      "dso": "/opt/python-3.12.3/lib/libpython3.12.so.1.0",
+      "function": "stringlib_isalnum.lto_priv.1",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "write_pdf_batch_summary.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    },
+    {
+      "script": "verify_pdf_batch.py",
+      "dso": "/opt/python-3.12.3/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+      "function": "do_fork_exec",
+      "period": 1,
+      "share_roi": 2.4871883001224368e-11
+    }
+  ],
+  "quality": {
+    "unknown_leaf_dso_share": 6.35303004937934e-05,
+    "empty_stack_share": 0.0,
+    "unknown_leaf_symbol_share": 0.0014995515934146065,
+    "unresolved_script_share": 1.7641427637704435e-05,
+    "first_observation_inference_share": 0.0007953922229569968,
+    "unknown_categories_may_overlap": true
+  },
+  "dataset_id": "sba1919",
+  "pdf_applicant_count": 10,
+  "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "capture_quality": {
+    "aggregated_sample_events": 945,
+    "reported_lost_records": 0,
+    "reported_lost_sample_records": 0,
+    "perf_record_reported_lost_chunks": 0,
+    "quantified_lost_samples": null,
+    "note": "Loss diagnostics retain their native units; ROI attribution is unknown. No loss is converted into period.",
+    "perf_record_stderr": "[ perf record: Woken up 70 times to write data ]\n[ perf record: Captured and wrote 17.914 MB /results/perf.data (945 samples) ]\n",
+    "export_warnings": "",
+    "loss_recheck": {
+      "aggregated_sample_events": 945,
+      "reported_lost_records": 0,
+      "reported_lost_sample_records": 0,
+      "perf_record_reported_lost_chunks": 0,
+      "quantified_lost_samples": null,
+      "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+    }
+  }
+}

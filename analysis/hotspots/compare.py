@@ -125,6 +125,53 @@ def overlap(old,new):
                 note='Descriptive sets only; no similarity threshold or requirement for matching weights.')
 
 
+XLSX_SCRIPT_ROLES={
+    '结构检查':('inspect_xlsx_structure.py',),
+    '特征检查':('inspect_xlsx_features.py',),
+    '业务增强':('enhance_workbook.py','enhance_workforce_v2.py','enhance_energy_report_v2.py','enhance_workbook_v1.py'),
+    '重算与缓存扫描':('recalc.py',),
+    '公式检查':('inspect_xlsx_formulas.py',),
+    '缓存值检查':('inspect_xlsx_cached_values.py',),
+    '循环内业务验证':('verify_xlsx_enhanced.py',),
+    '摘要生成':('write_xlsx_summary.py',),
+    'CSV 导出':('export_xlsx_csv.py',),
+    'LibreOffice 主进程':('soffice.bin',),
+}
+
+
+def group_xlsx_processes(profile):
+    roles={script:role for role,scripts in XLSX_SCRIPT_ROLES.items() for script in scripts}
+    totals=Counter();members={}
+    for row in profile['processes']:
+        script=row['script']
+        role=roles.get(script,'未归属线程／进程' if script.startswith('unknown:') else '其他已识别脚本／程序')
+        totals[role]+=row['share_roi']
+        members.setdefault(role,set()).add(script)
+    return [dict(role=role,share_roi=value,scripts=sorted(members[role])) for role,value in totals.items()]
+
+
+def function_table(profiles,names):
+    maps={n:{(f['library'],f['function']):f['share_roi'] for f in profiles[n]['functions']} for n in names}
+    ranks={n:{(f['library'],f['function']):rank for rank,f in
+              enumerate(top_functions(profiles[n],len(profiles[n]['functions'])),1)} for n in names}
+    keys={key for n in names for key,rank in ranks[n].items() if rank<=10}
+    reference=ranks[names[0]]
+    ordered=sorted(keys,key=lambda key:(0,reference[key]) if reference.get(key,11)<=10
+                   else (1,-max(m.get(key,0) for m in maps.values()),key))
+    return [dict(library=key[0],function=key[1],
+                 reference_rank=reference[key] if reference.get(key,11)<=10 else None,
+                 datasets={n:dict(share_roi=maps[n].get(key),rank=ranks[n].get(key),
+                                  top10=ranks[n].get(key,11)<=10) for n in names}) for key in ordered]
+
+
+def hotspot_cell(row,name):
+    value=row['datasets'][name]
+    if value['share_roi'] is None:return '未采到'
+    text=f"{100*value['share_roi']:.2f}% · #{value['rank']}" if value['rank'] else f"{100*value['share_roi']:.2f}%"
+    if value['top10']:text+=' ✓'
+    return '**'+text+'**' if row['reference_rank'] is not None else text
+
+
 def compare(config_path):
     config_path=Path(config_path)
     config=json.loads(config_path.read_text())
@@ -140,11 +187,14 @@ def compare(config_path):
                                dict(title='XLSX',datasets=['tlc','hr_metro'])])
     pairs={new:overlap(profiles[group['datasets'][0]],profiles[new])
            for group in groups for new in group['datasets'][1:]}
+    presentation=dict(xlsx_process_groups={n:group_xlsx_processes(profiles[n])
+                      for group in groups if group.get('process_grouping')=='xlsx-role' for n in group['datasets']},
+                      function_tables={group['title']:function_table(profiles,group['datasets']) for group in groups})
     output=ROOT/config['output']
     output.mkdir(parents=True,exist_ok=False)
     write(output/'comparison.json',dict(scope='shared dominant hotspots; weights descriptive',
         denominator='complete workload ROI cycles:u sample period; unknown retained',
-        profiles=profiles,historical_profiles=historical_profiles,comparisons=pairs,inputs=config,config_sha256=sha(config_path),
+        profiles=profiles,historical_profiles=historical_profiles,comparisons=pairs,presentation=presentation,inputs=config,config_sha256=sha(config_path),
         analysis_source_sha256=sha(Path(__file__))))
     pct=lambda value:f'{100*value:.2f}%'
     assessment=config['assessment']
@@ -159,8 +209,15 @@ def compare(config_path):
         '选取数据集时同时考虑来源、领域覆盖、数据规模和任务形态。XLSX 选用百万单元格量级的真实业务工作簿，'
         '覆盖明细记录与统计发布表；PDF 选用具有原生可填写字段的公开业务表单，覆盖不同页数、字段规模和字段类型。'
         '在更换业务数据的同时，延续原有工作簿增强与批量表单处理任务。',
-        '', '### XLSX：四个领域的真实工作簿','',
-        '| 数据集 | 领域与来源 | 输入规模 | 数据组织与任务 |','|---|---|---|---|']
+    ]
+    selection=assessment.get('selection_rationale',{})
+    if selection:
+        lines+=['',selection['introduction'],'',
+                '| 数据集 | 发布方说明与来源 | 本评估的选择理由 |','|---|---|---|']
+        for row in selection['datasets']:lines.append('| '+' | '.join(row)+' |')
+        lines+=['',selection['size_note']]
+    lines+=['', '### XLSX：四个领域的真实工作簿','',
+            '| 数据集 | 领域与来源 | 输入规模 | 数据组织与任务 |','|---|---|---|---|']
     for row in assessment['xlsx_datasets']:
         lines.append('| '+' | '.join(row)+' |')
     lines+=['','TLC 保留基于真实出行记录构建的原有业务工作簿；三个新增 XLSX 使用发布方原始工作簿，保留原有工作表和数据，'
@@ -205,19 +262,34 @@ def compare(config_path):
     lines += ['', '| 配置 | ROI 样本数 | 采样配置 |','|---|---:|---|']
     for name,p in profiles.items():
         status=(f"历史 {len(p['repeats'])} 次重复，各 {p['loops_per_repeat']} 轮，{p['sample_rate_hz']} Hz"
-                if 'repeats' in p else '单轮，49 Hz；执行与业务验证成功')
+                if 'repeats' in p else
+                f"{p['repetitions']} 次独立重复，每次 {p['loops_per_repetition']} 轮、{p['pdf_applicant_count']} 份，49 Hz；全部执行与业务验证成功"
+                if p.get('repetitions',1)>1 else '单轮，49 Hz；执行与业务验证成功')
         lines.append(f"| {name} | {p['roi_samples']:,} | {status} |")
     for group in groups:
         title,names=group['title'],group['datasets']
-        lines+=['',f'### {title}','', '#### 主要脚本／进程','',
-                '| 实际脚本／程序（历史仅有角色时注明） | '+' | '.join(names)+' |',
-                '|---|'+'---:|'*len(names)]
-        maps={n:{i['script']:i['share_roi'] for i in profiles[n]['processes']} for n in names}
-        keys=set().union(*(set(m) for m in maps.values()))
-        selected=sorted((k for k in keys if max(m.get(k,0) for m in maps.values())>=.005),
-                        key=lambda k:-max(m.get(k,0) for m in maps.values()))
-        for key in selected:
-            lines.append('| `'+key+'` | '+' | '.join(pct(maps[n][key]) if key in maps[n] else '—' for n in names)+' |')
+        lines+=['',f'### {title}','', '#### 主要脚本／进程','']
+        if group.get('process_grouping')=='xlsx-role':
+            lines+=['按职责合并不同名称的脚本，占比为对应采样 period 之和；实际脚本保持独立。未归属线程单列。',
+                    '', '| 职责 | 对应脚本／程序 | '+' | '.join(names)+' |','|---|---|'+'---:|'*len(names)]
+            rows={n:{r['role']:r for r in presentation['xlsx_process_groups'][n]} for n in names}
+            roles=[*XLSX_SCRIPT_ROLES,'其他已识别脚本／程序','未归属线程／进程']
+            for role in roles:
+                if not any(role in rows[n] for n in names):continue
+                scripts=XLSX_SCRIPT_ROLES.get(role)
+                label='、'.join('`'+s+'`' for s in scripts) if scripts else (
+                    '`unknown:*`（保留未归属状态）' if role=='未归属线程／进程' else '其余已识别程序')
+                lines.append('| '+role+' | '+label+' | '+' | '.join(
+                    pct(rows[n][role]['share_roi']) if role in rows[n] else '—' for n in names)+' |')
+        else:
+            lines+=['| 实际脚本／程序（历史仅有角色时注明） | '+' | '.join(names)+' |',
+                    '|---|'+'---:|'*len(names)]
+            maps={n:{i['script']:i['share_roi'] for i in profiles[n]['processes']} for n in names}
+            keys=set().union(*(set(m) for m in maps.values()))
+            selected=sorted((k for k in keys if max(m.get(k,0) for m in maps.values())>=.005),
+                            key=lambda k:-max(m.get(k,0) for m in maps.values()))
+            for key in selected:
+                lines.append('| `'+key+'` | '+' | '.join(pct(maps[n][key]) if key in maps[n] else '—' for n in names)+' |')
         lines+=['','“—”表示该采样结果中没有对应标签。',
                 '', '#### 主要库','', '| 库 | '+' | '.join(names)+' |','|---|'+'---:|'*len(names)]
         maps={n:{i['library']:i['share_roi'] for i in profiles[n]['libraries']} for n in names}
@@ -225,16 +297,26 @@ def compare(config_path):
         for key in sorted(keys,key=lambda k:-max(m.get(k,0) for m in maps.values())):
             if max(m.get(key,0) for m in maps.values())>=.005:
                 lines.append('| '+key+' | '+' | '.join(pct(maps[n].get(key,0)) for n in names)+' |')
-        lines+=['','#### 主要热点函数（各配置 Top-10 的并集）','', '| 库／物理叶函数 | '+' | '.join(names)+' |','|---|'+'---:|'*len(names)]
-        maps={n:{(i['library'],i['function']):i['share_roi'] for i in profiles[n]['functions']} for n in names}
-        keys={(f['library'],f['function']) for n in names for f in top_functions(profiles[n],10)}
-        for key in sorted(keys,key=lambda k:-max(m.get(k,0) for m in maps.values())):
-            label=(key[0]+' / '+key[1]).replace('|','&#124;')
-            lines.append('| `'+label+'` | '+' | '.join(pct(maps[n][key]) if key in maps[n] else '未采到' for n in names)+' |')
+        lines+=['','#### 主要热点函数（各配置 Top-10 的并集）','',
+                f'★ 标记原用例 `{names[0]}` 的 Top-10，优先按其排名排列；粗体突出这些函数在各列的占比。'
+                '✓ 表示进入本列数据集的 Top-10；# 为该列函数排名。其余行补充新数据集的 Top-10 函数。',
+                '', '| 库／物理叶函数 | '+' | '.join(names)+' |','|---|'+'---:|'*len(names)]
+        for row in presentation['function_tables'][title]:
+            label=(row['library']+' / '+row['function']).replace('|','&#124;')
+            prefix=f"★ #{row['reference_rank']} · " if row['reference_rank'] is not None else ''
+            lines.append('| '+prefix+'`'+label+'` | '+' | '.join(hotspot_cell(row,n) for n in names)+' |')
         lines+=['','#### 共同热点','', '| 对照 | Top-10 共同函数数 | 旧 Top-10 在新 Top-20 中出现 |','|---|---:|---:|']
         for new in names[1:]:
             c=pairs[new]
             lines.append(f"| {names[0]} → {new} | {c['common_top10_count']} / 10 | {c['old_top10_in_new_top20_count']} / 10 |")
+        if all(profiles[n].get('repetitions',1)>1 for n in names):
+            top5_sets=[{(f['library'],f['function']) for f in top_functions(profiles[n],5)} for n in names]
+            common5=set.intersection(*top5_sets)
+            lines+=['','#### 五轮合并 Top-5','',
+                    f'各数据集五轮合并后的 Top-5 有 {len(common5)} 个共同函数；下表为各自 Top-5 的累计占比。',
+                    '', '| 数据集 | Top-5 累计 ROI 占比 |','|---|---:|']
+            for n in names:
+                lines.append(f"| {n} | {pct(sum(f['share_roi'] for f in top_functions(profiles[n],5)))} |")
     lines+=['','### 热点函数与执行脚本的对应关系','']
     for name in profiles:
         if 'contexts' not in profiles[name]:continue
