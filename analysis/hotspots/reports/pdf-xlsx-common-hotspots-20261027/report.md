@@ -59,16 +59,18 @@ XLSX 提示词要求保留原表，新增业务 Summary、跨表公式、情景�
 
 ## 四、热点函数对比与代表性评估
 
-本轮比较三个 PDF（OPM、W-4、SBA 1919，均为十条记录）以及 XLSX 的 TLC 与 HR Metro。旧 OPM/TLC 使用已有采样结果，新增用例使用当前轨迹回放的采样结果。
+本轮覆盖七个正式用例：PDF 为 OPM、W-4、SBA 1919，均批处理十条记录；XLSX 为 TLC、HR Metro、eGRID 和 Industry Productivity。OPM、TLC、eGRID 和 Industry Productivity 本轮各重新采集一轮，W-4、SBA 和 HR 复用此前同一镜像的单轮采样。主表以本轮 OPM/TLC 为基准，七例均使用同一回放镜像和 49 Hz 采样配置，工作负载绑定逻辑 CPU 0–7，监测进程绑定 CPU 9。
 采用 perf 的 `cycles:u` 事件采集原生调用栈，按物理叶函数统计热点，并关联脚本、进程和动态库。表中比例为正式循环内已观测用户态样本的 period 占比；Top-10/Top-20 用于查看主要函数的共同出现情况，权重用于描述各自分布。
 
 | 配置 | ROI 样本数 | 采样配置 |
 |---|---:|---|
-| opm-n10 | 6,413 | 历史 2 次重复，各 3 轮，99 Hz |
-| tlc | 73,622 | 历史 2 次重复，各 1 轮，49 Hz |
+| opm-n10 | 548 | 单轮，49 Hz；执行与业务验证成功 |
 | irs_w4 | 711 | 单轮，49 Hz；执行与业务验证成功 |
 | sba1919 | 927 | 单轮，49 Hz；执行与业务验证成功 |
+| tlc | 33,584 | 单轮，49 Hz；执行与业务验证成功 |
 | hr_metro | 40,840 | 单轮，49 Hz；执行与业务验证成功 |
+| egrid | 50,874 | 单轮，49 Hz；执行与业务验证成功 |
+| industry_productivity | 54,048 | 单轮，49 Hz；执行与业务验证成功 |
 
 ### PDF（全部 N=10）
 
@@ -76,12 +78,12 @@ XLSX 提示词要求保留原表，新增业务 Summary、跨表公式、情景�
 
 | 实际脚本／程序（历史仅有角色时注明） | opm-n10 | irs_w4 | sba1919 |
 |---|---:|---:|---:|
-| `convert_pdf_to_images.py` | 36.69% | 44.32% | 44.97% |
-| `fill_fillable_fields.py` | 35.05% | 35.81% | 25.72% |
-| `pdftoppm` | 13.33% | 6.25% | 16.42% |
-| `verify_pdf_batch.py` | 11.11% | 13.36% | 11.74% |
-| `extract_form_field_info.py` | 1.71% | — | 0.00% |
-| `check_fillable_fields.py` | 1.66% | 0.00% | 1.12% |
+| `convert_pdf_to_images.py` | 46.98% | 44.32% | 44.97% |
+| `fill_fillable_fields.py` | 29.82% | 35.81% | 25.72% |
+| `pdftoppm` | 6.08% | 6.25% | 16.42% |
+| `verify_pdf_batch.py` | 13.44% | 13.36% | 11.74% |
+| `check_fillable_fields.py` | 2.35% | 0.00% | 1.12% |
+| `extract_form_field_info.py` | 1.26% | — | 0.00% |
 
 “—”表示该采样结果中没有对应标签。
 
@@ -89,102 +91,122 @@ XLSX 提示词要求保留原表，新增业务 Summary、跨表公式、情景�
 
 | 库 | opm-n10 | irs_w4 | sba1919 |
 |---|---:|---:|---:|
-| libpython | 48.49% | 46.72% | 36.12% |
-| zlib | 16.55% | 26.44% | 22.47% |
-| Pillow | 16.97% | 19.23% | 23.57% |
-| Poppler | 8.58% | 3.82% | 7.09% |
-| FreeType | 2.79% | 1.32% | 8.49% |
-| libc | 3.04% | 1.94% | 1.62% |
-| unknown | 2.60% | 0.23% | 0.14% |
-| other | 0.54% | 0.21% | 0.43% |
+| libpython | 47.33% | 46.72% | 36.12% |
+| zlib | 23.82% | 26.44% | 22.47% |
+| Pillow | 22.36% | 19.23% | 23.57% |
+| FreeType | 0.25% | 1.32% | 8.49% |
+| Poppler | 5.50% | 3.82% | 7.09% |
+| libc | 0.30% | 1.94% | 1.62% |
 
 #### 主要热点函数（各配置 Top-10 的并集）
 
 | 库／物理叶函数 | opm-n10 | irs_w4 | sba1919 |
 |---|---:|---:|---:|
-| `libpython / _PyEval_EvalFrameDefault` | 15.33% | 22.85% | 13.73% |
-| `zlib / longest_match` | 7.63% | 9.88% | 10.77% |
-| `Pillow / ImagingResampleHorizontal_8bpc` | 7.12% | 9.06% | 9.57% |
-| `zlib / deflate_slow` | 4.88% | 6.58% | 6.73% |
-| `Pillow / ImagingZipEncode` | 4.17% | 4.53% | 6.29% |
-| `zlib / compress_block` | 0.97% | 4.67% | 1.91% |
-| `Pillow / ImagingResampleVertical_8bpc` | 3.31% | 4.05% | 4.21% |
-| `FreeType / gray_render_line` | 0.65% | 未采到 | 2.82% |
-| `zlib / slide_hash` | 1.35% | 2.60% | 1.90% |
-| `libpython / do_super_lookup` | 0.15% | 未采到 | 2.55% |
-| `zlib / inflate_fast` | 1.06% | 2.26% | 0.44% |
-| `Poppler / Splash::pipeRunAARGB8(SplashPipe*)` | 1.84% | 1.25% | 1.99% |
-| `libpython / gc_collect_main` | 1.95% | 1.93% | 1.24% |
-| `FreeType / gray_set_cell` | 0.42% | 未采到 | 1.94% |
-| `libc / __memcpy_generic` | 1.65% | 0.46% | 0.43% |
-| `Poppler / Splash::compositeBackground(unsigned char const*)` | 1.60% | 0.68% | 1.45% |
+| `libpython / _PyEval_EvalFrameDefault` | 13.42% | 22.85% | 13.73% |
+| `zlib / longest_match` | 11.15% | 9.88% | 10.77% |
+| `Pillow / ImagingResampleHorizontal_8bpc` | 2.48% | 9.06% | 9.57% |
+| `zlib / deflate_slow` | 6.72% | 6.58% | 6.73% |
+| `Pillow / ImagingZipEncode` | 6.55% | 4.53% | 6.29% |
+| `Pillow / ImagingUnpackRGB` | 6.08% | 0.65% | 1.49% |
+| `Pillow / ImagingResampleVertical_8bpc` | 5.49% | 4.05% | 4.21% |
+| `libpython / code_dealloc` | 5.02% | 未采到 | 0.15% |
+| `libpython / deduce_unreachable` | 4.87% | 1.34% | 0.45% |
+| `libpython / PyType_GenericAlloc` | 4.75% | 0.43% | 0.29% |
+| `libpython / tupledealloc` | 4.71% | 0.43% | 0.29% |
+| `zlib / compress_block` | 未采到 | 4.67% | 1.91% |
+| `FreeType / gray_render_line` | 0.00% | 未采到 | 2.82% |
+| `zlib / slide_hash` | 2.47% | 2.60% | 1.90% |
+| `libpython / do_super_lookup` | 未采到 | 未采到 | 2.55% |
+| `zlib / inflate_fast` | 0.30% | 2.26% | 0.44% |
+| `Poppler / Splash::pipeRunAARGB8(SplashPipe*)` | 0.25% | 1.25% | 1.99% |
+| `FreeType / gray_set_cell` | 未采到 | 未采到 | 1.94% |
+| `libpython / gc_collect_main` | 0.89% | 1.93% | 1.24% |
 
 #### 共同热点
 
 | 对照 | Top-10 共同函数数 | 旧 Top-10 在新 Top-20 中出现 |
 |---|---:|---:|
-| opm-n10 → irs_w4 | 7 / 10 | 9 / 10 |
-| opm-n10 → sba1919 | 7 / 10 | 9 / 10 |
+| opm-n10 → irs_w4 | 5 / 10 | 6 / 10 |
+| opm-n10 → sba1919 | 5 / 10 | 6 / 10 |
 
-### XLSX
+### XLSX（四个领域）
 
 #### 主要脚本／进程
 
-| 实际脚本／程序（历史仅有角色时注明） | tlc | hr_metro |
-|---|---:|---:|
-| `recalc.py` | 11.49% | 24.80% |
-| `enhance_workforce_v2.py` | — | 24.74% |
-| `enhance_workbook.py` | 21.87% | — |
-| `inspect_xlsx_structure.py` | 12.46% | 10.39% |
-| `verify_xlsx_enhanced.py` | 10.24% | 11.30% |
-| `inspect_xlsx_formulas.py` | 8.22% | 10.75% |
-| `inspect_xlsx_features.py` | 10.41% | 10.25% |
-| `write_xlsx_summary.py / export_xlsx.py（历史合并角色）` | 8.49% | — |
-| `inspect_xlsx_cached_values.py` | 8.12% | — |
-| `soffice.bin` | 4.59% | 3.65% |
-| `LibreOffice 线程` | 3.34% | — |
-| `unknown:thread-pool` | — | 2.54% |
-| `unknown:Parser` | — | 1.54% |
-| `python-unknown-script` | 0.77% | — |
+| 实际脚本／程序（历史仅有角色时注明） | tlc | hr_metro | egrid | industry_productivity |
+|---|---:|---:|---:|---:|
+| `enhance_energy_report_v2.py` | — | — | 25.25% | — |
+| `recalc.py` | 11.74% | 24.80% | 23.44% | 22.77% |
+| `enhance_workforce_v2.py` | — | 24.74% | — | — |
+| `enhance_workbook.py` | 22.12% | — | — | — |
+| `enhance_workbook_v1.py` | — | — | — | 20.38% |
+| `inspect_xlsx_structure.py` | 12.50% | 10.39% | 0.31% | 8.52% |
+| `verify_xlsx_enhanced.py` | 9.98% | 11.30% | 11.87% | 10.29% |
+| `inspect_xlsx_formulas.py` | 8.08% | 10.75% | 11.43% | 10.07% |
+| `inspect_xlsx_cached_values.py` | 7.95% | — | 11.18% | 10.25% |
+| `inspect_xlsx_features.py` | 10.73% | 10.25% | 10.72% | 8.41% |
+| `write_xlsx_summary.py` | 8.57% | 0.00% | 0.00% | 0.00% |
+| `soffice.bin` | 4.63% | 3.65% | 3.03% | 4.56% |
+| `unknown:thread-pool` | 1.86% | 2.54% | 1.61% | 3.34% |
+| `unknown:Parser` | 1.07% | 1.54% | 0.96% | 1.37% |
+| `export_xlsx_csv.py` | 0.77% | 0.00% | 0.19% | 0.00% |
 
 “—”表示该采样结果中没有对应标签。
 
 #### 主要库
 
-| 库 | tlc | hr_metro |
-|---|---:|---:|
-| libpython | 78.45% | 79.63% |
-| LibreOffice | 6.42% | 6.52% |
-| expat | 5.86% | 4.97% |
-| ElementTree | 3.11% | 3.52% |
-| libc | 1.50% | 2.35% |
-| unknown | 2.09% | 0.09% |
-| zlib | 1.73% | 2.04% |
+| 库 | tlc | hr_metro | egrid | industry_productivity |
+|---|---:|---:|---:|---:|
+| libpython | 79.33% | 79.63% | 82.13% | 78.82% |
+| LibreOffice | 6.44% | 6.52% | 4.77% | 8.15% |
+| expat | 5.65% | 4.97% | 4.84% | 5.36% |
+| ElementTree | 3.72% | 3.52% | 3.07% | 2.99% |
+| libc | 2.52% | 2.35% | 2.08% | 2.33% |
+| zlib | 1.45% | 2.04% | 1.96% | 1.44% |
+| other | 0.42% | 0.47% | 0.62% | 0.46% |
 
 #### 主要热点函数（各配置 Top-10 的并集）
 
-| 库／物理叶函数 | tlc | hr_metro |
-|---|---:|---:|
-| `libpython / _PyEval_EvalFrameDefault` | 23.04% | 21.95% |
-| `libpython / gc_collect_main` | 5.28% | 7.22% |
-| `libpython / _Py_dict_lookup` | 3.64% | 4.92% |
-| `libpython / subtype_traverse` | 3.84% | 4.70% |
-| `libpython / deduce_unreachable` | 3.27% | 4.35% |
-| `libpython / visit_reachable` | 2.79% | 3.26% |
-| `libpython / _PyObject_GenericGetAttrWithDict` | 1.87% | 1.16% |
-| `libpython / tupledealloc` | 1.65% | 1.70% |
-| `libpython / dictiter_iternextkey` | 1.59% | 0.88% |
-| `libpython / PyObject_GC_Del` | 1.53% | 0.99% |
-| `expat / storeAtts` | 1.41% | 1.19% |
-| `ElementTree / checkpath` | 0.97% | 1.13% |
+| 库／物理叶函数 | tlc | hr_metro | egrid | industry_productivity |
+|---|---:|---:|---:|---:|
+| `libpython / _PyEval_EvalFrameDefault` | 23.83% | 21.95% | 22.45% | 21.58% |
+| `libpython / gc_collect_main` | 5.07% | 7.22% | 7.17% | 7.05% |
+| `libpython / subtype_traverse` | 3.77% | 4.70% | 5.40% | 4.23% |
+| `libpython / _Py_dict_lookup` | 3.71% | 4.92% | 4.97% | 4.91% |
+| `libpython / deduce_unreachable` | 3.27% | 4.35% | 4.48% | 4.13% |
+| `libpython / visit_reachable` | 2.88% | 3.26% | 3.21% | 3.20% |
+| `libpython / _PyObject_GenericGetAttrWithDict` | 2.01% | 1.16% | 1.28% | 1.45% |
+| `libpython / dictiter_iternextkey` | 1.90% | 0.88% | 0.70% | 0.78% |
+| `libpython / tupledealloc` | 1.59% | 1.70% | 1.51% | 1.58% |
+| `libpython / PyObject_GC_Del` | 1.65% | 0.99% | 1.34% | 0.98% |
+| `expat / storeAtts` | 1.38% | 1.19% | 1.26% | 1.20% |
+| `libpython / dict_dealloc` | 0.79% | 0.99% | 1.01% | 1.22% |
+| `ElementTree / checkpath` | 1.05% | 1.13% | 1.09% | 1.00% |
 
 #### 共同热点
 
 | 对照 | Top-10 共同函数数 | 旧 Top-10 在新 Top-20 中出现 |
 |---|---:|---:|
 | tlc → hr_metro | 8 / 10 | 10 / 10 |
+| tlc → egrid | 9 / 10 | 9 / 10 |
+| tlc → industry_productivity | 8 / 10 | 9 / 10 |
 
 ### 热点函数与执行脚本的对应关系
+
+#### opm-n10
+
+| 实际脚本／程序 | 库 | 物理叶函数 | ROI 占比 |
+|---|---|---|---:|
+| `convert_pdf_to_images.py` | zlib | `longest_match` | 11.15% |
+| `convert_pdf_to_images.py` | zlib | `deflate_slow` | 6.72% |
+| `fill_fillable_fields.py` | libpython | `_PyEval_EvalFrameDefault` | 6.65% |
+| `convert_pdf_to_images.py` | Pillow | `ImagingZipEncode` | 6.55% |
+| `convert_pdf_to_images.py` | Pillow | `ImagingUnpackRGB` | 5.75% |
+| `convert_pdf_to_images.py` | Pillow | `ImagingResampleVertical_8bpc` | 5.49% |
+| `fill_fillable_fields.py` | libpython | `PyType_GenericAlloc` | 4.75% |
+| `verify_pdf_batch.py` | libpython | `_PyEval_EvalFrameDefault` | 4.71% |
+| `fill_fillable_fields.py` | libpython | `tupledealloc` | 4.71% |
+| `convert_pdf_to_images.py` | libpython | `code_dealloc` | 4.56% |
 
 #### irs_w4
 
@@ -216,6 +238,21 @@ XLSX 提示词要求保留原表，新增业务 Summary、跨表公式、情景�
 | `fill_fillable_fields.py` | libpython | `do_super_lookup` | 2.55% |
 | `pdftoppm` | Poppler | `Splash::pipeRunAARGB8(SplashPipe*)` | 1.99% |
 
+#### tlc
+
+| 实际脚本／程序 | 库 | 物理叶函数 | ROI 占比 |
+|---|---|---|---:|
+| `enhance_workbook.py` | libpython | `_PyEval_EvalFrameDefault` | 6.82% |
+| `recalc.py` | libpython | `_PyEval_EvalFrameDefault` | 3.40% |
+| `inspect_xlsx_structure.py` | libpython | `_PyEval_EvalFrameDefault` | 3.35% |
+| `inspect_xlsx_features.py` | libpython | `_PyEval_EvalFrameDefault` | 2.53% |
+| `verify_xlsx_enhanced.py` | libpython | `_PyEval_EvalFrameDefault` | 2.25% |
+| `inspect_xlsx_formulas.py` | libpython | `_PyEval_EvalFrameDefault` | 1.84% |
+| `write_xlsx_summary.py` | libpython | `_PyEval_EvalFrameDefault` | 1.74% |
+| `inspect_xlsx_cached_values.py` | libpython | `_PyEval_EvalFrameDefault` | 1.72% |
+| `inspect_xlsx_structure.py` | libpython | `dictiter_iternextkey` | 1.32% |
+| `enhance_workbook.py` | libpython | `gc_collect_main` | 0.88% |
+
 #### hr_metro
 
 | 实际脚本／程序 | 库 | 物理叶函数 | ROI 占比 |
@@ -231,16 +268,47 @@ XLSX 提示词要求保留原表，新增业务 Summary、跨表公式、情景�
 | `recalc.py` | libpython | `subtype_traverse` | 1.29% |
 | `enhance_workforce_v2.py` | libpython | `gc_collect_main` | 1.15% |
 
+#### egrid
+
+| 实际脚本／程序 | 库 | 物理叶函数 | ROI 占比 |
+|---|---|---|---:|
+| `enhance_energy_report_v2.py` | libpython | `_PyEval_EvalFrameDefault` | 8.00% |
+| `recalc.py` | libpython | `_PyEval_EvalFrameDefault` | 6.05% |
+| `verify_xlsx_enhanced.py` | libpython | `_PyEval_EvalFrameDefault` | 2.40% |
+| `inspect_xlsx_formulas.py` | libpython | `_PyEval_EvalFrameDefault` | 2.15% |
+| `inspect_xlsx_cached_values.py` | libpython | `_PyEval_EvalFrameDefault` | 1.97% |
+| `inspect_xlsx_features.py` | libpython | `_PyEval_EvalFrameDefault` | 1.79% |
+| `recalc.py` | libpython | `gc_collect_main` | 1.75% |
+| `recalc.py` | libpython | `_Py_dict_lookup` | 1.73% |
+| `recalc.py` | libpython | `subtype_traverse` | 1.25% |
+| `enhance_energy_report_v2.py` | libpython | `gc_collect_main` | 1.13% |
+
+#### industry_productivity
+
+| 实际脚本／程序 | 库 | 物理叶函数 | ROI 占比 |
+|---|---|---|---:|
+| `enhance_workbook_v1.py` | libpython | `_PyEval_EvalFrameDefault` | 6.17% |
+| `recalc.py` | libpython | `_PyEval_EvalFrameDefault` | 5.89% |
+| `inspect_xlsx_formulas.py` | libpython | `_PyEval_EvalFrameDefault` | 2.25% |
+| `inspect_xlsx_cached_values.py` | libpython | `_PyEval_EvalFrameDefault` | 2.18% |
+| `verify_xlsx_enhanced.py` | libpython | `_PyEval_EvalFrameDefault` | 1.98% |
+| `recalc.py` | libpython | `_Py_dict_lookup` | 1.63% |
+| `recalc.py` | libpython | `gc_collect_main` | 1.62% |
+| `inspect_xlsx_structure.py` | libpython | `_PyEval_EvalFrameDefault` | 1.57% |
+| `inspect_xlsx_features.py` | libpython | `_PyEval_EvalFrameDefault` | 1.54% |
+| `recalc.py` | libpython | `subtype_traverse` | 1.00% |
+
 
 ### 评估结论
 
-跨领域 PDF 输入延续了表单处理任务的主要热点：`convert_pdf_to_images.py`、`fill_fillable_fields.py`、`verify_pdf_batch.py` 与 `pdftoppm`，对应 Python 解释执行、图片缩放、压缩编码和 PDF 渲染。W-4、SBA 1919 与 OPM 的 Top-10 函数分别有 7、7 个共同项，旧 Top-10 在两项新输入的 Top-20 中分别出现 9、9 个。
-HR Metro 与 TLC 共同表现为 Python 工作簿处理主导，主要库包括 libpython、Expat、ElementTree、zlib 和 LibreOffice。共同热点涵盖解释器执行、字典与对象操作、垃圾回收和 XML 解析；Top-10 函数有 8 个共同项，TLC 的 Top-10 中有 10 个出现在 HR Metro 的 Top-20 中。
-**本轮结果支持原 PDF 与 XLSX 用例在主要原生计算机制层面的跨领域代表性：更换真实业务输入后，主要热点仍集中于相同的文档处理工具链和底层计算路径。**
+PDF 三例的主要热点脚本共同集中在 convert_pdf_to_images.py、fill_fillable_fields.py、verify_pdf_batch.py 和 pdftoppm。Python 解释执行、Pillow 图像处理、zlib 压缩编码及 Poppler 渲染在三例中共同出现。W-4、SBA 与本轮 OPM 的 Top-10 分别有 5、5 个共同函数，包括 _PyEval_EvalFrameDefault、longest_match、deflate_slow、ImagingZipEncode 和 ImagingResampleVertical_8bpc。
+XLSX 四例共同以 libpython 为主要原生库，并集中出现 Expat、ElementTree、zlib 和 LibreOffice 路径。共同热点包括解释器执行、字典查找、对象遍历、垃圾回收、对象释放与 XML 解析。hr_metro：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 10 个；egrid：Top-10 共同函数 9 个，TLC Top-10 在其 Top-20 中出现 9 个；industry_productivity：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个。
+四个 XLSX 的 libpython 周期占比分别为 TLC 79.33%、HR Metro 79.63%、eGRID 82.13%、Industry Productivity 78.82%。不同领域输入下，工作簿检查、增强、重算和验证仍呈现共同的主要原生计算机制。
+**完整七例对比支持原 PDF/XLSX 用例在主要热点类型和底层文档处理机制层面的跨领域代表性。领域变化带来具体函数排名和权重的变化，而解释器、对象管理、XML 解析、压缩编码及文档渲染等主要路径持续出现。**
 
 ### 采样与证据说明
 
-本轮采用单次新用例采样，重点识别共同热点；HR 采样含丢样记录，权重用于粗粒度观察。历史内联函数已归并到对应实体函数后参与比较。完整采样质量、版本、ROI、未知项及来源哈希保留在机器可读结果中。
+七例均在同一镜像中按 49 Hz 采集用户态物理调用栈，以单调时钟标记正式循环区间。当前以单轮结果识别共同热点；XLSX 采样存在丢样记录，权重用于粗粒度结构观察。原始采样质量、未知项、ROI、容器身份及哈希见机器可读结果。原历史 OPM/TLC 数据作为追溯材料保留，不进入本轮主表。
 当前回放镜像：`sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499`。
 
 数据与追溯：[机器可读对比结果](comparison.json)、[分析构建记录](build.json)、[轨迹来源与回放说明](../../../../agent/README.md)。

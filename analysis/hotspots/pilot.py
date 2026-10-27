@@ -46,8 +46,9 @@ def report(raw,state,*,suffix='',profile_path=None):
         derived_profile_sha256=sha(target/'profile.json'),report_generator_sha256=sha(Path(__file__)),
         diagnostic_parser_sha256=sha(HERE/'native_profile.py')))
     dataset=state['dataset_id']
-    title={'irs_w4':'IRS W-4','sba1919':'SBA 1919','hr_metro':'HR Metro'}[dataset]
-    scale='N=10，' if dataset in ('irs_w4','sba1919') else ''
+    title={'opm':'OPM','tlc':'TLC','egrid':'eGRID','industry_productivity':'Industry Productivity',
+           'irs_w4':'IRS W-4','sba1919':'SBA 1919','hr_metro':'HR Metro'}[dataset]
+    scale='N=10，' if dataset in ('opm','irs_w4','sba1919') else ''
     lines=[f'# {title} 热点采集','',
            f'当前 Agent 轨迹版，{scale}一轮。新旧对比另见汇总报告。',
            '',f"实际镜像：`{state['actual_image_id']}`。循环执行及业务验证成功。",
@@ -85,7 +86,7 @@ def report(raw,state,*,suffix='',profile_path=None):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--image',default='office-trace-replay:agent-traces')
-    parser.add_argument('--dataset',choices=['irs_w4','sba1919','hr_metro'],default='irs_w4')
+    parser.add_argument('--dataset',choices=['opm','tlc','egrid','hr_metro','industry_productivity','irs_w4','sba1919'],default='irs_w4')
     args=parser.parse_args()
     dataset=args.dataset
     qualified=json.loads((ROOT/'reports/image-qualification-agent-traces.json').read_text())
@@ -99,7 +100,8 @@ def main():
     out=raw/'out'; out.mkdir()
     evidence=raw/'evidence'; evidence.mkdir()
     write(evidence/'image-inspect.json',inspected)
-    write(evidence/'launch-plan.json',dict(dataset_locks={dataset:sha(ROOT/'agent/datasets'/dataset/'lock.json')},
+    lock=ROOT/'document-oe/lock.json' if dataset in ('opm','tlc') else ROOT/'agent/datasets'/dataset/'lock.json'
+    write(evidence/'launch-plan.json',dict(dataset_locks={dataset:sha(lock)},
                                           loops=1,selected_datasets=[dataset],runtime='document-oe'))
     state=dict(status='in_progress',actual_image_id=inspected['Id'],dataset_id=dataset,loops=1,
                measurement_source_sha256={p.name:sha(p) for p in sorted(HERE.glob('*.py'))},

@@ -10,9 +10,30 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 import native_profile as p
 import collect_native as c
+import legacy_capture as legacy
 
 
 class NativeProfile(unittest.TestCase):
+    def test_legacy_iteration_observer_preserves_result_and_failure(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path=Path(temp)/'roi.jsonl';calls=[]
+            def original(value):calls.append(value);return {'status':'success','value':value}
+            result=legacy.observe_iteration(original,'tlc',path)(7)
+            self.assertEqual(result,{'status':'success','value':7});self.assertEqual(calls,[7])
+            self.assertLess(*p.roi(path))
+            failed=Path(temp)/'failed.jsonl'
+            def fail():raise RuntimeError('unchanged')
+            with self.assertRaisesRegex(RuntimeError,'unchanged'):
+                legacy.observe_iteration(fail,'opm',failed)()
+            self.assertLess(*p.roi(failed))
+
+    def test_dataset_dispatch_keeps_old_and_new_paths_separate(self):
+        old=c.workload_arguments('opm','/out')
+        self.assertIn('legacy_capture.py',old[2]);self.assertIn('-s',old)
+        new=c.workload_arguments('egrid','/out')
+        self.assertTrue(new[1].endswith('/agent/replay.py'))
+        self.assertNotIn('legacy_capture.py',' '.join(new))
+
     def test_capture_quality_accepts_diagnostic_note(self):
         result=c.capture_quality('captured', 'Aggregated stats:\n SAMPLE events: 10\n', '')
         self.assertEqual(result['aggregated_sample_events'],10)

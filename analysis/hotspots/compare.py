@@ -130,18 +130,21 @@ def compare(config_path):
     config=json.loads(config_path.read_text())
     baseline=ROOT/config['baseline']['path']
     if sha(baseline)!=config['baseline']['sha256']:raise ValueError('baseline changed')
-    profiles=json.loads(baseline.read_text())['profiles']
+    historical_profiles=json.loads(baseline.read_text())['profiles']
+    profiles={} if config.get('reference_mode')=='current-image' else dict(historical_profiles)
     for name,item in config['profiles'].items():
         path=ROOT/item['path']
         if sha(path)!=item['sha256']:raise ValueError('profile changed: '+name)
         profiles[name]=normalize_current(json.loads(path.read_text()))
-    pairs={new:overlap(profiles[old],profiles[new])
-           for old,new in [('opm-n10','irs_w4'),('opm-n10','sba1919'),('tlc','hr_metro')]}
+    groups=config.get('groups',[dict(title='PDF（全部 N=10）',datasets=['opm-n10','irs_w4','sba1919']),
+                               dict(title='XLSX',datasets=['tlc','hr_metro'])])
+    pairs={new:overlap(profiles[group['datasets'][0]],profiles[new])
+           for group in groups for new in group['datasets'][1:]}
     output=ROOT/config['output']
     output.mkdir(parents=True,exist_ok=False)
     write(output/'comparison.json',dict(scope='shared dominant hotspots; weights descriptive',
         denominator='complete workload ROI cycles:u sample period; unknown retained',
-        profiles=profiles,comparisons=pairs,inputs=config,config_sha256=sha(config_path),
+        profiles=profiles,historical_profiles=historical_profiles,comparisons=pairs,inputs=config,config_sha256=sha(config_path),
         analysis_source_sha256=sha(Path(__file__))))
     pct=lambda value:f'{100*value:.2f}%'
     assessment=config['assessment']
@@ -193,18 +196,19 @@ def compare(config_path):
         'XLSX 主要调用 openpyxl 与 LibreOffice；PDF 主要调用 pypdf、pdf2image、Pillow 和 Poppler。',
         '回放记录循环开始与结束的单调时钟标记。热点统计覆盖正式循环中的工作负载进程及线程，归档和循环外独立审计在统计区间之外完成。',
         '', '## 四、热点函数对比与代表性评估','',
-        '本轮比较三个 PDF（OPM、W-4、SBA 1919，均为十条记录）以及 XLSX 的 TLC 与 HR Metro。'
-        '旧 OPM/TLC 使用已有采样结果，新增用例使用当前轨迹回放的采样结果。',
+        config.get('comparison_description','本轮比较三个 PDF（OPM、W-4、SBA 1919，均为十条记录）以及 XLSX 的 TLC 与 HR Metro。'
+        '旧 OPM/TLC 使用已有采样结果，新增用例使用当前轨迹回放的采样结果。'),
         '采用 perf 的 `cycles:u` 事件采集原生调用栈，按物理叶函数统计热点，并关联脚本、进程和动态库。'
         '表中比例为正式循环内已观测用户态样本的 period 占比；Top-10/Top-20 用于查看主要函数的共同出现情况，权重用于描述各自分布。']
-    images={profiles[n]['image_id'] for n in ('irs_w4','sba1919','hr_metro')}
+    images={p['image_id'] for p in profiles.values() if 'image_id' in p}
     if len(images)!=1:raise ValueError('new profiles do not share one image')
     lines += ['', '| 配置 | ROI 样本数 | 采样配置 |','|---|---:|---|']
     for name,p in profiles.items():
         status=(f"历史 {len(p['repeats'])} 次重复，各 {p['loops_per_repeat']} 轮，{p['sample_rate_hz']} Hz"
-                if name in ('opm-n10','tlc') else '单轮，49 Hz；执行与业务验证成功')
+                if 'repeats' in p else '单轮，49 Hz；执行与业务验证成功')
         lines.append(f"| {name} | {p['roi_samples']:,} | {status} |")
-    for title,names in [('PDF（全部 N=10）',['opm-n10','irs_w4','sba1919']),('XLSX',['tlc','hr_metro'])]:
+    for group in groups:
+        title,names=group['title'],group['datasets']
         lines+=['',f'### {title}','', '#### 主要脚本／进程','',
                 '| 实际脚本／程序（历史仅有角色时注明） | '+' | '.join(names)+' |',
                 '|---|'+'---:|'*len(names)]
@@ -232,12 +236,13 @@ def compare(config_path):
             c=pairs[new]
             lines.append(f"| {names[0]} → {new} | {c['common_top10_count']} / 10 | {c['old_top10_in_new_top20_count']} / 10 |")
     lines+=['','### 热点函数与执行脚本的对应关系','']
-    for name in ('irs_w4','sba1919','hr_metro'):
+    for name in profiles:
+        if 'contexts' not in profiles[name]:continue
         lines +=[f'#### {name}','','| 实际脚本／程序 | 库 | 物理叶函数 | ROI 占比 |','|---|---|---|---:|']
         for item in profiles[name]['contexts'][:10]:
             lines.append(f"| `{item['script']}` | {library(item['dso'])} | `{item['function'].replace('|','&#124;')}` | {pct(item['share_roi'])} |")
         lines+=['']
-    lines+=['','### 评估结论','',
+    default_conclusions=[
         '跨领域 PDF 输入延续了表单处理任务的主要热点：`convert_pdf_to_images.py`、`fill_fillable_fields.py`、'
         '`verify_pdf_batch.py` 与 `pdftoppm`，对应 Python 解释执行、图片缩放、压缩编码和 PDF 渲染。'
         f"W-4、SBA 1919 与 OPM 的 Top-10 函数分别有 {pairs['irs_w4']['common_top10_count']}、"
@@ -246,10 +251,11 @@ def compare(config_path):
         'HR Metro 与 TLC 共同表现为 Python 工作簿处理主导，主要库包括 libpython、Expat、ElementTree、zlib 和 LibreOffice。'
         f"共同热点涵盖解释器执行、字典与对象操作、垃圾回收和 XML 解析；Top-10 函数有 {pairs['hr_metro']['common_top10_count']} 个共同项，"
         f"TLC 的 Top-10 中有 {pairs['hr_metro']['old_top10_in_new_top20_count']} 个出现在 HR Metro 的 Top-20 中。",
-        '**本轮结果支持原 PDF 与 XLSX 用例在主要原生计算机制层面的跨领域代表性：更换真实业务输入后，主要热点仍集中于相同的文档处理工具链和底层计算路径。**',
+        '**本轮结果支持原 PDF 与 XLSX 用例在主要原生计算机制层面的跨领域代表性：更换真实业务输入后，主要热点仍集中于相同的文档处理工具链和底层计算路径。**']
+    lines+=['','### 评估结论','',*config.get('conclusions',default_conclusions),
         '', '### 采样与证据说明','',
-        '本轮采用单次新用例采样，重点识别共同热点；HR 采样含丢样记录，权重用于粗粒度观察。'
-        '历史内联函数已归并到对应实体函数后参与比较。完整采样质量、版本、ROI、未知项及来源哈希保留在机器可读结果中。',
+        config.get('sampling_note','本轮采用单次新用例采样，重点识别共同热点；HR 采样含丢样记录，权重用于粗粒度观察。'
+        '历史内联函数已归并到对应实体函数后参与比较。完整采样质量、版本、ROI、未知项及来源哈希保留在机器可读结果中。'),
         f"当前回放镜像：`{next(iter(images))}`。",'',
         '数据与追溯：[机器可读对比结果](comparison.json)、[分析构建记录](build.json)、'
         '[轨迹来源与回放说明](../../../../agent/README.md)。']

@@ -1,10 +1,10 @@
 # 当前 Agent 轨迹版热点采集
 
-已完成 IRS W-4 N=10 试点，并按确认范围补采 SBA 1919 N=10 和 HR Metro 各一轮。没有采集其余 XLSX，也没有采集 Topdown 或 py-spy。
+已完成七个正式用例的单轮热点采集。PDF 为 OPM、IRS W-4、SBA 1919（均 N=10）；XLSX 为 TLC、HR Metro、eGRID、Industry Productivity。本次补采 OPM、TLC、eGRID、Industry Productivity，复用同镜像下已有 W-4、SBA 和 HR；未采集 Topdown 或 py-spy。
 
-汇总见 [文档解析类 Agent 代表性评估报告](reports/pdf-xlsx-common-hotspots-20261027/report.md)，依次介绍数据集选择与领域覆盖、Agent 轨迹生成、容器化轨迹回放和热点函数对比；机器结果见同目录 `comparison.json`。对照旧 OPM N=10 与 TLC 的历史 native 结果；目标是主要热点共同出现，不要求权重相等。两个 PDF 各有 7 个 Top-10 函数与 OPM 重合，HR 有 8 个与 TLC 重合；旧 Top-10 在新 Top-20 中分别出现 9、9、10 个。这是描述性计数，不是预设通过阈值。
+汇总见 [文档解析类 Agent 代表性评估报告](reports/pdf-xlsx-common-hotspots-20261027/report.md)，依次介绍数据集选择与领域覆盖、Agent 轨迹生成、容器化轨迹回放和热点函数对比；机器结果见同目录 `comparison.json`。主表对照本轮新采集的 OPM/TLC；目标是主要热点共同出现，不要求权重相等。W-4、SBA 与本轮 OPM 各有 5 个 Top-10 共同函数；HR、eGRID、Industry 与本轮 TLC 分别有 8、9、8 个。该计数描述当前排名交集，不作为验收阈值。原历史对照结果留在此前的 Git 版本与冻结摘要中。
 
-SBA workload、业务验证、record 和导出均成功；摘要重复字段错误已修复，从原有导出离线恢复，原失败记录保留，没有重跑。HR 记录了 perf 丢样，函数与库画像可供初步观察，权重不作为精密或稳定估计。详见汇总报告质量章节。旧摘要按全量实体函数归并、period 加权后冻结在 `baselines/legacy-opm-tlc.json`（约 229 KB）；来源压缩包与解压 JSON 的 SHA256 均与历史索引核对。汇总重算只读取当前仓库的冻结摘要和 profile，不依赖兄弟仓库。
+SBA workload、业务验证、record 和导出均成功；早期摘要重复字段错误已从原有导出离线恢复，原失败记录保留，没有重跑。XLSX 记录了 perf 丢样，函数与库画像用于主要热点结构观察。完整诊断保留在各 profile 和原始日志中。历史摘要按全量实体函数归并、period 加权后冻结在 `baselines/legacy-opm-tlc.json`；本轮只作追溯，不进入主表。汇总重算只读取当前仓库的冻结摘要和 profile，不依赖兄弟仓库。当前七例配置为 `comparison-inputs-seven-20261027.json`，初始历史对照配置 `comparison-inputs-20261027.json` 保留。
 
 2026-10-27 试点成功：完整采集/导出 785 个样本，正式循环 ROI 711 个，工作负载与循环业务验证成功。原始 perf.data 约 16.1 MB，停止容器与原始证据保留。最新结果由 [latest-pilot.json](reports/latest-pilot.json) 指向，含脚本、库、Top-20 物理叶函数和带脚本上下文的函数表。
 
@@ -16,7 +16,9 @@ SBA workload、业务验证、record 和导出均成功；摘要重复字段错�
 
 `raw/<pilot>/out/` 保存 perf.data、样本、身份、原生报告、ROI、runner 与业务产物、最终 collection.json 和哈希索引。`evidence/` 保存实际镜像/容器 inspect、host launch plan 和执行时采集代码快照。raw 被 Git/Docker context 忽略；分析代码与小型报告仍留在当前仓库。
 
-本轮采集一次成功，没有重跑 workload。首份报告的丢样诊断抓取包含 `read_format=ID|LOST` 能力描述；后续仅离线整理为 analysis-v2，按实际聚合事件区分。原始数据、首份报告和索引未改，函数权重未变。
+首次 IRS 试点的首份报告将 `read_format=ID|LOST` 能力描述混入丢样诊断；后续仅离线整理为 analysis-v2。原始数据、首份报告和索引未改，函数权重未变。之后的采集直接区分实际 LOST 记录与能力标志。
+
+旧 OPM/TLC 由 `legacy_capture.py` 在采集层观察原 `run_iteration` 的起止单调时钟，执行原函数并保留其结果与异常；磁盘上的 43 个 workload 文件、原 runner 和 recipe 均不修改。观测范围同样覆盖 reset 和四阶段业务执行；工作区归档在 perf 退出后进行。各用例均采用 49 Hz、cycles:u、DWARF 16384 字节、同镜像物理栈导出。
 
 验证命令：
 
@@ -24,7 +26,7 @@ SBA workload、业务验证、record 和导出均成功；摘要重复字段错�
 python3 -B -m unittest discover -s analysis/hotspots/tests -v
 ```
 
-后续只有明确安排新一次采集时才执行以下命令；会创建新目录和新容器，可选择 `irs_w4`、`sba1919` 或 `hr_metro`，不会自动运行其余配置：
+后续只有明确安排新一次采集时才执行以下命令；会创建新目录和新容器，可选择七个正式 dataset ID，不会自动运行其余配置：
 
 ```bash
 python3 -B -u analysis/hotspots/pilot.py --dataset sba1919
@@ -32,4 +34,4 @@ python3 -B -u analysis/hotspots/pilot.py --dataset sba1919
 
 仅在 workload、record、导出均已成功而后续解析/摘要失败时，可用 `recover_native.py --raw <capture-directory>` 离线恢复。恢复校验原索引，不启动 perf 或 workload，不改写原失败状态。各数据集最新指针为 `reports/latest-<dataset>.json`；原 IRS 试点仍保留其独立路径，`latest-pilot.json` 只表示最近一次采集。
 
-本轮没有重跑 OPM/TLC、W-4，没有进行独立深审或重复稳定性验证。相关定向测试共 13 项通过，未运行完整套件。源码未提交或推送。
+本次四项补采均只执行一次，没有重跑 workload；未进行独立深审或重复稳定性验证。相关定向测试共 16 项通过，未运行完整套件。本次补采代码与报告更新尚未提交或推送。

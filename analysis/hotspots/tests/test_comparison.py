@@ -5,12 +5,38 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from contextlib import redirect_stdout
+import io
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import compare as c
 
 
 class Comparison(unittest.TestCase):
+    def test_seven_current_profiles_replace_historical_reference(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            baseline=root/'legacy.json';baseline.write_text(json.dumps(dict(profiles={'old-only':{}})))
+            datasets=['opm-n10','irs_w4','sba1919','tlc','hr_metro','egrid','industry_productivity']
+            profiles={}
+            for dataset in datasets:
+                p=root/(dataset+'.json')
+                p.write_text(json.dumps(dict(image_id='same-image',roi_samples=12,
+                    processes=[dict(script='inspect.py',share_roi=1)],contexts=[],
+                    functions=[dict(dso='/lib/libpython.so',function='gc_collect_main',share_roi=1)])))
+                profiles[dataset]=dict(path=p.name,sha256=c.sha(p))
+            config=dict(reference_mode='current-image',baseline=dict(path=baseline.name,sha256=c.sha(baseline)),
+                profiles=profiles,output='report',assessment=dict(metadata_sources=[],xlsx_datasets=[],pdf_datasets=[],trace_sources=[]),
+                groups=[dict(title='PDF',datasets=datasets[:3]),dict(title='XLSX',datasets=datasets[3:])])
+            path=root/'config.json';path.write_text(json.dumps(config))
+            with patch.object(c,'ROOT',root),redirect_stdout(io.StringIO()):c.compare(path)
+            result=json.loads((root/'report/comparison.json').read_text())
+            self.assertEqual(set(result['profiles']),set(datasets))
+            self.assertEqual(set(result['comparisons']),set(datasets)-{'opm-n10','tlc'})
+            self.assertEqual(set(result['historical_profiles']),{'old-only'})
+            self.assertIn('industry_productivity',(root/'report/report.md').read_text())
+
     def test_inline_owners_aggregate_before_ranking_and_period_weight_repeats(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);(root/'metadata').mkdir();(root/'processed/packed').mkdir(parents=True)

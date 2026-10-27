@@ -24,9 +24,10 @@ def recover(raw):
     samples=parse(out/'samples.txt')
     checked=crosscheck(samples,out/'counter-samples.txt')
     summary=out/original['runner_summary']
-    value=profile(attribute(samples,out/'identities.jsonl'),roi(summary.parent/'iteration-0001/roi.jsonl'))
+    roi_path=out/original['roi_path'] if original.get('roi_path') else summary.parent/'iteration-0001/roi.jsonl'
+    value=profile(attribute(samples,out/'identities.jsonl'),roi(roi_path))
     dataset=original['dataset_id']
-    value.update(dataset_id=dataset,pdf_applicant_count=10 if dataset in ('irs_w4','sba1919') else None,
+    value.update(dataset_id=dataset,pdf_applicant_count=10 if dataset in ('opm','irs_w4','sba1919') else None,
                  image_id=original['actual_image_id'])
     value['capture_quality']=capture_quality((out/'perf-record.stderr').read_text(),
         (out/'perf-report.txt').read_text(),(out/'samples.txt.stderr').read_text())
