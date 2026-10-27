@@ -1,126 +1,99 @@
-# office-trace-replay
+# 七数据集、双入口的文档回放镜像
 
-用不同领域的真实 Office 输入，执行与原 document-oe 基线大体一致的工具工作负载，研究进程、库、函数热点及 CPU/OS 行为。执行时不调用 LLM。
+目标是**一个新容器支持全部七个数据集**，容器内分开保存两套执行代码；不是两个镜像或两个独立发布项目。
 
-**当前交付版本为 `office-trace-replay:openeuler-v12`。七个正式用例均已完成无源码挂载的单轮功能检查。** PDF 本轮均为 N=1；这不等于性能稳定性或代表性已经证明。
-
-## 正式集合
-
-| 类型 | Dataset | 输入与定位 |
+| 代码目录 | 对外入口 | 数据集 |
 |---|---|---|
-| XLSX | `tlc` | 原 document-oe 大规模 TLC 基线，workload 字节冻结 |
-| XLSX | `hr_metro` | BLS OEWS metropolitan/nonmetropolitan 原始工作簿 |
-| XLSX | `retail_online` | UCI Online Retail 原始交易工作簿 |
-| XLSX | `industry_productivity` | BLS detailed industries 原始工作簿，选择制造业序列 |
-| PDF | `opm` | 原 document-oe OF-306 基线 |
-| PDF | `irs_w4` | 冻结的 2026 W-4；版本、输入 hash 和字段信息见 manifest |
-| PDF | `sba1919` | 可填写的 04/2024 旧版；不是当前新版 SBA 1919 |
+| `document-oe/` | `document-oe/run.py --scene …` | 旧 TLC、OPM |
+| `agent/` | `agent/replay.py --dataset …` | eGRID、HR Metro、Industry Productivity、IRS W-4、SBA 1919 |
 
-`hr`、`retail`、`manufacturing` 保留注册，显式选择时仍可运行，作为历史对照。
-`pdf`→`opm`、`xlsx`→`tlc` 别名保留。执行默认集合来自 [suites/default.json](suites/default.json)；分析选择单独记录在 [next-comparison-suite.json](analysis/hotspot-comparison/config/next-comparison-suite.json)。
+这是 `office-trace-replay` 的 `agent-traces` 分支。当前 worktree `/home/lcq/office-trace-replay-agent` 用于保留原 main 的未提交修改。之前误建的 `/home/lcq/document-oe-replay` 已移入本项目，不再是顶层独立仓库；其初始化 Git 元数据仅保留在忽略的 `.local/` 下，不作为运行依赖。
 
-`hr_metro`、`retail_online` 是人工适配的 `manual_workflow_adaptation`，没有 Agent parent trace。其他 Agent-derived recipe 是基于成功 Agent 执行整理的固定工具配方，不宣称逐条重现原 Agent 的全部调试、失败和重试。来源登记中的 `registered_not_run` 是创建时快照，当前运行状态由验收证据单独记录。
-
-## 瘦身交付
-
-`slim-v12` 发布分支/源码包外置大工作簿、canonical 大对象和离线 wheel；全部分析代码、最新/历史分析数据及证据保留。完整 main 和本地 raw/results 不删除或改写。
-
-使用瘦身源码前，先从配套的本地资产包恢复：
-
-```bash
-python3 distribution/assets.py restore --bundle /path/to/office-trace-replay-assets-v12.tar
-make assets-verify
+```text
+Dockerfile                         # 唯一镜像构建入口
+container-contract.json            # 七用例、双入口、共同环境
+document-oe/
+  run.py / lock.json                # 旧用例入口和冻结绑定
+  assets/                          # 43 个旧 workload 文件，原字节不动
+agent/
+  replay.py / suite.json            # 新五例共用的调度入口
+  datasets/<dataset>/              # 每个数据集完全独立的执行材料
+    run.py / recipe.json / lock.json
+    seed/ scripts/ skills/ audit_source/ evidence/
+tests/                              # 单镜像打包和新旧上下文检查
 ```
 
-恢复后原路径和字节不变，可继续离线构建及运行分析。现有 v12 镜像不受影响。普通 clone main 仍包含旧历史；要缩小下载，应明确选择独立 slim 分支或源码包。详见 [distribution/README.md](distribution/README.md)。
+没有改动原 document-oe 容器或原 replay main 工作区。两个入口不导入彼此的业务代码。每个新数据集都有自己的 helper、Skill、检查、CSV 导出、摘要、loop verifier 和 independent auditor。
 
-## 运行
+旧 43 个 workload 文件与已有冻结记录一致；只有旧入口/executor 的独立封装单列记录。新五例保留真实 Agent helper 和原 Skill `recalc.py`；CSV 发布改成从本轮最终工作簿缓存导出，明确记录为人工回放适配。
 
-以下命令使用本地已有镜像，只挂载可写结果目录，不需要宿主源码、输入或 Skill 挂载。
+## 共用环境与上下文
 
-```bash
-# 七个正式用例，各一轮；PDF 默认 N=1
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v12 --loops 1 --results-dir /results
+唯一 Dockerfile 离线继承锁定的正式 openEuler 镜像：Python 3.12.3、openpyxl 3.1.5、LibreOffice 25.8.7.3、Poppler 23.12.0。原 Agent 的 Ubuntu/LibreOffice 24.2.7.2 环境仍单独冻结在各例 `environment.json`；目标环境在 `replay-environment.json`，不把两者写成相同。
 
-# 单个数据集
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v12 --dataset retail_online --loops 1 --results-dir /results
+启动设置沿用 document-oe 切片脚本的实际路径：`/opt/document-bench/.venv/bin/python`（底层 `/opt/python-3.12.3/bin/python3.12`）以及 `/opt/libreoffice25.8-symbols/program`。两个入口和五个私有 runner 在正式执行前固定 venv/PATH；误用系统 Python 启动时自动 exec 到固定解释器。清除外部 `PYTHONHOME/PYTHONPATH/PYTHONUSERBASE`，禁用用户 site-packages，子进程继承同一环境；静态 `--validate-only` 仍可在宿主运行。新例记录并校验实际 Python、libpython、包加载路径。XLSX 私有 soffice 适配器继续优先于公共 Office 路径，以保留原 Skill 的标准 profile 规则。
 
-# PDF N=10（opm、irs_w4、sba1919 均支持）
-docker run --rm --network none -v "$PWD/results:/results" \
-  office-trace-replay:openeuler-v12 --dataset irs_w4 --pdf-applicant-count 10 --loops 1
-```
+新 Skill 原样保留。每个新数据集自带 `soffice` 路径适配器，只让 symbols 版 Office 使用 Skill 原本安装宏的标准 `/root/.config/libreoffice/4`；不替换 `recalc.py`，不添加 TLC 缓存检查，也不改成每次临时 profile。环境迁移需要新一轮真实功能验证，不能拿原环境成功证据替代。
 
-容器默认入口为 `replay/entry.py`，负责 suite 调度、完整轮次核验，以及新用例循环结束后的独立验收和末轮归档。旧 OPM/TLC 保留原循环 verifier，没有自动独立验收和同样的 workspace 归档；本次验收另从停止容器提取其产物。
+新三例的 XLSX loop verifier 在原数据集检查基础上，复用已读取的 Summary 缓存核验两份 CSV，不额外打开工作簿。原 Agent-facing verifier 保留在 `seed/input/`，回放适配版本单独位于各自 `scripts/verify_xlsx_enhanced.py`，其来源和哈希写入 recipe，原始轨迹不改写。
 
-底层入口为 `/opt/document-bench/bin/run_document_scene_loop.py`。`--scene` 走兼容的直接 runner 路径，只执行循环内验证，不自动启动 suite 独立验收。直接 runner 保留历史默认 **20,000 轮**，使用时务必显式传入 `--loops 1`。
+原脚本使用固定 `/root/.openclaw/skills/...` 路径。新入口安装该用例 Skill 链接，旧入口恢复 document-oe 链接；两边使用同一个非阻塞 OS 锁，支持同一容器顺序运行，拒绝并行切换上下文。结果目录与 reset workspace 分开。
 
-默认 Python 为 3.12.3；`--legacy-python system` 显式选择系统 3.11.6。`--timed` 输出调用/嵌套计时日志，与普通模式分开比较。历史别名 `opm_v2`、`tlc_v2` 使用 derived-v1 引擎，仅用于来源对比；最后执行，不支持 `--timed`，不受正式 suite 的 PDF 数量等参数控制。
-
-## 统一的执行与验证边界
-
-XLSX 正式循环保留完整输入，不通过复制记录扩展规模：
-
-1. **P01**：检查原输入，复制到最终输出并检查副本。
-2. **P02**：通过通用原子执行器运行各数据集 helper，添加少量 KPI、情景、图表和格式，保存一次。
-3. **P03**：使用原 XLSX Skill 的 `recalc.py` 原位重算最终输出，再检查公式/缓存、导出 CSV。LibreOffice 保存后不再用 openpyxl 重写文件。
-4. **P04**：循环内业务验证，生成通用 summary，检查交付物。
-
-HR Metro 的选区、Retail Online 的全表聚合在循环外一次准备并冻结为 `prepared_selection.json`。正式循环不重新做选区扫描或全表 SUMPRODUCT，但仍完整加载、增强、保存和重算大工作簿。输入和准备工件完整 hash 由执行前绑定校验负责；helper 检查小 JSON、表头及必要锚点，不每轮重新哈希大文件。已发布工件无需为日常运行重新生成。
-
-新 XLSX 共用 loop verifier，检查结构/规模、KPI、公式、情景、图表、缓存、重算错误、CSV 和交付物；原始单元格、公式、格式、名称等深度保护审计在循环外 independent acceptance 中执行。旧 TLC 的 verifier 字节不变，验证类别大致相近，不要求检查条目完全相同。
-
-PDF 共用检查/提取字段、准备 mappings、按记录填写/渲染、summary 和验证的主流程。N=1/N=10 都准备十份 mappings，只要求实际选择的记录具有填写 PDF 和渲染结果；循环内逐条检查实际记录及其一个代表页。页数、字段和业务规则来自数据集定义。深审在循环外进行。
-
-准备、执行前预检、循环外验收和归档不进入被测循环；循环内的检查、重算和业务验证仍计入。阶段分组相近不表示每个输入的工作量相同。
-
-## v12 验收与证据
-
-| 项目 | 结果 |
-|---|---|
-| 实际 image ID | `sha256:b6753ca41582588a8d19efedf55d301724bc46c7c2c698fdeee53fdfc3b11ded` |
-| 环境 | arm64；Python 3.12.3；openpyxl 3.1.5；LibreOffice 25.8.7.3；Poppler 23.12.0 |
-| 七个正式用例 | 每项请求/完成/成功/失败均为 `1/1/1/0`，循环验证成功 |
-| 独立验收 | 五个新用例通过；旧 OPM/TLC 不适用，保留原循环验证 |
-| 隔离运行 | 无网络，仅挂载各自 `/results`，未挂载源码或输入 |
-
-收尾验证与保留边界见 [release-v12.json](reports/release-v12.json)。
-
-构建与安装态记录：[image-build-v12.json](reports/image-build-v12.json)、[实际安装态验收](reports/image-install-acceptance-v12-inspected.json)。
-
-可提交的轻量证据入口：[reports/evidence/v12/index.json](reports/evidence/v12/index.json)。它保存七项 summary、逐轮记录、验证报告、容器 inspect 和原归档索引的字节一致副本，并关联 prepared-v2 的早期成功试跑/深审。完整 XLSX/PDF/PNG、工作目录和性能 raw 留在采集机本地；clone 可核对已提交报告，但不能凭报告重建全部运行产物。
-
-七项原始检查分属 `results/v12-final-function-check-20261020T110841Z-132243af/` 和 `results/v12-remaining-formal-check-20261020T115040Z-74371dd4/`。它们仍在本地，不提交完整临时目录。
-
-## 性能结论的版本与口径
-
-当前 prepared-v2 XLSX 总 CPU 结果以 [离线重算 v2](analysis/hotspot-comparison/reports/total-cpu-recalculation-v2-20261020T104020Z/comparison-report.md) 为准：
-
-| 数据集 | load + read_only 延迟解析 + save，占整轮 CPU |
-|---|---:|
-| TLC | 82.5% |
-| HR Metro | 83.5% |
-| Retail Online | 77.2% |
-| Industry Productivity | 75.8% |
-
-分子为 openpyxl 读写线程 CPU 区间去重之和；分母为 ROI 内所有已观察 workload 线程的 user+sys CPU 轮询估计，包含 LibreOffice。每项仅一轮，存在轮询遗漏、ROI 边界及测量开销限制。测量使用 **v11 加挂载的测量期代码**，不是 v12 性能采集。
-
-早期 native/py-spy 画像单独保留。尤其 HR Metro/Retail Online 在 prepared-v2 改造前的画像，不能作为当前版本的热点比例；py-spy Python 活动样本比例也不能替代整轮 CPU 比例。分析入口、历史结果及复现边界见 [分析 README](analysis/hotspot-comparison/README.md)。
-
-数据集多样性用于增加工作负载覆盖。工作簿规模、样式、公式和 LibreOffice 工作量仍不同；相近执行机制与功能通过不等于严格行业控制实验，也不证明相同优化收益。
-
-## 开发与维护
+## 检查与构建
 
 ```bash
-make validate       # 静态冻结绑定与 preparation readiness；不运行 workload
-make test           # 仓库测试，显式需要时执行；本次收尾未重新跑完整套件
-make replay DATASET=hr_metro
-make image          # 默认 v12 已存在，构建器会拒绝覆盖；新构建请显式选择新 tag
+make validate
+make test
+# 先核对本地基础镜像 ID；目标标签已存在时拒绝覆盖。
+make image IMAGE=office-trace-replay:agent-traces
 ```
 
-43 个旧 workload 文件（recipe、输入、helper、Skill、recalc、verifier 等）保持字节冻结；runner 与 timed wrapper 属独立版本化 executor。`assets/project-lock.json` 保护执行资产与代码，文档、分析和交付报告不参与该运行锁。后续只修改说明/证据关联，不要求重建 v12。
+构建不下载依赖、不调用模型、不执行正式 helper 或重算；构建阶段只检查冻结绑定和安装文件。构建入口使用本地基础镜像标签，并先核对其 ID 与 `container-contract.json` 一致；不将裸 image ID 当作 Dockerfile 的远程镜像名。后续构建请使用新的候选标签，通过验收后再更新正式标签。
 
-后续离线构建锁定 v12 的完整 image ID，构建器核对标签对应的 ID 后显式传入该标签，并在构建后检查基础层身份；新构建需选新 tag，例如 `make image IMAGE=office-trace-replay:openeuler-v13`。现有 v12 的历史构建基础仍为 v4，旧记录不改写；移除 v4 标签不影响 v12 保留的共享层。此次构建基础迁移不重建 v12，也不改变其运行代码、输入或验收结果。
+## 同一镜像的两个入口
 
-当前流程与维护说明见 [docs/compatible-workflow.md](docs/compatible-workflow.md)；历史文档分类见 [docs/README.md](docs/README.md)。清理只忽略本地临时目录和缓存，不删除 canonical、输入、历史报告或 raw。旧采样删除记录见分析目录的 `metadata/storage-cleanup-*.json`，不把历史索引当作当前文件均存在的证明。
+以下为两套独立入口的使用示例。当前镜像的功能资格与实际执行身份见文末验收记录：
+
+```bash
+mkdir -p results
+
+# 新例正式留证推荐从宿主使用同一个入口；自动 create → inspect → start，保留容器。
+# 无源码挂载；宿主与镜像的 dataset lock 不一致时在 reset 前拒绝。
+python3 -B agent/replay.py --docker-image office-trace-replay:agent-traces \
+  --dataset hr_metro --loops 1 --results-dir "$PWD/results"
+
+# 默认 ENTRYPOINT 是新五例的入口。
+# 此手动方式未提供 inspect 时只证明功能结果，evidence_complete=false。
+docker run --rm --network none -v "$PWD/results:/results" \
+  office-trace-replay:agent-traces --dataset hr_metro --loops 1
+
+# 同一镜像切换到旧入口；无需另建镜像。
+docker run --rm --network none -v "$PWD/results:/results" \
+  --entrypoint /opt/document-bench/.venv/bin/python \
+  office-trace-replay:agent-traces \
+  /opt/office-trace-replay/document-oe/run.py --scene xlsx --loops 1
+
+# 旧 OPM 的 10 份模式，与新 PDF trace 的规模对应。
+docker run --rm --network none -v "$PWD/results:/results" \
+  --entrypoint /opt/document-bench/.venv/bin/python \
+  office-trace-replay:agent-traces \
+  /opt/office-trace-replay/document-oe/run.py --scene pdf --pdf-applicant-count 10 --loops 1
+```
+
+也可启动一个保留容器，再依次 `docker exec` 上述两个 Python 入口。不要并行运行两个入口。默认新入口无 `--dataset` 时只运行新五例，不暗中合并调用旧入口。
+
+新例每次运行在 `context/` 保存 lock、provenance、recipe、环境声明及哈希索引。宿主启动模式还保存启动前后真实 Docker inspect，并把启动前 inspect 与 launch plan 只读提供给执行器；执行器核对容器 hostname 和该用例 lock。宿主证据在 `results/.launch/<stamp>/`。不依赖手填的 image ID。
+
+每轮 `roi.jsonl` 使用实际 `CLOCK_MONOTONIC` 纳秒记录 `loop_including_reset` 与 `workflow` 起止；前者包含 reset，后者只包含 P01–P04 和循环内检查。两者是替代口径，不能相加。`archive_excluded`、`independent_audit_excluded` 单独标记，归档复制与哈希位于两个测量区间结束之后。采集端仍须按 ROI 和 workload 进程/线程筛选；直接统计整个入口的 CPU 会包括这些额外工作。
+
+记录分开保存 `workload_status`、`archive_status`、整体 `status`。归档失败不抹掉 workload 结果，整体失败并停止后续轮次；原子写入失败时输出 `*.emergency.json`，应连同退出码检查。若连应急文件也无法写入，错误输出是最后的失败证据，不能据旧 `in_progress`/success 文件认定完成。
+
+## 当前镜像资格
+
+2026-10-27 已构建并验收 `office-trace-replay:agent-traces`，实际 ID 为 `sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499`。七个用例均有单轮成功与循环验证证据；五个新用例的只读独立验收通过，输出前后哈希一致。PDF 实际填写规模均为 N=10。52 项测试通过，旧 43 个 workload 文件未修改，537 个归档文件的大小和 SHA256 复核通过。
+
+IRS W-4 复用本轮首次构建镜像中成功生成的产物，再由最终镜像的修复版独立验收器复验；两版该用例的冻结材料仅 `audit.py` 不同，未重跑填写和渲染。其余六项在最终镜像真实执行。完整范围与证据见[验收报告](reports/image-qualification-agent-traces.md)和[机器记录](reports/image-qualification-agent-traces.json)。
+
+`provenance.json` / `suite.json` 中的 `compiled_static_only_not_replayed` 保留为冻结导入时的状态快照，当前执行资格以以上报告为准。镜像内 README 是构建前快照，不包含构建后的验收结论。原环境和“双仓库”历史报告继续保留，不替代本轮记录。
+
+本轮未采集热点、Topdown 或其他性能数据，未生成新 Agent trace，未提交或推送。

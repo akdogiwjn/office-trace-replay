@@ -1,0 +1,70 @@
+{
+  "dataset_id": "sba1919",
+  "kind": "pdf",
+  "source_run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+  "original_prompt_sha256": "a44023f05ced0520c4d8e4136f4974e2c53843d708027c36c1c8a63f192457c9",
+  "original_manifest_sha256": "2ea86597d24d293ef0d91f7f222103f9984283777640cc99c17407e31db2bda6",
+  "original_input_hashes": {
+    "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+    "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
+    "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
+    "input/verify_pdf_batch.py": "07df6832b4abb4f75c46f1c70ffaa9e6363504206cee15ebea18c19f3386c42c"
+  },
+  "agent_helpers": [
+    {
+      "path": "build_field_values.py",
+      "sha256": "d095fb9019d6fbe2da2252a25482678613dc4f3c48220d8f63a4525d60e1d462",
+      "revision_capture_verified": true,
+      "revision_events": [
+        {
+          "path": "workspace/build_field_values.py",
+          "sha256": "d095fb9019d6fbe2da2252a25482678613dc4f3c48220d8f63a4525d60e1d462",
+          "size": 7246,
+          "event": "close_write",
+          "captured_at_ns": 1793067413903162116,
+          "source_mtime_ns": 1793067413900073654
+        },
+        {
+          "path": "workspace/build_field_values.py",
+          "sha256": "d095fb9019d6fbe2da2252a25482678613dc4f3c48220d8f63a4525d60e1d462",
+          "size": 7246,
+          "event": "final_inventory",
+          "captured_at_ns": 1793067467506936407,
+          "source_mtime_ns": 1793067413900073654
+        }
+      ]
+    },
+    {
+      "path": "run_batch.py",
+      "sha256": "3c1be1e9da34eb2fcf4918eca37d85793b6ee84c0004b4444a3cdb9403c38735",
+      "revision_capture_verified": true,
+      "revision_events": [
+        {
+          "path": "workspace/run_batch.py",
+          "sha256": "3c1be1e9da34eb2fcf4918eca37d85793b6ee84c0004b4444a3cdb9403c38735",
+          "size": 3050,
+          "event": "close_write",
+          "captured_at_ns": 1793067417846975808,
+          "source_mtime_ns": 1793067417844127589
+        },
+        {
+          "path": "workspace/run_batch.py",
+          "sha256": "3c1be1e9da34eb2fcf4918eca37d85793b6ee84c0004b4444a3cdb9403c38735",
+          "size": 3050,
+          "event": "final_inventory",
+          "captured_at_ns": 1793067467506828625,
+          "source_mtime_ns": 1793067417844127589
+        }
+      ]
+    }
+  ],
+  "skill_recalc_sha256": null,
+  "intentional_adaptations": [
+    "Only W-4 summary JSON write is replaced with an observed-output summary; SBA driver summary is retained and checked."
+  ],
+  "inspections": "Trace inline Python extracted byte-for-byte; original load modes and scopes retained.",
+  "omitted": "Other debugging, repair executions, temporary previews, model reasoning, poll waits and post-loop deep audit.",
+  "status": "compiled_static_only_not_replayed",
+  "source_index_sha256": "59e636170b0a8c6c3af3bd1497e0d2acc231d36c08608b3eea47926bd442325d",
+  "replay_environment_policy": "One common openEuler image with document-oe; standard-profile soffice path adapter outside the unmodified Skill."
+}

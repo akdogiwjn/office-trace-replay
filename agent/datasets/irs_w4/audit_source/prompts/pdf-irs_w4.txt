@@ -1,0 +1,98 @@
+You are executing a measured OpenClaw benchmark case inside a fresh trace-generation container.
+
+Case: inspect, batch-fill, render, and verify the frozen 2026 IRS Form W-4 fillable PDF using 10 synthetic training employees.
+Workspace root: {workspace}
+Input directory: {workspace}/input
+Output directory: {workspace}/output
+
+First read and follow both /root/.openclaw/skills/pdf/SKILL.md and /root/.openclaw/skills/pdf/forms.md. Use the PDF Skill's bundled scripts; do not replace them with a custom PDF implementation.
+
+Execution discipline for a stable measured run:
+- Use python3 for every Python invocation.
+- Do not separately fill the first record before the batch or repeat a successful operation as a probe.
+- The first field check must already redirect stdout to output/check_fillable_fields.log.
+- Before filling or rendering any record, generate the final field-values files and batch driver/loop. Author this mapping and driver yourself from the supplied records and inspected field schema.
+- Normal invocation counts for this dataset are: check once, extract once, fill 10 times, render 11 times (one template plus 10 outputs). Preserve and report actual failed attempts and necessary repairs; do not hide retries by overwriting their evidence.
+
+Inputs:
+- fw4_2026.pdf: the version-pinned 5-page form; the inspected schema should contain 48 fields. Do not download a newer revision.
+- synthetic_employees.json: 10 fictional employees under the key employees.
+- pdf_dataset_sources.md: source and privacy rules.
+- input/dataset_manifest.json and input/verify_pdf_batch.py: this dataset’s standalone batch verifier (OPM-style checks).
+
+Required path and outputs:
+1. Run scripts/check_fillable_fields.py once and save stdout as output/check_fillable_fields.log.
+2. Run scripts/extract_form_field_info.py once and save output/form_field_info.json. Use its exact field IDs and page numbers for mapping.
+3. Render the blank source once using scripts/convert_pdf_to_images.py into output/rendered/template/, retaining all 5 pages.
+4. Create output/field_values and output/filled. For each record ID, generate output/field_values/ID.json, call scripts/fill_fillable_fields.py to create output/filled/ID.pdf, then render every page into output/rendered/ID/. Use these field assignments:
+   - topmostSubform[0].Page1[0].Step1a[0].f1_01[0] <- record: first_name
+   - topmostSubform[0].Page1[0].Step1a[0].f1_02[0] <- record: last_name
+   - topmostSubform[0].Page1[0].Step1a[0].f1_03[0] <- record: address
+   - topmostSubform[0].Page1[0].Step1a[0].f1_04[0] <- record: city_state_zip
+   - topmostSubform[0].Page1[0].Step3_ReadOrder[0].f1_06[0] <- record: children_credit
+   - topmostSubform[0].Page1[0].Step3_ReadOrder[0].f1_07[0] <- record: other_dependents_credit
+   - topmostSubform[0].Page1[0].f1_08[0] <- record: total_credit
+   - topmostSubform[0].Page1[0].f1_09[0] <- record: other_income
+   - topmostSubform[0].Page1[0].f1_10[0] <- record: deductions
+   - topmostSubform[0].Page1[0].f1_11[0] <- record: extra_withholding
+   - topmostSubform[0].Page1[0].c1_1[0] <- record: filing_flags.single; encode true -> /1, false -> /Off
+   - topmostSubform[0].Page1[0].c1_1[1] <- record: filing_flags.married; encode true -> /2, false -> /Off
+   - topmostSubform[0].Page1[0].c1_1[2] <- record: filing_flags.head_of_household; encode true -> /3, false -> /Off
+   - topmostSubform[0].Page1[0].c1_2[0] <- record: multiple_jobs; encode true -> /1, false -> /Off
+   Each field-values file is a JSON array of field_id, page and value objects accepted by the bundled fill script. Do not infer different business answers or recompute supplied training amounts.
+5. Omit the following fields from every mapping and leave them blank in every output:
+   - topmostSubform[0].Page1[0].c1_3[0]
+   - topmostSubform[0].Page1[0].f1_05[0]
+   - topmostSubform[0].Page1[0].f1_12[0]
+   - topmostSubform[0].Page1[0].f1_13[0]
+   - topmostSubform[0].Page1[0].f1_14[0]
+   - topmostSubform[0].Page3[0].f3_01[0]
+   - topmostSubform[0].Page3[0].f3_02[0]
+   - topmostSubform[0].Page3[0].f3_03[0]
+   - topmostSubform[0].Page3[0].f3_04[0]
+   - topmostSubform[0].Page3[0].f3_05[0]
+   - topmostSubform[0].Page3[0].f3_06[0]
+   - topmostSubform[0].Page4[0].f4_01[0]
+   - topmostSubform[0].Page4[0].f4_02[0]
+   - topmostSubform[0].Page4[0].f4_03[0]
+   - topmostSubform[0].Page4[0].f4_04[0]
+   - topmostSubform[0].Page4[0].f4_05[0]
+   - topmostSubform[0].Page4[0].f4_06[0]
+   - topmostSubform[0].Page4[0].f4_07[0]
+   - topmostSubform[0].Page4[0].f4_08[0]
+   - topmostSubform[0].Page4[0].f4_09[0]
+   - topmostSubform[0].Page4[0].f4_10[0]
+   - topmostSubform[0].Page4[0].f4_11[0]
+   - topmostSubform[0].Page4[0].f4_12[0]
+   - topmostSubform[0].Page4[0].f4_13[0]
+   - topmostSubform[0].Page4[0].f4_14[0]
+   - topmostSubform[0].Page4[0].f4_15[0]
+   - topmostSubform[0].Page4[0].f4_16[0]
+   - topmostSubform[0].Page4[0].f4_17[0]
+   - topmostSubform[0].Page4[0].f4_18[0]
+   - topmostSubform[0].Page4[0].f4_19[0]
+   - topmostSubform[0].Page4[0].f4_20[0]
+   - topmostSubform[0].Page4[0].f4_21[0]
+   - topmostSubform[0].Page4[0].f4_22[0]
+   - topmostSubform[0].Page4[0].f4_23[0]
+   All records are fictional. Do not use real sensitive data, sign, certify or submit forms. Preserve every original page and every unrequested field.
+6. Write output/batch_summary.json with these required values (actual operation counts must also disclose any repairs):
+{{
+  "input_form": "fw4_2026.pdf",
+  "applicant_count": 10,
+  "filled_pdf_count": 10,
+  "rendered_page_count": 55,
+  "ssn_and_signatures_left_blank": true,
+  "fill_script_invocations": 10,
+  "render_script_invocations": 11
+}}
+7. Run python3 input/verify_pdf_batch.py input/fw4_2026.pdf input/synthetic_employees.json output output/business_verification.json so it writes output/business_verification.json. Correct field mapping or rendering failures until status=success. Keep the generated driver, mappings and distinct helper revisions in the workspace.
+
+Completion requires:
+- output/check_fillable_fields.log and output/form_field_info.json;
+- 10 field-values JSON files and 10 valid 5-page filled PDFs;
+- 55 rendered PNG pages, counting the template and all outputs;
+- output/batch_summary.json;
+- output/business_verification.json with status=success.
+
+Do not install packages, download data, use live personal information or sign/certify forms during the measured task. Do not merely describe the work: produce and verify the actual files.

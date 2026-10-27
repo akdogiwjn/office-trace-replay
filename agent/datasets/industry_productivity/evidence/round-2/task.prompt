@@ -1,0 +1,55 @@
+You are executing a measured OpenClaw benchmark case inside a fresh trace-generation container.
+
+Case: enhance the original BLS detailed-industries productivity workbook into an executive-ready, interactive workbook.
+Workspace root: /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY
+Input directory: /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/input
+Output directory: /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output
+
+First read and follow the installed xlsx Skill at /root/.openclaw/skills/xlsx/SKILL.md. Use its prescribed openpyxl workflow and its bundled scripts/recalc.py. Do not replace the source workbook with a newly generated simplified workbook.
+
+Inputs:
+- labor-productivity-detailed-industries.xlsx: the complete original workbook, with 3 existing sheets. Inspect it before editing.
+- prepared_industry_productivity_summary.csv and prepared_industry_productivity_reconciliation_summary.csv: stable reference exports, prepared before this task; copy them rather than regenerate them.
+- input/dataset_manifest.json: source, integrity and task metadata. The project has already staged output/workbook_features.json for verification; you do not create or edit this index.
+- input/verify_xlsx_enhanced.py: this dataset's independent strict verifier.
+
+Required business work:
+1. Copy labor-productivity-detailed-industries.xlsx to output/industry_productivity_enhanced.xlsx, preserve every existing worksheet, formula, chart, value, merged region and formatting. Do not rewrite the original data, add synthetic rows or substitute a preprocessed workbook.
+2. Add Productivity_Summary as the first and only new sheet. Use Arial consistently and a professional blue/gray visual hierarchy.
+3. Place these five KPI formulas in the exact cells below:
+   - B5 2025 hours-worked index (index (2017=100)): cross-sheet formula linked to Annual!AT489.
+   - B6 2025 real sectoral output index (index (2017=100)): cross-sheet formula linked to Annual!AT488.
+   - B7 2025 labor productivity index (index (2017=100)): cross-sheet formula linked to Annual!AT487.
+   - B8 2025 output-per-worker index (index (2017=100)): cross-sheet formula linked to Annual!AT490.
+   - B9 Source consistency status: Return exactly PASS only when Annual!AT489 and AT490 are positive and ABS(Annual!AT488/Annual!AT489*100-Annual!AT487)<0.01; otherwise REVIEW. Use direct cross-sheet references; the tolerance allows the published three-decimal rounding.
+   Source interpretation: Use Food manufacturing, NAICS 311, All workers, 2025. Annual and MachineReadable are wide/long views of overlapping published series, NOT independent observations to aggregate. The scenario is illustrative, not a forecast; index values are not physical hours or output levels.
+4. Add a three-scenario control block (illustrative sensitivities; the names denote higher/lower assumptions, not forecasts):
+   - B12 is a data-validation dropdown with Base, Upside, Downside and defaults to Base.
+   - D13:F15 is the hardcoded scenario table: Base 1.00/1.00, Upside 1.08/1.05, Downside 0.93/0.95 for productivity_multiplier and hours_multiplier.
+   - B13 and B14 dynamically return the selected productivity_multiplier and hours_multiplier using formulas that reference B12 and the scenario table. Choose the lookup formula yourself.
+   - B15 Projected hours-worked index is a formula based on B5 and B14.
+   - B16 Projected real-output index is a formula based on B6, B13, and B14.
+5. Add two charts on Productivity_Summary. Preserve all original charts.
+   - manufacturing_subindustry_2025: column chart, 2025 productivity for NAICS 311, 312, 313, 314 and 315, in that order. Put labels in A20:A24 and live source-linked values in B20:B24. Sources: Food: Annual!AT487; Beverages and tobacco: Annual!AT510; Textile mills: Annual!AT533; Textile products: Annual!AT556; Apparel: Annual!AT579.
+   - food_productivity_trend: line chart, Food manufacturing productivity index in 2021, 2022, 2023, 2024 and 2025. Put labels in D20:D24 and live source-linked values in E20:E24. Sources: 2021: Annual!AP487; 2022: Annual!AQ487; 2023: Annual!AR487; 2024: Annual!AS487; 2025: Annual!AT487.
+6. Add at least two conditional-formatting rules covering two distinct regions, freeze panes, readable widths/heights, correct unit/percentage/integer formats, and at least two comments documenting source or scenario assumptions.
+7. Apply the xlsx Skill color convention: hardcoded editable inputs in blue font, cross-sheet formulas (B5:B9 and chart-table formulas) in green font, local formulas (B13:B16) in black font.
+8. Calculations must remain Excel formulas, not Python-hardcoded results. Do not create external workbook links. Use the source coordinates above; do not rescan or aggregate large tables to manufacture replacement totals.
+
+Execution and QA:
+- You may write one concise Python helper using openpyxl to perform the workbook edits. Author the helper yourself; no business helper or prepared selection is supplied.
+- Use the installed openpyxl. Never assign None to a cell style descriptor. Construct PatternFill with explicit start_color, end_color and fill_type keywords.
+- When all edits are finished, invoke /root/.openclaw/skills/xlsx/scripts/recalc.py once in the normal successful path with a 600-second timeout and save its JSON stdout as output/formula_recalc.json. Preserve the caches; do not save the recalculated result again with a normal openpyxl save.
+- Copy input/prepared_industry_productivity_summary.csv to output/industry_productivity_summary.csv and input/prepared_industry_productivity_reconciliation_summary.csv to output/industry_productivity_reconciliation_summary.csv. Do not generate CSVs from cached cells or change the supplied reference bytes.
+- Run python3 input/verify_xlsx_enhanced.py output/industry_productivity_enhanced.xlsx output/formula_recalc.json output/business_verification.json. Fix the workbook only if verification fails; if repair requires another recalc, record the extra invocation. Keep helpers and distinct versions of rewritten helpers in the workspace.
+- Write output/xlsx_enhancement_summary.json with feature counts, helper filenames, helper execution-attempt/success counts, recalc invocation count and final_verifier_status.
+
+Completion requires:
+- industry_productivity_enhanced.xlsx
+- industry_productivity_summary.csv
+- industry_productivity_reconciliation_summary.csv
+- formula_recalc.json
+- business_verification.json with status=success
+- xlsx_enhancement_summary.json
+
+Do not install packages or download data during the measured task. Do not merely describe the work: create and verify the actual files.

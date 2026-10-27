@@ -1,0 +1,75 @@
+{
+  "dataset_id": "industry_productivity",
+  "workbook": "industry_productivity_enhanced.xlsx",
+  "sheet": "Productivity_Summary",
+  "exports": [
+    {
+      "filename": "industry_productivity_summary.csv",
+      "header": [
+        "Metric",
+        "Value"
+      ],
+      "rows": [
+        {
+          "label": "2025 hours-worked index",
+          "cells": [
+            "B5"
+          ]
+        },
+        {
+          "label": "2025 real sectoral output index",
+          "cells": [
+            "B6"
+          ]
+        },
+        {
+          "label": "2025 labor productivity index",
+          "cells": [
+            "B7"
+          ]
+        },
+        {
+          "label": "2025 output-per-worker index",
+          "cells": [
+            "B8"
+          ]
+        },
+        {
+          "label": "Source consistency status",
+          "cells": [
+            "B9"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "industry_productivity_reconciliation_summary.csv",
+      "header": [
+        "Source",
+        "Primary_Total",
+        "Secondary_Total",
+        "Status"
+      ],
+      "rows": [
+        {
+          "label": "Source-derived KPI references",
+          "cells": [
+            "B5",
+            "B6",
+            "B9"
+          ]
+        },
+        {
+          "label": "Base scenario reference",
+          "cells": [
+            "B15",
+            "B16",
+            "B9"
+          ]
+        }
+      ]
+    }
+  ],
+  "numeric_relative_tolerance": 1e-08,
+  "numeric_absolute_tolerance": 1e-06
+}

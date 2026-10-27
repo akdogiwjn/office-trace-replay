@@ -1,0 +1,144 @@
+{
+  "schema_version": "independent-agent-replay-v1",
+  "dataset_id": "irs_w4",
+  "kind": "pdf",
+  "mode": "effective-tool-chain",
+  "source_run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+  "source_round": 1,
+  "required_outputs": [
+    "check_fillable_fields.log",
+    "form_field_info.json",
+    "field_values",
+    "filled",
+    "rendered",
+    "batch_summary.json",
+    "business_verification.json"
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01",
+  "phases": [
+    {
+      "id": "P01",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/pdf/scripts/check_fillable_fields.py",
+            "input/fw4_2026.pdf"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+            "event_ordinal": 8,
+            "step_id": 6,
+            "tool_call_id": "call_00_g2BKFcvH1zYhSijUozjr0647",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && mkdir -p output && cd /root/.openclaw/skills/pdf && python3 scripts/check_fillable_fields.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf > /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/check_fillable_fields.log; echo \"exit=$?\"; cat /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/check_fillable_fields.log"
+            }
+          },
+          "stdout": "output/check_fillable_fields.log"
+        },
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/pdf/scripts/extract_form_field_info.py",
+            "input/fw4_2026.pdf",
+            "output/form_field_info.json"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+            "event_ordinal": 9,
+            "step_id": 7,
+            "tool_call_id": "call_00_C2JWrYzS8i38rgGi3fgc0143",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/skills/pdf && python3 scripts/extract_form_field_info.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/form_field_info.json; echo \"exit=$?\"; python3 -c \"\nimport json\nd=json.load(open('/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/form_field_info.json'))\nprint(len(d))\nfor f in d: print(f['field_id'], f['page'], f['type'], f.get('checked_value'), f.get('unchecked_value'))\n\""
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py",
+            "input/fw4_2026.pdf",
+            "output/rendered/template"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+            "event_ordinal": 10,
+            "step_id": 8,
+            "tool_call_id": "call_00_Rm6rrsnYDgScUE9t7hFj4514",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01 && mkdir -p output/rendered/template output/field_values output/filled output/logs && cd /root/.openclaw/skills/pdf && python3 scripts/convert_pdf_to_images.py /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/input/fw4_2026.pdf /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-IRSW4-01/output/rendered/template; echo \"exit=$?\""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "build_field_values.py"
+          ],
+          "origin": {
+            "type": "final_captured_agent_helper",
+            "run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+            "path": "build_field_values.py",
+            "sha256": "9a399fd287778f247fedd59987881f5ff24d5347ffa5517329287e2d209b35bf"
+          }
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "run_batch.py"
+          ],
+          "origin": {
+            "type": "final_captured_agent_helper",
+            "run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+            "path": "run_batch.py",
+            "sha256": "67169c51b9403616756458970662e3c7ac1bae94b2609b29e52a238f53d00db8"
+          },
+          "timeout": 900
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "write_pdf_batch_summary.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Observe regenerated PDF/PNG/mapping counts; W-4 original summary was an Agent JSON write."
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "input/verify_pdf_batch.py",
+            "input/fw4_2026.pdf",
+            "input/synthetic_employees.json",
+            "output",
+            "output/business_verification.json"
+          ],
+          "origin": {
+            "type": "frozen_dataset_verifier",
+            "sha256": "c9fe731c65a69a1e83ad2a5e970db45263d7ba4835a75499daf38202b9cc35ed"
+          }
+        }
+      ]
+    }
+  ],
+  "policy": "Selected inspections and effective final build; no LLM, repair, preview or Agent waits."
+}

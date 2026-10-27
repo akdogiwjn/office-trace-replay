@@ -1,0 +1,49 @@
+{
+  "dataset_id": "egrid",
+  "kind": "xlsx",
+  "source_run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+  "original_prompt_sha256": "7f11b045821e424c4b740a8343439ead8c559c81ac515302d664f5bf0eb1827b",
+  "original_manifest_sha256": "3d42483d176649e5f0ad7fdff84489ae8a01ce047abf44422fcf4e091dc1d1c6",
+  "original_input_hashes": {
+    "input/egrid2023_data_rev2.xlsx": "895cd81dd8662406189ad8adf5a2578dcb362cdb5cff7cca81b10ee6bd2447c6",
+    "input/verify_xlsx_enhanced.py": "3b7ed79e7c6163c56ee61a3f2820794bbff59742f220a7c72a586f8e80c98939",
+    "input/prepared_energy_summary.csv": "07ac132bfad99f71072e50e8d23d0ac444d4a4f6236de098f1fdb51051faa4b6",
+    "input/prepared_energy_reconciliation_summary.csv": "fd5239665d6aa624f94907135522a6f3004928583e8f5875335da32a52f43838"
+  },
+  "agent_helpers": [
+    {
+      "path": "helpers/enhance_energy_report_v2.py",
+      "sha256": "8ad78ca652ee196a2029e9e0bc3cc8c8140b62dea14598aa6ba974a9a90cb16b",
+      "revision_capture_verified": true,
+      "revision_events": [
+        {
+          "path": "workspace/helpers/enhance_energy_report_v2.py",
+          "sha256": "8ad78ca652ee196a2029e9e0bc3cc8c8140b62dea14598aa6ba974a9a90cb16b",
+          "size": 13794,
+          "event": "moved_to",
+          "captured_at_ns": 1793071962050350085,
+          "source_mtime_ns": 1793071962045388608
+        },
+        {
+          "path": "workspace/helpers/enhance_energy_report_v2.py",
+          "sha256": "8ad78ca652ee196a2029e9e0bc3cc8c8140b62dea14598aa6ba974a9a90cb16b",
+          "size": 13794,
+          "event": "final_inventory",
+          "captured_at_ns": 1793072413013999603,
+          "source_mtime_ns": 1793071962045388608
+        }
+      ]
+    }
+  ],
+  "skill_recalc_sha256": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+  "intentional_adaptations": [
+    "Prepared CSV copy replaced by final-cache export; filenames, headers and row order retained.",
+    "Loop CSV validation reuses cached Summary values; independent audit also validates CSVs. No extra workbook load.",
+    "Runtime summary reports only this replay; original Agent summary remains historical evidence."
+  ],
+  "inspections": "Trace inline Python extracted byte-for-byte; original load modes and scopes retained.",
+  "omitted": "Other debugging, repair executions, temporary previews, model reasoning, poll waits and post-loop deep audit.",
+  "status": "compiled_static_only_not_replayed",
+  "source_index_sha256": "59e636170b0a8c6c3af3bd1497e0d2acc231d36c08608b3eea47926bd442325d",
+  "replay_environment_policy": "One common openEuler image with document-oe; standard-profile soffice path adapter outside the unmodified Skill."
+}

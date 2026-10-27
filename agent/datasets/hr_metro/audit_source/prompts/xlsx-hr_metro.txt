@@ -1,0 +1,55 @@
+You are executing a measured OpenClaw benchmark case inside a fresh trace-generation container.
+
+Case: enhance the original BLS May 2025 metropolitan employment and wage workbook into an executive-ready, interactive workbook.
+Workspace root: {workspace}
+Input directory: {workspace}/input
+Output directory: {workspace}/output
+
+First read and follow the installed xlsx Skill at /root/.openclaw/skills/xlsx/SKILL.md. Use its prescribed openpyxl workflow and its bundled scripts/recalc.py. Do not replace the source workbook with a newly generated simplified workbook.
+
+Inputs:
+- MSA_M2025_dl.xlsx: the complete original workbook, with 4 existing sheets. Inspect it before editing.
+- prepared_workforce_summary.csv and prepared_workforce_reconciliation_summary.csv: stable reference exports, prepared before this task; copy them rather than regenerate them.
+- input/dataset_manifest.json: source, integrity and task metadata. The project has already staged output/workbook_features.json for verification; you do not create or edit this index.
+- input/verify_xlsx_enhanced.py: this dataset's independent strict verifier.
+
+Required business work:
+1. Copy MSA_M2025_dl.xlsx to output/workforce_report.xlsx, preserve every existing worksheet, formula, chart, value, merged region and formatting. Do not rewrite the original data, add synthetic rows or substitute a preprocessed workbook.
+2. Add Workforce_Summary as the first and only new sheet. Use Arial consistently and a professional blue/gray visual hierarchy.
+3. Place these five KPI formulas in the exact cells below:
+   - B5 Employment, all occupations (employees): cross-sheet formula linked to MSA_M2025_dl!L93966.
+   - B6 Annual mean wage, all occupations (USD/year): cross-sheet formula linked to MSA_M2025_dl!S93966.
+   - B7 Hourly median wage, all occupations (USD/hour): cross-sheet formula linked to MSA_M2025_dl!W93966.
+   - B8 Annual median wage, all occupations (USD/year): cross-sheet formula linked to MSA_M2025_dl!AB93966.
+   - B9 Source consistency status: Return exactly PASS only when MSA_M2025_dl!L93966 and S93966 are positive and W93966 and AB93966 are nonnegative; otherwise REVIEW. Use direct cross-sheet references.
+   Source interpretation: Use AREA 35620, New York-Newark-Jersey City, NY-NJ; NAICS 000000, ownership 1235, all occupations at row 93966. All four numeric KPIs are published values. Do not construct a payroll total by multiplying employment by mean wage. Do not average medians, replace suppression markers with zero, combine totals with detail rows or rescan/rank the full table to choose other groups.
+4. Add a three-scenario control block (illustrative sensitivities; the names denote higher/lower assumptions, not forecasts):
+   - B12 is a data-validation dropdown with Base, Upside, Downside and defaults to Base.
+   - D13:F15 is the hardcoded scenario table: Base 1.00/1.00, Upside 1.08/1.05, Downside 0.93/0.95 for wage_multiplier and employment_multiplier.
+   - B13 and B14 dynamically return the selected wage_multiplier and employment_multiplier using formulas that reference B12 and the scenario table. Choose the lookup formula yourself.
+   - B15 Projected employment is a formula based on B5 and B14.
+   - B16 Projected annual mean wage is a formula based on B6 and B13 only. Employment changes do not multiply an average wage; do not reference B14 or the employment-multiplier column in B16.
+5. Add two charts on Workforce_Summary. Preserve all original charts.
+   - major_employment: column chart, Employment for the five explicitly selected major occupation groups, in the supplied order. Put labels in A20:A24 and live source-linked values in B20:B24. Sources: Office and Administrative Support Occupations: MSA_M2025_dl!L94460; Healthcare Support Occupations: MSA_M2025_dl!L94336; Sales and Related Occupations: MSA_M2025_dl!L94437; Business and Financial Operations Occupations: MSA_M2025_dl!L94004; Management Occupations: MSA_M2025_dl!L93967.
+   - major_mean_wage: column chart, Annual mean wage for the same five major occupation groups, in the supplied order. Put labels in D20:D24 and live source-linked values in E20:E24. Sources: Office and Administrative Support Occupations: MSA_M2025_dl!S94460; Healthcare Support Occupations: MSA_M2025_dl!S94336; Sales and Related Occupations: MSA_M2025_dl!S94437; Business and Financial Operations Occupations: MSA_M2025_dl!S94004; Management Occupations: MSA_M2025_dl!S93967.
+6. Add at least two conditional-formatting rules covering two distinct regions, freeze panes, readable widths/heights, correct unit/percentage/integer formats, and at least two comments documenting source or scenario assumptions.
+7. Apply the xlsx Skill color convention: hardcoded editable inputs in blue font, cross-sheet formulas (B5:B9 and chart-table formulas) in green font, local formulas (B13:B16) in black font.
+8. Calculations must remain Excel formulas, not Python-hardcoded results. Do not create external workbook links. Use the source coordinates above; do not rescan or aggregate large tables to manufacture replacement totals.
+
+Execution and QA:
+- You may write one concise Python helper using openpyxl to perform the workbook edits. Author the helper yourself; no business helper or prepared selection is supplied.
+- Use the installed openpyxl. Never assign None to a cell style descriptor. Construct PatternFill with explicit start_color, end_color and fill_type keywords.
+- When all edits are finished, invoke /root/.openclaw/skills/xlsx/scripts/recalc.py once in the normal successful path with a 600-second timeout and save its JSON stdout as output/formula_recalc.json. Preserve the caches; do not save the recalculated result again with a normal openpyxl save.
+- Copy input/prepared_workforce_summary.csv to output/workforce_summary.csv and input/prepared_workforce_reconciliation_summary.csv to output/workforce_reconciliation_summary.csv. Do not generate CSVs from cached cells or change the supplied reference bytes.
+- Run python3 input/verify_xlsx_enhanced.py output/workforce_report.xlsx output/formula_recalc.json output/business_verification.json. Fix the workbook only if verification fails; if repair requires another recalc, record the extra invocation. Keep helpers and distinct versions of rewritten helpers in the workspace.
+- Write output/xlsx_enhancement_summary.json with feature counts, helper filenames, helper execution-attempt/success counts, recalc invocation count and final_verifier_status.
+
+Completion requires:
+- workforce_report.xlsx
+- workforce_summary.csv
+- workforce_reconciliation_summary.csv
+- formula_recalc.json
+- business_verification.json with status=success
+- xlsx_enhancement_summary.json
+
+Do not install packages or download data during the measured task. Do not merely describe the work: create and verify the actual files.

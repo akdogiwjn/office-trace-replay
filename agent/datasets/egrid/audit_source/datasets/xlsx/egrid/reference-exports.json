@@ -1,0 +1,43 @@
+{
+  "schema_version": "office-prepared-reference-exports-v1",
+  "dataset_id": "egrid",
+  "prepared_outside_agent": true,
+  "original_workbook_sha256": "895cd81dd8662406189ad8adf5a2578dcb362cdb5cff7cca81b10ee6bd2447c6",
+  "source_cell_values": {
+    "US23!G3": 4190970937.357,
+    "US23!M3": 1607676335.942,
+    "US23!U3": 767.209,
+    "ST23!I7": 216080235.825,
+    "ST23!I37": 123473720.157,
+    "ST23!I47": 544038647.008,
+    "ST23!I12": 258099011.95,
+    "ST23!I41": 235912550.485,
+    "US23!DX3": 0.161,
+    "US23!DZ3": 0.432,
+    "US23!EA3": 0.185,
+    "US23!EB3": 0.057,
+    "US23!ED3": 0.1,
+    "US23!EE3": 0.039
+  },
+  "exports": [
+    {
+      "input": "prepared_energy_summary.csv",
+      "output": "energy_summary.csv",
+      "sha256": "07ac132bfad99f71072e50e8d23d0ac444d4a4f6236de098f1fdb51051faa4b6"
+    },
+    {
+      "input": "prepared_energy_reconciliation_summary.csv",
+      "output": "energy_reconciliation_summary.csv",
+      "sha256": "fd5239665d6aa624f94907135522a6f3004928583e8f5875335da32a52f43838"
+    }
+  ],
+  "method": "Deterministic UTF-8 CSV serialization of original-cell KPI values, source consistency and Base-scenario references. No workbook rewrite or synthetic expansion.",
+  "scope": "Read-only reference exports; not business helpers or substitutes for required Excel formulas.",
+  "consistency_checks": {
+    "positive_generation": true,
+    "nonnegative_emissions": true,
+    "rate_matches_mass_per_generation_with_rounding": true,
+    "gas_share_in_unit_interval": true
+  },
+  "checked_against_original_workbook_hash": "895cd81dd8662406189ad8adf5a2578dcb362cdb5cff7cca81b10ee6bd2447c6"
+}

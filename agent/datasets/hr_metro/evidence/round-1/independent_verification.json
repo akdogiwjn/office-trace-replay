@@ -1,0 +1,710 @@
+{
+  "schema_version": "office-verification-v1",
+  "dataset_id": "hr_metro",
+  "kind": "xlsx",
+  "status": "failed",
+  "checks": {
+    "input:input/MSA_M2025_dl.xlsx": {
+      "ok": true,
+      "detail": null
+    },
+    "input:input/verify_xlsx_enhanced.py": {
+      "ok": true,
+      "detail": null
+    },
+    "input:input/prepared_workforce_summary.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "input:input/prepared_workforce_reconciliation_summary.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "workbook_file": {
+      "ok": true,
+      "detail": null
+    },
+    "source:worksheets": {
+      "ok": true,
+      "detail": [
+        "Workforce_Summary",
+        "MSA_M2025_dl",
+        "Field Descriptions",
+        "UpdateTime",
+        "Filler"
+      ]
+    },
+    "source:relative_order": {
+      "ok": true,
+      "detail": null
+    },
+    "source:data:MSA_M2025_dl": {
+      "ok": false,
+      "detail": {
+        "missing": [
+          "AE2",
+          "AF2",
+          "AE3",
+          "AF3",
+          "AE4",
+          "AF4",
+          "AE5",
+          "AF5",
+          "AE6",
+          "AF6",
+          "AE7",
+          "AF7"
+        ],
+        "changed": [],
+        "added": []
+      }
+    },
+    "source:formulas:MSA_M2025_dl": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats_meaning:MSA_M2025_dl": {
+      "ok": true,
+      "detail": []
+    },
+    "source:data:Field Descriptions": {
+      "ok": true,
+      "detail": {
+        "missing": [],
+        "changed": [],
+        "added": []
+      }
+    },
+    "source:formulas:Field Descriptions": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats_meaning:Field Descriptions": {
+      "ok": true,
+      "detail": []
+    },
+    "source:data:UpdateTime": {
+      "ok": true,
+      "detail": {
+        "missing": [],
+        "changed": [],
+        "added": []
+      }
+    },
+    "source:formulas:UpdateTime": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats_meaning:UpdateTime": {
+      "ok": true,
+      "detail": []
+    },
+    "source:data:Filler": {
+      "ok": true,
+      "detail": {
+        "missing": [],
+        "changed": [],
+        "added": []
+      }
+    },
+    "source:formulas:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats_meaning:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:merged_regions_removed:MSA_M2025_dl": {
+      "ok": true,
+      "detail": []
+    },
+    "source:charts:MSA_M2025_dl": {
+      "ok": true,
+      "detail": []
+    },
+    "source:merged_regions_removed:Field Descriptions": {
+      "ok": true,
+      "detail": []
+    },
+    "source:charts:Field Descriptions": {
+      "ok": true,
+      "detail": []
+    },
+    "source:merged_regions_removed:UpdateTime": {
+      "ok": true,
+      "detail": []
+    },
+    "source:charts:UpdateTime": {
+      "ok": true,
+      "detail": []
+    },
+    "source:merged_regions_removed:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:charts:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_names": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_names_damaged": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_name_shadowing": {
+      "ok": true,
+      "detail": []
+    },
+    "overview_added": {
+      "ok": true,
+      "detail": null
+    },
+    "metric_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Workforce_Summary!B5": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:total_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:total_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:total_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Workforce_Summary!B6": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:annual_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:annual_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:annual_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Workforce_Summary!B7": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:hourly_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:hourly_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:hourly_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Workforce_Summary!B8": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:annual_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:annual_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:annual_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Workforce_Summary!B9": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:metric:reconciliation_status": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:source_dependency:reconciliation_status": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:metric_color:reconciliation_status": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:default": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dropdown": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:selector_color": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dimension_inventory:Base": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Base:wage_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Base:employment_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dimension_inventory:Upside": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Upside:wage_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Upside:employment_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:dimension_inventory:Downside": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Downside:wage_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "scenario:assumption:Downside:employment_multiplier": {
+      "ok": true,
+      "detail": null
+    },
+    "projection_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Workforce_Summary!B15": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:projection:projected_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:scenario_dependency:projected_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "feature:formula:Workforce_Summary!B16": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:projection:projected_annual_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic:scenario_dependency:projected_annual_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "chart_inventory": {
+      "ok": true,
+      "detail": null
+    },
+    "chart:references:major_employment": {
+      "ok": true,
+      "detail": [
+        "WORKFORCE_SUMMARY!A20:A24",
+        "WORKFORCE_SUMMARY!B19",
+        "WORKFORCE_SUMMARY!B20:B24"
+      ]
+    },
+    "semantic:chart:major_employment": {
+      "ok": true,
+      "detail": [
+        [
+          1109360,
+          843730,
+          751110,
+          725700,
+          713690
+        ]
+      ]
+    },
+    "semantic:chart_dependency:major_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "chart:major_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "chart:references:major_mean_wage": {
+      "ok": true,
+      "detail": [
+        "WORKFORCE_SUMMARY!D20:D24",
+        "WORKFORCE_SUMMARY!E19",
+        "WORKFORCE_SUMMARY!E20:E24"
+      ]
+    },
+    "semantic:chart:major_mean_wage": {
+      "ok": true,
+      "detail": [
+        [
+          59750,
+          43500,
+          74940,
+          119290,
+          196850
+        ]
+      ]
+    },
+    "semantic:chart_dependency:major_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "chart:major_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "format:comments": {
+      "ok": true,
+      "detail": null
+    },
+    "format:freeze_panes": {
+      "ok": true,
+      "detail": null
+    },
+    "no_external_links": {
+      "ok": true,
+      "detail": null
+    },
+    "zero_formula_errors": {
+      "ok": true,
+      "detail": []
+    },
+    "recalc_report": {
+      "ok": true,
+      "detail": null
+    },
+    "published:workforce_summary.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "published:workforce_reconciliation_summary.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:workforce_report.xlsx": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:workbook_features.json": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:formula_recalc.json": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:xlsx_enhancement_summary.json": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:workforce_summary.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "deliverable:workforce_reconciliation_summary.csv": {
+      "ok": true,
+      "detail": null
+    },
+    "task_layout:summary_sheet": {
+      "ok": true,
+      "detail": null
+    },
+    "task_layout:metrics": {
+      "ok": true,
+      "detail": null
+    },
+    "task_layout:scenario": {
+      "ok": true,
+      "detail": null
+    },
+    "task_layout:charts": {
+      "ok": true,
+      "detail": null
+    },
+    "format:conditional_rules": {
+      "ok": true,
+      "detail": {
+        "covered_unique_regions": 3,
+        "required": 2
+      }
+    },
+    "task_layout:sheet_order": {
+      "ok": true,
+      "detail": [
+        "Workforce_Summary",
+        "MSA_M2025_dl",
+        "Field Descriptions",
+        "UpdateTime",
+        "Filler"
+      ]
+    },
+    "task_source:total_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "task_source:annual_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "task_source:hourly_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "task_source:annual_median_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "task_source:reconciliation_status": {
+      "ok": true,
+      "detail": null
+    },
+    "task_formula:B13": {
+      "ok": true,
+      "detail": null
+    },
+    "task_formula:B14": {
+      "ok": true,
+      "detail": null
+    },
+    "task_formula:B15": {
+      "ok": true,
+      "detail": null
+    },
+    "task_formula:B16": {
+      "ok": true,
+      "detail": null
+    },
+    "task_independence:B16": {
+      "ok": false,
+      "detail": null
+    },
+    "task_chart_type:major_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "task_chart_categories:major_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "task_chart_values:major_employment": {
+      "ok": true,
+      "detail": null
+    },
+    "task_chart_labels:major_employment": {
+      "ok": true,
+      "detail": [
+        "Office and Administrative Support Occupations",
+        "Healthcare Support Occupations",
+        "Sales and Related Occupations",
+        "Business and Financial Operations Occupations",
+        "Management Occupations"
+      ]
+    },
+    "task_chart_type:major_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "task_chart_categories:major_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "task_chart_values:major_mean_wage": {
+      "ok": true,
+      "detail": null
+    },
+    "task_chart_labels:major_mean_wage": {
+      "ok": true,
+      "detail": [
+        "Office and Administrative Support Occupations",
+        "Healthcare Support Occupations",
+        "Sales and Related Occupations",
+        "Business and Financial Operations Occupations",
+        "Management Occupations"
+      ]
+    }
+  },
+  "failures": [
+    "source:data:MSA_M2025_dl",
+    "task_independence:B16"
+  ],
+  "diagnostics": {
+    "source:number_formats:MSA_M2025_dl": {
+      "ok": true,
+      "detail": []
+    },
+    "source:empty_string_normalized:MSA_M2025_dl": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats:Field Descriptions": {
+      "ok": true,
+      "detail": []
+    },
+    "source:empty_string_normalized:Field Descriptions": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats:UpdateTime": {
+      "ok": true,
+      "detail": []
+    },
+    "source:empty_string_normalized:UpdateTime": {
+      "ok": true,
+      "detail": []
+    },
+    "source:number_formats:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:empty_string_normalized:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:merged_regions:MSA_M2025_dl": {
+      "ok": true,
+      "detail": []
+    },
+    "source:styles:MSA_M2025_dl": {
+      "ok": true,
+      "detail": [
+        "A1:font",
+        "A1:alignment",
+        "B1:font",
+        "B1:alignment",
+        "C1:font",
+        "C1:alignment",
+        "D1:font",
+        "D1:alignment",
+        "E1:font",
+        "E1:alignment",
+        "F1:font",
+        "F1:alignment",
+        "G1:font",
+        "G1:alignment",
+        "H1:font",
+        "H1:alignment",
+        "I1:font",
+        "I1:alignment",
+        "J1:font",
+        "J1:alignment",
+        "K1:font",
+        "K1:alignment",
+        "L1:font",
+        "L1:alignment"
+      ]
+    },
+    "source:merged_regions:Field Descriptions": {
+      "ok": true,
+      "detail": []
+    },
+    "source:styles:Field Descriptions": {
+      "ok": true,
+      "detail": [
+        "A1:font",
+        "A1:alignment",
+        "A2:font",
+        "A2:alignment",
+        "A3:font",
+        "A3:alignment",
+        "A4:font",
+        "A4:alignment",
+        "B4:font",
+        "B4:alignment",
+        "A5:font",
+        "A5:alignment",
+        "A6:font",
+        "A6:alignment",
+        "B6:font",
+        "B6:alignment",
+        "A8:font",
+        "A8:alignment",
+        "B8:font",
+        "A9:font",
+        "A9:alignment",
+        "A10:font",
+        "A10:alignment",
+        "B10:font"
+      ]
+    },
+    "source:merged_regions:UpdateTime": {
+      "ok": true,
+      "detail": []
+    },
+    "source:styles:UpdateTime": {
+      "ok": true,
+      "detail": [
+        "A1:font",
+        "A1:alignment",
+        "A2:font",
+        "A2:alignment"
+      ]
+    },
+    "source:merged_regions:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:styles:Filler": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_names_serialization": {
+      "ok": true,
+      "detail": []
+    },
+    "source:defined_names_added": {
+      "ok": true,
+      "detail": []
+    },
+    "serialization:conditional_group_check": {
+      "ok": true,
+      "detail": {
+        "legacy_group_threshold_met": true,
+        "detail": null
+      }
+    },
+    "not_applicable:cached_csv_export": {
+      "ok": true,
+      "detail": {
+        "reason": "Reference CSV copies are validated by published-file SHA256 checks."
+      }
+    }
+  },
+  "diagnostics_total": 20,
+  "diagnostic_diff_count": 5,
+  "validation_scope": "independent",
+  "validation_contract": "dataset-specific-agent-independent-v1"
+}

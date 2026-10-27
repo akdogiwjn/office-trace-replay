@@ -1,0 +1,460 @@
+#!/usr/bin/env python3
+"""Dataset-local executor. This file does not import any other dataset."""
+import argparse
+from datetime import datetime, timezone
+import fcntl
+import hashlib
+import importlib.metadata
+import importlib
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import subprocess
+import sys
+import time
+import uuid
+
+HERE = Path(__file__).resolve().parent
+
+# Copied into each entry/executor at development time; no shared runtime import.
+PINNED_VENV = Path('/opt/document-bench/.venv')
+PINNED_PYTHON = PINNED_VENV / 'bin/python'
+PINNED_SOFFICE = Path('/opt/libreoffice25.8-symbols/program')
+
+
+def runtime_environment(runtime='document-oe', inherited=None):
+    env = dict(os.environ if inherited is None else inherited)
+    for key in ('PYTHONHOME', 'PYTHONPATH', 'PYTHONUSERBASE'):
+        env.pop(key, None)
+    env['PYTHONNOUSERSITE'] = '1'
+    env['PYTHONUNBUFFERED'] = '1'
+    if runtime == 'document-oe':
+        env['VIRTUAL_ENV'] = str(PINNED_VENV)
+        env['PYTHON_PREFIX'] = '/opt/python-3.12.3'
+        prefixes = [str(PINNED_VENV / 'bin'), str(PINNED_SOFFICE)]
+    else:
+        prefixes = [str(Path(sys.executable).parent)]
+    rest = [p for p in env.get('PATH', '').split(os.pathsep) if p and p not in prefixes]
+    env['PATH'] = os.pathsep.join(prefixes + rest)
+    return env
+
+
+def configure_runtime(runtime='document-oe'):
+    if runtime != 'document-oe':
+        return
+    if not PINNED_PYTHON.is_file() or not os.access(PINNED_PYTHON, os.X_OK):
+        raise ValueError('pinned Python is unavailable: ' + str(PINNED_PYTHON))
+    env = runtime_environment(runtime)
+    # A matching version alone is insufficient: system Python and external
+    # site-packages must not become the runner or its children's environment.
+    restart = (Path(sys.prefix) != PINNED_VENV
+               or Path(sys.executable).parent != PINNED_VENV / 'bin'
+               or not sys.flags.no_user_site
+               or any(key in os.environ for key in ('PYTHONHOME', 'PYTHONPATH', 'PYTHONUSERBASE')))
+    if restart:
+        if env.get('OFFICE_RUNTIME_REEXEC') == '1':
+            raise ValueError('pinned Python bootstrap did not select the isolated venv')
+        env['OFFICE_RUNTIME_REEXEC'] = '1'
+        os.execve(str(PINNED_PYTHON), [str(PINNED_PYTHON), str(Path(__file__).resolve()), *sys.argv[1:]], env)
+        raise RuntimeError('Python re-exec returned unexpectedly')
+    os.environ.clear()
+    os.environ.update(env)
+
+
+def read(path):
+    return json.loads(Path(path).read_text(encoding='utf-8'))
+
+
+def digest(path):
+    h = hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for block in iter(lambda: stream.read(1048576), b''):
+            h.update(block)
+    return h.hexdigest()
+
+
+def write(path, value):
+    path = Path(path)
+    temp = path.with_name(path.name + '.tmp')
+    temp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+    temp.replace(path)
+
+
+def persist(path, value):
+    """Keep an explicit emergency record if atomic publication fails."""
+    try:
+        write(path, value)
+        return None
+    except Exception as exc:
+        error = f'{type(exc).__name__}: {exc}'
+        emergency = dict(value, status='failed', record_error=error)
+        try:
+            Path(path).with_name(Path(path).stem + '.emergency.json').write_text(
+                json.dumps(emergency, ensure_ascii=False, indent=2) + '\n')
+        except Exception as fallback:
+            print(json.dumps(dict(event='evidence_persistence_failure', path=str(path),
+                                  error=error, fallback_error=str(fallback))), file=sys.stderr, flush=True)
+        return error
+
+
+def boundary(folder, recipe, index, scope, event):
+    marker = dict(schema_version='replay-roi-v1', dataset_id=recipe['dataset_id'],
+                  iteration=index, scope=scope, event=event, pid=os.getpid(),
+                  monotonic_ns=time.monotonic_ns(), realtime_ns=time.time_ns())
+    try:
+        with (folder / 'roi.jsonl').open('a') as stream:
+            stream.write(json.dumps(marker) + '\n')
+            stream.flush()
+    except Exception as exc:
+        marker['record_error'] = f'{type(exc).__name__}: {exc}'
+    return marker
+
+
+def snapshot_context(recipe, destination, inspect_path=None):
+    target = destination / 'context'
+    target.mkdir()
+    names = ('lock.json', 'provenance.json', 'recipe.json', 'environment.json', 'replay-environment.json')
+    files = {}
+    for name in names:
+        shutil.copy2(HERE / name, target / name)
+        files[name] = digest(target / name)
+    identity = dict(status='missing', actual_image_id='unknown', container_id='unknown')
+    if inspect_path is not None:
+        if not Path(inspect_path).is_file():
+            raise ValueError('container inspect file is missing: ' + str(inspect_path))
+        raw = Path(inspect_path).read_bytes()
+        data = json.loads(raw)
+        if not isinstance(data, list) or len(data) != 1:
+            raise ValueError('container inspect must describe exactly one container')
+        item = data[0]
+        if item.get('Config', {}).get('Hostname') != os.uname().nodename:
+            raise ValueError('container inspect hostname does not match this container')
+        if not item.get('Id') or not str(item.get('Image', '')).startswith('sha256:'):
+            raise ValueError('container inspect lacks container/image identity')
+        (target / 'container-inspect.before.json').write_bytes(raw)
+        files['container-inspect.before.json'] = digest(target / 'container-inspect.before.json')
+        identity = dict(status='host_inspect_bound', actual_image_id=item['Image'], container_id=item['Id'])
+        plan_path = Path(inspect_path).with_name('launch-plan.json')
+        if plan_path.is_file():
+            plan = read(plan_path)
+            if plan['dataset_locks'].get(recipe['dataset_id']) != files['lock.json']:
+                raise ValueError('installed dataset differs from host launch plan')
+            shutil.copy2(plan_path, target / 'launch-plan.json')
+            files['launch-plan.json'] = digest(target / 'launch-plan.json')
+    binding = dict(dataset_id=recipe['dataset_id'], source_run_id=recipe['source_run_id'],
+                   files=files, container=identity,
+                   scope='Frozen execution context copied before reset; original trace evidence remains immutable')
+    write(target / 'index.json', binding)
+    return dict(index_sha256=digest(target / 'index.json'), **binding)
+
+
+def validate(root=HERE):
+    root = Path(root).resolve()
+    lock = read(root / 'lock.json')
+    for name, expected in lock['files'].items():
+        path = root / name
+        if Path(name).is_absolute() or '..' in Path(name).parts or not path.resolve().is_relative_to(root):
+            raise ValueError('unsafe frozen path: ' + name)
+        if path.is_symlink() or not path.is_file() or digest(path) != expected:
+            raise ValueError('frozen file mismatch: ' + name)
+    recipe = read(root / 'recipe.json')
+    if recipe['dataset_id'] != root.name or recipe['mode'] != 'effective-tool-chain':
+        raise ValueError('recipe identity mismatch')
+    if [p['id'] for p in recipe['phases']] != ['P01', 'P02', 'P03', 'P04']:
+        raise ValueError('invalid phase order')
+    if Path(recipe['workspace']).parent != Path('/root/.openclaw/workspace/tool-modeling'):
+        raise ValueError('unsafe reset workspace')
+    for phase in recipe['phases']:
+        for call in phase['calls']:
+            if not call['argv'] or not call.get('origin'):
+                raise ValueError('call without argv or provenance')
+    source = read(root / 'provenance.json')
+    helper_hashes = [entry['sha256'] for entry in source['agent_helpers']]
+    if not helper_hashes or any(entry['revision_capture_verified'] is not True for entry in source['agent_helpers']):
+        raise ValueError('helper missing revision capture evidence')
+    if recipe['kind'] == 'xlsx':
+        recalc = root / 'skills/xlsx/scripts/recalc.py'
+        if digest(recalc) != source['skill_recalc_sha256']:
+            raise ValueError('Skill recalc was changed')
+    return recipe
+
+
+def environment(recipe, runtime='document-oe'):
+    if sys.version_info[:3] != (3, 12, 3):
+        raise ValueError('execution requires Python 3.12.3, got ' + sys.version)
+    actual = {name: importlib.metadata.version(name) for name in ('openpyxl', 'pypdf', 'pdf2image', 'pillow')}
+    source = read(HERE / 'environment.json')
+    expected = source if runtime == 'original' else read(HERE / 'replay-environment.json')
+    if actual != expected['packages']:
+        raise ValueError('Python package versions differ: ' + str(actual))
+    package_paths = {name: str(Path(importlib.import_module(name).__file__).resolve())
+                     for name in ('openpyxl', 'et_xmlfile', 'pypdf', 'pdf2image', 'PIL')}
+    libpython = sorted({line.split()[-1] for line in Path('/proc/self/maps').read_text().splitlines()
+                        if 'libpython3.12.so' in line})
+    if runtime == 'document-oe':
+        if Path(sys.prefix) != PINNED_VENV or Path(sys.executable).resolve() != Path('/opt/python-3.12.3/bin/python3.12'):
+            raise ValueError('Python path differs from document-oe runtime')
+        if any(not Path(path).is_relative_to(PINNED_VENV) for path in package_paths.values()):
+            raise ValueError('Python package loaded outside document-oe venv: ' + str(package_paths))
+        if libpython != ['/opt/python-3.12.3/lib/libpython3.12.so.1.0']:
+            raise ValueError('libpython differs from document-oe runtime: ' + str(libpython))
+        if importlib.metadata.version('et_xmlfile') != '2.0.0':
+            raise ValueError('et_xmlfile differs from document-oe runtime')
+    env = runtime_environment(runtime)
+    if runtime == 'document-oe':
+        env['PATH'] = str(HERE / 'runtime/bin') + os.pathsep + env['PATH']
+    tools = {}
+    for name, command, token in (
+            ('libreoffice', ['soffice', '--version'], expected['libreoffice']),
+            ('poppler', ['pdftoppm', '-v'], expected['poppler'])):
+        proc = subprocess.run(command, capture_output=True, text=True, timeout=20, env=env)
+        value = (proc.stdout + proc.stderr).strip()
+        if proc.returncode or token not in value:
+            raise ValueError(name + ' environment mismatch: ' + value)
+        tools[name] = value
+    return dict(python=sys.version, executable=sys.executable, packages=actual, tools=tools,
+                real_executable=str(Path(sys.executable).resolve()), prefix=sys.prefix,
+                base_prefix=sys.base_prefix, package_paths=package_paths, libpython_paths=libpython,
+                python3_path=shutil.which('python3', path=env['PATH']),
+                soffice_path=shutil.which('soffice', path=env['PATH']),
+                soffice_program=str(PINNED_SOFFICE) if runtime == 'document-oe' else None,
+                runtime=runtime, original_agent_image_id=source['image_id'],
+                expected_image_id=expected['image_id'],
+                actual_image_id=os.environ.get('REPLAY_ACTUAL_IMAGE_ID', 'unknown'))
+
+
+def run_command(argv, cwd, stdout, stderr, timeout, env):
+    with Path(stdout).open('w') as out, Path(stderr).open('w') as err:
+        process = subprocess.Popen(argv, cwd=cwd, env=env, stdout=out, stderr=err,
+                                   start_new_session=True)
+        try:
+            code = process.wait(timeout=timeout)
+        except BaseException:
+            try:
+                os.killpg(process.pid, signal.SIGTERM)
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGKILL)
+                process.wait()
+            except ProcessLookupError:
+                pass
+            raise
+    if code:
+        raise RuntimeError('exit ' + str(code) + ': ' + repr(argv))
+
+
+def prepare(recipe, runtime='document-oe', *, skill_directory=None):
+    workspace = Path(recipe['workspace'])
+    if workspace.is_symlink():
+        raise ValueError('workspace must not be a symlink')
+    if workspace.exists():
+        shutil.rmtree(workspace)
+    shutil.copytree(HERE / 'seed', workspace)
+    # Restore code, never final XLSX/PDFs, caches, mappings or success reports.
+    shutil.copytree(HERE / 'scripts', workspace, dirs_exist_ok=True)
+    (workspace / 'output').mkdir(exist_ok=True)
+    if recipe['kind'] == 'pdf':
+        for name in ('rendered/template', 'field_values', 'filled', 'logs'):
+            (workspace / 'output' / name).mkdir(parents=True, exist_ok=True)
+    skill = (Path('/root/.openclaw/skills') if skill_directory is None else Path(skill_directory)) / recipe['kind']
+    skill.parent.mkdir(parents=True, exist_ok=True)
+    if skill.is_symlink() or skill.is_file():
+        skill.unlink()
+    elif skill.exists():
+        shutil.rmtree(skill)
+    skill.symlink_to(HERE / 'skills' / recipe['kind'])
+    env = runtime_environment(runtime)
+    if runtime == 'document-oe':
+        env['PATH'] = str(HERE / 'runtime/bin') + os.pathsep + env['PATH']
+    return workspace, env
+
+
+def audit(recipe, workspace, target):
+    # Independent verification is explicitly outside the workload interval.
+    audit_recipe = dict(dataset_id=recipe.get('dataset_id', 'unknown'))
+    mark = boundary(target, audit_recipe, 0, 'independent_audit_excluded', 'start')
+    outputs = Path(workspace) / 'output'
+    before = {str(p.relative_to(outputs)): digest(p) for p in outputs.rglob('*') if p.is_file()}
+    error = None
+    try:
+        run_command([sys.executable, str(HERE / 'audit.py'), '--workspace', str(workspace),
+                     '--report', str(target / 'independent.json')], HERE,
+                    target / 'audit.stdout.log', target / 'audit.stderr.log', 1800, os.environ.copy())
+    except Exception as exc:
+        error = str(exc)
+    after = {str(p.relative_to(outputs)): digest(p) for p in outputs.rglob('*') if p.is_file()}
+    result = dict(status='success' if error is None and before == after else 'failed',
+                  error=error, output_hashes_before=before, output_hashes_after=after,
+                  unchanged=before == after, readonly_mount_enforced=False,
+                  scope='post-loop independent audit; no helper/recalc/replay execution')
+    result['boundaries'] = [mark, boundary(target, audit_recipe, 0, 'independent_audit_excluded', 'end')]
+    write(target / 'audit-record.json', result)
+    return result
+
+
+def run_iteration(recipe, index, folder, runtime):
+    workspace = Path(recipe['workspace'])
+    result = dict(index=index, status='in_progress', workload_status='in_progress',
+                  archive_status='not_started', calls=[], boundaries=[],
+                  source_run_id=recipe['source_run_id'], output_hashes={})
+    workflow_start = None
+    workspace_ready = False
+    start = boundary(folder, recipe, index, 'loop_including_reset', 'start')
+    result['boundaries'].append(start)
+    try:
+        if 'record_error' in start:
+            raise ValueError('ROI start marker could not be recorded: ' + start['record_error'])
+        workspace, env = prepare(recipe, runtime)
+        workspace_ready = True
+        flow = boundary(folder, recipe, index, 'workflow', 'start')
+        workflow_start = flow['monotonic_ns']
+        result['boundaries'].append(flow)
+        result['reset_seconds'] = (workflow_start - start['monotonic_ns']) / 1e9
+        for phase in recipe['phases']:
+            print(recipe['dataset_id'], index, phase['id'], flush=True)
+            for call in phase['calls']:
+                n = len(result['calls']) + 1
+                record = dict(index=n, phase=phase['id'], argv=call['argv'],
+                              origin=call['origin'], status='in_progress')
+                result['calls'].append(record)
+                write(folder / 'iteration.json', result)
+                args_ = [a.replace('{python}', sys.executable).replace('{workspace}', str(workspace))
+                         for a in call['argv']]
+                begin = time.monotonic()
+                try:
+                    out = workspace / call['stdout'] if call.get('stdout') else folder / f'call-{n:02d}.stdout.log'
+                    run_command(args_, workspace, out, folder / f'call-{n:02d}.stderr.log',
+                                call.get('timeout', 900), env)
+                    record['status'] = 'success'
+                except Exception:
+                    record['status'] = 'failed'
+                    raise
+                finally:
+                    record['elapsed_seconds'] = time.monotonic() - begin
+                    write(folder / 'iteration.json', result)
+        business = read(workspace / 'output/business_verification.json')
+        if business.get('status') != 'success' or business.get('failures'):
+            raise ValueError('business verification failed')
+        for name in recipe['required_outputs']:
+            artifact = workspace / 'output' / name
+            if not artifact.exists() or (artifact.is_file() and artifact.stat().st_size == 0):
+                raise ValueError('missing/empty deliverable: ' + name)
+            if artifact.is_dir() and not any(p.is_file() for p in artifact.rglob('*')):
+                raise ValueError('empty output directory: ' + name)
+        result['workload_status'] = 'success'
+    except Exception as exc:
+        result.update(workload_status='failed', error=f'{type(exc).__name__}: {exc}')
+    finally:
+        if workflow_start is not None:
+            end = boundary(folder, recipe, index, 'workflow', 'end')
+            result['boundaries'].append(end)
+            result['workflow_seconds'] = (end['monotonic_ns'] - workflow_start) / 1e9
+        end = boundary(folder, recipe, index, 'loop_including_reset', 'end')
+        result['boundaries'].append(end)
+        result['loop_including_reset_seconds'] = (end['monotonic_ns'] - start['monotonic_ns']) / 1e9
+    # Everything below is outside BOTH measured intervals, even on failure.
+    result['boundaries'].append(boundary(folder, recipe, index, 'archive_excluded', 'start'))
+    try:
+        if not workspace_ready:
+            result['archive_status'] = 'skipped_before_workspace_ready'
+        elif workspace.is_dir() and not workspace.is_symlink():
+            shutil.copytree(workspace, folder / 'workspace', symlinks=True)
+            archived_output = folder / 'workspace/output'
+            result['output_hashes'] = {str(p.relative_to(archived_output)): digest(p)
+                                      for p in archived_output.rglob('*') if p.is_file()}
+            result['archive_status'] = 'success'
+        else:
+            raise ValueError('workspace unavailable for archive')
+    except Exception as exc:
+        result.update(archive_status='failed', archive_error=f'{type(exc).__name__}: {exc}')
+    result['boundaries'].append(boundary(folder, recipe, index, 'archive_excluded', 'end'))
+    result['measurement_status'] = ('failed' if any('record_error' in x for x in result['boundaries'])
+                                    else 'complete')
+    result['status'] = ('success' if result['workload_status'] == result['archive_status'] == 'success'
+                        and result['measurement_status'] == 'complete' else 'failed')
+    error = persist(folder / 'iteration.json', result)
+    if error:
+        result.update(status='failed', record_error=error)
+    return result
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--validate-only', action='store_true')
+    parser.add_argument('--loops', type=int, default=1)
+    parser.add_argument('--results-dir', type=Path, default=Path('/results'))
+    parser.add_argument('--audit-only', type=Path)
+    parser.add_argument('--container-inspect', type=Path)
+    parser.add_argument('--runtime', choices=['document-oe', 'original'], default='document-oe')
+    args = parser.parse_args(argv)
+    if args.loops < 1:
+        parser.error('--loops must be positive')
+    recipe = validate()
+    if args.validate_only:
+        print(recipe['dataset_id'], 'frozen recipe valid; real replay not yet qualified', flush=True)
+        return 0
+    if not Path('/.dockerenv').exists() or os.environ.get('OFFICE_AGENT_REPLAY_CONTAINER') != '1':
+        raise ValueError('execution requires a disposable container with OFFICE_AGENT_REPLAY_CONTAINER=1')
+    configure_runtime(args.runtime)
+    identity = environment(recipe, args.runtime)
+    stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:8]
+    destination = args.results_dir.resolve() / recipe['dataset_id'] / stamp
+    workspace = Path(recipe['workspace'])
+    if destination.is_relative_to(workspace) or workspace.is_relative_to(destination):
+        raise ValueError('results must be separate from reset workspace')
+    destination.mkdir(parents=True, exist_ok=False)
+    write(destination / 'environment.json', identity)
+    inspect_path = args.container_inspect
+    if inspect_path is None:
+        default_inspect = Path('/run/office-replay/container-inspect.before.json')
+        inspect_path = default_inspect if default_inspect.is_file() else None
+    try:
+        context = snapshot_context(recipe, destination, inspect_path)
+    except Exception as exc:
+        persist(destination / 'startup-failure.json', dict(status='failed',
+            error=f'{type(exc).__name__}: {exc}', workload_started=False))
+        return 1
+    identity['container_evidence'] = context['container']
+    # Caller-provided REPLAY_ACTUAL_IMAGE_ID is not inspect evidence.
+    identity['actual_image_id'] = context['container']['actual_image_id']
+    write(destination / 'environment.json', identity)
+    if args.audit_only:
+        return 0 if audit(recipe, args.audit_only.resolve(), destination)['status'] == 'success' else 1
+    summary = dict(dataset_id=recipe['dataset_id'], mode=recipe['mode'],
+                   requested=args.loops, completed=0, successes=0, failures=0,
+                   workload_successes=0, workload_failures=0,
+                   recipe_sha256=digest(HERE / 'recipe.json'), context=context, iterations=[], status='in_progress',
+                   measurement_contract=dict(schema_version='replay-roi-v1', clock='CLOCK_MONOTONIC',
+                       default_scope='loop_including_reset', alternative_scope='workflow',
+                       excluded=['validation/preflight', 'context snapshot', 'archive_excluded', 'independent audit'],
+                       rule='Filter workload process/thread samples by explicit ROI intervals; whole-launcher CPU includes excluded work.'))
+    write(destination / 'summary.json', summary)
+    # Dataset-local implementations share only an OS guard, not Python modules.
+    with Path('/tmp/office-agent-replay.lock').open('w') as guard:
+        fcntl.flock(guard, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        for index in range(1, args.loops + 1):
+            folder = destination / f'iteration-{index:04d}'
+            folder.mkdir()
+            result = run_iteration(recipe, index, folder, args.runtime)
+            summary['successes' if result['status'] == 'success' else 'failures'] += 1
+            summary['workload_successes' if result['workload_status'] == 'success' else 'workload_failures'] += 1
+            summary['iterations'].append(dict(index=index, status=result['status'],
+                workload_status=result['workload_status'], archive_status=result['archive_status'],
+                record_error=result.get('record_error')))
+            summary['completed'] += 1
+            summary['status'] = 'failed' if summary['failures'] else 'in_progress'
+            summary_error = persist(destination / 'summary.json', summary)
+            if summary_error:
+                return 1
+            if result['status'] != 'success':
+                return 1
+    summary['status'] = 'success'
+    summary['independent_audit'] = 'not_run; use --audit-only on an archived workspace'
+    summary['evidence_complete'] = context['container']['status'] == 'host_inspect_bound'
+    return 1 if persist(destination / 'summary.json', summary) else 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

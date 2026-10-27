@@ -1,0 +1,14 @@
+{
+  "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "python": "3.12.3",
+  "libreoffice": "25.8.7.3",
+  "poppler": "23.12.0",
+  "packages": {
+    "openpyxl": "3.1.5",
+    "pypdf": "6.10.0",
+    "pdf2image": "1.17.0",
+    "pillow": "12.2.0"
+  },
+  "adapter": "runtime/bin/soffice selects the standard user profile used by the unmodified Skill",
+  "policy": "Common openEuler replay environment; differs from original Agent environment and requires new functional qualification."
+}

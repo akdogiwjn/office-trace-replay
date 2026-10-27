@@ -1,0 +1,210 @@
+{
+  "schema_version": "agent-traces-image-qualification-v1",
+  "status": "success",
+  "qualified_at": "2026-10-27T10:19:18.628132+00:00",
+  "image_tag": "office-trace-replay:agent-traces",
+  "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "architecture": "arm64",
+  "image_size_bytes": 20495926051,
+  "base_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "base_layer_prefix_matches": true,
+  "campaign": "results/image-functional-20261027T092653Z",
+  "campaign_sha256": "0b81c749da439de2ab4bdab22551146ab186656737c333e9f0dc2b386b663fc4",
+  "installation": {
+    "status": "success",
+    "container_id": "765f6636ab3910e9067d4e4cf753149087630d2b6e95de047dfb3b65089a452a",
+    "readonly_rootfs": true,
+    "network": "none",
+    "no_workload_source_mounts": true
+  },
+  "tests": {
+    "passed": 52,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0,
+    "scope": "35 agent + 4 legacy + 13 build/runtime integration unit tests"
+  },
+  "legacy_workload_files_verified": 43,
+  "datasets": [
+    {
+      "dataset_id": "irs_w4",
+      "counts": {
+        "requested": 1,
+        "completed": 1,
+        "successes": 1,
+        "failures": 0
+      },
+      "loop_verification": "success",
+      "independent_audit": "success",
+      "container_id": "cb5bb1ec074b2a2ec5921ae029fbaf51280a675cb8fd530d6a49cdc6d03f3023",
+      "workload_image_id": "sha256:b15ddc5ae5d325384d105f77e0b859fb4f79f4b343e0bc9bf7e9ef4ed58e1d12",
+      "workload_reused": true,
+      "runner_summary": "/home/lcq/office-trace-replay-agent/results/image-functional-20261027T092025Z/irs_w4/replay/irs_w4/20261027T092026Z-7d59ce0a/summary.json",
+      "reuse": {
+        "reason": "Only outside-loop auditor import path changed; workload is byte-identical.",
+        "original_summary": "/home/lcq/office-trace-replay-agent/results/image-functional-20261027T092025Z/irs_w4/replay/irs_w4/20261027T092026Z-7d59ce0a/summary.json",
+        "changed_frozen_files": [
+          "audit.py"
+        ],
+        "original_campaign": "/home/lcq/office-trace-replay-agent/results/image-functional-20261027T092025Z"
+      },
+      "command_note": "This campaign reused the original successful workload; its planned workload command was not re-executed.",
+      "audit_checks": 103,
+      "audit_failures": [],
+      "audit_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "output_unchanged": true,
+      "audit_container_id": "a29a6ee337add5da5fa32956993fd02501e122c39be583377ea8acc21331fcb3"
+    },
+    {
+      "dataset_id": "sba1919",
+      "counts": {
+        "requested": 1,
+        "completed": 1,
+        "successes": 1,
+        "failures": 0
+      },
+      "loop_verification": "success",
+      "independent_audit": "success",
+      "container_id": "aacee2cf8007a3f0186bd9745cabf61690402b294e5fd5bfb8829be9f87468ba",
+      "workload_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "workload_reused": false,
+      "runner_summary": "/home/lcq/office-trace-replay-agent/results/image-functional-20261027T092653Z/sba1919/replay/sba1919/20261027T092658Z-9adfcb4f/summary.json",
+      "audit_checks": 123,
+      "audit_failures": [],
+      "audit_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "output_unchanged": true,
+      "audit_container_id": "f966c61c0cafa04a72b94d86b281c73d228b1de961b8c15d119ea17c8a5cc662"
+    },
+    {
+      "dataset_id": "opm",
+      "counts": {
+        "requested": 1,
+        "completed": 1,
+        "successes": 1,
+        "failures": 0
+      },
+      "loop_verification": "success",
+      "independent_audit": "not_applicable; unchanged legacy loop verifier",
+      "container_id": "77682eb6a95dc7ccd25ab23a7f256b8649d6bcde87e0e5b4ba0db6560b98c761",
+      "workload_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "workload_reused": false,
+      "runner_summary": "opm/replay/pdf/20261027T092721Z-pid7/summary.json"
+    },
+    {
+      "dataset_id": "tlc",
+      "counts": {
+        "requested": 1,
+        "completed": 1,
+        "successes": 1,
+        "failures": 0
+      },
+      "loop_verification": "success",
+      "independent_audit": "not_applicable; unchanged legacy loop verifier",
+      "container_id": "fbe93cc5961a5122b2900041911050f24f103ee4ae51a25dfbbd7bad81cf99c0",
+      "workload_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "workload_reused": false,
+      "runner_summary": "tlc/replay/xlsx/20261027T092733Z-pid7/summary.json"
+    },
+    {
+      "dataset_id": "egrid",
+      "counts": {
+        "requested": 1,
+        "completed": 1,
+        "successes": 1,
+        "failures": 0
+      },
+      "loop_verification": "success",
+      "independent_audit": "success",
+      "container_id": "9edc58e89d4b2c1e90c6e45d066afd2329edebfcd8447fa7a96d885dc649c5d4",
+      "workload_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "workload_reused": false,
+      "runner_summary": "/home/lcq/office-trace-replay-agent/results/image-functional-20261027T092653Z/egrid/replay/egrid/20261027T093139Z-6a871cad/summary.json",
+      "audit_checks": 152,
+      "audit_failures": [],
+      "audit_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "output_unchanged": true,
+      "audit_container_id": "ae273a7232d2f20f9f17a38b7539ada574b8edfc14925cf177e74b8392e37d1d"
+    },
+    {
+      "dataset_id": "hr_metro",
+      "counts": {
+        "requested": 1,
+        "completed": 1,
+        "successes": 1,
+        "failures": 0
+      },
+      "loop_verification": "success",
+      "independent_audit": "success",
+      "container_id": "fd49ddc72a8a563a78a91221f45783481a7c57abb6a257bb197fa254132e7c6a",
+      "workload_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "workload_reused": false,
+      "runner_summary": "/home/lcq/office-trace-replay-agent/results/image-functional-20261027T092653Z/hr_metro/replay/hr_metro/20261027T093914Z-908bc5ad/summary.json",
+      "audit_checks": 117,
+      "audit_failures": [],
+      "audit_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "output_unchanged": true,
+      "audit_container_id": "ce0ab0da58a83f25cd98dc247bb00103931c1b7248c014ad7e8f6099d15501d3"
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "counts": {
+        "requested": 1,
+        "completed": 1,
+        "successes": 1,
+        "failures": 0
+      },
+      "loop_verification": "success",
+      "independent_audit": "success",
+      "container_id": "dabe673edb525a616d2fa3e87280119ac13b8e406d2976c97fc01b9057b77c7d",
+      "workload_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "workload_reused": false,
+      "runner_summary": "/home/lcq/office-trace-replay-agent/results/image-functional-20261027T092653Z/industry_productivity/replay/industry_productivity/20261027T094837Z-3d70fe3e/summary.json",
+      "audit_checks": 111,
+      "audit_failures": [],
+      "audit_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "output_unchanged": true,
+      "audit_container_id": "e97bfae10a77539836c87a0eee9a813f8599eec183af3170736960e2e62abfad"
+    }
+  ],
+  "archive_integrity": {
+    "status": "success",
+    "checked_files": 537,
+    "errors": []
+  },
+  "all_seven_executed_in_final_image": false,
+  "reuse_note": "IRS W-4 executed once in the initial image; only audit.py changed between its frozen dataset contexts. Its output passed the corrected independent auditor in the final image. The remaining six workloads executed in the final image.",
+  "fixes": [
+    "BuildKit base resolution: verified local base tag instead of bare image ID.",
+    "Dataset-private PDF Skill import path for outside-loop independent auditors."
+  ],
+  "initial_audit_failure_campaign": "results/image-functional-20261027T092025Z",
+  "performance_collected": false,
+  "llm_called": false,
+  "agent_trace_regenerated": false,
+  "committed_or_pushed": false,
+  "frozen_import_status_note": "compiled_static_only_not_replayed fields are immutable import snapshots, not current qualification status; this report provides runtime qualification.",
+  "file_hashes": {
+    "Dockerfile": "d416ad735a415592a47a9bddc5153fd639b0456847fb363b667f3d127fe4293a",
+    "Makefile": "6ca3f250219e4b0c95fd88783e03ea4b057359eb29715cdd1a0d53e1c6529308",
+    "scripts/build_image.py": "232a0254b10ad3144a0aba5711b73cf1dc9d36760d86ec208fdf93f36119c45a",
+    "agent/replay.py": "540a32c25eb07c2ff2cc433d70ed3ec52b51d85220868ad014e17e7f948800a4",
+    "agent/suite.json": "85e6cbb7cda9bcbe34b12a99addcea7daae61b7e17a155bc79451deb6d9787d8",
+    "document-oe/run.py": "1af858c85d9d49a73237dc254af98c8bf37d9a91cd43e2f8872fdc82e32753d3",
+    "document-oe/lock.json": "6e142ba49a1a4cfd0e89581a342b41938ab86d6a6923ef4a075ac249ec86cec5",
+    "agent/datasets/irs_w4/lock.json": "d161679c9dbfe0f624c49ec65a4bb01319e61e5b4f868ff6b21e849c40b02727",
+    "agent/datasets/irs_w4/recipe.json": "c7e59480dd14373d2ca9541534a3bd05c4b374b598a5e8db1ac184d10a583799",
+    "agent/datasets/irs_w4/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/egrid/lock.json": "39ad3fc3dc86bcda3eac3febae1c0d17b13cea13d933b6ea401d4c4a978c45b8",
+    "agent/datasets/egrid/recipe.json": "f8211e0f2c28ed999955af0260628a4ee08d081fa4f33c59b18257e268916b5d",
+    "agent/datasets/egrid/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/industry_productivity/lock.json": "85c9e9a18899d3e549dd8b2a0efdf608421f9a153d154de7ae3362ed3ba16d2a",
+    "agent/datasets/industry_productivity/recipe.json": "27dcad66e72abccd1cbcc78b87a525e16db1ff4d8325f381b8237628d554eeb2",
+    "agent/datasets/industry_productivity/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/hr_metro/lock.json": "bd7b8d9b30ff6d90eef472b2b9654632fb3ffe0f97faa54637e284175c232194",
+    "agent/datasets/hr_metro/recipe.json": "a82a91bd8d61bbeb8dd697cbedf1c9af6415bd8e8ee41d8fc0a7b2c9cf3372fb",
+    "agent/datasets/hr_metro/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/sba1919/lock.json": "8797ce95112af42773618ab7ee4942de085b2994c8232f9db83bf9e2a12d9bb5",
+    "agent/datasets/sba1919/recipe.json": "c86f5369b4d3b046f34951ce434ce9eb978167a18d494489106475c7a9296286",
+    "agent/datasets/sba1919/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680"
+  }
+}

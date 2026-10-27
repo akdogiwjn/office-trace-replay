@@ -1,0 +1,187 @@
+{
+  "schema_version": "independent-agent-replay-v1",
+  "dataset_id": "industry_productivity",
+  "kind": "xlsx",
+  "mode": "effective-tool-chain",
+  "source_run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+  "source_round": 1,
+  "required_outputs": [
+    "industry_productivity_enhanced.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "industry_productivity_summary.csv",
+    "industry_productivity_reconciliation_summary.csv"
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY",
+  "phases": [
+    {
+      "id": "P01",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_structure.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+            "event_ordinal": 5,
+            "step_id": 4,
+            "tool_call_id": "call_00_XoMJ409A2cuXnVaBer3l8119",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 - <<'EOF'\nfrom openpyxl import load_workbook\nwb = load_workbook('input/labor-productivity-detailed-industries.xlsx', read_only=False, data_only=True)\nprint(wb.sheetnames)\nfor ws in wb.worksheets:\n    print(ws.title, ws.max_row, ws.max_column, 'charts', len(ws._charts), 'merged', len(ws.merged_cells.ranges))\nws = wb['Annual']\nfor r in range(1, 12):\n    print(r, [ws.cell(row=r, column=c).value for c in range(1, 8)])\nprint('--- header rows around 480-495 col 40-46')\nfor r in range(478, 496):\n    print(r, [ws.cell(row=r, column=c).value for c in range(36, 47)])\nEOF"
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_features.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+            "event_ordinal": 8,
+            "step_id": 7,
+            "tool_call_id": "call_00_zo0rwoDDOZahMKq9Drxf9672",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 - <<'EOF'\nfrom openpyxl import load_workbook\nwb = load_workbook('input/labor-productivity-detailed-industries.xlsx', read_only=False, data_only=True)\nws = wb['Annual']\nprint('row3:', [(c, ws.cell(row=3,column=c).value) for c in range(1,47)])\nprint('row4:', [(c, ws.cell(row=4,column=c).value) for c in range(1,47)])\nfor r in range(480, 500):\n    print(r, [ws.cell(row=r,column=c).value for c in range(1,8)], 'AT=', ws.cell(row=r,column=46).value)\nprint('--- scan Food manufacturing NAICS 311')\nfor r in range(1, ws.max_row+1):\n    v = ws.cell(row=r,column=2).value\n    if str(v).strip() == '311':\n        print(r, [ws.cell(row=r,column=c).value for c in range(1,8)])\nprint('--- other NAICS')\nfor tgt in ('312','313','314','315'):\n    rows=[r for r in range(1, ws.max_row+1) if str(ws.cell(row=r,column=2).value).strip()==tgt]\n    print(tgt, rows[:10])\nEOF"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "helpers/enhance_workbook_v1.py"
+          ],
+          "origin": {
+            "type": "final_captured_agent_helper",
+            "run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+            "event_ordinal": 13,
+            "step_id": 12,
+            "tool_call_id": "call_00_ET_Xva5NVkQgi1P5o1dDA3j6787",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 helpers/enhance_workbook_v1.py",
+              "yieldMs": 180000,
+              "timeout": 1800
+            },
+            "path": "helpers/enhance_workbook_v1.py",
+            "sha256": "812e9f6653541628b68f15c9c017848f8d8ca279afa1722697b8b13d8b7dccd8",
+            "adaptation": "Execute final captured helper directly; omit preceding text patch/time wrapper."
+          }
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/xlsx/scripts/recalc.py",
+            "output/industry_productivity_enhanced.xlsx",
+            "600"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+            "event_ordinal": 15,
+            "step_id": 14,
+            "tool_call_id": "call_00_ET_1Jz7Cukn6FJpbIVAgSwk4023",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/skills/xlsx/scripts && python3 recalc.py /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/industry_productivity_enhanced.xlsx 600 > /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/formula_recalc.json 2>/tmp/recalc.err; echo \"exit=$?\"; cat /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY/output/formula_recalc.json; echo ---; tail -20 /tmp/recalc.err",
+              "yieldMs": 240000,
+              "timeout": 900
+            }
+          },
+          "stdout": "output/formula_recalc.json",
+          "timeout": 900
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_formulas.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+            "event_ordinal": 29,
+            "step_id": 28,
+            "tool_call_id": "call_00_L9y7aqsAvMqDoHKEnStW0293",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 - <<'EOF'\nfrom openpyxl import load_workbook\nwb=load_workbook('output/industry_productivity_enhanced.xlsx')\ns=wb['Productivity_Summary']\nfor c in s._charts:\n    a=c.anchor\n    print(type(a).__name__, a._from.col, a._from.row, getattr(a,'ext',None) and (a.ext.cx, a.ext.cy))\nfor col in 'ABCDEF':\n    print(col, s.column_dimensions[col].width)\nprint('row heights', {r:s.row_dimensions[r].height for r in (1,2,4,11,12,18,19,20,26)})\nprint('merged', [str(x) for x in s.merged_cells.ranges])\nprint('cf', [(str(g.sqref), len(s.conditional_formatting[g])) for g in s.conditional_formatting])\nEOF",
+              "yieldMs": 90000,
+              "timeout": 300
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_cached_values.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+            "event_ordinal": 28,
+            "step_id": 27,
+            "tool_call_id": "call_00_0YObRsdE81BctUExfNVF2357",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-INDUSTRY-PRODUCTIVITY && python3 - <<'EOF'\nfrom openpyxl import load_workbook\nout = load_workbook('output/industry_productivity_enhanced.xlsx', data_only=True, read_only=False)\nr = out['ReadMe']\nfor row in r.iter_rows(min_row=1,max_row=14,max_col=2):\n    print([c.value for c in row], [c.hyperlink.target if c.hyperlink else None for c in row])\na = out['Annual']\nfor row in (487,488,489,490,510,533,556,579):\n    print(row, a.cell(row=row,column=2).value, a.cell(row=row,column=3).value, a.cell(row=row,column=6).value, 'AT=',a.cell(row=row,column=46).value)\nfor rr in (491,492,493,510,533,556,579):\n    print('check',rr, a.cell(row=rr,column=1).value)\ns = out['Productivity_Summary']\nprint('charts', len(s._charts), [c.anchor._from.col if hasattr(c.anchor,'_from') else None for c in s._charts])\nprint('freeze', s.freeze_panes, 'gridlines', s.sheet_view.showGridLines)\nfor cell in ['B5','B6','B7','B8','B9','B12','B13','B14','B15','B16']:\n    print(cell, s[cell].value, s[cell].font.name, s[cell].font.color.rgb if s[cell].font.color else None)\nprint('widths', {k:v.width for k,v in s.column_dimensions.items()})\nEOF",
+              "yieldMs": 120000,
+              "timeout": 600
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "export_xlsx_csv.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Replace prepared CSV copies with one read-only final-cache load and CSV writes; no recomputation."
+          }
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "verify_xlsx_enhanced.py",
+            "output/industry_productivity_enhanced.xlsx",
+            "output/formula_recalc.json",
+            "output/business_verification.json"
+          ],
+          "origin": {
+            "type": "replay_verifier_adaptation",
+            "original_sha256": "875819e7e8392a4e83b8ece66f9724f1bae3f5a4c0b0e21641914265a17bdc6c",
+            "sha256": "dce7b44a5cbb21ca2ca4d70870f1d69c686be3e25b883c20a3bdc6e6d67b0eb0",
+            "description": "Private original verifier plus CSV-to-current-cache checks; reuses its cached load."
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "write_xlsx_summary.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Generate current replay counts/status; never copy historical success or hashes."
+          }
+        }
+      ]
+    }
+  ],
+  "policy": "Selected inspections and effective final build; no LLM, repair, preview or Agent waits."
+}

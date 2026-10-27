@@ -1,0 +1,115 @@
+{
+  "kind": "xlsx",
+  "dataset_id": "industry_productivity",
+  "executions": [
+    {
+      "round": 1,
+      "run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+      "run_path": "runs/xlsx-industry_productivity-20261027T015504Z-769d363e",
+      "original_run_status": "success",
+      "qualification_status": "success",
+      "qualification_evidence": {
+        "path": "runs/xlsx-industry_productivity-20261027T015504Z-769d363e/independent_verification.json",
+        "sha256": "e3365df97f96603de8dda03aa1d229974b61ba033e08a3a1d9764ec87881a4b6"
+      },
+      "original_independent_failures": [],
+      "independent_check_count": 112,
+      "tool_call_count": 32,
+      "runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "model": {
+        "name": "openclaw",
+        "version": "OpenClaw 2026.6.6 (8c802aa)",
+        "model_name": "deepseek/deepseek-v4-flash",
+        "extra": {
+          "parser": "openclaw-session-jsonl",
+          "provider": "deepseek",
+          "session_schema_version": 3,
+          "thinking_level": "high"
+        }
+      },
+      "input_hashes": {
+        "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+        "input/verify_xlsx_enhanced.py": "875819e7e8392a4e83b8ece66f9724f1bae3f5a4c0b0e21641914265a17bdc6c",
+        "input/prepared_industry_productivity_summary.csv": "5cd299e1ea82965c56e4aef09fa7f7c7c5613421161765d033b6197e5ae4da21",
+        "input/prepared_industry_productivity_reconciliation_summary.csv": "688a4e2432c78ad6c1439bf471c7656edeae2bf50713d80acf67d8ed3a103a50"
+      },
+      "manifest_sha256": "21e4e1a6d8dcdfabea8500b6a2576ea277ad2ecfbf2a3dc857bfc74a9d27c0a4",
+      "prompt_sha256": "4b7def1763536891fa64ab730d672f84f5e34593bf7ea7bc39de416cf1eddada",
+      "prompt_template_sha256": "f52b0212ed00289a912ba9ff7887e2718440ff531b17d9fdb80077b028686a22",
+      "run_manifest": {
+        "path": "runs/xlsx-industry_productivity-20261027T015504Z-769d363e/run_manifest.json",
+        "sha256": "1d4d9a9ba1e92aa5d7687bbfdc2406bedb44b766e2a092a40f20fcb14309c5fa"
+      },
+      "trajectory": {
+        "path": "runs/xlsx-industry_productivity-20261027T015504Z-769d363e/trajectory.json",
+        "sha256": "5e0e6ad30148f6fcc131ed29d8ee240b36618417bc4ad3211ab004c8d1f374a7"
+      },
+      "tool_events": {
+        "path": "runs/xlsx-industry_productivity-20261027T015504Z-769d363e/tool_events.json",
+        "sha256": "1c598a997fe8727e401e6c61e444ab5af6d901e754998da0542fbcc4630843c1"
+      },
+      "canonical": {
+        "path": "artifacts/canonical/xlsx/industry_productivity/xlsx-industry_productivity-20261027T015504Z-769d363e",
+        "canonical_sha256": "f38d076df2380e94bc29ddd0a1a57d09a0c4686a60e97f13e8fe73bcaa921cc7",
+        "validated": true
+      }
+    },
+    {
+      "round": 2,
+      "run_id": "xlsx-industry_productivity-20261027T032347Z-71b30b1c",
+      "run_path": "runs/xlsx-industry_productivity-20261027T032347Z-71b30b1c",
+      "original_run_status": "success",
+      "qualification_status": "success",
+      "qualification_evidence": {
+        "path": "runs/xlsx-industry_productivity-20261027T032347Z-71b30b1c/independent_verification.json",
+        "sha256": "35f68738daafc0b598f4f40f9d21f711a0710b591bd6cf7d1ee791434fd78353"
+      },
+      "original_independent_failures": [],
+      "independent_check_count": 112,
+      "tool_call_count": 43,
+      "runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "model": {
+        "name": "openclaw",
+        "version": "OpenClaw 2026.6.6 (8c802aa)",
+        "model_name": "deepseek/deepseek-v4-flash",
+        "extra": {
+          "parser": "openclaw-session-jsonl",
+          "provider": "deepseek",
+          "session_schema_version": 3,
+          "thinking_level": "high"
+        }
+      },
+      "input_hashes": {
+        "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+        "input/verify_xlsx_enhanced.py": "875819e7e8392a4e83b8ece66f9724f1bae3f5a4c0b0e21641914265a17bdc6c",
+        "input/prepared_industry_productivity_summary.csv": "5cd299e1ea82965c56e4aef09fa7f7c7c5613421161765d033b6197e5ae4da21",
+        "input/prepared_industry_productivity_reconciliation_summary.csv": "688a4e2432c78ad6c1439bf471c7656edeae2bf50713d80acf67d8ed3a103a50"
+      },
+      "manifest_sha256": "21e4e1a6d8dcdfabea8500b6a2576ea277ad2ecfbf2a3dc857bfc74a9d27c0a4",
+      "prompt_sha256": "4b7def1763536891fa64ab730d672f84f5e34593bf7ea7bc39de416cf1eddada",
+      "prompt_template_sha256": "f52b0212ed00289a912ba9ff7887e2718440ff531b17d9fdb80077b028686a22",
+      "run_manifest": {
+        "path": "runs/xlsx-industry_productivity-20261027T032347Z-71b30b1c/run_manifest.json",
+        "sha256": "c31d4fc4b61b89ea2704e46fe4af99eaf0bc92bdf7505af51ea0a494797f41d5"
+      },
+      "trajectory": {
+        "path": "runs/xlsx-industry_productivity-20261027T032347Z-71b30b1c/trajectory.json",
+        "sha256": "f5bde5f83c3fc2befd8e8d52db92b7112c5e9dd9b19c601a9b95d4f92627d684"
+      },
+      "tool_events": {
+        "path": "runs/xlsx-industry_productivity-20261027T032347Z-71b30b1c/tool_events.json",
+        "sha256": "7dda6824e6fc29e55192b536c19d6beed78a03d1ff9b753eb0b7a1433b73170c"
+      },
+      "canonical": {
+        "path": "artifacts/canonical/xlsx/industry_productivity/xlsx-industry_productivity-20261027T032347Z-71b30b1c",
+        "canonical_sha256": "7994eec723a1f3b735e67372e2dfc4c564f5b32fe967edec80bb126beb775224",
+        "validated": true
+      }
+    }
+  ],
+  "same_input_hashes": true,
+  "same_manifest": true,
+  "identical_rendered_prompt": true,
+  "same_model_and_image": true,
+  "distinct_trajectories": true
+}

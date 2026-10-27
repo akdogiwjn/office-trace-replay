@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+"""Batch driver: fill each applicant PDF, then render every page.
+
+Uses only the PDF skill's bundled fill_fillable_fields.py and
+convert_pdf_to_images.py scripts. Every invocation is logged with its
+command, exit code and output so repairs stay visible.
+"""
+import json
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SKILL = Path("/root/.openclaw/skills/pdf/scripts")
+PY = sys.executable or "python3"
+TEMPLATE = ROOT / "input" / "sba1919_2024.pdf"
+RECORDS = ROOT / "input" / "synthetic_applicants.json"
+FILL = SKILL / "fill_fillable_fields.py"
+RENDER = SKILL / "convert_pdf_to_images.py"
+FILLED = ROOT / "output" / "filled"
+VALUES = ROOT / "output" / "field_values"
+RENDERED = ROOT / "output" / "rendered"
+LOG = ROOT / "output" / "operation_log.json"
+FAIL_LOG = ROOT / "output" / "failed_attempts.json"
+
+
+def run(cmd, log):
+    started = time.time()
+    proc = subprocess.run(cmd, cwd=str(SKILL), capture_output=True, text=True)
+    entry = {
+        "argv": [str(c) for c in cmd],
+        "exit_code": proc.returncode,
+        "duration_seconds": round(time.time() - started, 3),
+        "stdout": proc.stdout,
+        "stderr": proc.stderr,
+    }
+    log.append(entry)
+    return proc
+
+
+def main():
+    prior = json.loads(LOG.read_text()) if LOG.exists() else []
+    failed = json.loads(FAIL_LOG.read_text()) if FAIL_LOG.exists() else []
+    log = []
+    records = json.loads(RECORDS.read_text())["applicants"]
+    status = "success"
+
+    for record in records:
+        ident = record["id"]
+        values = VALUES / f"{ident}.json"
+        target = FILLED / f"{ident}.pdf"
+        if not values.is_file():
+            raise SystemExit(f"missing field-values file {values}")
+        if target.exists():
+            raise SystemExit(f"refusing to overwrite existing {target}")
+        proc = run([PY, str(FILL), str(TEMPLATE), str(values), str(target)], log)
+        ok = proc.returncode == 0 and target.is_file()
+        print(f"fill {ident}: exit={proc.returncode} size={target.stat().st_size if target.exists() else 0}")
+        if not ok:
+            failed.append({"stage": "fill", "id": ident, **log[-1]})
+            status = "failed"
+            continue
+
+        page_dir = RENDERED / ident
+        page_dir.mkdir(parents=True, exist_ok=True)
+        proc = run([PY, str(RENDER), str(target), str(page_dir)], log)
+        ok = proc.returncode == 0
+        pages = sorted(page_dir.glob("page_*.png"))
+        print(f"render {ident}: exit={proc.returncode} pages={len(pages)}")
+        if not ok or len(pages) != 7:
+            failed.append({"stage": "render", "id": ident, **log[-1]})
+            status = "failed"
+
+    LOG.write_text(json.dumps({"invocations": prior + log, "status": status}, indent=2) + "\n")
+    FAIL_LOG.write_text(json.dumps(failed, indent=2) + "\n")
+    print(f"batch status: {status}; new invocations: {len(log)}")
+    return 0 if status == "success" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

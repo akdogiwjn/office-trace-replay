@@ -1,0 +1,16 @@
+{
+  "schema_version": "seven-dataset-two-entry-container-v1",
+  "base_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "runtime_root": "/opt/office-trace-replay",
+  "python": "3.12.3",
+  "libreoffice": "25.8.7.3",
+  "poppler": "23.12.0",
+  "entries": {
+    "new_agent_datasets": {"path": "agent/replay.py", "datasets": ["egrid", "hr_metro", "industry_productivity", "irs_w4", "sba1919"]},
+    "document_oe": {"path": "document-oe/run.py", "datasets": ["tlc", "opm"], "scene_aliases": {"xlsx": "tlc", "pdf": "opm"}}
+  },
+  "legacy_runtime_assets": "/opt/document-bench",
+  "execution_policy": "One image, two entries. Sequential use supported; overlapping execution rejected using the same OS lock.",
+  "source_agent_environment": "Preserved as provenance. The default replay uses the shared openEuler environment, not the original Ubuntu environment.",
+  "qualification": "code_integrated_not_built_or_functionally_replayed"
+}

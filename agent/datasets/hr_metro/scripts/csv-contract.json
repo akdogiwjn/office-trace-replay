@@ -1,0 +1,75 @@
+{
+  "dataset_id": "hr_metro",
+  "workbook": "workforce_report.xlsx",
+  "sheet": "Workforce_Summary",
+  "exports": [
+    {
+      "filename": "workforce_summary.csv",
+      "header": [
+        "Metric",
+        "Value"
+      ],
+      "rows": [
+        {
+          "label": "Employment, all occupations",
+          "cells": [
+            "B5"
+          ]
+        },
+        {
+          "label": "Annual mean wage, all occupations",
+          "cells": [
+            "B6"
+          ]
+        },
+        {
+          "label": "Hourly median wage, all occupations",
+          "cells": [
+            "B7"
+          ]
+        },
+        {
+          "label": "Annual median wage, all occupations",
+          "cells": [
+            "B8"
+          ]
+        },
+        {
+          "label": "Source validity status",
+          "cells": [
+            "B9"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "workforce_reconciliation_summary.csv",
+      "header": [
+        "Source",
+        "Employment",
+        "Annual_Mean_Wage",
+        "Status"
+      ],
+      "rows": [
+        {
+          "label": "Published all-occupations row",
+          "cells": [
+            "B5",
+            "B6",
+            "B9"
+          ]
+        },
+        {
+          "label": "Base scenario reference",
+          "cells": [
+            "B15",
+            "B16",
+            "B9"
+          ]
+        }
+      ]
+    }
+  ],
+  "numeric_relative_tolerance": 1e-08,
+  "numeric_absolute_tolerance": 1e-06
+}

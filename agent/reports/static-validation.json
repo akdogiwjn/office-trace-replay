@@ -1,0 +1,74 @@
+{
+  "schema_version": "agent-replay-static-validation-v1",
+  "checked_at": "2026-10-27T07:03:01.977Z",
+  "branch": "agent-traces",
+  "repository": "office-trace-replay-agent",
+  "datasets": [
+    "egrid",
+    "hr_metro",
+    "industry_productivity",
+    "irs_w4",
+    "sba1919"
+  ],
+  "original_source_repository_changed": false,
+  "static_bindings": "five datasets valid; source manifests/assets checked separately for all five",
+  "new_dataset_tests": {
+    "host_passed": 19,
+    "container_passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+    "log": "container-tests-final.log",
+    "initial_container_fixture_failure_preserved": "container-tests-initial.log"
+  },
+  "legacy_repository": {
+    "path": "/home/lcq/document-oe-replay",
+    "branch": "document-oe",
+    "workload_files_unchanged": 43,
+    "host_tests_passed": 4,
+    "readonly_container_installed_bindings": "valid",
+    "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+    "executor_policy": "Standalone August executor; separately frozen. Workload files and recipes unchanged."
+  },
+  "environment_preflight": {
+    "log": "environment-preflight.log",
+    "python": "3.12.3",
+    "openpyxl": "3.1.5",
+    "libreoffice": "24.2.7.2",
+    "poppler": "24.02.0",
+    "warning": "Read-only version probe emitted dconf cache warning; exit 0. Not a workload run.",
+    "actual_image_identity": "Immutable image ID explicitly used in docker run; environment's caller-supplied actual_image_id remains unknown."
+  },
+  "runtime_shared_business_modules": 0,
+  "public_entry": "replay.py",
+  "production_replay_executed": false,
+  "agent_or_llm_called": false,
+  "image_built": false,
+  "performance_collected": false,
+  "functional_qualification": "compiled_static_only_not_replayed",
+  "git_commit_or_push_performed": false,
+  "code_hashes": {
+    "replay.py": "b050b00524cbd767c8cc4fcbc11044177a32d66c937f3814e81147174b60905b",
+    "suite.json": "c3c7ed9ebc0d63cad0448fddae9845847d74e00e8fda6a3f4a323ede45f65767",
+    "Dockerfile": "0bb43e0b7a83bc6c5d3dbc287d8284f3daa83de6db265d9213b4668f70065776",
+    "tools/audit.py.template": "64fa826f0b8aee8e50d72c80347d14371bd169d729ff2312152dee5c51269065",
+    "tools/dataset_runner.py.template": "199b0cf14f5b9498ac6af4bede99da9eb369ebcfeac0ae4ab091a14437eb504b",
+    "tools/export_xlsx_csv.py.template": "37b8f17ac8c5e39e5e9134b70faafcd22707cc82fc5ba96a0fba6f6c713c0f5c",
+    "tools/import_traces.py": "f5c79e1dbe3f0f45ef911288b33708a0ccf9e9e015bca2baa5b1b4992e887231",
+    "tools/write_summary.py.template": "34c4e27beb721064ff58fe11e843bc75623dd609105a60e5f8e46656dd250c8f",
+    "tests/test_replay.py": "209de7969ead7797cf1c8711e099b26ca7c7f4850f1976d74310e8c31c72c900"
+  },
+  "dataset_locks": {
+    "irs_w4": "e35c91fb96181efbd0c1cb4ba98c18fb669ae529bccbb2a7b9cc3381f50111d2",
+    "egrid": "bd8ea503b9984d8459da1ca0b30d3562b6b1db1a4cde305c8478fcb9f5930b47",
+    "industry_productivity": "d99db37bbedf1892cfacf1e35939b57c19673854c95ba7fb7708993e681013a9",
+    "hr_metro": "3851e7c63fd7d1db0e004cf0ec6d837a0c5859b2b20d05238534fccd88445d74",
+    "sba1919": "46de9646fcac8afceb71751078fbb88faa91d945b186b41dca562ef4ee4d07a8"
+  },
+  "report_file_hashes": {
+    "environment-preflight.log": "7254401044ea8bc64519ff20eb493e6005c105a5a8ecc1b0a9203a7a85fa4a8d",
+    "container-tests-final.log": "0c7046e084118267365ec861f80d37a855add7824c852dcb4d8db18f4961489a",
+    "container-tests-initial.log": "b8b417ee08aebc9607c2a22db29634ef445891df369bd791060b85383e6b30fa"
+  },
+  "console_transcript_policy": "Captured console text; trailing whitespace normalized. Original Agent trace artifacts remain byte-preserved."
+}

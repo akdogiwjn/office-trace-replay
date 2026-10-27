@@ -1,0 +1,125 @@
+{
+  "dataset_id": "industry_productivity",
+  "kind": "xlsx",
+  "source_run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+  "source_round": 1,
+  "output_workbook": "industry_productivity_enhanced.xlsx",
+  "form": null,
+  "records": null,
+  "requirements": {
+    "metrics": [
+      {
+        "id": "hours_worked_2025",
+        "name": "2025 hours-worked index",
+        "meaning": "2025 hours-worked index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "real_output_2025",
+        "name": "2025 real sectoral output index",
+        "meaning": "2025 real sectoral output index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "labor_productivity_2025",
+        "name": "2025 labor productivity index",
+        "meaning": "2025 labor productivity index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "output_per_worker_2025",
+        "name": "2025 output-per-worker index",
+        "meaning": "2025 output-per-worker index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "reconciliation_status",
+        "name": "Source consistency status",
+        "meaning": "Source consistency status for the specified published source/scope.",
+        "unit": "status"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "productivity_multiplier",
+          "meaning": "labor-productivity multiplier"
+        },
+        {
+          "id": "hours_multiplier",
+          "meaning": "hours-worked multiplier"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "productivity_multiplier": 1,
+            "hours_multiplier": 1
+          }
+        },
+        {
+          "name": "Upside",
+          "assumptions": {
+            "productivity_multiplier": 1.08,
+            "hours_multiplier": 1.05
+          }
+        },
+        {
+          "name": "Downside",
+          "assumptions": {
+            "productivity_multiplier": 0.93,
+            "hours_multiplier": 0.95
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_hours_worked",
+          "meaning": "Projected hours-worked index",
+          "unit": "index (2017=100)"
+        },
+        {
+          "id": "projected_real_output",
+          "meaning": "Projected real-output index",
+          "unit": "index (2017=100)"
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "manufacturing_subindustry_2025",
+        "meaning": "2025 productivity for NAICS 311, 312, 313, 314 and 315, in that order"
+      },
+      {
+        "id": "food_productivity_trend",
+        "meaning": "Food manufacturing productivity index in 2021, 2022, 2023, 2024 and 2025"
+      }
+    ],
+    "base_sheets": [
+      "Annual",
+      "MachineReadable",
+      "ReadMe"
+    ],
+    "base_dimensions": {
+      "Annual": [
+        15183,
+        46
+      ],
+      "MachineReadable": [
+        566659,
+        9
+      ],
+      "ReadMe": [
+        14,
+        2
+      ]
+    },
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "minimum_formula_count": 19,
+    "recalc_timeout": 600
+  },
+  "helper": "helpers/enhance_workbook_v1.py"
+}

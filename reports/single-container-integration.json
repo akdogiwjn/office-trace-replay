@@ -1,0 +1,60 @@
+{
+  "schema_version": "seven-dataset-single-container-integration-v1",
+  "checked_at": "2026-10-27T07:29:23.597Z",
+  "architecture": "one build context, one image, two independent entries",
+  "project": "/home/lcq/office-trace-replay-agent",
+  "branch": "agent-traces",
+  "entries": {
+    "agent/replay.py": [
+      "egrid",
+      "hr_metro",
+      "industry_productivity",
+      "irs_w4",
+      "sba1919"
+    ],
+    "document-oe/run.py": [
+      "tlc",
+      "opm"
+    ]
+  },
+  "removed_extra_top_level_directory": "/home/lcq/document-oe-replay moved into project/document-oe; original document-oe container not changed",
+  "source_main_worktree_changed": false,
+  "host_tests": {
+    "agent": 19,
+    "legacy": 4,
+    "integration": 5,
+    "failed": 0,
+    "skipped": 0
+  },
+  "readonly_common_image_preflight": {
+    "image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+    "legacy_installed_workload_bindings": "43 unchanged files + standalone executor valid",
+    "new_dataset_locks_valid": 5,
+    "small_integration_tests_passed": 5,
+    "versions": {
+      "python": "3.12.3",
+      "openpyxl": "3.1.5",
+      "libreoffice": "25.8.7.3",
+      "poppler": "23.12.0"
+    },
+    "scope": "Source and asset overlays in existing image; no new image build, no production workload. Context switching tested with temporary fixtures.",
+    "log": "single-container-preflight.log"
+  },
+  "skill_policy": "Original new-dataset recalc.py bytes retained; private soffice adapter aligns standard macro profile in common openEuler environment. Legacy 43 workload files unchanged.",
+  "remaining": "Build the one new image and qualify production replays separately; not performed in this task.",
+  "image_built": false,
+  "production_replay_executed": false,
+  "agent_or_llm_called": false,
+  "performance_collected": false,
+  "committed_or_pushed": false,
+  "file_hashes": {
+    "Dockerfile": "e91658d81b9300cefcf20eb2659cfa3be7357dc8eeef42cb9a6ab76dd037bea2",
+    "container-contract.json": "2e7ad63708162a1df3e55d920087961763b61fb655ca9d1dd7011909e419e86c",
+    "agent/replay.py": "8729b247b4f229094aa233575aa7851ea313804eba537d05cea92f4d7754adba",
+    "document-oe/run.py": "18cc3f432ae31ea7ae25dccf2f0a56de3daffbe4628e732ca91e38f5ba40fc51",
+    "document-oe/lock.json": "6e142ba49a1a4cfd0e89581a342b41938ab86d6a6923ef4a075ac249ec86cec5",
+    "agent/suite.json": "aac71d3d6d00d5c09f6a24a436d0a70b41955a7a8c6987ae2868f8f4f7cb42b5",
+    "tests/test_container_layout.py": "0aedf6601a64598f36aa6a4a2cface48fefa32177885585f191a07195603f6dc",
+    "reports/single-container-preflight.log": "3f135d139191941c7d465f0260f7920d0b8497391665edf6d50bcefecf122ae6"
+  }
+}

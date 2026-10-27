@@ -1,0 +1,144 @@
+{
+  "schema_version": "independent-agent-replay-v1",
+  "dataset_id": "sba1919",
+  "kind": "pdf",
+  "mode": "effective-tool-chain",
+  "source_run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+  "source_round": 1,
+  "required_outputs": [
+    "check_fillable_fields.log",
+    "form_field_info.json",
+    "field_values",
+    "filled",
+    "rendered",
+    "batch_summary.json",
+    "business_verification.json"
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01",
+  "phases": [
+    {
+      "id": "P01",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/pdf/scripts/check_fillable_fields.py",
+            "input/sba1919_2024.pdf"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+            "event_ordinal": 8,
+            "step_id": 6,
+            "tool_call_id": "call_00_kfmZFz6yA22JQHpomhUB8212",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && mkdir -p output && python3 /root/.openclaw/skills/pdf/scripts/check_fillable_fields.py input/sba1919_2024.pdf > output/check_fillable_fields.log 2>&1; echo \"exit=$?\"; cat output/check_fillable_fields.log"
+            }
+          },
+          "stdout": "output/check_fillable_fields.log"
+        },
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/pdf/scripts/extract_form_field_info.py",
+            "input/sba1919_2024.pdf",
+            "output/form_field_info.json"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+            "event_ordinal": 9,
+            "step_id": 7,
+            "tool_call_id": "call_00_ET_nnyAHzqYLGQN9QQPW2s35807",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && python3 /root/.openclaw/skills/pdf/scripts/extract_form_field_info.py input/sba1919_2024.pdf output/form_field_info.json && python3 - <<'EOF'\nimport json\ninfo=json.load(open('output/form_field_info.json'))\nprint(len(info))\nfor f in info:\n    print(f['field_id'], '|', f['page'], '|', f['type'], '|', f.get('checked_value'), f.get('unchecked_value'), '|', [o['value'] for o in f.get('radio_options',[])])\nEOF"
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py",
+            "input/sba1919_2024.pdf",
+            "output/rendered/template"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+            "event_ordinal": 10,
+            "step_id": 8,
+            "tool_call_id": "call_00_vzo9Rehdk33iW34H07sF3018",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/SUB-MEM-PDF-SBA1919-01 && mkdir -p output/rendered/template && python3 /root/.openclaw/skills/pdf/scripts/convert_pdf_to_images.py input/sba1919_2024.pdf output/rendered/template && ls -la output/rendered/template"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "build_field_values.py"
+          ],
+          "origin": {
+            "type": "final_captured_agent_helper",
+            "run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+            "path": "build_field_values.py",
+            "sha256": "d095fb9019d6fbe2da2252a25482678613dc4f3c48220d8f63a4525d60e1d462"
+          }
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "run_batch.py"
+          ],
+          "origin": {
+            "type": "final_captured_agent_helper",
+            "run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+            "path": "run_batch.py",
+            "sha256": "3c1be1e9da34eb2fcf4918eca37d85793b6ee84c0004b4444a3cdb9403c38735"
+          },
+          "timeout": 900
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "write_pdf_batch_summary.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Observe regenerated PDF/PNG/mapping counts; W-4 original summary was an Agent JSON write."
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "input/verify_pdf_batch.py",
+            "input/sba1919_2024.pdf",
+            "input/synthetic_applicants.json",
+            "output",
+            "output/business_verification.json"
+          ],
+          "origin": {
+            "type": "frozen_dataset_verifier",
+            "sha256": "07df6832b4abb4f75c46f1c70ffaa9e6363504206cee15ebea18c19f3386c42c"
+          }
+        }
+      ]
+    }
+  ],
+  "policy": "Selected inspections and effective final build; no LLM, repair, preview or Agent waits."
+}

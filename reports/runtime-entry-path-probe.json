@@ -1,0 +1,191 @@
+{
+  "schema_version": "runtime-entry-path-probe-v1",
+  "launch_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "mount": "current project read-only at /opt/office-trace-replay",
+  "launch_interpreter": "/usr/bin/python3",
+  "injected_wrong_settings": [
+    "PATH=/usr/bin:/bin",
+    "VIRTUAL_ENV=/wrong",
+    "PYTHONPATH=/outside",
+    "PYTHONUSERBASE=/outside-user"
+  ],
+  "status": "success",
+  "datasets": {
+    "egrid": {
+      "python": "3.12.3 (main, Aug 18 2026, 15:30:45) [GCC 12.3.1 (openEuler 12.3.1-105.oe2403sp3)]",
+      "executable": "/opt/document-bench/.venv/bin/python",
+      "packages": {
+        "openpyxl": "3.1.5",
+        "pypdf": "6.10.0",
+        "pdf2image": "1.17.0",
+        "pillow": "12.2.0"
+      },
+      "tools": {
+        "libreoffice": "LibreOfficeDev 25.8.7.3",
+        "poppler": "pdftoppm version 23.12.0\nCopyright 2005-2023 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+      },
+      "real_executable": "/opt/python-3.12.3/bin/python3.12",
+      "prefix": "/opt/document-bench/.venv",
+      "base_prefix": "/opt/python-3.12.3",
+      "package_paths": {
+        "openpyxl": "/opt/document-bench/.venv/lib/python3.12/site-packages/openpyxl/__init__.py",
+        "et_xmlfile": "/opt/document-bench/.venv/lib/python3.12/site-packages/et_xmlfile/__init__.py",
+        "pypdf": "/opt/document-bench/.venv/lib/python3.12/site-packages/pypdf/__init__.py",
+        "pdf2image": "/opt/document-bench/.venv/lib/python3.12/site-packages/pdf2image/__init__.py",
+        "PIL": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/__init__.py"
+      },
+      "libpython_paths": [
+        "/opt/python-3.12.3/lib/libpython3.12.so.1.0"
+      ],
+      "python3_path": "/opt/document-bench/.venv/bin/python3",
+      "soffice_path": "/opt/office-trace-replay/agent/datasets/egrid/runtime/bin/soffice",
+      "soffice_program": "/opt/libreoffice25.8-symbols/program",
+      "runtime": "document-oe",
+      "original_agent_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "expected_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "actual_image_id": "unknown"
+    },
+    "hr_metro": {
+      "python": "3.12.3 (main, Aug 18 2026, 15:30:45) [GCC 12.3.1 (openEuler 12.3.1-105.oe2403sp3)]",
+      "executable": "/opt/document-bench/.venv/bin/python",
+      "packages": {
+        "openpyxl": "3.1.5",
+        "pypdf": "6.10.0",
+        "pdf2image": "1.17.0",
+        "pillow": "12.2.0"
+      },
+      "tools": {
+        "libreoffice": "LibreOfficeDev 25.8.7.3",
+        "poppler": "pdftoppm version 23.12.0\nCopyright 2005-2023 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+      },
+      "real_executable": "/opt/python-3.12.3/bin/python3.12",
+      "prefix": "/opt/document-bench/.venv",
+      "base_prefix": "/opt/python-3.12.3",
+      "package_paths": {
+        "openpyxl": "/opt/document-bench/.venv/lib/python3.12/site-packages/openpyxl/__init__.py",
+        "et_xmlfile": "/opt/document-bench/.venv/lib/python3.12/site-packages/et_xmlfile/__init__.py",
+        "pypdf": "/opt/document-bench/.venv/lib/python3.12/site-packages/pypdf/__init__.py",
+        "pdf2image": "/opt/document-bench/.venv/lib/python3.12/site-packages/pdf2image/__init__.py",
+        "PIL": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/__init__.py"
+      },
+      "libpython_paths": [
+        "/opt/python-3.12.3/lib/libpython3.12.so.1.0"
+      ],
+      "python3_path": "/opt/document-bench/.venv/bin/python3",
+      "soffice_path": "/opt/office-trace-replay/agent/datasets/hr_metro/runtime/bin/soffice",
+      "soffice_program": "/opt/libreoffice25.8-symbols/program",
+      "runtime": "document-oe",
+      "original_agent_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "expected_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "actual_image_id": "unknown"
+    },
+    "industry_productivity": {
+      "python": "3.12.3 (main, Aug 18 2026, 15:30:45) [GCC 12.3.1 (openEuler 12.3.1-105.oe2403sp3)]",
+      "executable": "/opt/document-bench/.venv/bin/python",
+      "packages": {
+        "openpyxl": "3.1.5",
+        "pypdf": "6.10.0",
+        "pdf2image": "1.17.0",
+        "pillow": "12.2.0"
+      },
+      "tools": {
+        "libreoffice": "LibreOfficeDev 25.8.7.3",
+        "poppler": "pdftoppm version 23.12.0\nCopyright 2005-2023 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+      },
+      "real_executable": "/opt/python-3.12.3/bin/python3.12",
+      "prefix": "/opt/document-bench/.venv",
+      "base_prefix": "/opt/python-3.12.3",
+      "package_paths": {
+        "openpyxl": "/opt/document-bench/.venv/lib/python3.12/site-packages/openpyxl/__init__.py",
+        "et_xmlfile": "/opt/document-bench/.venv/lib/python3.12/site-packages/et_xmlfile/__init__.py",
+        "pypdf": "/opt/document-bench/.venv/lib/python3.12/site-packages/pypdf/__init__.py",
+        "pdf2image": "/opt/document-bench/.venv/lib/python3.12/site-packages/pdf2image/__init__.py",
+        "PIL": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/__init__.py"
+      },
+      "libpython_paths": [
+        "/opt/python-3.12.3/lib/libpython3.12.so.1.0"
+      ],
+      "python3_path": "/opt/document-bench/.venv/bin/python3",
+      "soffice_path": "/opt/office-trace-replay/agent/datasets/industry_productivity/runtime/bin/soffice",
+      "soffice_program": "/opt/libreoffice25.8-symbols/program",
+      "runtime": "document-oe",
+      "original_agent_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "expected_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "actual_image_id": "unknown"
+    },
+    "irs_w4": {
+      "python": "3.12.3 (main, Aug 18 2026, 15:30:45) [GCC 12.3.1 (openEuler 12.3.1-105.oe2403sp3)]",
+      "executable": "/opt/document-bench/.venv/bin/python",
+      "packages": {
+        "openpyxl": "3.1.5",
+        "pypdf": "6.10.0",
+        "pdf2image": "1.17.0",
+        "pillow": "12.2.0"
+      },
+      "tools": {
+        "libreoffice": "LibreOfficeDev 25.8.7.3",
+        "poppler": "pdftoppm version 23.12.0\nCopyright 2005-2023 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+      },
+      "real_executable": "/opt/python-3.12.3/bin/python3.12",
+      "prefix": "/opt/document-bench/.venv",
+      "base_prefix": "/opt/python-3.12.3",
+      "package_paths": {
+        "openpyxl": "/opt/document-bench/.venv/lib/python3.12/site-packages/openpyxl/__init__.py",
+        "et_xmlfile": "/opt/document-bench/.venv/lib/python3.12/site-packages/et_xmlfile/__init__.py",
+        "pypdf": "/opt/document-bench/.venv/lib/python3.12/site-packages/pypdf/__init__.py",
+        "pdf2image": "/opt/document-bench/.venv/lib/python3.12/site-packages/pdf2image/__init__.py",
+        "PIL": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/__init__.py"
+      },
+      "libpython_paths": [
+        "/opt/python-3.12.3/lib/libpython3.12.so.1.0"
+      ],
+      "python3_path": "/opt/document-bench/.venv/bin/python3",
+      "soffice_path": "/opt/office-trace-replay/agent/datasets/irs_w4/runtime/bin/soffice",
+      "soffice_program": "/opt/libreoffice25.8-symbols/program",
+      "runtime": "document-oe",
+      "original_agent_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "expected_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "actual_image_id": "unknown"
+    },
+    "sba1919": {
+      "python": "3.12.3 (main, Aug 18 2026, 15:30:45) [GCC 12.3.1 (openEuler 12.3.1-105.oe2403sp3)]",
+      "executable": "/opt/document-bench/.venv/bin/python",
+      "packages": {
+        "openpyxl": "3.1.5",
+        "pypdf": "6.10.0",
+        "pdf2image": "1.17.0",
+        "pillow": "12.2.0"
+      },
+      "tools": {
+        "libreoffice": "LibreOfficeDev 25.8.7.3",
+        "poppler": "pdftoppm version 23.12.0\nCopyright 2005-2023 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+      },
+      "real_executable": "/opt/python-3.12.3/bin/python3.12",
+      "prefix": "/opt/document-bench/.venv",
+      "base_prefix": "/opt/python-3.12.3",
+      "package_paths": {
+        "openpyxl": "/opt/document-bench/.venv/lib/python3.12/site-packages/openpyxl/__init__.py",
+        "et_xmlfile": "/opt/document-bench/.venv/lib/python3.12/site-packages/et_xmlfile/__init__.py",
+        "pypdf": "/opt/document-bench/.venv/lib/python3.12/site-packages/pypdf/__init__.py",
+        "pdf2image": "/opt/document-bench/.venv/lib/python3.12/site-packages/pdf2image/__init__.py",
+        "PIL": "/opt/document-bench/.venv/lib/python3.12/site-packages/PIL/__init__.py"
+      },
+      "libpython_paths": [
+        "/opt/python-3.12.3/lib/libpython3.12.so.1.0"
+      ],
+      "python3_path": "/opt/document-bench/.venv/bin/python3",
+      "soffice_path": "/opt/office-trace-replay/agent/datasets/sba1919/runtime/bin/soffice",
+      "soffice_program": "/opt/libreoffice25.8-symbols/program",
+      "runtime": "document-oe",
+      "original_agent_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "expected_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+      "actual_image_id": "unknown"
+    }
+  },
+  "child": {
+    "executable": "/opt/document-bench/.venv/bin/python3",
+    "prefix": "/opt/document-bench/.venv",
+    "openpyxl": "/opt/document-bench/.venv/lib/python3.12/site-packages/openpyxl/__init__.py"
+  },
+  "scope": "versions and paths only; no workload"
+}

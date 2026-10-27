@@ -1,0 +1,23 @@
+{
+  "schema_version": "office-staged-input-provenance-v1",
+  "dataset_id": "egrid",
+  "filename": "egrid2023_data_rev2.xlsx",
+  "sha256": "895cd81dd8662406189ad8adf5a2578dcb362cdb5cff7cca81b10ee6bd2447c6",
+  "file_size_bytes": 21213301,
+  "staged_at": "2026-10-26T15:30:29.471514+00:00",
+  "official_publisher": "U.S. Environmental Protection Agency",
+  "official_listing_url": "https://www.epa.gov/egrid/detailed-data",
+  "official_url": "https://www.epa.gov/system/files/documents/2025-06/egrid2023_data_rev2.xlsx",
+  "revision": "eGRID2023 Revision 2",
+  "data_year": 2023,
+  "revision_release_date": "2025-06-12",
+  "download_date": "2026-10-26",
+  "actual_download_source": "https://www.epa.gov/system/files/documents/2025-06/egrid2023_data_rev2.xlsx",
+  "acquisition_method": "Downloaded directly from EPA with curl -fL into a temporary directory, then copied byte-for-byte into this repository.",
+  "downloaded_from_official_endpoint": true,
+  "input_class": "official_native_spreadsheet",
+  "synthetic_expansion": false,
+  "conversion": "None; original workbook bytes preserved.",
+  "status": "input_staged_task_and_agent_trace_pending",
+  "scope": "Workbook structure inspected; Agent task, round-trip compatibility and successful execution have not been qualified."
+}

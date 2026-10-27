@@ -1,0 +1,58 @@
+{
+  "schema_version": "office-semantic-oracle-v2",
+  "metric_values": {
+    "net_generation": 4190970937.357,
+    "co2_emissions": 1607676335.942,
+    "co2_output_rate": 767.209,
+    "gas_generation_share": 0.432,
+    "reconciliation_status": "PASS"
+  },
+  "scenario_values": {
+    "Base": {
+      "projected_generation": 4190970937.357,
+      "projected_co2_emissions": 1607676335.942
+    },
+    "Upside": {
+      "projected_generation": 4400519484.22485,
+      "projected_co2_emissions": 1823104964.958228
+    },
+    "Downside": {
+      "projected_generation": 3981422390.4891496,
+      "projected_co2_emissions": 1420382042.8047569
+    }
+  },
+  "chart_values": {
+    "state_generation": [
+      216080235.825,
+      123473720.157,
+      544038647.008,
+      258099011.95,
+      235912550.485
+    ],
+    "resource_mix": [
+      0.161,
+      0.432,
+      0.185,
+      0.057,
+      0.1,
+      0.039
+    ]
+  },
+  "oracle_provenance": "Expected values and two small reference CSVs are prepared from unchanged source cells outside Agent execution. CSVs are copied during the task; no derived workbook, prepared selection or business helper is supplied.",
+  "source_cell_values": {
+    "US23!G3": 4190970937.357,
+    "US23!M3": 1607676335.942,
+    "US23!U3": 767.209,
+    "ST23!I7": 216080235.825,
+    "ST23!I37": 123473720.157,
+    "ST23!I47": 544038647.008,
+    "ST23!I12": 258099011.95,
+    "ST23!I41": 235912550.485,
+    "US23!DX3": 0.161,
+    "US23!DZ3": 0.432,
+    "US23!EA3": 0.185,
+    "US23!EB3": 0.057,
+    "US23!ED3": 0.1,
+    "US23!EE3": 0.039
+  }
+}

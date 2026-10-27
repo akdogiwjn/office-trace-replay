@@ -1,0 +1,52 @@
+{
+  "round": 2,
+  "run_id": "pdf-sba1919-20261027T032347Z-af658d31",
+  "run_path": "runs/pdf-sba1919-20261027T032347Z-af658d31",
+  "original_run_status": "success",
+  "qualification_status": "success",
+  "qualification_evidence": {
+    "path": "runs/pdf-sba1919-20261027T032347Z-af658d31/independent_verification.json",
+    "sha256": "f5dc79c22927aea00f779d923e396594e99c37779ca358f26b398faf8848a0fd"
+  },
+  "original_independent_failures": [],
+  "independent_check_count": 123,
+  "tool_call_count": 26,
+  "runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+  "model": {
+    "name": "openclaw",
+    "version": "OpenClaw 2026.6.6 (8c802aa)",
+    "model_name": "deepseek/deepseek-v4-flash",
+    "extra": {
+      "parser": "openclaw-session-jsonl",
+      "provider": "deepseek",
+      "session_schema_version": 3,
+      "thinking_level": "high"
+    }
+  },
+  "input_hashes": {
+    "input/pdf_dataset_sources.md": "c00d98924d0f3ca78ca28d2d20bce893e8e6687b8f2406576cd04ddfbcffec9f",
+    "input/sba1919_2024.pdf": "db31ccf144266d6cd8a16555927893299f1b2831ee1651b1d4c6634a48caf91a",
+    "input/synthetic_applicants.json": "4931c2c9f56878cd60507fb6b223e283cb3dae8dedc029ff54f6905209b839d2",
+    "input/verify_pdf_batch.py": "07df6832b4abb4f75c46f1c70ffaa9e6363504206cee15ebea18c19f3386c42c"
+  },
+  "manifest_sha256": "2ea86597d24d293ef0d91f7f222103f9984283777640cc99c17407e31db2bda6",
+  "prompt_sha256": "a44023f05ced0520c4d8e4136f4974e2c53843d708027c36c1c8a63f192457c9",
+  "prompt_template_sha256": "e2a94ef79a475cca66f624ecf611352726db75b6b752f56bafbf2ea4d5c83da2",
+  "run_manifest": {
+    "path": "runs/pdf-sba1919-20261027T032347Z-af658d31/run_manifest.json",
+    "sha256": "2a6fa67d988a84e6a420da6d5d174a507321ed48ec4337bad1b57c9644728403"
+  },
+  "trajectory": {
+    "path": "runs/pdf-sba1919-20261027T032347Z-af658d31/trajectory.json",
+    "sha256": "896d9050a8b96af3d30ee210b06ce54a646aa5ae8f28a61c8660b725df5ece5d"
+  },
+  "tool_events": {
+    "path": "runs/pdf-sba1919-20261027T032347Z-af658d31/tool_events.json",
+    "sha256": "9e988693b01b9e9350b2de9a0b78b3a53e8c3b36219426eaf9e0aeff6eaf9717"
+  },
+  "canonical": {
+    "path": "artifacts/canonical/pdf/sba1919/pdf-sba1919-20261027T032347Z-af658d31",
+    "canonical_sha256": "2c734c5432dedede45e83ca0d08261e6e25313ba59a19d3d34f0b2e335e6a0b7",
+    "validated": true
+  }
+}

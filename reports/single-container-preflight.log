@@ -1,0 +1,35 @@
+old installed bindings valid
+egrid frozen recipe valid; real replay not yet qualified
+hr_metro frozen recipe valid; real replay not yet qualified
+industry_productivity frozen recipe valid; real replay not yet qualified
+irs_w4 frozen recipe valid; real replay not yet qualified
+sba1919 frozen recipe valid; real replay not yet qualified
+{
+  "python": "3.12.3 (main, Aug 18 2026, 15:30:45) [GCC 12.3.1 (openEuler 12.3.1-105.oe2403sp3)]",
+  "executable": "/opt/document-bench/.venv/bin/python",
+  "packages": {
+    "openpyxl": "3.1.5",
+    "pypdf": "6.10.0",
+    "pdf2image": "1.17.0",
+    "pillow": "12.2.0"
+  },
+  "tools": {
+    "libreoffice": "LibreOfficeDev 25.8.7.3",
+    "poppler": "pdftoppm version 23.12.0\nCopyright 2005-2023 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+  },
+  "runtime": "document-oe",
+  "original_agent_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+  "expected_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "actual_image_id": "unknown"
+}
+legacy skill link types [('xlsx', True), ('pdf', True)]
+test_all_five_use_same_target_image_but_preserve_source_environment (test_container_layout.SingleImage.test_all_five_use_same_target_image_but_preserve_source_environment) ... ok
+test_new_entry_does_not_dispatch_old_workload (test_container_layout.SingleImage.test_new_entry_does_not_dispatch_old_workload) ... ok
+test_new_old_new_context_switch_keeps_skill_code_separate (test_container_layout.SingleImage.test_new_old_new_context_switch_keeps_skill_code_separate) ... ok
+test_one_dockerfile_contains_both_entries_and_seven_datasets (test_container_layout.SingleImage.test_one_dockerfile_contains_both_entries_and_seven_datasets) ... ok
+test_parallel_old_entry_rejected_before_context_change (test_container_layout.SingleImage.test_parallel_old_entry_rejected_before_context_change) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.009s
+
+OK

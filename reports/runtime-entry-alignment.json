@@ -1,0 +1,51 @@
+{
+  "schema_version": "runtime-entry-alignment-v1",
+  "checked_at": "2026-10-27T08:03:08.827941+00:00",
+  "scope": "Python/LibreOffice startup paths only; prior pre-build audit findings not changed",
+  "source_observation": {
+    "container": "document-oe",
+    "scene_launchers": "exec python3 (system PATH)",
+    "xlsx_slice_launcher": "/opt/document-bench-slicing-xlsx/run_slice.sh",
+    "pdf_slice_launcher": "/opt/document-bench-slicing-xpdf/run_slice.sh",
+    "slice_python": "/opt/document-bench/.venv/bin/python3",
+    "xlsx_office": "/opt/libreoffice25.8-symbols/program",
+    "original_container_modified": false
+  },
+  "changes": "Private bootstrap copies in five dataset runners, public dispatcher and legacy wrapper; frozen workloads/helpers/Skills unchanged.",
+  "tests": {
+    "passed": 34,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0
+  },
+  "legacy_frozen_files_unchanged": 43,
+  "container_probe": "runtime-entry-path-probe.json",
+  "prior_integration_record": "single-container-integration.json (historical code hashes; not refreshed)",
+  "new_image_built": false,
+  "production_workload_executed": false,
+  "committed_or_pushed": false,
+  "file_hashes": {
+    "Dockerfile": "7e2e79d8f72c488434f8dfd68dc4c27a3034066544fe1ac179c1b2e6e5415e66",
+    "README.md": "c9bfdc7606634f78b8d322ea70cb282fe3788c88b4333d23aea3550d2fcb8a9b",
+    "agent/README.md": "6d302316407b75d9c106834c9580460a635e0ae9d8d6ebc75d226e328f7031e4",
+    "agent/replay.py": "529bcd07f2de6f11b422494bb641f10002d3e7c736e625a22edbb0f84f9ae1a2",
+    "document-oe/run.py": "1af858c85d9d49a73237dc254af98c8bf37d9a91cd43e2f8872fdc82e32753d3",
+    "agent/tools/import_traces.py": "c1c6f07354ddc30a50bf292e5ea23d5d27d834ac11cecfddadeb1aba75832c21",
+    "agent/tools/dataset_runner.py.template": "86b749abf558d3aec49a1e3c69c392b9afe3e36d11f3ac090095d7b346fd2d64",
+    "agent/tools/runtime_bootstrap.py.template": "ff627184db52c138fbd718e39b16cb2cfec5f67deb888611f3682861243f399c",
+    "agent/suite.json": "df7ed1d4117cfa39177e59d46248c526f9bb306adeff35b52024750785734684",
+    "tests/test_runtime_environment.py": "33f87042d10d021ffc8d5278a3acaef7a2af729774214d45b0788b3845fb514a",
+    "tests/probe_runtime_environment.py": "a08b0140dbdd33dd07f9a378285e9213619bbe35bcd550d7e16e3550549dfcd2",
+    "reports/runtime-entry-path-probe.json": "4941d53ebcd06739ec49b0afaebe3da68cc007339922839dd0359498c769a420",
+    "agent/datasets/irs_w4/run.py": "acd5d214ca067e683709300f352c68d7d1015d541935fae308616ef813291f2c",
+    "agent/datasets/irs_w4/lock.json": "42a6096261cc0334a12e3665ac8b52365a5f3a2547609479e14f3fe5208f53e2",
+    "agent/datasets/egrid/run.py": "acd5d214ca067e683709300f352c68d7d1015d541935fae308616ef813291f2c",
+    "agent/datasets/egrid/lock.json": "dee484d1fb6f5e4eafd25c97ca8a191100ce7a604ba0a9386bc0d7c76a6bccb0",
+    "agent/datasets/industry_productivity/run.py": "acd5d214ca067e683709300f352c68d7d1015d541935fae308616ef813291f2c",
+    "agent/datasets/industry_productivity/lock.json": "35de510ada002fcde67c20fe5a0c8b7086cd48377863b5ceee031e5e14a049a2",
+    "agent/datasets/hr_metro/run.py": "acd5d214ca067e683709300f352c68d7d1015d541935fae308616ef813291f2c",
+    "agent/datasets/hr_metro/lock.json": "7b6f4fbd11df3a081d32f864c7d3b29a34e71cbf9edd8b760001308f818c47d4",
+    "agent/datasets/sba1919/run.py": "acd5d214ca067e683709300f352c68d7d1015d541935fae308616ef813291f2c",
+    "agent/datasets/sba1919/lock.json": "14489427d791b0e3520845c34576350f97ad633934cc19382d6a4a58ce9341d9"
+  }
+}

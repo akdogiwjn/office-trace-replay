@@ -1,0 +1,50 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.48kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/office-trace-replay:openeuler-release
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 260B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/office-trace-replay:openeuler-release
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 100.30MB 0.2s done
+#5 DONE 0.3s
+
+#6 [2/7] COPY agent/ /opt/office-trace-replay/agent/
+#6 DONE 0.5s
+
+#7 [3/7] COPY document-oe/ /opt/office-trace-replay/document-oe/
+#7 DONE 0.1s
+
+#8 [4/7] COPY document-oe/assets/ /opt/document-bench/
+#8 DONE 0.1s
+
+#9 [5/7] COPY README.md container-contract.json /opt/office-trace-replay/
+#9 DONE 0.0s
+
+#10 [6/7] WORKDIR /opt/office-trace-replay
+#10 DONE 0.0s
+
+#11 [7/7] RUN mkdir -p /root/.openclaw/skills &&     ln -sfn /opt/document-bench/skills/xlsx /root/.openclaw/skills/xlsx &&     ln -sfn /opt/document-bench/skills/pdf /root/.openclaw/skills/pdf &&     /opt/document-bench/.venv/bin/python agent/replay.py --validate-only &&     /opt/document-bench/.venv/bin/python document-oe/run.py --validate-only --installed
+#11 0.251 egrid frozen recipe valid; real replay not yet qualified
+#11 0.383 hr_metro frozen recipe valid; real replay not yet qualified
+#11 0.506 industry_productivity frozen recipe valid; real replay not yet qualified
+#11 0.593 irs_w4 frozen recipe valid; real replay not yet qualified
+#11 0.680 sba1919 frozen recipe valid; real replay not yet qualified
+#11 0.756 document-oe: 43 unchanged workload files; both recipes valid
+#11 DONE 0.8s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 0.2s done
+#12 writing image sha256:b15ddc5ae5d325384d105f77e0b859fb4f79f4b343e0bc9bf7e9ef4ed58e1d12 done
+#12 naming to docker.io/library/office-trace-replay:agent-traces done
+#12 DONE 0.2s

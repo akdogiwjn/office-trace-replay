@@ -1,0 +1,43 @@
+# Copied into each entry/executor at development time; no shared runtime import.
+PINNED_VENV = Path('/opt/document-bench/.venv')
+PINNED_PYTHON = PINNED_VENV / 'bin/python'
+PINNED_SOFFICE = Path('/opt/libreoffice25.8-symbols/program')
+
+
+def runtime_environment(runtime='document-oe', inherited=None):
+    env = dict(os.environ if inherited is None else inherited)
+    for key in ('PYTHONHOME', 'PYTHONPATH', 'PYTHONUSERBASE'):
+        env.pop(key, None)
+    env['PYTHONNOUSERSITE'] = '1'
+    env['PYTHONUNBUFFERED'] = '1'
+    if runtime == 'document-oe':
+        env['VIRTUAL_ENV'] = str(PINNED_VENV)
+        env['PYTHON_PREFIX'] = '/opt/python-3.12.3'
+        prefixes = [str(PINNED_VENV / 'bin'), str(PINNED_SOFFICE)]
+    else:
+        prefixes = [str(Path(sys.executable).parent)]
+    rest = [p for p in env.get('PATH', '').split(os.pathsep) if p and p not in prefixes]
+    env['PATH'] = os.pathsep.join(prefixes + rest)
+    return env
+
+
+def configure_runtime(runtime='document-oe'):
+    if runtime != 'document-oe':
+        return
+    if not PINNED_PYTHON.is_file() or not os.access(PINNED_PYTHON, os.X_OK):
+        raise ValueError('pinned Python is unavailable: ' + str(PINNED_PYTHON))
+    env = runtime_environment(runtime)
+    # A matching version alone is insufficient: system Python and external
+    # site-packages must not become the runner or its children's environment.
+    restart = (Path(sys.prefix) != PINNED_VENV
+               or Path(sys.executable).parent != PINNED_VENV / 'bin'
+               or not sys.flags.no_user_site
+               or any(key in os.environ for key in ('PYTHONHOME', 'PYTHONPATH', 'PYTHONUSERBASE')))
+    if restart:
+        if env.get('OFFICE_RUNTIME_REEXEC') == '1':
+            raise ValueError('pinned Python bootstrap did not select the isolated venv')
+        env['OFFICE_RUNTIME_REEXEC'] = '1'
+        os.execve(str(PINNED_PYTHON), [str(PINNED_PYTHON), str(Path(__file__).resolve()), *sys.argv[1:]], env)
+        raise RuntimeError('Python re-exec returned unexpectedly')
+    os.environ.clear()
+    os.environ.update(env)

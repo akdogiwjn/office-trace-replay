@@ -1,0 +1,83 @@
+{
+  "summary_sheet": "Energy_Summary",
+  "metrics": {
+    "net_generation": {
+      "sheet": "Energy_Summary",
+      "cell": "B5"
+    },
+    "co2_emissions": {
+      "sheet": "Energy_Summary",
+      "cell": "B6"
+    },
+    "co2_output_rate": {
+      "sheet": "Energy_Summary",
+      "cell": "B7"
+    },
+    "gas_generation_share": {
+      "sheet": "Energy_Summary",
+      "cell": "B8"
+    },
+    "reconciliation_status": {
+      "sheet": "Energy_Summary",
+      "cell": "B9"
+    }
+  },
+  "scenario": {
+    "selector": {
+      "sheet": "Energy_Summary",
+      "cell": "B12"
+    },
+    "assumptions": {
+      "Base": {
+        "emission_intensity_multiplier": {
+          "sheet": "Energy_Summary",
+          "cell": "E13"
+        },
+        "generation_multiplier": {
+          "sheet": "Energy_Summary",
+          "cell": "F13"
+        }
+      },
+      "Upside": {
+        "emission_intensity_multiplier": {
+          "sheet": "Energy_Summary",
+          "cell": "E14"
+        },
+        "generation_multiplier": {
+          "sheet": "Energy_Summary",
+          "cell": "F14"
+        }
+      },
+      "Downside": {
+        "emission_intensity_multiplier": {
+          "sheet": "Energy_Summary",
+          "cell": "E15"
+        },
+        "generation_multiplier": {
+          "sheet": "Energy_Summary",
+          "cell": "F15"
+        }
+      }
+    },
+    "projections": {
+      "projected_generation": {
+        "sheet": "Energy_Summary",
+        "cell": "B15"
+      },
+      "projected_co2_emissions": {
+        "sheet": "Energy_Summary",
+        "cell": "B16"
+      }
+    }
+  },
+  "charts": {
+    "state_generation": {
+      "sheet": "Energy_Summary",
+      "index": 0
+    },
+    "resource_mix": {
+      "sheet": "Energy_Summary",
+      "index": 1
+    }
+  }
+}

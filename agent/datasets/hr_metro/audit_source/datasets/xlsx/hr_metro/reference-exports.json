@@ -1,0 +1,44 @@
+{
+  "schema_version": "office-prepared-reference-exports-v1",
+  "dataset_id": "hr_metro",
+  "prepared_outside_agent": true,
+  "original_workbook_sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+  "source_cell_values": {
+    "MSA_M2025_dl!L93966": 9492000,
+    "MSA_M2025_dl!S93966": 86310,
+    "MSA_M2025_dl!W93966": 29.53,
+    "MSA_M2025_dl!L94460": 1109360,
+    "MSA_M2025_dl!L94336": 843730,
+    "MSA_M2025_dl!L94437": 751110,
+    "MSA_M2025_dl!L94004": 725700,
+    "MSA_M2025_dl!L93967": 713690,
+    "MSA_M2025_dl!S94460": 59750,
+    "MSA_M2025_dl!S94336": 43500,
+    "MSA_M2025_dl!S94437": 74940,
+    "MSA_M2025_dl!S94004": 119290,
+    "MSA_M2025_dl!S93967": 196850,
+    "MSA_M2025_dl!AB93966": 61430.0
+  },
+  "exports": [
+    {
+      "input": "prepared_workforce_summary.csv",
+      "output": "workforce_summary.csv",
+      "sha256": "7acd661bb80d75edfa10bf3b7a72defed40c6f1e34e8e9d771a22f559b942dad"
+    },
+    {
+      "input": "prepared_workforce_reconciliation_summary.csv",
+      "output": "workforce_reconciliation_summary.csv",
+      "sha256": "7aca457f8deed4fbcebad9b8ce37cdca5ebbf2aba5b8087c1ad5ada4f5e79313"
+    }
+  ],
+  "method": "Deterministic UTF-8 CSV serialization of original-cell KPI values, source consistency and Base-scenario references. No workbook rewrite or synthetic expansion.",
+  "scope": "Read-only reference exports; not business helpers or substitutes for required Excel formulas.",
+  "consistency_checks": {
+    "positive_employment": true,
+    "positive_annual_mean_wage": true,
+    "nonnegative_hourly_median": true,
+    "nonnegative_annual_median": true
+  },
+  "checked_against_original_workbook_hash": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+  "projection_semantics": "Separate sensitivities: employment x employment multiplier; mean wage x wage multiplier. No employment-weighted wage/payroll proxy."
+}

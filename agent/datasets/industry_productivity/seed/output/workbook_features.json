@@ -1,0 +1,83 @@
+{
+  "summary_sheet": "Productivity_Summary",
+  "metrics": {
+    "hours_worked_2025": {
+      "sheet": "Productivity_Summary",
+      "cell": "B5"
+    },
+    "real_output_2025": {
+      "sheet": "Productivity_Summary",
+      "cell": "B6"
+    },
+    "labor_productivity_2025": {
+      "sheet": "Productivity_Summary",
+      "cell": "B7"
+    },
+    "output_per_worker_2025": {
+      "sheet": "Productivity_Summary",
+      "cell": "B8"
+    },
+    "reconciliation_status": {
+      "sheet": "Productivity_Summary",
+      "cell": "B9"
+    }
+  },
+  "scenario": {
+    "selector": {
+      "sheet": "Productivity_Summary",
+      "cell": "B12"
+    },
+    "assumptions": {
+      "Base": {
+        "productivity_multiplier": {
+          "sheet": "Productivity_Summary",
+          "cell": "E13"
+        },
+        "hours_multiplier": {
+          "sheet": "Productivity_Summary",
+          "cell": "F13"
+        }
+      },
+      "Upside": {
+        "productivity_multiplier": {
+          "sheet": "Productivity_Summary",
+          "cell": "E14"
+        },
+        "hours_multiplier": {
+          "sheet": "Productivity_Summary",
+          "cell": "F14"
+        }
+      },
+      "Downside": {
+        "productivity_multiplier": {
+          "sheet": "Productivity_Summary",
+          "cell": "E15"
+        },
+        "hours_multiplier": {
+          "sheet": "Productivity_Summary",
+          "cell": "F15"
+        }
+      }
+    },
+    "projections": {
+      "projected_hours_worked": {
+        "sheet": "Productivity_Summary",
+        "cell": "B15"
+      },
+      "projected_real_output": {
+        "sheet": "Productivity_Summary",
+        "cell": "B16"
+      }
+    }
+  },
+  "charts": {
+    "manufacturing_subindustry_2025": {
+      "sheet": "Productivity_Summary",
+      "index": 0
+    },
+    "food_productivity_trend": {
+      "sheet": "Productivity_Summary",
+      "index": 1
+    }
+  }
+}

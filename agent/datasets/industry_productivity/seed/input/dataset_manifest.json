@@ -1,0 +1,407 @@
+{
+  "schema_version": "office-dataset-v2",
+  "workload_contract": "spreadsheet-semantic-v2",
+  "task_contract": "dataset-specific-agent-v1",
+  "kind": "xlsx",
+  "dataset_id": "industry_productivity",
+  "domain": "industry_productivity",
+  "task": "Preserve the original workbook and add a TLC-shaped Summary: five KPIs, two scenario multipliers, two projections and two charts; copy two prepared reference CSVs.",
+  "workbook": "labor-productivity-detailed-industries.xlsx",
+  "output_workbook": "industry_productivity_enhanced.xlsx",
+  "input_files": {
+    "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+    "input/verify_xlsx_enhanced.py": "875819e7e8392a4e83b8ece66f9724f1bae3f5a4c0b0e21641914265a17bdc6c",
+    "input/prepared_industry_productivity_summary.csv": "5cd299e1ea82965c56e4aef09fa7f7c7c5613421161765d033b6197e5ae4da21",
+    "input/prepared_industry_productivity_reconciliation_summary.csv": "688a4e2432c78ad6c1439bf471c7656edeae2bf50713d80acf67d8ed3a103a50"
+  },
+  "expected_file": "task-expected.json",
+  "expected_sha256": "526c8cd39996a5b780a6c1b2776110bf7130478a7ece91e13989b1edf525793b",
+  "prompt_template": "xlsx-industry_productivity.txt",
+  "agent_context": {
+    "profile": "legacy-host-v1",
+    "sha256": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5"
+  },
+  "runtime_case": "OFFICE-XLSX-INDUSTRY-PRODUCTIVITY",
+  "loop_verification_contract": "dataset-local-tlc-style-v1",
+  "analysis_metadata": {
+    "provenance.json": "4395ffdc4a8c4cc60f1ab8a1e83e1f9572710c34eeb4ee476e095ba1c72e903a",
+    "complexity.json": "295cd1242b4d0c2d99a92f1540212f150402792ccc39d134a9f9739529f4b1a3",
+    "reference-exports.json": "d73d07a5c5c8e51283d951710229fc52990fe718501cb6a6c687eff2b8f029c4"
+  },
+  "requirements": {
+    "metrics": [
+      {
+        "id": "hours_worked_2025",
+        "name": "2025 hours-worked index",
+        "meaning": "2025 hours-worked index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "real_output_2025",
+        "name": "2025 real sectoral output index",
+        "meaning": "2025 real sectoral output index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "labor_productivity_2025",
+        "name": "2025 labor productivity index",
+        "meaning": "2025 labor productivity index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "output_per_worker_2025",
+        "name": "2025 output-per-worker index",
+        "meaning": "2025 output-per-worker index for the specified published source/scope.",
+        "unit": "index (2017=100)"
+      },
+      {
+        "id": "reconciliation_status",
+        "name": "Source consistency status",
+        "meaning": "Source consistency status for the specified published source/scope.",
+        "unit": "status"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "productivity_multiplier",
+          "meaning": "labor-productivity multiplier"
+        },
+        {
+          "id": "hours_multiplier",
+          "meaning": "hours-worked multiplier"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "productivity_multiplier": 1,
+            "hours_multiplier": 1
+          }
+        },
+        {
+          "name": "Upside",
+          "assumptions": {
+            "productivity_multiplier": 1.08,
+            "hours_multiplier": 1.05
+          }
+        },
+        {
+          "name": "Downside",
+          "assumptions": {
+            "productivity_multiplier": 0.93,
+            "hours_multiplier": 0.95
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_hours_worked",
+          "meaning": "Projected hours-worked index",
+          "unit": "index (2017=100)"
+        },
+        {
+          "id": "projected_real_output",
+          "meaning": "Projected real-output index",
+          "unit": "index (2017=100)"
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "manufacturing_subindustry_2025",
+        "meaning": "2025 productivity for NAICS 311, 312, 313, 314 and 315, in that order"
+      },
+      {
+        "id": "food_productivity_trend",
+        "meaning": "Food manufacturing productivity index in 2021, 2022, 2023, 2024 and 2025"
+      }
+    ],
+    "base_sheets": [
+      "Annual",
+      "MachineReadable",
+      "ReadMe"
+    ],
+    "base_dimensions": {
+      "Annual": [
+        15183,
+        46
+      ],
+      "MachineReadable": [
+        566659,
+        9
+      ],
+      "ReadMe": [
+        14,
+        2
+      ]
+    },
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "minimum_formula_count": 19,
+    "recalc_timeout": 600
+  },
+  "task_layout": {
+    "features": {
+      "summary_sheet": "Productivity_Summary",
+      "metrics": {
+        "hours_worked_2025": {
+          "sheet": "Productivity_Summary",
+          "cell": "B5"
+        },
+        "real_output_2025": {
+          "sheet": "Productivity_Summary",
+          "cell": "B6"
+        },
+        "labor_productivity_2025": {
+          "sheet": "Productivity_Summary",
+          "cell": "B7"
+        },
+        "output_per_worker_2025": {
+          "sheet": "Productivity_Summary",
+          "cell": "B8"
+        },
+        "reconciliation_status": {
+          "sheet": "Productivity_Summary",
+          "cell": "B9"
+        }
+      },
+      "scenario": {
+        "selector": {
+          "sheet": "Productivity_Summary",
+          "cell": "B12"
+        },
+        "assumptions": {
+          "Base": {
+            "productivity_multiplier": {
+              "sheet": "Productivity_Summary",
+              "cell": "E13"
+            },
+            "hours_multiplier": {
+              "sheet": "Productivity_Summary",
+              "cell": "F13"
+            }
+          },
+          "Upside": {
+            "productivity_multiplier": {
+              "sheet": "Productivity_Summary",
+              "cell": "E14"
+            },
+            "hours_multiplier": {
+              "sheet": "Productivity_Summary",
+              "cell": "F14"
+            }
+          },
+          "Downside": {
+            "productivity_multiplier": {
+              "sheet": "Productivity_Summary",
+              "cell": "E15"
+            },
+            "hours_multiplier": {
+              "sheet": "Productivity_Summary",
+              "cell": "F15"
+            }
+          }
+        },
+        "projections": {
+          "projected_hours_worked": {
+            "sheet": "Productivity_Summary",
+            "cell": "B15"
+          },
+          "projected_real_output": {
+            "sheet": "Productivity_Summary",
+            "cell": "B16"
+          }
+        }
+      },
+      "charts": {
+        "manufacturing_subindustry_2025": {
+          "sheet": "Productivity_Summary",
+          "index": 0
+        },
+        "food_productivity_trend": {
+          "sheet": "Productivity_Summary",
+          "index": 1
+        }
+      }
+    },
+    "metric_source_references": {
+      "hours_worked_2025": [
+        {
+          "sheet": "Annual",
+          "cell": "AT489"
+        }
+      ],
+      "real_output_2025": [
+        {
+          "sheet": "Annual",
+          "cell": "AT488"
+        }
+      ],
+      "labor_productivity_2025": [
+        {
+          "sheet": "Annual",
+          "cell": "AT487"
+        }
+      ],
+      "output_per_worker_2025": [
+        {
+          "sheet": "Annual",
+          "cell": "AT490"
+        }
+      ],
+      "reconciliation_status": [
+        {
+          "sheet": "Annual",
+          "cell": "AT489"
+        },
+        {
+          "sheet": "Annual",
+          "cell": "AT488"
+        },
+        {
+          "sheet": "Annual",
+          "cell": "AT487"
+        },
+        {
+          "sheet": "Annual",
+          "cell": "AT490"
+        }
+      ]
+    },
+    "supporting_formula_references": {
+      "B13": [
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "B12"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "E13"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "E14"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "E15"
+        }
+      ],
+      "B14": [
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "B12"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "F13"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "F14"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "F15"
+        }
+      ],
+      "B15": [
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "B5"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "B14"
+        }
+      ],
+      "B16": [
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "B6"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "B13"
+        },
+        {
+          "sheet": "Productivity_Summary",
+          "cell": "B14"
+        }
+      ]
+    },
+    "chart_requirements": {
+      "manufacturing_subindustry_2025": {
+        "kind": "column",
+        "categories_range": "A20:A24",
+        "values_range": "B20:B24",
+        "category_labels": [
+          "Food",
+          "Beverages and tobacco",
+          "Textile mills",
+          "Textile products",
+          "Apparel"
+        ]
+      },
+      "food_productivity_trend": {
+        "kind": "line",
+        "categories_range": "D20:D24",
+        "values_range": "E20:E24",
+        "category_labels": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ]
+      }
+    }
+  },
+  "publish_files": [
+    {
+      "input": "prepared_industry_productivity_summary.csv",
+      "output": "industry_productivity_summary.csv",
+      "sha256": "5cd299e1ea82965c56e4aef09fa7f7c7c5613421161765d033b6197e5ae4da21"
+    },
+    {
+      "input": "prepared_industry_productivity_reconciliation_summary.csv",
+      "output": "industry_productivity_reconciliation_summary.csv",
+      "sha256": "688a4e2432c78ad6c1439bf471c7656edeae2bf50713d80acf67d8ed3a103a50"
+    }
+  ],
+  "trace_rules": [
+    {
+      "pattern": "\\bverify_xlsx_enhanced\\.py\\b",
+      "operation": "verify_business"
+    },
+    {
+      "pattern": "recalc\\.py",
+      "operation": "recalculate_formulas"
+    }
+  ],
+  "required_outputs": [
+    "industry_productivity_enhanced.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "industry_productivity_summary.csv",
+    "industry_productivity_reconciliation_summary.csv"
+  ],
+  "new_agent_execution_status": "not_run",
+  "prompt_template_sha256": "f52b0212ed00289a912ba9ff7887e2718440ff531b17d9fdb80077b028686a22",
+  "agent_verifier": "verify_xlsx_enhanced.py",
+  "agent_validation": {
+    "entry": "input/verify_xlsx_enhanced.py",
+    "implementation": "standalone_dataset_local_script",
+    "reference": "legacy/xlsx/verify_xlsx_enhanced.py",
+    "scope": "TLC-style formula/features/cache/recalc checks; five KPI formulas including source consistency status, two multipliers and two projections.",
+    "independent_audit": "Runner post-Agent verification; outside Agent tool trace, retains deeper checks."
+  },
+  "csv_mode": "copy_prepared",
+  "feature_index_origin": "project_staged",
+  "task_shape": "tlc-five-kpi-dual-scenario-v2"
+}

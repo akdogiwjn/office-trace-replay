@@ -1,0 +1,165 @@
+{
+  "dataset_id": "egrid",
+  "kind": "xlsx",
+  "source_run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+  "source_round": 2,
+  "output_workbook": "energy_report.xlsx",
+  "form": null,
+  "records": null,
+  "requirements": {
+    "metrics": [
+      {
+        "id": "net_generation",
+        "name": "Annual net generation",
+        "meaning": "Annual net generation for the specified published source/scope.",
+        "unit": "MWh"
+      },
+      {
+        "id": "co2_emissions",
+        "name": "Annual CO2 emissions",
+        "meaning": "Annual CO2 emissions for the specified published source/scope.",
+        "unit": "short tons"
+      },
+      {
+        "id": "co2_output_rate",
+        "name": "CO2 total output emission rate",
+        "meaning": "CO2 total output emission rate for the specified published source/scope.",
+        "unit": "lb/MWh"
+      },
+      {
+        "id": "gas_generation_share",
+        "name": "Gas generation share",
+        "meaning": "Gas generation share for the specified published source/scope.",
+        "unit": "fraction"
+      },
+      {
+        "id": "reconciliation_status",
+        "name": "Source consistency status",
+        "meaning": "Source consistency status for the specified published source/scope.",
+        "unit": "status"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "emission_intensity_multiplier",
+          "meaning": "CO2-emissions-per-MWh multiplier"
+        },
+        {
+          "id": "generation_multiplier",
+          "meaning": "generation-volume multiplier"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "emission_intensity_multiplier": 1,
+            "generation_multiplier": 1
+          }
+        },
+        {
+          "name": "Upside",
+          "assumptions": {
+            "emission_intensity_multiplier": 1.08,
+            "generation_multiplier": 1.05
+          }
+        },
+        {
+          "name": "Downside",
+          "assumptions": {
+            "emission_intensity_multiplier": 0.93,
+            "generation_multiplier": 0.95
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_generation",
+          "meaning": "Projected annual net generation",
+          "unit": "MWh"
+        },
+        {
+          "id": "projected_co2_emissions",
+          "meaning": "Projected annual CO2 emissions",
+          "unit": "short tons"
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "state_generation",
+        "meaning": "Annual net generation for CA, NY, TX, FL, PA in that order"
+      },
+      {
+        "id": "resource_mix",
+        "meaning": "U.S. coal, gas, nuclear, hydro, wind and solar generation shares, in that order"
+      }
+    ],
+    "base_sheets": [
+      "Contents",
+      "UNT23",
+      "GEN23",
+      "PLNT23",
+      "ST23",
+      "BA23",
+      "SRL23",
+      "NRL23",
+      "US23",
+      "GGL23",
+      "DEMO23"
+    ],
+    "base_dimensions": {
+      "Contents": [
+        55,
+        17
+      ],
+      "UNT23": [
+        26188,
+        33
+      ],
+      "GEN23": [
+        26603,
+        17
+      ],
+      "PLNT23": [
+        12614,
+        150
+      ],
+      "ST23": [
+        54,
+        169
+      ],
+      "BA23": [
+        72,
+        169
+      ],
+      "SRL23": [
+        29,
+        169
+      ],
+      "NRL23": [
+        11,
+        169
+      ],
+      "US23": [
+        3,
+        167
+      ],
+      "GGL23": [
+        8,
+        6
+      ],
+      "DEMO23": [
+        12614,
+        65
+      ]
+    },
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "minimum_formula_count": 20,
+    "recalc_timeout": 600
+  },
+  "helper": "helpers/enhance_energy_report_v2.py"
+}

@@ -1,0 +1,353 @@
+#!/usr/bin/env python3
+"""Build Workforce_Summary on the original BLS OEWS May 2025 metro workbook."""
+import shutil
+from pathlib import Path
+
+from openpyxl import load_workbook
+from openpyxl.chart import BarChart, Reference
+from openpyxl.chart.label import DataLabelList
+from openpyxl.comments import Comment
+from openpyxl.formatting.rule import CellIsRule, ColorScaleRule, DataBarRule
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.worksheet.datavalidation import DataValidation
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "input" / "MSA_M2025_dl.xlsx"
+OUT = ROOT / "output" / "workforce_report.xlsx"
+SHEET = "Workforce_Summary"
+DATA = "MSA_M2025_dl"
+
+NAVY = "FF1F3864"
+BLUE = "FF2F5597"
+LIGHT = "FFD9E2F3"
+PALE = "FFF2F2F2"
+WHITE = "FFFFFFFF"
+GREY = "FFD9D9D9"
+BLACK = "FF000000"
+GREEN = "FF008000"
+INPUT_BLUE = "FF0000FF"
+YELLOW = "FFFFF2CC"
+
+
+def solid(color):
+    return PatternFill(fill_type="solid", start_color=color, end_color=color)
+
+
+def arial(**kw):
+    kw.setdefault("name", "Arial")
+    kw.setdefault("color", BLACK)
+    return Font(**kw)
+
+
+THIN = Side(style="thin", color=GREY)
+BOX = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
+
+
+def style_range(ws, ref, *, font=None, fill=None, align=None, border=None, fmt=None):
+    for row in ws[ref]:
+        for cell in row:
+            if font is not None:
+                cell.font = font
+            if fill is not None:
+                cell.fill = fill
+            if align is not None:
+                cell.alignment = align
+            if border is not None:
+                cell.border = border
+            if fmt is not None:
+                cell.number_format = fmt
+
+
+def main():
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(SRC, OUT)
+    wb = load_workbook(OUT)
+
+    ws = wb.create_sheet(SHEET, 0)
+    ws.sheet_view.showGridLines = False
+
+    widths = {"A": 44, "B": 18, "C": 26, "D": 44, "E": 18, "F": 22}
+    for col, width in widths.items():
+        ws.column_dimensions[col].width = width
+    for row, height in {1: 34, 2: 20, 3: 8, 4: 20, 10: 10, 11: 16,
+                        12: 20, 17: 10, 18: 16, 19: 30}.items():
+        ws.row_dimensions[row].height = height
+
+    # Title block
+    ws.merge_cells("A1:F1")
+    ws["A1"] = "Metropolitan Workforce & Wage Dashboard"
+    style_range(ws, "A1:F1", font=arial(size=16, bold=True, color=WHITE),
+                fill=solid(NAVY), align=Alignment(horizontal="left", vertical="center", indent=1))
+    ws.row_dimensions[1].height = 34
+
+    ws.merge_cells("A2:F2")
+    ws["A2"] = ("BLS Occupational Employment and Wage Statistics, May 2025  |  "
+                "New York-Newark-Jersey City, NY-NJ (AREA 35620)  |  "
+                "NAICS 000000, ownership 1235, all occupations")
+    style_range(ws, "A2:F2", font=arial(size=10, italic=True, color="FF44546A"),
+                fill=solid(LIGHT), align=Alignment(horizontal="left", vertical="center", indent=1))
+    ws.row_dimensions[2].height = 20
+
+    # Section 1 banner
+    ws.merge_cells("A3:F3")
+    ws["A3"] = "PUBLISHED BENCHMARKS  —  ALL OCCUPATIONS"
+    style_range(ws, "A3:F3", font=arial(size=11, bold=True, color=WHITE),
+                fill=solid(BLUE), align=Alignment(horizontal="left", vertical="center", indent=1))
+
+    for addr, label in {"A4": "Metric", "B4": "Value", "C4": "Unit",
+                        "D4": "Source reference"}.items():
+        ws[addr] = label
+    style_range(ws, "A4:D4", font=arial(size=10, bold=True, color=NAVY),
+                fill=solid(LIGHT), align=Alignment(horizontal="left", vertical="center", indent=1))
+    for ref in ("A4:D4",):
+        for row in ws[ref]:
+            for cell in row:
+                cell.border = BOX
+
+    rows = [
+        (5, "Employment, all occupations", f"={DATA}!L93966", "employees", f"{DATA}!L93966", "#,##0"),
+        (6, "Annual mean wage, all occupations", f"={DATA}!S93966", "USD / year", f"{DATA}!S93966", "$#,##0"),
+        (7, "Hourly median wage, all occupations", f"={DATA}!W93966", "USD / hour", f"{DATA}!W93966", "$#,##0.00"),
+        (8, "Annual median wage, all occupations", f"={DATA}!AB93966", "USD / year", f"{DATA}!AB93966", "$#,##0"),
+    ]
+    for row, label, formula, unit, source, fmt in rows:
+        ws.cell(row=row, column=1, value=label)
+        ws.cell(row=row, column=2, value=formula)
+        ws.cell(row=row, column=3, value=unit)
+        ws.cell(row=row, column=4, value=source)
+        ws.cell(row=row, column=2).number_format = fmt
+        style_range(ws, f"A{row}", font=arial(size=10, color="FF262626"),
+                    align=Alignment(horizontal="left", vertical="center", indent=1))
+        style_range(ws, f"B{row}", font=arial(size=11, bold=True, color=GREEN),
+                    align=Alignment(horizontal="right", vertical="center"), fmt=fmt)
+        style_range(ws, f"C{row}", font=arial(size=9, color="FF595959"),
+                    align=Alignment(horizontal="left", vertical="center", indent=1))
+        style_range(ws, f"D{row}", font=arial(size=9, color="FF808080"),
+                    align=Alignment(horizontal="left", vertical="center", indent=1))
+        for col in "ABCD":
+            ws[f"{col}{row}"].border = BOX
+        if row % 2 == 0:
+            for col in "ACD":
+                ws[f"{col}{row}"].fill = solid(PALE)
+
+    ws["A9"] = "Source consistency status"
+    ws["B9"] = (f'=IF(AND({DATA}!L93966>0,{DATA}!S93966>0,{DATA}!W93966>=0,'
+                f'{DATA}!AB93966>=0),"PASS","REVIEW")')
+    ws["C9"] = "status"
+    ws["D9"] = f"{DATA}!L93966 / S93966 / W93966 / AB93966"
+    style_range(ws, "A9", font=arial(size=10, color="FF262626"),
+                align=Alignment(horizontal="left", vertical="center", indent=1))
+    style_range(ws, "B9", font=arial(size=11, bold=True, color=GREEN),
+                align=Alignment(horizontal="right", vertical="center"))
+    style_range(ws, "C9", font=arial(size=9, color="FF595959"),
+                align=Alignment(horizontal="left", vertical="center", indent=1))
+    style_range(ws, "D9", font=arial(size=9, color="FF808080"),
+                align=Alignment(horizontal="left", vertical="center", indent=1))
+    for col in "ABCD":
+        ws[f"{col}9"].border = BOX
+
+    ws["B5"].comment = Comment(
+        "Source: BLS OEWS May 2025, MSA_M2025_dl!L93966.\n"
+        "AREA 35620 (New York-Newark-Jersey City, NY-NJ), NAICS 000000, "
+        "OWN_CODE 1235, All Occupations (row 93966).\n"
+        "Published employment value; no payroll total is constructed from wage x employment.",
+        "Workforce Analyst", width=320, height=130)
+    ws["B9"].comment = Comment(
+        "PASS only when L93966 and S93966 are positive and W93966 and AB93966 are nonnegative.\n"
+        "All four references point directly at the single published all-occupations row; "
+        "no suppression markers are replaced and no table rescan is performed.",
+        "Workforce Analyst", width=320, height=110)
+
+    # Section 2: scenario block
+    ws.merge_cells("A10:F10")
+    ws["A10"] = "SCENARIO SENSITIVITIES  —  ILLUSTRATIVE, NOT FORECASTS"
+    style_range(ws, "A10:F10", font=arial(size=11, bold=True, color=WHITE),
+                fill=solid(BLUE), align=Alignment(horizontal="left", vertical="center", indent=1))
+
+    ws["A11"] = "Selected scenario"
+    style_range(ws, "A11", font=arial(size=10, bold=True, color=NAVY),
+                align=Alignment(horizontal="left", vertical="center", indent=1))
+    ws["B11"] = "Base"
+    ws["B11"].value = None
+    ws["A12"] = "Scenario selector"
+    ws["B12"] = "Base"
+    style_range(ws, "A12", font=arial(size=10, color="FF262626"),
+                align=Alignment(horizontal="left", vertical="center", indent=1))
+    style_range(ws, "B12", font=arial(size=11, bold=True, color=INPUT_BLUE),
+                fill=solid(YELLOW), align=Alignment(horizontal="center", vertical="center"),
+                border=BOX)
+
+    for addr, label in {"D11": "Scenario", "E11": "Wage multiplier",
+                        "F11": "Employment multiplier"}.items():
+        ws[addr] = label
+    style_range(ws, "D11:F11", font=arial(size=10, bold=True, color=NAVY),
+                fill=solid(LIGHT), align=Alignment(horizontal="center", vertical="center"))
+    for col in "DEF":
+        ws[f"{col}11"].border = BOX
+
+    scenarios = [("Base", 1.00, 1.00), ("Upside", 1.08, 1.05), ("Downside", 0.93, 0.95)]
+    for i, (name, wage, emp) in enumerate(scenarios):
+        r = 12 + i
+        ws.cell(row=r, column=4, value=name)
+        ws.cell(row=r, column=5, value=wage).number_format = "0.00"
+        ws.cell(row=r, column=6, value=emp).number_format = "0.00"
+        style_range(ws, f"D{r}", font=arial(size=10, color=INPUT_BLUE),
+                    align=Alignment(horizontal="left", vertical="center", indent=1), border=BOX)
+        style_range(ws, f"E{r}:F{r}", font=arial(size=10, color=INPUT_BLUE),
+                    align=Alignment(horizontal="center", vertical="center"), border=BOX)
+        if i % 2 == 1:
+            for col in "DEF":
+                ws[f"{col}{r}"].fill = solid(PALE)
+    ws.row_dimensions[12].height = 20
+    ws.row_dimensions[13].height = 20
+    ws.row_dimensions[14].height = 20
+    ws.row_dimensions[15].height = 20
+    ws.row_dimensions[16].height = 20
+
+    ws["A13"] = "Wage multiplier applied"
+    ws["B13"] = '=INDEX($E$12:$E$14,MATCH($B$12,$D$12:$D$14,0))'
+    ws["B13"].number_format = "0.00"
+    ws["A14"] = "Employment multiplier applied"
+    ws["B14"] = '=INDEX($F$12:$F$14,MATCH($B$12,$D$12:$D$14,0))'
+    ws["B14"].number_format = "0.00"
+    ws["A15"] = "Projected employment (employees)"
+    ws["B15"] = "=B5*B14"
+    ws["B15"].number_format = "#,##0"
+    ws["A16"] = "Projected annual mean wage (USD/year)"
+    ws["B16"] = "=B6*B13"
+    ws["B16"].number_format = "$#,##0"
+
+    for r in range(13, 17):
+        style_range(ws, f"A{r}", font=arial(size=10, color="FF262626"), border=BOX,
+                    align=Alignment(horizontal="left", vertical="center", indent=1))
+        style_range(ws, f"B{r}", font=arial(size=11, bold=True, color=BLACK), border=BOX,
+                    align=Alignment(horizontal="right", vertical="center"), fmt=ws[f"B{r}"].number_format)
+        if r in (15, 16):
+            ws[f"A{r}"].font = arial(size=10, bold=True, color=NAVY)
+            ws[f"B{r}"].fill = solid(LIGHT)
+
+    ws["B13"].comment = Comment(
+        "Scenario multipliers are hardcoded illustrative sensitivities in D12:F14 "
+        "(Base 1.00/1.00, Upside 1.08/1.05, Downside 0.93/0.95).\n"
+        "They denote higher/lower assumptions only, not forecasts. B13/B14 look them up by the B12 selection.",
+        "Workforce Analyst", width=320, height=110)
+
+    dv = DataValidation(type="list", formula1='"Base,Upside,Downside"', allow_blank=False,
+                        showErrorMessage=True, errorTitle="Invalid scenario",
+                        error="Choose Base, Upside or Downside.",
+                        promptTitle="Scenario", prompt="Select Base, Upside or Downside.")
+    dv.add(ws["B12"])
+    ws.add_data_validation(dv)
+
+    # Section 3: major occupation groups
+    ws.merge_cells("A17:F17")
+    ws["A17"] = "MAJOR OCCUPATION GROUPS  —  EMPLOYMENT AND ANNUAL MEAN WAGE"
+    style_range(ws, "A17:F17", font=arial(size=11, bold=True, color=WHITE),
+                fill=solid(BLUE), align=Alignment(horizontal="left", vertical="center", indent=1))
+
+    ws["A18"] = "Major occupation group"
+    ws["B18"] = "Employment (employees)"
+    ws["D18"] = "Major occupation group"
+    ws["E18"] = "Annual mean wage (USD/year)"
+    style_range(ws, "A18:B18", font=arial(size=10, bold=True, color=NAVY), fill=solid(LIGHT),
+                align=Alignment(horizontal="left", vertical="center", wrap_text=True, indent=1), border=BOX)
+    style_range(ws, "D18", font=arial(size=10, bold=True, color=NAVY), fill=solid(LIGHT),
+                align=Alignment(horizontal="left", vertical="center", wrap_text=True, indent=1), border=BOX)
+    style_range(ws, "E18", font=arial(size=10, bold=True, color=NAVY), fill=solid(LIGHT),
+                align=Alignment(horizontal="right", vertical="center", wrap_text=True, indent=1), border=BOX)
+
+    groups = [
+        ("Office and Administrative Support Occupations", "L94460", "S94460"),
+        ("Healthcare Support Occupations", "L94336", "S94336"),
+        ("Sales and Related Occupations", "L94437", "S94437"),
+        ("Business and Financial Operations Occupations", "L94004", "S94004"),
+        ("Management Occupations", "L93967", "S93967"),
+    ]
+    for i, (name, emp_ref, wage_ref) in enumerate(groups):
+        r = 19 + i
+        ws.cell(row=r, column=1, value=name)
+        ws.cell(row=r, column=2, value=f"={DATA}!{emp_ref}").number_format = "#,##0"
+        ws.cell(row=r, column=4, value=name)
+        ws.cell(row=r, column=5, value=f"={DATA}!{wage_ref}").number_format = "$#,##0"
+        style_range(ws, f"A{r}", font=arial(size=10, color="FF262626"),
+                    align=Alignment(horizontal="left", vertical="center", wrap_text=True, indent=1), border=BOX)
+        style_range(ws, f"B{r}", font=arial(size=10, bold=True, color=GREEN),
+                    align=Alignment(horizontal="right", vertical="center"), border=BOX)
+        style_range(ws, f"D{r}", font=arial(size=10, color="FF262626"),
+                    align=Alignment(horizontal="left", vertical="center", wrap_text=True, indent=1), border=BOX)
+        style_range(ws, f"E{r}", font=arial(size=10, bold=True, color=GREEN),
+                    align=Alignment(horizontal="right", vertical="center"), border=BOX)
+        if i % 2 == 1:
+            for col in ("A", "B", "D", "E"):
+                ws[f"{col}{r}"].fill = solid(PALE)
+        ws.row_dimensions[r].height = 30
+
+    # Conditional formatting on three distinct regions
+    ws.conditional_formatting.add(
+        "B9",
+        CellIsRule(operator="equal", formula=['"PASS"'],
+                   fill=solid("FFC6EFCE"), font=Font(name="Arial", color="FF006100", bold=True)))
+    ws.conditional_formatting.add(
+        "B9",
+        CellIsRule(operator="equal", formula=['"REVIEW"'],
+                   fill=solid("FFFFEB9C"), font=Font(name="Arial", color="FF9C5700", bold=True)))
+    ws.conditional_formatting.add(
+        "B20:B24",
+        DataBarRule(start_type="num", start_value=0, end_type="max",
+                    color="FF2F5597", showValue=True))
+    ws.conditional_formatting.add(
+        "E20:E24",
+        DataBarRule(start_type="num", start_value=0, end_type="max",
+                    color="FF8EA9DB", showValue=True))
+    ws.conditional_formatting.add(
+        "B13:B14",
+        ColorScaleRule(start_type="num", start_value=0.9, start_color="FFF8696B",
+                       mid_type="num", mid_value=1.0, mid_color="FFFFEB84",
+                       end_type="num", end_value=1.1, end_color="FF63BE7B"))
+
+    # Charts
+    emp = BarChart()
+    emp.type = "col"
+    emp.style = 10
+    emp.title = "Employment by major occupation group"
+    emp.y_axis.title = "Employees"
+    emp.x_axis.title = None
+    emp.y_axis.numFmt = "#,##0"
+    emp.legend = None
+    emp.height = 9.5
+    emp.width = 20
+    emp.gapWidth = 60
+    emp.add_data(Reference(ws, min_col=2, min_row=18, max_row=24), titles_from_data=True)
+    emp.set_categories(Reference(ws, min_col=1, min_row=19, max_row=24))
+    emp.dLbls = DataLabelList()
+    emp.dLbls.showVal = False
+    ws.add_chart(emp, "A26")
+
+    wage = BarChart()
+    wage.type = "col"
+    wage.style = 12
+    wage.title = "Annual mean wage by major occupation group"
+    wage.y_axis.title = "USD per year"
+    wage.y_axis.numFmt = "$#,##0"
+    wage.legend = None
+    wage.height = 9.5
+    wage.width = 20
+    wage.gapWidth = 60
+    wage.add_data(Reference(ws, min_col=5, min_row=18, max_row=24), titles_from_data=True)
+    wage.set_categories(Reference(ws, min_col=4, min_row=19, max_row=24))
+    wage.dLbls = DataLabelList()
+    wage.dLbls.showVal = False
+    ws.add_chart(wage, "A46")
+
+    ws.freeze_panes = "A5"
+    ws.sheet_properties.tabColor = "1F3864"
+    ws.page_setup.orientation = "portrait"
+    ws.page_setup.fitToWidth = 1
+    ws.sheet_properties.pageSetUpPr.fitToPage = True
+
+    wb.save(OUT)
+    print(f"saved {OUT} size={OUT.stat().st_size}")
+
+
+if __name__ == "__main__":
+    main()

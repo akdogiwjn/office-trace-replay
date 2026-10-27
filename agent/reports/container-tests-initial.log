@@ -1,0 +1,82 @@
+test_all_three_exports_use_caches_without_modifying_workbook (test_replay.CacheCSV.test_all_three_exports_use_caches_without_modifying_workbook) ...
+  test_all_three_exports_use_caches_without_modifying_workbook (test_replay.CacheCSV.test_all_three_exports_use_caches_without_modifying_workbook) (name='egrid') ... ERROR
+  test_all_three_exports_use_caches_without_modifying_workbook (test_replay.CacheCSV.test_all_three_exports_use_caches_without_modifying_workbook) (name='hr_metro') ... ERROR
+  test_all_three_exports_use_caches_without_modifying_workbook (test_replay.CacheCSV.test_all_three_exports_use_caches_without_modifying_workbook) (name='industry_productivity') ... ERROR
+test_corrupt_csv_rejected (test_replay.CacheCSV.test_corrupt_csv_rejected) ... ERROR
+test_missing_cache_fails_before_publishing_any_csv (test_replay.CacheCSV.test_missing_cache_fails_before_publishing_any_csv) ... ok
+test_numeric_serialization_tolerance_and_nonfinite_rejected (test_replay.CacheCSV.test_numeric_serialization_tolerance_and_nonfinite_rejected) ... ok
+test_all_dataset_locks_and_cli (test_replay.FrozenRecipes.test_all_dataset_locks_and_cli) ... ok
+test_audit_detects_output_mutation (test_replay.FrozenRecipes.test_audit_detects_output_mutation) ... ok
+test_command_nonzero_is_not_masked_by_shell (test_replay.FrozenRecipes.test_command_nonzero_is_not_masked_by_shell) ... ok
+test_dataset_can_validate_without_repository_or_siblings (test_replay.FrozenRecipes.test_dataset_can_validate_without_repository_or_siblings) ... ok
+test_dispatcher_preflight_failure_never_starts_workload (test_replay.FrozenRecipes.test_dispatcher_preflight_failure_never_starts_workload) ... ok
+test_each_run_preserves_both_trace_sources (test_replay.FrozenRecipes.test_each_run_preserves_both_trace_sources) ... ok
+test_helpers_and_skills_bound_to_captured_bytes (test_replay.FrozenRecipes.test_helpers_and_skills_bound_to_captured_bytes) ... ok
+test_host_execution_is_rejected_before_environment_or_reset (test_replay.FrozenRecipes.test_host_execution_is_rejected_before_environment_or_reset) ... ok
+test_missing_or_tampered_file_rejected (test_replay.FrozenRecipes.test_missing_or_tampered_file_rejected) ... ok
+test_no_generated_deliverables_restored_as_seed (test_replay.FrozenRecipes.test_no_generated_deliverables_restored_as_seed) ... ok
+test_pdf_check_log_and_record_scale_are_preserved (test_replay.FrozenRecipes.test_pdf_check_log_and_record_scale_are_preserved) ... ok
+test_private_runtime_does_not_import_shared_workloads (test_replay.FrozenRecipes.test_private_runtime_does_not_import_shared_workloads) ... ok
+test_xlsx_has_one_effective_build_recalc_and_cache_export (test_replay.FrozenRecipes.test_xlsx_has_one_effective_build_recalc_and_cache_export) ... ok
+test_protected_mapping_rejected (test_replay.PDFSummary.test_protected_mapping_rejected) ... ok
+test_summary_has_privacy_field_required_by_actual_verifier (test_replay.PDFSummary.test_summary_has_privacy_field_required_by_actual_verifier) ... ok
+
+======================================================================
+ERROR: test_all_three_exports_use_caches_without_modifying_workbook (test_replay.CacheCSV.test_all_three_exports_use_caches_without_modifying_workbook) (name='egrid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/office-agent-replay/tests/test_replay.py", line 177, in test_all_three_exports_use_caches_without_modifying_workbook
+    export.export(root, contract); export.validate_csv(root, contract)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-agent-replay/datasets/egrid/scripts/export_xlsx_csv.py", line 61, in export
+    rows = rows_from_cache(workspace, contract)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-agent-replay/datasets/egrid/scripts/export_xlsx_csv.py", line 39, in rows_from_cache
+    raise ValueError('missing/error cache: ' + address)
+ValueError: missing/error cache: B8
+
+======================================================================
+ERROR: test_all_three_exports_use_caches_without_modifying_workbook (test_replay.CacheCSV.test_all_three_exports_use_caches_without_modifying_workbook) (name='hr_metro')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/office-agent-replay/tests/test_replay.py", line 177, in test_all_three_exports_use_caches_without_modifying_workbook
+    export.export(root, contract); export.validate_csv(root, contract)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-agent-replay/datasets/hr_metro/scripts/export_xlsx_csv.py", line 61, in export
+    rows = rows_from_cache(workspace, contract)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-agent-replay/datasets/hr_metro/scripts/export_xlsx_csv.py", line 39, in rows_from_cache
+    raise ValueError('missing/error cache: ' + address)
+ValueError: missing/error cache: B8
+
+======================================================================
+ERROR: test_all_three_exports_use_caches_without_modifying_workbook (test_replay.CacheCSV.test_all_three_exports_use_caches_without_modifying_workbook) (name='industry_productivity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/office-agent-replay/tests/test_replay.py", line 177, in test_all_three_exports_use_caches_without_modifying_workbook
+    export.export(root, contract); export.validate_csv(root, contract)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-agent-replay/datasets/industry_productivity/scripts/export_xlsx_csv.py", line 61, in export
+    rows = rows_from_cache(workspace, contract)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-agent-replay/datasets/industry_productivity/scripts/export_xlsx_csv.py", line 39, in rows_from_cache
+    raise ValueError('missing/error cache: ' + address)
+ValueError: missing/error cache: B8
+
+======================================================================
+ERROR: test_corrupt_csv_rejected (test_replay.CacheCSV.test_corrupt_csv_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/office-agent-replay/tests/test_replay.py", line 193, in test_corrupt_csv_rejected
+    export.export(root, contract)
+  File "/opt/office-agent-replay/datasets/egrid/scripts/export_xlsx_csv.py", line 61, in export
+    rows = rows_from_cache(workspace, contract)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/office-agent-replay/datasets/egrid/scripts/export_xlsx_csv.py", line 39, in rows_from_cache
+    raise ValueError('missing/error cache: ' + address)
+ValueError: missing/error cache: B8
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.102s
+
+FAILED (errors=4)

@@ -1,0 +1,30 @@
+def verify_csv_cached(output, values, add):
+    """Read only the two small CSVs; reuse this verifier's Summary cache scan."""
+    import csv
+    contract = json.loads((Path(__file__).resolve().parent / 'csv-contract.json').read_text())
+    for item in contract['exports']:
+        ok, detail = True, None
+        try:
+            with (Path(output) / item['filename']).open(encoding='utf-8', newline='') as stream:
+                rows = list(csv.reader(stream))
+            if not rows or rows[0] != item['header'] or len(rows) != len(item['rows']) + 1:
+                raise ValueError('CSV header or row count mismatch')
+            for actual, spec in zip(rows[1:], item['rows']):
+                if len(actual) != len(spec['cells']) + 1 or actual[0] != str(spec['label']):
+                    raise ValueError('CSV label or column count mismatch')
+                for found, address in zip(actual[1:], spec['cells']):
+                    expected = values.get(address)
+                    if expected is None or (isinstance(expected, str) and expected in ERRORS):
+                        raise ValueError('missing/error cache: ' + address)
+                    if isinstance(expected, (int, float)) and not isinstance(expected, bool):
+                        number = float(found)
+                        same = math.isfinite(number) and math.isfinite(expected) and math.isclose(
+                            number, expected, rel_tol=contract['numeric_relative_tolerance'],
+                            abs_tol=contract['numeric_absolute_tolerance'])
+                    else:
+                        same = found == str(expected)
+                    if not same:
+                        raise ValueError('CSV cache mismatch: ' + address)
+        except (OSError, ValueError, TypeError) as exc:
+            ok, detail = False, str(exc)
+        add('csv_matches_current_cache:' + item['filename'], ok, detail)

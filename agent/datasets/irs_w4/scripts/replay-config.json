@@ -1,0 +1,148 @@
+{
+  "dataset_id": "irs_w4",
+  "kind": "pdf",
+  "source_run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+  "source_round": 1,
+  "output_workbook": null,
+  "form": "fw4_2026.pdf",
+  "records": "synthetic_employees.json",
+  "requirements": {
+    "page_count": 5,
+    "field_count": 48,
+    "record_count": 10,
+    "field_rules": [
+      {
+        "semantic": "first_name",
+        "field_id": "topmostSubform[0].Page1[0].Step1a[0].f1_01[0]",
+        "value_from": "first_name"
+      },
+      {
+        "semantic": "last_name",
+        "field_id": "topmostSubform[0].Page1[0].Step1a[0].f1_02[0]",
+        "value_from": "last_name"
+      },
+      {
+        "semantic": "address",
+        "field_id": "topmostSubform[0].Page1[0].Step1a[0].f1_03[0]",
+        "value_from": "address"
+      },
+      {
+        "semantic": "city_state_zip",
+        "field_id": "topmostSubform[0].Page1[0].Step1a[0].f1_04[0]",
+        "value_from": "city_state_zip"
+      },
+      {
+        "semantic": "children_credit",
+        "field_id": "topmostSubform[0].Page1[0].Step3_ReadOrder[0].f1_06[0]",
+        "value_from": "children_credit"
+      },
+      {
+        "semantic": "other_dependents_credit",
+        "field_id": "topmostSubform[0].Page1[0].Step3_ReadOrder[0].f1_07[0]",
+        "value_from": "other_dependents_credit"
+      },
+      {
+        "semantic": "total_credit",
+        "field_id": "topmostSubform[0].Page1[0].f1_08[0]",
+        "value_from": "total_credit"
+      },
+      {
+        "semantic": "other_income",
+        "field_id": "topmostSubform[0].Page1[0].f1_09[0]",
+        "value_from": "other_income"
+      },
+      {
+        "semantic": "deductions",
+        "field_id": "topmostSubform[0].Page1[0].f1_10[0]",
+        "value_from": "deductions"
+      },
+      {
+        "semantic": "extra_withholding",
+        "field_id": "topmostSubform[0].Page1[0].f1_11[0]",
+        "value_from": "extra_withholding"
+      },
+      {
+        "semantic": "filing_single",
+        "field_id": "topmostSubform[0].Page1[0].c1_1[0]",
+        "value_from": "filing_flags.single",
+        "choices": {
+          "true": "/1",
+          "false": "/Off"
+        }
+      },
+      {
+        "semantic": "filing_married",
+        "field_id": "topmostSubform[0].Page1[0].c1_1[1]",
+        "value_from": "filing_flags.married",
+        "choices": {
+          "true": "/2",
+          "false": "/Off"
+        }
+      },
+      {
+        "semantic": "filing_head_of_household",
+        "field_id": "topmostSubform[0].Page1[0].c1_1[2]",
+        "value_from": "filing_flags.head_of_household",
+        "choices": {
+          "true": "/3",
+          "false": "/Off"
+        }
+      },
+      {
+        "semantic": "multiple_jobs",
+        "field_id": "topmostSubform[0].Page1[0].c1_2[0]",
+        "value_from": "multiple_jobs",
+        "choices": {
+          "true": "/1",
+          "false": "/Off"
+        }
+      }
+    ],
+    "protected_blank": [
+      "topmostSubform[0].Page1[0].c1_3[0]",
+      "topmostSubform[0].Page1[0].f1_05[0]",
+      "topmostSubform[0].Page1[0].f1_12[0]",
+      "topmostSubform[0].Page1[0].f1_13[0]",
+      "topmostSubform[0].Page1[0].f1_14[0]",
+      "topmostSubform[0].Page3[0].f3_01[0]",
+      "topmostSubform[0].Page3[0].f3_02[0]",
+      "topmostSubform[0].Page3[0].f3_03[0]",
+      "topmostSubform[0].Page3[0].f3_04[0]",
+      "topmostSubform[0].Page3[0].f3_05[0]",
+      "topmostSubform[0].Page3[0].f3_06[0]",
+      "topmostSubform[0].Page4[0].f4_01[0]",
+      "topmostSubform[0].Page4[0].f4_02[0]",
+      "topmostSubform[0].Page4[0].f4_03[0]",
+      "topmostSubform[0].Page4[0].f4_04[0]",
+      "topmostSubform[0].Page4[0].f4_05[0]",
+      "topmostSubform[0].Page4[0].f4_06[0]",
+      "topmostSubform[0].Page4[0].f4_07[0]",
+      "topmostSubform[0].Page4[0].f4_08[0]",
+      "topmostSubform[0].Page4[0].f4_09[0]",
+      "topmostSubform[0].Page4[0].f4_10[0]",
+      "topmostSubform[0].Page4[0].f4_11[0]",
+      "topmostSubform[0].Page4[0].f4_12[0]",
+      "topmostSubform[0].Page4[0].f4_13[0]",
+      "topmostSubform[0].Page4[0].f4_14[0]",
+      "topmostSubform[0].Page4[0].f4_15[0]",
+      "topmostSubform[0].Page4[0].f4_16[0]",
+      "topmostSubform[0].Page4[0].f4_17[0]",
+      "topmostSubform[0].Page4[0].f4_18[0]",
+      "topmostSubform[0].Page4[0].f4_19[0]",
+      "topmostSubform[0].Page4[0].f4_20[0]",
+      "topmostSubform[0].Page4[0].f4_21[0]",
+      "topmostSubform[0].Page4[0].f4_22[0]",
+      "topmostSubform[0].Page4[0].f4_23[0]"
+    ],
+    "minimum_pdf_bytes": 100000,
+    "minimum_png_bytes": 10000,
+    "visible_changes": [
+      {
+        "page": 1,
+        "minimum_changed_pixels": 500,
+        "pixel_threshold": 12
+      }
+    ]
+  },
+  "helper": null
+}

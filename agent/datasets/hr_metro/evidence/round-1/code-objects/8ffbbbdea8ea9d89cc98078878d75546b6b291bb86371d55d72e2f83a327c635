@@ -1,0 +1,319 @@
+#!/usr/bin/env python3
+"""Build the executive Workforce_Summary sheet on top of the original BLS workbook."""
+import shutil
+import sys
+from pathlib import Path
+
+from openpyxl import load_workbook
+from openpyxl.chart import BarChart, Reference
+from openpyxl.comments import Comment
+from openpyxl.formatting.rule import ColorScaleRule, FormulaRule
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.worksheet.datavalidation import DataValidation
+
+ROOT = Path(__file__).resolve().parent
+SRC = ROOT / "input" / "MSA_M2025_dl.xlsx"
+OUT = ROOT / "output" / "workforce_report.xlsx"
+
+NAVY = "1F3864"
+BLUE = "2F5597"
+STEEL = "D6DCE4"
+LIGHT = "EEF2F8"
+GREY = "F2F2F2"
+WHITE = "FFFFFF"
+BORDER_CLR = "BFBFBF"
+
+FONT = "Arial"
+
+
+def fill(color):
+    return PatternFill(start_color=color, end_color=color, fill_type="solid")
+
+
+def font(size=10, bold=False, color="000000", italic=False):
+    return Font(name=FONT, size=size, bold=bold, color=color, italic=italic)
+
+
+def border(edge="thin"):
+    side = Side(style=edge, color=BORDER_CLR)
+    return Border(left=side, right=side, top=side, bottom=side)
+
+
+def put(ws, coord, value, *, f=None, numfmt=None, align=None, box=True, wrap=False):
+    cell = ws[coord]
+    cell.value = value
+    cell.font = f or font()
+    if numfmt:
+        cell.number_format = numfmt
+    horizontal = align or ("left" if isinstance(value, str) and not str(value).startswith("=") else "right")
+    cell.alignment = Alignment(horizontal=horizontal, vertical="center", wrap_text=wrap)
+    if box:
+        cell.border = border()
+    return cell
+
+
+def build():
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(SRC, OUT)
+    wb = load_workbook(OUT)
+    ws = wb.create_sheet("Workforce_Summary", 0)
+    ws.sheet_view.showGridLines = False
+    ws.sheet_view.zoomScale = 90
+
+    widths = {"A": 44, "B": 20, "C": 15, "D": 46, "E": 20, "F": 22}
+    for col, w in widths.items():
+        ws.column_dimensions[col].width = w
+    ws.row_dimensions[1].height = 28
+    ws.row_dimensions[2].height = 18
+    ws.row_dimensions[4].height = 18
+    ws.row_dimensions[11].height = 18
+    ws.row_dimensions[19].height = 18
+
+    # Title band
+    ws.merge_cells("A1:F1")
+    ws.merge_cells("A2:F2")
+    c = ws["A1"]
+    c.value = "New York-Newark-Jersey City, NY-NJ  |  Employment & Wage Overview"
+    c.font = font(14, True, WHITE)
+    c.fill = fill(NAVY)
+    c.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    c2 = ws["A2"]
+    c2.value = ("BLS Occupational Employment and Wage Statistics, May 2025  |  "
+                "MSA 35620  |  NAICS 000000  |  Ownership 1235  |  All occupations")
+    c2.font = font(9, False, "44546A")
+    c2.fill = fill(LIGHT)
+    c2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+
+    # Published metrics
+    ws.merge_cells("A4:F4")
+    h = ws["A4"]
+    h.value = "PUBLISHED ALL-OCCUPATIONS METRICS"
+    h.font = font(10, True, WHITE)
+    h.fill = fill(BLUE)
+    h.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+
+    for coord, text in (("A5", "Employment, all occupations"),
+                        ("A6", "Annual mean wage, all occupations"),
+                        ("A7", "Hourly median wage, all occupations"),
+                        ("A8", "Annual median wage, all occupations"),
+                        ("A9", "Source consistency status")):
+        put(ws, coord, text, f=font(10, True, "1F3864"))
+        ws[coord].fill = fill(GREY)
+
+    labels = {"B5": "employees", "B6": "USD/year", "B7": "USD/hour", "B8": "USD/year", "B9": "status"}
+    for coord, unit in labels.items():
+        put(ws, coord.replace("B", "C"), unit, f=font(9, False, "595959"))
+        ws[coord.replace("B", "C")].alignment = Alignment(horizontal="center", vertical="center")
+
+    g = font(10, False, "008000")
+    put(ws, "B5", "=MSA_M2025_dl!L93966", f=font(10, True, "008000"), numfmt="#,##0")
+    put(ws, "B6", "=MSA_M2025_dl!S93966", f=g, numfmt="$#,##0")
+    put(ws, "B7", "=MSA_M2025_dl!W93966", f=g, numfmt="$#,##0.00")
+    put(ws, "B8", "=MSA_M2025_dl!AB93966", f=g, numfmt="$#,##0")
+    put(ws, "B9",
+        '=IF(AND(MSA_M2025_dl!L93966>0,MSA_M2025_dl!S93966>0,'
+        'MSA_M2025_dl!W93966>=0,MSA_M2025_dl!AB93966>=0),"PASS","REVIEW")',
+        f=font(10, True, "008000"))
+    ws["B9"].alignment = Alignment(horizontal="center", vertical="center")
+
+    ws["B5"].comment = Comment(
+        "Source: U.S. Bureau of Labor Statistics, OEWS May 2025 metropolitan estimates. "
+        "MSA 35620 New York-Newark-Jersey City, NY-NJ; NAICS 000000; ownership 1235; "
+        "all-occupations row (source row 93966). Linked to MSA_M2025_dl!L93966 (TOT_EMP).",
+        "Workforce Analytics", width=320, height=110)
+    ws["B6"].comment = Comment(
+        "Source: BLS OEWS May 2025, MSA 35620, NAICS 000000, ownership 1235, all-occupations "
+        "row. Linked to MSA_M2025_dl!S93966 (A_MEAN, annual mean wage, USD/year).",
+        "Workforce Analytics", width=320, height=100)
+    ws["B9"].comment = Comment(
+        "PASS only when both published levels (employment, annual mean wage) are positive and "
+        "both published medians (hourly, annual) are nonnegative; otherwise REVIEW. "
+        "This is a source-validity check, not a payroll reconciliation.",
+        "Workforce Analytics", width=320, height=110)
+
+    # Scenario block
+    ws.merge_cells("A11:F11")
+    s = ws["A11"]
+    s.value = "SCENARIO SENSITIVITY  |  illustrative multipliers, not forecasts"
+    s.font = font(10, True, WHITE)
+    s.fill = fill(BLUE)
+    s.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+
+    put(ws, "A12", "Selected scenario", f=font(10, True, "1F3864"))
+    ws["A12"].fill = fill(GREY)
+    sel = put(ws, "B12", "Base", f=font(11, True, "0000FF"))
+    sel.fill = fill("FFF2CC")
+    sel.alignment = Alignment(horizontal="center", vertical="center")
+    sel.comment = Comment(
+        "Dropdown: Base / Upside / Downside. Drives local formulas B13:B16 from the multiplier "
+        "table in D13:F15. Base = published values (1.00x). Upside/Downside are illustrative "
+        "higher/lower assumptions, not forecasts.",
+        "Workforce Analytics", width=320, height=110)
+    dv = DataValidation(type="list", formula1='"Base,Upside,Downside"', allow_blank=False,
+                        showDropDown=False)
+    dv.promptTitle = "Scenario"
+    dv.prompt = "Choose Base, Upside or Downside."
+    dv.errorTitle = "Invalid scenario"
+    dv.error = "Select Base, Upside or Downside."
+    ws.add_data_validation(dv)
+    dv.add(sel)
+
+    for coord, text in (("D12", "Scenario"), ("E12", "Wage multiplier"),
+                        ("F12", "Employment multiplier")):
+        put(ws, coord, text, f=font(9, True, WHITE))
+        ws[coord].fill = fill(NAVY)
+        ws[coord].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
+    rows = [("Base", 1.00, 1.00), ("Upside", 1.08, 1.05), ("Downside", 0.93, 0.95)]
+    for i, (name, wage, emp) in enumerate(rows, start=13):
+        put(ws, f"D{i}", name, f=font(10, False, "000000"))
+        put(ws, f"E{i}", wage, f=font(10, False, "0000FF"), numfmt="0.00")
+        put(ws, f"F{i}", emp, f=font(10, False, "0000FF"), numfmt="0.00")
+        for col in "DEF":
+            ws[f"{col}{i}"].alignment = Alignment(horizontal="center", vertical="center")
+
+    ws["E12"].comment = Comment(
+        "Hardcoded assumption inputs (blue). Wage multiplier scales the published annual mean "
+        "wage only. Base 1.00 / Upside 1.08 / Downside 0.93.",
+        "Workforce Analytics", width=300, height=90)
+    ws["F12"].comment = Comment(
+        "Hardcoded assumption inputs (blue). Employment multiplier scales published employment "
+        "only. Base 1.00 / Upside 1.05 / Downside 0.95.",
+        "Workforce Analytics", width=300, height=90)
+
+    for coord, text in (("A13", "Wage multiplier"), ("A14", "Employment multiplier"),
+                        ("A15", "Projected employment"), ("A16", "Projected annual mean wage")):
+        put(ws, coord, text, f=font(10, True, "1F3864"))
+        ws[coord].fill = fill(GREY)
+
+    blk = font(10, False, "000000")
+    put(ws, "B13", "=VLOOKUP($B$12,$D$13:$F$15,2,FALSE)", f=blk, numfmt='0.00"x"')
+    put(ws, "B14", "=VLOOKUP($B$12,$D$13:$F$15,3,FALSE)", f=blk, numfmt='0.00"x"')
+    put(ws, "B15", "=B5*B14", f=font(10, True, "000000"), numfmt="#,##0")
+    put(ws, "B16", "=B6*B13", f=font(10, True, "000000"), numfmt="$#,##0")
+    put(ws, "C13", "x", f=font(9, False, "595959"), align="center")
+    put(ws, "C14", "x", f=font(9, False, "595959"), align="center")
+    put(ws, "C15", "employees", f=font(9, False, "595959"), align="center")
+    put(ws, "C16", "USD/year", f=font(9, False, "595959"), align="center")
+
+    ws["B16"].comment = Comment(
+        "Applies only the wage multiplier (B13) to the published annual mean wage (B6). "
+        "Employment changes never scale an average wage, so this formula does not reference "
+        "B14 or the employment-multiplier column.",
+        "Workforce Analytics", width=320, height=105)
+
+    # Major occupation group tables
+    ws.merge_cells("A18:F18")
+    m = ws["A18"]
+    m.value = "MAJOR OCCUPATION GROUPS  |  published May 2025 values for MSA 35620"
+    m.font = font(10, True, WHITE)
+    m.fill = fill(BLUE)
+    m.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    ws.row_dimensions[18].height = 18
+
+    heads = (("A19", "Occupation group"), ("B19", "Employment (employees)"),
+             ("D19", "Occupation group"), ("E19", "Annual mean wage (USD/year)"))
+    for coord, text in heads:
+        put(ws, coord, text, f=font(9, True, WHITE), wrap=True)
+        ws[coord].fill = fill(NAVY)
+        ws[coord].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+    ws.row_dimensions[19].height = 30
+
+    groups = [
+        ("Office and Administrative Support Occupations", "L94460", "S94460"),
+        ("Healthcare Support Occupations", "L94336", "S94336"),
+        ("Sales and Related Occupations", "L94437", "S94437"),
+        ("Business and Financial Operations Occupations", "L94004", "S94004"),
+        ("Management Occupations", "L93967", "S93967"),
+    ]
+    for i, (name, emp_col, wage_col) in enumerate(groups, start=20):
+        put(ws, f"A{i}", name, f=font(9, False, "000000"), wrap=True)
+        put(ws, f"D{i}", name, f=font(9, False, "000000"), wrap=True)
+        put(ws, f"B{i}", f"=MSA_M2025_dl!{emp_col}", f=font(9, False, "008000"), numfmt="#,##0")
+        put(ws, f"E{i}", f"=MSA_M2025_dl!{wage_col}", f=font(9, False, "008000"), numfmt="$#,##0")
+        if i % 2 == 1:
+            for col in "ABDEF":
+                ws[f"{col}{i}"].fill = fill(GREY)
+        ws.row_dimensions[i].height = 26
+
+    ws["B20"].comment = Comment(
+        "Live cross-sheet links to MSA_M2025_dl column L (TOT_EMP) for the five selected major "
+        "occupation groups: rows 94460, 94336, 94437, 94004, 93967.",
+        "Workforce Analytics", width=300, height=90)
+    ws["E20"].comment = Comment(
+        "Live cross-sheet links to MSA_M2025_dl column S (A_MEAN, annual mean wage) for the same "
+        "five major occupation groups.",
+        "Workforce Analytics", width=300, height=90)
+
+    # Notes
+    ws.merge_cells("A26:F26")
+    n = ws["A26"]
+    n.value = ("Notes: All KPIs are published BLS values for the single all-occupations row; no "
+               "payroll total is constructed and medians are not averaged. Suppression markers "
+               "are never replaced with zero. Scenario multipliers are illustrative.")
+    n.font = font(8, False, "595959", italic=True)
+    n.alignment = Alignment(horizontal="left", vertical="top", wrap_text=True)
+    ws.row_dimensions[26].height = 26
+    ws.merge_cells("A27:F27")
+    n2 = ws["A27"]
+    n2.value = ("Source: U.S. Bureau of Labor Statistics, Occupational Employment and Wage "
+                "Statistics, May 2025, metropolitan area 35620, https://www.bls.gov/oes/")
+    n2.font = font(8, False, "595959", italic=True)
+    n2.alignment = Alignment(horizontal="left", vertical="top", wrap_text=True)
+
+    # Conditional formatting: two distinct regions plus a status flag
+    ws.conditional_formatting.add(
+        "B20:B24",
+        ColorScaleRule(start_type="min", start_color="F8696B",
+                       mid_type="percentile", mid_value=50, mid_color="FFEB84",
+                       end_type="max", end_color="63BE7B"))
+    ws.conditional_formatting.add(
+        "E20:E24",
+        ColorScaleRule(start_type="min", start_color="F8696B",
+                       mid_type="percentile", mid_value=50, mid_color="FFEB84",
+                       end_type="max", end_color="63BE7B"))
+    ws.conditional_formatting.add(
+        "B9",
+        FormulaRule(formula=['$B$9="REVIEW"'],
+                    fill=fill("FFC7CE"), font=Font(name=FONT, size=10, bold=True, color="9C0006")))
+
+    ws.freeze_panes = "A5"
+
+    # Charts
+    ch1 = BarChart()
+    ch1.type = "col"
+    ch1.style = 10
+    ch1.title = "Employment by Major Occupation Group (MSA 35620, May 2025)"
+    ch1.y_axis.title = "Employees"
+    ch1.y_axis.numFmt = "#,##0"
+    ch1.x_axis.delete = False
+    ch1.y_axis.delete = False
+    ch1.legend = None
+    ch1.height = 8.5
+    ch1.width = 17
+    ch1.add_data(Reference(ws, min_col=2, min_row=19, max_row=24), titles_from_data=True)
+    ch1.set_categories(Reference(ws, min_col=1, min_row=20, max_row=24))
+    ws.add_chart(ch1, "G4")
+
+    ch2 = BarChart()
+    ch2.type = "col"
+    ch2.style = 12
+    ch2.title = "Annual Mean Wage by Major Occupation Group (MSA 35620, May 2025)"
+    ch2.y_axis.title = "USD per year"
+    ch2.y_axis.numFmt = "$#,##0"
+    ch2.x_axis.delete = False
+    ch2.y_axis.delete = False
+    ch2.legend = None
+    ch2.height = 8.5
+    ch2.width = 17
+    ch2.add_data(Reference(ws, min_col=5, min_row=19, max_row=24), titles_from_data=True)
+    ch2.set_categories(Reference(ws, min_col=4, min_row=20, max_row=24))
+    ws.add_chart(ch2, "G22")
+
+    wb.save(OUT)
+    print(f"saved {OUT} ({OUT.stat().st_size} bytes); sheets={wb.sheetnames}")
+
+
+if __name__ == "__main__":
+    build()
+    sys.exit(0)

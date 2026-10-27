@@ -1,0 +1,440 @@
+{
+  "schema_version": "office-dataset-v2",
+  "workload_contract": "spreadsheet-semantic-v2",
+  "task_contract": "dataset-specific-agent-v1",
+  "kind": "xlsx",
+  "dataset_id": "hr_metro",
+  "domain": "employment_and_wages",
+  "task": "Preserve the original workbook; add published employment/wage metrics and separate employment/mean-wage sensitivities, without a constructed payroll total; copy two prepared reference CSVs.",
+  "workbook": "MSA_M2025_dl.xlsx",
+  "output_workbook": "workforce_report.xlsx",
+  "input_files": {
+    "input/MSA_M2025_dl.xlsx": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+    "input/verify_xlsx_enhanced.py": "0acf5da489aa902a89273fe264a88a0b173e68e74a815dd2976f5a014feb374a",
+    "input/prepared_workforce_summary.csv": "7acd661bb80d75edfa10bf3b7a72defed40c6f1e34e8e9d771a22f559b942dad",
+    "input/prepared_workforce_reconciliation_summary.csv": "7aca457f8deed4fbcebad9b8ce37cdca5ebbf2aba5b8087c1ad5ada4f5e79313"
+  },
+  "expected_file": "task-expected.json",
+  "expected_sha256": "49b378ffe91324eb6f91f7b36f1b3424e7cedb7d7b6f6b18e47d3a6f14bae29b",
+  "prompt_template": "xlsx-hr_metro.txt",
+  "agent_context": {
+    "profile": "legacy-host-v1",
+    "sha256": "0774a6c0494054eeb85ac572bdd7f1a29f4321937464e998576ff149a21c36e5"
+  },
+  "runtime_case": "OFFICE-XLSX-HR-METRO",
+  "loop_verification_contract": "dataset-local-tlc-style-v1",
+  "analysis_metadata": {
+    "provenance.json": "d8298bf7042b36a9b62767922b4c405687b39a15c8028a2e9675cf87e92b4433",
+    "complexity.json": "61bddb3803db3e36094ef82229ec309322836735a09af12d9831b6837c493c0a",
+    "reference-exports.json": "7602551cd4798e73864eead0041050925841857444d6e10073ee54940dc537f5"
+  },
+  "requirements": {
+    "metrics": [
+      {
+        "id": "total_employment",
+        "name": "Employment, all occupations",
+        "meaning": "Employment, all occupations from the published all-occupations row.",
+        "unit": "employees"
+      },
+      {
+        "id": "annual_mean_wage",
+        "name": "Annual mean wage, all occupations",
+        "meaning": "Annual mean wage, all occupations from the published all-occupations row.",
+        "unit": "USD/year"
+      },
+      {
+        "id": "hourly_median_wage",
+        "name": "Hourly median wage, all occupations",
+        "meaning": "Hourly median wage, all occupations from the published all-occupations row.",
+        "unit": "USD/hour"
+      },
+      {
+        "id": "annual_median_wage",
+        "name": "Annual median wage, all occupations",
+        "meaning": "Annual median wage, all occupations from the published all-occupations row.",
+        "unit": "USD/year"
+      },
+      {
+        "id": "reconciliation_status",
+        "name": "Source validity status",
+        "meaning": "Validity of the selected published source values; not payroll reconciliation.",
+        "unit": "status"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "wage_multiplier",
+          "meaning": "mean-wage multiplier"
+        },
+        {
+          "id": "employment_multiplier",
+          "meaning": "employment-volume multiplier"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "wage_multiplier": 1,
+            "employment_multiplier": 1
+          }
+        },
+        {
+          "name": "Upside",
+          "assumptions": {
+            "wage_multiplier": 1.08,
+            "employment_multiplier": 1.05
+          }
+        },
+        {
+          "name": "Downside",
+          "assumptions": {
+            "wage_multiplier": 0.93,
+            "employment_multiplier": 0.95
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_employment",
+          "meaning": "Employment adjusted only by employment_multiplier.",
+          "unit": "employees",
+          "scenario_dimensions": [
+            "employment_multiplier"
+          ]
+        },
+        {
+          "id": "projected_annual_mean_wage",
+          "meaning": "Published annual mean wage adjusted only by wage_multiplier; independent of employment.",
+          "unit": "USD/year",
+          "scenario_dimensions": [
+            "wage_multiplier"
+          ]
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "major_employment",
+        "meaning": "Employment for the five explicitly selected major occupation groups, in the supplied order"
+      },
+      {
+        "id": "major_mean_wage",
+        "meaning": "Annual mean wage for the same five major occupation groups, in the supplied order"
+      }
+    ],
+    "base_sheets": [
+      "MSA_M2025_dl",
+      "Field Descriptions",
+      "UpdateTime",
+      "Filler"
+    ],
+    "base_dimensions": {
+      "MSA_M2025_dl": [
+        150024,
+        32
+      ],
+      "Field Descriptions": [
+        48,
+        3
+      ],
+      "UpdateTime": [
+        2,
+        1
+      ],
+      "Filler": [
+        0,
+        0
+      ]
+    },
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "minimum_formula_count": 19,
+    "recalc_timeout": 600
+  },
+  "task_layout": {
+    "features": {
+      "summary_sheet": "Workforce_Summary",
+      "metrics": {
+        "total_employment": {
+          "sheet": "Workforce_Summary",
+          "cell": "B5"
+        },
+        "annual_mean_wage": {
+          "sheet": "Workforce_Summary",
+          "cell": "B6"
+        },
+        "hourly_median_wage": {
+          "sheet": "Workforce_Summary",
+          "cell": "B7"
+        },
+        "annual_median_wage": {
+          "sheet": "Workforce_Summary",
+          "cell": "B8"
+        },
+        "reconciliation_status": {
+          "sheet": "Workforce_Summary",
+          "cell": "B9"
+        }
+      },
+      "scenario": {
+        "selector": {
+          "sheet": "Workforce_Summary",
+          "cell": "B12"
+        },
+        "assumptions": {
+          "Base": {
+            "wage_multiplier": {
+              "sheet": "Workforce_Summary",
+              "cell": "E13"
+            },
+            "employment_multiplier": {
+              "sheet": "Workforce_Summary",
+              "cell": "F13"
+            }
+          },
+          "Upside": {
+            "wage_multiplier": {
+              "sheet": "Workforce_Summary",
+              "cell": "E14"
+            },
+            "employment_multiplier": {
+              "sheet": "Workforce_Summary",
+              "cell": "F14"
+            }
+          },
+          "Downside": {
+            "wage_multiplier": {
+              "sheet": "Workforce_Summary",
+              "cell": "E15"
+            },
+            "employment_multiplier": {
+              "sheet": "Workforce_Summary",
+              "cell": "F15"
+            }
+          }
+        },
+        "projections": {
+          "projected_employment": {
+            "sheet": "Workforce_Summary",
+            "cell": "B15"
+          },
+          "projected_annual_mean_wage": {
+            "sheet": "Workforce_Summary",
+            "cell": "B16"
+          }
+        }
+      },
+      "charts": {
+        "major_employment": {
+          "sheet": "Workforce_Summary",
+          "index": 0
+        },
+        "major_mean_wage": {
+          "sheet": "Workforce_Summary",
+          "index": 1
+        }
+      }
+    },
+    "metric_source_references": {
+      "total_employment": [
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "L93966"
+        }
+      ],
+      "annual_mean_wage": [
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "S93966"
+        }
+      ],
+      "hourly_median_wage": [
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "W93966"
+        }
+      ],
+      "annual_median_wage": [
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "AB93966"
+        }
+      ],
+      "reconciliation_status": [
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "L93966"
+        },
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "S93966"
+        },
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "W93966"
+        },
+        {
+          "sheet": "MSA_M2025_dl",
+          "cell": "AB93966"
+        }
+      ]
+    },
+    "supporting_formula_references": {
+      "B13": [
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "B12"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "E13"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "E14"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "E15"
+        }
+      ],
+      "B14": [
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "B12"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "F13"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "F14"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "F15"
+        }
+      ],
+      "B15": [
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "B5"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "B14"
+        }
+      ],
+      "B16": [
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "B6"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "B13"
+        }
+      ]
+    },
+    "chart_requirements": {
+      "major_employment": {
+        "kind": "column",
+        "categories_range": "A20:A24",
+        "values_range": "B20:B24",
+        "category_labels": [
+          "Office and Administrative Support Occupations",
+          "Healthcare Support Occupations",
+          "Sales and Related Occupations",
+          "Business and Financial Operations Occupations",
+          "Management Occupations"
+        ]
+      },
+      "major_mean_wage": {
+        "kind": "column",
+        "categories_range": "D20:D24",
+        "values_range": "E20:E24",
+        "category_labels": [
+          "Office and Administrative Support Occupations",
+          "Healthcare Support Occupations",
+          "Sales and Related Occupations",
+          "Business and Financial Operations Occupations",
+          "Management Occupations"
+        ]
+      }
+    },
+    "forbidden_formula_references": {
+      "B16": [
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "B14"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "F13"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "F14"
+        },
+        {
+          "sheet": "Workforce_Summary",
+          "cell": "F15"
+        }
+      ]
+    }
+  },
+  "publish_files": [
+    {
+      "input": "prepared_workforce_summary.csv",
+      "output": "workforce_summary.csv",
+      "sha256": "7acd661bb80d75edfa10bf3b7a72defed40c6f1e34e8e9d771a22f559b942dad"
+    },
+    {
+      "input": "prepared_workforce_reconciliation_summary.csv",
+      "output": "workforce_reconciliation_summary.csv",
+      "sha256": "7aca457f8deed4fbcebad9b8ce37cdca5ebbf2aba5b8087c1ad5ada4f5e79313"
+    }
+  ],
+  "trace_rules": [
+    {
+      "pattern": "\\bverify_xlsx_enhanced\\.py\\b",
+      "operation": "verify_business"
+    },
+    {
+      "pattern": "recalc\\.py",
+      "operation": "recalculate_formulas"
+    }
+  ],
+  "required_outputs": [
+    "workforce_report.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "workforce_summary.csv",
+    "workforce_reconciliation_summary.csv"
+  ],
+  "new_agent_execution_status": "not_run",
+  "empty_strings_policy": {
+    "sheets": [
+      "MSA_M2025_dl"
+    ],
+    "equivalence": "An original empty string may serialize as an empty cell; suppression markers and nonempty values are not equivalent to blanks."
+  },
+  "prompt_template_sha256": "7806dda876725ef5d869ac73a6d971b26ab23e03c67339b2a854d00aa9611d8d",
+  "agent_verifier": "verify_xlsx_enhanced.py",
+  "agent_validation": {
+    "entry": "input/verify_xlsx_enhanced.py",
+    "implementation": "standalone_dataset_local_script",
+    "reference": "legacy/xlsx/verify_xlsx_enhanced.py",
+    "scope": "TLC-style formula/features/cache/recalc checks; five KPI formulas including source consistency status, two multipliers and two projections.",
+    "independent_audit": "Runner post-Agent verification; outside Agent tool trace, retains deeper checks."
+  },
+  "csv_mode": "copy_prepared",
+  "feature_index_origin": "project_staged",
+  "task_shape": "tlc-shaped-hr-independent-sensitivities-v3"
+}

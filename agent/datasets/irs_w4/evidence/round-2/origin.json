@@ -1,0 +1,52 @@
+{
+  "round": 2,
+  "run_id": "pdf-irs_w4-20261027T032347Z-4e78c444",
+  "run_path": "runs/pdf-irs_w4-20261027T032347Z-4e78c444",
+  "original_run_status": "success",
+  "qualification_status": "success",
+  "qualification_evidence": {
+    "path": "runs/pdf-irs_w4-20261027T032347Z-4e78c444/independent_verification.json",
+    "sha256": "80de6c7f95d05888cf5ff369b92656030c3e0c3423c78718d621ff1b2ae3e9e6"
+  },
+  "original_independent_failures": [],
+  "independent_check_count": 103,
+  "tool_call_count": 25,
+  "runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+  "model": {
+    "name": "openclaw",
+    "version": "OpenClaw 2026.6.6 (8c802aa)",
+    "model_name": "deepseek/deepseek-v4-flash",
+    "extra": {
+      "parser": "openclaw-session-jsonl",
+      "provider": "deepseek",
+      "session_schema_version": 3,
+      "thinking_level": "high"
+    }
+  },
+  "input_hashes": {
+    "input/fw4_2026.pdf": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+    "input/pdf_dataset_sources.md": "f4b745509bcb56d322b614643335c3aa8306b17b40a561c16cd888bff795b09d",
+    "input/synthetic_employees.json": "a4c5bed32a0ff5da282b9d4b03eb2c484c480dbb890274b59b4ae87783ab79cc",
+    "input/verify_pdf_batch.py": "c9fe731c65a69a1e83ad2a5e970db45263d7ba4835a75499daf38202b9cc35ed"
+  },
+  "manifest_sha256": "a4b41d56f1068b73116a888809b142563e06d86d04d6320a1f1470e5e425cbba",
+  "prompt_sha256": "73df5e8c2a27d8a5c266557d1f4dd8ca043291ed87ea5558d15d8f9a5c0bb198",
+  "prompt_template_sha256": "d4a42cc1a0ce4d3475bf3dbc0965bfbc9e997fd6baf85a3bb0cc617ea77d2dad",
+  "run_manifest": {
+    "path": "runs/pdf-irs_w4-20261027T032347Z-4e78c444/run_manifest.json",
+    "sha256": "9fd914133a95d8c6cbf01af14a9dec69500ccd5dbc505c2e825c8c5710b55d7a"
+  },
+  "trajectory": {
+    "path": "runs/pdf-irs_w4-20261027T032347Z-4e78c444/trajectory.json",
+    "sha256": "0469d65904b63b5bca3f98947c5889aa54999d387079ac358983203a53991775"
+  },
+  "tool_events": {
+    "path": "runs/pdf-irs_w4-20261027T032347Z-4e78c444/tool_events.json",
+    "sha256": "ced4daf6ef5d12ee2229b24484d90f0d044af5a12f9be989f03414a12e7fe222"
+  },
+  "canonical": {
+    "path": "artifacts/canonical/pdf/irs_w4/pdf-irs_w4-20261027T032347Z-4e78c444",
+    "canonical_sha256": "d4b2f371a9fad6d529fe87bd21f7a0ff9e78f0de657a7b387fba7a9e5521ac00",
+    "validated": true
+  }
+}

@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+"""Generate field-values JSON for every synthetic SBA 1919 applicant.
+
+Mapping is authored from output/form_field_info.json (exact field IDs + pages)
+and input/synthetic_applicants.json. Protected fields are never emitted.
+"""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SCHEMA = ROOT / "output" / "form_field_info.json"
+RECORDS = ROOT / "input" / "synthetic_applicants.json"
+OUT_DIR = ROOT / "output" / "field_values"
+
+TEXT_FIELDS = [
+    ("applicantname", "business_name"),
+    ("operatingnbusname", "operating_name"),
+    ("dba", "trade_name"),
+    ("PrimarIndustry", "industry_code"),
+    ("busphone", "phone"),
+    ("yearbeginoperations", "operation_year"),
+    ("Business Address", "business_address"),
+    ("Project Address", "project_address"),
+    ("Primary Contact Name", "contact_name"),
+    ("Primary Contact Email Address", "contact_email"),
+    (" of existing employees including owners all parttime fulltime and all employees of domestic and foreign Affiliates  do not convert to FTE", "existing_employees"),
+    (" of FTE jobs savedretained because of the loan including owners", "retained_jobs"),
+    (" of new FTE jobs created because of the loan including owners", "new_jobs"),
+    ("Owners Legal Name First name Last nameRow1", "owner_name"),
+    ("TitleRow1", "owner_title"),
+    ("Ownership Row1", "owner_percentage"),
+    ("Home Address Street City State Zip Code No PO BoxRow1", "owner_address"),
+    ("Working Capital amount", "working_capital_amount"),
+]
+
+# field_id -> (source path, checked value, unchecked value)
+BOOL_FIELDS = [
+    ("OC", "flags.OC", "/On", "/Off"),
+    ("EPC", "flags.EPC", "/On", "/Off"),
+    ("soleprop", "flags.soleprop", "/Yes", "/Off"),
+    ("partnership", "flags.partnership", "/Yes", "/Off"),
+    ("ccorp", "flags.ccorp", "/Yes", "/Off"),
+    ("scorp", "flags.scorp", "/Yes", "/Off"),
+    ("llc", "flags.llc", "/Yes", "/Off"),
+    ("etother", "flags.etother", "/Yes", "/Off"),
+    ("working capital", "flags.working capital", "/On", "/Off"),
+]
+for n in range(1, 14):
+    BOOL_FIELDS.append((f"{n}yes", f"answers.{n}yes", "/Yes", "/Off"))
+    BOOL_FIELDS.append((f"{n}no", f"answers.{n}no", "/No", "/Off"))
+
+
+def dig(obj, dotted):
+    for key in dotted.split("."):
+        obj = obj[key]
+    return obj
+
+
+def main():
+    schema = json.loads(SCHEMA.read_text())
+    by_id = {f["field_id"]: f for f in schema}
+    if len(by_id) != 127:
+        raise SystemExit(f"expected 127 inspected fields, got {len(by_id)}")
+
+    records = json.loads(RECORDS.read_text())["applicants"]
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    mapping_manifest = []
+
+    for record in records:
+        ident = record["id"]
+        values = []
+        for field_id, source in TEXT_FIELDS:
+            info = by_id[field_id]
+            if info["type"] != "text":
+                raise SystemExit(f"{field_id} expected text, got {info['type']}")
+            values.append({
+                "field_id": field_id,
+                "description": f"Record {ident} {source}",
+                "page": info["page"],
+                "value": str(dig(record, source)),
+            })
+        for field_id, source, on, off in BOOL_FIELDS:
+            info = by_id[field_id]
+            if info["type"] != "checkbox":
+                raise SystemExit(f"{field_id} expected checkbox, got {info['type']}")
+            if info.get("checked_value") != on or info.get("unchecked_value") != off:
+                raise SystemExit(
+                    f"{field_id} export states are {info.get('checked_value')}/"
+                    f"{info.get('unchecked_value')}, expected {on}/{off}"
+                )
+            truth = bool(dig(record, source))
+            values.append({
+                "field_id": field_id,
+                "description": f"Record {ident} {source}",
+                "page": info["page"],
+                "value": on if truth else off,
+            })
+
+        target = OUT_DIR / f"{ident}.json"
+        target.write_text(json.dumps(values, indent=2) + "\n")
+        mapping_manifest.append({
+            "id": ident,
+            "field_values": str(target.relative_to(ROOT)),
+            "mapped_field_count": len(values),
+            "pages": sorted({v["page"] for v in values}),
+        })
+        print(f"wrote {target} ({len(values)} fields)")
+
+    (ROOT / "work" / "mapping_manifest.json").write_text(
+        json.dumps(mapping_manifest, indent=2) + "\n"
+    )
+
+
+if __name__ == "__main__":
+    main()

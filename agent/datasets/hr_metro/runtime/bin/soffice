@@ -1,0 +1,5 @@
+#!/bin/sh
+# The symbols build defaults to its install directory. Use the SAME standard
+# user profile where the original, byte-preserved Skill installs its macro.
+# This does not create per-call temporary profiles or replace recalc.py.
+exec /opt/libreoffice25.8-symbols/program/soffice -env:UserInstallation=file:///root/.config/libreoffice/4 "$@"

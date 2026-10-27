@@ -1,53 +1,9 @@
 __pycache__/
-*.pyc
-results/
-qualification/
-.build/
-
-# Local run workspaces and fixture trials; small release reports live in reports/evidence/.
-/analysis/hotspot-comparison/replay-runs/
-/analysis/hotspot-comparison/retail-libreoffice-smoke-v1/
+*.py[cod]
 .pytest_cache/
-
-# Payloads stay tracked on main; hydrated slim-v12 copies remain local.
-/assets/cases/hr/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/assets/cases/hr_metro/source/datasets/xlsx/hr_metro/input/MSA_M2025_dl.xlsx
-/assets/cases/industry_productivity/source/datasets/xlsx/industry_productivity/input/labor-productivity-detailed-industries.xlsx
-/assets/cases/irs_w4/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/assets/cases/manufacturing/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/assets/cases/opm/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/assets/cases/retail/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/assets/cases/retail_online/source/datasets/xlsx/retail_online/input/Online Retail.xlsx
-/assets/cases/sba1919/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/assets/cases/tlc/seed/input/monthly_operations_template.xlsx
-/assets/cases/tlc/source/datasets/xlsx/tlc/input/monthly_operations_template.xlsx
-/assets/cases/tlc/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/assets/objects/sha256/279a7ebb3d1fd95df92cde221848d86b9d2bd9f545725f56c1c00e8bfc9cee68
-/assets/objects/sha256/35007761aa0b6ec1f611d870e3bc49992a7030153c345233f58b9d9721452738
-/assets/objects/sha256/51e34e9d59e43b9c330a00448645f025f1d4ea2d4c33e9998e6e1c6fef7b189f
-/assets/objects/sha256/5f30be31087743d3b92b7b9d9d8aea44e8cc8d77064ba278021ee8964133fdaa
-/assets/objects/sha256/7371b48c4fa448d20d2714c9a1f775a81155050d383333e0a6c15b1123dda005
-/assets/objects/sha256/7e4020ecaa2e442972828ca68bb130ec5d6433c6ae46fc5a5310bbac6623b6a7
-/assets/objects/sha256/a16441106f39e4173875a5d11c931fdea47115a4e57e26f5f8e8d488ddbd0c8e
-/assets/objects/sha256/f37e58d282b8ad5e6e5c53854783030b1817a551c716a1efb08d29d487c3c7ae
-/compatibility/cases/hr/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/hr_metro/seed/input/MSA_M2025_dl.xlsx
-/compatibility/cases/hr_metro/source/datasets/xlsx/hr_metro/input/MSA_M2025_dl.xlsx
-/compatibility/cases/hr_metro/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/industry_productivity/canonical/objects/sha256/71dc15a41327519a5a7e207d6695f82a2745a7434f4eebbacd1f2735a3e6ce78
-/compatibility/cases/industry_productivity/canonical/objects/sha256/7371b48c4fa448d20d2714c9a1f775a81155050d383333e0a6c15b1123dda005
-/compatibility/cases/industry_productivity/canonical/objects/sha256/86def21f9d946e3c61e7eb703a619df02340c15a1ee0d73074b56dd5ba738781
-/compatibility/cases/industry_productivity/canonical/objects/sha256/9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd
-/compatibility/cases/industry_productivity/seed/input/labor-productivity-detailed-industries.xlsx
-/compatibility/cases/industry_productivity/source/datasets/xlsx/industry_productivity/input/labor-productivity-detailed-industries.xlsx
-/compatibility/cases/industry_productivity/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/irs_w4-n1/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/irs_w4-n10/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/manufacturing/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/retail/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/retail_online/seed/input/Online Retail.xlsx
-/compatibility/cases/retail_online/source/datasets/xlsx/retail_online/input/Online Retail.xlsx
-/compatibility/cases/retail_online/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/sba1919-n1/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/compatibility/cases/sba1919-n10/source/vendor/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl
-/legacy/document-oe/xlsx/input/monthly_operations_template.xlsx
+results/
+analysis/hotspots/raw/
+*.tmp
+.import-staging/
+.local/
+agent/.import-staging/

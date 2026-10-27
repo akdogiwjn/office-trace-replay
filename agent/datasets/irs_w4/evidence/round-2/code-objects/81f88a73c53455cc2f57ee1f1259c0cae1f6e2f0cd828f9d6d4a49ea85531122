@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""Run the bundled fill + render scripts once per employee record.
+
+Each bundled script call is a single subprocess invocation; stdout/stderr for
+every call is preserved under output/logs/. Failures are recorded and abort
+the loop rather than being retried silently.
+"""
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = Path("/root/.openclaw/skills/pdf/scripts")
+INPUT = ROOT / "input"
+OUTPUT = ROOT / "output"
+LOGS = OUTPUT / "logs"
+
+FILL = SCRIPTS / "fill_fillable_fields.py"
+RENDER = SCRIPTS / "convert_pdf_to_images.py"
+
+
+def run(label, args, log_path):
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    with log_path.open("w") as log:
+        log.write("CMD: python3 " + " ".join(str(a) for a in args) + "\n")
+        log.flush()
+        proc = subprocess.run([sys.executable, *map(str, args)],
+                              cwd=SCRIPTS, stdout=log, stderr=subprocess.STDOUT)
+    return proc.returncode
+
+
+def main():
+    records = json.loads((INPUT / "synthetic_employees.json").read_text())["employees"]
+    template = INPUT / "fw4_2026.pdf"
+    LOGS.mkdir(parents=True, exist_ok=True)
+    events = []
+    for record in records:
+        ident = record["id"]
+        values = OUTPUT / "field_values" / f"{ident}.json"
+        filled = OUTPUT / "filled" / f"{ident}.pdf"
+        render_dir = OUTPUT / "rendered" / ident
+        (OUTPUT / "filled").mkdir(exist_ok=True)
+        render_dir.mkdir(parents=True, exist_ok=True)
+
+        code = run("fill", [FILL, template, values, filled], LOGS / f"fill_{ident}.log")
+        events.append({"record": ident, "operation": "fill", "args": [str(FILL), str(template),
+                       str(values), str(filled)], "exit_code": code, "pdf_bytes":
+                       filled.stat().st_size if filled.exists() else 0})
+        if code != 0:
+            print(json.dumps(events, indent=2))
+            sys.exit(f"fill failed for {ident}; see {LOGS / f'fill_{ident}.log'}")
+
+        code = run("render", [RENDER, filled, render_dir], LOGS / f"render_{ident}.log")
+        pages = sorted(render_dir.glob("page_*.png"))
+        events.append({"record": ident, "operation": "render", "args": [str(RENDER),
+                       str(filled), str(render_dir)], "exit_code": code,
+                       "pages": len(pages)})
+        if code != 0 or len(pages) != 5:
+            print(json.dumps(events, indent=2))
+            sys.exit(f"render failed for {ident}; see {LOGS / f'render_{ident}.log'}")
+        print(f"{ident}: filled {filled.stat().st_size} bytes, rendered {len(pages)} pages")
+
+    (OUTPUT / "batch_run_log.json").write_text(json.dumps({
+        "fill_invocations": sum(e["operation"] == "fill" for e in events),
+        "render_invocations": sum(e["operation"] == "render" for e in events),
+        "events": events,
+    }, indent=2) + "\n")
+    print("Batch complete: 10 fills, 10 renders.")
+
+
+if __name__ == "__main__":
+    main()

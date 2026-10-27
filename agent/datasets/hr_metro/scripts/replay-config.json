@@ -1,0 +1,136 @@
+{
+  "dataset_id": "hr_metro",
+  "kind": "xlsx",
+  "source_run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+  "source_round": 2,
+  "output_workbook": "workforce_report.xlsx",
+  "form": null,
+  "records": null,
+  "requirements": {
+    "metrics": [
+      {
+        "id": "total_employment",
+        "name": "Employment, all occupations",
+        "meaning": "Employment, all occupations from the published all-occupations row.",
+        "unit": "employees"
+      },
+      {
+        "id": "annual_mean_wage",
+        "name": "Annual mean wage, all occupations",
+        "meaning": "Annual mean wage, all occupations from the published all-occupations row.",
+        "unit": "USD/year"
+      },
+      {
+        "id": "hourly_median_wage",
+        "name": "Hourly median wage, all occupations",
+        "meaning": "Hourly median wage, all occupations from the published all-occupations row.",
+        "unit": "USD/hour"
+      },
+      {
+        "id": "annual_median_wage",
+        "name": "Annual median wage, all occupations",
+        "meaning": "Annual median wage, all occupations from the published all-occupations row.",
+        "unit": "USD/year"
+      },
+      {
+        "id": "reconciliation_status",
+        "name": "Source validity status",
+        "meaning": "Validity of the selected published source values; not payroll reconciliation.",
+        "unit": "status"
+      }
+    ],
+    "scenario": {
+      "default": "Base",
+      "dimensions": [
+        {
+          "id": "wage_multiplier",
+          "meaning": "mean-wage multiplier"
+        },
+        {
+          "id": "employment_multiplier",
+          "meaning": "employment-volume multiplier"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Base",
+          "assumptions": {
+            "wage_multiplier": 1,
+            "employment_multiplier": 1
+          }
+        },
+        {
+          "name": "Upside",
+          "assumptions": {
+            "wage_multiplier": 1.08,
+            "employment_multiplier": 1.05
+          }
+        },
+        {
+          "name": "Downside",
+          "assumptions": {
+            "wage_multiplier": 0.93,
+            "employment_multiplier": 0.95
+          }
+        }
+      ],
+      "projections": [
+        {
+          "id": "projected_employment",
+          "meaning": "Employment adjusted only by employment_multiplier.",
+          "unit": "employees",
+          "scenario_dimensions": [
+            "employment_multiplier"
+          ]
+        },
+        {
+          "id": "projected_annual_mean_wage",
+          "meaning": "Published annual mean wage adjusted only by wage_multiplier; independent of employment.",
+          "unit": "USD/year",
+          "scenario_dimensions": [
+            "wage_multiplier"
+          ]
+        }
+      ]
+    },
+    "charts": [
+      {
+        "id": "major_employment",
+        "meaning": "Employment for the five explicitly selected major occupation groups, in the supplied order"
+      },
+      {
+        "id": "major_mean_wage",
+        "meaning": "Annual mean wage for the same five major occupation groups, in the supplied order"
+      }
+    ],
+    "base_sheets": [
+      "MSA_M2025_dl",
+      "Field Descriptions",
+      "UpdateTime",
+      "Filler"
+    ],
+    "base_dimensions": {
+      "MSA_M2025_dl": [
+        150024,
+        32
+      ],
+      "Field Descriptions": [
+        48,
+        3
+      ],
+      "UpdateTime": [
+        2,
+        1
+      ],
+      "Filler": [
+        0,
+        0
+      ]
+    },
+    "minimum_comments": 2,
+    "minimum_conditional_formats": 2,
+    "minimum_formula_count": 19,
+    "recalc_timeout": 600
+  },
+  "helper": "helpers/enhance_workforce_v2.py"
+}

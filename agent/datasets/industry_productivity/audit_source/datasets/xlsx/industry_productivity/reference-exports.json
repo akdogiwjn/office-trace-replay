@@ -1,0 +1,40 @@
+{
+  "schema_version": "office-prepared-reference-exports-v1",
+  "dataset_id": "industry_productivity",
+  "prepared_outside_agent": true,
+  "original_workbook_sha256": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+  "source_cell_values": {
+    "Annual!AT487": 92.025,
+    "Annual!AS487": 94.037,
+    "Annual!AO487": 101.496,
+    "Annual!AT510": 65.216,
+    "Annual!AT533": 93.136,
+    "Annual!AT556": 108.58,
+    "Annual!AT579": 114.982,
+    "Annual!AP487": 99.932,
+    "Annual!AQ487": 100.059,
+    "Annual!AR487": 99.105,
+    "Annual!AT488": 100.553,
+    "Annual!AT489": 109.267,
+    "Annual!AT490": 89.825
+  },
+  "exports": [
+    {
+      "input": "prepared_industry_productivity_summary.csv",
+      "output": "industry_productivity_summary.csv",
+      "sha256": "5cd299e1ea82965c56e4aef09fa7f7c7c5613421161765d033b6197e5ae4da21"
+    },
+    {
+      "input": "prepared_industry_productivity_reconciliation_summary.csv",
+      "output": "industry_productivity_reconciliation_summary.csv",
+      "sha256": "688a4e2432c78ad6c1439bf471c7656edeae2bf50713d80acf67d8ed3a103a50"
+    }
+  ],
+  "method": "Deterministic UTF-8 CSV serialization of original-cell KPI values, source consistency and Base-scenario references. No workbook rewrite or synthetic expansion.",
+  "scope": "Read-only reference exports; not business helpers or substitutes for required Excel formulas.",
+  "consistency_checks": {
+    "positive_hours_and_output_per_worker": true,
+    "productivity_equals_output_per_hour_with_rounding": true
+  },
+  "checked_against_original_workbook_hash": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd"
+}

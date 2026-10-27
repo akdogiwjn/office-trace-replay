@@ -1,0 +1,49 @@
+{
+  "dataset_id": "hr_metro",
+  "kind": "xlsx",
+  "source_run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+  "original_prompt_sha256": "2053b0bc304c203fa2f33dd9be0476717f648fb926dbc5f29080606847207ed4",
+  "original_manifest_sha256": "2fdcc8326dc883e79cc469048373363281f124610fd7970940970ad4a6f58392",
+  "original_input_hashes": {
+    "input/MSA_M2025_dl.xlsx": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+    "input/verify_xlsx_enhanced.py": "0acf5da489aa902a89273fe264a88a0b173e68e74a815dd2976f5a014feb374a",
+    "input/prepared_workforce_summary.csv": "7acd661bb80d75edfa10bf3b7a72defed40c6f1e34e8e9d771a22f559b942dad",
+    "input/prepared_workforce_reconciliation_summary.csv": "7aca457f8deed4fbcebad9b8ce37cdca5ebbf2aba5b8087c1ad5ada4f5e79313"
+  },
+  "agent_helpers": [
+    {
+      "path": "helpers/enhance_workforce_v2.py",
+      "sha256": "7980c22bb0658492db8f444c8a0578aef668d2e6bda850c52f7cad8a066fd1b9",
+      "revision_capture_verified": true,
+      "revision_events": [
+        {
+          "path": "workspace/helpers/enhance_workforce_v2.py",
+          "sha256": "7980c22bb0658492db8f444c8a0578aef668d2e6bda850c52f7cad8a066fd1b9",
+          "size": 16109,
+          "event": "close_write",
+          "captured_at_ns": 1793075558759290850,
+          "source_mtime_ns": 1793075558758316316
+        },
+        {
+          "path": "workspace/helpers/enhance_workforce_v2.py",
+          "sha256": "7980c22bb0658492db8f444c8a0578aef668d2e6bda850c52f7cad8a066fd1b9",
+          "size": 16109,
+          "event": "final_inventory",
+          "captured_at_ns": 1793076149089100991,
+          "source_mtime_ns": 1793075558758316316
+        }
+      ]
+    }
+  ],
+  "skill_recalc_sha256": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+  "intentional_adaptations": [
+    "Prepared CSV copy replaced by final-cache export; filenames, headers and row order retained.",
+    "Loop CSV validation reuses cached Summary values; independent audit also validates CSVs. No extra workbook load.",
+    "Runtime summary reports only this replay; original Agent summary remains historical evidence."
+  ],
+  "inspections": "Trace inline Python extracted byte-for-byte; original load modes and scopes retained.",
+  "omitted": "Other debugging, repair executions, temporary previews, model reasoning, poll waits and post-loop deep audit.",
+  "status": "compiled_static_only_not_replayed",
+  "source_index_sha256": "59e636170b0a8c6c3af3bd1497e0d2acc231d36c08608b3eea47926bd442325d",
+  "replay_environment_policy": "One common openEuler image with document-oe; standard-profile soffice path adapter outside the unmodified Skill."
+}

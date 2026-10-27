@@ -1,0 +1,57 @@
+{
+  "dataset_id": "industry_productivity",
+  "kind": "xlsx",
+  "source_run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+  "original_prompt_sha256": "4b7def1763536891fa64ab730d672f84f5e34593bf7ea7bc39de416cf1eddada",
+  "original_manifest_sha256": "21e4e1a6d8dcdfabea8500b6a2576ea277ad2ecfbf2a3dc857bfc74a9d27c0a4",
+  "original_input_hashes": {
+    "input/labor-productivity-detailed-industries.xlsx": "9c1213923977e6dcefd20b6185537434e9057428cb9a16b3329a8ccb4dd117dd",
+    "input/verify_xlsx_enhanced.py": "875819e7e8392a4e83b8ece66f9724f1bae3f5a4c0b0e21641914265a17bdc6c",
+    "input/prepared_industry_productivity_summary.csv": "5cd299e1ea82965c56e4aef09fa7f7c7c5613421161765d033b6197e5ae4da21",
+    "input/prepared_industry_productivity_reconciliation_summary.csv": "688a4e2432c78ad6c1439bf471c7656edeae2bf50713d80acf67d8ed3a103a50"
+  },
+  "agent_helpers": [
+    {
+      "path": "helpers/enhance_workbook_v1.py",
+      "sha256": "812e9f6653541628b68f15c9c017848f8d8ca279afa1722697b8b13d8b7dccd8",
+      "revision_capture_verified": true,
+      "revision_events": [
+        {
+          "path": "workspace/helpers/enhance_workbook_v1.py",
+          "sha256": "812e9f6653541628b68f15c9c017848f8d8ca279afa1722697b8b13d8b7dccd8",
+          "size": 15361,
+          "event": "new_directory_inventory",
+          "captured_at_ns": 1793066248079286915,
+          "source_mtime_ns": 1793066248076052141
+        },
+        {
+          "path": "workspace/helpers/enhance_workbook_v1.py",
+          "sha256": "812e9f6653541628b68f15c9c017848f8d8ca279afa1722697b8b13d8b7dccd8",
+          "size": 15361,
+          "event": "close_write",
+          "captured_at_ns": 1793066248079467727,
+          "source_mtime_ns": 1793066248076052141
+        },
+        {
+          "path": "workspace/helpers/enhance_workbook_v1.py",
+          "sha256": "812e9f6653541628b68f15c9c017848f8d8ca279afa1722697b8b13d8b7dccd8",
+          "size": 15361,
+          "event": "final_inventory",
+          "captured_at_ns": 1793066988793332525,
+          "source_mtime_ns": 1793066248076052141
+        }
+      ]
+    }
+  ],
+  "skill_recalc_sha256": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7",
+  "intentional_adaptations": [
+    "Prepared CSV copy replaced by final-cache export; filenames, headers and row order retained.",
+    "Loop CSV validation reuses cached Summary values; independent audit also validates CSVs. No extra workbook load.",
+    "Runtime summary reports only this replay; original Agent summary remains historical evidence."
+  ],
+  "inspections": "Trace inline Python extracted byte-for-byte; original load modes and scopes retained.",
+  "omitted": "Other debugging, repair executions, temporary previews, model reasoning, poll waits and post-loop deep audit.",
+  "status": "compiled_static_only_not_replayed",
+  "source_index_sha256": "59e636170b0a8c6c3af3bd1497e0d2acc231d36c08608b3eea47926bd442325d",
+  "replay_environment_policy": "One common openEuler image with document-oe; standard-profile soffice path adapter outside the unmodified Skill."
+}

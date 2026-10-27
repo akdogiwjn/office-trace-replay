@@ -1,0 +1,31 @@
+{
+  "schema_version": "office-staged-input-provenance-v1",
+  "dataset_id": "hr_metro",
+  "filename": "MSA_M2025_dl.xlsx",
+  "sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+  "file_size_bytes": 30628700,
+  "staged_at": "2026-10-26T15:30:29.471514+00:00",
+  "input_class": "official_native_spreadsheet_owner_supplied",
+  "official_publisher": "U.S. Bureau of Labor Statistics",
+  "release": "May 2025 OEWS metropolitan/nonmetropolitan area estimates",
+  "official_listing_url": "https://www.bls.gov/oes/tables.htm",
+  "official_archive_reference_url": "https://www.bls.gov/oes/special-requests/oesm25ma.zip",
+  "actual_acquisition_this_step": {
+    "method": "Local byte-for-byte copy from office-trace-replay",
+    "repository": "office-trace-replay",
+    "path": "assets/cases/hr_metro/source/datasets/xlsx/hr_metro/input/MSA_M2025_dl.xlsx",
+    "sha256": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0"
+  },
+  "original_acquisition": "Owner supplied this workbook as an official BLS download; original download date and response headers were not captured here.",
+  "independent_official_redownload_this_step": false,
+  "synthetic_expansion": false,
+  "conversion": "None; original workbook bytes preserved.",
+  "excluded_replay_materials": [
+    "prepared_selection.json",
+    "manual helpers",
+    "derived output worksheets",
+    "replay manifests and verifiers"
+  ],
+  "status": "input_staged_task_and_agent_trace_pending",
+  "scope": "Raw workbook input only; this import does not create or claim an Agent run."
+}

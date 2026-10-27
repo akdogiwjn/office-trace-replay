@@ -1,0 +1,118 @@
+{
+  "kind": "xlsx",
+  "dataset_id": "egrid",
+  "executions": [
+    {
+      "round": 1,
+      "run_id": "xlsx-egrid-20261027T011332Z-b20cf367",
+      "run_path": "runs/xlsx-egrid-20261027T011332Z-b20cf367",
+      "original_run_status": "failed",
+      "qualification_status": "success",
+      "qualification_evidence": {
+        "path": "reports/egrid-independent-recheck-20261027-v2/independent-verification-v2.json",
+        "sha256": "37e9329d17da94215fda82f5b499a1d774ba4f15a99b07ad8dff9d93217b8857",
+        "corrected_external_audit": true,
+        "recheck_record": {
+          "path": "reports/egrid-independent-recheck-20261027-v2/recheck-record.json",
+          "sha256": "72072f409b6823d58b48b7fdc7c20ecd912d88638fff3dbf3c71b6069793b778"
+        }
+      },
+      "original_independent_failures": [
+        "source:data:Contents"
+      ],
+      "independent_check_count": 152,
+      "tool_call_count": 43,
+      "runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "model": {
+        "name": "openclaw",
+        "version": "OpenClaw 2026.6.6 (8c802aa)",
+        "model_name": "deepseek/deepseek-v4-flash",
+        "extra": {
+          "parser": "openclaw-session-jsonl",
+          "provider": "deepseek",
+          "session_schema_version": 3,
+          "thinking_level": "high"
+        }
+      },
+      "input_hashes": {
+        "input/egrid2023_data_rev2.xlsx": "895cd81dd8662406189ad8adf5a2578dcb362cdb5cff7cca81b10ee6bd2447c6",
+        "input/verify_xlsx_enhanced.py": "3b7ed79e7c6163c56ee61a3f2820794bbff59742f220a7c72a586f8e80c98939",
+        "input/prepared_energy_summary.csv": "07ac132bfad99f71072e50e8d23d0ac444d4a4f6236de098f1fdb51051faa4b6",
+        "input/prepared_energy_reconciliation_summary.csv": "fd5239665d6aa624f94907135522a6f3004928583e8f5875335da32a52f43838"
+      },
+      "manifest_sha256": "3d42483d176649e5f0ad7fdff84489ae8a01ce047abf44422fcf4e091dc1d1c6",
+      "prompt_sha256": "7f11b045821e424c4b740a8343439ead8c559c81ac515302d664f5bf0eb1827b",
+      "prompt_template_sha256": "9597318af915b12c63649a55e4b9b29f1b1a39a2833afdd6930311190b000081",
+      "run_manifest": {
+        "path": "runs/xlsx-egrid-20261027T011332Z-b20cf367/run_manifest.json",
+        "sha256": "017e7b5557fcb096365d5e6d2e3bf2c7058f5ded243adc84a18f6c8f093cb982"
+      },
+      "trajectory": {
+        "path": "runs/xlsx-egrid-20261027T011332Z-b20cf367/trajectory.json",
+        "sha256": "eac43f4f51f1df5e62aee45a0bf2e3e7341a675359c06e3e1ea73726be7b580a"
+      },
+      "tool_events": {
+        "path": "runs/xlsx-egrid-20261027T011332Z-b20cf367/tool_events.json",
+        "sha256": "ac18aecb66236919e9fac811e5e9206a1bfe26d2e0e2ba6b7496f3c98b8f235c"
+      },
+      "canonical": null
+    },
+    {
+      "round": 2,
+      "run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+      "run_path": "runs/xlsx-egrid-20261027T032347Z-225eb8e9",
+      "original_run_status": "success",
+      "qualification_status": "success",
+      "qualification_evidence": {
+        "path": "runs/xlsx-egrid-20261027T032347Z-225eb8e9/independent_verification.json",
+        "sha256": "37e9329d17da94215fda82f5b499a1d774ba4f15a99b07ad8dff9d93217b8857"
+      },
+      "original_independent_failures": [],
+      "independent_check_count": 153,
+      "tool_call_count": 37,
+      "runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+      "model": {
+        "name": "openclaw",
+        "version": "OpenClaw 2026.6.6 (8c802aa)",
+        "model_name": "deepseek/deepseek-v4-flash",
+        "extra": {
+          "parser": "openclaw-session-jsonl",
+          "provider": "deepseek",
+          "session_schema_version": 3,
+          "thinking_level": "high"
+        }
+      },
+      "input_hashes": {
+        "input/egrid2023_data_rev2.xlsx": "895cd81dd8662406189ad8adf5a2578dcb362cdb5cff7cca81b10ee6bd2447c6",
+        "input/verify_xlsx_enhanced.py": "3b7ed79e7c6163c56ee61a3f2820794bbff59742f220a7c72a586f8e80c98939",
+        "input/prepared_energy_summary.csv": "07ac132bfad99f71072e50e8d23d0ac444d4a4f6236de098f1fdb51051faa4b6",
+        "input/prepared_energy_reconciliation_summary.csv": "fd5239665d6aa624f94907135522a6f3004928583e8f5875335da32a52f43838"
+      },
+      "manifest_sha256": "3d42483d176649e5f0ad7fdff84489ae8a01ce047abf44422fcf4e091dc1d1c6",
+      "prompt_sha256": "7f11b045821e424c4b740a8343439ead8c559c81ac515302d664f5bf0eb1827b",
+      "prompt_template_sha256": "9597318af915b12c63649a55e4b9b29f1b1a39a2833afdd6930311190b000081",
+      "run_manifest": {
+        "path": "runs/xlsx-egrid-20261027T032347Z-225eb8e9/run_manifest.json",
+        "sha256": "86880e8fc73144015d49d2b69a92038186d4a2e90d226a134274650d3997bd3c"
+      },
+      "trajectory": {
+        "path": "runs/xlsx-egrid-20261027T032347Z-225eb8e9/trajectory.json",
+        "sha256": "7defbde4ec91288c8bcc7520a6c80fb5f1c21e0efc4bdb22ec97b28b3dfa7e06"
+      },
+      "tool_events": {
+        "path": "runs/xlsx-egrid-20261027T032347Z-225eb8e9/tool_events.json",
+        "sha256": "2a6fe29a0801a68acab0e862712ebe036ee284578339f614c519f4cfaa6eb4fd"
+      },
+      "canonical": {
+        "path": "artifacts/canonical/xlsx/egrid/xlsx-egrid-20261027T032347Z-225eb8e9",
+        "canonical_sha256": "520ae87daffdaaa2cf98bcd288aa8015b4cbf83e03a1a0d48b093eee4367f00b",
+        "validated": true
+      }
+    }
+  ],
+  "same_input_hashes": true,
+  "same_manifest": true,
+  "identical_rendered_prompt": true,
+  "same_model_and_image": true,
+  "distinct_trajectories": true
+}

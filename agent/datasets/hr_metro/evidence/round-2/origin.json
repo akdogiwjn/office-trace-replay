@@ -1,0 +1,52 @@
+{
+  "round": 2,
+  "run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+  "run_path": "runs/xlsx-hr_metro-20261027T042913Z-2c0c625f",
+  "original_run_status": "success",
+  "qualification_status": "success",
+  "qualification_evidence": {
+    "path": "runs/xlsx-hr_metro-20261027T042913Z-2c0c625f/independent_verification.json",
+    "sha256": "fd4062d93b99b7546c18125907b89aa7bc0fcace7f9265ca1f633de42f6c20d6"
+  },
+  "original_independent_failures": [],
+  "independent_check_count": 118,
+  "tool_call_count": 29,
+  "runtime_image_id": "sha256:592e2675de4c9c657b6d1859893ffe72c8ce19875854c7902f405f9ea6524a65",
+  "model": {
+    "name": "openclaw",
+    "version": "OpenClaw 2026.6.6 (8c802aa)",
+    "model_name": "deepseek/deepseek-v4-flash",
+    "extra": {
+      "parser": "openclaw-session-jsonl",
+      "provider": "deepseek",
+      "session_schema_version": 3,
+      "thinking_level": "high"
+    }
+  },
+  "input_hashes": {
+    "input/MSA_M2025_dl.xlsx": "faf00eee127763c8c082d8fb862717ef2ad3a75f16f8975dc1e70935f27bcbb0",
+    "input/verify_xlsx_enhanced.py": "0acf5da489aa902a89273fe264a88a0b173e68e74a815dd2976f5a014feb374a",
+    "input/prepared_workforce_summary.csv": "7acd661bb80d75edfa10bf3b7a72defed40c6f1e34e8e9d771a22f559b942dad",
+    "input/prepared_workforce_reconciliation_summary.csv": "7aca457f8deed4fbcebad9b8ce37cdca5ebbf2aba5b8087c1ad5ada4f5e79313"
+  },
+  "manifest_sha256": "2fdcc8326dc883e79cc469048373363281f124610fd7970940970ad4a6f58392",
+  "prompt_sha256": "2053b0bc304c203fa2f33dd9be0476717f648fb926dbc5f29080606847207ed4",
+  "prompt_template_sha256": "7806dda876725ef5d869ac73a6d971b26ab23e03c67339b2a854d00aa9611d8d",
+  "run_manifest": {
+    "path": "runs/xlsx-hr_metro-20261027T042913Z-2c0c625f/run_manifest.json",
+    "sha256": "1ad703bee9ecec83bd147dcb5c76613efbb0dc04c956b4da27a00ae550c55fad"
+  },
+  "trajectory": {
+    "path": "runs/xlsx-hr_metro-20261027T042913Z-2c0c625f/trajectory.json",
+    "sha256": "802991ad0e8a8b55b77f821ea96f150753ec499df6b7f32d392b76980cf150c3"
+  },
+  "tool_events": {
+    "path": "runs/xlsx-hr_metro-20261027T042913Z-2c0c625f/tool_events.json",
+    "sha256": "59ae1f862babfbc67adb2076b4c5cfb419f44fd705aa6014f449656446caf775"
+  },
+  "canonical": {
+    "path": "artifacts/canonical/xlsx/hr_metro/xlsx-hr_metro-20261027T042913Z-2c0c625f",
+    "canonical_sha256": "08f65994074a5696f74da23b25dde3425c79aa923fadf6cf3f972a43d457eacb",
+    "validated": true
+  }
+}

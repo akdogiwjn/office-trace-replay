@@ -1,0 +1,56 @@
+{
+  "schema_version": "office-semantic-oracle-v2",
+  "metric_values": {
+    "hours_worked_2025": 109.267,
+    "real_output_2025": 100.553,
+    "labor_productivity_2025": 92.025,
+    "output_per_worker_2025": 89.825,
+    "reconciliation_status": "PASS"
+  },
+  "scenario_values": {
+    "Base": {
+      "projected_hours_worked": 109.267,
+      "projected_real_output": 100.553
+    },
+    "Upside": {
+      "projected_hours_worked": 114.73035,
+      "projected_real_output": 114.027102
+    },
+    "Downside": {
+      "projected_hours_worked": 103.80364999999999,
+      "projected_real_output": 88.8385755
+    }
+  },
+  "chart_values": {
+    "manufacturing_subindustry_2025": [
+      92.025,
+      65.216,
+      93.136,
+      108.58,
+      114.982
+    ],
+    "food_productivity_trend": [
+      99.932,
+      100.059,
+      99.105,
+      94.037,
+      92.025
+    ]
+  },
+  "oracle_provenance": "Expected values and two small reference CSVs are prepared from unchanged source cells outside Agent execution. CSVs are copied during the task; no derived workbook, prepared selection or business helper is supplied.",
+  "source_cell_values": {
+    "Annual!AT487": 92.025,
+    "Annual!AS487": 94.037,
+    "Annual!AO487": 101.496,
+    "Annual!AT510": 65.216,
+    "Annual!AT533": 93.136,
+    "Annual!AT556": 108.58,
+    "Annual!AT579": 114.982,
+    "Annual!AP487": 99.932,
+    "Annual!AQ487": 100.059,
+    "Annual!AR487": 99.105,
+    "Annual!AT488": 100.553,
+    "Annual!AT489": 109.267,
+    "Annual!AT490": 89.825
+  }
+}

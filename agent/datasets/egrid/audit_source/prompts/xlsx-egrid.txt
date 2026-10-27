@@ -1,0 +1,55 @@
+You are executing a measured OpenClaw benchmark case inside a fresh trace-generation container.
+
+Case: enhance the original EPA eGRID2023 Revision 2 electricity and emissions workbook into an executive-ready, interactive workbook.
+Workspace root: {workspace}
+Input directory: {workspace}/input
+Output directory: {workspace}/output
+
+First read and follow the installed xlsx Skill at /root/.openclaw/skills/xlsx/SKILL.md. Use its prescribed openpyxl workflow and its bundled scripts/recalc.py. Do not replace the source workbook with a newly generated simplified workbook.
+
+Inputs:
+- egrid2023_data_rev2.xlsx: the complete original workbook, with 11 existing sheets. Inspect it before editing.
+- prepared_energy_summary.csv and prepared_energy_reconciliation_summary.csv: stable reference exports, prepared before this task; copy them rather than regenerate them.
+- input/dataset_manifest.json: source, integrity and task metadata. The project has already staged output/workbook_features.json for verification; you do not create or edit this index.
+- input/verify_xlsx_enhanced.py: this dataset's independent strict verifier.
+
+Required business work:
+1. Copy egrid2023_data_rev2.xlsx to output/energy_report.xlsx, preserve every existing worksheet, formula, chart, value, merged region and formatting. Do not rewrite the original data, add synthetic rows or substitute a preprocessed workbook.
+2. Add Energy_Summary as the first and only new sheet. Use Arial consistently and a professional blue/gray visual hierarchy.
+3. Place these five KPI formulas in the exact cells below:
+   - B5 Annual net generation (MWh): cross-sheet formula linked to US23!G3.
+   - B6 Annual CO2 emissions (short tons): cross-sheet formula linked to US23!M3.
+   - B7 CO2 total output emission rate (lb/MWh): cross-sheet formula linked to US23!U3.
+   - B8 Gas generation share (fraction): cross-sheet formula linked to US23!DZ3.
+   - B9 Source consistency status: Return exactly PASS only when US23!G3 is positive, US23!M3 and U3 are nonnegative, DZ3 is between 0 and 1, and ABS(US23!U3-US23!M3*2000/US23!G3)<0.01; otherwise REVIEW. Use direct cross-sheet references.
+   Source interpretation: The workbook publishes these totals, rates and fractions. Do not reaggregate unit, generator or plant rows. Fractions use percentage formats.
+4. Add a three-scenario control block (illustrative sensitivities; the names denote higher/lower assumptions, not forecasts):
+   - B12 is a data-validation dropdown with Base, Upside, Downside and defaults to Base.
+   - D13:F15 is the hardcoded scenario table: Base 1.00/1.00, Upside 1.08/1.05, Downside 0.93/0.95 for emission_intensity_multiplier and generation_multiplier.
+   - B13 and B14 dynamically return the selected emission_intensity_multiplier and generation_multiplier using formulas that reference B12 and the scenario table. Choose the lookup formula yourself.
+   - B15 Projected annual net generation is a formula based on B5 and B14.
+   - B16 Projected annual CO2 emissions is a formula based on B6, B13, and B14.
+5. Add two charts on Energy_Summary. Preserve all original charts.
+   - state_generation: column chart, Annual net generation for CA, NY, TX, FL, PA in that order. Put labels in A20:A24 and live source-linked values in B20:B24. Sources: CA: ST23!I7; NY: ST23!I37; TX: ST23!I47; FL: ST23!I12; PA: ST23!I41.
+   - resource_mix: pie chart, U.S. coal, gas, nuclear, hydro, wind and solar generation shares, in that order. Put labels in D20:D25 and live source-linked values in E20:E25. Sources: Coal: US23!DX3; Gas: US23!DZ3; Nuclear: US23!EA3; Hydro: US23!EB3; Wind: US23!ED3; Solar: US23!EE3.
+6. Add at least two conditional-formatting rules covering two distinct regions, freeze panes, readable widths/heights, correct unit/percentage/integer formats, and at least two comments documenting source or scenario assumptions.
+7. Apply the xlsx Skill color convention: hardcoded editable inputs in blue font, cross-sheet formulas (B5:B9 and chart-table formulas) in green font, local formulas (B13:B16) in black font.
+8. Calculations must remain Excel formulas, not Python-hardcoded results. Do not create external workbook links. Use the source coordinates above; do not rescan or aggregate large tables to manufacture replacement totals.
+
+Execution and QA:
+- You may write one concise Python helper using openpyxl to perform the workbook edits. Author the helper yourself; no business helper or prepared selection is supplied.
+- Use the installed openpyxl. Never assign None to a cell style descriptor. Construct PatternFill with explicit start_color, end_color and fill_type keywords.
+- When all edits are finished, invoke /root/.openclaw/skills/xlsx/scripts/recalc.py once in the normal successful path with a 600-second timeout and save its JSON stdout as output/formula_recalc.json. Preserve the caches; do not save the recalculated result again with a normal openpyxl save.
+- Copy input/prepared_energy_summary.csv to output/energy_summary.csv and input/prepared_energy_reconciliation_summary.csv to output/energy_reconciliation_summary.csv. Do not generate CSVs from cached cells or change the supplied reference bytes.
+- Run python3 input/verify_xlsx_enhanced.py output/energy_report.xlsx output/formula_recalc.json output/business_verification.json. Fix the workbook only if verification fails; if repair requires another recalc, record the extra invocation. Keep helpers and distinct versions of rewritten helpers in the workspace.
+- Write output/xlsx_enhancement_summary.json with feature counts, helper filenames, helper execution-attempt/success counts, recalc invocation count and final_verifier_status.
+
+Completion requires:
+- energy_report.xlsx
+- energy_summary.csv
+- energy_reconciliation_summary.csv
+- formula_recalc.json
+- business_verification.json with status=success
+- xlsx_enhancement_summary.json
+
+Do not install packages or download data during the measured task. Do not merely describe the work: create and verify the actual files.

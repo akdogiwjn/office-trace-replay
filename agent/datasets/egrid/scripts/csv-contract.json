@@ -1,0 +1,75 @@
+{
+  "dataset_id": "egrid",
+  "workbook": "energy_report.xlsx",
+  "sheet": "Energy_Summary",
+  "exports": [
+    {
+      "filename": "energy_summary.csv",
+      "header": [
+        "Metric",
+        "Value"
+      ],
+      "rows": [
+        {
+          "label": "Annual net generation",
+          "cells": [
+            "B5"
+          ]
+        },
+        {
+          "label": "Annual CO2 emissions",
+          "cells": [
+            "B6"
+          ]
+        },
+        {
+          "label": "CO2 total output emission rate",
+          "cells": [
+            "B7"
+          ]
+        },
+        {
+          "label": "Gas generation share",
+          "cells": [
+            "B8"
+          ]
+        },
+        {
+          "label": "Source consistency status",
+          "cells": [
+            "B9"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "energy_reconciliation_summary.csv",
+      "header": [
+        "Source",
+        "Primary_Total",
+        "Secondary_Total",
+        "Status"
+      ],
+      "rows": [
+        {
+          "label": "Source-derived KPI references",
+          "cells": [
+            "B5",
+            "B6",
+            "B9"
+          ]
+        },
+        {
+          "label": "Base scenario reference",
+          "cells": [
+            "B15",
+            "B16",
+            "B9"
+          ]
+        }
+      ]
+    }
+  ],
+  "numeric_relative_tolerance": 1e-08,
+  "numeric_absolute_tolerance": 1e-06
+}

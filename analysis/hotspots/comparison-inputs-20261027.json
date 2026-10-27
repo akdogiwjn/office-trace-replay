@@ -1,0 +1,176 @@
+{
+  "baseline": {
+    "path": "analysis/hotspots/baselines/legacy-opm-tlc.json",
+    "sha256": "890e5ef4de1ec3741091956c73247e854d5b7464765faa6004d96f0e984ff178"
+  },
+  "profiles": {
+    "irs_w4": {
+      "path": "analysis/hotspots/reports/irs-w4-native-pilot-20261027T103444Z-ea88d68e-analysis-v2/profile.json",
+      "sha256": "ae52d1c4c0b27ffea490deaee6b8e9012b797efe85045cbb520863e6fca3fba9",
+      "evidence": {
+        "evidence.json": {
+          "path": "analysis/hotspots/reports/irs-w4-native-pilot-20261027T103444Z-ea88d68e-analysis-v2/evidence.json",
+          "sha256": "e4863adeab7990b13a6e1422d5246f0899b39bad03e69c3b0f9252e1acc08874"
+        }
+      }
+    },
+    "sba1919": {
+      "path": "analysis/hotspots/reports/sba1919-native-pilot-20261027T105732Z-4675cf50-recovered-report/profile.json",
+      "sha256": "5870d7b397eb351875187a6af830b72fc310c60e84682f8bf9187d53842f823a",
+      "evidence": {
+        "evidence.json": {
+          "path": "analysis/hotspots/reports/sba1919-native-pilot-20261027T105732Z-4675cf50-recovered-report/evidence.json",
+          "sha256": "28d3f1079b875c8e056aeb1fb471ce9dc4456dfe48a93faeb15c540ce37581ad"
+        }
+      }
+    },
+    "hr_metro": {
+      "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/profile.json",
+      "sha256": "7dded54f63c43f42f2d5c4e68ae51a440fab64fc6457a419c64988aa66346597",
+      "evidence": {
+        "evidence.json": {
+          "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence.json",
+          "sha256": "adffe34d9d2e0c5b2e198bd346772ae6c25cfa8a43173473d7b3700fcd04fedf"
+        }
+      }
+    }
+  },
+  "output": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027",
+  "findings": [
+    "按“主要热点大致相同、无需权重完全对应”的目标，本次 W-4、SBA 1919 与旧 OPM，以及 HR Metro 与旧 TLC，均观察到了主要共同热点。该结论仅针对已采样配置。",
+    "PDF：共同热点脚本是 convert_pdf_to_images.py、fill_fillable_fields.py、verify_pdf_batch.py 和 pdftoppm；共同原生路径包括 Python 解释执行、Pillow 缩放/编码、zlib 压缩和 Poppler 渲染。W-4、SBA 与 OPM 的 Top-10 物理函数均有 7 个交集，旧 Top-10 在两个新配置 Top-20 中均出现 9 个。",
+    "XLSX：共同执行工作包括工作簿检查、增强、recalc.py/LibreOffice 重算和 verify_xlsx_enhanced.py 验证；增强 helper 分别是旧 enhance_workbook.py 与 HR 的 enhance_workforce_v2.py。HR 与 TLC 的 Top-10 物理函数有 8 个交集，旧 Top-10 全部在 HR Top-20 中出现。",
+    "XLSX 的主要库同见 libpython、Expat、ElementTree、zlib 和 LibreOffice；解释器执行、对象/字典操作、GC 与 XML 处理共同出现。脚本数量、检查拆分、摘要/导出权重并不完全相同，本报告不要求逐脚本占比相等。",
+    "HR 存在 perf 丢样（147 条 LOST 记录、7 条 LOST_SAMPLES 记录，record 报告 147 lost chunks）；这几个量不是同一单位，也不能视作“只丢了 7 个样本”。ROI 归属和丢失 period 未知。因此仅作共同热点的初步描述，不把权重视作精密或稳定估计。",
+    "本轮只新增 SBA 与 HR 各一次 workload，没有重跑 W-4、OPM/TLC、其余 XLSX，也没有生成 Agent trace、重建镜像或调用模型。SBA 摘要字段错误从原始导出离线修复，原失败记录保留。"
+  ],
+  "assessment": {
+    "xlsx_datasets": [
+      [
+        "TLC（原基准）",
+        "交通出行；NYC TLC",
+        "7 个工作表；主表 100,000 行 × 25 列，约 250 万单元格",
+        "真实出租车行程样本及分组汇总；新增运营 Summary、指标、情景和图表"
+      ],
+      [
+        "eGRID",
+        "电力能源；美国 EPA",
+        "11 个工作表；约 273 万非空单元格",
+        "机组、发电机、电厂与区域统计；新增能源业务 Summary"
+      ],
+      [
+        "HR Metro",
+        "就业与工资；美国 BLS OEWS",
+        "4 个工作表；主表 150,023 条记录、32 列；约 421 万非空单元格",
+        "都会区／非都会区职业就业与工资统计；新增 Workforce Summary"
+      ],
+      [
+        "Industry Productivity",
+        "产业生产率；美国 BLS",
+        "3 个工作表；长表约 56.7 万条记录、9 列；约 580 万非空单元格",
+        "年度宽表与机器可读长表，涵盖生产率、产出、工时、就业和劳动补偿；新增产业 Summary"
+      ]
+    ],
+    "pdf_datasets": [
+      [
+        "OPM OF-306（原基准）",
+        "联邦雇佣申报；美国 OPM",
+        "08/2023",
+        "3 页、38 个字段；10 条记录"
+      ],
+      [
+        "IRS W-4",
+        "员工税务预扣；美国 IRS",
+        "2026",
+        "5 页、48 个字段；10 条记录"
+      ],
+      [
+        "SBA Form 1919",
+        "小企业贷款申请；美国 SBA",
+        "04/2024 可填写版本",
+        "7 页、127 个字段；10 条记录"
+      ]
+    ],
+    "trace_sources": [
+      [
+        "eGRID",
+        "xlsx-egrid-20261027T032347Z-225eb8e9",
+        "helpers/enhance_energy_report_v2.py"
+      ],
+      [
+        "HR Metro",
+        "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+        "helpers/enhance_workforce_v2.py"
+      ],
+      [
+        "Industry Productivity",
+        "xlsx-industry_productivity-20261027T015504Z-769d363e",
+        "helpers/enhance_workbook_v1.py"
+      ],
+      [
+        "IRS W-4",
+        "pdf-irs_w4-20261027T021455Z-c206db3d",
+        "build_field_values.py、run_batch.py"
+      ],
+      [
+        "SBA 1919",
+        "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+        "build_field_values.py、run_batch.py"
+      ]
+    ],
+    "metadata_sources": [
+      {
+        "path": "agent/datasets/egrid/provenance.json",
+        "sha256": "1142061cd64400c50fd5d3ad7ced322f16ba9ba2fda8de50c72ca93f295351ed"
+      },
+      {
+        "path": "agent/datasets/egrid/audit_source/datasets/xlsx/egrid/provenance.json",
+        "sha256": "89e75e55b7e0f850d7c7f78e9e023115798fcc4481ad7d25f74817d02cbc6161"
+      },
+      {
+        "path": "agent/datasets/egrid/audit_source/datasets/xlsx/egrid/complexity.json",
+        "sha256": "97a663d2edbb7541b9372ff50bd940cf2e9bdc03ff753bc1868f073000c38fc4"
+      },
+      {
+        "path": "agent/datasets/hr_metro/provenance.json",
+        "sha256": "03de33c52930ff1fdfea6e44dc0e363c96856eedeba613b38b3fb27dd9fba119"
+      },
+      {
+        "path": "agent/datasets/hr_metro/audit_source/datasets/xlsx/hr_metro/provenance.json",
+        "sha256": "d8298bf7042b36a9b62767922b4c405687b39a15c8028a2e9675cf87e92b4433"
+      },
+      {
+        "path": "agent/datasets/hr_metro/audit_source/datasets/xlsx/hr_metro/complexity.json",
+        "sha256": "61bddb3803db3e36094ef82229ec309322836735a09af12d9831b6837c493c0a"
+      },
+      {
+        "path": "agent/datasets/industry_productivity/provenance.json",
+        "sha256": "5f1aba6fd0a28e484655b2370881c8ff518fe9f44ff52b2ed794b42ac72416a2"
+      },
+      {
+        "path": "agent/datasets/industry_productivity/audit_source/datasets/xlsx/industry_productivity/provenance.json",
+        "sha256": "4395ffdc4a8c4cc60f1ab8a1e83e1f9572710c34eeb4ee476e095ba1c72e903a"
+      },
+      {
+        "path": "agent/datasets/industry_productivity/audit_source/datasets/xlsx/industry_productivity/complexity.json",
+        "sha256": "295cd1242b4d0c2d99a92f1540212f150402792ccc39d134a9f9739529f4b1a3"
+      },
+      {
+        "path": "agent/datasets/irs_w4/provenance.json",
+        "sha256": "90534b02dd0a2e0faaeaffc6ec22475b10e6d1be2c8791e7009067bd525b422f"
+      },
+      {
+        "path": "agent/datasets/irs_w4/audit_source/datasets/pdf/irs_w4/provenance.json",
+        "sha256": "2ad241889efe8c3d673fae3285bbe3d3804404eb37598b03eb368412b307c4a9"
+      },
+      {
+        "path": "agent/datasets/sba1919/provenance.json",
+        "sha256": "7c601b7b20b1eef6287f5d62073a79761de8dec327682f809ec864597d460979"
+      },
+      {
+        "path": "agent/datasets/sba1919/audit_source/datasets/pdf/sba1919/provenance.json",
+        "sha256": "37f4d496330f66c28d102edac2a62f095933d89b6156ab6d56c94607af5d3a77"
+      }
+    ]
+  }
+}

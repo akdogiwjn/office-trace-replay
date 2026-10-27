@@ -1,0 +1,115 @@
+{
+  "schema_version": "agent-replay-prebuild-closeout-v1",
+  "checked_at": "2026-10-27T08:24:57.342808+00:00",
+  "fixes": {
+    "sba_origins": {
+      "check": 8,
+      "extract": 9,
+      "template_render": 10,
+      "policy": "actual Python invocation, not source mentions"
+    },
+    "loop_csv": {
+      "datasets": [
+        "egrid",
+        "hr_metro",
+        "industry_productivity"
+      ],
+      "extra_workbook_loads": 0,
+      "scope": "CSV header/shape/order/labels/current cached values, numeric tolerance and finite values",
+      "original_agent_verifier": "immutable seed/input version; private scripts adapter declared in recipe"
+    },
+    "cpu_boundary": {
+      "clock": "CLOCK_MONOTONIC nanoseconds",
+      "default": "loop_including_reset",
+      "alternative": "workflow",
+      "excluded": [
+        "preflight/context snapshot",
+        "archive_excluded",
+        "independent_audit_excluded"
+      ],
+      "limitation": "Collectors must filter workload samples/CPU by these windows. Whole-launcher CPU is not automatically filtered."
+    },
+    "evidence": {
+      "context_snapshot": [
+        "lock.json",
+        "provenance.json",
+        "recipe.json",
+        "environment.json",
+        "replay-environment.json"
+      ],
+      "host_mode": "agent/replay.py --docker-image: create/inspect/start; retain container; before/after inspect and launch plan",
+      "binding": "Container hostname and dataset lock must match; explicit missing/wrong inspect rejected before reset",
+      "manual_without_inspect": "functional use allowed; actual image unknown and evidence_complete=false"
+    },
+    "failures": {
+      "workload_status": "preserved independently of archive_status",
+      "overall": "failed if archive or record persistence fails; stop subsequent iterations",
+      "atomic_write_fallback": "*.emergency.json, then stderr if storage cannot persist even that record"
+    }
+  },
+  "tests": {
+    "agent": 33,
+    "legacy": 4,
+    "integration_and_environment": 11,
+    "passed": 48,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0,
+    "scope": "Small XLSX fixtures and mocked Docker/IO failures; no production workload"
+  },
+  "frozen_legacy_workload_files_unchanged": 43,
+  "original_inputs_helpers_and_skills_unchanged": true,
+  "checks": {
+    "binding_preflight": "passed",
+    "python_AST": "passed",
+    "git_diff_check": "passed"
+  },
+  "integration_limits": [
+    "No production replay or LibreOffice recalculation",
+    "Host Docker launcher exercised with mocked Docker CLI responses, not real image integration",
+    "CPU boundaries verified with fixture chronology; no profiler started",
+    "Canonical runtime qualification remains compiled_static_only_not_replayed"
+  ],
+  "supersedes_code_hashes_in": [
+    "runtime-entry-alignment.json",
+    "single-container-integration.json"
+  ],
+  "historical_reports_modified": false,
+  "new_image_built": false,
+  "production_workload_executed": false,
+  "performance_collected": false,
+  "committed_or_pushed": false,
+  "file_hashes": {
+    "README.md": "ca81a25a2d01c155718d03686cd369f56bdbdab2b45918e3b5bebc9108521225",
+    "agent/README.md": "ced14cfb60861a630dfc48ebe497b95705b2ce6f3377b5ed7cf009485f5f4814",
+    "agent/replay.py": "540a32c25eb07c2ff2cc433d70ed3ec52b51d85220868ad014e17e7f948800a4",
+    "agent/suite.json": "2841554fcf3e13ba949dc617b182e956f49a1f8a6c429e2f039f5998563058df",
+    "agent/tools/import_traces.py": "e54aea60a02e77c5b3befa1af2dcc13bd572cf10deff7b62ecc6c879451a8d88",
+    "agent/tools/dataset_runner.py.template": "bd9cb5c8ad804f300324e62d0dc282ddc734dbaa793b50dacac0b46504d3e4a5",
+    "agent/tools/loop_csv_checks.py.template": "d4f4a517ccaf6f7a3395f07c7b2978a0ca05731daa4a8d828a6c4e461cdccf96",
+    "agent/tests/test_closeout.py": "b603ef756bf49802dca69e409a79fc8b685a2ee5ab4f8f4d6b18dadab32aa0bf",
+    "agent/datasets/egrid/run.py": "67915cc7d2fdd5f6d0bf331ef41d5c7a8c8a18b45f80d7240ac4e745c63ed646",
+    "agent/datasets/egrid/recipe.json": "f8211e0f2c28ed999955af0260628a4ee08d081fa4f33c59b18257e268916b5d",
+    "agent/datasets/egrid/provenance.json": "1142061cd64400c50fd5d3ad7ced322f16ba9ba2fda8de50c72ca93f295351ed",
+    "agent/datasets/egrid/lock.json": "7e296bd5a5c06929a9a2217eb73344916c707bb2fecb4695708f7e97059d07a0",
+    "agent/datasets/egrid/scripts/verify_xlsx_enhanced.py": "dcd0cad3201bfd419a3918166479864a89d547ca9fc9a7f4092be866aae4910f",
+    "agent/datasets/hr_metro/run.py": "67915cc7d2fdd5f6d0bf331ef41d5c7a8c8a18b45f80d7240ac4e745c63ed646",
+    "agent/datasets/hr_metro/recipe.json": "a82a91bd8d61bbeb8dd697cbedf1c9af6415bd8e8ee41d8fc0a7b2c9cf3372fb",
+    "agent/datasets/hr_metro/provenance.json": "03de33c52930ff1fdfea6e44dc0e363c96856eedeba613b38b3fb27dd9fba119",
+    "agent/datasets/hr_metro/lock.json": "dbae3d0c930accd4a33a81bdac9ea8e48fffca441f12ce14ca3bde689658d4f8",
+    "agent/datasets/hr_metro/scripts/verify_xlsx_enhanced.py": "9772b691cbb4c16795db478cfa1d6115637a5522ec66c319a52d7a054e16d7f3",
+    "agent/datasets/industry_productivity/run.py": "67915cc7d2fdd5f6d0bf331ef41d5c7a8c8a18b45f80d7240ac4e745c63ed646",
+    "agent/datasets/industry_productivity/recipe.json": "27dcad66e72abccd1cbcc78b87a525e16db1ff4d8325f381b8237628d554eeb2",
+    "agent/datasets/industry_productivity/provenance.json": "5f1aba6fd0a28e484655b2370881c8ff518fe9f44ff52b2ed794b42ac72416a2",
+    "agent/datasets/industry_productivity/lock.json": "b61a15b2651e8e9ae01bdc3789711c127112434c205e4565f00a5cadde4871a9",
+    "agent/datasets/industry_productivity/scripts/verify_xlsx_enhanced.py": "dce7b44a5cbb21ca2ca4d70870f1d69c686be3e25b883c20a3bdc6e6d67b0eb0",
+    "agent/datasets/irs_w4/run.py": "67915cc7d2fdd5f6d0bf331ef41d5c7a8c8a18b45f80d7240ac4e745c63ed646",
+    "agent/datasets/irs_w4/recipe.json": "c7e59480dd14373d2ca9541534a3bd05c4b374b598a5e8db1ac184d10a583799",
+    "agent/datasets/irs_w4/provenance.json": "90534b02dd0a2e0faaeaffc6ec22475b10e6d1be2c8791e7009067bd525b422f",
+    "agent/datasets/irs_w4/lock.json": "94fbbe51b5007795c988344cde4e306db016468994559e7384c2e36e15dad9be",
+    "agent/datasets/sba1919/run.py": "67915cc7d2fdd5f6d0bf331ef41d5c7a8c8a18b45f80d7240ac4e745c63ed646",
+    "agent/datasets/sba1919/recipe.json": "c86f5369b4d3b046f34951ce434ce9eb978167a18d494489106475c7a9296286",
+    "agent/datasets/sba1919/provenance.json": "7c601b7b20b1eef6287f5d62073a79761de8dec327682f809ec864597d460979",
+    "agent/datasets/sba1919/lock.json": "4479f99a19c0fab6e329c63e3be5fcc2f700de20e3c6ac484032ff447727a2c3"
+  }
+}

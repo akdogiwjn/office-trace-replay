@@ -1,0 +1,166 @@
+{
+  "schema_version": "independent-agent-replay-v1",
+  "dataset_id": "hr_metro",
+  "kind": "xlsx",
+  "mode": "effective-tool-chain",
+  "source_run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+  "source_round": 2,
+  "required_outputs": [
+    "workforce_report.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "workforce_summary.csv",
+    "workforce_reconciliation_summary.csv"
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO",
+  "phases": [
+    {
+      "id": "P01",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_structure.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+            "event_ordinal": 6,
+            "step_id": 5,
+            "tool_call_id": "call_00_eMt4vjzib1VLuGIq85jn1712",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO && python3 - <<'EOF'\nfrom openpyxl import load_workbook\nimport time\nt=time.time()\nwb=load_workbook('input/MSA_M2025_dl.xlsx')\nprint('load', time.time()-t)\nprint(wb.sheetnames)\nfor ws in wb.worksheets:\n    print(ws.title, ws.max_row, ws.max_column, 'charts', len(ws._charts), 'images', len(ws._images), 'merged', len(ws.merged_cells.ranges), 'freeze', ws.freeze_panes)\nws=wb['MSA_M2025_dl']\nprint('--- header rows 1..8 ---')\nfor r in range(1,9):\n    print(r, [ws.cell(row=r,column=c).value for c in range(1,33)])\nprint('--- row 93966 ---')\nfor c in range(1,33):\n    cell=ws.cell(row=93966,column=c)\n    print(c, cell.coordinate, repr(cell.value), cell.number_format)\nEOF"
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_features.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+            "event_ordinal": 8,
+            "step_id": 7,
+            "tool_call_id": "call_00_PnW60TSVqMoECdp1nAA91435",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO && python3 - <<'EOF'\nfrom openpyxl import load_workbook\nwb=load_workbook('input/MSA_M2025_dl.xlsx')\nws=wb['MSA_M2025_dl']\nfor r in [93966,93967,94004,94336,94437,94460]:\n    print(r, ws.cell(r,10).value, 'L=',ws.cell(r,12).value, 'S=',ws.cell(r,19).value, 'W=',ws.cell(r,23).value, 'AB=',ws.cell(r,28).value)\nprint('defined names', list(wb.defined_names))\nprint('external links', wb._external_links)\nfor s in wb.worksheets:\n    print(s.title, 'cf', len(s.conditional_formatting), 'dv', len(s.data_validations.dataValidation), 'tables', list(s.tables), 'autofilter', s.auto_filter.ref, 'print_area', s.print_area)\nprint('props', wb.properties.title, wb.properties.creator)\nc=ws.cell(1,1); print('A1 font', c.font.name, c.font.sz, c.font.b, c.font.color, 'fill', c.fill.fill_type, c.fill.fgColor.rgb, 'align', c.alignment.horizontal)\nc=ws.cell(2,12); print('L2 font', c.font.name, c.font.sz, c.number_format)\nfd=wb['Field Descriptions']\nprint('merged', fd.merged_cells.ranges)\nfor r in range(1,10):\n    print(r,[fd.cell(r,c).value for c in range(1,4)])\nprint('col widths MSA', {k:v.width for k,v in list(ws.column_dimensions.items())[:6]})\nprint('row heights', {k:v.height for k,v in list(ws.row_dimensions.items())[:4]})\nprint('default font', wb._fonts[0].name if wb._fonts else None, len(wb._fonts))\nEOF"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "helpers/enhance_workforce_v2.py"
+          ],
+          "origin": {
+            "type": "final_captured_agent_helper",
+            "run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+            "event_ordinal": 15,
+            "step_id": 14,
+            "tool_call_id": "call_00_MSJ54aThGnkaYYwNU1OK4636",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO && python3 - <<'EOF'\nimport re\np='helpers/enhance_workforce_v2.py'\ns=open(p).read()\nold='''def style_range(ws, ref, *, font=None, fill=None, align=None, border=None, fmt=None):\n    for row in ws[ref]:\n        for cell in row:'''\nnew='''def style_range(ws, ref, *, font=None, fill=None, align=None, border=None, fmt=None):\n    block = ws[ref]\n    if not isinstance(block, tuple):\n        block = ((block,),)\n    elif block and not isinstance(block[0], tuple):\n        block = (block,)\n    for row in block:\n        for cell in row:'''\nassert old in s\nopen(p,'w').write(s.replace(old,new))\nprint('patched')\nEOF\npython3 helpers/enhance_workforce_v2.py",
+              "yieldMs": 180000
+            },
+            "path": "helpers/enhance_workforce_v2.py",
+            "sha256": "7980c22bb0658492db8f444c8a0578aef668d2e6bda850c52f7cad8a066fd1b9",
+            "adaptation": "Execute final captured helper directly; omit preceding text patch/time wrapper."
+          }
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/xlsx/scripts/recalc.py",
+            "output/workforce_report.xlsx",
+            "600"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+            "event_ordinal": 17,
+            "step_id": 16,
+            "tool_call_id": "call_00_PdKISS1SOncI5hreRD5o6071",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/workforce_report.xlsx 600 > output/formula_recalc.json 2>output/recalc.stderr.log; echo \"exit=$?\"; cat output/formula_recalc.json; echo \"--- stderr tail ---\"; tail -5 output/recalc.stderr.log",
+              "yieldMs": 300000
+            }
+          },
+          "stdout": "output/formula_recalc.json",
+          "timeout": 900
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_formulas.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+            "event_ordinal": 16,
+            "step_id": 15,
+            "tool_call_id": "call_00_UAp4Xwjv2HtUfjJMcQny4048",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-HR-METRO && python3 - <<'EOF'\nfrom openpyxl import load_workbook\nwb=load_workbook('output/workforce_report.xlsx')\nprint(wb.sheetnames)\nws=wb['Workforce_Summary']\nfor a in ['B5','B6','B7','B8','B9','B12','B13','B14','B15','B16','B20','B24','E20','E24']:\n    c=ws[a]; col=c.font.color.rgb if c.font.color and c.font.color.type=='rgb' else None\n    print(a, c.data_type, repr(c.value), c.number_format, c.font.name, col, c.font.sz)\nprint('dv', [(v.type, str(v.sqref), v.formula1) for v in ws.data_validations.dataValidation])\nprint('cf', [str(g.sqref) for g in ws.conditional_formatting])\nprint('charts', len(ws._charts), [ (c.title is not None) for c in ws._charts])\nprint('comments', [c.coordinate for r in ws.iter_rows() for c in r if c.comment])\nprint('freeze', ws.freeze_panes, 'merged', ws.merged_cells.ranges)\nprint('formula count', sum(c.data_type=='f' for r in ws.iter_rows() for c in r))\nprint('base', [(s.title, s.max_row, s.max_column, len(s._charts), len(s.merged_cells.ranges)) for s in wb.worksheets if s.title!='Workforce_Summary'])\nprint('ext', wb._external_links, 'names', list(wb.defined_names))\nEOF",
+              "yieldMs": 120000
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "export_xlsx_csv.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Replace prepared CSV copies with one read-only final-cache load and CSV writes; no recomputation."
+          }
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "verify_xlsx_enhanced.py",
+            "output/workforce_report.xlsx",
+            "output/formula_recalc.json",
+            "output/business_verification.json"
+          ],
+          "origin": {
+            "type": "replay_verifier_adaptation",
+            "original_sha256": "0acf5da489aa902a89273fe264a88a0b173e68e74a815dd2976f5a014feb374a",
+            "sha256": "9772b691cbb4c16795db478cfa1d6115637a5522ec66c319a52d7a054e16d7f3",
+            "description": "Private original verifier plus CSV-to-current-cache checks; reuses its cached load."
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "write_xlsx_summary.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Generate current replay counts/status; never copy historical success or hashes."
+          }
+        }
+      ]
+    }
+  ],
+  "policy": "Selected inspections and effective final build; no LLM, repair, preview or Agent waits."
+}

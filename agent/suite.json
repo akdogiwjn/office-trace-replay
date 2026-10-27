@@ -1,0 +1,47 @@
+{
+  "schema_version": "independent-agent-suite-v1",
+  "branch": "agent-traces",
+  "datasets": [
+    {
+      "dataset_id": "egrid",
+      "kind": "xlsx",
+      "source_run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+      "lock_sha256": "39ad3fc3dc86bcda3eac3febae1c0d17b13cea13d933b6ea401d4c4a978c45b8",
+      "recipe_sha256": "f8211e0f2c28ed999955af0260628a4ee08d081fa4f33c59b18257e268916b5d",
+      "execution_status": "compiled_static_only_not_replayed"
+    },
+    {
+      "dataset_id": "hr_metro",
+      "kind": "xlsx",
+      "source_run_id": "xlsx-hr_metro-20261027T042913Z-2c0c625f",
+      "lock_sha256": "bd7b8d9b30ff6d90eef472b2b9654632fb3ffe0f97faa54637e284175c232194",
+      "recipe_sha256": "a82a91bd8d61bbeb8dd697cbedf1c9af6415bd8e8ee41d8fc0a7b2c9cf3372fb",
+      "execution_status": "compiled_static_only_not_replayed"
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "kind": "xlsx",
+      "source_run_id": "xlsx-industry_productivity-20261027T015504Z-769d363e",
+      "lock_sha256": "85c9e9a18899d3e549dd8b2a0efdf608421f9a153d154de7ae3362ed3ba16d2a",
+      "recipe_sha256": "27dcad66e72abccd1cbcc78b87a525e16db1ff4d8325f381b8237628d554eeb2",
+      "execution_status": "compiled_static_only_not_replayed"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "kind": "pdf",
+      "source_run_id": "pdf-irs_w4-20261027T021455Z-c206db3d",
+      "lock_sha256": "d161679c9dbfe0f624c49ec65a4bb01319e61e5b4f868ff6b21e849c40b02727",
+      "recipe_sha256": "c7e59480dd14373d2ca9541534a3bd05c4b374b598a5e8db1ac184d10a583799",
+      "execution_status": "compiled_static_only_not_replayed"
+    },
+    {
+      "dataset_id": "sba1919",
+      "kind": "pdf",
+      "source_run_id": "pdf-sba1919-20261027T021613Z-ccd6fc4e",
+      "lock_sha256": "8797ce95112af42773618ab7ee4942de085b2994c8232f9db83bf9e2a12d9bb5",
+      "recipe_sha256": "c86f5369b4d3b046f34951ce434ce9eb978167a18d494489106475c7a9296286",
+      "execution_status": "compiled_static_only_not_replayed"
+    }
+  ],
+  "legacy_component": "../document-oe (same image, separate entry; never dispatched here)"
+}

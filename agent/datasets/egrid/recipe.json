@@ -1,0 +1,181 @@
+{
+  "schema_version": "independent-agent-replay-v1",
+  "dataset_id": "egrid",
+  "kind": "xlsx",
+  "mode": "effective-tool-chain",
+  "source_run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+  "source_round": 2,
+  "required_outputs": [
+    "energy_report.xlsx",
+    "workbook_features.json",
+    "formula_recalc.json",
+    "business_verification.json",
+    "xlsx_enhancement_summary.json",
+    "energy_summary.csv",
+    "energy_reconciliation_summary.csv"
+  ],
+  "workspace": "/root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-EGRID",
+  "phases": [
+    {
+      "id": "P01",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_structure.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+            "event_ordinal": 6,
+            "step_id": 4,
+            "tool_call_id": "call_01_6dkTJgg1ROzdrfILkrwA1042",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-EGRID && python3 -c \"\nimport openpyxl, time\nt=time.time()\nwb=openpyxl.load_workbook('input/egrid2023_data_rev2.xlsx', data_only=True, read_only=True)\nprint(wb.sheetnames)\nws=wb['US23']\nfor r in ws.iter_rows(min_row=1,max_row=3,max_col=167):\n    pass\nprint('dims', ws.max_row, ws.max_column)\nfor addr in ['G3','M3','U3','DZ3','DX3','EA3','EB3','ED3','EE3']:\n    print(addr, repr(ws[addr].value))\nws2=wb['ST23']\nfor r in [5,7,12,37,41,47]:\n    print('ST23 row',r, [ws2.cell(row=r,column=c).value for c in (1,2,3,9)])\nprint('load', time.time()-t)\nwb.close()\n\""
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_features.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+            "event_ordinal": 8,
+            "step_id": 5,
+            "tool_call_id": "call_01_0UP2FL0GReL8M9u4HjhJ6056",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-EGRID && python3 -c \"\nimport openpyxl\nwb=openpyxl.load_workbook('input/egrid2023_data_rev2.xlsx')\nfor ws in wb.worksheets:\n    print(ws.title, ws.max_row, ws.max_column, 'charts',len(ws._charts),'imgs',len(ws._images),'merged',len(ws.merged_cells.ranges),'cf',len(list(ws.conditional_formatting)),'dv',len(ws.data_validations.dataValidation),'freeze',ws.freeze_panes)\nprint('defined names', list(wb.defined_names))\nprint('ext links', wb._external_links)\nws=wb['US23']\nfor a in ['A1','A2','A3','G3','M3','U3','DZ3']:\n    c=ws[a]; print(a, repr(c.value), c.font.name, c.font.sz, c.number_format, c.fill.fgColor.rgb if c.fill and c.fill.fill_type else None)\nprint('contents A1..B10')\nws=wb['Contents']\nfor r in ws.iter_rows(min_row=1,max_row=12,max_col=4,values_only=True): print(r)\n\""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "helpers/enhance_energy_report_v2.py"
+          ],
+          "origin": {
+            "type": "final_captured_agent_helper",
+            "run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+            "event_ordinal": 28,
+            "step_id": 23,
+            "tool_call_id": "call_00_N44mqi4qoJqnQFPbNAbJ1377",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-EGRID && sed -i 's/ws.print_area = \"A1:N42\"/ws.print_area = \"A1:Q42\"/' helpers/enhance_energy_report_v2.py && python3 helpers/enhance_energy_report_v2.py",
+              "yieldMs": 180000
+            },
+            "path": "helpers/enhance_energy_report_v2.py",
+            "sha256": "8ad78ca652ee196a2029e9e0bc3cc8c8140b62dea14598aa6ba974a9a90cb16b",
+            "adaptation": "Execute final captured helper directly; omit preceding text patch/time wrapper."
+          }
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "/root/.openclaw/skills/xlsx/scripts/recalc.py",
+            "output/energy_report.xlsx",
+            "600"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+            "event_ordinal": 29,
+            "step_id": 24,
+            "tool_call_id": "call_00_ET_M9PEjZvefqxOLPYeFmIY7368",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-EGRID && python3 /root/.openclaw/skills/xlsx/scripts/recalc.py output/energy_report.xlsx 600 > output/formula_recalc.json; echo \"exit=$?\"; cat output/formula_recalc.json && python3 input/verify_xlsx_enhanced.py output/energy_report.xlsx output/formula_recalc.json output/business_verification.json | tail -5",
+              "yieldMs": 300000
+            }
+          },
+          "stdout": "output/formula_recalc.json",
+          "timeout": 900
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_formulas.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+            "event_ordinal": 15,
+            "step_id": 11,
+            "tool_call_id": "call_00_Up8UTX6k5EMFUvdgZIAr9905",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-EGRID && python3 -c \"\nimport openpyxl, zipfile\nwb=openpyxl.load_workbook('output/energy_report.xlsx')\nprint(wb.sheetnames)\nfor ws in wb.worksheets:\n    print(ws.title, ws.max_row, ws.max_column, 'charts',len(ws._charts),'merged',len(ws.merged_cells.ranges),'tables',len(ws.tables),'freeze',ws.freeze_panes)\nws=wb['Energy_Summary']\nfor a in ['A1','B5','B6','B7','B8','B9','B12','B13','B14','B15','B16','B20','B24','E20','E25']:\n    c=ws[a]; print(a, c.data_type, repr(c.value), c.font.name, c.font.color.rgb if c.font.color else None)\nprint('cf ranges',[str(g.sqref) for g in ws.conditional_formatting])\nprint('comments',[c.coordinate for r in ws.iter_rows() for c in r if c.comment])\nprint('charts',[type(c).__name__ for c in ws._charts])\nz=zipfile.ZipFile('output/energy_report.xlsx'); print([n for n in z.namelist() if 'table' in n or 'chart' in n or 'drawing' in n])\nprint('Contents D9', wb['Contents']['D9'].value, wb['Contents']['C9'].value)\n\""
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "inspect_xlsx_cached_values.py"
+          ],
+          "origin": {
+            "type": "trace",
+            "run_id": "xlsx-egrid-20261027T032347Z-225eb8e9",
+            "event_ordinal": 19,
+            "step_id": 15,
+            "tool_call_id": "call_00_95uYijCxB15HNpvAWtDM4425",
+            "original_arguments": {
+              "command": "cd /root/.openclaw/workspace/tool-modeling/OFFICE-XLSX-EGRID && python3 -c \"\nimport openpyxl, zipfile, re\nz=zipfile.ZipFile('output/energy_report.xlsx')\nc1=z.read('xl/charts/chart1.xml').decode(); c2=z.read('xl/charts/chart2.xml').decode()\nprint(re.findall(r'<c:f>(.*?)</c:f>', c1)); print(re.findall(r'<c:f>(.*?)</c:f>', c2))\nws=openpyxl.load_workbook('output/energy_report.xlsx',data_only=True)['Energy_Summary']\nfor r in range(5,17): print(r,[ws.cell(row=r,column=c).value for c in range(1,7)])\nfor r in range(20,26): print(r,[ws.cell(row=r,column=c).value for c in range(1,6)])\n\""
+            }
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "export_xlsx_csv.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Replace prepared CSV copies with one read-only final-cache load and CSV writes; no recomputation."
+          }
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "calls": [
+        {
+          "argv": [
+            "{python}",
+            "verify_xlsx_enhanced.py",
+            "output/energy_report.xlsx",
+            "output/formula_recalc.json",
+            "output/business_verification.json"
+          ],
+          "origin": {
+            "type": "replay_verifier_adaptation",
+            "original_sha256": "3b7ed79e7c6163c56ee61a3f2820794bbff59742f220a7c72a586f8e80c98939",
+            "sha256": "dcd0cad3201bfd419a3918166479864a89d547ca9fc9a7f4092be866aae4910f",
+            "description": "Private original verifier plus CSV-to-current-cache checks; reuses its cached load."
+          }
+        },
+        {
+          "argv": [
+            "{python}",
+            "write_xlsx_summary.py"
+          ],
+          "origin": {
+            "type": "replay_adaptation",
+            "description": "Generate current replay counts/status; never copy historical success or hashes."
+          }
+        }
+      ]
+    }
+  ],
+  "policy": "Selected inspections and effective final build; no LLM, repair, preview or Agent waits."
+}
