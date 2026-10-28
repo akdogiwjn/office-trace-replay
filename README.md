@@ -1,6 +1,6 @@
 # 文档解析类 Agent 轨迹回放与负载分析
 
-**[阅读代表性评估报告](docs/representativeness-assessment.md)** · [完整实验数据](docs/experimental-results.md) · [采集与分析入口](analysis/README.md) · [镜像验收](docs/evidence/image-qualification-agent-traces.md)
+**[阅读代表性评估报告](docs/representativeness-assessment.md)** · [HTML 放映版](docs/representativeness-assessment.html) · [完整实验数据](docs/experimental-results.md) · [采集与分析入口](analysis/README.md) · [镜像验收](docs/evidence/image-qualification-agent-traces.md)
 
 本项目保存七个数据集的文档处理轨迹回放代码，并研究主要脚本、库、函数热点及 Topdown 特征。当前正式结果中，七例的 perf 热点和 DevKit Topdown 各有五次独立运行；PDF 每次处理十份记录。正式代码统一维护在 `main`。
 
