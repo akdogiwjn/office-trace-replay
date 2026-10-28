@@ -1,6 +1,6 @@
 # perf 热点采集与分析
 
-当前正式结果为七例各五次，见 [代表性评估报告](../../docs/representativeness-assessment.md)、[分析导航](../README.md) 和 [数据保留记录](../../reports/data-retention.json)。
+当前正式结果为七例各五次，见 [代表性评估报告](../../docs/representativeness-assessment.md)、[分析导航](../README.md) 和 [数据保留记录](../../docs/evidence/data-retention.json)。
 
 ## 结果与数据
 

@@ -89,7 +89,7 @@ def main():
     parser.add_argument('--dataset',choices=['opm','tlc','egrid','hr_metro','industry_productivity','irs_w4','sba1919'],default='irs_w4')
     args=parser.parse_args()
     dataset=args.dataset
-    qualified=json.loads((ROOT/'reports/image-qualification-agent-traces.json').read_text())
+    qualified=json.loads((ROOT/'docs/evidence/source-lock.json').read_text())
     for name,expected in qualified['file_hashes'].items():
         if sha(ROOT/name)!=expected: raise ValueError('qualified runtime source changed: '+name)
     inspected=json.loads(subprocess.check_output(DOCKER+['image','inspect',args.image],text=True))[0]
@@ -108,7 +108,8 @@ def main():
                container_started=False,raw_directory=str(raw.relative_to(ROOT)))
     source_copy=evidence/'measurement-source'; source_copy.mkdir()
     for p in HERE.glob('*.py'): shutil.copy2(p,source_copy/p.name)
-    shutil.copy2(ROOT/'reports/image-qualification-agent-traces.json',evidence/'image-qualification.json')
+    shutil.copy2(ROOT/'docs/evidence/image-qualification-agent-traces.json',evidence/'image-qualification.json')
+    shutil.copy2(ROOT/'docs/evidence/source-lock.json',evidence/'source-lock.json')
     write(raw/'launch.json',state)
     argv=DOCKER+['container','create','--name','office-hotspot-'+dataset.replace('_','-')+'-'+stamp.lower(),
         '--network','none','--cpuset-cpus','0-9','--cap-add','PERFMON','--cap-add','SYS_PTRACE',

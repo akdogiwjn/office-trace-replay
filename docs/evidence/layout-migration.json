@@ -1,0 +1,187 @@
+{
+  "schema": "documentation-layout-migration-v1",
+  "status": "success",
+  "source_commit": "cdfceed",
+  "relocation": {
+    "old_prefix": "reports/",
+    "new_prefix": "docs/evidence/",
+    "old_root_removed": true
+  },
+  "files": [
+    {
+      "old": "reports/image-build-20261027T092420Z.json",
+      "new": "docs/evidence/image-build-20261027T092420Z.json",
+      "sha256": "c82f820042c3f285dbca82c265f9829276326a559452827acd876a05eddaaf65",
+      "current_sha256": "c82f820042c3f285dbca82c265f9829276326a559452827acd876a05eddaaf65",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/prebuild-closeout.json",
+      "new": "docs/evidence/prebuild-closeout.json",
+      "sha256": "55ed013ee0cf786a4ee1ccb58139aea849e69b8d7fce65d863e304aca3691271",
+      "current_sha256": "55ed013ee0cf786a4ee1ccb58139aea849e69b8d7fce65d863e304aca3691271",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/data-retention.json",
+      "new": "docs/evidence/data-retention.json",
+      "sha256": "f7361e933f42e550bfc000cf168db3e09537b61aa8a8d5d03383cfdd89255c1f",
+      "current_sha256": "f7361e933f42e550bfc000cf168db3e09537b61aa8a8d5d03383cfdd89255c1f",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/runtime-entry-path-probe.json",
+      "new": "docs/evidence/runtime-entry-path-probe.json",
+      "sha256": "4941d53ebcd06739ec49b0afaebe3da68cc007339922839dd0359498c769a420",
+      "current_sha256": "4941d53ebcd06739ec49b0afaebe3da68cc007339922839dd0359498c769a420",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/README.md",
+      "new": "docs/evidence/README.md",
+      "sha256": "02981b1e359da02a8d0a6ee1ecbd02bb5e6b3c0cce01dde604e0495ff0890b7a",
+      "current_sha256": "0bc3fed5a04bc0e6e06e93fabe1245ffa27896a9d2cc9813e6424021d35552b3",
+      "bytes_unchanged": false
+    },
+    {
+      "old": "reports/single-container-preflight.log",
+      "new": "docs/evidence/single-container-preflight.log",
+      "sha256": "3f135d139191941c7d465f0260f7920d0b8497391665edf6d50bcefecf122ae6",
+      "current_sha256": "3f135d139191941c7d465f0260f7920d0b8497391665edf6d50bcefecf122ae6",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/image-qualification-agent-traces.json",
+      "new": "docs/evidence/image-qualification-agent-traces.json",
+      "sha256": "3dc8d8369e878b3542bee6f46a8275525f9a85c802383a262cbc3d439d84b305",
+      "current_sha256": "3dc8d8369e878b3542bee6f46a8275525f9a85c802383a262cbc3d439d84b305",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/image-qualification-agent-traces.md",
+      "new": "docs/evidence/image-qualification-agent-traces.md",
+      "sha256": "6db9beeb21e5e808dcd3e9d154e14a193654012083213942f1106b41d68536a9",
+      "current_sha256": "c9d7b75edd3a258ef8dfc2cdd1e005d6d974667a54d4482a942f6f3c340291a6",
+      "bytes_unchanged": false
+    },
+    {
+      "old": "reports/image-build-20261027T092420Z.log",
+      "new": "docs/evidence/image-build-20261027T092420Z.log",
+      "sha256": "dacab3c39d78155a1c752f2ca275c78d6f3fdca0f3c48d4b35e410a72009d6d1",
+      "current_sha256": "dacab3c39d78155a1c752f2ca275c78d6f3fdca0f3c48d4b35e410a72009d6d1",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/image-build-initial-failure-20261027.json",
+      "new": "docs/evidence/image-build-initial-failure-20261027.json",
+      "sha256": "091b2778231818084f070161e9fb2afd41bf04878b6aa27e1dc42d388b9e770d",
+      "current_sha256": "091b2778231818084f070161e9fb2afd41bf04878b6aa27e1dc42d388b9e770d",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/image-build-20261027T091550Z.json",
+      "new": "docs/evidence/image-build-20261027T091550Z.json",
+      "sha256": "37149a5463a77f57d1d106548eab13b0dab5d13421bbaf8f5cba55090fcb71ab",
+      "current_sha256": "37149a5463a77f57d1d106548eab13b0dab5d13421bbaf8f5cba55090fcb71ab",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/runtime-entry-alignment.json",
+      "new": "docs/evidence/runtime-entry-alignment.json",
+      "sha256": "c9c5053c69eb132cdfef37782344a09414c98017c0c09e401f342cfe0b201e15",
+      "current_sha256": "c9c5053c69eb132cdfef37782344a09414c98017c0c09e401f342cfe0b201e15",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/repository-cleanup.json",
+      "new": "docs/evidence/repository-cleanup.json",
+      "sha256": "d046b7bb533f672bfee64dcc73c466e68818827d20446735ce48540d4e4588ee",
+      "current_sha256": "d046b7bb533f672bfee64dcc73c466e68818827d20446735ce48540d4e4588ee",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/image-build-20261027T091550Z.log",
+      "new": "docs/evidence/image-build-20261027T091550Z.log",
+      "sha256": "6a939b2958547910bde466c0e6061bdf2aeb6b909d27053843dec2c133fd671b",
+      "current_sha256": "6a939b2958547910bde466c0e6061bdf2aeb6b909d27053843dec2c133fd671b",
+      "bytes_unchanged": true
+    },
+    {
+      "old": "reports/single-container-integration.json",
+      "new": "docs/evidence/single-container-integration.json",
+      "sha256": "9fd7da6ad80e42065cab1bdcbee93bdd80dd10376c815ede7ea9c9389d3b719b",
+      "current_sha256": "9fd7da6ad80e42065cab1bdcbee93bdd80dd10376c815ede7ea9c9389d3b719b",
+      "bytes_unchanged": true
+    }
+  ],
+  "historical_records": "Original JSON and logs retain their bytes, hashes and historical paths. Older closeout manifests describe their original snapshots; current regenerated output bindings are recorded here.",
+  "source_lock": {
+    "path": "docs/evidence/source-lock.json",
+    "sha256": "85371cabada1987b2ff4423ec94f9973995cc48e9482e0bf64daf20d8bacabff",
+    "original_qualification_bytes_unchanged": true,
+    "unchanged_qualified_bindings": 21,
+    "host_packaging_only_changes": 1
+  },
+  "measurement_checks": {
+    "latest_raw_directories_preserved": 70,
+    "hotspot_captures": 35,
+    "topdown_captures": 35,
+    "original_evidence_hashes_unchanged": 321,
+    "statistics_unchanged": true,
+    "pair_results_unchanged": true,
+    "old_workload_files_and_modes_unchanged": 43,
+    "analysis_output_bindings_valid": true
+  },
+  "tests": {
+    "passed": 98,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0,
+    "commands": [
+      "make validate test",
+      "python3 -B -m unittest discover -s analysis/hotspots/tests",
+      "python3 -B -m unittest discover -s analysis/topdown/tests"
+    ]
+  },
+  "performed": {
+    "workload_execution": false,
+    "agent_trace_generation": false,
+    "performance_collection": false,
+    "image_build": false,
+    "image_or_container_deletion": false
+  },
+  "current_output_bindings": [
+    {
+      "path": "docs/representativeness-assessment.md",
+      "sha256": "1c44ce34f2855ee4197cd36d1f7951cd7daf8fca2168023ac8fd500d3712857f"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json",
+      "sha256": "40fa4ef3a0af75d8f437372935c53c211dae2e67e6b9f284743603521d76f6dc"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/build.json",
+      "sha256": "2930861bef8f3bd25da8376f1a1b3ca112d99e71bcc8b4151699474935e57921"
+    },
+    {
+      "path": "analysis/hotspots/comparison-inputs-pdf5-20261027.json",
+      "sha256": "cb33584ce3cdbf5bf5b5ed600fa6bf2c002d82ad3914109844b191062233ed6f"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/comparison.json",
+      "sha256": "2957d375e56b6ec933cf73473a443110b8bdb4f904c4d028d52ae8220da17063"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/build.json",
+      "sha256": "64ffe95d19afd534e1084c9f1d4af3e252d53ad8b6d5737f315973c7330830bb"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/verification.json",
+      "sha256": "3c1e6ed41a9d01aee923cec6fb6fa5ffee2a1d9f8a73d971cf6f57bd1e94191c"
+    },
+    {
+      "path": "docs/evidence/source-lock.json",
+      "sha256": "85371cabada1987b2ff4423ec94f9973995cc48e9482e0bf64daf20d8bacabff"
+    }
+  ]
+}

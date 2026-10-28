@@ -24,6 +24,6 @@ PDF 均为实际填写 N=10。七个用例均只有一轮功能记录，不是�
 
 原始功能试跑产物已按最新数据保留策略清理；本文与 JSON 保留构建时的资格结论。冻结 provenance/suite 中的导入状态是历史快照；当前运行资格以本报告及 JSON 为准。镜像内 README 是构建前快照，构建后的资格记录保存在宿主仓库。
 
-构建时的完整 campaign 已清理；保留[机器可读验收](image-qualification-agent-traces.json)。当前每例五次实际运行的证据见[测量索引](../analysis/topdown/CAMPAIGN.md)。
+构建时的完整 campaign 已清理；保留[机器可读验收](image-qualification-agent-traces.json)。当前每例五次实际运行的证据见[测量索引](../../analysis/topdown/CAMPAIGN.md)。
 
 未采集热点或 Topdown，未调用 LLM，未生成新 Agent trace，未提交或推送。

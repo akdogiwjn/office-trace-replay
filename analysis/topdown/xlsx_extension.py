@@ -35,7 +35,7 @@ def initial_state(folder):
         if profile['dataset_id']!=ds or profile.get('repetitions',1)!=1:raise ValueError('initial native profile invalid')
         reused.append(dict(dataset_id=ds,topdown=entry,native=binding))
     shutil.copy2(config_path,folder/'baseline-inputs.json')
-    qualified=json.loads((ROOT/'reports/image-qualification-agent-traces.json').read_text())
+    qualified=json.loads((ROOT/'docs/evidence/source-lock.json').read_text())
     for name,digest in qualified['file_hashes'].items():checked_file=ROOT/name;assert sha(checked_file)==digest,name
     return dict(schema='xlsx-five-repeat-extension-v1',status='in_progress',
         image_id=qualified['image_id'],baseline_config=dict(path=str((folder/'baseline-inputs.json').relative_to(ROOT)),

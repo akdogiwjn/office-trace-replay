@@ -1,6 +1,6 @@
 # 文档解析类 Agent 轨迹回放与负载分析
 
-**[阅读代表性评估报告](docs/representativeness-assessment.md)** · [采集与分析入口](analysis/README.md) · [镜像验收](reports/image-qualification-agent-traces.md)
+**[阅读代表性评估报告](docs/representativeness-assessment.md)** · [采集与分析入口](analysis/README.md) · [镜像验收](docs/evidence/image-qualification-agent-traces.md)
 
 本项目保存七个数据集的文档处理轨迹回放代码，并研究主要脚本、库、函数热点及 Topdown 特征。当前正式结果中，七例的 perf 热点和 DevKit Topdown 各有五次独立运行；PDF 每次处理十份记录。正式代码统一维护在 `main`。
 
@@ -24,11 +24,11 @@
 | `document-oe/` | 旧 OPM/TLC 的执行器与冻结 workload |
 | `analysis/hotspots/` | perf 采集、解析、函数和脚本分组、逐轮与合并结果 |
 | `analysis/topdown/` | HIP09/DevKit 核验、门控采集、统计、相似度和特征图 |
-| `reports/` | 镜像构建、资格与仓库整理记录；索引见 [reports/README.md](reports/README.md) |
+| `docs/` | 阅读入口：正式评估报告；`evidence/` 保存镜像构建、资格与整理证据，见 [文档导航](docs/README.md) |
 | `results/` | 本地功能运行产物、独立验收和 Docker inspect，不提交 Git |
 | `scripts/`、`tests/` | 离线镜像构建、环境探测和单元测试 |
 
-本地仅保留当前七例各五次的 perf 与 Topdown 原始采集和对应产物，共 70 次运行；旧分支数据及未采用试跑已删除，保留清单见 [数据保留记录](reports/data-retention.json)。最新五次复用的首轮、必要来源索引和冻结 DevKit 工具继续保留。Git 保存代码、输入、来源、派生统计和报告，不上传大型 perf 原始文件。原始运行记录中的旧绝对路径不改写，实际材料按本仓库相对路径及 SHA256 索引定位。
+本地仅保留当前七例各五次的 perf 与 Topdown 原始采集和对应产物，共 70 次运行；旧分支数据及未采用试跑已删除，保留清单见 [数据保留记录](docs/evidence/data-retention.json)。最新五次复用的首轮、必要来源索引和冻结 DevKit 工具继续保留。Git 保存代码、输入、来源、派生统计和报告，不上传大型 perf 原始文件。原始运行记录中的旧绝对路径不改写，实际材料按本仓库相对路径及 SHA256 索引定位。
 
 ## 当前镜像与环境
 
@@ -36,7 +36,7 @@
 - 离线构建基础：`office-trace-replay:openeuler-release`，ID `sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a`；继续保留。
 - Python 3.12.3、openpyxl 3.1.5、LibreOffice 25.8.7.3、Poppler 23.12.0。固定 Python 为 `/opt/document-bench/.venv/bin/python`。
 
-七例已通过当前环境的执行和循环验证，测量记录也核验实际 image ID。详细安装态与独立审计范围见[镜像资格记录](reports/image-qualification-agent-traces.json)。该历史记录冻结构建时状态，后续五次采集以[当前测量清单](analysis/topdown/CAMPAIGN.md)为准。报告和分析代码更新不要求重建执行镜像。
+七例已通过当前环境的执行和循环验证，测量记录也核验实际 image ID。详细安装态与独立审计范围见[镜像资格记录](docs/evidence/image-qualification-agent-traces.json)。该历史记录冻结构建时状态，后续五次采集以[当前测量清单](analysis/topdown/CAMPAIGN.md)为准。报告和分析代码更新不要求重建执行镜像。
 
 ## 运行
 

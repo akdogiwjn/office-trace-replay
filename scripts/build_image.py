@@ -24,7 +24,7 @@ def build(image, base='office-trace-replay:openeuler-release', *, root=ROOT,
     if existing.returncode == 0:
         raise ValueError('output image tag already exists; choose a fresh tag: ' + image)
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    report = root / 'reports' / ('image-build-' + stamp + '.json')
+    report = root / 'docs' / 'evidence' / ('image-build-' + stamp + '.json')
     report.parent.mkdir(parents=True, exist_ok=True)
     log = report.with_suffix('.log')
     command = docker + ['build', '--network', 'none', '--pull=false', '--progress', 'plain',

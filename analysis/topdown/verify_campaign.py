@@ -53,7 +53,7 @@ def verify(folder):
         values=[v['statistics'][m]['mean'] for m in (*METRICS,'idle_pct')]
         line='| '+ds+' | '+str(v['repeats'])+' | '+' | '.join(f'{x:.2f}' for x in values)+' |'
         if line not in report:raise ValueError('report table differs: '+ds)
-    qualified=json.loads((ROOT/'reports/image-qualification-agent-traces.json').read_text())
+    qualified=json.loads((ROOT/'docs/evidence/source-lock.json').read_text())
     for name,digest in qualified['file_hashes'].items():
         if sha(ROOT/name)!=digest:raise ValueError('qualified workload runtime changed')
     old=json.loads((ROOT/'document-oe/lock.json').read_text())
@@ -92,7 +92,10 @@ def verify(folder):
             lines.append('| '+metric+' | '+' | '.join(values)+' |')
         (folder/'repeat-variability.md').write_text('\n'.join(lines)+'\n')
     result=dict(status='success',run_count=count,unique_containers=count,image_id=next(iter(images)),
-        qualified_runtime_files_unchanged=len(qualified['file_hashes']),prior_evidence_unchanged=len(prior['files']),
+        qualified_runtime_files_unchanged=len(qualified['file_hashes'])-len(qualified.get('packaging_only_changes',{})),
+        qualified_packaging_files_checked=len(qualified.get('packaging_only_changes',{})),
+        source_lock_sha256=sha(ROOT/'docs/evidence/source-lock.json'),
+        prior_evidence_unchanged=len(prior['files']),
         old_workload_files_unchanged=len(old['workload_files']),
         measurement_code_versions={k:next(iter(v)) for k,v in versions.items()},
         all_business_verification_success=True,statistics_reproduced=True,report_matches_json=True,

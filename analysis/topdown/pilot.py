@@ -29,7 +29,7 @@ def write(path,data):
 
 
 def launch(dataset):
-    qualification=json.loads((ROOT/'reports/image-qualification-agent-traces.json').read_text())
+    qualification=json.loads((ROOT/'docs/evidence/source-lock.json').read_text())
     for name,digest in qualification['file_hashes'].items():
         if sha(ROOT/name)!=digest:raise ValueError('qualified runtime changed: '+name)
     image=json.loads(subprocess.check_output(DOCKER+['image','inspect','office-trace-replay:agent-traces'],text=True))[0]
@@ -42,6 +42,7 @@ def launch(dataset):
     raw=HERE/'raw'/f'{dataset}-cpu-pilot-{stamp}';raw.mkdir(parents=True,exist_ok=False)
     out=raw/'out';out.mkdir();evidence=raw/'evidence';evidence.mkdir()
     write(evidence/'image-inspect.json',image)
+    shutil.copy2(ROOT/'docs/evidence/source-lock.json',evidence/'source-lock.json')
     if dataset!='smoke':
         write(evidence/'launch-plan.json',dict(selected_datasets=[dataset],loops=1,runtime='document-oe',
               dataset_locks={dataset:sha(ROOT/'document-oe/lock.json' if dataset in ('opm','tlc')

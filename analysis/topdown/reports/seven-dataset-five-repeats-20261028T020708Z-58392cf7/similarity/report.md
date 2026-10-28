@@ -107,7 +107,8 @@ idle 单独使用循环门控前后 `/proc/stat` 的 CPU 0–7 增量：`100 × 
 | Topdown 控制与数值 | 检查开始／结束顺序、affinity、DevKit 退出和最终报告；核对四顶层合计 100%、Core＋Memory≈Backend、Latency＋Bandwidth≈Frontend；独立保存原始计数与经验复算差异 | affinity-events、profiler-record、collection、summary、verification |
 | 离线分析与归档 | 每轮保存文件大小与 SHA256，统计从逐轮结果重新生成；源代码、配置、结果与报告 hash 关联；用已知公式和反例测试核验相似度实现 | SHA256 索引、comparison-inputs、comparison.json、build.json、分析测试 |
 
-本报告使用的热点与 Topdown 各 35 次运行均通过对应的执行和采集检查。热点采集归档逐项核验 3,420 个文件，Topdown 采集归档核验 2,680 个文件；离线重算通过，并核对 22 项镜像运行绑定和 43 个旧 workload 文件不变。
+本报告使用的热点与 Topdown 各 35 次运行均通过对应的执行和采集检查。热点采集归档逐项核验 3,420 个文件，Topdown 采集归档核验 2,680 个文件；离线重算通过，并核对 21 项镜像运行绑定和 43 个旧 workload 文件不变。
+另核对 1 项仅调整证据输出路径的宿主构建脚本；原镜像资格 JSON 保持字节不变，当前 checkout 的完整源文件绑定见 docs/evidence/source-lock.json。
 Topdown 分区校验允许 0.03 个百分点的打印舍入偏差。指标表采用固定版本 DevKit 的直接输出；原始计数按经验公式复算有 3 处超过 0.005 个百分点的打印容差，最大约 0.00510 pp，原值与差异都保留，没有改写工具数值。经验复算不能替代完整的官方 HIP09 事件语义验证；未计数事件也不因最终显示 0 而视作真实为零。当前比较按记录的包络和工具口径作描述性解释。
 
 实现入口分别为 `analysis/hotspots/collect_native.py`、`analysis/topdown/capture.py` 和 `analysis/topdown/workload_entry.py`；离线相似度由 `analysis/topdown/compare_similarity.py` 计算。本节的原始 collection/inspect 文件与 SHA256 列在 [机器结果](comparison.json) 的 `measurement_methodology.evidence` 中（完整代表性报告位于 `joint_comparison` 下），可逐次查到实际命令、容器身份和统计窗口。

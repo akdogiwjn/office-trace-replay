@@ -21,7 +21,7 @@
 - 正式报告源配置：`hotspots/comparison-inputs-pdf5-20261027.json`，名称沿用历史命名，内容已统一为七例五次。
 - 每次实际执行的 profile、summary、输入绑定和质量诊断在各自日期目录中。这些目录用于溯源，不能仅因日期较早就删除；当前五次结果仍引用最初首轮。
 - `hotspots/raw/`、`topdown/raw/` 是本地原始采集；`topdown/tools/`、`downloads/` 是冻结工具及安装包，均不提交 Git。
-- 仅保留上述 70 次实际采集。旧 `hotspot-comparison/`、独立功能试跑、未采用的单轮 PDF 和失败试点已删除，完整清单见 [数据保留记录](../reports/data-retention.json)。少量原始来源清单用于解释最新五次中的首轮复用，不代表额外保留历史测量。
+- 仅保留上述 70 次实际采集。旧 `hotspot-comparison/`、独立功能试跑、未采用的单轮 PDF 和失败试点已删除，完整清单见 [数据保留记录](../docs/evidence/data-retention.json)。少量原始来源清单用于解释最新五次中的首轮复用，不代表额外保留历史测量。
 
 不要把 perf 用户周期比例、py-spy Python 样本比例、CPU 时间账本和 DevKit 按核指标相互换算。当前报告逐项说明对象、窗口和分母。
 

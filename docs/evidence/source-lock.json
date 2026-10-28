@@ -1,0 +1,41 @@
+{
+  "schema": "repository-source-lock-v1",
+  "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "base_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "parent_qualification": {
+    "path": "docs/evidence/image-qualification-agent-traces.json",
+    "sha256": "3dc8d8369e878b3542bee6f46a8275525f9a85c802383a262cbc3d439d84b305"
+  },
+  "file_hashes": {
+    "Dockerfile": "d416ad735a415592a47a9bddc5153fd639b0456847fb363b667f3d127fe4293a",
+    "Makefile": "6ca3f250219e4b0c95fd88783e03ea4b057359eb29715cdd1a0d53e1c6529308",
+    "scripts/build_image.py": "4713563d6ed7cffa25de82e86c604ad401a871c1c645a90e438689b5ef636aef",
+    "agent/replay.py": "540a32c25eb07c2ff2cc433d70ed3ec52b51d85220868ad014e17e7f948800a4",
+    "agent/suite.json": "85e6cbb7cda9bcbe34b12a99addcea7daae61b7e17a155bc79451deb6d9787d8",
+    "document-oe/run.py": "1af858c85d9d49a73237dc254af98c8bf37d9a91cd43e2f8872fdc82e32753d3",
+    "document-oe/lock.json": "6e142ba49a1a4cfd0e89581a342b41938ab86d6a6923ef4a075ac249ec86cec5",
+    "agent/datasets/irs_w4/lock.json": "d161679c9dbfe0f624c49ec65a4bb01319e61e5b4f868ff6b21e849c40b02727",
+    "agent/datasets/irs_w4/recipe.json": "c7e59480dd14373d2ca9541534a3bd05c4b374b598a5e8db1ac184d10a583799",
+    "agent/datasets/irs_w4/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/egrid/lock.json": "39ad3fc3dc86bcda3eac3febae1c0d17b13cea13d933b6ea401d4c4a978c45b8",
+    "agent/datasets/egrid/recipe.json": "f8211e0f2c28ed999955af0260628a4ee08d081fa4f33c59b18257e268916b5d",
+    "agent/datasets/egrid/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/industry_productivity/lock.json": "85c9e9a18899d3e549dd8b2a0efdf608421f9a153d154de7ae3362ed3ba16d2a",
+    "agent/datasets/industry_productivity/recipe.json": "27dcad66e72abccd1cbcc78b87a525e16db1ff4d8325f381b8237628d554eeb2",
+    "agent/datasets/industry_productivity/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/hr_metro/lock.json": "bd7b8d9b30ff6d90eef472b2b9654632fb3ffe0f97faa54637e284175c232194",
+    "agent/datasets/hr_metro/recipe.json": "a82a91bd8d61bbeb8dd697cbedf1c9af6415bd8e8ee41d8fc0a7b2c9cf3372fb",
+    "agent/datasets/hr_metro/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/sba1919/lock.json": "8797ce95112af42773618ab7ee4942de085b2994c8232f9db83bf9e2a12d9bb5",
+    "agent/datasets/sba1919/recipe.json": "c86f5369b4d3b046f34951ce434ce9eb978167a18d494489106475c7a9296286",
+    "agent/datasets/sba1919/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680"
+  },
+  "packaging_only_changes": {
+    "scripts/build_image.py": {
+      "original_sha256": "232a0254b10ad3144a0aba5711b73cf1dc9d36760d86ec208fdf93f36119c45a",
+      "sha256": "4713563d6ed7cffa25de82e86c604ad401a871c1c645a90e438689b5ef636aef",
+      "reason": "Host build evidence output relocated from reports/ to docs/evidence/; runtime and image unchanged."
+    }
+  },
+  "scope": "Current checkout bindings; only the host build evidence output path changed. Original image qualification bytes preserved. No image rebuild or workload rerun."
+}

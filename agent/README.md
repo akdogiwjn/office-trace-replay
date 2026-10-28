@@ -86,4 +86,4 @@ python3 -B agent/replay.py --docker-image office-trace-replay:agent-traces \
 
 只从项目根目录的 Dockerfile 离线构建共同镜像；本组件没有 Dockerfile。
 
-2026-10-27 已完成镜像构建、七用例单轮功能检查和本组件五用例的只读独立验收；本轮未采集性能。IRS W-4 的成功输出来自首次构建镜像，在最终镜像只做了修复后的独立复验，其余六个 workload 在最终镜像执行。详见[当前验收报告](../reports/image-qualification-agent-traces.md)。冻结来源中的 `compiled_static_only_not_replayed` 是导入时快照；不改写来源历史，使用单独验收记录关联当前实际镜像与执行结果。
+2026-10-27 已完成镜像构建、七用例单轮功能检查和本组件五用例的只读独立验收；本轮未采集性能。IRS W-4 的成功输出来自首次构建镜像，在最终镜像只做了修复后的独立复验，其余六个 workload 在最终镜像执行。详见[当前验收报告](../docs/evidence/image-qualification-agent-traces.md)。冻结来源中的 `compiled_static_only_not_replayed` 是导入时快照；不改写来源历史，使用单独验收记录关联当前实际镜像与执行结果。

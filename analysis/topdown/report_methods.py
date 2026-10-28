@@ -8,7 +8,11 @@ from pilot import ROOT, sha
 def load(config,campaign):
     bindings={};records={}
     def read(path):
-        path=Path(path);bindings[str(path)]=dict(path=str(path),sha256=sha(ROOT/path))
+        requested=str(path);path=Path(path)
+        # Frozen captures retain their original repository-relative paths.
+        if path.parts and path.parts[0]=='reports':
+            path=Path('docs/evidence').joinpath(*path.parts[1:])
+        bindings[requested]=dict(path=str(path),sha256=sha(ROOT/path))
         return json.loads((ROOT/path).read_text())
     for key,binding in config['measurement_evidence'].items():
         value=read(binding['path'])
@@ -178,6 +182,9 @@ def section(methods,verification):
         f'{sum(r["checked_files"] for r in verification["archive_checks_recorded"]):,} 个文件；'
         f'离线重算通过，并核对 {verification["qualified_runtime_files_unchanged"]} 项镜像运行绑定和 '
         f'{verification["old_workload_files_unchanged"]} 个旧 workload 文件不变。',
+        (f'另核对 {verification["qualified_packaging_files_checked"]} 项仅调整证据输出路径的宿主构建脚本；'
+         '原镜像资格 JSON 保持字节不变，当前 checkout 的完整源文件绑定见 docs/evidence/source-lock.json。'
+         if verification.get('qualified_packaging_files_checked') else ''),
         'Topdown 分区校验允许 0.03 个百分点的打印舍入偏差。指标表采用固定版本 DevKit 的直接输出；'
         f'原始计数按经验公式复算有 {len(verification.get("empirical_formula_differences",[]))} 处超过 0.005 个百分点的打印容差，'
         f'最大约 {max((r["absolute_error"] for r in verification.get("empirical_formula_differences",[])),default=0):.5f} pp，原值与差异都保留，没有改写工具数值。经验复算不能替代完整的官方 HIP09 事件语义验证；'
