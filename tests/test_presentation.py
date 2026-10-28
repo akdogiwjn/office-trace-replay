@@ -20,13 +20,24 @@ class Elements(HTMLParser):
         super().__init__()
         self.slides = []
         self.external = []
+        self.in_slide = False
+        self.slide_text = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if tag == 'section' and 'slide' in attrs.get('class', '').split():
             self.slides.append(attrs)
+            self.in_slide = True
         if tag in ('script', 'img', 'link') and (attrs.get('src') or attrs.get('href')):
             self.external.append(attrs)
+
+    def handle_endtag(self, tag):
+        if tag == 'section':
+            self.in_slide = False
+
+    def handle_data(self, data):
+        if self.in_slide:
+            self.slide_text.append(data)
 
 
 class PresentationTests(unittest.TestCase):
@@ -56,6 +67,36 @@ class PresentationTests(unittest.TestCase):
             self.assertEqual(manifest['output']['sha256'], presentation.sha(path))
             self.assertIn('requestFullscreen', html)
             self.assertIn('@media print', html)
+            self.assertEqual(manifest['schema'], 'representativeness-html-presentation-v2')
+            self.assertIn('color:#000', presentation.CSS)
+            self.assertNotIn('box-shadow', presentation.CSS)
+            self.assertNotIn('animation:', presentation.CSS)
+
+            # The plain report edition must retain every paragraph, code block,
+            # table cell and heading rather than selecting brief talking points.
+            visible = ''.join(''.join(parsed.slide_text).split())
+            markdown = (root / 'docs/representativeness-assessment.md').read_text()
+            for block in presentation.report_blocks(markdown):
+                if block['kind'] == 'image':
+                    continue  # Replaced by per-dataset plots, checked separately.
+                if block['kind'] == 'table':
+                    values = block['headers'] + [v for row in block['rows'] for v in row]
+                elif block['kind'] == 'list':
+                    values = block['items']
+                else:
+                    values = [block['value']]
+                for value in values:
+                    fragment = presentation.text(value) if block['kind'] == 'code' else presentation.inline_markdown(value)
+                    class Text(HTMLParser):
+                        def __init__(self):
+                            super().__init__()
+                            self.parts = []
+                        def handle_data(self, data):
+                            self.parts.append(data)
+                    reader = Text()
+                    reader.feed(fragment)
+                    expected = ''.join(''.join(reader.parts).split())
+                    self.assertIn(expected, visible)
 
     def test_modified_source_document_is_rejected_before_publishing(self):
         with tempfile.TemporaryDirectory() as temp:

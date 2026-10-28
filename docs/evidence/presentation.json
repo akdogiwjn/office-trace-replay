@@ -1,7 +1,7 @@
 {
-  "schema": "representativeness-html-presentation-v1",
+  "schema": "representativeness-html-presentation-v2",
   "title": "文档解析类 Agent 代表性评估报告",
-  "slide_count": 29,
+  "slide_count": 31,
   "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
   "sources": {
     "analysis/hotspots/comparison-inputs-pdf5-20261027.json": "52fc656ec63d04403415281a3f3e908f4cc7af7dbfda9f6f17b0b81e9754b609",
@@ -12,43 +12,47 @@
     "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json": "d1c8fa355c099e292c1449b96eb4b02140eb654c121984541b968f6f8f5032bd",
     "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/time-series.json": "cc91ced000866e83e2bc893ee2511d340fc35bb3666bf62e733b6a8a086373dc"
   },
-  "generator_sha256": "a88f7546822805d3a86356bdadf742a87dceb037145840b55bbfb3428511fe18",
+  "generator_sha256": "3aeabe2a95c71c660043bee5c0dcce07f2e78a14fb5e5eafba171e46305a5cd2",
   "measurement_changes": false,
+  "layout": "Complete assessment text, plain black-on-white pages; only metric curves use distinguishing colors.",
+  "source_report_blocks": 76,
   "interval_policy": "Original points retained; five separate polylines per metric; no smoothing or interpolation.",
   "output": {
     "path": "docs/representativeness-assessment.html",
-    "sha256": "9193fd38de68f43c3ff1869ff79aef9e6fde5437958e5e0f42322506cec13ad5"
+    "sha256": "0567d760154310556b89bfec58cf1f4a192219c5eb5e172eda96876779556884"
   },
   "slide_titles": [
     "文档解析类 Agent 代表性评估报告",
-    "关键发现：跨领域输入延续主要计算机制",
-    "研究问题与验证设计",
-    "XLSX：交通、能源、就业与产业生产率",
-    "PDF：雇佣、税务与小企业贷款表单",
-    "轨迹来源：真实 Agent 执行并冻结成功结果",
-    "容器回放：共同的 P01–P04 执行形态",
-    "统一实验环境与容器边界",
-    "两路测量：分别回答“执行什么”与“流水线特征”",
-    "相似度：函数集合与流水线分配相互印证",
-    "PDF 热点脚本：转换、填写、渲染与验证",
-    "PDF 热点函数：Top-5 集合持续重合",
-    "XLSX 热点脚本：按执行职责归并对比",
-    "XLSX 热点函数：对象与解释器机制延续",
-    "库级证据：共同热点对应实际文档处理工作",
-    "Topdown 特征：顶层分配总体接近",
-    "五组新旧对照：函数与 Topdown 同时比较",
-    "五轮重复：检验同环境下结果的稳定性",
-    "覆盖边界：下一步应扩展操作类型",
-    "Word/PPT：主流需求与可测的计算差异",
-    "结论与下一步",
-    "附录 · OPM 五轮 Topdown 过程曲线",
-    "附录 · IRS W-4 五轮 Topdown 过程曲线",
-    "附录 · SBA 1919 五轮 Topdown 过程曲线",
-    "附录 · TLC 五轮 Topdown 过程曲线",
-    "附录 · HR Metro 五轮 Topdown 过程曲线",
-    "附录 · eGRID 五轮 Topdown 过程曲线",
-    "附录 · Industry Productivity 五轮 Topdown 过程曲线",
-    "附录 · 来源与复核入口"
+    "二、数据集选择与任务设计",
+    "二、数据集选择与任务设计（续）",
+    "三、实验环境、轨迹来源与回放流程",
+    "三、实验环境、轨迹来源与回放流程（续）",
+    "三、实验环境、轨迹来源与回放流程（续）",
+    "三、实验环境、轨迹来源与回放流程（续）",
+    "四、采集方法与分析方法",
+    "四、采集方法与分析方法（续）",
+    "四、采集方法与分析方法（续）",
+    "五、实验结果与代表性分析",
+    "五、实验结果与代表性分析（续）",
+    "五、实验结果与代表性分析（续）",
+    "五、实验结果与代表性分析（续）",
+    "五、实验结果与代表性分析（续）",
+    "五、实验结果与代表性分析（续）",
+    "五、实验结果与代表性分析（续）",
+    "五、实验结果与代表性分析（续）",
+    "OPM：五轮 Topdown 过程曲线",
+    "IRS W-4：五轮 Topdown 过程曲线",
+    "SBA 1919：五轮 Topdown 过程曲线",
+    "5.4 逐采样点过程与五轮稳定性",
+    "TLC：五轮 Topdown 过程曲线",
+    "HR Metro：五轮 Topdown 过程曲线",
+    "eGRID：五轮 Topdown 过程曲线",
+    "Industry Productivity：五轮 Topdown 过程曲线",
+    "5.4 逐采样点过程与五轮稳定性",
+    "六、已有实验的覆盖边界与 Word/PPT 扩展价值",
+    "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
+    "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
+    "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）"
   ],
   "validation": {
     "browser": "Chromium 125.0.6422.26",
@@ -56,10 +60,11 @@
       1440,
       860
     ],
-    "rendered_content_sha256": "21f084d20c4f6d710e4907c6a4fa566700206fc7b582aaaddfbbff2897276500",
+    "html_sha256": "0567d760154310556b89bfec58cf1f4a192219c5eb5e172eda96876779556884",
     "browser_check": {
-      "slides": 29,
+      "slides": 31,
       "layout_failures": [],
+      "nonblack_text": [],
       "navigation": [
         {
           "name": "Home",
@@ -107,7 +112,7 @@
       "skipped": 0,
       "command": "python3 -B -m unittest discover -s tests -p test_presentation.py"
     },
-    "javascript_syntax": "node --check passed",
-    "scope": "Browser-tested DOM/CSS/JS equal to final HTML; only embedded source provenance changed afterward. No workload or measurement executed."
+    "source_text_coverage": "All report paragraphs, headings, table cells and command blocks retained; original overview images rendered as seven per-dataset plots from the same interval data.",
+    "measurement_changes": false
   }
 }
