@@ -176,9 +176,11 @@ def hotspot_cell(row,name):
 def compare(config_path,update=False):
     config_path=Path(config_path)
     config=json.loads(config_path.read_text())
-    baseline=ROOT/config['baseline']['path']
-    if sha(baseline)!=config['baseline']['sha256']:raise ValueError('baseline changed')
-    historical_profiles=json.loads(baseline.read_text())['profiles']
+    historical_profiles={}
+    if config.get('baseline'):
+        baseline=ROOT/config['baseline']['path']
+        if sha(baseline)!=config['baseline']['sha256']:raise ValueError('baseline changed')
+        historical_profiles=json.loads(baseline.read_text())['profiles']
     profiles={} if config.get('reference_mode')=='current-image' else dict(historical_profiles)
     for name,item in config['profiles'].items():
         path=ROOT/item['path']

@@ -1,0 +1,234 @@
+{
+  "schema": "latest-seven-dataset-five-repeat-retention-v1",
+  "status": "success",
+  "completed_at": "2026-10-28T07:04:20.478670+00:00",
+  "policy": "Retain only current seven datasets, five independent perf captures and five independent Topdown captures each, plus code, inputs, frozen tools and necessary provenance indexes. No historical data archive created.",
+  "hotspot_captures": [
+    "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e",
+    "analysis/hotspots/raw/egrid-native-pilot-20261028T022654Z-c2c7f214",
+    "analysis/hotspots/raw/egrid-native-pilot-20261028T031210Z-1ab9e902",
+    "analysis/hotspots/raw/egrid-native-pilot-20261028T035723Z-bcdd2cb8",
+    "analysis/hotspots/raw/egrid-native-pilot-20261028T044229Z-079234b5",
+    "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923",
+    "analysis/hotspots/raw/hr-metro-native-pilot-20261028T021541Z-2f71832c",
+    "analysis/hotspots/raw/hr-metro-native-pilot-20261028T030051Z-0093075f",
+    "analysis/hotspots/raw/hr-metro-native-pilot-20261028T034607Z-aeeaddf2",
+    "analysis/hotspots/raw/hr-metro-native-pilot-20261028T043114Z-2bdb1b8f",
+    "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698",
+    "analysis/hotspots/raw/industry-productivity-native-pilot-20261028T023557Z-f4d5e449",
+    "analysis/hotspots/raw/industry-productivity-native-pilot-20261028T032117Z-fd625dc5",
+    "analysis/hotspots/raw/industry-productivity-native-pilot-20261028T040628Z-544e452c",
+    "analysis/hotspots/raw/industry-productivity-native-pilot-20261028T045137Z-b6c2ced6",
+    "analysis/hotspots/raw/irs-w4-native-pilot-20261027T122358Z-d4922d9f",
+    "analysis/hotspots/raw/irs-w4-native-pilot-20261027T122450Z-62d6abb9",
+    "analysis/hotspots/raw/irs-w4-native-pilot-20261027T122541Z-70ea9e63",
+    "analysis/hotspots/raw/irs-w4-native-pilot-20261027T122633Z-90dce9fc",
+    "analysis/hotspots/raw/irs-w4-native-pilot-20261027T122725Z-5e819403",
+    "analysis/hotspots/raw/opm-native-pilot-20261027T122345Z-2de08010",
+    "analysis/hotspots/raw/opm-native-pilot-20261027T122437Z-8e39f359",
+    "analysis/hotspots/raw/opm-native-pilot-20261027T122529Z-a8c73779",
+    "analysis/hotspots/raw/opm-native-pilot-20261027T122621Z-9ac767af",
+    "analysis/hotspots/raw/opm-native-pilot-20261027T122712Z-b4308bb3",
+    "analysis/hotspots/raw/sba1919-native-pilot-20261027T122415Z-071f6a58",
+    "analysis/hotspots/raw/sba1919-native-pilot-20261027T122507Z-e53ec7ea",
+    "analysis/hotspots/raw/sba1919-native-pilot-20261027T122559Z-aa7dbcee",
+    "analysis/hotspots/raw/sba1919-native-pilot-20261027T122651Z-9c112a75",
+    "analysis/hotspots/raw/sba1919-native-pilot-20261027T122743Z-c3840356",
+    "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278",
+    "analysis/hotspots/raw/tlc-native-pilot-20261028T020708Z-46da5c35",
+    "analysis/hotspots/raw/tlc-native-pilot-20261028T025224Z-a5155ce7",
+    "analysis/hotspots/raw/tlc-native-pilot-20261028T033742Z-ad932a06",
+    "analysis/hotspots/raw/tlc-native-pilot-20261028T042248Z-556a263c"
+  ],
+  "topdown_captures": [
+    "analysis/topdown/raw/egrid-cpu-pilot-20261027T154910Z-b5134a8e",
+    "analysis/topdown/raw/egrid-cpu-pilot-20261028T023134Z-eb1c9571",
+    "analysis/topdown/raw/egrid-cpu-pilot-20261028T031652Z-b11b2078",
+    "analysis/topdown/raw/egrid-cpu-pilot-20261028T040204Z-d1aceb61",
+    "analysis/topdown/raw/egrid-cpu-pilot-20261028T044713Z-a6a35efe",
+    "analysis/topdown/raw/hr_metro-cpu-pilot-20261027T154340Z-06a0cdcd",
+    "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T022125Z-2ae9d2a1",
+    "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T030639Z-378631b3",
+    "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T035153Z-888424f0",
+    "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T043700Z-bd6ebda4",
+    "analysis/topdown/raw/industry_productivity-cpu-pilot-20261027T155334Z-021c3c33",
+    "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T024423Z-33592b46",
+    "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T032939Z-23f19730",
+    "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T041446Z-ef5dbe68",
+    "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T050000Z-33fd3393",
+    "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153623Z-6cd53309",
+    "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153640Z-8e90df1f",
+    "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153657Z-ea9bb945",
+    "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153714Z-1d1cbfea",
+    "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153732Z-c9154dae",
+    "analysis/topdown/raw/opm-cpu-pilot-20261027T152830Z-ffe55771",
+    "analysis/topdown/raw/opm-cpu-pilot-20261027T152843Z-2df2d531",
+    "analysis/topdown/raw/opm-cpu-pilot-20261027T153544Z-aadde888",
+    "analysis/topdown/raw/opm-cpu-pilot-20261027T153557Z-ec6a9d70",
+    "analysis/topdown/raw/opm-cpu-pilot-20261027T153610Z-c84ae2f4",
+    "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153749Z-ca1b915b",
+    "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153810Z-392466df",
+    "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153831Z-116d6f09",
+    "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153852Z-556d6852",
+    "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153914Z-96df8049",
+    "analysis/topdown/raw/tlc-cpu-pilot-20261027T153935Z-0b2e95f5",
+    "analysis/topdown/raw/tlc-cpu-pilot-20261028T021134Z-669e1476",
+    "analysis/topdown/raw/tlc-cpu-pilot-20261028T025645Z-d527d773",
+    "analysis/topdown/raw/tlc-cpu-pilot-20261028T034202Z-56e8b28d",
+    "analysis/topdown/raw/tlc-cpu-pilot-20261028T042707Z-a6992634"
+  ],
+  "necessary_campaign_metadata": [
+    "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392",
+    "analysis/topdown/raw/xlsx-five-repeat-extension-20261028T020708Z-58392cf7"
+  ],
+  "deleted": [
+    {
+      "path": "analysis/hotspot-comparison",
+      "bytes": 8842785647,
+      "file_count": 3043
+    },
+    {
+      "path": "results",
+      "bytes": 509472479,
+      "file_count": 914
+    },
+    {
+      "path": "analysis/hotspots/baselines",
+      "bytes": 231057,
+      "file_count": 1
+    },
+    {
+      "path": "analysis/hotspots/comparison-inputs-20261027.json",
+      "bytes": 8204,
+      "file_count": 1
+    },
+    {
+      "path": "analysis/hotspots/comparison-inputs-seven-20261027.json",
+      "bytes": 21419,
+      "file_count": 1
+    },
+    {
+      "path": "analysis/topdown/reports/latest-smoke.json",
+      "bytes": 165,
+      "file_count": 1
+    },
+    {
+      "path": "analysis/hotspots/raw/completion-campaign-20261027T114920Z-5fd93f12",
+      "bytes": 804,
+      "file_count": 1
+    },
+    {
+      "path": "analysis/hotspots/raw/opm-native-pilot-20261027T113303Z-8fa263aa",
+      "bytes": 32021189,
+      "file_count": 109
+    },
+    {
+      "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122312Z-821a91f6",
+      "bytes": 1316,
+      "file_count": 1
+    },
+    {
+      "path": "analysis/hotspots/raw/sba1919-native-pilot-20261027T105732Z-4675cf50",
+      "bytes": 63109886,
+      "file_count": 172
+    },
+    {
+      "path": "analysis/hotspots/raw/irs-w4-native-pilot-20261027T103444Z-ea88d68e",
+      "bytes": 48370566,
+      "file_count": 171
+    },
+    {
+      "path": "analysis/topdown/raw/smoke-cpu-pilot-20261027T151508Z-12df0689",
+      "bytes": 124263,
+      "file_count": 19
+    },
+    {
+      "path": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T151703Z-7808dc1d",
+      "bytes": 31058295,
+      "file_count": 155
+    },
+    {
+      "path": "analysis/hotspots/reports/opm-native-pilot-20261027T113303Z-8fa263aa",
+      "bytes": 69825,
+      "file_count": 3
+    },
+    {
+      "path": "analysis/hotspots/reports/sba1919-native-pilot-20261027T105732Z-4675cf50-offline-recovery",
+      "bytes": 82423,
+      "file_count": 2
+    },
+    {
+      "path": "analysis/hotspots/reports/sba1919-native-pilot-20261027T105732Z-4675cf50-recovered-report",
+      "bytes": 88982,
+      "file_count": 3
+    },
+    {
+      "path": "analysis/hotspots/reports/irs-w4-native-pilot-20261027T103444Z-ea88d68e-analysis-v2",
+      "bytes": 80711,
+      "file_count": 3
+    },
+    {
+      "path": "analysis/hotspots/reports/irs-w4-native-pilot-20261027T103444Z-ea88d68e",
+      "bytes": 82999,
+      "file_count": 3
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-20261027T152830Z-b344a8d1",
+      "bytes": 4712,
+      "file_count": 2
+    },
+    {
+      "path": "analysis/topdown/reports/smoke-cpu-pilot-20261027T151508Z-12df0689",
+      "bytes": 6851,
+      "file_count": 2
+    },
+    {
+      "path": "analysis/topdown/reports/new-old-similarity-20261028",
+      "bytes": 153787,
+      "file_count": 4
+    },
+    {
+      "path": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T151703Z-7808dc1d",
+      "bytes": 7033,
+      "file_count": 2
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-20261027T152809Z-e10b1ed7",
+      "bytes": 2361,
+      "file_count": 1
+    }
+  ],
+  "logical_bytes_removed": 9527784974,
+  "retained_raw_files_verified": 7321,
+  "verification": {
+    "file_inodes_sizes_mtimes_unchanged": true,
+    "evidence_hashes_checked": 321,
+    "five_repeats_per_dataset_per_profiler": true,
+    "profile_values_and_comparisons_unchanged": true,
+    "historical_baseline_no_longer_in_formal_report": true,
+    "seven_dataset_preflight": "success",
+    "topdown_35_run_verification": "success",
+    "analysis_tests_passed": 43
+  },
+  "qualification_metadata_note": "Image qualification JSON remains frozen; its earlier functional trial outputs were deleted. Current per-run success and artifacts reside in the retained 70 captures.",
+  "measurement_summary_bindings": [
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/statistics.json",
+      "sha256": "e3e7f65918391875020c62b4f4b66c87bdeb8bbbac1fcc214d4fb3830288f61a"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+      "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json",
+      "sha256": "6b6c0f11c0b93626c463549b9b99c132e3264428730678b672d0936936986b99"
+    },
+    {
+      "path": "docs/representativeness-assessment.md",
+      "sha256": "9661f671bb0e2725a2270db6549e3503b988cf3e855d2f256dec6b894fc6d799"
+    }
+  ],
+  "no_workload_or_measurement_rerun": true,
+  "images_modified": false
+}

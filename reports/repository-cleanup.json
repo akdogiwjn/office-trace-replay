@@ -200,5 +200,7 @@
       "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/build.json",
       "sha256": "b55259fcb5bb18e705cd788450200b742b6bf7cee0206e5e088c6cc9d7b36336"
     }
-  ]
+  ],
+  "current_retention_policy": "reports/data-retention.json",
+  "retention_note": "This file records the earlier migration snapshot. Subsequent user instruction removed historical data; current retained files are specified by data-retention.json."
 }
