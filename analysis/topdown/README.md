@@ -1,6 +1,6 @@
-# HIP09 Topdown 采集与分析
+# HIP09 Topdown 核验
 
-当前已完成七例各五次 Topdown 采集，并与独立 perf 热点结果联合分析。最新索引、逐轮统计和复核命令见 [CAMPAIGN.md](CAMPAIGN.md)，正式结论见 [代表性评估报告](../../docs/representativeness-assessment.md)。以下保留硬件、工具与事件核验依据。
+已取得 DevKit Tuner CLI 26.0.RC1，并通过基础事件、顶层四分类、前端分解、后端分解及采集范围的短探针。尚未启动七个文档用例，也未计算 Topdown 相似度。证据在 [本次核验目录](hip09-preflight-20261027/qualification.json)，算术核对见 [arithmetic-verification.json](hip09-preflight-20261027/arithmetic-verification.json)。
 
 ## 工具与硬件
 
@@ -23,7 +23,7 @@
 | Fetch Bandwidth Bound | `Frontend Bound − Fetch Latency Bound` | 同上 |
 | Memory Bound | `Backend Bound × (r7005 + r7006) / r7001` | 可复现打印结果；`r7006` 有未计数诊断，不能把打印的 0 直接认定为真实零 |
 | Core Bound | `Backend Bound − Memory Bound` | 与打印结果一致；继承 Memory Bound 的证据限制 |
-| idle | 单独从目标 CPU 范围的 `/proc/stat` 时间增量定义 | 不由上述 PMU 公式生成；正式采集已通过循环门控接入 |
+| idle | 单独从目标 CPU 范围的 `/proc/stat` 时间增量定义 | 不由上述 PMU 公式生成；尚未接入正式采集 |
 
 分母系数 6 来自本次原始计数与 DevKit 输出的核对，不是从 sysfs `caps/slots` 猜测出来的，也不套用 HIP08 或 HIP12 公式。具体事件的完整硬件语义、SMT 口径及事件轮转的缩放信息仍需进一步确认。
 
@@ -41,14 +41,17 @@ CPU 范围探针使用无网络、只读工具挂载的临时容器，增加 `PE
 
 本机 cgroup 为 hybrid 布局，当前 DevKit 文档声明不支持 hybrid cgroup 配置，暂不采用 `-G`。不能只包装宿主 `docker run` 客户端并假定会追踪到容器 workload。
 
-## 当前采集与复核
+## 正式采集前还需完成
 
-正式采集采用 CPU 范围模式，控制程序在 CPU 9；perf 则采回放进程树。七例两路各五次，具体窗口、权限范围、包络和证据层级见正式报告。经验公式、SMT 和复用语义的边界继续保留，没有把工具打印零值直接解释为硬件零。
+1. 冻结当前版本的模型选择依据、公式证据层级、事件及 user/kernel 口径；补核未计数诊断及事件轮转的缩放信息，禁止将未知项默认为 0。
+2. 实现 CPU 范围与已有单调时钟 ROI 标记的衔接。覆盖正式循环中的 Python、渲染和 LibreOffice 进程线程，排除预检、归档与独立审计；采集器置于目标范围之外。
+3. 用小型父子进程 fixture 验证开始／结束门控和计数范围，再安排一个 PDF 试点。所有用例使用相同的权限态范围、CPU/SMT 布局及指标版本。
+4. 试点通过后，再执行七例各三次固定重复。顶层四 Bound 计算余弦相似度；热点使用现有物理函数集计算 Jaccard；idle 和子层指标单独展示。
 
-短探针材料仍在 `hip09-preflight-20261027/`，可独立核验：
+本轮只运行短硬件诊断与离线核对，未重新构建镜像或运行 PDF/XLSX workload。原热点报告未混入这些合成探针。
+
+离线复核命令：
 
 ```bash
 python3 -B analysis/topdown/verify_probes.py analysis/topdown/hip09-preflight-20261027
 ```
-
-五次实际测量的验证与重算见 [CAMPAIGN.md](CAMPAIGN.md)。不要重新执行已完成的补采脚本来“刷新报告”；报告分析只读取现有数据。

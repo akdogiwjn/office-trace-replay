@@ -61,6 +61,8 @@ docker run --rm --network none -v "$PWD/results:/results" \
 ## 检查、分析与离线构建
 
 ```bash
+# Git 不保存 0664/0775 的完整权限位；首次 checkout 后按冻结锁恢复元数据。
+python3 -B scripts/prepare_checkout.py
 make validate
 make test
 python3 -B -m unittest discover -s analysis/hotspots/tests

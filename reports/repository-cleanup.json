@@ -1,5 +1,5 @@
 {
-  "status": "in_progress",
+  "status": "success",
   "source_commit": "c2930286951dde41071254e3fa8f59c7467c6208",
   "target_branch": "main",
   "target_directory": "/home/lcq/office-trace-replay",
@@ -72,9 +72,12 @@
   "tests": {
     "agent": 35,
     "document_oe": 4,
-    "build_runtime": 13,
+    "build_runtime_checkout": 15,
     "hotspots": 23,
-    "topdown": 20
+    "topdown": 20,
+    "total_passed": 97,
+    "failed": 0,
+    "skipped": 0
   },
   "runtime_files_changed": 0,
   "old_workload_files_unchanged": 43,
@@ -83,7 +86,119 @@
     "retained_runtime_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
     "retained_offline_base_tag": "office-trace-replay:openeuler-release",
     "retained_offline_base_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
-    "remove_duplicate_tag": "office-trace-replay:agent-traces-20261027"
+    "remove_duplicate_tag": "office-trace-replay:agent-traces-20261027",
+    "duplicate_tag_removed": true,
+    "other_project_images_or_containers_modified": false
   },
-  "scope": "Repository consolidation and documentation; no workload reruns, no image rebuild, no other-project changes"
+  "scope": "Repository consolidation and documentation; no workload reruns, no image rebuild, no other-project changes",
+  "completed_at": "2026-10-28T06:54:30.711553+00:00",
+  "local_and_remote_branch": "main",
+  "removed_local_and_remote_branches": [
+    "agent-traces",
+    "slim-v12"
+  ],
+  "removed_directories": [
+    "/home/lcq/office-trace-replay-agent",
+    "/home/lcq/office-trace-replay-slim"
+  ],
+  "retired_implementation_leftovers_removed": [
+    "qualification",
+    ".build",
+    "assets",
+    "compatibility",
+    "distribution",
+    "legacy",
+    "replay",
+    "vendor"
+  ],
+  "migration_checks": [
+    {
+      "group": "agent-native",
+      "files": 4476,
+      "bytes": 17722863849,
+      "original_inode_size_mtime_verified": true,
+      "destination": "analysis/hotspots/raw",
+      "inventory_sha256": "382c38bac0caa7e002002b0390f64b038e2da2d8c383220814b0f7024283edfe"
+    },
+    {
+      "group": "agent-topdown",
+      "files": 3508,
+      "bytes": 1334662440,
+      "original_inode_size_mtime_verified": true,
+      "destination": "analysis/topdown/raw",
+      "inventory_sha256": "e16e6b997a794dd921dd212fd6c8af9df2053fa2706f2aa965a07b7d45d50400"
+    },
+    {
+      "group": "devkit-tools",
+      "files": 158,
+      "bytes": 84610649,
+      "original_inode_size_mtime_verified": true,
+      "destination": "analysis/topdown/tools",
+      "inventory_sha256": "ec375dca47d64b4c7e975d954f234d82aca10a238b7eb307c00163d3a975e411"
+    },
+    {
+      "group": "devkit-downloads",
+      "files": 2,
+      "bytes": 38934055,
+      "original_inode_size_mtime_verified": true,
+      "destination": "analysis/topdown/downloads",
+      "inventory_sha256": "0292a1ea6cbc8b06979073d8513b03d2566e28912beccf388e0c0ca1860375b1"
+    },
+    {
+      "group": "agent-results",
+      "files": 597,
+      "bytes": 255381634,
+      "original_inode_size_mtime_verified": true,
+      "destination": "results",
+      "inventory_sha256": "263c1990e65c167bd621dfb617b6a8ec9e9ff9a3ba6f29e4bda88de98edc10d7"
+    },
+    {
+      "group": "prior-measurements",
+      "files": 3040,
+      "bytes": 8842785011,
+      "original_inode_size_mtime_verified": true,
+      "destination": "analysis/hotspot-comparison",
+      "inventory_sha256": "c1cbbed912f3b7975eddf02e0d46198f97f0336934218c31e3f8d2ed133a5558"
+    },
+    {
+      "group": "prior-results",
+      "files": 317,
+      "bytes": 254090845,
+      "original_inode_size_mtime_verified": true,
+      "destination": "results",
+      "inventory_sha256": "efb22b57c34f95960bd5e79f7296d84ad1d7d87adc624de679122fefcdf9dab5"
+    }
+  ],
+  "preserved_file_count": 12098,
+  "preserved_bytes": 28533328483,
+  "post_move_checks": {
+    "seven_dataset_frozen_preflight": "success",
+    "topdown_35_runs_verification": "success",
+    "runtime_22_bindings_unchanged": true,
+    "raw_file_inodes_sizes_mtimes_unchanged": true,
+    "summary_and_native_numeric_data_unchanged": true,
+    "navigation_links": "success"
+  },
+  "permission_restoration": {
+    "reason": "Git records executable bit but not complete frozen 0664/0775 modes",
+    "files_restored": 25,
+    "checked_workload_files": 43,
+    "content_modified": false,
+    "setup_command": "python3 -B scripts/prepare_checkout.py"
+  },
+  "frozen_hardware_readme": "analysis/topdown/README.md retained byte-for-byte because the preflight SHA256 index binds it",
+  "report_bindings": [
+    {
+      "path": "docs/representativeness-assessment.md",
+      "sha256": "9661f671bb0e2725a2270db6549e3503b988cf3e855d2f256dec6b894fc6d799"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/comparison.json",
+      "sha256": "276dabe02cfe7a6dbd576c960a50be5b979e6bb3a6256a07a78af2a2414c171e"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/build.json",
+      "sha256": "b55259fcb5bb18e705cd788450200b742b6bf7cee0206e5e088c6cc9d7b36336"
+    }
+  ]
 }

@@ -12,6 +12,7 @@
 | `topdown/summarize.py`、`verify_campaign.py` | 单次最终指标、五次统计及来源验证 |
 | `topdown/compare_similarity.py`、`repeat_plots.py` | 十维向量、四 Bound 余弦、热点 Jaccard 与特征图 |
 | `topdown/CAMPAIGN.md` | 当前五次结果的完整索引和离线复核命令 |
+| `topdown/README.md`、`hip09-preflight-20261027/` | 预检时冻结的说明与证据，原字节受 SHA256 索引保护；其中阶段状态是历史快照，当前状态以 CAMPAIGN 为准 |
 
 ## 当前数据
 
