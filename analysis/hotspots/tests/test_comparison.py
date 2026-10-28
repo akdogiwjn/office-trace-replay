@@ -72,6 +72,13 @@ class Comparison(unittest.TestCase):
             config['joint_comparison']=dict(path=joint.name,sha256=c.sha(joint));path.write_text(json.dumps(config))
             with patch.object(c,'ROOT',root),redirect_stdout(io.StringIO()):c.compare(path,update=True)
             self.assertIn('## 五、联合特征对比',(root/'report/report.md').read_text())
+            (root/'docs').mkdir()
+            (root/'report/report.md').rename(root/'docs/assessment.md')
+            (root/'report/report.md').symlink_to('../docs/assessment.md')
+            with patch.object(c,'ROOT',root),redirect_stdout(io.StringIO()):c.compare(path,update=True)
+            self.assertTrue((root/'report/report.md').is_symlink())
+            self.assertIn('](../report/comparison.json)',(root/'docs/assessment.md').read_text())
+            self.assertIn('](../agent/README.md)',(root/'docs/assessment.md').read_text())
             before=c.sha(root/'report/report.md')
             value=json.loads(joint.read_text());value['sources']['hotspot_profiles']['tlc']['sha256']='wrong'
             joint.write_text(json.dumps(value));config['joint_comparison']['sha256']=c.sha(joint);path.write_text(json.dumps(config))

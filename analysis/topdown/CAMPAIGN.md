@@ -2,7 +2,7 @@
 
 七个正式用例的两路测量均已统一为五次独立成功运行：PDF 为 OPM、IRS W-4、SBA 1919，每次处理十份；XLSX 为 TLC、HR Metro、eGRID、Industry Productivity。perf 热点与 DevKit Topdown 分别运行，各使用 35 次结果。保留既有首轮与 PDF 五次，按预定计划补齐 XLSX 的 32 项采集，新增采集零失败、零重试。
 
-- [代表性评估报告](../hotspots/reports/pdf-xlsx-common-hotspots-20261027/report.md)
+- [代表性评估报告](../../docs/representativeness-assessment.md)
 - [五次特征、相似度与特征图](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/report.md)、[机器结果](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json)、[配对 CSV](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/pairs.csv)
 - [逐轮 Topdown 值、均值、样本标准差和 CV](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/statistics.json)、[统计 CSV](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/statistics.csv)、[波动表](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/repeat-variability.md)
 - [五次热点汇总与逐轮排名波动](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/report.md)、[热点机器结果](reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json)

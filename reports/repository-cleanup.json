@@ -1,0 +1,89 @@
+{
+  "status": "in_progress",
+  "source_commit": "c2930286951dde41071254e3fa8f59c7467c6208",
+  "target_branch": "main",
+  "target_directory": "/home/lcq/office-trace-replay",
+  "canonical_report": "docs/representativeness-assessment.md",
+  "report_compatibility_symlink": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/report.md",
+  "measurements_preserved": [
+    {
+      "source": "/home/lcq/office-trace-replay-agent/analysis/hotspots/raw",
+      "destination": "analysis/hotspots/raw",
+      "file_count": 4476,
+      "bytes": 17722863849,
+      "inventory_sha256": "382c38bac0caa7e002002b0390f64b038e2da2d8c383220814b0f7024283edfe",
+      "group": "agent-native"
+    },
+    {
+      "source": "/home/lcq/office-trace-replay-agent/analysis/topdown/raw",
+      "destination": "analysis/topdown/raw",
+      "file_count": 3508,
+      "bytes": 1334662440,
+      "inventory_sha256": "e16e6b997a794dd921dd212fd6c8af9df2053fa2706f2aa965a07b7d45d50400",
+      "group": "agent-topdown"
+    },
+    {
+      "source": "/home/lcq/office-trace-replay-agent/analysis/topdown/tools",
+      "destination": "analysis/topdown/tools",
+      "file_count": 158,
+      "bytes": 84610649,
+      "inventory_sha256": "ec375dca47d64b4c7e975d954f234d82aca10a238b7eb307c00163d3a975e411",
+      "group": "devkit-tools"
+    },
+    {
+      "source": "/home/lcq/office-trace-replay-agent/analysis/topdown/downloads",
+      "destination": "analysis/topdown/downloads",
+      "file_count": 2,
+      "bytes": 38934055,
+      "inventory_sha256": "0292a1ea6cbc8b06979073d8513b03d2566e28912beccf388e0c0ca1860375b1",
+      "group": "devkit-downloads"
+    },
+    {
+      "source": "/home/lcq/office-trace-replay-agent/results",
+      "destination": "results",
+      "file_count": 597,
+      "bytes": 255381634,
+      "inventory_sha256": "263c1990e65c167bd621dfb617b6a8ec9e9ff9a3ba6f29e4bda88de98edc10d7",
+      "group": "agent-results"
+    },
+    {
+      "source": "/home/lcq/office-trace-replay/analysis/hotspot-comparison",
+      "destination": "analysis/hotspot-comparison",
+      "file_count": 3040,
+      "bytes": 8842785011,
+      "inventory_sha256": "c1cbbed912f3b7975eddf02e0d46198f97f0336934218c31e3f8d2ed133a5558",
+      "group": "prior-measurements"
+    },
+    {
+      "source": "/home/lcq/office-trace-replay/results",
+      "destination": "results",
+      "file_count": 317,
+      "bytes": 254090845,
+      "inventory_sha256": "efb22b57c34f95960bd5e79f7296d84ad1d7d87adc624de679122fefcdf9dab5",
+      "group": "prior-results"
+    }
+  ],
+  "slim_clone": {
+    "head": "9b1181facb9e171c5e3a7d3c52dcf1fc06c01d6e",
+    "uncommitted_changes": false,
+    "unique_ignored_payloads": 0,
+    "duplicate_payloads_checked": 41
+  },
+  "tests": {
+    "agent": 35,
+    "document_oe": 4,
+    "build_runtime": 13,
+    "hotspots": 23,
+    "topdown": 20
+  },
+  "runtime_files_changed": 0,
+  "old_workload_files_unchanged": 43,
+  "images": {
+    "retained_runtime_tag": "office-trace-replay:agent-traces",
+    "retained_runtime_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+    "retained_offline_base_tag": "office-trace-replay:openeuler-release",
+    "retained_offline_base_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+    "remove_duplicate_tag": "office-trace-replay:agent-traces-20261027"
+  },
+  "scope": "Repository consolidation and documentation; no workload reruns, no image rebuild, no other-project changes"
+}

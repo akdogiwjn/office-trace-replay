@@ -205,6 +205,8 @@ def compare(config_path,update=False):
     if update and output.exists() and {p.name for p in output.iterdir()}!={'comparison.json','report.md','build.json'}:
         raise ValueError('refuse to update an unexpected report directory')
     output.mkdir(parents=True,exist_ok=update)
+    report_path=(output/'report.md').resolve()
+    report_directory=report_path.parent
     write(output/'comparison.json',dict(scope='shared dominant hotspots; weights descriptive',
         denominator='complete workload ROI cycles:u sample period; unknown retained',
         profiles=profiles,historical_profiles=historical_profiles,comparisons=pairs,presentation=presentation,inputs=config,config_sha256=sha(config_path),
@@ -363,10 +365,15 @@ def compare(config_path,update=False):
         for f in joint.get('figures',[]):
             path=ROOT/f['path']
             if sha(path)!=f['sha256']:raise ValueError('joint figure changed')
-            lines+=['',f'![{f["title"]}]({os.path.relpath(path,output)})','',f['caption']]
+            lines+=['',f'![{f["title"]}]({os.path.relpath(path,report_directory)})','',f['caption']]
     if config.get('coverage_gaps'):
         lines+=['',config['coverage_gaps']['markdown']]
-    (output/'report.md').write_text('\n'.join(lines).rstrip()+'\n')
+    markdown='\n'.join(lines).rstrip()+'\n'
+    for original,target in [('comparison.json',output/'comparison.json'),
+                            ('build.json',output/'build.json'),
+                            ('../../../../agent/README.md',ROOT/'agent/README.md')]:
+        markdown=markdown.replace(']('+original+')',']('+os.path.relpath(target,report_directory)+')')
+    report_path.write_text(markdown)
     write(output/'build.json',dict(config_sha256=sha(config_path),analysis_sha256=sha(Path(__file__)),
         output_sha256={p.name:sha(p) for p in output.iterdir() if p.is_file() and p.name!='build.json'}))
     print(json.dumps(dict(output=str(output.relative_to(ROOT)),comparisons=pairs),ensure_ascii=False))
