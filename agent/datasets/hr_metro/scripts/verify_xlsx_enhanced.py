@@ -194,7 +194,9 @@ def verify_cached_values(path, add):
         sheet = book[CONFIG['features']['summary_sheet']]
         # One bounded scan of the small new Summary; never scan a large data sheet.
         values = {cell.coordinate: cell.value for row in sheet.iter_rows() for cell in row if cell.value is not None}
-        add('cached_numeric_values', all(same_number(values.get(a), values.get(a))
+        add('cached_numeric_values', all((isinstance(values.get(a), (int, float))
+                                        and not isinstance(values[a], bool)
+                                        and math.isfinite(values[a]))
                                        for a in CONFIG['numeric_formula_cells']))
         for ident, spec in CONFIG['features']['metrics'].items():
             add('cached_metric:' + ident, same_number(values.get(spec['cell']), CONFIG['metric_values'][ident]))

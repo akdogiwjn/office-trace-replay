@@ -11,6 +11,8 @@ import tempfile
 import time
 import unittest
 from unittest.mock import patch
+from zipfile import ZipFile, ZIP_DEFLATED
+import xml.etree.ElementTree as ET
 
 import test_replay as fixtures
 from test_replay import module
@@ -97,6 +99,50 @@ class LoopCSV(unittest.TestCase):
                 elif change == 'label': path.write_text(text.replace(contract['exports'][0]['rows'][0]['label'], 'wrong', 1))
                 else: path.write_text(text.replace('12.5', 'NaN', 1))
                 self.assertIn('csv_matches_current_cache:' + path.name, self.check(verifier, root)['failures'])
+
+    def set_numeric_formula_cache(self, workbook, kind, value):
+        # B20 is outside KPI/CSV checks, so only the numeric-cache guard can
+        # reject it. Keep a real formula and change only its tiny fixture cache.
+        with ZipFile(workbook) as archive:
+            parts = {name: archive.read(name) for name in archive.namelist()}
+        ns = '{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
+        xml = ET.fromstring(parts['xl/worksheets/sheet1.xml'])
+        xml.find(ns + 'dimension').set('ref', 'A1:B20')
+        row = ET.SubElement(xml.find(ns + 'sheetData'), ns + 'row', r='20')
+        cell = ET.SubElement(row, ns + 'c', r='B20', t=kind)
+        ET.SubElement(cell, ns + 'f').text = '1+1'
+        if value is not None:
+            ET.SubElement(cell, ns + 'v').text = value
+        parts['xl/worksheets/sheet1.xml'] = ET.tostring(xml, encoding='utf-8')
+        with ZipFile(workbook, 'w', ZIP_DEFLATED) as archive:
+            for name, content in parts.items():
+                archive.writestr(name, content)
+
+    def test_numeric_formula_caches_reject_text_boolean_missing_and_nonfinite(self):
+        for name in ('egrid', 'hr_metro', 'industry_productivity'):
+            for kind, value in (('str', 'not-a-number'), ('str', '12.5'),
+                                ('str', ''), ('b', '1'), ('n', None),
+                                ('n', '1e999'), ('n', '-1e999')):
+                with self.subTest(dataset=name, kind=kind, value=value), tempfile.TemporaryDirectory() as temp:
+                    root = Path(temp); verifier, _, workbook = self.fixture(root, name)
+                    verifier.CONFIG['numeric_formula_cells'].append('B20')
+                    self.set_numeric_formula_cache(workbook, kind, value)
+                    before = workbook.read_bytes()
+                    result = self.check(verifier, root)
+                    self.assertEqual(result['status'], 'failed')
+                    self.assertIn('cached_numeric_values', result['failures'])
+                    self.assertEqual(workbook.read_bytes(), before)
+
+    def test_numeric_formula_caches_accept_finite_zero_negative_and_float(self):
+        for name in ('egrid', 'hr_metro', 'industry_productivity'):
+            for value in ('0', '-3', '2.5'):
+                with self.subTest(dataset=name, value=value), tempfile.TemporaryDirectory() as temp:
+                    root = Path(temp); verifier, _, workbook = self.fixture(root, name)
+                    verifier.CONFIG['numeric_formula_cells'].append('B20')
+                    self.set_numeric_formula_cache(workbook, 'n', value)
+                    before = workbook.read_bytes()
+                    self.assertEqual(self.check(verifier, root)['status'], 'success')
+                    self.assertEqual(workbook.read_bytes(), before)
 
     def test_generator_keeps_source_verifiers_immutable(self):
         compiler = module(ROOT / 'tools/import_traces.py', 'loop_compiler')

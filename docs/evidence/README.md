@@ -8,7 +8,7 @@
 
 正式评估报告在 [代表性评估报告](../representativeness-assessment.md)，五次测量入口在 [analysis/README.md](../../analysis/README.md)。
 
-- [当前源码绑定](source-lock.json)：保留原镜像资格的原始哈希，单独记录宿主构建脚本的证据输出路径变更；不表示重建了镜像。
+- [当前源码绑定](source-lock.json)：保留原镜像资格，通过 `packaging_only_changes` 和 `runtime_changes` 分别记录宿主构建脚本与测量后验收修复的差异；不表示重建了镜像。数值缓存修复及定向验证见 [xlsx-numeric-cache-fix.json](xlsx-numeric-cache-fix.json)。
 - [目录迁移核对](layout-migration.json)：原 `reports/` 与当前路径的映射、文件完整性及测量结果不变检查。原始 JSON/日志内的历史路径保持不变。
 
 - [报告拆分与曲线核验](report-split.json)：两份文档的生成绑定、逐秒数据来源、测量结果不变与离线测试记录。

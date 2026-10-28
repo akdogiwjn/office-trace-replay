@@ -1,0 +1,100 @@
+{
+  "schema": "post-measurement-xlsx-numeric-cache-fix-v1",
+  "base_commit": "73d2e8fb6cacf335705a424bdbe93d1593697b25",
+  "measured_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "image_rebuilt": false,
+  "workload_rerun": false,
+  "historical_measurements_changed": false,
+  "original_trace_verifiers_changed": false,
+  "fix": "Reject non-numeric, boolean and non-finite formula caches using explicit type/finiteness checks; no extra workbook load or scan.",
+  "files": {
+    "agent/datasets/egrid/lock.json": {
+      "before_sha256": "39ad3fc3dc86bcda3eac3febae1c0d17b13cea13d933b6ea401d4c4a978c45b8",
+      "sha256": "cb4652f86b065f9c5aa4e9397ebed7f2ed916a10821513fb3a33a35d216d04e8"
+    },
+    "agent/datasets/egrid/recipe.json": {
+      "before_sha256": "f8211e0f2c28ed999955af0260628a4ee08d081fa4f33c59b18257e268916b5d",
+      "sha256": "cafa5e60804e658d4af4dee280731f988864cb1e94c2e4b56b10c9fa6c888afb"
+    },
+    "agent/datasets/egrid/scripts/verify_xlsx_enhanced.py": {
+      "before_sha256": "dcd0cad3201bfd419a3918166479864a89d547ca9fc9a7f4092be866aae4910f",
+      "sha256": "720797a459baa2b76e1d07648ed37ab174fab282a1f83a9c4e303b8e4b8ffca8"
+    },
+    "agent/datasets/hr_metro/lock.json": {
+      "before_sha256": "bd7b8d9b30ff6d90eef472b2b9654632fb3ffe0f97faa54637e284175c232194",
+      "sha256": "ee323784db2beaaa4f50130cc3032f06b53ff87cfdcd8297e8870512f12b2ad1"
+    },
+    "agent/datasets/hr_metro/recipe.json": {
+      "before_sha256": "a82a91bd8d61bbeb8dd697cbedf1c9af6415bd8e8ee41d8fc0a7b2c9cf3372fb",
+      "sha256": "de58f267e16b1044df910a084b374ba1ed0dce783f9138bd72c2a979a6d19a6f"
+    },
+    "agent/datasets/hr_metro/scripts/verify_xlsx_enhanced.py": {
+      "before_sha256": "9772b691cbb4c16795db478cfa1d6115637a5522ec66c319a52d7a054e16d7f3",
+      "sha256": "27750246d7693599cdb6ad2f811cb0cb0c3a2f9ca5dfb86de8e44b1e9016fa17"
+    },
+    "agent/datasets/industry_productivity/lock.json": {
+      "before_sha256": "85c9e9a18899d3e549dd8b2a0efdf608421f9a153d154de7ae3362ed3ba16d2a",
+      "sha256": "b496aeff0bd167ce34986f7095dea65146651b3fb98673db51c88b1a20f3eeee"
+    },
+    "agent/datasets/industry_productivity/recipe.json": {
+      "before_sha256": "27dcad66e72abccd1cbcc78b87a525e16db1ff4d8325f381b8237628d554eeb2",
+      "sha256": "68c256afa61685247ca408c7c7ef8ad7bba8e01303f00bd54d1a90162f84ceb2"
+    },
+    "agent/datasets/industry_productivity/scripts/verify_xlsx_enhanced.py": {
+      "before_sha256": "dce7b44a5cbb21ca2ca4d70870f1d69c686be3e25b883c20a3bdc6e6d67b0eb0",
+      "sha256": "7bfbe942d70dac85f699902ad17a24cf128e350ebb2bed32709ef5024a1be4c7"
+    },
+    "agent/suite.json": {
+      "before_sha256": "85e6cbb7cda9bcbe34b12a99addcea7daae61b7e17a155bc79451deb6d9787d8",
+      "sha256": "732370c618553f94f23956f1d6859d6cb2b175de831df0e065c80093572e5bf0"
+    },
+    "agent/tests/test_closeout.py": {
+      "before_sha256": "b603ef756bf49802dca69e409a79fc8b685a2ee5ab4f8f4d6b18dadab32aa0bf",
+      "sha256": "750f27d2b9e90e92d9cb89b299dcba0a2a39df8347bc254d97f21ca8b65f6adc"
+    },
+    "agent/tools/import_traces.py": {
+      "before_sha256": "e54aea60a02e77c5b3befa1af2dcc13bd572cf10deff7b62ecc6c879451a8d88",
+      "sha256": "6c8cc3feaf7a0bd4aaff4709c27cd455348be3846ba809b1ffe331eee839c605"
+    },
+    "analysis/topdown/verify_campaign.py": {
+      "before_sha256": "1576bd2cb6c0f9831e4f0723f0d1059b019f0bcb8007f02aa5befc53e65bcff0",
+      "sha256": "a531851421c83597c1a4d2d7eff22241de032648ba3a40d5e4e8a7cb45593baa"
+    }
+  },
+  "validation": {
+    "tests": {
+      "passed": 111,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0,
+      "groups": {
+        "agent": 37,
+        "document_oe": 4,
+        "repository": 19,
+        "hotspots": 25,
+        "topdown": 26
+      }
+    },
+    "cases": "Three dataset-private verifiers: formula cache text, numeric-looking text, empty, boolean, missing, +/-infinity rejected; finite zero, negative integer and float accepted. Existing CSV checks and workbook byte preservation exercised.",
+    "existing_outputs_audited": {
+      "workbooks": 30,
+      "numeric_caches": 550,
+      "invalid": 0,
+      "scope": "Prior final offline audit; reads existing XLSX XML, no regeneration."
+    },
+    "preflight": "make validate passed; all five new recipes and old 43 workload files valid",
+    "offline_campaign_recheck": {
+      "runs": 35,
+      "statistics_reproduced": true,
+      "current_image_unchanged": true,
+      "checkout_matches_measured_image": false
+    },
+    "isolated_checkout_tests": {
+      "passed": 111,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0,
+      "scope": "Git snapshot plus current reviewed patch; no raw files or sibling repos"
+    }
+  }
+}

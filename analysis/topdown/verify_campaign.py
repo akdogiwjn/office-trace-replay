@@ -92,7 +92,10 @@ def verify(folder):
             lines.append('| '+metric+' | '+' | '.join(values)+' |')
         (folder/'repeat-variability.md').write_text('\n'.join(lines)+'\n')
     result=dict(status='success',run_count=count,unique_containers=count,image_id=next(iter(images)),
-        qualified_runtime_files_unchanged=len(qualified['file_hashes'])-len(qualified.get('packaging_only_changes',{})),
+        qualified_runtime_files_unchanged=(len(qualified['file_hashes'])
+            -len(qualified.get('packaging_only_changes',{}))-len(qualified.get('runtime_changes',{}))),
+        post_measurement_runtime_bindings_checked=len(qualified.get('runtime_changes',{})),
+        checkout_matches_measured_image=not bool(qualified.get('runtime_changes')),
         qualified_packaging_files_checked=len(qualified.get('packaging_only_changes',{})),
         source_lock_sha256=sha(ROOT/'docs/evidence/source-lock.json'),
         prior_evidence_unchanged=len(prior['files']),

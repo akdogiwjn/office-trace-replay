@@ -39,6 +39,8 @@
 
 七例已通过当前环境的执行和循环验证，测量记录也核验实际 image ID。详细安装态与独立审计范围见[镜像资格记录](docs/evidence/image-qualification-agent-traces.json)。该历史记录冻结构建时状态，后续五次采集以[当前测量清单](analysis/topdown/CAMPAIGN.md)为准。报告和分析代码更新不要求重建执行镜像。
 
+源码已补强三个新增 XLSX 用例的数值缓存检查，明确拒绝文本、布尔值及非有限数值；原始轨迹和旧 workload 保持冻结。现有执行镜像尚未包含此修复，当前源码与测量镜像的差异见 [source-lock.json](docs/evidence/source-lock.json) 的 `runtime_changes`。既有测量与报告继续绑定原镜像；使用修复版容器时需另行构建候选镜像。
+
 ## 运行
 
 ```bash

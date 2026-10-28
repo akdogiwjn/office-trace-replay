@@ -119,11 +119,15 @@ def adapted_loop_verifier(original):
     additions = (ROOT / 'tools/loop_csv_checks.py.template').read_text()
     anchor = '\ndef verify_cached_values(path, add):'
     check = "        add('zero_cached_formula_errors', not errors, errors[:12])"
+    numeric = 'same_number(values.get(a), values.get(a))'
     workspace = 'verify_workspace(Path(__file__).resolve().parents[1], args.report_json,'
-    for text in (anchor, check, workspace):
+    for text in (anchor, check, numeric, workspace):
         if original.count(text) != 1:
             raise ValueError('unrecognized source verifier for cache-CSV adaptation: ' + text)
     return (original.replace(anchor, '\n' + additions + '\n' + anchor)
+            .replace(numeric, '(isinstance(values.get(a), (int, float))\n'
+                              '                                        and not isinstance(values[a], bool)\n'
+                              '                                        and math.isfinite(values[a]))')
             .replace(check, check + '\n        verify_csv_cached(path.parent, values, add)')
             .replace(workspace, 'verify_workspace(Path(__file__).resolve().parent, args.report_json,')
             .replace('dataset-local-tlc-style-v1', 'dataset-local-tlc-style-cache-csv-v2')
@@ -256,7 +260,7 @@ def import_one(source, dataset, index, target_root=None):
                  'output/formula_recalc.json', 'output/business_verification.json'],
              dict(type='replay_verifier_adaptation',
                   original_sha256=digest(seed / 'input/verify_xlsx_enhanced.py'), sha256=digest(verifier),
-                  description='Private original verifier plus CSV-to-current-cache checks; reuses its cached load.'))
+                  description='Private original verifier plus finite numeric-cache and CSV-to-current-cache checks; reuses its cached load.'))
         copy(ROOT / 'tools/write_summary.py.template', scripts / 'write_xlsx_summary.py')
         own(4, 'write_xlsx_summary.py', 'Generate current replay counts/status; never copy historical success or hashes.')
         adaptations += ['Prepared CSV copy replaced by final-cache export; filenames, headers and row order retained.',
