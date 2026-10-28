@@ -1,6 +1,6 @@
 # 文档解析类 Agent 轨迹回放与负载分析
 
-**[阅读代表性评估报告](docs/representativeness-assessment.md)** · [采集与分析入口](analysis/README.md) · [镜像验收](docs/evidence/image-qualification-agent-traces.md)
+**[阅读代表性评估报告](docs/representativeness-assessment.md)** · [完整实验数据](docs/experimental-results.md) · [采集与分析入口](analysis/README.md) · [镜像验收](docs/evidence/image-qualification-agent-traces.md)
 
 本项目保存七个数据集的文档处理轨迹回放代码，并研究主要脚本、库、函数热点及 Topdown 特征。当前正式结果中，七例的 perf 热点和 DevKit Topdown 各有五次独立运行；PDF 每次处理十份记录。正式代码统一维护在 `main`。
 
@@ -19,7 +19,8 @@
 
 | 路径 | 用途与保留边界 |
 |---|---|
-| `docs/representativeness-assessment.md` | 唯一正式评估报告，含数据集、轨迹、回放、测量方法、五次结果和 Word/PPT 覆盖缺口 |
+| `docs/representativeness-assessment.md` | 正式评估报告，含关键发现、完整实验设计与方法、主要对比和 Word/PPT 覆盖边界 |
+| `docs/experimental-results.md` | 完整实验数据记录，含逐轮指标、逐采样点曲线、热点明细、实际命令与证据索引 |
 | `agent/` | 新五例的完整可执行材料；冻结文件不作目录重排 |
 | `document-oe/` | 旧 OPM/TLC 的执行器与冻结 workload |
 | `analysis/hotspots/` | perf 采集、解析、函数和脚本分组、逐轮与合并结果 |

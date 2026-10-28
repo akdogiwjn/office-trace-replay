@@ -1,6 +1,6 @@
 # 采集与分析导航
 
-正式结论统一在 [代表性评估报告](../docs/representativeness-assessment.md)。以下目录负责代码与证据，不是多套正式报告。
+正式结论统一在 [代表性评估报告](../docs/representativeness-assessment.md)。完整明细统一在 [实验数据汇总记录](../docs/experimental-results.md)。以下目录负责代码与证据。
 
 | 目录／文件 | 用途 |
 |---|---|
@@ -29,6 +29,6 @@
 
 1. 使用 `topdown/CAMPAIGN.md` 的命令核验已有五次结果并重算相似度；不重新采集。
 2. 如果相似度 JSON 改变，将新 SHA256 更新到热点配置的 `joint_comparison`。
-3. 运行根 README 中的报告生成命令。正式 Markdown 在 `docs/`；原深层 `report.md` 仅是指向它的兼容链接，报告内容只有一份。
+3. 运行根 README 中的报告生成命令。代表性报告与实验数据记录由同一生成入口更新，均在 `docs/`；原深层 `report.md` 仅是指向它的兼容链接，报告内容只有一份。
 
 搬迁项目不改写原始运行记录、raw 文件或冻结 SHA256。优先按 JSON 中仓库相对路径定位数据，而不是把历史宿主绝对路径当作当前路径。

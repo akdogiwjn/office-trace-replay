@@ -365,18 +365,29 @@ def compare(config_path,update=False):
     if joint:
         lines+=['',joint['report_section']]
         for f in joint.get('figures',[]):
+            if config.get('document_outputs') and f.get('detail'):
+                continue
             path=ROOT/f['path']
             if sha(path)!=f['sha256']:raise ValueError('joint figure changed')
             lines+=['',f'![{f["title"]}]({os.path.relpath(path,report_directory)})','',f['caption']]
-    if config.get('coverage_gaps'):
+    if config.get('coverage_gaps') and not config.get('document_outputs'):
         lines+=['',config['coverage_gaps']['markdown']]
     markdown='\n'.join(lines).rstrip()+'\n'
     for original,target in [('comparison.json',output/'comparison.json'),
                             ('build.json',output/'build.json'),
                             ('../../../../agent/README.md',ROOT/'agent/README.md')]:
         markdown=markdown.replace(']('+original+')',']('+os.path.relpath(target,report_directory)+')')
-    report_path.write_text(markdown)
+    document_hashes={}
+    if config.get('document_outputs'):
+        if not joint or 'time_series' not in joint:
+            raise ValueError('split documents require complete Topdown and interval evidence')
+        from report_documents import publish
+        document_hashes=publish(config,profiles,presentation,joint,markdown,ROOT,report_path)
+    else:
+        report_path.write_text(markdown)
     write(output/'build.json',dict(config_sha256=sha(config_path),analysis_sha256=sha(Path(__file__)),
+        document_sha256=document_hashes,
+        document_generator_sha256=sha(HERE/'report_documents.py') if document_hashes else None,
         output_sha256={p.name:sha(p) for p in output.iterdir() if p.is_file() and p.name!='build.json'}))
     print(json.dumps(dict(output=str(output.relative_to(ROOT)),comparisons=pairs),ensure_ascii=False))
 

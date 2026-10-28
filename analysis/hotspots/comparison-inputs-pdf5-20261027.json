@@ -325,7 +325,7 @@
   ],
   "joint_comparison": {
     "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json",
-    "sha256": "40fa4ef3a0af75d8f437372935c53c211dae2e67e6b9f284743603521d76f6dc"
+    "sha256": "d1c8fa355c099e292c1449b96eb4b02140eb654c121984541b968f6f8f5032bd"
   },
   "coverage_gaps": {
     "checked_on": "2026-10-28",
@@ -342,5 +342,9 @@
       }
     },
     "evidence_scope": "Public adoption, product and benchmark coverage, plus static analysis of typical external Skills; no new workload measurements"
+  },
+  "document_outputs": {
+    "assessment": "docs/representativeness-assessment.md",
+    "experiment_record": "docs/experimental-results.md"
   }
 }

@@ -124564,7 +124564,7 @@
     ],
     "joint_comparison": {
       "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json",
-      "sha256": "40fa4ef3a0af75d8f437372935c53c211dae2e67e6b9f284743603521d76f6dc"
+      "sha256": "d1c8fa355c099e292c1449b96eb4b02140eb654c121984541b968f6f8f5032bd"
     },
     "coverage_gaps": {
       "checked_on": "2026-10-28",
@@ -124581,10 +124581,14 @@
         }
       },
       "evidence_scope": "Public adoption, product and benchmark coverage, plus static analysis of typical external Skills; no new workload measurements"
+    },
+    "document_outputs": {
+      "assessment": "docs/representativeness-assessment.md",
+      "experiment_record": "docs/experimental-results.md"
     }
   },
-  "config_sha256": "cb33584ce3cdbf5bf5b5ed600fa6bf2c002d82ad3914109844b191062233ed6f",
-  "analysis_source_sha256": "668cf4c9639c94d8abd352d012dde2363a357b1fe795fa96830cd28431e2d603",
+  "config_sha256": "52fc656ec63d04403415281a3f3e908f4cc7af7dbfda9f6f17b0b81e9754b609",
+  "analysis_source_sha256": "ce1727af79849683d7154277661b018e4df07d23afa4a5532cdbef4916aa4680",
   "joint_comparison": {
     "schema": "topdown-hotspot-similarity-v1",
     "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
@@ -129197,30 +129201,95 @@
     },
     "config_sha256": "e7d315e1710f2b91c9558358792934005cd8931ed45947b49e0808f22d9b7026",
     "analysis_sources": {
-      "analysis/topdown/compare_similarity.py": "80af18187cb797d74fb5c4beac796b3fff29b12bb9dd396a4c765a638f9d9671",
+      "analysis/topdown/compare_similarity.py": "e67547b672c43eb64ddd9e4ad237dc3dbfc18efe959b1c33c6c2c4be218c4396",
       "analysis/topdown/report_methods.py": "a77d9a62676d61fc85de483eb4cea44019c9e1c070aa9ab853f1de0c968dc6fd",
-      "analysis/hotspots/compare.py": "668cf4c9639c94d8abd352d012dde2363a357b1fe795fa96830cd28431e2d603",
-      "analysis/topdown/repeat_plots.py": "be10306fd2971bc618840e9338831b2f7ec74d9ccaf2467761989c6057e025c1"
+      "analysis/hotspots/compare.py": "ce1727af79849683d7154277661b018e4df07d23afa4a5532cdbef4916aa4680",
+      "analysis/topdown/repeat_plots.py": "ce8ea97bcb9f4103e747037c128ba1e4565b33a07ba54994c71ee373691364ec",
+      "analysis/topdown/time_series.py": "3950e44a5ba1520655bcd5bc5f5a20610adebdd95da79676ebba258ecdc413a7"
     },
     "scope": "Descriptive independent CPU-scoped DevKit envelope metrics and cycles:u ROI hotspot sets; no composite score",
+    "time_series": {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/time-series.json",
+      "sha256": "cc91ced000866e83e2bc893ee2511d340fc35bb3666bf62e733b6a8a086373dc",
+      "runs": 35,
+      "points": 6829
+    },
     "figures": [
       {
         "filename": "pdf-bound-five-repeats.svg",
         "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/pdf-bound-five-repeats.svg",
-        "sha256": "41b8c05aad1e84fbbb6d40e27ede5a33a49032a0846177be2c2c6e78e76dd728",
-        "title": "PDF 五次独立运行的顶层 Bound 特征",
-        "caption": "淡点为每次独立运行的最终指标，连线为五次均值，误差棒为样本标准差；横向错位只为区分数据集。"
+        "sha256": "b3924a347a8aa2046db365e724dafffaeb6043e69b5ec79821ea3bb522f0f13e",
+        "title": "PDF 五轮逐采样点顶层 Bound",
+        "detail": false,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
       },
       {
         "filename": "xlsx-bound-five-repeats.svg",
         "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/xlsx-bound-five-repeats.svg",
-        "sha256": "adcfcd6e421a9d8a89a653b54a9de37cacde8be8823e74d3db9fa99ef265bc6c",
-        "title": "XLSX 五次独立运行的顶层 Bound 特征",
-        "caption": "淡点为每次独立运行的最终指标，连线为五次均值，误差棒为样本标准差；横向错位只为区分数据集。"
+        "sha256": "269b57d95a9438257082ef63b1796e3df78c3cb97940c1bbeec8d7d8fb140453",
+        "title": "XLSX 五轮逐采样点顶层 Bound",
+        "detail": false,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
+      },
+      {
+        "filename": "opm-interval-metrics.svg",
+        "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/opm-interval-metrics.svg",
+        "sha256": "1a899115bcf9f2fd97b2c46212350801d2af5c524a7e163d2e22e4eed1bbde8d",
+        "title": "OPM 五轮全指标采样曲线",
+        "detail": true,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
+      },
+      {
+        "filename": "irs_w4-interval-metrics.svg",
+        "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/irs_w4-interval-metrics.svg",
+        "sha256": "83dd13a543cc122bb6d8825de0a349723cb7f7ad5ce0b9da4220a138c691a025",
+        "title": "IRS W-4 五轮全指标采样曲线",
+        "detail": true,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
+      },
+      {
+        "filename": "sba1919-interval-metrics.svg",
+        "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/sba1919-interval-metrics.svg",
+        "sha256": "90401104bb18f693bb1bc0cf71363e37ea6507284b35ea6bdc868da681bb5b37",
+        "title": "SBA 1919 五轮全指标采样曲线",
+        "detail": true,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
+      },
+      {
+        "filename": "tlc-interval-metrics.svg",
+        "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/tlc-interval-metrics.svg",
+        "sha256": "cfaea0d1346773d7ecbed6c66570fe844ea873622c8e629c735feeb1aef73221",
+        "title": "TLC 五轮全指标采样曲线",
+        "detail": true,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
+      },
+      {
+        "filename": "hr_metro-interval-metrics.svg",
+        "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/hr_metro-interval-metrics.svg",
+        "sha256": "80946638ded592c5f0629a019309d32d4249ec7b2121d2f93b34c8b12fcb2f76",
+        "title": "HR Metro 五轮全指标采样曲线",
+        "detail": true,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
+      },
+      {
+        "filename": "egrid-interval-metrics.svg",
+        "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/egrid-interval-metrics.svg",
+        "sha256": "5bd64dae5fb7cdb13349b2a961163b529cc46c34457cd36019605f7554369c8c",
+        "title": "eGRID 五轮全指标采样曲线",
+        "detail": true,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
+      },
+      {
+        "filename": "industry_productivity-interval-metrics.svg",
+        "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/industry_productivity-interval-metrics.svg",
+        "sha256": "69886a175b965d1ecf32cf02b46bb7868365df9647947b02b6981d722b804c65",
+        "title": "Industry Productivity 五轮全指标采样曲线",
+        "detail": true,
+        "caption": "每个点为原始 DevKit 编号报告，每条线为一个指标；横轴为五轮串联的采样点序号，轮间留空且不连线。名义间隔 1 秒，保留启动和停止包络，不平滑、不插值。"
       }
     ],
     "matplotlib_version": "3.11.2",
-    "report_section": "## 六、Topdown 特征与热点集合相似度\n\n在已有原生热点证据基础上，对七例另行采集 DevKit Topdown 指标。PDF 每例独立采集五次，每次执行一轮、处理十份；XLSX 每例也独立采集五次。Topdown 特征取五次逐指标算术均值；热点函数采用五次原始 sample period 合并的结果。两路数据来自同一回放镜像，分别测量。\n\n### 计算口径\n\n| 度量 | 输入与计算 | 用途 |\n|---|---|---|\n| 顶层 Bound 余弦 | `[Bad Speculation, Frontend Bound, Backend Bound, Retiring]`；`(a·b)/(‖a‖‖b‖)` | 对比顶层分配形状，接近 1 表示方向接近 |\n| 热点 Jaccard | 各自 Top-10 已解析物理叶函数，以「库类别＋函数名」为键；`交集数/并集数` | 对比主要函数集合，不要求权重相等 |\n| 原始欧氏距离 | 固定十维：IPC、四个顶层 Bound、Core、Memory、Fetch Latency、Fetch Bandwidth、idle；`√Σ(aᵢ−bᵢ)²` | 混合单位且含层级指标，仅列作辅助，不作判定 |\n\n### 从逐轮结果构造向量与集合\n\n对每个数据集，按以下固定顺序构造十维向量；IPC 无量纲，其余维度使用 0–100 的百分数数值，例如 58.84% 写成 58.84，不写成 0.5884。十维不做标准化。\n\n```text\nv = [IPC, Bad Speculation, Frontend Bound, Backend Bound, Retiring,\n     Core Bound, Memory Bound, Fetch Latency Bound, Fetch Bandwidth Bound, idle_pct]\n```\n\n七例对每个维度使用五次独立采集结果的算术均值：`μ=Σxᵣ/5`；样本标准差 `s=√[Σ(xᵣ−μ)²/4]`，`CV=100×s/|μ|`。顶层 Bound 是四个父项；Backend 的 Core/Memory、Frontend 的 Latency/Bandwidth 是子项，因此余弦只抽取四个顶层维度，避免重复计入父子层级。\n\n以下是本次 TLC 与 HR Metro 的实际构造，idle 展示到六位小数；计算使用 JSON 中保存的原值：\n\n```text\nTLC 十维       = [1.234, 2.478, 18.1, 58.846, 20.572, 44.734, 14.116, 15.64, 2.462, 86.560609]\nHR Metro 十维  = [1.222, 2.332, 16.31, 61.01, 20.346, 44.904, 16.108, 13.954, 2.354, 86.406387]\nTLC Bound      = [2.478, 18.1, 58.846, 20.572]\nHR Metro Bound = [2.332, 16.31, 61.01, 20.346]\n```\n\n由这两个四维 Bound 向量计算的余弦为 **0.999314**；十维原始欧氏距离为 **3.852**。余弦不加入 IPC、子项或 idle；欧氏距离含混合单位及父子重复，只保留作辅助，三个量不加权拼成总分。\n热点集合按“库类别＋物理叶函数名”取各自合并结果的前十个已解析函数。例如 OPM 与 W-4 共有 9 个，交集为 9、并集为 11，故 Jaccard=`9/11`=**0.8182**。函数的原始 period 先用于排序；选出的集合只比较成员，权重不进入 Jaccard。\n\n\n### 五组新旧对照\n\n| 基准 → 新输入 | Bound 余弦 | Top-10 共同数 | 热点 Jaccard | 原始欧氏距离（辅助） | Frontend 变化（pp） | Backend 变化（pp） |\n|---|---:|---:|---:|---:|---:|---:|\n| opm → irs_w4 | 0.999897 | 9/10 | 0.8182 | 1.457 | -0.50 | -0.22 |\n| opm → sba1919 | 0.998987 | 7/10 | 0.5385 | 4.040 | -2.41 | +0.74 |\n| tlc → hr_metro | 0.999314 | 8/10 | 0.6667 | 3.852 | -1.79 | +2.16 |\n| tlc → egrid | 0.998858 | 9/10 | 0.8182 | 4.755 | -2.49 | +2.61 |\n| tlc → industry_productivity | 0.999634 | 8/10 | 0.6667 | 2.929 | -1.30 | +1.61 |\n\n### 七例 Topdown 特征\n\n除 IPC 外，表中值为百分比；七例均为五次独立采集的均值。\n\n| 数据集 | 次数 | IPC | Bad Spec. | Frontend | Backend | Retiring | Core | Memory | Fetch latency | Fetch bandwidth | idle |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| opm | 5 | 1.23 | 4.68 | 18.12 | 56.76 | 20.44 | 46.41 | 10.35 | 15.87 | 2.24 | 86.29 |\n| irs_w4 | 5 | 1.27 | 4.67 | 17.62 | 56.54 | 21.17 | 46.81 | 9.73 | 15.08 | 2.53 | 86.48 |\n| sba1919 | 5 | 1.31 | 4.95 | 15.71 | 57.50 | 21.84 | 47.45 | 10.05 | 13.29 | 2.42 | 86.48 |\n| tlc | 5 | 1.23 | 2.48 | 18.10 | 58.85 | 20.57 | 44.73 | 14.12 | 15.64 | 2.46 | 86.56 |\n| hr_metro | 5 | 1.22 | 2.33 | 16.31 | 61.01 | 20.35 | 44.90 | 16.11 | 13.95 | 2.35 | 86.41 |\n| egrid | 5 | 1.25 | 2.15 | 15.61 | 61.45 | 20.78 | 45.56 | 15.90 | 13.30 | 2.31 | 86.22 |\n| industry_productivity | 5 | 1.23 | 2.18 | 16.80 | 60.46 | 20.55 | 44.80 | 15.66 | 14.33 | 2.48 | 86.22 |\n\n### PDF 五次重复的波动\n\n| 指标 CV | OPM | IRS W-4 | SBA 1919 |\n|---|---:|---:|---:|\n| IPC | 1.69% | 1.29% | 1.32% |\n| Bad Speculation | 6.04% | 3.42% | 1.64% |\n| Frontend Bound | 3.99% | 1.27% | 1.23% |\n| Backend Bound | 1.30% | 0.88% | 0.63% |\n| Retiring | 1.69% | 1.27% | 1.17% |\n| Memory Bound | 9.10% | 2.48% | 3.59% |\n| Fetch Bandwidth Bound | 12.36% | 6.93% | 3.40% |\n\n### XLSX 五次重复的波动\n\n| 指标 CV | TLC | HR Metro | eGRID | Industry Productivity |\n|---|---:|---:|---:|---:|\n| IPC | 0.44% | 0.68% | 0.72% | 0.68% |\n| Bad Speculation | 2.05% | 1.59% | 3.50% | 1.98% |\n| Frontend Bound | 0.79% | 0.72% | 2.06% | 0.72% |\n| Backend Bound | 0.23% | 0.29% | 0.54% | 0.39% |\n| Retiring | 0.45% | 0.53% | 0.71% | 0.69% |\n| Core Bound | 0.45% | 0.46% | 0.72% | 0.38% |\n| Memory Bound | 2.05% | 1.05% | 2.69% | 1.23% |\n| Fetch Latency Bound | 0.57% | 0.69% | 2.26% | 0.75% |\n| Fetch Bandwidth Bound | 2.46% | 1.77% | 2.15% | 1.70% |\n\n### 固定环境下的重复运行稳定性\n\n七例在同一镜像、输入和采集参数下均有五次独立成功运行。PDF 复用既有五次，XLSX 保留原第一轮并按预定计划补四轮；没有按结果挑选轮次。报告将业务执行成功、Topdown 波动和热点排名波动分开检查。\n七例 IPC 与四个顶层 Bound 共 35 个指标 CV 范围为 **0.23%–6.04%**。具体数值用于判断本环境的重复稳定性，不预设所有子层指标都低波动。\n其中四个 XLSX 的 IPC CV 为 **0.44%–0.72%**，Backend Bound CV 为 **0.23%–0.54%**，说明同一固定环境下，主要流水线分配在重复执行间保持接近；热点集合的重复性另见下表。\n\n| 数据集 | 热点重复数 | 同数据集五次两两 Top-10 共同函数数范围 |\n|---|---:|---:|\n| opm | 5 | 5–7/10 |\n| irs_w4 | 5 | 5–8/10 |\n| sba1919 | 5 | 6–8/10 |\n| tlc | 5 | 10–10/10 |\n| hr_metro | 5 | 10–10/10 |\n| egrid | 5 | 8–9/10 |\n| industry_productivity | 5 | 9–10/10 |\n\n两张特征图保留每次运行的最终指标点，同时显示五次均值与样本标准差。点代表独立运行，不能与 DevKit 同一轮内的每秒时间片混为一谈。\n\n\n五组顶层 Bound 余弦为 0.998858–0.999897，均呈后端受限为主的分配；W-4、SBA 与 OPM 的 Top-10 分别共有 9、7 个函数，HR Metro、eGRID、Industry Productivity 与 TLC 分别共有 8、9、8 个。这两类证据共同支持主要执行机制的延续，同时保留表单渲染、工作簿组织与重算带来的权重变化。\nPDF 的 Backend Bound CV 为 0.63%–1.30%；OPM 的 Fetch Bandwidth CV 为 12.36%，因此逐指标保留波动，不按统一阈值把所有特征判为稳定。XLSX 的重复波动见对应表。\n\n### 统计边界与追溯\n\nDevKit 按 CPU 0–7 计数，使用默认权限范围；PMU 窗口包含已记录的就绪和停止包络，idle 为另一个门控窗口。热点来自独立 `cycles:u` ROI 采样，不与 PMU 百分比相乘或换算。未解析热点不参与 Top-10 匹配，但其权重保留在原 ROI 分母；事件未计数、SMT 和复用语义的待核验项仍保留。本节给出描述性相似度，不套用未经校准的高／中／低阈值。\n逐轮原始事件、公式复算差异、来源及哈希随输入清单保存；本次不重跑工作负载、不重新采集。\n",
+    "report_section": "## 六、Topdown 特征与热点集合相似度\n\n在已有原生热点证据基础上，对七例另行采集 DevKit Topdown 指标。PDF 每例独立采集五次，每次执行一轮、处理十份；XLSX 每例也独立采集五次。Topdown 特征取五次逐指标算术均值；热点函数采用五次原始 sample period 合并的结果。两路数据来自同一回放镜像，分别测量。\n\n### 计算口径\n\n| 度量 | 输入与计算 | 用途 |\n|---|---|---|\n| 顶层 Bound 余弦 | `[Bad Speculation, Frontend Bound, Backend Bound, Retiring]`；`(a·b)/(‖a‖‖b‖)` | 对比顶层分配形状，接近 1 表示方向接近 |\n| 热点 Jaccard | 各自 Top-10 已解析物理叶函数，以「库类别＋函数名」为键；`交集数/并集数` | 对比主要函数集合，不要求权重相等 |\n| 原始欧氏距离 | 固定十维：IPC、四个顶层 Bound、Core、Memory、Fetch Latency、Fetch Bandwidth、idle；`√Σ(aᵢ−bᵢ)²` | 混合单位且含层级指标，仅列作辅助，不作判定 |\n\n### 从逐轮结果构造向量与集合\n\n对每个数据集，按以下固定顺序构造十维向量；IPC 无量纲，其余维度使用 0–100 的百分数数值，例如 58.84% 写成 58.84，不写成 0.5884。十维不做标准化。\n\n```text\nv = [IPC, Bad Speculation, Frontend Bound, Backend Bound, Retiring,\n     Core Bound, Memory Bound, Fetch Latency Bound, Fetch Bandwidth Bound, idle_pct]\n```\n\n七例对每个维度使用五次独立采集结果的算术均值：`μ=Σxᵣ/5`；样本标准差 `s=√[Σ(xᵣ−μ)²/4]`，`CV=100×s/|μ|`。顶层 Bound 是四个父项；Backend 的 Core/Memory、Frontend 的 Latency/Bandwidth 是子项，因此余弦只抽取四个顶层维度，避免重复计入父子层级。\n\n以下是本次 TLC 与 HR Metro 的实际构造，idle 展示到六位小数；计算使用 JSON 中保存的原值：\n\n```text\nTLC 十维       = [1.234, 2.478, 18.1, 58.846, 20.572, 44.734, 14.116, 15.64, 2.462, 86.560609]\nHR Metro 十维  = [1.222, 2.332, 16.31, 61.01, 20.346, 44.904, 16.108, 13.954, 2.354, 86.406387]\nTLC Bound      = [2.478, 18.1, 58.846, 20.572]\nHR Metro Bound = [2.332, 16.31, 61.01, 20.346]\n```\n\n由这两个四维 Bound 向量计算的余弦为 **0.999314**；十维原始欧氏距离为 **3.852**。余弦不加入 IPC、子项或 idle；欧氏距离含混合单位及父子重复，只保留作辅助，三个量不加权拼成总分。\n热点集合按“库类别＋物理叶函数名”取各自合并结果的前十个已解析函数。例如 OPM 与 W-4 共有 9 个，交集为 9、并集为 11，故 Jaccard=`9/11`=**0.8182**。函数的原始 period 先用于排序；选出的集合只比较成员，权重不进入 Jaccard。\n\n\n### 五组新旧对照\n\n| 基准 → 新输入 | Bound 余弦 | Top-10 共同数 | 热点 Jaccard | 原始欧氏距离（辅助） | Frontend 变化（pp） | Backend 变化（pp） |\n|---|---:|---:|---:|---:|---:|---:|\n| opm → irs_w4 | 0.999897 | 9/10 | 0.8182 | 1.457 | -0.50 | -0.22 |\n| opm → sba1919 | 0.998987 | 7/10 | 0.5385 | 4.040 | -2.41 | +0.74 |\n| tlc → hr_metro | 0.999314 | 8/10 | 0.6667 | 3.852 | -1.79 | +2.16 |\n| tlc → egrid | 0.998858 | 9/10 | 0.8182 | 4.755 | -2.49 | +2.61 |\n| tlc → industry_productivity | 0.999634 | 8/10 | 0.6667 | 2.929 | -1.30 | +1.61 |\n\n### 七例 Topdown 特征\n\n除 IPC 外，表中值为百分比；七例均为五次独立采集的均值。\n\n| 数据集 | 次数 | IPC | Bad Spec. | Frontend | Backend | Retiring | Core | Memory | Fetch latency | Fetch bandwidth | idle |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| opm | 5 | 1.23 | 4.68 | 18.12 | 56.76 | 20.44 | 46.41 | 10.35 | 15.87 | 2.24 | 86.29 |\n| irs_w4 | 5 | 1.27 | 4.67 | 17.62 | 56.54 | 21.17 | 46.81 | 9.73 | 15.08 | 2.53 | 86.48 |\n| sba1919 | 5 | 1.31 | 4.95 | 15.71 | 57.50 | 21.84 | 47.45 | 10.05 | 13.29 | 2.42 | 86.48 |\n| tlc | 5 | 1.23 | 2.48 | 18.10 | 58.85 | 20.57 | 44.73 | 14.12 | 15.64 | 2.46 | 86.56 |\n| hr_metro | 5 | 1.22 | 2.33 | 16.31 | 61.01 | 20.35 | 44.90 | 16.11 | 13.95 | 2.35 | 86.41 |\n| egrid | 5 | 1.25 | 2.15 | 15.61 | 61.45 | 20.78 | 45.56 | 15.90 | 13.30 | 2.31 | 86.22 |\n| industry_productivity | 5 | 1.23 | 2.18 | 16.80 | 60.46 | 20.55 | 44.80 | 15.66 | 14.33 | 2.48 | 86.22 |\n\n### PDF 五次重复的波动\n\n| 指标 CV | OPM | IRS W-4 | SBA 1919 |\n|---|---:|---:|---:|\n| IPC | 1.69% | 1.29% | 1.32% |\n| Bad Speculation | 6.04% | 3.42% | 1.64% |\n| Frontend Bound | 3.99% | 1.27% | 1.23% |\n| Backend Bound | 1.30% | 0.88% | 0.63% |\n| Retiring | 1.69% | 1.27% | 1.17% |\n| Memory Bound | 9.10% | 2.48% | 3.59% |\n| Fetch Bandwidth Bound | 12.36% | 6.93% | 3.40% |\n\n### XLSX 五次重复的波动\n\n| 指标 CV | TLC | HR Metro | eGRID | Industry Productivity |\n|---|---:|---:|---:|---:|\n| IPC | 0.44% | 0.68% | 0.72% | 0.68% |\n| Bad Speculation | 2.05% | 1.59% | 3.50% | 1.98% |\n| Frontend Bound | 0.79% | 0.72% | 2.06% | 0.72% |\n| Backend Bound | 0.23% | 0.29% | 0.54% | 0.39% |\n| Retiring | 0.45% | 0.53% | 0.71% | 0.69% |\n| Core Bound | 0.45% | 0.46% | 0.72% | 0.38% |\n| Memory Bound | 2.05% | 1.05% | 2.69% | 1.23% |\n| Fetch Latency Bound | 0.57% | 0.69% | 2.26% | 0.75% |\n| Fetch Bandwidth Bound | 2.46% | 1.77% | 2.15% | 1.70% |\n\n### 固定环境下的重复运行稳定性\n\n七例在同一镜像、输入和采集参数下均有五次独立成功运行。PDF 复用既有五次，XLSX 保留原第一轮并按预定计划补四轮；没有按结果挑选轮次。报告将业务执行成功、Topdown 波动和热点排名波动分开检查。\n七例 IPC 与四个顶层 Bound 共 35 个指标 CV 范围为 **0.23%–6.04%**。具体数值用于判断本环境的重复稳定性，不预设所有子层指标都低波动。\n其中四个 XLSX 的 IPC CV 为 **0.44%–0.72%**，Backend Bound CV 为 **0.23%–0.54%**，说明同一固定环境下，主要流水线分配在重复执行间保持接近；热点集合的重复性另见下表。\n\n| 数据集 | 热点重复数 | 同数据集五次两两 Top-10 共同函数数范围 |\n|---|---:|---:|\n| opm | 5 | 5–7/10 |\n| irs_w4 | 5 | 5–8/10 |\n| sba1919 | 5 | 6–8/10 |\n| tlc | 5 | 10–10/10 |\n| hr_metro | 5 | 10–10/10 |\n| egrid | 5 | 8–9/10 |\n| industry_productivity | 5 | 9–10/10 |\n\n过程曲线展示各轮 DevKit 编号报告的逐采样点指标；五次均值、标准差和 CV 仍由各轮 ALL 最终汇总计算。过程曲线不改变相似度或重复统计的口径。\n\n\n五组顶层 Bound 余弦为 0.998858–0.999897，均呈后端受限为主的分配；W-4、SBA 与 OPM 的 Top-10 分别共有 9、7 个函数，HR Metro、eGRID、Industry Productivity 与 TLC 分别共有 8、9、8 个。这两类证据共同支持主要执行机制的延续，同时保留表单渲染、工作簿组织与重算带来的权重变化。\nPDF 的 Backend Bound CV 为 0.63%–1.30%；OPM 的 Fetch Bandwidth CV 为 12.36%，因此逐指标保留波动，不按统一阈值把所有特征判为稳定。XLSX 的重复波动见对应表。\n\n### 统计边界与追溯\n\nDevKit 按 CPU 0–7 计数，使用默认权限范围；PMU 窗口包含已记录的就绪和停止包络，idle 为另一个门控窗口。热点来自独立 `cycles:u` ROI 采样，不与 PMU 百分比相乘或换算。未解析热点不参与 Top-10 匹配，但其权重保留在原 ROI 分母；事件未计数、SMT 和复用语义的待核验项仍保留。本节给出描述性相似度，不套用未经校准的高／中／低阈值。\n逐轮原始事件、公式复算差异、来源及哈希随输入清单保存；本次不重跑工作负载、不重新采集。\n",
     "measurement_methodology": {
       "host": {
         "schema": "hip09-topdown-readiness-v1",

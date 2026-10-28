@@ -1,0 +1,274 @@
+{
+  "schema": "two-report-offline-publication-v1",
+  "status": "success",
+  "source_commit": "d0c62b6",
+  "baseline_assessment_sha256": "1c44ce34f2855ee4197cd36d1f7951cd7daf8fca2168023ac8fd500d3712857f",
+  "publications": [
+    {
+      "path": "docs/representativeness-assessment.md",
+      "sha256": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86"
+    },
+    {
+      "path": "docs/experimental-results.md",
+      "sha256": "c6cfa6013753065b39a9e0d4510e2be1919332f95992c76b701274350e5b6238"
+    }
+  ],
+  "analysis_sources": {
+    "analysis/hotspots/compare.py": "ce1727af79849683d7154277661b018e4df07d23afa4a5532cdbef4916aa4680",
+    "analysis/hotspots/report_documents.py": "b0064b34fe5dca6faa6792f9aed1ff2ee5799d93e7d091935df57b3edbc8ee1a",
+    "analysis/topdown/compare_similarity.py": "e67547b672c43eb64ddd9e4ad237dc3dbfc18efe959b1c33c6c2c4be218c4396",
+    "analysis/topdown/time_series.py": "3950e44a5ba1520655bcd5bc5f5a20610adebdd95da79676ebba258ecdc413a7",
+    "analysis/topdown/repeat_plots.py": "ce8ea97bcb9f4103e747037c128ba1e4565b33a07ba54994c71ee373691364ec"
+  },
+  "derived_bindings": [
+    {
+      "path": "analysis/hotspots/comparison-inputs-pdf5-20261027.json",
+      "sha256": "52fc656ec63d04403415281a3f3e908f4cc7af7dbfda9f6f17b0b81e9754b609"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json",
+      "sha256": "d1c8fa355c099e292c1449b96eb4b02140eb654c121984541b968f6f8f5032bd"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/build.json",
+      "sha256": "1741ae07c6607c987e9e2348fda786f520c03690c9b0af372e0d2e0429f379b1"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/comparison.json",
+      "sha256": "cf425e2d1f9d9dc233384f7257e2b15d264c5623ee21eb7b4bf8ec1904823d43"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/build.json",
+      "sha256": "1f7222eca4f92782865c2f382335c879758d84cb3a5875f033f260f7b56eff47"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/time-series.json",
+      "sha256": "cc91ced000866e83e2bc893ee2511d340fc35bb3666bf62e733b6a8a086373dc"
+    }
+  ],
+  "unchanged_measurements": {
+    "input_profile_bindings": 7,
+    "source_evidence_hashes": 321,
+    "statistics": true,
+    "pairs": true,
+    "qualified_source_bindings": 22,
+    "old_workload_files_and_modes": 43
+  },
+  "interval_validation": {
+    "runs": 35,
+    "points": 6829,
+    "metric_count": 9,
+    "nominal_interval_seconds": 1,
+    "sources": [
+      {
+        "path": "analysis/topdown/raw/opm-cpu-pilot-20261027T152830Z-ffe55771/out/devkit.stdout.txt",
+        "sha256": "a29c633547a7b094187167711eed81823408b1d1b24204c700399b0f8e0acdd9"
+      },
+      {
+        "path": "analysis/topdown/raw/opm-cpu-pilot-20261027T152843Z-2df2d531/out/devkit.stdout.txt",
+        "sha256": "876e75045d06b31c332c74606ea5b463560d1fd99075c60425d293fa8f145048"
+      },
+      {
+        "path": "analysis/topdown/raw/opm-cpu-pilot-20261027T153544Z-aadde888/out/devkit.stdout.txt",
+        "sha256": "46c685af8c578617f46c257f2b107aff0e696d3997ce8a31462071de3cee93e0"
+      },
+      {
+        "path": "analysis/topdown/raw/opm-cpu-pilot-20261027T153557Z-ec6a9d70/out/devkit.stdout.txt",
+        "sha256": "c8b8bcdd59f795d99656535ad4a92065ecfba45b0a94ce3c1588935ac5fe3900"
+      },
+      {
+        "path": "analysis/topdown/raw/opm-cpu-pilot-20261027T153610Z-c84ae2f4/out/devkit.stdout.txt",
+        "sha256": "391d3a16b7bb391b987ac7a29c354a83180a00d6fea2c46f4291c656497e0a89"
+      },
+      {
+        "path": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153623Z-6cd53309/out/devkit.stdout.txt",
+        "sha256": "0f6e1852ce88b4026d721433ac624ba9615f2bf415c0a006d74a12509e466d39"
+      },
+      {
+        "path": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153640Z-8e90df1f/out/devkit.stdout.txt",
+        "sha256": "9878ea8ee2988f00f1a8756126b8fc69801779fd566edb444537f8585b3af702"
+      },
+      {
+        "path": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153657Z-ea9bb945/out/devkit.stdout.txt",
+        "sha256": "061df81de8733ea496cf496c46986c371992f928893d6d86c7dabd9e11ef5db7"
+      },
+      {
+        "path": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153714Z-1d1cbfea/out/devkit.stdout.txt",
+        "sha256": "30bfa9b1c4018cc570a244911585c6c1f4fc14d20afbf4d7dc353fdff641441f"
+      },
+      {
+        "path": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153732Z-c9154dae/out/devkit.stdout.txt",
+        "sha256": "e7e8f0543c0f1d08cece988ad4c938ffd3d32a12d571444b1ecd3916b39ccbb3"
+      },
+      {
+        "path": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153749Z-ca1b915b/out/devkit.stdout.txt",
+        "sha256": "e296f540e8d7925d06e488fb443950656a2d2ffa0369dc5e884d500cb54320a5"
+      },
+      {
+        "path": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153810Z-392466df/out/devkit.stdout.txt",
+        "sha256": "c9956c8f331388ca7ce7ed4ed014c25de4c17399db4fd8965b8d44d7fa98648b"
+      },
+      {
+        "path": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153831Z-116d6f09/out/devkit.stdout.txt",
+        "sha256": "0e93a4d176539758c4224f96eda2ac45f37f28238f37565fec17d335ebd5af00"
+      },
+      {
+        "path": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153852Z-556d6852/out/devkit.stdout.txt",
+        "sha256": "3f1dbf6b564e18e26563f92978f4bfaae06536d5506dea36623300751c16c1a1"
+      },
+      {
+        "path": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153914Z-96df8049/out/devkit.stdout.txt",
+        "sha256": "9d3d1034bf28b726c9bcf62f47e957ac897cf1bbf7b2fa728a3f50c308b02291"
+      },
+      {
+        "path": "analysis/topdown/raw/tlc-cpu-pilot-20261027T153935Z-0b2e95f5/out/devkit.stdout.txt",
+        "sha256": "694672357fdcb73d0c094d70ae2e4f9c97c989aba84533bfd1d79b5e973e8fc3"
+      },
+      {
+        "path": "analysis/topdown/raw/tlc-cpu-pilot-20261028T021134Z-669e1476/out/devkit.stdout.txt",
+        "sha256": "dd4c61f5bfc278cb5bff28152cef8fdf0d56ea8257e7bc6c0968e6602fc151a2"
+      },
+      {
+        "path": "analysis/topdown/raw/tlc-cpu-pilot-20261028T025645Z-d527d773/out/devkit.stdout.txt",
+        "sha256": "ca195bded5bea412a734d4a6b12e1e903e5554cefef0a8153d38b1044fef1d80"
+      },
+      {
+        "path": "analysis/topdown/raw/tlc-cpu-pilot-20261028T034202Z-56e8b28d/out/devkit.stdout.txt",
+        "sha256": "f400f3c2020920df34a4609737802e7b9ab763ae8dccbfafeac8255afb692396"
+      },
+      {
+        "path": "analysis/topdown/raw/tlc-cpu-pilot-20261028T042707Z-a6992634/out/devkit.stdout.txt",
+        "sha256": "faab277d82d22e0e7d2ce1526b5ac60236cf35804a6c07864274da1108cd5f0d"
+      },
+      {
+        "path": "analysis/topdown/raw/hr_metro-cpu-pilot-20261027T154340Z-06a0cdcd/out/devkit.stdout.txt",
+        "sha256": "a07af6c6a77f53ec098293d76912af4b440420cbadbeaccb15377e83a2cb878a"
+      },
+      {
+        "path": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T022125Z-2ae9d2a1/out/devkit.stdout.txt",
+        "sha256": "84aa36f46d1d34e4e71d5d33dac6fa6d70bf2ae1d5c8e2418b307596caea472b"
+      },
+      {
+        "path": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T030639Z-378631b3/out/devkit.stdout.txt",
+        "sha256": "03f5b96db1abd7e484a794a124dccce04472f381e2dba99bb44213356589348b"
+      },
+      {
+        "path": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T035153Z-888424f0/out/devkit.stdout.txt",
+        "sha256": "60f191c122b3b9a5e641656f206f4c0b268d9f86b01a69feed5223fdc8cdefc7"
+      },
+      {
+        "path": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T043700Z-bd6ebda4/out/devkit.stdout.txt",
+        "sha256": "bfd27ea85a547ea625845682b5af6023811c481d09fc0d97ab067c9c175caa04"
+      },
+      {
+        "path": "analysis/topdown/raw/egrid-cpu-pilot-20261027T154910Z-b5134a8e/out/devkit.stdout.txt",
+        "sha256": "6e1831d5a260735c7337ec3089c114f3d61dac24a4b6eb9cc5a01eb587469059"
+      },
+      {
+        "path": "analysis/topdown/raw/egrid-cpu-pilot-20261028T023134Z-eb1c9571/out/devkit.stdout.txt",
+        "sha256": "eee7a0648311185bd5d795aedabdadfd005e0544391c12a53583bc8940696dcc"
+      },
+      {
+        "path": "analysis/topdown/raw/egrid-cpu-pilot-20261028T031652Z-b11b2078/out/devkit.stdout.txt",
+        "sha256": "f7f52c44f4157e42aca08b58e573dd03bdbc65c093706453f439fd77718095c6"
+      },
+      {
+        "path": "analysis/topdown/raw/egrid-cpu-pilot-20261028T040204Z-d1aceb61/out/devkit.stdout.txt",
+        "sha256": "558f2ad44a6a8618c743d6d73fc449986f583167ab1944eb96475d8522007901"
+      },
+      {
+        "path": "analysis/topdown/raw/egrid-cpu-pilot-20261028T044713Z-a6a35efe/out/devkit.stdout.txt",
+        "sha256": "d39749ef380c43bb5d892cb36f92007d5864c27149406e21ee53a20e5a4d43c6"
+      },
+      {
+        "path": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261027T155334Z-021c3c33/out/devkit.stdout.txt",
+        "sha256": "0e6420af0302cdbf846b7f22782e27a5709d11012d7997ef244189e92e12ec2c"
+      },
+      {
+        "path": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T024423Z-33592b46/out/devkit.stdout.txt",
+        "sha256": "58bea3e4ced20d19eeb222ed08d6a4bb17afb785770d03166120dc4b61ea7f3f"
+      },
+      {
+        "path": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T032939Z-23f19730/out/devkit.stdout.txt",
+        "sha256": "9c4a946da7f5fa348764b280b92bb220246b38dba23081b43e2a4eff3119c145"
+      },
+      {
+        "path": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T041446Z-ef5dbe68/out/devkit.stdout.txt",
+        "sha256": "10e4b25b48a597187a6d35f56c90bad3326a2860f6217054000e1fdc8011051a"
+      },
+      {
+        "path": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T050000Z-33fd3393/out/devkit.stdout.txt",
+        "sha256": "e696fb79a1b017039e4d85e6b33b27eb89641f2e6903bf4a9814815611b2ab23"
+      }
+    ],
+    "printed_count_differences": [
+      {
+        "dataset_id": "egrid",
+        "repeat": 3,
+        "deltas": {
+          "cycles": 1,
+          "instructions": 0
+        }
+      },
+      {
+        "dataset_id": "egrid",
+        "repeat": 4,
+        "deltas": {
+          "cycles": 1,
+          "instructions": 0
+        }
+      },
+      {
+        "dataset_id": "egrid",
+        "repeat": 5,
+        "deltas": {
+          "cycles": 1,
+          "instructions": 0
+        }
+      }
+    ],
+    "interpolation": false,
+    "smoothing": false,
+    "across_run_lines_connected": false,
+    "idle_series_reconstructed": false,
+    "summary_statistics_replaced": false
+  },
+  "figures": {
+    "overview": 2,
+    "all_metric_dataset_figures": 7,
+    "formats": [
+      "SVG",
+      "PNG"
+    ]
+  },
+  "tests": {
+    "hotspot": 25,
+    "topdown": 26,
+    "passed": 51,
+    "skipped": 0,
+    "failed": 0,
+    "errors": 0,
+    "execution_bindings": "make validate passed"
+  },
+  "literature_checked_on": "2026-10-28",
+  "literature_sources": [
+    {
+      "url": "https://huggingface.co/datasets/baidu-frontier-research/OmegaUse-OfficeVal",
+      "finding": "100 output-type tasks: Word 37, PowerPoint 39, cross-file Word+Excel 1"
+    },
+    {
+      "url": "https://microsoft.github.io/ppteval/",
+      "finding": "120 PowerPoint creation/editing tasks across 12 files"
+    },
+    {
+      "url": "https://github.com/icip-cas/DocOps",
+      "finding": "210 document operation tasks across Excel, Word, PowerPoint, PDF"
+    }
+  ],
+  "execution": {
+    "workload_rerun": false,
+    "performance_collection": false,
+    "image_build": false,
+    "agent_or_llm_execution": false
+  }
+}

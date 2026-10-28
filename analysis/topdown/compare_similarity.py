@@ -149,8 +149,8 @@ def repeatability_section(result):
         '|---|---:|---:|']
     for ds,row in result.get('hotspot_repeatability',{}).items():
         lines.append(f'| {ds} | 5 | {row["pairwise_common_min"]}–{row["pairwise_common_max"]}/10 |')
-    lines+=['','两张特征图保留每次运行的最终指标点，同时显示五次均值与样本标准差。'
-            '点代表独立运行，不能与 DevKit 同一轮内的每秒时间片混为一谈。','']
+    lines+=['','过程曲线展示各轮 DevKit 编号报告的逐采样点指标；五次均值、标准差和 CV 仍由各轮 ALL 最终汇总计算。'
+            '过程曲线不改变相似度或重复统计的口径。','']
     return lines
 
 
@@ -248,15 +248,22 @@ def run(config_path,update=False):
             ROOT/'analysis/topdown/report_methods.py',ROOT/'analysis/hotspots/compare.py']},
         scope='Descriptive independent CPU-scoped DevKit envelope metrics and cycles:u ROI hotspot sets; no composite score')
     output=ROOT/config['output']
-    allowed={'comparison.json','report.md','pairs.csv','build.json',
+    allowed={'comparison.json','report.md','pairs.csv','build.json','time-series.json',
              'pdf-bound-five-repeats.svg','pdf-bound-five-repeats.png','xlsx-bound-five-repeats.svg','xlsx-bound-five-repeats.png'}
+    allowed.update(ds+'-interval-metrics.'+suffix for ds in stats for suffix in ('svg','png'))
     if update and output.exists() and not {p.name for p in output.iterdir()}<=allowed:
         raise ValueError('refuse to update an unexpected similarity report directory')
     output.mkdir(parents=True,exist_ok=update)
     if all(r['repeats']==5 for r in stats.values()):
         from repeat_plots import export
-        result['figures'],result['matplotlib_version']=export(stats,output)
+        from time_series import load_campaign
+        series=load_campaign(campaign)
+        write(output/'time-series.json',series)
+        result['time_series']=dict(path=str((output/'time-series.json').relative_to(ROOT)),
+            sha256=sha(output/'time-series.json'),runs=len(series['runs']),points=series['total_points'])
+        result['figures'],result['matplotlib_version']=export(series,output)
         result['analysis_sources']['analysis/topdown/repeat_plots.py']=sha(HERE/'repeat_plots.py')
+        result['analysis_sources']['analysis/topdown/time_series.py']=sha(HERE/'time_series.py')
     result['report_section']=section(result)
     result['measurement_methodology']=methods
     result['measurement_section']=report_methods.section(methods,verified)
