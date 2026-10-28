@@ -1,0 +1,118 @@
+{
+  "schema": "numeric-cache-fixed-image-installation-v1",
+  "status": "success",
+  "image_tag": "office-trace-replay:numeric-cache-fix",
+  "image_id": "sha256:3bc33c1516daef22e737fc7710a8d3e9292ae94e0ba67286414264320800a438",
+  "architecture": "arm64",
+  "image_size_bytes": 20571313411,
+  "container_id": "115193232fa67c0c0bd4268f82c9b9f3aa926e61faaf081e2b8e6490ebcb2073",
+  "container_exit_code": 0,
+  "docker_return_code": 0,
+  "readonly_rootfs": true,
+  "network": "none",
+  "mounts": [],
+  "host_source_commit": "c5ac1fee122d505a23cb289426c0855c8d48af1c",
+  "expected_source_hashes": {
+    "agent/replay.py": "540a32c25eb07c2ff2cc433d70ed3ec52b51d85220868ad014e17e7f948800a4",
+    "agent/suite.json": "732370c618553f94f23956f1d6859d6cb2b175de831df0e065c80093572e5bf0",
+    "document-oe/run.py": "1af858c85d9d49a73237dc254af98c8bf37d9a91cd43e2f8872fdc82e32753d3",
+    "document-oe/lock.json": "6e142ba49a1a4cfd0e89581a342b41938ab86d6a6923ef4a075ac249ec86cec5",
+    "agent/datasets/irs_w4/lock.json": "d161679c9dbfe0f624c49ec65a4bb01319e61e5b4f868ff6b21e849c40b02727",
+    "agent/datasets/irs_w4/recipe.json": "c7e59480dd14373d2ca9541534a3bd05c4b374b598a5e8db1ac184d10a583799",
+    "agent/datasets/irs_w4/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/egrid/lock.json": "cb4652f86b065f9c5aa4e9397ebed7f2ed916a10821513fb3a33a35d216d04e8",
+    "agent/datasets/egrid/recipe.json": "cafa5e60804e658d4af4dee280731f988864cb1e94c2e4b56b10c9fa6c888afb",
+    "agent/datasets/egrid/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/industry_productivity/lock.json": "b496aeff0bd167ce34986f7095dea65146651b3fb98673db51c88b1a20f3eeee",
+    "agent/datasets/industry_productivity/recipe.json": "68c256afa61685247ca408c7c7ef8ad7bba8e01303f00bd54d1a90162f84ceb2",
+    "agent/datasets/industry_productivity/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/hr_metro/lock.json": "ee323784db2beaaa4f50130cc3032f06b53ff87cfdcd8297e8870512f12b2ad1",
+    "agent/datasets/hr_metro/recipe.json": "de58f267e16b1044df910a084b374ba1ed0dce783f9138bd72c2a979a6d19a6f",
+    "agent/datasets/hr_metro/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/sba1919/lock.json": "8797ce95112af42773618ab7ee4942de085b2994c8232f9db83bf9e2a12d9bb5",
+    "agent/datasets/sba1919/recipe.json": "c86f5369b4d3b046f34951ce434ce9eb978167a18d494489106475c7a9296286",
+    "agent/datasets/sba1919/audit.py": "b06c2ec6507602e532a1885608b73ecd0728b1f8ff771ecf27790347d3aa4680",
+    "agent/datasets/egrid/scripts/verify_xlsx_enhanced.py": "720797a459baa2b76e1d07648ed37ab174fab282a1f83a9c4e303b8e4b8ffca8",
+    "agent/datasets/hr_metro/scripts/verify_xlsx_enhanced.py": "27750246d7693599cdb6ad2f811cb0cb0c3a2f9ca5dfb86de8e44b1e9016fa17",
+    "agent/datasets/industry_productivity/scripts/verify_xlsx_enhanced.py": "7bfbe942d70dac85f699902ad17a24cf128e350ebb2bed32709ef5024a1be4c7"
+  },
+  "formal_workload_executed": false,
+  "result": {
+    "status": "success",
+    "python": "3.12.3",
+    "packages": {
+      "openpyxl": "3.1.5",
+      "pypdf": "6.10.0",
+      "pdf2image": "1.17.0",
+      "pillow": "12.2.0",
+      "et_xmlfile": "2.0.0"
+    },
+    "tools": {
+      "libreoffice": "LibreOfficeDev 25.8.7.3",
+      "poppler": "pdftoppm version 23.12.0\nCopyright 2005-2023 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+    },
+    "source_bindings_checked": 22,
+    "legacy_workload_files": 43,
+    "fixture_checks": [
+      {
+        "dataset": "egrid",
+        "cache_type": "finite_numeric",
+        "numeric_accepted": true,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "egrid",
+        "cache_type": "str",
+        "numeric_accepted": false,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "egrid",
+        "cache_type": "b",
+        "numeric_accepted": false,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "hr_metro",
+        "cache_type": "finite_numeric",
+        "numeric_accepted": true,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "hr_metro",
+        "cache_type": "str",
+        "numeric_accepted": false,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "hr_metro",
+        "cache_type": "b",
+        "numeric_accepted": false,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "industry_productivity",
+        "cache_type": "finite_numeric",
+        "numeric_accepted": true,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "industry_productivity",
+        "cache_type": "str",
+        "numeric_accepted": false,
+        "workbook_unchanged": true
+      },
+      {
+        "dataset": "industry_productivity",
+        "cache_type": "b",
+        "numeric_accepted": false,
+        "workbook_unchanged": true
+      }
+    ],
+    "formal_workload_executed": false
+  },
+  "log": "docs/evidence/image-install-numeric-cache-fix-20261028T104058Z.log",
+  "log_sha256": "040c109925243e4490e9ac2f7dea83c5dc5be2e86d41e6c970f1528a42b2b08a",
+  "base_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "base_layer_prefix_matches": true
+}

@@ -1,6 +1,7 @@
 # 构建与验收记录
 
-- [当前执行镜像验收](image-qualification-agent-traces.md)：环境、七用例执行、独立审计与 43 个旧 workload 的冻结检查。
+- [当前镜像](current-image.json)：数值缓存修复版的构建、安装检查与默认标签；本次不包含正式 workload 重跑。
+- [既有测量镜像验收](image-qualification-agent-traces.md)：环境、七用例执行、独立审计与 43 个旧 workload 的冻结检查，按原 image ID 追溯。
 - [机器可读资格](image-qualification-agent-traces.json)：实际 image ID、构建时文件哈希及证据索引，保持原始字节。
 - `image-build-*.json/.log`：当前镜像的离线构建过程与修复来源；不是另一套运行实现。
 - [数据保留策略](data-retention.json)：仅保留最新七例各五次 perf 与 Topdown 采集；旧分支和试跑产物已删除。

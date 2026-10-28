@@ -33,13 +33,14 @@
 
 ## 当前镜像与环境
 
-- 执行镜像：`office-trace-replay:agent-traces`，ID `sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499`。标签保留既有名称，与 Git 分支名称无绑定关系。
+- 执行镜像：`office-trace-replay:agent-traces`，ID `sha256:3bc33c1516daef22e737fc7710a8d3e9292ae94e0ba67286414264320800a438`。已包含数值缓存检查修复；[当前镜像记录](docs/evidence/current-image.json) 保存构建及安装态检查绑定。
+- 既有五轮测量镜像：`office-trace-replay:measured-five-repeats`，ID `sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499`。历史报告中的 `agent-traces` 是采集当时的标签，以记录的 image ID 为准。
 - 离线构建基础：`office-trace-replay:openeuler-release`，ID `sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a`；继续保留。
 - Python 3.12.3、openpyxl 3.1.5、LibreOffice 25.8.7.3、Poppler 23.12.0。固定 Python 为 `/opt/document-bench/.venv/bin/python`。
 
-七例已通过当前环境的执行和循环验证，测量记录也核验实际 image ID。详细安装态与独立审计范围见[镜像资格记录](docs/evidence/image-qualification-agent-traces.json)。该历史记录冻结构建时状态，后续五次采集以[当前测量清单](analysis/topdown/CAMPAIGN.md)为准。报告和分析代码更新不要求重建执行镜像。
+七例已在既有测量镜像中通过执行和循环验证，测量记录核验实际 image ID。详细安装态与独立审计范围见[历史镜像资格记录](docs/evidence/image-qualification-agent-traces.json)，五次采集以[当前测量清单](analysis/topdown/CAMPAIGN.md)为准。修复版镜像已通过安装态环境、冻结绑定及小型缓存正反例检查；本次未重跑正式 workload。
 
-源码已补强三个新增 XLSX 用例的数值缓存检查，明确拒绝文本、布尔值及非有限数值；原始轨迹和旧 workload 保持冻结。现有执行镜像尚未包含此修复，当前源码与测量镜像的差异见 [source-lock.json](docs/evidence/source-lock.json) 的 `runtime_changes`。既有测量与报告继续绑定原镜像；使用修复版容器时需另行构建候选镜像。
+三个新增 XLSX 用例的数值缓存检查明确拒绝文本、布尔值及非有限数值；原始轨迹和旧 workload 保持冻结。修复源码与既有测量镜像的差异见 [source-lock.json](docs/evidence/source-lock.json) 的 `runtime_changes`。既有测量与报告继续绑定原镜像；默认标签现在提供修复版镜像。
 
 ## 运行
 

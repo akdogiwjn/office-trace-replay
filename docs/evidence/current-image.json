@@ -1,0 +1,27 @@
+{
+  "schema": "office-replay-current-image-v1",
+  "status": "installation_checks_passed",
+  "image_tag": "office-trace-replay:agent-traces",
+  "image_id": "sha256:3bc33c1516daef22e737fc7710a8d3e9292ae94e0ba67286414264320800a438",
+  "architecture": "arm64",
+  "image_size_bytes": 20571313411,
+  "base_image_id": "sha256:e68ea4ca0e43340b09dd355b4217f756260fe4ae3d33c576fdb0b8ab4d5f437a",
+  "source_commit": "c5ac1fee122d505a23cb289426c0855c8d48af1c",
+  "build": {
+    "path": "docs/evidence/image-build-20261028T103906Z.json",
+    "sha256": "471957ae0cc6c9535bcb7c305d95d99f4293d02810d3791beb4cc68d6eca8be3"
+  },
+  "installation": {
+    "path": "docs/evidence/image-install-numeric-cache-fix-20261028T104058Z.json",
+    "sha256": "de6b3120d73e48b312f1da2a5428abeea4d0182a76cfcb4e6e229ed03f68c2e7"
+  },
+  "measured_image": {
+    "tag": "office-trace-replay:measured-five-repeats",
+    "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+    "history_unchanged": true
+  },
+  "formal_workload_rerun": false,
+  "performance_collection": false,
+  "default_tag_promoted_after_installation": true,
+  "documentation_note": "Host README now describes the promoted tag. Image embeds the source-commit README snapshot; runtime bytes match the installation source bindings."
+}
