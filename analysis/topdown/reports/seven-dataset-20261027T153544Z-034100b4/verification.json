@@ -1,0 +1,177 @@
+{
+  "status": "success",
+  "run_count": 19,
+  "unique_containers": 19,
+  "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "qualified_runtime_files_unchanged": 22,
+  "prior_evidence_unchanged": 17,
+  "old_workload_files_unchanged": 43,
+  "measurement_code_versions": {
+    "capture.py": "33b92f91748128bd79e5069090d6db1e3744fc05257baa432197ee6b04b9855e",
+    "gate.py": "42337304bbd159b9ca20a6bf09fc6e69cb62b1db7cd151fe6007b6f8eac682b5",
+    "workload_entry.py": "336f890875ab7137dc15c7f07c89d916ef853136d070e2e91d172dba5dd9316a"
+  },
+  "all_business_verification_success": true,
+  "statistics_reproduced": true,
+  "report_matches_json": true,
+  "archive_checks_recorded": [
+    {
+      "dataset_id": "opm",
+      "repeat": 1,
+      "checked_files": 66,
+      "index_sha256": "3d99432a55fdb5d66082706b76c078a8a22ce131bef902ab7d2a7a04fdb8c497"
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 2,
+      "checked_files": 66,
+      "index_sha256": "3ed6cd47062119fcd27f895e625849dd7be8edbdfd0d1ad2824fe28f446a45e3"
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 3,
+      "checked_files": 66,
+      "index_sha256": "5acb7a0bc91b6d85f0593e7d8415fe81e98f4948214d7c2af8eab8fa51a320bb"
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 4,
+      "checked_files": 66,
+      "index_sha256": "8cd3f642dd9ec2dda4043a22b565b42976e829d4fa36eb89f49fa162339d4905"
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 5,
+      "checked_files": 66,
+      "index_sha256": "1bf9f60acdf4171fecf05510a477e9ae63c0259c382d0f9de5b7ca958401214e"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 1,
+      "checked_files": 141,
+      "index_sha256": "bd33afcfb97455a7f6f24a65905ecd8c3b06ac96603c8d620d598f965cd87529"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 2,
+      "checked_files": 141,
+      "index_sha256": "d1921149731fa16930d7acf3440435aef4b4bae9c998ea51f248dc6dc32420e8"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 3,
+      "checked_files": 141,
+      "index_sha256": "892d7184ec3b13ff51e1182501f1a4bfff14a05014cf82cef50c840f85a32993"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 4,
+      "checked_files": 141,
+      "index_sha256": "09bd52850551275205c7a68cee563d1fd0aaac0ff7d572932966ef5ca0495ed3"
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 5,
+      "checked_files": 141,
+      "index_sha256": "091f9c352d1072a49ccf90d10441b6f8328954bb3212f81cf05b99c5028e7412"
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 1,
+      "checked_files": 143,
+      "index_sha256": "05ceffd88f750cbb9c5b460b126c98bf8635d0ee6f870ecfe12ddd4ecd431301"
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 2,
+      "checked_files": 143,
+      "index_sha256": "18e1e0be96e844877fea1790531e986d93288df14695c8bf2fe87bfbd39afcdd"
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 3,
+      "checked_files": 143,
+      "index_sha256": "83a3041c099c0ae0d42b4d400b620c8edd9ef3452f5c9f31719315c823551b0f"
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 4,
+      "checked_files": 143,
+      "index_sha256": "36efb4bd212d74150e1d80cac8e7c5629536d6d604a69be50ac5ae1baba4d1ba"
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 5,
+      "checked_files": 143,
+      "index_sha256": "f12373d80edd91677eb118c511ebbf4ebd22014d0f58161cfe1a0add9215841c"
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 1,
+      "checked_files": 15,
+      "index_sha256": "874edcb606027c630637ff92d46336962bffeb490d13a79cb7c9a26a9ef1864f"
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 1,
+      "checked_files": 55,
+      "index_sha256": "1a65a36218e4977e9943c7754cf7218370dffc64327e1d67861c67bf206d18ed"
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 1,
+      "checked_files": 58,
+      "index_sha256": "0bfafa921d6b09f084666a26a0052045ee60a8746bcc8fdb7d11e6b04b941138"
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 1,
+      "checked_files": 58,
+      "index_sha256": "b08e6ee7d2f7047532782bd67ac298f64c0a0c622de9cd74ef60f2a8fbfc998a"
+    }
+  ],
+  "archive_check_scope": "full files checked by image-root checker at collection completion; evidence hashes rechecked offline",
+  "empirical_formula_differences": [
+    {
+      "dataset_id": "opm",
+      "repeat": 2,
+      "metric": "Retiring",
+      "reported": 20.14,
+      "recalculated": 20.145095358188,
+      "absolute_error": 0.005095358188000887,
+      "within_print_precision": false
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 4,
+      "metric": "Bad Speculation",
+      "reported": 4.72,
+      "recalculated": 4.725029507219421,
+      "absolute_error": 0.005029507219421525,
+      "within_print_precision": false
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 5,
+      "metric": "Bad Speculation",
+      "reported": 4.75,
+      "recalculated": 4.755086259172513,
+      "absolute_error": 0.005086259172513152,
+      "within_print_precision": false
+    }
+  ],
+  "formal_similarity_eligible": false,
+  "workload_retries": 0,
+  "orchestration_interruptions": [
+    "Initial sandbox Docker access rejected before workload",
+    "Offline empirical formula tolerance stopped summary after successful OPM repeat 2; continued from existing raw"
+  ],
+  "verifier_sha256": "56313091e7fdd49076117cfc2ae71039fea183336e9186db518d5230d85527d7",
+  "output_hashes": {
+    "campaign.json": "db834bfda3bcdf09164ebb39f8759dc10b27ecd9b61b0a68ae8d155231926b79",
+    "statistics.json": "1ff0b8540c2f4d723d07069c6714f5834e9ecbc78eff29046cded21b02f9bbf9",
+    "statistics.csv": "e0a491074821460303e8b9dc771c5d2d26f1e3a1e8ee5313dc2ac7dcb3b37c16",
+    "report.md": "4b8dadd64705f1bd1cadc66ea08dbb22ee334d0f3d1602a8925457b06b7161c0",
+    "pdf-repeat-variability.md": "b049b6f3781a471481fe7ffac8ece2eb9cb93f1a8743424d0cc52e283ed49511"
+  }
+}

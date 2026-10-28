@@ -1,0 +1,888 @@
+{
+  "opm": {
+    "repeats": 5,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.26,
+          1.21,
+          1.21,
+          1.22,
+          1.23
+        ],
+        "mean": 1.226,
+        "sample_standard_deviation": 0.02073644135332774,
+        "cv_percent": 1.6913899961931274
+      },
+      "Bad Speculation": {
+        "values": [
+          4.46,
+          5.14,
+          4.46,
+          4.73,
+          4.59
+        ],
+        "mean": 4.676,
+        "sample_standard_deviation": 0.28236501199688313,
+        "cv_percent": 6.03860162525413
+      },
+      "Frontend Bound": {
+        "values": [
+          18.77,
+          16.93,
+          18.4,
+          18.51,
+          17.99
+        ],
+        "mean": 18.12,
+        "sample_standard_deviation": 0.7221495689952326,
+        "cv_percent": 3.985372897324683
+      },
+      "Backend Bound": {
+        "values": [
+          55.8,
+          57.78,
+          57.0,
+          56.37,
+          56.86
+        ],
+        "mean": 56.762,
+        "sample_standard_deviation": 0.7385255581224,
+        "cv_percent": 1.3010915015721785
+      },
+      "Retiring": {
+        "values": [
+          20.97,
+          20.14,
+          20.14,
+          20.39,
+          20.56
+        ],
+        "mean": 20.44,
+        "sample_standard_deviation": 0.34561539317570833,
+        "cv_percent": 1.6908776574154027
+      },
+      "Core Bound": {
+        "values": [
+          45.78,
+          45.94,
+          47.75,
+          46.12,
+          46.47
+        ],
+        "mean": 46.412,
+        "sample_standard_deviation": 0.7907401595973235,
+        "cv_percent": 1.7037407558332403
+      },
+      "Memory Bound": {
+        "values": [
+          10.02,
+          11.84,
+          9.25,
+          10.25,
+          10.39
+        ],
+        "mean": 10.35,
+        "sample_standard_deviation": 0.9421517924411119,
+        "cv_percent": 9.102915868996252
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          16.13,
+          15.04,
+          16.14,
+          16.35,
+          15.71
+        ],
+        "mean": 15.874,
+        "sample_standard_deviation": 0.5208934631956909,
+        "cv_percent": 3.281425369759927
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.65,
+          1.88,
+          2.26,
+          2.15,
+          2.28
+        ],
+        "mean": 2.2439999999999998,
+        "sample_standard_deviation": 0.2773625785862253,
+        "cv_percent": 12.360186211507369
+      },
+      "idle_pct": {
+        "values": [
+          86.2540192926045,
+          86.2774393747845,
+          86.32380073800738,
+          86.3342566943675,
+          86.24022089277497
+        ],
+        "mean": 86.28594739850777,
+        "sample_standard_deviation": 0.04168143207266619,
+        "cv_percent": 0.04830616494266716
+      }
+    },
+    "roi_seconds": [
+      10.885469278,
+      10.883806665,
+      10.847219153,
+      10.842380436,
+      10.869508918
+    ],
+    "startup_envelope_upper_seconds": [
+      1.108269449,
+      1.114731408,
+      1.109362503,
+      1.110358717,
+      1.110008073
+    ],
+    "tail_envelope_upper_seconds": [
+      0.009535831,
+      0.011458887,
+      0.009689513,
+      0.009767984,
+      0.012701655
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r5092",
+      "r7002",
+      "r7006",
+      "r701e"
+    ]
+  },
+  "irs_w4": {
+    "repeats": 5,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.26,
+          1.27,
+          1.26,
+          1.27,
+          1.3
+        ],
+        "mean": 1.272,
+        "sample_standard_deviation": 0.016431676725154998,
+        "cv_percent": 1.2917984846819968
+      },
+      "Bad Speculation": {
+        "values": [
+          4.83,
+          4.41,
+          4.66,
+          4.72,
+          4.75
+        ],
+        "mean": 4.674,
+        "sample_standard_deviation": 0.15978110025907313,
+        "cv_percent": 3.418508777472681
+      },
+      "Frontend Bound": {
+        "values": [
+          17.72,
+          17.36,
+          17.43,
+          17.91,
+          17.66
+        ],
+        "mean": 17.616,
+        "sample_standard_deviation": 0.22322634253152127,
+        "cv_percent": 1.267179510283386
+      },
+      "Backend Bound": {
+        "values": [
+          56.5,
+          57.12,
+          56.97,
+          56.15,
+          55.98
+        ],
+        "mean": 56.544,
+        "sample_standard_deviation": 0.4971217154782118,
+        "cv_percent": 0.8791767746855756
+      },
+      "Retiring": {
+        "values": [
+          20.96,
+          21.11,
+          20.94,
+          21.22,
+          21.6
+        ],
+        "mean": 21.166,
+        "sample_standard_deviation": 0.26829088691194874,
+        "cv_percent": 1.2675559241800471
+      },
+      "Core Bound": {
+        "values": [
+          47.13,
+          47.09,
+          47.24,
+          46.31,
+          46.3
+        ],
+        "mean": 46.814,
+        "sample_standard_deviation": 0.46789956187199133,
+        "cv_percent": 0.9994863969581563
+      },
+      "Memory Bound": {
+        "values": [
+          9.37,
+          10.03,
+          9.73,
+          9.84,
+          9.69
+        ],
+        "mean": 9.732,
+        "sample_standard_deviation": 0.2414953415699774,
+        "cv_percent": 2.481456448520113
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          14.95,
+          15.06,
+          14.94,
+          15.44,
+          15.02
+        ],
+        "mean": 15.081999999999999,
+        "sample_standard_deviation": 0.20620378270051207,
+        "cv_percent": 1.3672177609104368
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.76,
+          2.3,
+          2.49,
+          2.47,
+          2.64
+        ],
+        "mean": 2.532,
+        "sample_standard_deviation": 0.17541379649275024,
+        "cv_percent": 6.92787505895538
+      },
+      "idle_pct": {
+        "values": [
+          86.51637960148598,
+          86.5079365079365,
+          86.43309413254538,
+          86.45833333333333,
+          86.50900521797678
+        ],
+        "mean": 86.48494975865559,
+        "sample_standard_deviation": 0.03705513069136875,
+        "cv_percent": 0.04284575616309495
+      }
+    },
+    "roi_seconds": [
+      14.818035139,
+      14.81737818,
+      14.81878994,
+      14.766718804,
+      14.866051679
+    ],
+    "startup_envelope_upper_seconds": [
+      1.111541974,
+      1.112930993,
+      1.106688556,
+      1.110963706,
+      1.091333776
+    ],
+    "tail_envelope_upper_seconds": [
+      0.010677017,
+      0.00947161,
+      0.013432984,
+      0.013909281,
+      0.0095118
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r7002",
+      "r7004",
+      "r7006"
+    ]
+  },
+  "sba1919": {
+    "repeats": 5,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.28,
+          1.32,
+          1.31,
+          1.32,
+          1.32
+        ],
+        "mean": 1.31,
+        "sample_standard_deviation": 0.017320508075688787,
+        "cv_percent": 1.3221761889838768
+      },
+      "Bad Speculation": {
+        "values": [
+          4.85,
+          4.91,
+          4.95,
+          4.97,
+          5.07
+        ],
+        "mean": 4.95,
+        "sample_standard_deviation": 0.08124038404635979,
+        "cv_percent": 1.6412198797244402
+      },
+      "Frontend Bound": {
+        "values": [
+          15.71,
+          15.67,
+          15.65,
+          16.02,
+          15.49
+        ],
+        "mean": 15.708,
+        "sample_standard_deviation": 0.19344249791604715,
+        "cv_percent": 1.2314903101352632
+      },
+      "Backend Bound": {
+        "values": [
+          58.04,
+          57.44,
+          57.56,
+          57.02,
+          57.45
+        ],
+        "mean": 57.502,
+        "sample_standard_deviation": 0.36458195237833574,
+        "cv_percent": 0.6340335160139399
+      },
+      "Retiring": {
+        "values": [
+          21.4,
+          21.98,
+          21.85,
+          21.99,
+          22.0
+        ],
+        "mean": 21.844,
+        "sample_standard_deviation": 0.25559733957926917,
+        "cv_percent": 1.1701031843035576
+      },
+      "Core Bound": {
+        "values": [
+          47.42,
+          47.38,
+          47.92,
+          47.09,
+          47.44
+        ],
+        "mean": 47.45,
+        "sample_standard_deviation": 0.2984962311319855,
+        "cv_percent": 0.6290753027017607
+      },
+      "Memory Bound": {
+        "values": [
+          10.62,
+          10.05,
+          9.63,
+          9.92,
+          10.01
+        ],
+        "mean": 10.046,
+        "sample_standard_deviation": 0.3604580419410831,
+        "cv_percent": 3.5880752731543217
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          13.3,
+          13.37,
+          13.19,
+          13.64,
+          12.96
+        ],
+        "mean": 13.292,
+        "sample_standard_deviation": 0.24893774322107115,
+        "cv_percent": 1.8728388746695093
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.41,
+          2.3,
+          2.46,
+          2.39,
+          2.52
+        ],
+        "mean": 2.416,
+        "sample_standard_deviation": 0.08203657720797479,
+        "cv_percent": 3.3955536923830625
+      },
+      "idle_pct": {
+        "values": [
+          86.54876741693462,
+          86.46566164154103,
+          86.40731035409527,
+          86.46440292009912,
+          86.51339971930763
+        ],
+        "mean": 86.47990841039554,
+        "sample_standard_deviation": 0.05379846416231926,
+        "cv_percent": 0.06220920575796109
+      }
+    },
+    "roi_seconds": [
+      18.675788143,
+      18.676392521,
+      18.620405623,
+      18.674582387,
+      18.722355902
+    ],
+    "startup_envelope_upper_seconds": [
+      1.10912443,
+      1.10765934,
+      1.096380455,
+      1.093740479,
+      1.108156887
+    ],
+    "tail_envelope_upper_seconds": [
+      0.013893571,
+      0.014070973,
+      0.013765909,
+      0.010591215,
+      0.012235558
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r7002",
+      "r7004",
+      "r7006"
+    ]
+  },
+  "tlc": {
+    "repeats": 1,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.23
+        ],
+        "mean": 1.23,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Bad Speculation": {
+        "values": [
+          2.55
+        ],
+        "mean": 2.55,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Frontend Bound": {
+        "values": [
+          18.13
+        ],
+        "mean": 18.13,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Backend Bound": {
+        "values": [
+          58.84
+        ],
+        "mean": 58.84,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Retiring": {
+        "values": [
+          20.47
+        ],
+        "mean": 20.47,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Core Bound": {
+        "values": [
+          44.71
+        ],
+        "mean": 44.71,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Memory Bound": {
+        "values": [
+          14.14
+        ],
+        "mean": 14.14,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          15.65
+        ],
+        "mean": 15.65,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.48
+        ],
+        "mean": 2.48,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "idle_pct": {
+        "values": [
+          86.56187632470566
+        ],
+        "mean": 86.56187632470566,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      }
+    },
+    "roi_seconds": [
+      242.634499691
+    ],
+    "startup_envelope_upper_seconds": [
+      1.092942658
+    ],
+    "tail_envelope_upper_seconds": [
+      0.070356306
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r5092",
+      "r7002",
+      "r7004",
+      "r7006"
+    ]
+  },
+  "hr_metro": {
+    "repeats": 1,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.22
+        ],
+        "mean": 1.22,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Bad Speculation": {
+        "values": [
+          2.31
+        ],
+        "mean": 2.31,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Frontend Bound": {
+        "values": [
+          16.44
+        ],
+        "mean": 16.44,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Backend Bound": {
+        "values": [
+          60.91
+        ],
+        "mean": 60.91,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Retiring": {
+        "values": [
+          20.34
+        ],
+        "mean": 20.34,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Core Bound": {
+        "values": [
+          44.62
+        ],
+        "mean": 44.62,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Memory Bound": {
+        "values": [
+          16.3
+        ],
+        "mean": 16.3,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          14.08
+        ],
+        "mean": 14.08,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.35
+        ],
+        "mean": 2.35,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "idle_pct": {
+        "values": [
+          86.40150025016901
+        ],
+        "mean": 86.40150025016901,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      }
+    },
+    "roi_seconds": [
+      327.658499275
+    ],
+    "startup_envelope_upper_seconds": [
+      1.107927134
+    ],
+    "tail_envelope_upper_seconds": [
+      0.07109598
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r7002",
+      "r7006",
+      "r701e"
+    ]
+  },
+  "egrid": {
+    "repeats": 1,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.24
+        ],
+        "mean": 1.24,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Bad Speculation": {
+        "values": [
+          2.23
+        ],
+        "mean": 2.23,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Frontend Bound": {
+        "values": [
+          15.62
+        ],
+        "mean": 15.62,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Backend Bound": {
+        "values": [
+          61.42
+        ],
+        "mean": 61.42,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Retiring": {
+        "values": [
+          20.72
+        ],
+        "mean": 20.72,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Core Bound": {
+        "values": [
+          45.22
+        ],
+        "mean": 45.22,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Memory Bound": {
+        "values": [
+          16.21
+        ],
+        "mean": 16.21,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          13.31
+        ],
+        "mean": 13.31,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.32
+        ],
+        "mean": 2.32,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "idle_pct": {
+        "values": [
+          86.12090969055608
+        ],
+        "mean": 86.12090969055608,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      }
+    },
+    "roi_seconds": [
+      261.841980746
+    ],
+    "startup_envelope_upper_seconds": [
+      1.116543867
+    ],
+    "tail_envelope_upper_seconds": [
+      0.071692808
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r5092",
+      "r7002",
+      "r7006"
+    ]
+  },
+  "industry_productivity": {
+    "repeats": 1,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.22
+        ],
+        "mean": 1.22,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Bad Speculation": {
+        "values": [
+          2.13
+        ],
+        "mean": 2.13,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Frontend Bound": {
+        "values": [
+          16.66
+        ],
+        "mean": 16.66,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Backend Bound": {
+        "values": [
+          60.82
+        ],
+        "mean": 60.82,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Retiring": {
+        "values": [
+          20.38
+        ],
+        "mean": 20.38,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Core Bound": {
+        "values": [
+          44.86
+        ],
+        "mean": 44.86,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Memory Bound": {
+        "values": [
+          15.96
+        ],
+        "mean": 15.96,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          14.21
+        ],
+        "mean": 14.21,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.45
+        ],
+        "mean": 2.45,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "idle_pct": {
+        "values": [
+          86.04126285872512
+        ],
+        "mean": 86.04126285872512,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      }
+    },
+    "roi_seconds": [
+      478.883034492
+    ],
+    "startup_envelope_upper_seconds": [
+      1.114900785
+    ],
+    "tail_envelope_upper_seconds": [
+      0.072150494
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r5092",
+      "r7002",
+      "r7006"
+    ]
+  }
+}

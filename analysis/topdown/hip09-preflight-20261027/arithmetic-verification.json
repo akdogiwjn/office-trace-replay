@@ -1,0 +1,647 @@
+{
+  "schema": "devkit-probe-arithmetic-v1",
+  "analysis_sha256": "3cd85f2fc55aa90c6074ea90d8126a4c0949c7e20e95a94ec0db5208cda2bf06",
+  "formula_evidence": "Empirical reproduction of this pinned DevKit binary output; not an official HIP09 formula specification",
+  "probes": {
+    "devkit-all-levels-short-probe.json": {
+      "status": "arithmetic_checked",
+      "sha256": "3c0ca2fd63de4984ad5821ca746d976074ae4df5ba1bf4ae3f7ab19caf9fc3d2",
+      "events": {
+        "r0008": 33192490497,
+        "r0010": 14974221,
+        "r0011": 8661163895,
+        "r001b": 34598414289,
+        "r0027": 2196433,
+        "r0028": 1476,
+        "r002e": 39,
+        "r0030": 1828022,
+        "r100d": 146716,
+        "r1010": 152835,
+        "r1013": 5516,
+        "r1016": 7,
+        "r104f": 1540187,
+        "r2004": 2977,
+        "r2005": 2913,
+        "r2006": 1428995729,
+        "r2007": 0,
+        "r2008": 0,
+        "r2009": 0,
+        "r200a": 0,
+        "r200b": 33130005,
+        "r200c": 0,
+        "r200d": 72,
+        "r200f": 1066609,
+        "r2010": 1070538,
+        "r2011": 8638832467,
+        "r2012": 715349319,
+        "r5090": 834284886,
+        "r5091": 13382,
+        "r5092": 0,
+        "r5093": 106568,
+        "r5094": 551550927,
+        "r5095": 394338860,
+        "r5096": 43593,
+        "r50a0": 1248859584,
+        "r50a2": 383997791,
+        "r50a3": 10316403043,
+        "r50a4": 1796095,
+        "r7000": 161125037,
+        "r7001": 6932050785,
+        "r7002": 281,
+        "r7003": 273,
+        "r7004": 1860464,
+        "r7005": 354411296,
+        "r7006": 0,
+        "r7007": 16089311,
+        "r7008": 15763138,
+        "r700a": 37997192,
+        "r700b": 458549083,
+        "r700c": 546871804,
+        "r700d": 939180360,
+        "r700e": 1493039652,
+        "r700f": 1819579854,
+        "r7010": 1645186801,
+        "r7011": 1725222770,
+        "r701e": 0,
+        "r701f": 160404,
+        "r7020": 250050
+      },
+      "debug_not_counted_events": [
+        "r2007",
+        "r2008",
+        "r2009",
+        "r200a",
+        "r200c",
+        "r5092",
+        "r7006",
+        "r701e"
+      ],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 3.83,
+          "recalculated": 3.8323360346710076,
+          "absolute_error": 0.002336034671007514,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 63.87,
+          "recalculated": 63.87226724451679,
+          "absolute_error": 0.0022672445167941646,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 2.71,
+          "recalculated": 2.705417364694725,
+          "absolute_error": 0.00458263530527514,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 16.62,
+          "recalculated": 16.623694328170505,
+          "absolute_error": 0.0036943281705035247,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 16.8,
+          "recalculated": 16.798621062617983,
+          "absolute_error": 0.0013789373820181083,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Fetch Latency Bound",
+          "reported": 8.26,
+          "recalculated": 8.259274708021213,
+          "absolute_error": 0.0007252919787870127,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Fetch Bandwidth Bound",
+          "reported": 8.36,
+          "recalculated": 8.364419620149292,
+          "absolute_error": 0.004419620149292314,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Memory Bound",
+          "reported": 0.86,
+          "recalculated": 0.8588542188262887,
+          "absolute_error": 0.0011457811737113355,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Core Bound",
+          "reported": 15.94,
+          "recalculated": 15.939766843791695,
+          "absolute_error": 0.00023315620830466344,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": true
+    },
+    "devkit-cpu-scope-short-probe.json": {
+      "status": "failed_probe_preserved",
+      "sha256": "b8c766b134ff9e66b766130bc00bc353af471fabf608a9ec484f14616a7ca283"
+    },
+    "devkit-descendant-short-probe.json": {
+      "status": "arithmetic_checked",
+      "sha256": "667927d50467e606b557ef5f98f8c2dade54b15cc3dc1fb6fedcdbe19ac6d6d3",
+      "events": {
+        "r0008": 31267917,
+        "r0011": 18156766,
+        "r001b": 50177395,
+        "r2011": 42804098
+      },
+      "debug_not_counted_events": [],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 1.72,
+          "recalculated": 1.7221082763307078,
+          "absolute_error": 0.00210827633070787,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 28.7,
+          "recalculated": 28.701804605511796,
+          "absolute_error": 0.0018046055117970639,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 17.36,
+          "recalculated": 17.357604689440105,
+          "absolute_error": 0.0023953105598941704,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 39.29,
+          "recalculated": 39.29122803770965,
+          "absolute_error": 0.0012280377096516304,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 14.65,
+          "recalculated": 14.649362667338437,
+          "absolute_error": 0.0006373326615634056,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": false
+    },
+    "devkit-level1-short-probe.json": {
+      "status": "arithmetic_checked",
+      "sha256": "60499f21a359ed2df441fd7ab7e974d2a943eac923755b66aadbb1ce5b00d992",
+      "events": {
+        "r0008": 22434862559,
+        "r0011": 5783407273,
+        "r001b": 23397850380,
+        "r2011": 5826861497
+      },
+      "debug_not_counted_events": [],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 3.88,
+          "recalculated": 3.879177360331822,
+          "absolute_error": 0.0008226396681778603,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 64.65,
+          "recalculated": 64.65295600553037,
+          "absolute_error": 0.0029560055303647914,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 2.78,
+          "recalculated": 2.775145560229797,
+          "absolute_error": 0.004854439770202834,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 16.79,
+          "recalculated": 16.79189337688778,
+          "absolute_error": 0.0018933768877822388,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 15.78,
+          "recalculated": 15.780005057352042,
+          "absolute_error": 5.057352042925345e-06,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": false
+    },
+    "devkit-level2-short-probe.json": {
+      "status": "arithmetic_checked",
+      "sha256": "398ff34d0ba36ed381f41a1c4e14cb72c82c56d200511832d3c653c2ebba5619",
+      "events": {
+        "r0008": 22244913258,
+        "r0011": 5777488663,
+        "r001b": 23035699981,
+        "r2004": 0,
+        "r2005": 0,
+        "r2006": 876168092,
+        "r2007": 0,
+        "r2008": 0,
+        "r2009": 0,
+        "r200a": 0,
+        "r200b": 873159,
+        "r200c": 0,
+        "r200d": 0,
+        "r2011": 6300308043,
+        "r7000": 90971695,
+        "r7001": 4634122016,
+        "r7002": 7,
+        "r7003": 11,
+        "r7004": 720841,
+        "r7005": 208462657,
+        "r7006": 0,
+        "r700a": 10818661,
+        "r700b": 305900657,
+        "r700c": 394660058,
+        "r700d": 609849450,
+        "r700e": 1000784540,
+        "r700f": 1238856439,
+        "r7010": 1082871903,
+        "r7011": 1135282719
+      },
+      "debug_not_counted_events": [
+        "r2004",
+        "r2005",
+        "r2007",
+        "r2008",
+        "r2009",
+        "r200a",
+        "r200c",
+        "r200d",
+        "r7006"
+      ],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 3.85,
+          "recalculated": 3.850273805028841,
+          "absolute_error": 0.00027380502884089,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 64.17,
+          "recalculated": 64.17123008381401,
+          "absolute_error": 0.0012300838140077985,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 2.28,
+          "recalculated": 2.2812296977875812,
+          "absolute_error": 0.0012296977875814186,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 18.17,
+          "recalculated": 18.174874962969703,
+          "absolute_error": 0.0048749629697013575,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 15.37,
+          "recalculated": 15.3726652554287,
+          "absolute_error": 0.0026652554287007746,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Memory Bound",
+          "reported": 0.69,
+          "recalculated": 0.691528326887768,
+          "absolute_error": 0.00152832688776805,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Core Bound",
+          "reported": 14.68,
+          "recalculated": 14.681136928540932,
+          "absolute_error": 0.0011369285409319474,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": true
+    },
+    "devkit-level3-short-probe.json": {
+      "status": "arithmetic_checked",
+      "sha256": "a28b303c85d1670e3a836e4420a830d2ecb0b4ee0fe983543afc2f6beec3c6de",
+      "events": {
+        "r0008": 22830693268,
+        "r0011": 5770539144,
+        "r001b": 23777004591,
+        "r2011": 5201414898,
+        "r5090": 507119194,
+        "r5091": 7371611,
+        "r5092": 186,
+        "r5093": 43933,
+        "r5094": 338126147,
+        "r5095": 264893448,
+        "r5096": 25465,
+        "r50a0": 865012329,
+        "r50a2": 208133523,
+        "r50a3": 6789230421,
+        "r50a4": 8473796,
+        "r7001": 4512499430,
+        "r7005": 243848864,
+        "r7006": 0,
+        "r7007": 30418709,
+        "r7008": 15755721,
+        "r701e": 0,
+        "r701f": 60152,
+        "r7020": 106409
+      },
+      "debug_not_counted_events": [
+        "r7006",
+        "r701e"
+      ],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 3.96,
+          "recalculated": 3.956422909242118,
+          "absolute_error": 0.00357709075788204,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 65.94,
+          "recalculated": 65.94038182070196,
+          "absolute_error": 0.00038182070196057794,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 2.73,
+          "recalculated": 2.733168424952518,
+          "absolute_error": 0.003168424952518123,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 15.02,
+          "recalculated": 15.022902736937054,
+          "absolute_error": 0.002902736937054229,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 16.3,
+          "recalculated": 16.303547017408462,
+          "absolute_error": 0.003547017408461528,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Memory Bound",
+          "reported": 0.88,
+          "recalculated": 0.8810198164092935,
+          "absolute_error": 0.0010198164092934947,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Core Bound",
+          "reported": 15.42,
+          "recalculated": 15.422527200999168,
+          "absolute_error": 0.0025272009991681443,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": true
+    },
+    "devkit-level6-short-probe.json": {
+      "status": "arithmetic_checked",
+      "sha256": "29d58ad3e99041569544e0e638615b9d36b14a1ae44d287af9d7c2beb98b2dd9",
+      "events": {
+        "r0008": 22400574675,
+        "r0010": 10643754,
+        "r0011": 5779235181,
+        "r001b": 23400333986,
+        "r0027": 1761142,
+        "r0028": 36904,
+        "r002e": 384,
+        "r0030": 1900672,
+        "r104f": 915245,
+        "r2010": 658159,
+        "r2011": 6113828333,
+        "r2012": 513019916
+      },
+      "debug_not_counted_events": [],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 3.88,
+          "recalculated": 3.8760448352482437,
+          "absolute_error": 0.003955164751756168,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 64.6,
+          "recalculated": 64.6007472541374,
+          "absolute_error": 0.000747254137408504,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 2.88,
+          "recalculated": 2.8831938243513635,
+          "absolute_error": 0.0031938243513636166,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 17.63,
+          "recalculated": 17.63159582401728,
+          "absolute_error": 0.0015958240172793126,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 14.88,
+          "recalculated": 14.88446309749395,
+          "absolute_error": 0.004463097493948354,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Fetch Latency Bound",
+          "reported": 8.88,
+          "recalculated": 8.876951706111923,
+          "absolute_error": 0.0030482938880780353,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Fetch Bandwidth Bound",
+          "reported": 8.75,
+          "recalculated": 8.754644117905356,
+          "absolute_error": 0.0046441179053555715,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": false
+    },
+    "devkit-memory-short-probe.json": {
+      "status": "arithmetic_checked",
+      "sha256": "289ecbfd63d637b1ee3af3c10f26e2950a7a186335ff86ff105cbb5b39633506",
+      "events": {
+        "r0008": 2114454716,
+        "r0011": 5756219256,
+        "r001b": 2131288951,
+        "r2011": 6062827,
+        "r5090": 2462800344,
+        "r5091": 0,
+        "r5092": 0,
+        "r5093": 0,
+        "r5094": 15707,
+        "r5095": 205982584,
+        "r5096": 87427437,
+        "r50a0": 815578756,
+        "r50a2": 78165851,
+        "r50a3": 10460113905,
+        "r50a4": 275,
+        "r7001": 5745000331,
+        "r7005": 2249011779,
+        "r7006": 0,
+        "r7007": 2250037898,
+        "r7008": 2245039536,
+        "r701e": 40,
+        "r701f": 855694,
+        "r7020": 4467657
+      },
+      "debug_not_counted_events": [
+        "r5091",
+        "r5092",
+        "r5093",
+        "r7006"
+      ],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 0.37,
+          "recalculated": 0.3673339429862746,
+          "absolute_error": 0.002666057013725409,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 6.12,
+          "recalculated": 6.122232383104577,
+          "absolute_error": 0.0022323831045767406,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 0.05,
+          "recalculated": 0.04874216405861892,
+          "absolute_error": 0.001257835941381083,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 0.02,
+          "recalculated": 0.01755442455763653,
+          "absolute_error": 0.0024455754423634707,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 93.81,
+          "recalculated": 93.81147102827917,
+          "absolute_error": 0.0014710282791696727,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Memory Bound",
+          "reported": 36.72,
+          "recalculated": 36.724645986433295,
+          "absolute_error": 0.0046459864332959455,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Core Bound",
+          "reported": 57.09,
+          "recalculated": 57.08682504184588,
+          "absolute_error": 0.003174958154126273,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": true
+    },
+    "devkit-cpu-scope-container.stdout.txt": {
+      "status": "arithmetic_checked",
+      "sha256": "68f3ee141b005a827196fa3fd373a096c96fa1208f15d2ab00c66e894cb94989",
+      "events": {
+        "r0008": 21442860480,
+        "r0011": 5805464808,
+        "r001b": 22406981943,
+        "r2011": 1857892387
+      },
+      "debug_not_counted_events": [],
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 3.69,
+          "recalculated": 3.6935648030199895,
+          "absolute_error": 0.0035648030199895153,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 61.56,
+          "recalculated": 61.55941338366649,
+          "absolute_error": 0.0005866163335142005,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 2.77,
+          "recalculated": 2.7678560772355647,
+          "absolute_error": 0.002143922764435313,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 5.33,
+          "recalculated": 5.333745727645563,
+          "absolute_error": 0.003745727645562802,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 30.34,
+          "recalculated": 30.338984811452377,
+          "absolute_error": 0.0010151885476226141,
+          "within_print_precision": true
+        }
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": false
+    }
+  },
+  "scope_test": {
+    "direct_cycles": 5783407273,
+    "descendant_launcher_cycles": 18156766,
+    "descendant_to_direct_ratio": 0.0031394583059653042,
+    "launch_mode_child_coverage_verified": false,
+    "cpu_scope_detected_separate_busy_process": true
+  },
+  "formal_document_workload_started": false
+}

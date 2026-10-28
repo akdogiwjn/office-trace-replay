@@ -1,0 +1,443 @@
+{
+  "schema": "devkit-seven-dataset-five-repeats-v1",
+  "status": "success",
+  "plan": [
+    {
+      "dataset_id": "opm",
+      "repeat": 1
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 2
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 3
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 4
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 5
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 1
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 2
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 3
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 4
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 5
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 1
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 2
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 3
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 4
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 5
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 1
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 2
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 3
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 4
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 5
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 1
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 2
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 3
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 4
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 5
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 1
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 2
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 3
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 4
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 5
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 1
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 2
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 3
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 4
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 5
+    }
+  ],
+  "completed": [
+    {
+      "dataset_id": "opm",
+      "repeat": 1,
+      "raw": "analysis/topdown/raw/opm-cpu-pilot-20261027T152830Z-ffe55771",
+      "summary": "analysis/topdown/reports/opm-cpu-pilot-20261027T152830Z-ffe55771/summary.json",
+      "summary_sha256": "2262f1f703c20413cc960cf35f57bcc004569258fc7d40081f16c787881fc0ae",
+      "reused": true
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 2,
+      "raw": "analysis/topdown/raw/opm-cpu-pilot-20261027T152843Z-2df2d531",
+      "summary": "analysis/topdown/reports/opm-cpu-pilot-20261027T152843Z-2df2d531/summary.json",
+      "summary_sha256": "c7c24ce6760a89f8a3c134210d1842326fac04a27fc2829a28659bda90c11a9e",
+      "reused": true
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 3,
+      "raw": "analysis/topdown/raw/opm-cpu-pilot-20261027T153544Z-aadde888",
+      "summary": "analysis/topdown/reports/opm-cpu-pilot-20261027T153544Z-aadde888/summary.json",
+      "summary_sha256": "33e5490ab2af651e3642963150ab2c1a76bdc6cc4cb24a7213a7a5dd4fd26044",
+      "reused": true
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 4,
+      "raw": "analysis/topdown/raw/opm-cpu-pilot-20261027T153557Z-ec6a9d70",
+      "summary": "analysis/topdown/reports/opm-cpu-pilot-20261027T153557Z-ec6a9d70/summary.json",
+      "summary_sha256": "83370fb6602df2baafc501818ccf155f2ad5e4cb9c342abd94b6db691bbb9b09",
+      "reused": true
+    },
+    {
+      "dataset_id": "opm",
+      "repeat": 5,
+      "raw": "analysis/topdown/raw/opm-cpu-pilot-20261027T153610Z-c84ae2f4",
+      "summary": "analysis/topdown/reports/opm-cpu-pilot-20261027T153610Z-c84ae2f4/summary.json",
+      "summary_sha256": "841a772ecd1413cc6438cf5249bf3ddecd84382e41c22a25f783a24010bd1c06",
+      "reused": true
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 1,
+      "raw": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153623Z-6cd53309",
+      "summary": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T153623Z-6cd53309/summary.json",
+      "summary_sha256": "49a3fb31d37f59af5855100b2b3ea604517c7a0e36830cf68a1e249b6759557d",
+      "reused": true
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 2,
+      "raw": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153640Z-8e90df1f",
+      "summary": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T153640Z-8e90df1f/summary.json",
+      "summary_sha256": "19e140233345fb3df9b6cd9401c0751967c273460e24b440ad09aa66ceea6b2c",
+      "reused": true
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 3,
+      "raw": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153657Z-ea9bb945",
+      "summary": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T153657Z-ea9bb945/summary.json",
+      "summary_sha256": "315c73e26c83de713107dcea8f1838dd52e3e364322dbccb1b19b6f9d4449f4d",
+      "reused": true
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 4,
+      "raw": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153714Z-1d1cbfea",
+      "summary": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T153714Z-1d1cbfea/summary.json",
+      "summary_sha256": "006541db5437598d52e018d440ed067a010918460d9edb41e906ba10f415c6d5",
+      "reused": true
+    },
+    {
+      "dataset_id": "irs_w4",
+      "repeat": 5,
+      "raw": "analysis/topdown/raw/irs_w4-cpu-pilot-20261027T153732Z-c9154dae",
+      "summary": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T153732Z-c9154dae/summary.json",
+      "summary_sha256": "f7c4883e516528972d20365d6c40623fb7e19f5fd26d8c1bef5556de1bdc9cb1",
+      "reused": true
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 1,
+      "raw": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153749Z-ca1b915b",
+      "summary": "analysis/topdown/reports/sba1919-cpu-pilot-20261027T153749Z-ca1b915b/summary.json",
+      "summary_sha256": "d24ca527d12207731802f42180663d22f9ef6ac1489da3aadab5aa0227ca4651",
+      "reused": true
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 2,
+      "raw": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153810Z-392466df",
+      "summary": "analysis/topdown/reports/sba1919-cpu-pilot-20261027T153810Z-392466df/summary.json",
+      "summary_sha256": "686b76145f556ff47dcc7a5e53bcdf3fedd9ec78f90c743a7747329ae7639e49",
+      "reused": true
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 3,
+      "raw": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153831Z-116d6f09",
+      "summary": "analysis/topdown/reports/sba1919-cpu-pilot-20261027T153831Z-116d6f09/summary.json",
+      "summary_sha256": "6a53eaefa9e37515fa1aa67aa8ca98f9a22438753605369e4a2c547535f53de5",
+      "reused": true
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 4,
+      "raw": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153852Z-556d6852",
+      "summary": "analysis/topdown/reports/sba1919-cpu-pilot-20261027T153852Z-556d6852/summary.json",
+      "summary_sha256": "360c006d2ee0aa822a42e80d257170110459ad3e13a0064011ed68d30b3af036",
+      "reused": true
+    },
+    {
+      "dataset_id": "sba1919",
+      "repeat": 5,
+      "raw": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153914Z-96df8049",
+      "summary": "analysis/topdown/reports/sba1919-cpu-pilot-20261027T153914Z-96df8049/summary.json",
+      "summary_sha256": "b422d30ef8ee1fbb02f31348fceabe9b6695fc8fc7604eb003b827662fdfdb62",
+      "reused": true
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 1,
+      "raw": "analysis/topdown/raw/tlc-cpu-pilot-20261027T153935Z-0b2e95f5",
+      "summary": "analysis/topdown/reports/tlc-cpu-pilot-20261027T153935Z-0b2e95f5/summary.json",
+      "summary_sha256": "513f8305358653a022b6272408f67b809fed7230e8e7f8ef9790bc04fb7a0eeb",
+      "reused": true
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 2,
+      "raw": "analysis/topdown/raw/tlc-cpu-pilot-20261028T021134Z-669e1476",
+      "summary": "analysis/topdown/reports/tlc-cpu-pilot-20261028T021134Z-669e1476/summary.json",
+      "summary_sha256": "a31c62e0ef9d499c436fd2fbaec55ae78be69e063bfcb8eb80057dcfaeacd7b1",
+      "reused": false
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 3,
+      "raw": "analysis/topdown/raw/tlc-cpu-pilot-20261028T025645Z-d527d773",
+      "summary": "analysis/topdown/reports/tlc-cpu-pilot-20261028T025645Z-d527d773/summary.json",
+      "summary_sha256": "72f2632baaa82743f541c4e862407bdbd54853caf4c825614c79953050797679",
+      "reused": false
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 4,
+      "raw": "analysis/topdown/raw/tlc-cpu-pilot-20261028T034202Z-56e8b28d",
+      "summary": "analysis/topdown/reports/tlc-cpu-pilot-20261028T034202Z-56e8b28d/summary.json",
+      "summary_sha256": "ce26a4c2c5bf067fffa2804c93203ab7a285128457c9d770e24edad0610c3c0d",
+      "reused": false
+    },
+    {
+      "dataset_id": "tlc",
+      "repeat": 5,
+      "raw": "analysis/topdown/raw/tlc-cpu-pilot-20261028T042707Z-a6992634",
+      "summary": "analysis/topdown/reports/tlc-cpu-pilot-20261028T042707Z-a6992634/summary.json",
+      "summary_sha256": "3b1e86a1fe22be5446db1f51757a8e850c0f4968acdc9fede2014c8d7476e8d8",
+      "reused": false
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 1,
+      "raw": "analysis/topdown/raw/hr_metro-cpu-pilot-20261027T154340Z-06a0cdcd",
+      "summary": "analysis/topdown/reports/hr_metro-cpu-pilot-20261027T154340Z-06a0cdcd/summary.json",
+      "summary_sha256": "12d8f420ad1bcc7df5d63cb6f1b9fa7cd96513669fb6ebadaa3051a233f1ce78",
+      "reused": true
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 2,
+      "raw": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T022125Z-2ae9d2a1",
+      "summary": "analysis/topdown/reports/hr_metro-cpu-pilot-20261028T022125Z-2ae9d2a1/summary.json",
+      "summary_sha256": "227b0bf5c289a2728438ece66452999adff520b3e15b4b284abfed3fcb5d3fe6",
+      "reused": false
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 3,
+      "raw": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T030639Z-378631b3",
+      "summary": "analysis/topdown/reports/hr_metro-cpu-pilot-20261028T030639Z-378631b3/summary.json",
+      "summary_sha256": "8e3ca2f66fed7ada3f0a9fb1d7fd9988b1fd7d6a3863b2c1e3e7f69aefcb8271",
+      "reused": false
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 4,
+      "raw": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T035153Z-888424f0",
+      "summary": "analysis/topdown/reports/hr_metro-cpu-pilot-20261028T035153Z-888424f0/summary.json",
+      "summary_sha256": "4953c136b830e5a270253274c50b300b6ced8300527f1b7e75f827f975ccb9e9",
+      "reused": false
+    },
+    {
+      "dataset_id": "hr_metro",
+      "repeat": 5,
+      "raw": "analysis/topdown/raw/hr_metro-cpu-pilot-20261028T043700Z-bd6ebda4",
+      "summary": "analysis/topdown/reports/hr_metro-cpu-pilot-20261028T043700Z-bd6ebda4/summary.json",
+      "summary_sha256": "22ae170e9b2438cf124aca37815ac0d7a8a50ab3b6c80f03f365e284d49657b7",
+      "reused": false
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 1,
+      "raw": "analysis/topdown/raw/egrid-cpu-pilot-20261027T154910Z-b5134a8e",
+      "summary": "analysis/topdown/reports/egrid-cpu-pilot-20261027T154910Z-b5134a8e/summary.json",
+      "summary_sha256": "b73d91e09ca768235e57d86f9a8c5ee5ef5b40be2046c9a8ac9dfa0f0b44792c",
+      "reused": true
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 2,
+      "raw": "analysis/topdown/raw/egrid-cpu-pilot-20261028T023134Z-eb1c9571",
+      "summary": "analysis/topdown/reports/egrid-cpu-pilot-20261028T023134Z-eb1c9571/summary.json",
+      "summary_sha256": "8bb387e8eae8fc8e2f6bd18aa65485f073450358ce8b2b44d9df8b7e2a0c8325",
+      "reused": false
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 3,
+      "raw": "analysis/topdown/raw/egrid-cpu-pilot-20261028T031652Z-b11b2078",
+      "summary": "analysis/topdown/reports/egrid-cpu-pilot-20261028T031652Z-b11b2078/summary.json",
+      "summary_sha256": "83d347d511bbd9e4d054687a1104c7dd9511acd036bdde15d1918f8566095550",
+      "reused": false
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 4,
+      "raw": "analysis/topdown/raw/egrid-cpu-pilot-20261028T040204Z-d1aceb61",
+      "summary": "analysis/topdown/reports/egrid-cpu-pilot-20261028T040204Z-d1aceb61/summary.json",
+      "summary_sha256": "7c149cd8968070b0ceef42202638101eefd66799328ac7201126f58fe2f76da2",
+      "reused": false
+    },
+    {
+      "dataset_id": "egrid",
+      "repeat": 5,
+      "raw": "analysis/topdown/raw/egrid-cpu-pilot-20261028T044713Z-a6a35efe",
+      "summary": "analysis/topdown/reports/egrid-cpu-pilot-20261028T044713Z-a6a35efe/summary.json",
+      "summary_sha256": "7d3439a92fec0f0225eae17c813f881576969a5b2b9212eee9bf8dc62ec75349",
+      "reused": false
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 1,
+      "raw": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261027T155334Z-021c3c33",
+      "summary": "analysis/topdown/reports/industry_productivity-cpu-pilot-20261027T155334Z-021c3c33/summary.json",
+      "summary_sha256": "1f712712e48483a437b8ae1a44bf9de3937036279d56668c848116ba3f32b3d2",
+      "reused": true
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 2,
+      "raw": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T024423Z-33592b46",
+      "summary": "analysis/topdown/reports/industry_productivity-cpu-pilot-20261028T024423Z-33592b46/summary.json",
+      "summary_sha256": "ce691c5ec15a8aa9073eba1975d00b9e405182b6d200e42049c8e2445d844a73",
+      "reused": false
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 3,
+      "raw": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T032939Z-23f19730",
+      "summary": "analysis/topdown/reports/industry_productivity-cpu-pilot-20261028T032939Z-23f19730/summary.json",
+      "summary_sha256": "666fd8b8cc3237f28201c216c70a99a2252006cc79fb979a12484ce9c15e64c6",
+      "reused": false
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 4,
+      "raw": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T041446Z-ef5dbe68",
+      "summary": "analysis/topdown/reports/industry_productivity-cpu-pilot-20261028T041446Z-ef5dbe68/summary.json",
+      "summary_sha256": "9f03a1d5bceaf1a551f0d045e9b87b19e9739fe7d4c91538fb8e9ef3d4b55d96",
+      "reused": false
+    },
+    {
+      "dataset_id": "industry_productivity",
+      "repeat": 5,
+      "raw": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261028T050000Z-33fd3393",
+      "summary": "analysis/topdown/reports/industry_productivity-cpu-pilot-20261028T050000Z-33fd3393/summary.json",
+      "summary_sha256": "785169660356a59e7e0ddd77e1b0a9cc2dd5f2f35a2176d2d6d2d63687252e61",
+      "reused": false
+    }
+  ],
+  "extension": {
+    "path": "analysis/topdown/raw/xlsx-five-repeat-extension-20261028T020708Z-58392cf7/campaign.json",
+    "sha256": "3ea4b5af0a12e7210864cc269b2df2d1820f52ae18bfdb5a451313ea580bdf2d"
+  },
+  "original_campaign": {
+    "path": "analysis/topdown/reports/seven-dataset-20261027T153544Z-034100b4/campaign.json",
+    "sha256": "db834bfda3bcdf09164ebb39f8759dc10b27ecd9b61b0a68ae8d155231926b79"
+  },
+  "reused_runs": 19,
+  "new_runs": 16,
+  "formal_similarity_eligible": false,
+  "pdf_applicant_count": 10,
+  "workload_cpus": "0-7",
+  "controller_cpu": 9,
+  "workload_retries": 0
+}

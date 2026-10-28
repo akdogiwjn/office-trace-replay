@@ -1,0 +1,186 @@
+{
+  "schema": "devkit-gated-pilot-summary-v1",
+  "dataset_id": "sba1919",
+  "raw": "analysis/topdown/raw/sba1919-cpu-pilot-20261027T153914Z-96df8049",
+  "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "metrics": {
+    "IPC": 1.32,
+    "Bad Speculation": 5.07,
+    "Frontend Bound": 15.49,
+    "Backend Bound": 57.45,
+    "Retiring": 22.0,
+    "Core Bound": 47.44,
+    "Memory Bound": 10.01,
+    "Fetch Latency Bound": 12.96,
+    "Fetch Bandwidth Bound": 2.52
+  },
+  "idle_pct": 86.51339971930763,
+  "arithmetic": {
+    "events": {
+      "r0008": 151869722126,
+      "r0010": 389109168,
+      "r0011": 115076431680,
+      "r001b": 186852527798,
+      "r0027": 581542060,
+      "r0028": 26986883,
+      "r002e": 300085,
+      "r0030": 178694091,
+      "r100d": 1291408,
+      "r1010": 26213113,
+      "r1013": 4939327,
+      "r1016": 339668,
+      "r104f": 63553367,
+      "r2004": 569482411,
+      "r2005": 145224109,
+      "r2006": 7572580098,
+      "r2007": 7920,
+      "r2008": 872386,
+      "r2009": 0,
+      "r200a": 0,
+      "r200b": 953638525,
+      "r200c": 158828,
+      "r200d": 278436732,
+      "r200f": 12786995,
+      "r2010": 16823543,
+      "r2011": 106925692551,
+      "r2012": 14915750189,
+      "r5090": 1446607915,
+      "r5091": 223569885,
+      "r5092": 9947475,
+      "r5093": 50723800,
+      "r5094": 2936253611,
+      "r5095": 2285222645,
+      "r5096": 117991343,
+      "r50a0": 4457896698,
+      "r50a2": 1230628909,
+      "r50a3": 52465900306,
+      "r50a4": 143563671,
+      "r7000": 5142988269,
+      "r7001": 102022026900,
+      "r7002": 222770,
+      "r7003": 60589867,
+      "r7004": 83704532,
+      "r7005": 17744738249,
+      "r7006": 36693984,
+      "r7007": 8976821212,
+      "r7008": 7046595272,
+      "r700a": 3139143209,
+      "r700b": 24042340773,
+      "r700c": 10626939152,
+      "r700d": 14184613010,
+      "r700e": 17308611489,
+      "r700f": 17635235768,
+      "r7010": 14570259399,
+      "r7011": 12626049121,
+      "r701e": 639588,
+      "r701f": 972597623,
+      "r7020": 1513470956
+    },
+    "checks": [
+      {
+        "metric": "IPC",
+        "reported": 1.32,
+        "recalculated": 1.3197291566036158,
+        "absolute_error": 0.00027084339638427934,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Retiring",
+        "reported": 22.0,
+        "recalculated": 21.995485943393593,
+        "absolute_error": 0.004514056606407024,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Bad Speculation",
+        "reported": 5.07,
+        "recalculated": 5.066604453128278,
+        "absolute_error": 0.003395546871722388,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Frontend Bound",
+        "reported": 15.49,
+        "recalculated": 15.486184702055926,
+        "absolute_error": 0.003815297944074203,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Backend Bound",
+        "reported": 57.45,
+        "recalculated": 57.4517249014222,
+        "absolute_error": 0.0017249014222002756,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Fetch Latency Bound",
+        "reported": 12.96,
+        "recalculated": 12.96160297225511,
+        "absolute_error": 0.0016029722551085257,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Fetch Bandwidth Bound",
+        "reported": 2.52,
+        "recalculated": 2.5245817298008166,
+        "absolute_error": 0.004581729800816614,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Memory Bound",
+        "reported": 10.01,
+        "recalculated": 10.013268546457368,
+        "absolute_error": 0.0032685464573685152,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Core Bound",
+        "reported": 47.44,
+        "recalculated": 47.438456354964835,
+        "absolute_error": 0.0015436450351629105,
+        "within_print_precision": true
+      }
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r7002",
+      "r7006"
+    ],
+    "printed_zero_is_not_independently_confirmed_zero": true,
+    "all_within_print_precision": true,
+    "formula_status": "empirical diagnostics; raw aggregate formula may differ from DevKit aggregation/printing"
+  },
+  "workload_status": "success",
+  "business_verification": "success",
+  "workload_counts": {
+    "requested": 1,
+    "completed": 1,
+    "successes": 1,
+    "failures": 0
+  },
+  "roi_seconds": 18.722355902,
+  "startup_envelope_upper_seconds": 1.108156887,
+  "tail_envelope_upper_seconds": 0.012235558,
+  "privilege_scope": "DevKit default all; no claim of user-only filtering",
+  "formal_similarity_eligible": false,
+  "source_hashes": {
+    "gate.py": "42337304bbd159b9ca20a6bf09fc6e69cb62b1db7cd151fe6007b6f8eac682b5",
+    "verify_probes.py": "3cd85f2fc55aa90c6074ea90d8126a4c0949c7e20e95a94ec0db5208cda2bf06",
+    "campaign.py": "f764d65d03dfeb4ea52879901c3e0951567a1b642232c3b6ed4fdb1f79adca3a",
+    "workload_entry.py": "336f890875ab7137dc15c7f07c89d916ef853136d070e2e91d172dba5dd9316a",
+    "capture.py": "33b92f91748128bd79e5069090d6db1e3744fc05257baa432197ee6b04b9855e",
+    "pilot.py": "7fb3d1e417f53d60e78ad355a93e5cf0bb42a45532e3c2527067e5ee395406d1",
+    "summarize.py": "32123269bcae07926d0495ba291ab9d9f1a134fb450a700b52bebfadf439e5a5"
+  },
+  "evidence_hashes": {
+    "launch.json": "180513f757c8cba320daeb8b5d7c4fa88fb566471c55071a32c2ea4dff228df7",
+    "out/collection.json": "bdedd48596fcc8749bc15d33953bf2e76afe750216790b31f709d183fc960de6",
+    "out/devkit.stdout.txt": "9d3d1034bf28b726c9bcf62f47e957ac897cf1bbf7b2fa728a3f50c308b02291",
+    "out/profiler-record.json": "6a60ab006f43acbe19ca3bea9b162d3a3f64ad2427c7b2ee8e5a815c274ed7c4",
+    "out/sha256-index.json": "f12373d80edd91677eb118c511ebbf4ebd22014d0f58161cfe1a0add9215841c"
+  }
+}

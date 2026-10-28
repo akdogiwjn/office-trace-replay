@@ -1,0 +1,105 @@
+{
+  "opm": {
+    "repeats": 1,
+    "statistics": {
+      "IPC": {
+        "values": [
+          1.26
+        ],
+        "mean": 1.26,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Bad Speculation": {
+        "values": [
+          4.46
+        ],
+        "mean": 4.46,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Frontend Bound": {
+        "values": [
+          18.77
+        ],
+        "mean": 18.77,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Backend Bound": {
+        "values": [
+          55.8
+        ],
+        "mean": 55.8,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Retiring": {
+        "values": [
+          20.97
+        ],
+        "mean": 20.97,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Core Bound": {
+        "values": [
+          45.78
+        ],
+        "mean": 45.78,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Memory Bound": {
+        "values": [
+          10.02
+        ],
+        "mean": 10.02,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Latency Bound": {
+        "values": [
+          16.13
+        ],
+        "mean": 16.13,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "Fetch Bandwidth Bound": {
+        "values": [
+          2.65
+        ],
+        "mean": 2.65,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      },
+      "idle_pct": {
+        "values": [
+          86.2540192926045
+        ],
+        "mean": 86.2540192926045,
+        "sample_standard_deviation": null,
+        "cv_percent": null
+      }
+    },
+    "roi_seconds": [
+      10.885469278
+    ],
+    "startup_envelope_upper_seconds": [
+      1.108269449
+    ],
+    "tail_envelope_upper_seconds": [
+      0.009535831
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r7002",
+      "r7006"
+    ]
+  }
+}

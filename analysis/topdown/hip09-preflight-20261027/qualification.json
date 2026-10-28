@@ -1,0 +1,83 @@
+{
+  "schema": "hip09-devkit-verification-v1",
+  "checked_at": "2026-10-27T23:00:54.313148+08:00",
+  "cpu_identity": {
+    "midr_el1": "0x00000000480fd020",
+    "board_name": "BC83AMDAL-7270Z",
+    "family": "HIP09 corroborated by MIDR plus 7270Z board and Huawei compiler mapping",
+    "devkit_display_host": "NA",
+    "devkit_display_container": "unknown",
+    "explicit_devkit_model_selection_confirmed": false
+  },
+  "tool": {
+    "version": "26.0.RC1",
+    "archive": {
+      "path": "analysis/topdown/downloads/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64.tar.gz",
+      "url": "https://kunpeng-repo.obs.cn-north-4.myhuaweicloud.com/Kunpeng%20DevKit/Kunpeng%20DevKit%2026.0.RC1/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64.tar.gz",
+      "sha256": "022948405ec1aef33bfa377cbd9176f30fee1fdc212d13d24d5cd2e51dbf4cac",
+      "size_bytes": 38933565
+    },
+    "signature": {
+      "path": "analysis/topdown/downloads/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64.tar.gz.asc",
+      "sha256": "c7dc57e64cdc79f79a2b45fab7560f121cf2e953a991149834c01732f788a59e",
+      "pgp_verification": "not_completed_trusted_public_key_not_obtained"
+    },
+    "executable_bindings": {
+      "devkit": {
+        "sha256": "a82ab16e84ac5029ecf07a19fed616c7ac9c839f85189735637108b014c6bd75",
+        "size_bytes": 67744
+      },
+      ".devkit": {
+        "sha256": "ff7fd1397e0bef1f4b7c928b8c1b2f04a840e4b144d65980caf60fea13f83964",
+        "size_bytes": 67760
+      },
+      "tuner/libtuner.so": {
+        "sha256": "92ae793d41aa765c0796ec7d2cc3559ab1e4b551dced2d84ed1089ae7e7c1509",
+        "size_bytes": 2357232
+      },
+      "tuner/lib/libkanalyze.so": {
+        "sha256": "e807c64cff17ff8e588b933de9dfd89dd03893fde4607d95ad87f78bf0e7961a",
+        "size_bytes": 1181928
+      },
+      "tuner/lib/libkperf.so": {
+        "sha256": "6498161300d97a66ab5de3ca6a9da613457ce871808f2777c7567e86eb947a46",
+        "size_bytes": 1182480
+      },
+      "execute.ini": {
+        "sha256": "178b2ab352ac258237981a0fd9cae6be4a31601e3a78b4ff70a9923bfd83cae8",
+        "size_bytes": 849
+      }
+    }
+  },
+  "probe_environment": {
+    "container_image_inspect_returncode": 0,
+    "container_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+    "image_inspect_error": null,
+    "container_cpu_scope_cpu": "0",
+    "perfmon_capability": true,
+    "network": "none",
+    "image_identity_method": "direct docker image inspect after sandbox-restricted wrapper failed"
+  },
+  "results": {
+    "basic_pmu_available": true,
+    "devkit_runs": true,
+    "top_level_events_observed": [
+      "r0011",
+      "r0008",
+      "r001b",
+      "r2011"
+    ],
+    "printed_metric_arithmetic_verified": true,
+    "official_hip09_formula_specification_verified": false,
+    "child_coverage_by_launch": false,
+    "cpu_scope_separate_process_observed": true,
+    "deep_metric_not_counted_diagnostics_present": true,
+    "formal_capture_ready": false,
+    "formal_document_workload_started": false
+  },
+  "source_urls": [
+    "https://www.hikunpeng.com/document/detail/zh/kunpengdevps/install/installguide/KunpengDevKitCli_0003.html",
+    "https://www.hikunpeng.com/doc_center/source/zh/kunpengdevps/userguide/cliuserguide/KunpengDevKitCli_0033.html",
+    "https://www.hikunpeng.com/doc_center/source/zh/kunpengdevps/compiler/opg-bisheng/kunpengbisheng_30_0036.html"
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "schema": "devkit-gated-pilot-summary-v1",
+  "dataset_id": "industry_productivity",
+  "raw": "analysis/topdown/raw/industry_productivity-cpu-pilot-20261027T155334Z-021c3c33",
+  "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "metrics": {
+    "IPC": 1.22,
+    "Bad Speculation": 2.13,
+    "Frontend Bound": 16.66,
+    "Backend Bound": 60.82,
+    "Retiring": 20.38,
+    "Core Bound": 44.86,
+    "Memory Bound": 15.96,
+    "Fetch Latency Bound": 14.21,
+    "Fetch Bandwidth Bound": 2.45
+  },
+  "idle_pct": 86.04126285872512,
+  "arithmetic": {
+    "events": {
+      "r0008": 3673360302363,
+      "r0010": 3841135760,
+      "r0011": 3004323219020,
+      "r001b": 4058103130359,
+      "r0027": 15414453175,
+      "r0028": 435304336,
+      "r002e": 5220438,
+      "r0030": 7919708143,
+      "r100d": 49884410,
+      "r1010": 246011688,
+      "r1013": 53163153,
+      "r1016": 7184647,
+      "r104f": 1856330017,
+      "r2004": 23067084709,
+      "r2005": 4239802998,
+      "r2006": 244420471077,
+      "r2007": 22165,
+      "r2008": 2208411,
+      "r2009": 72463,
+      "r200a": 18186,
+      "r200b": 36698155972,
+      "r200c": 248655,
+      "r200d": 15169243887,
+      "r200f": 788726727,
+      "r2010": 828647732,
+      "r2011": 3003738626438,
+      "r2012": 426947289684,
+      "r5090": 87165770938,
+      "r5091": 5308205767,
+      "r5092": 774727693,
+      "r5093": 1658183771,
+      "r5094": 63181209756,
+      "r5095": 77788224329,
+      "r5096": 4126403793,
+      "r50a0": 172530673729,
+      "r50a2": 46054590315,
+      "r50a3": 1631160165662,
+      "r50a4": 7883491797,
+      "r7000": 246356515501,
+      "r7001": 2691213725834,
+      "r7002": 9613256,
+      "r7003": 446103904,
+      "r7004": 1101005991,
+      "r7005": 706028662255,
+      "r7006": 217451178,
+      "r7007": 528523644462,
+      "r7008": 447059755458,
+      "r700a": 55875223371,
+      "r700b": 802061579166,
+      "r700c": 250520951967,
+      "r700d": 358812228043,
+      "r700e": 452160276300,
+      "r700f": 440102186613,
+      "r7010": 330825833833,
+      "r7011": 316303953908,
+      "r701e": 9363292,
+      "r701f": 42282607270,
+      "r7020": 60666205180
+    },
+    "checks": [
+      {
+        "metric": "IPC",
+        "reported": 1.22,
+        "recalculated": 1.2226914464819927,
+        "absolute_error": 0.0026914464819927097,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Retiring",
+        "reported": 20.38,
+        "recalculated": 20.378190774699878,
+        "absolute_error": 0.0018092253001213976,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Bad Speculation",
+        "reported": 2.13,
+        "recalculated": 2.134384351858019,
+        "absolute_error": 0.004384351858019109,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Frontend Bound",
+        "reported": 16.66,
+        "recalculated": 16.663423603590658,
+        "absolute_error": 0.0034236035906580753,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Backend Bound",
+        "reported": 60.82,
+        "recalculated": 60.82400126985144,
+        "absolute_error": 0.004001269851443112,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Fetch Latency Bound",
+        "reported": 14.21,
+        "recalculated": 14.211097094382167,
+        "absolute_error": 0.0010970943821657642,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Fetch Bandwidth Bound",
+        "reported": 2.45,
+        "recalculated": 2.4523265092084916,
+        "absolute_error": 0.002326509208491423,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Memory Bound",
+        "reported": 15.96,
+        "recalculated": 15.961836879738811,
+        "absolute_error": 0.0018368797388106373,
+        "within_print_precision": true
+      },
+      {
+        "metric": "Core Bound",
+        "reported": 44.86,
+        "recalculated": 44.86216439011263,
+        "absolute_error": 0.002164390112632475,
+        "within_print_precision": true
+      }
+    ],
+    "debug_not_counted_events": [
+      "r2007",
+      "r2008",
+      "r2009",
+      "r200a",
+      "r200c",
+      "r5092",
+      "r7002",
+      "r7006"
+    ],
+    "printed_zero_is_not_independently_confirmed_zero": true,
+    "all_within_print_precision": true,
+    "formula_status": "empirical diagnostics; raw aggregate formula may differ from DevKit aggregation/printing"
+  },
+  "workload_status": "success",
+  "business_verification": "success",
+  "workload_counts": {
+    "requested": 1,
+    "completed": 1,
+    "successes": 1,
+    "failures": 0
+  },
+  "roi_seconds": 478.883034492,
+  "startup_envelope_upper_seconds": 1.114900785,
+  "tail_envelope_upper_seconds": 0.072150494,
+  "privilege_scope": "DevKit default all; no claim of user-only filtering",
+  "formal_similarity_eligible": false,
+  "source_hashes": {
+    "gate.py": "42337304bbd159b9ca20a6bf09fc6e69cb62b1db7cd151fe6007b6f8eac682b5",
+    "verify_probes.py": "3cd85f2fc55aa90c6074ea90d8126a4c0949c7e20e95a94ec0db5208cda2bf06",
+    "campaign.py": "f764d65d03dfeb4ea52879901c3e0951567a1b642232c3b6ed4fdb1f79adca3a",
+    "workload_entry.py": "336f890875ab7137dc15c7f07c89d916ef853136d070e2e91d172dba5dd9316a",
+    "capture.py": "33b92f91748128bd79e5069090d6db1e3744fc05257baa432197ee6b04b9855e",
+    "pilot.py": "7fb3d1e417f53d60e78ad355a93e5cf0bb42a45532e3c2527067e5ee395406d1",
+    "summarize.py": "32123269bcae07926d0495ba291ab9d9f1a134fb450a700b52bebfadf439e5a5"
+  },
+  "evidence_hashes": {
+    "launch.json": "21059d7d33899819651d4f3d2856ed5f84ef75e2705d1654b7c694abcdc332a0",
+    "out/collection.json": "4ae09d81b073228330e42d92e2a43e260ef9d6878046fdef803e826ae0d1153d",
+    "out/devkit.stdout.txt": "0e6420af0302cdbf846b7f22782e27a5709d11012d7997ef244189e92e12ec2c",
+    "out/profiler-record.json": "2dc15ad9eab0fb15a51da808daba5c6b808da4b45468d438d6ae6a4402f2634e",
+    "out/sha256-index.json": "b08e6ee7d2f7047532782bd67ac298f64c0a0c622de9cd74ef60f2a8fbfc998a"
+  }
+}

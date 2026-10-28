@@ -1,0 +1,94 @@
+{
+  "status": "pilot_success",
+  "tests": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "datasets_run": [
+    "synthetic_smoke",
+    "irs_w4"
+  ],
+  "formal_suite_started": false,
+  "formal_similarity_eligible": false,
+  "workload_retries": 0,
+  "runtime_changes": false,
+  "image_rebuild": false,
+  "files": [
+    {
+      "path": "analysis/topdown/PILOT.md",
+      "size_bytes": 3385,
+      "sha256": "2862d04a8f07fd13183154a31bc06c9898702a15983a1473e2b5a65f6ea99b4f"
+    },
+    {
+      "path": "analysis/topdown/capture.py",
+      "size_bytes": 10418,
+      "sha256": "558166b3787cb958bb86a87d7077b6c14ef10304bf217e0fe8d0f6e5b0aa1986"
+    },
+    {
+      "path": "analysis/topdown/gate.py",
+      "size_bytes": 2610,
+      "sha256": "42337304bbd159b9ca20a6bf09fc6e69cb62b1db7cd151fe6007b6f8eac682b5"
+    },
+    {
+      "path": "analysis/topdown/pilot.py",
+      "size_bytes": 5731,
+      "sha256": "2c04c6bcef6a5f4046ede8c76bc61bcfcb2dd3c51b2c09bf578011a7501f89e2"
+    },
+    {
+      "path": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T151703Z-7808dc1d/report.md",
+      "size_bytes": 1372,
+      "sha256": "9e1a898fa3bd8e9c7a87350f8cb9565bc6436d38d3f01cfd82773005c45c6e63"
+    },
+    {
+      "path": "analysis/topdown/reports/irs_w4-cpu-pilot-20261027T151703Z-7808dc1d/summary.json",
+      "size_bytes": 5661,
+      "sha256": "a7dad5f4d27f5c270fdc85ac6327e5b67acd11bebdbe0051ba058c3717cf2034"
+    },
+    {
+      "path": "analysis/topdown/reports/latest-irs_w4.json",
+      "size_bytes": 166,
+      "sha256": "2aba1e78e83f96da5bc73d486b2695eb607e6e14262d212c749eb0e6ef0cf1c2"
+    },
+    {
+      "path": "analysis/topdown/reports/latest-smoke.json",
+      "size_bytes": 165,
+      "sha256": "d1177f5911cffaed521bd28970b87b445f18d0c739f0e6c393a688d7ebf8b158"
+    },
+    {
+      "path": "analysis/topdown/reports/smoke-cpu-pilot-20261027T151508Z-12df0689/report.md",
+      "size_bytes": 1368,
+      "sha256": "750858763e1350006ff498f10982e66ec7728dc2dd8c53d87ba2320318ea7109"
+    },
+    {
+      "path": "analysis/topdown/reports/smoke-cpu-pilot-20261027T151508Z-12df0689/summary.json",
+      "size_bytes": 5483,
+      "sha256": "eb3379a5694dac30bf7ccfbf4f677ea49062c5fc4478e97837a063cfe6283625"
+    },
+    {
+      "path": "analysis/topdown/summarize.py",
+      "size_bytes": 5337,
+      "sha256": "c51b8dae42698a7c8ade77990acd9c990b166b6fd366fa759bee0f5d721d7c87"
+    },
+    {
+      "path": "analysis/topdown/tests/test_gate.py",
+      "size_bytes": 2400,
+      "sha256": "3f25784678b4046d1572134f63839ef684931fb1fbbe89a43fae2a7adaee34cb"
+    },
+    {
+      "path": "analysis/topdown/tests/test_summary.py",
+      "size_bytes": 1405,
+      "sha256": "bf62208b3a22b2197725756c2c44eb681499b5fbf42befedf12e93b830985765"
+    },
+    {
+      "path": "analysis/topdown/verify_probes.py",
+      "size_bytes": 3922,
+      "sha256": "3cd85f2fc55aa90c6074ea90d8126a4c0949c7e20e95a94ec0db5208cda2bf06"
+    },
+    {
+      "path": "analysis/topdown/workload_entry.py",
+      "size_bytes": 2147,
+      "sha256": "05e14d6aad228b4ea4a308a74e8c29ed241406276bb3fa4a0d8b88b78cb6087c"
+    }
+  ]
+}

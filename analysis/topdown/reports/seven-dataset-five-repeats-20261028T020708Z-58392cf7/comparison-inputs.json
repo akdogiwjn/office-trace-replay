@@ -1,0 +1,161 @@
+{
+  "topdown_campaign": {
+    "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/campaign.json",
+    "sha256": "eb353eed7576a415b1359a5c98d49a3931fc70311beae805b97e8f12d4d728c9"
+  },
+  "topdown_statistics": {
+    "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/statistics.json",
+    "sha256": "e3e7f65918391875020c62b4f4b66c87bdeb8bbbac1fcc214d4fb3830288f61a"
+  },
+  "topdown_verification": {
+    "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/verification.json",
+    "sha256": "e68b0f238c194ea33146e69ddff579ec96a5c674f8d10417cb512e507654bc3a"
+  },
+  "hotspot_profiles": {
+    "opm": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/opm-merged-profile.json",
+      "sha256": "d35338b26879e6d2275ecfb9542688d80cb2c678a3774546d31ba69789d6b3b3",
+      "dataset_id": "opm",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "irs_w4": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/irs_w4-merged-profile.json",
+      "sha256": "1cbf1c0b98a613026682525c29aadb17b633265e225d727506886a2b4cda4535",
+      "dataset_id": "irs_w4",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "sba1919": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/sba1919-merged-profile.json",
+      "sha256": "537b3b05edaf7203dae3cd0b7f8278026ac06aa78d498806a36ae2a2aa7b781f",
+      "dataset_id": "sba1919",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "tlc": {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/tlc-merged-profile.json",
+      "sha256": "b256e6d524296516b3013b478ce8313b45b659849f951e36fb7a7a2f329eb9fa",
+      "dataset_id": "tlc",
+      "evidence": [
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
+        },
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
+        }
+      ]
+    },
+    "hr_metro": {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/hr_metro-merged-profile.json",
+      "sha256": "e622304f3ef2d97da40cab29948389c82b5cd4b511f375952116c49d4d72e7d3",
+      "dataset_id": "hr_metro",
+      "evidence": [
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
+        },
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
+        }
+      ]
+    },
+    "egrid": {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/egrid-merged-profile.json",
+      "sha256": "2901266cd0d070b7e9ae7aea463d06694c092f8da91b18c12cbbba0692e8507b",
+      "dataset_id": "egrid",
+      "evidence": [
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
+        },
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
+        }
+      ]
+    },
+    "industry_productivity": {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/industry_productivity-merged-profile.json",
+      "sha256": "ab788fe183dcc418339b5827cf540509a5430ea182b4de0d1d923fa0f0522e31",
+      "dataset_id": "industry_productivity",
+      "evidence": [
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
+        },
+        {
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
+        }
+      ]
+    }
+  },
+  "output": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity",
+  "measurement_evidence": {
+    "host_inventory": {
+      "path": "analysis/topdown/hip09-preflight-20261027/host-verification.json",
+      "sha256": "4dc7d299a482d3da023f6f0b0ca29c0f8bceffd7479aa0cc5d3f205ec80b2348"
+    },
+    "devkit_qualification": {
+      "path": "analysis/topdown/hip09-preflight-20261027/qualification.json",
+      "sha256": "97e124bdfebba621cdbf0cf12b5038e56fd3995456dbd39a94ffc0fc96bcbca2"
+    },
+    "image_qualification": {
+      "path": "reports/image-qualification-agent-traces.json",
+      "sha256": "3dc8d8369e878b3542bee6f46a8275525f9a85c802383a262cbc3d439d84b305"
+    },
+    "replay_environment": {
+      "path": "agent/datasets/hr_metro/replay-environment.json",
+      "sha256": "596c494ca6c42b69c3c6b936e669b65a80addcb56ba4d2c0e753144af22d1d02"
+    }
+  },
+  "repetitions_per_dataset": {
+    "opm": 5,
+    "irs_w4": 5,
+    "sba1919": 5,
+    "tlc": 5,
+    "hr_metro": 5,
+    "egrid": 5,
+    "industry_productivity": 5
+  }
+}

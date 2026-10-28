@@ -62,137 +62,62 @@
       ]
     },
     "tlc": {
-      "path": "analysis/hotspots/reports/tlc-native-pilot-20261027T114320Z-ab113278/profile.json",
-      "sha256": "0f2d5602811e7a960513a601524ce1c69c3c49cc2c349c17c0aad7eef5470a13",
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/tlc-merged-profile.json",
+      "sha256": "b256e6d524296516b3013b478ce8313b45b659849f951e36fb7a7a2f329eb9fa",
       "dataset_id": "tlc",
-      "pointer": {
-        "path": "analysis/hotspots/reports/latest-tlc.json",
-        "sha256": "a6ad031e6618c3e0a925c04981ab2bb044791e198736c8113ba0f19432d180f2"
-      },
       "evidence": [
         {
-          "path": "analysis/hotspots/reports/tlc-native-pilot-20261027T114320Z-ab113278/evidence.json",
-          "sha256": "7b1232827b07578ed0774f13a64fb7d49edf69f066578cbb118fd86731ba83ca"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
         },
         {
-          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/launch.json",
-          "sha256": "2e507ed00c5f47368c9157deeec4c82c4def725c6193d88be0ccda551478206a"
-        },
-        {
-          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/out/collection.json",
-          "sha256": "7115837b83030d5bddc83f8e456c5290bc89e9e4fa79a935f29a4c1275df0f5c"
-        },
-        {
-          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/out/sha256-index.json",
-          "sha256": "54f468d979e710b9ebfef27a6909bb0eae8adec8ccf73062f7f0420d85539be3"
-        },
-        {
-          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/evidence/container-inspect.before.json",
-          "sha256": "c38700098463c2f6f3d9635eeec8a0c4c48223122ff629d41a4b6b572974059d"
-        },
-        {
-          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/evidence/container-inspect.after.json",
-          "sha256": "9a85afef73917b23ee1daef99808b1e0ba9b467b26a40acdf4599d83affff55a"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
         }
       ]
     },
     "hr_metro": {
-      "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/profile.json",
-      "sha256": "7dded54f63c43f42f2d5c4e68ae51a440fab64fc6457a419c64988aa66346597",
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/hr_metro-merged-profile.json",
+      "sha256": "e622304f3ef2d97da40cab29948389c82b5cd4b511f375952116c49d4d72e7d3",
+      "dataset_id": "hr_metro",
       "evidence": [
         {
-          "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence.json",
-          "sha256": "adffe34d9d2e0c5b2e198bd346772ae6c25cfa8a43173473d7b3700fcd04fedf"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
         },
         {
-          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/launch.json",
-          "sha256": "5025579246076da556f1a583cc398d23f24b285054c84fad7805f454c67b9b7b"
-        },
-        {
-          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/out/collection.json",
-          "sha256": "bf8e075e836f22ff1b5d44b81f12a632c48d7bf7ff78904a2c36c5e7eb4725b5"
-        },
-        {
-          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/out/sha256-index.json",
-          "sha256": "d99934fa922189a18bf43a536b3ccb8ec679efc640733cf98b4b7916ac0fa29a"
-        },
-        {
-          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence/container-inspect.before.json",
-          "sha256": "7b2eb44db6f75a41e3655564c1e60f0a60f68ee6847719363b8b5b945162c218"
-        },
-        {
-          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence/container-inspect.after.json",
-          "sha256": "a1d88ca8666f9293b6ce7c95a34ce756a1822abdb2504027d50c4174807ae107"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
         }
       ]
     },
     "egrid": {
-      "path": "analysis/hotspots/reports/egrid-native-pilot-20261027T114921Z-89f0166e/profile.json",
-      "sha256": "4cf2adea70a401bee1f575ceb4e5a730cf9da7605e6ac6237ba546bf3b131e34",
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/egrid-merged-profile.json",
+      "sha256": "2901266cd0d070b7e9ae7aea463d06694c092f8da91b18c12cbbba0692e8507b",
       "dataset_id": "egrid",
-      "pointer": {
-        "path": "analysis/hotspots/reports/latest-egrid.json",
-        "sha256": "a7a02c9c11abe4ee6803ce96c188d947e90408145887918ad2e2352e5079667a"
-      },
       "evidence": [
         {
-          "path": "analysis/hotspots/reports/egrid-native-pilot-20261027T114921Z-89f0166e/evidence.json",
-          "sha256": "b2cbb82d0c1518abeb2be1c4880c8d982a110f640f9d4bc033be905bb8643abf"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
         },
         {
-          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/launch.json",
-          "sha256": "936aa0a5cf46ea64aae5d077b8c6b4c3059ab1b4f468ff2d7d414c2f3fb5b69b"
-        },
-        {
-          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/out/collection.json",
-          "sha256": "08120f3eedad7a27f2860d45d12fcd7a5419efbf99ef2d536d79dc37dd135503"
-        },
-        {
-          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/out/sha256-index.json",
-          "sha256": "f59bcb92aa42754fd0d00879c73d3c97eb47dd032c1d6ac2e4cb3f9c58fd9bc5"
-        },
-        {
-          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/evidence/container-inspect.before.json",
-          "sha256": "33ddba8a25d42e8120b8304563bd48534228a8bcdd90cf9ceb242479287c685b"
-        },
-        {
-          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/evidence/container-inspect.after.json",
-          "sha256": "3bafe94d234433dda5d739816ba0bcbaaf28b7fe9fba7c2f96a9f3ef6ad9f465"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
         }
       ]
     },
     "industry_productivity": {
-      "path": "analysis/hotspots/reports/industry-productivity-native-pilot-20261027T115406Z-d1215698/profile.json",
-      "sha256": "3e18c645e5b61ad5981cf84c0ecd51f1935976b0d6f2d7a88e910206dee503c4",
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/industry_productivity-merged-profile.json",
+      "sha256": "ab788fe183dcc418339b5827cf540509a5430ea182b4de0d1d923fa0f0522e31",
       "dataset_id": "industry_productivity",
-      "pointer": {
-        "path": "analysis/hotspots/reports/latest-industry_productivity.json",
-        "sha256": "aecf66dcb1ab06d1392c4ed7bba3ceb518082202eba77a7b0380910012b07ce0"
-      },
       "evidence": [
         {
-          "path": "analysis/hotspots/reports/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence.json",
-          "sha256": "049e0a195b443dc65aadc2823858bb333a2bba620a9f5c8d97ac0dfa90eafac4"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+          "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
         },
         {
-          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/launch.json",
-          "sha256": "414a9da80b80b64124174d4767c81881ab48f8ce0a2ac2820ab46cbaef67d7a2"
-        },
-        {
-          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/out/collection.json",
-          "sha256": "8e69cc66035ca626c164d00605fff20bbf72169158571899c51ef5213fc89a5e"
-        },
-        {
-          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/out/sha256-index.json",
-          "sha256": "333ecaadc867aebe27d53ed899812ad1db93142a9274a7fb4ffc2ea9ce4d3f07"
-        },
-        {
-          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence/container-inspect.before.json",
-          "sha256": "5807ca14e0c309704622e71a758cf65fd645f9fbf0f4d2f7f51dac5dcd56079a"
-        },
-        {
-          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence/container-inspect.after.json",
-          "sha256": "7955fa13424305047e759d90a888db21f31fa7927c00bd814f438807f1280cff"
+          "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+          "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
         }
       ]
     }
@@ -200,9 +125,7 @@
   "output": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027",
   "findings": [
     "PDF 三例的主要热点脚本共同集中在 convert_pdf_to_images.py、fill_fillable_fields.py、verify_pdf_batch.py 和 pdftoppm。五轮合并后，三例的 Top-5 函数集合完全相同：_PyEval_EvalFrameDefault、longest_match、deflate_slow、ImagingResampleHorizontal_8bpc 和 ImagingZipEncode，累计占比分别为 OPM 43.74%、W-4 51.65%、SBA 48.40%。W-4、SBA 与 OPM 的 Top-10 分别有 9、7 个共同函数；OPM 的 Top-10 在两者 Top-20 中分别出现 10、9 个。共同热点对应 Python 解释执行、zlib 压缩编码和 Pillow 图像处理；Poppler 渲染路径亦在三例中持续出现。",
-    "XLSX 四例共同以 libpython 为主要原生库，并集中出现 Expat、ElementTree、zlib 和 LibreOffice 路径。共同热点包括解释器执行、字典查找、对象遍历、垃圾回收、对象释放与 XML 解析。hr_metro：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 10 个；egrid：Top-10 共同函数 9 个，TLC Top-10 在其 Top-20 中出现 9 个；industry_productivity：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个。",
-    "四个 XLSX 的 libpython 周期占比分别为 TLC 79.33%、HR Metro 79.63%、eGRID 82.13%、Industry Productivity 78.82%。不同领域输入下，工作簿检查、增强、重算和验证仍呈现共同的主要原生计算机制。",
-    "**完整七例对比支持原 PDF/XLSX 用例在主要热点类型和底层文档处理机制层面的跨领域代表性。领域变化带来具体函数排名和权重的变化，而解释器、对象管理、XML 解析、压缩编码及文档渲染等主要路径持续出现。**"
+    "XLSX 四例共同以 libpython 为主要原生库，并集中出现 Expat、ElementTree、zlib 和 LibreOffice 路径。共同热点包括解释器执行、字典查找、对象遍历、垃圾回收、对象释放与 XML 解析。五轮合并后，HR Metro：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个；eGRID：Top-10 共同函数 9 个，TLC Top-10 在其 Top-20 中出现 10 个；Industry Productivity：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个。"
   ],
   "assessment": {
     "xlsx_datasets": [
@@ -333,7 +256,7 @@
       }
     ],
     "selection_rationale": {
-      "introduction": "这组输入按“业务领域不同、文档处理任务相近”选择。XLSX 从原有交通出行扩展到电力能源、就业工资和产业生产率，选择具有真实指标、分类维度和既有数据表的公开工作簿，便于继续执行保留原表、新增 Summary、公式、情景和图表的任务。PDF 从雇佣申报扩展到税务预扣和企业贷款申请，保留字段映射、批量填写、渲染与验证的共同任务形态。下表左侧资料说明输入本身的特征，右侧给出本评估据此作出的选择。",
+      "introduction": "XLSX 从原有交通出行扩展到电力能源、就业工资和产业生产率，选择具有真实指标、分类维度和既有数据表的公开工作簿，便于继续执行保留原表、新增 Summary、公式、情景和图表的任务。PDF 从雇佣申报扩展到税务预扣和企业贷款申请，保留字段映射、批量填写、渲染与验证的共同任务形态。下表左侧资料说明输入本身的特征，右侧给出本评估据此作出的选择。",
       "datasets": [
         [
           "TLC",
@@ -386,7 +309,7 @@
       ]
     },
     {
-      "title": "XLSX（四个领域）",
+      "title": "XLSX（四个领域，每例五轮合并）",
       "datasets": [
         "tlc",
         "hr_metro",
@@ -396,12 +319,32 @@
       "process_grouping": "xlsx-role"
     }
   ],
-  "comparison_description": "本轮覆盖七个正式用例。PDF 为 OPM、W-4、SBA 1919，各在五个独立容器中执行一轮，每轮处理十条记录，共 15 次成功运行；按各轮正式 ROI 的原始 sample period 合并统计。XLSX 为 TLC、HR Metro、eGRID 和 Industry Productivity，沿用已有同镜像单轮采样。主表以五轮合并 OPM 和单轮 TLC 为基准；七例使用同一回放镜像和 49 Hz 采样配置，工作负载绑定逻辑 CPU 0–7，监测进程绑定 CPU 9。",
-  "sampling_note": "PDF 每例固定五次独立重复，每次执行一轮、处理十份记录，汇总全部五次正式 ROI 的原始 period 后计算占比；表内仅采用五轮合并 PDF 结果。XLSX 沿用已有单轮结果，采样存在丢样记录，权重用于粗粒度结构观察。七例均按 49 Hz 采集用户态物理调用栈，以单调时钟标记正式循环区间。原始采样质量、未知项、ROI、容器身份及哈希见机器可读结果。",
+  "comparison_description": "七个正式用例均在五个独立容器中分别执行一轮；PDF 每轮处理十条记录。perf 热点和 DevKit Topdown 分别采集，每路各 35 次成功运行。XLSX 保留已有第一轮并按预定计划各补四轮；主表仅使用完整五轮结果，以五轮合并 OPM 和 TLC 为基准。七例使用同一回放镜像，workload 绑定逻辑 CPU 0–7，监测和控制程序绑定 CPU 9。",
+  "sampling_note": "七例均固定五次独立重复。热点汇总五次正式 ROI 的原始 sample period 后计算占比，不平均各轮百分比；Topdown 使用每次最终总报告，再计算五次均值、样本标准差和 CV。正式表格不再采用单轮汇总结果；逐轮值保留用于验证重复波动。原始丢样、未知项、ROI、容器身份及哈希均保留，未知项不从分母删除。",
   "conclusions": [
     "PDF 三例的主要热点脚本共同集中在 convert_pdf_to_images.py、fill_fillable_fields.py、verify_pdf_batch.py 和 pdftoppm。五轮合并后，三例的 Top-5 函数集合完全相同：_PyEval_EvalFrameDefault、longest_match、deflate_slow、ImagingResampleHorizontal_8bpc 和 ImagingZipEncode，累计占比分别为 OPM 43.74%、W-4 51.65%、SBA 48.40%。W-4、SBA 与 OPM 的 Top-10 分别有 9、7 个共同函数；OPM 的 Top-10 在两者 Top-20 中分别出现 10、9 个。共同热点对应 Python 解释执行、zlib 压缩编码和 Pillow 图像处理；Poppler 渲染路径亦在三例中持续出现。",
-    "XLSX 四例共同以 libpython 为主要原生库，并集中出现 Expat、ElementTree、zlib 和 LibreOffice 路径。共同热点包括解释器执行、字典查找、对象遍历、垃圾回收、对象释放与 XML 解析。hr_metro：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 10 个；egrid：Top-10 共同函数 9 个，TLC Top-10 在其 Top-20 中出现 9 个；industry_productivity：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个。",
-    "四个 XLSX 的 libpython 周期占比分别为 TLC 79.33%、HR Metro 79.63%、eGRID 82.13%、Industry Productivity 78.82%。不同领域输入下，工作簿检查、增强、重算和验证仍呈现共同的主要原生计算机制。",
+    "XLSX 四例共同以 libpython 为主要原生库，并集中出现 Expat、ElementTree、zlib 和 LibreOffice 路径。共同热点包括解释器执行、字典查找、对象遍历、垃圾回收、对象释放与 XML 解析。五轮合并后，HR Metro：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个；eGRID：Top-10 共同函数 9 个，TLC Top-10 在其 Top-20 中出现 10 个；Industry Productivity：Top-10 共同函数 8 个，TLC Top-10 在其 Top-20 中出现 9 个。",
+    "四个 XLSX 的 libpython 周期占比分别为 TLC 79.26%、HR Metro 79.54%、eGRID 81.70%、Industry Productivity 78.55%。不同领域输入下，工作簿检查、增强、重算和验证仍呈现共同的主要原生计算机制。",
     "**完整七例对比支持原 PDF/XLSX 用例在主要热点类型和底层文档处理机制层面的跨领域代表性。领域变化带来具体函数排名和权重的变化，而解释器、对象管理、XML 解析、压缩编码及文档渲染等主要路径持续出现。**"
-  ]
+  ],
+  "joint_comparison": {
+    "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json",
+    "sha256": "3c929a521883b7ae16c158a7922660ef6dd31c4f24aa82cf4f46d8ba2b922a05"
+  },
+  "coverage_gaps": {
+    "checked_on": "2026-10-28",
+    "markdown": "## 七、代表性覆盖的缺口：Word 与 PPT\n\n当前评估覆盖 PDF 表单与 XLSX 工作簿，已验证这两类任务在跨领域真实输入下的共同负载特征。办公 Agent 的场景覆盖还应补充 Word 文档与 PPT 演示文稿。\n\n**场景代表性：两类任务已有明确的应用需求。** 截至 2026-10-28，Skills.sh 页面显示 Anthropic 的 `docx` Skill 安装量约 **20.85 万**、`pptx` 约 **24.38 万**，反映了相应工具能力的社区采用情况；这里采用平台展示的 Installs 口径，不等同于独立用户数。[DOCX 安装记录](https://www.skills.sh/anthropics/skills/docx)、[PPTX 安装记录](https://www.skills.sh/anthropics/skills/pptx)。微软已在 Copilot 中提供 Word、PowerPoint 等文件创建 Agent，说明文字报告和演示材料生成已进入主流办公产品。[微软产品说明](https://learn.microsoft.com/en-us/microsoft-365/copilot/wordexcelppt-agents)。公开 Benchmark OSWorld 也分别设置 Writer 与 Impress 任务，覆盖文字文档与演示文稿操作。[Writer 任务](https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples/examples/libreoffice_writer)、[Impress 任务](https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples/examples/libreoffice_impress)。社区采用、产品落地和评测覆盖共同支持将它们纳入后续研究。\n\n**CPU 研究价值：工具执行包含实质计算。** 典型 Skill 不只生成文本，还会处理文档结构、输出文件并渲染检查。以下链路依据公开 Skill 指令与脚本整理；读取、编辑、创建可使用不同工具分支。\n\n| 场景 | 典型工具执行链路 | 候选 CPU 热点 |\n|---|---|---|\n| Word／DOCX | pandoc 读取、docx-js 创建或 XML 编辑 → ZIP 打包与结构验证 → LibreOffice Writer 转 PDF → pdftoppm 逐页渲染。[DOCX Skill](https://github.com/anthropics/skills/blob/main/skills/docx/SKILL.md) | XML 与文本结构遍历、样式和表格处理、分页排版、字体处理、压缩与页面栅格化 |\n| PPT／PPTX | MarkItDown 读取、PptxGenJS 创建或 XML 模板编辑 → 页面与资源关系验证 → LibreOffice Impress 转 PDF → pdftoppm 渲染 → Pillow 生成缩略图。[PPTX Skill](https://github.com/anthropics/skills/blob/main/skills/pptx/SKILL.md)、[缩略图脚本](https://github.com/anthropics/skills/blob/main/skills/pptx/scripts/thumbnail.py) | 幻灯片对象与资源遍历、文本框和图形排版、图片缩放与合成、压缩与页面栅格化 |\n\n**负载差异性：共享组件仍会执行不同路径。** 当前 PDF 主要对已排版表单进行填写与渲染，XLSX 侧重单元格对象、公式和工作簿重算；Word 还需处理连续文本的段落流、分页、页眉页脚与表格布局，PPT 则涉及幻灯片、母版、图形对象及多媒体资源的组织与绘制。即使都调用 LibreOffice，Writer 的 `sw` 文档模型与布局、Impress 的 `sd`／DrawingML 导入导出，也区别于 Calc 的 `sc` 表格处理路径。[Writer 模块](https://github.com/LibreOffice/core/blob/master/sw/README.md)、[Impress 模块](https://github.com/LibreOffice/core/blob/master/sd/README.md)、[Calc 模块](https://github.com/LibreOffice/core/blob/master/sc/README.md)。典型创建链路还可能增加 Node.js／V8 等运行时；共享 XML、LibreOffice 或 Poppler，并不意味着相同的函数热点与权重。\n\n这些结构与路径差异可能改变对象分配、内存访问、分支执行及渲染计算的构成，进而呈现不同的 CPU 与微架构特征。后续应沿用本报告的轨迹生成、回放、perf 热点与 Topdown 方法，分别测量 Word 和 PPT：**主流场景值得纳入，实际计算值得测量，潜在负载差异值得单独验证。** 本节给出覆盖扩展的依据与候选机制，Word／PPT 的具体热点和指标留待实测。\n",
+    "skill_installs_snapshot": {
+      "source": "skills.sh displayed Installs; not unique users",
+      "docx": {
+        "display": "208.5K",
+        "url": "https://www.skills.sh/anthropics/skills/docx"
+      },
+      "pptx": {
+        "display": "243.8K",
+        "url": "https://www.skills.sh/anthropics/skills/pptx"
+      }
+    },
+    "evidence_scope": "Public adoption, product and benchmark coverage, plus static analysis of typical external Skills; no new workload measurements"
+  }
 }

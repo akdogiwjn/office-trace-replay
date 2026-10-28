@@ -66,6 +66,18 @@ class Comparison(unittest.TestCase):
             self.assertEqual(set(result['comparisons']),set(datasets)-{'opm-n10','tlc'})
             self.assertEqual(set(result['historical_profiles']),{'old-only'})
             self.assertIn('industry_productivity',(root/'report/report.md').read_text())
+            joint=root/'joint.json'
+            joint.write_text(json.dumps(dict(image_id='same-image',report_section='## 五、联合特征对比',
+                sources=dict(hotspot_profiles={k:dict(sha256=v['sha256']) for k,v in profiles.items()}))))
+            config['joint_comparison']=dict(path=joint.name,sha256=c.sha(joint));path.write_text(json.dumps(config))
+            with patch.object(c,'ROOT',root),redirect_stdout(io.StringIO()):c.compare(path,update=True)
+            self.assertIn('## 五、联合特征对比',(root/'report/report.md').read_text())
+            before=c.sha(root/'report/report.md')
+            value=json.loads(joint.read_text());value['sources']['hotspot_profiles']['tlc']['sha256']='wrong'
+            joint.write_text(json.dumps(value));config['joint_comparison']['sha256']=c.sha(joint);path.write_text(json.dumps(config))
+            with patch.object(c,'ROOT',root):
+                with self.assertRaisesRegex(ValueError,'hotspot binding mismatch'):c.compare(path,update=True)
+            self.assertEqual(before,c.sha(root/'report/report.md'))
 
     def test_inline_owners_aggregate_before_ranking_and_period_weight_repeats(self):
         with tempfile.TemporaryDirectory() as tmp:

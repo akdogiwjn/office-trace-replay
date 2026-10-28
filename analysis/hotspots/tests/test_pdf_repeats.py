@@ -21,6 +21,19 @@ def fixture(period,function='alpha',dso='/lib/libpython.so'):
 
 
 class PdfRepeats(unittest.TestCase):
+    def test_xlsx_five_repeats_share_same_period_conservation(self):
+        values=[fixture(10*(i+1),'alpha' if i<4 else 'beta') for i in range(5)]
+        for v in values:v.update(dataset_id='tlc',pdf_applicant_count=None)
+        result=merge_profiles(values,pdf_required=False)
+        self.assertEqual(result['repetitions'],5)
+        self.assertIsNone(result['pdf_applicant_count'])
+        self.assertEqual(result['roi_period'],150)
+        self.assertEqual(result['total_period'],165)
+        self.assertAlmostEqual(next(f['share_roi'] for f in result['functions'] if f['function']=='alpha'),2/3)
+        with self.assertRaises(ValueError):merge_profiles(values)
+        values[-1]['pdf_applicant_count']=10
+        with self.assertRaises(ValueError):merge_profiles(values,pdf_required=False)
+
     def test_merge_weights_periods_not_mean_percentages(self):
         result=merge_profiles([fixture(10),fixture(90,'beta')])
         shares={f['function']:f['share_roi'] for f in result['functions']}

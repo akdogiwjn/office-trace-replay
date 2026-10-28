@@ -1,0 +1,68 @@
+{
+  "schema": "coverage-gaps-report-update-v1",
+  "status": "success",
+  "checked_on": "2026-10-28",
+  "updated_at": "2026-10-28T06:16:45.819789+00:00",
+  "parent_closeout": {
+    "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/closeout.json",
+    "sha256": "4640fe3eed3ec4364e0f253dc0da67007a90ffb05dec29ebfd889f8ca39cb838"
+  },
+  "measurement_inputs_unchanged": [
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/campaign.json",
+      "sha256": "eb353eed7576a415b1359a5c98d49a3931fc70311beae805b97e8f12d4d728c9"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/statistics.json",
+      "sha256": "e3e7f65918391875020c62b4f4b66c87bdeb8bbbac1fcc214d4fb3830288f61a"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/verification.json",
+      "sha256": "e68b0f238c194ea33146e69ddff579ec96a5c674f8d10417cb512e507654bc3a"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/comparison-inputs.json",
+      "sha256": "4589023533d7f98e6067f82f023525c7ebb83224dab28620e1ce2488099eeb9b"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/comparison.json",
+      "sha256": "1eaaaeff027004b1015cf1188bdd2669833d25cac9365e4425bef7f924dfab95"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/native/build.json",
+      "sha256": "39e2aa0d030312d8dcfcb41304bb6cf65602232778a2fd06c9dc004408ba0f3e"
+    }
+  ],
+  "scope": "Literature-backed report section; no workload, sampling, input, or execution changes",
+  "hotspot_analysis_tests_passed": 23,
+  "bindings": [
+    {
+      "path": "analysis/hotspots/comparison-inputs-pdf5-20261027.json",
+      "sha256": "ad94ab60961d8fee2d3a5b2a44717801f5471736bdcd6c4d99cfc2dbd3d5dae7"
+    },
+    {
+      "path": "analysis/hotspots/compare.py",
+      "sha256": "4d1ac6a2153a400420d4f801f511824ccbe0bea104a961252b3ddb3332ecf3b3"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/report.md",
+      "sha256": "183bb367cb36aa91c451ca425cdccea52d9ea2e12cadd22e358c469be5c4277a"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/comparison.json",
+      "sha256": "c39d77198df7497202d4090af1e236d722ff550c09e1cc993ae81142e3f5f096"
+    },
+    {
+      "path": "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/build.json",
+      "sha256": "7f1524cce77d821e22490751d702b32fe736f6437d8317ab8fbd458505091a67"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json",
+      "sha256": "3c929a521883b7ae16c158a7922660ef6dd31c4f24aa82cf4f46d8ba2b922a05"
+    },
+    {
+      "path": "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/build.json",
+      "sha256": "ac992ea55521f8368b9c5e5010e914245f352649b79f88fdf0596371ebcd49e7"
+    }
+  ]
+}

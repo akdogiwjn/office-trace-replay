@@ -1,0 +1,75 @@
+================================================================================
+Version     : DevKit 26.0.RC1
+CPU Model   : unknown
+Command     : devkit tuner top-down -c 0 -d 2 -L 1 -l 0 
+================================================================================
+debug: Enter the second level command: tuner
+debug: top-down task start
+debug: Start the application and obtain its PID.
+debug: parse collect param
+debug: Uncore and core events are now split.
+debug: Before split (4):
+debug:   [0] r0011
+debug:   [1] r0008
+debug:   [2] r001b
+debug:   [3] r2011
+debug: After split:
+debug: Core events (4):
+debug:   [0] r0011
+debug:   [1] r0008
+debug:   [2] r001b
+debug:   [3] r2011
+debug: Uncore events (0):
+debug: core events PmuOpen.
+debug: core events PmuOpen success.
+debug: time of PmuRead: 0
+debug: len of coreData: 4, len of uncoreData: 0, len of Merge Data: 4
+debug: Data collected during the duration.
+debug: aggregate type: -1, event name: r0008, event count: 21,442,860,480
+debug: aggregate type: -1, event name: r0011, event count: 5,805,464,808
+debug: aggregate type: -1, event name: r001b, event count: 22,406,981,943
+debug: aggregate type: -1, event name: r2011, event count: 1,857,892,387
+debug: time of PmuComputeMetric: 0
+debug: time of PrintPiece: 0
+debug: Data collected during the duration.
+debug: aggregate type: -1, event name: r0008, event count: 21,442,860,480
+debug: aggregate type: -1, event name: r0011, event count: 5,805,464,808
+debug: aggregate type: -1, event name: r001b, event count: 22,406,981,943
+debug: aggregate type: -1, event name: r2011, event count: 1,857,892,387
+debug: Get Total Report Data
+debug: Print core event raw data 
+
+TOP-DOWN Summary Report-ALL                    Time:2026/10/27 22:58:06
+=======================================================================
+
+Top-down metrics of CPU(s) 0:
+Cycles              5,805,464,808
+Instructions        21,442,860,480
+IPC                 3.69
+
+────────────────────────────────────────────────────────────────────────────────
+  Top-down Metrics                        Bound(%)    Preferred Sampling Event  
+────────────────────────────────────────────────────────────────────────────────
+  Bad Speculation                             2.77    --
+
+  Frontend Bound                              5.33    --
+
+  Retiring                                   61.56    inst_retired
+
+  Backend Bound                              30.34    --
+────────────────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────────────────
+  PMU Event                                  Count  
+────────────────────────────────────────────────────────────────────────────────
+  r0008                             21,442,860,480
+  r0011                              5,805,464,808
+  r001b                             22,406,981,943
+  r2011                              1,857,892,387
+────────────────────────────────────────────────────────────────────────────────
+2002 milliseconds time elapsed
+
+Note: To view the hotspot data. You can run devkit tuner hotspot -e [Preferred Sampling Event]
+
+debug: collect successfully
+debug: Add /tool/tuner/lib to LD_LIBRARY_PATH success

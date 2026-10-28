@@ -4,6 +4,7 @@ from collections import Counter
 import gzip
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 
@@ -172,7 +173,7 @@ def hotspot_cell(row,name):
     return '**'+text+'**' if row['reference_rank'] is not None else text
 
 
-def compare(config_path):
+def compare(config_path,update=False):
     config_path=Path(config_path)
     config=json.loads(config_path.read_text())
     baseline=ROOT/config['baseline']['path']
@@ -183,6 +184,16 @@ def compare(config_path):
         path=ROOT/item['path']
         if sha(path)!=item['sha256']:raise ValueError('profile changed: '+name)
         profiles[name]=normalize_current(json.loads(path.read_text()))
+    joint=None
+    if config.get('joint_comparison'):
+        binding=config['joint_comparison'];path=ROOT/binding['path']
+        if sha(path)!=binding['sha256']:raise ValueError('joint comparison changed')
+        joint=json.loads(path.read_text())
+        if {p.get('image_id') for p in profiles.values()}!={joint['image_id']}:
+            raise ValueError('joint comparison image mismatch')
+        expected={v.get('dataset_id',k):v['sha256'] for k,v in config['profiles'].items()}
+        actual={k:v['sha256'] for k,v in joint['sources']['hotspot_profiles'].items()}
+        if actual!=expected:raise ValueError('joint comparison hotspot binding mismatch')
     groups=config.get('groups',[dict(title='PDF（全部 N=10）',datasets=['opm-n10','irs_w4','sba1919']),
                                dict(title='XLSX',datasets=['tlc','hr_metro'])])
     pairs={new:overlap(profiles[group['datasets'][0]],profiles[new])
@@ -191,11 +202,13 @@ def compare(config_path):
                       for group in groups if group.get('process_grouping')=='xlsx-role' for n in group['datasets']},
                       function_tables={group['title']:function_table(profiles,group['datasets']) for group in groups})
     output=ROOT/config['output']
-    output.mkdir(parents=True,exist_ok=False)
+    if update and output.exists() and {p.name for p in output.iterdir()}!={'comparison.json','report.md','build.json'}:
+        raise ValueError('refuse to update an unexpected report directory')
+    output.mkdir(parents=True,exist_ok=update)
     write(output/'comparison.json',dict(scope='shared dominant hotspots; weights descriptive',
         denominator='complete workload ROI cycles:u sample period; unknown retained',
         profiles=profiles,historical_profiles=historical_profiles,comparisons=pairs,presentation=presentation,inputs=config,config_sha256=sha(config_path),
-        analysis_source_sha256=sha(Path(__file__))))
+        analysis_source_sha256=sha(Path(__file__)),joint_comparison=joint))
     pct=lambda value:f'{100*value:.2f}%'
     assessment=config['assessment']
     for item in assessment['metadata_sources']:
@@ -204,7 +217,8 @@ def compare(config_path):
     lines=['# 文档解析类 Agent 代表性评估报告','',
         '本评估以原有 PDF 表单处理和 XLSX 工作簿增强任务为基准，引入不同领域的真实文档输入，'
         '通过 Agent 生成轨迹、容器内轨迹回放和原生热点采样，考察原有用例所体现的主要计算机制在跨领域输入下的代表性。',
-        '评估重点是主要热点脚本、库和函数是否共同出现，以及它们对应的文档处理机制是否延续。',
+        '评估重点是主要热点脚本、库和函数是否共同出现，以及它们对应的文档处理机制是否延续。'+
+        ('同时结合 Topdown 特征对比顶层流水线分配。' if joint else ''),
         '', '## 一、数据集选择与领域覆盖','',
         '选取数据集时同时考虑来源、领域覆盖、数据规模和任务形态。XLSX 选用百万单元格量级的真实业务工作簿，'
         '覆盖明细记录与统计发布表；PDF 选用具有原生可填写字段的公开业务表单，覆盖不同页数、字段规模和字段类型。'
@@ -252,7 +266,8 @@ def compare(config_path):
         '', '软件环境固定为 Python 3.12.3、openpyxl 3.1.5、LibreOffice 25.8.7.3 和 Poppler 23.12.0。'
         'XLSX 主要调用 openpyxl 与 LibreOffice；PDF 主要调用 pypdf、pdf2image、Pillow 和 Poppler。',
         '回放记录循环开始与结束的单调时钟标记。热点统计覆盖正式循环中的工作负载进程及线程，归档和循环外独立审计在统计区间之外完成。',
-        '', '## 四、热点函数对比与代表性评估','',
+        '', *([joint['measurement_section'],''] if joint and joint.get('measurement_section') else []),
+        '## 五、热点函数对比与代表性评估' if joint and joint.get('measurement_section') else '## 四、热点函数对比与代表性评估','',
         config.get('comparison_description','本轮比较三个 PDF（OPM、W-4、SBA 1919，均为十条记录）以及 XLSX 的 TLC 与 HR Metro。'
         '旧 OPM/TLC 使用已有采样结果，新增用例使用当前轨迹回放的采样结果。'),
         '采用 perf 的 `cycles:u` 事件采集原生调用栈，按物理叶函数统计热点，并关联脚本、进程和动态库。'
@@ -263,7 +278,9 @@ def compare(config_path):
     for name,p in profiles.items():
         status=(f"历史 {len(p['repeats'])} 次重复，各 {p['loops_per_repeat']} 轮，{p['sample_rate_hz']} Hz"
                 if 'repeats' in p else
-                f"{p['repetitions']} 次独立重复，每次 {p['loops_per_repetition']} 轮、{p['pdf_applicant_count']} 份，49 Hz；全部执行与业务验证成功"
+                f"{p['repetitions']} 次独立重复，每次 {p['loops_per_repetition']} 轮"+
+                (f"、{p['pdf_applicant_count']} 份" if p.get('pdf_applicant_count') is not None else '')+
+                '，49 Hz；全部执行与业务验证成功'
                 if p.get('repetitions',1)>1 else '单轮，49 Hz；执行与业务验证成功')
         lines.append(f"| {name} | {p['roi_samples']:,} | {status} |")
     for group in groups:
@@ -341,9 +358,17 @@ def compare(config_path):
         f"当前回放镜像：`{next(iter(images))}`。",'',
         '数据与追溯：[机器可读对比结果](comparison.json)、[分析构建记录](build.json)、'
         '[轨迹来源与回放说明](../../../../agent/README.md)。']
-    (output/'report.md').write_text('\n'.join(lines)+'\n')
+    if joint:
+        lines+=['',joint['report_section']]
+        for f in joint.get('figures',[]):
+            path=ROOT/f['path']
+            if sha(path)!=f['sha256']:raise ValueError('joint figure changed')
+            lines+=['',f'![{f["title"]}]({os.path.relpath(path,output)})','',f['caption']]
+    if config.get('coverage_gaps'):
+        lines+=['',config['coverage_gaps']['markdown']]
+    (output/'report.md').write_text('\n'.join(lines).rstrip()+'\n')
     write(output/'build.json',dict(config_sha256=sha(config_path),analysis_sha256=sha(Path(__file__)),
-        output_sha256={p.name:sha(p) for p in output.iterdir() if p.is_file()}))
+        output_sha256={p.name:sha(p) for p in output.iterdir() if p.is_file() and p.name!='build.json'}))
     print(json.dumps(dict(output=str(output.relative_to(ROOT)),comparisons=pairs),ensure_ascii=False))
 
 
@@ -352,7 +377,8 @@ if __name__=='__main__':
     parser.add_argument('--freeze-legacy-from',type=Path)
     parser.add_argument('--baseline-output',type=Path,default=HERE/'baselines/legacy-opm-tlc.json')
     parser.add_argument('--config',type=Path)
+    parser.add_argument('--update-report',action='store_true',help='Regenerate an existing three-file derived report.')
     args=parser.parse_args()
     if args.freeze_legacy_from:freeze_legacy(args.freeze_legacy_from,args.baseline_output)
-    elif args.config:compare(args.config)
+    elif args.config:compare(args.config,update=args.update_report)
     else:parser.error('choose --freeze-legacy-from or --config')

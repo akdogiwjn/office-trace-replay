@@ -17,16 +17,18 @@ LAYERS={'processes':('script',),'libraries':('dso',),
         'functions':('dso','function'),'contexts':('script','dso','function')}
 
 
-def merge_profiles(values):
-    if not values or any(p['pdf_applicant_count']!=10 for p in values):
+def merge_profiles(values,pdf_required=True):
+    if not values or (pdf_required and any(p['pdf_applicant_count']!=10 for p in values)):
         raise ValueError('expected N=10 PDF profiles')
+    if not pdf_required and any(p.get('pdf_applicant_count') is not None for p in values):
+        raise ValueError('expected XLSX profiles without PDF record count')
     for key in ('image_id','dataset_id'):
         if len({p[key] for p in values})!=1:raise ValueError('mixed '+key)
     total=sum(p['roi_period'] for p in values)
     result={key:sum(p[key] for p in values) for key in
             ('roi_period','roi_samples','total_period','total_samples','outside_roi_period','outside_roi_samples')}
-    result.update(schema='pdf-repeated-native-v1',dataset_id=values[0]['dataset_id'],
-                  image_id=values[0]['image_id'],pdf_applicant_count=10,
+    result.update(schema='pdf-repeated-native-v1' if pdf_required else 'xlsx-repeated-native-v1',dataset_id=values[0]['dataset_id'],
+                  image_id=values[0]['image_id'],pdf_applicant_count=10 if pdf_required else None,
                   repetitions=len(values),loops_per_repetition=1,
                   denominator='Sum of observed cycles:u periods inside each repetition ROI; outside intervals excluded')
     for name,fields in LAYERS.items():

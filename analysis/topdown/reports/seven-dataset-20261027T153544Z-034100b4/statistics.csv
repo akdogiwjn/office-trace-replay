@@ -1,0 +1,71 @@
+dataset,repeats,metric,mean,sample_sd,cv_percent
+opm,5,IPC,1.226,0.02073644135332774,1.6913899961931274
+opm,5,Bad Speculation,4.676,0.28236501199688313,6.03860162525413
+opm,5,Frontend Bound,18.12,0.7221495689952326,3.985372897324683
+opm,5,Backend Bound,56.762,0.7385255581224,1.3010915015721785
+opm,5,Retiring,20.44,0.34561539317570833,1.6908776574154027
+opm,5,Core Bound,46.412,0.7907401595973235,1.7037407558332403
+opm,5,Memory Bound,10.35,0.9421517924411119,9.102915868996252
+opm,5,Fetch Latency Bound,15.874,0.5208934631956909,3.281425369759927
+opm,5,Fetch Bandwidth Bound,2.2439999999999998,0.2773625785862253,12.360186211507369
+opm,5,idle_pct,86.28594739850777,0.04168143207266619,0.04830616494266716
+irs_w4,5,IPC,1.272,0.016431676725154998,1.2917984846819968
+irs_w4,5,Bad Speculation,4.674,0.15978110025907313,3.418508777472681
+irs_w4,5,Frontend Bound,17.616,0.22322634253152127,1.267179510283386
+irs_w4,5,Backend Bound,56.544,0.4971217154782118,0.8791767746855756
+irs_w4,5,Retiring,21.166,0.26829088691194874,1.2675559241800471
+irs_w4,5,Core Bound,46.814,0.46789956187199133,0.9994863969581563
+irs_w4,5,Memory Bound,9.732,0.2414953415699774,2.481456448520113
+irs_w4,5,Fetch Latency Bound,15.081999999999999,0.20620378270051207,1.3672177609104368
+irs_w4,5,Fetch Bandwidth Bound,2.532,0.17541379649275024,6.92787505895538
+irs_w4,5,idle_pct,86.48494975865559,0.03705513069136875,0.04284575616309495
+sba1919,5,IPC,1.31,0.017320508075688787,1.3221761889838768
+sba1919,5,Bad Speculation,4.95,0.08124038404635979,1.6412198797244402
+sba1919,5,Frontend Bound,15.708,0.19344249791604715,1.2314903101352632
+sba1919,5,Backend Bound,57.502,0.36458195237833574,0.6340335160139399
+sba1919,5,Retiring,21.844,0.25559733957926917,1.1701031843035576
+sba1919,5,Core Bound,47.45,0.2984962311319855,0.6290753027017607
+sba1919,5,Memory Bound,10.046,0.3604580419410831,3.5880752731543217
+sba1919,5,Fetch Latency Bound,13.292,0.24893774322107115,1.8728388746695093
+sba1919,5,Fetch Bandwidth Bound,2.416,0.08203657720797479,3.3955536923830625
+sba1919,5,idle_pct,86.47990841039554,0.05379846416231926,0.06220920575796109
+tlc,1,IPC,1.23,,
+tlc,1,Bad Speculation,2.55,,
+tlc,1,Frontend Bound,18.13,,
+tlc,1,Backend Bound,58.84,,
+tlc,1,Retiring,20.47,,
+tlc,1,Core Bound,44.71,,
+tlc,1,Memory Bound,14.14,,
+tlc,1,Fetch Latency Bound,15.65,,
+tlc,1,Fetch Bandwidth Bound,2.48,,
+tlc,1,idle_pct,86.56187632470566,,
+hr_metro,1,IPC,1.22,,
+hr_metro,1,Bad Speculation,2.31,,
+hr_metro,1,Frontend Bound,16.44,,
+hr_metro,1,Backend Bound,60.91,,
+hr_metro,1,Retiring,20.34,,
+hr_metro,1,Core Bound,44.62,,
+hr_metro,1,Memory Bound,16.3,,
+hr_metro,1,Fetch Latency Bound,14.08,,
+hr_metro,1,Fetch Bandwidth Bound,2.35,,
+hr_metro,1,idle_pct,86.40150025016901,,
+egrid,1,IPC,1.24,,
+egrid,1,Bad Speculation,2.23,,
+egrid,1,Frontend Bound,15.62,,
+egrid,1,Backend Bound,61.42,,
+egrid,1,Retiring,20.72,,
+egrid,1,Core Bound,45.22,,
+egrid,1,Memory Bound,16.21,,
+egrid,1,Fetch Latency Bound,13.31,,
+egrid,1,Fetch Bandwidth Bound,2.32,,
+egrid,1,idle_pct,86.12090969055608,,
+industry_productivity,1,IPC,1.22,,
+industry_productivity,1,Bad Speculation,2.13,,
+industry_productivity,1,Frontend Bound,16.66,,
+industry_productivity,1,Backend Bound,60.82,,
+industry_productivity,1,Retiring,20.38,,
+industry_productivity,1,Core Bound,44.86,,
+industry_productivity,1,Memory Bound,15.96,,
+industry_productivity,1,Fetch Latency Bound,14.21,,
+industry_productivity,1,Fetch Bandwidth Bound,2.45,,
+industry_productivity,1,idle_pct,86.04126285872512,,

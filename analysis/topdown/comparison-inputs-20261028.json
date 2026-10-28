@@ -1,0 +1,227 @@
+{
+  "topdown_campaign": {
+    "path": "analysis/topdown/reports/seven-dataset-20261027T153544Z-034100b4/campaign.json",
+    "sha256": "db834bfda3bcdf09164ebb39f8759dc10b27ecd9b61b0a68ae8d155231926b79"
+  },
+  "topdown_statistics": {
+    "path": "analysis/topdown/reports/seven-dataset-20261027T153544Z-034100b4/statistics.json",
+    "sha256": "1ff0b8540c2f4d723d07069c6714f5834e9ecbc78eff29046cded21b02f9bbf9"
+  },
+  "topdown_verification": {
+    "path": "analysis/topdown/reports/seven-dataset-20261027T153544Z-034100b4/verification.json",
+    "sha256": "d0be2d2e4d28d25a9509c956cdd8c8f538185d3d6ec745fce9fddb5e946443e1"
+  },
+  "hotspot_profiles": {
+    "opm": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/opm-merged-profile.json",
+      "sha256": "d35338b26879e6d2275ecfb9542688d80cb2c678a3774546d31ba69789d6b3b3",
+      "dataset_id": "opm",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "irs_w4": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/irs_w4-merged-profile.json",
+      "sha256": "1cbf1c0b98a613026682525c29aadb17b633265e225d727506886a2b4cda4535",
+      "dataset_id": "irs_w4",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "sba1919": {
+      "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/sba1919-merged-profile.json",
+      "sha256": "537b3b05edaf7203dae3cd0b7f8278026ac06aa78d498806a36ae2a2aa7b781f",
+      "dataset_id": "sba1919",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/comparison.json",
+          "sha256": "fae599129d53bfdb770a1d7504d15b3656211b650c0dfdc0382afdf5d789ab4c"
+        },
+        {
+          "path": "analysis/hotspots/reports/pdf-five-repeats-20261027T122345Z-06367392/build.json",
+          "sha256": "1bb8a22dc244fa16ac3bd37d80acdf18fe0da9bae469ed0b4f252e3da76c44aa"
+        },
+        {
+          "path": "analysis/hotspots/raw/pdf-five-repeats-20261027T122345Z-06367392/campaign.json",
+          "sha256": "9035a43509b0be2c7ab9f6c19feb3789b48753598ca4744adc5644ead21ea40f"
+        }
+      ]
+    },
+    "tlc": {
+      "path": "analysis/hotspots/reports/tlc-native-pilot-20261027T114320Z-ab113278/profile.json",
+      "sha256": "0f2d5602811e7a960513a601524ce1c69c3c49cc2c349c17c0aad7eef5470a13",
+      "dataset_id": "tlc",
+      "pointer": {
+        "path": "analysis/hotspots/reports/latest-tlc.json",
+        "sha256": "a6ad031e6618c3e0a925c04981ab2bb044791e198736c8113ba0f19432d180f2"
+      },
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/tlc-native-pilot-20261027T114320Z-ab113278/evidence.json",
+          "sha256": "7b1232827b07578ed0774f13a64fb7d49edf69f066578cbb118fd86731ba83ca"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/launch.json",
+          "sha256": "2e507ed00c5f47368c9157deeec4c82c4def725c6193d88be0ccda551478206a"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/out/collection.json",
+          "sha256": "7115837b83030d5bddc83f8e456c5290bc89e9e4fa79a935f29a4c1275df0f5c"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/out/sha256-index.json",
+          "sha256": "54f468d979e710b9ebfef27a6909bb0eae8adec8ccf73062f7f0420d85539be3"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/evidence/container-inspect.before.json",
+          "sha256": "c38700098463c2f6f3d9635eeec8a0c4c48223122ff629d41a4b6b572974059d"
+        },
+        {
+          "path": "analysis/hotspots/raw/tlc-native-pilot-20261027T114320Z-ab113278/evidence/container-inspect.after.json",
+          "sha256": "9a85afef73917b23ee1daef99808b1e0ba9b467b26a40acdf4599d83affff55a"
+        }
+      ]
+    },
+    "hr_metro": {
+      "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/profile.json",
+      "sha256": "7dded54f63c43f42f2d5c4e68ae51a440fab64fc6457a419c64988aa66346597",
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence.json",
+          "sha256": "adffe34d9d2e0c5b2e198bd346772ae6c25cfa8a43173473d7b3700fcd04fedf"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/launch.json",
+          "sha256": "5025579246076da556f1a583cc398d23f24b285054c84fad7805f454c67b9b7b"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/out/collection.json",
+          "sha256": "bf8e075e836f22ff1b5d44b81f12a632c48d7bf7ff78904a2c36c5e7eb4725b5"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/out/sha256-index.json",
+          "sha256": "d99934fa922189a18bf43a536b3ccb8ec679efc640733cf98b4b7916ac0fa29a"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence/container-inspect.before.json",
+          "sha256": "7b2eb44db6f75a41e3655564c1e60f0a60f68ee6847719363b8b5b945162c218"
+        },
+        {
+          "path": "analysis/hotspots/raw/hr-metro-native-pilot-20261027T105835Z-6067e923/evidence/container-inspect.after.json",
+          "sha256": "a1d88ca8666f9293b6ce7c95a34ce756a1822abdb2504027d50c4174807ae107"
+        }
+      ]
+    },
+    "egrid": {
+      "path": "analysis/hotspots/reports/egrid-native-pilot-20261027T114921Z-89f0166e/profile.json",
+      "sha256": "4cf2adea70a401bee1f575ceb4e5a730cf9da7605e6ac6237ba546bf3b131e34",
+      "dataset_id": "egrid",
+      "pointer": {
+        "path": "analysis/hotspots/reports/latest-egrid.json",
+        "sha256": "a7a02c9c11abe4ee6803ce96c188d947e90408145887918ad2e2352e5079667a"
+      },
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/egrid-native-pilot-20261027T114921Z-89f0166e/evidence.json",
+          "sha256": "b2cbb82d0c1518abeb2be1c4880c8d982a110f640f9d4bc033be905bb8643abf"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/launch.json",
+          "sha256": "936aa0a5cf46ea64aae5d077b8c6b4c3059ab1b4f468ff2d7d414c2f3fb5b69b"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/out/collection.json",
+          "sha256": "08120f3eedad7a27f2860d45d12fcd7a5419efbf99ef2d536d79dc37dd135503"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/out/sha256-index.json",
+          "sha256": "f59bcb92aa42754fd0d00879c73d3c97eb47dd032c1d6ac2e4cb3f9c58fd9bc5"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/evidence/container-inspect.before.json",
+          "sha256": "33ddba8a25d42e8120b8304563bd48534228a8bcdd90cf9ceb242479287c685b"
+        },
+        {
+          "path": "analysis/hotspots/raw/egrid-native-pilot-20261027T114921Z-89f0166e/evidence/container-inspect.after.json",
+          "sha256": "3bafe94d234433dda5d739816ba0bcbaaf28b7fe9fba7c2f96a9f3ef6ad9f465"
+        }
+      ]
+    },
+    "industry_productivity": {
+      "path": "analysis/hotspots/reports/industry-productivity-native-pilot-20261027T115406Z-d1215698/profile.json",
+      "sha256": "3e18c645e5b61ad5981cf84c0ecd51f1935976b0d6f2d7a88e910206dee503c4",
+      "dataset_id": "industry_productivity",
+      "pointer": {
+        "path": "analysis/hotspots/reports/latest-industry_productivity.json",
+        "sha256": "aecf66dcb1ab06d1392c4ed7bba3ceb518082202eba77a7b0380910012b07ce0"
+      },
+      "evidence": [
+        {
+          "path": "analysis/hotspots/reports/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence.json",
+          "sha256": "049e0a195b443dc65aadc2823858bb333a2bba620a9f5c8d97ac0dfa90eafac4"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/launch.json",
+          "sha256": "414a9da80b80b64124174d4767c81881ab48f8ce0a2ac2820ab46cbaef67d7a2"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/out/collection.json",
+          "sha256": "8e69cc66035ca626c164d00605fff20bbf72169158571899c51ef5213fc89a5e"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/out/sha256-index.json",
+          "sha256": "333ecaadc867aebe27d53ed899812ad1db93142a9274a7fb4ffc2ea9ce4d3f07"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence/container-inspect.before.json",
+          "sha256": "5807ca14e0c309704622e71a758cf65fd645f9fbf0f4d2f7f51dac5dcd56079a"
+        },
+        {
+          "path": "analysis/hotspots/raw/industry-productivity-native-pilot-20261027T115406Z-d1215698/evidence/container-inspect.after.json",
+          "sha256": "7955fa13424305047e759d90a888db21f31fa7927c00bd814f438807f1280cff"
+        }
+      ]
+    }
+  },
+  "output": "analysis/topdown/reports/new-old-similarity-20261028",
+  "measurement_evidence": {
+    "host_inventory": {
+      "path": "analysis/topdown/hip09-preflight-20261027/host-verification.json",
+      "sha256": "4dc7d299a482d3da023f6f0b0ca29c0f8bceffd7479aa0cc5d3f205ec80b2348"
+    },
+    "devkit_qualification": {
+      "path": "analysis/topdown/hip09-preflight-20261027/qualification.json",
+      "sha256": "97e124bdfebba621cdbf0cf12b5038e56fd3995456dbd39a94ffc0fc96bcbca2"
+    },
+    "image_qualification": {
+      "path": "reports/image-qualification-agent-traces.json",
+      "sha256": "3dc8d8369e878b3542bee6f46a8275525f9a85c802383a262cbc3d439d84b305"
+    },
+    "replay_environment": {
+      "path": "agent/datasets/hr_metro/replay-environment.json",
+      "sha256": "596c494ca6c42b69c3c6b936e669b65a80addcb56ba4d2c0e753144af22d1d02"
+    }
+  }
+}

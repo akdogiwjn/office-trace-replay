@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "docker",
+    "--host",
+    "unix:///var/run/docker.sock",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cap-add",
+    "PERFMON",
+    "--security-opt",
+    "seccomp=unconfined",
+    "--cpuset-cpus",
+    "0",
+    "--mount",
+    "type=bind,src=/home/lcq/office-trace-replay-agent/analysis/topdown/tools/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64,dst=/tool,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "office-trace-replay:agent-traces",
+    "-c",
+    "cd /tool\n/usr/bin/python3 -B -c 'import time; end=time.monotonic()+3; x=1\nwhile time.monotonic()<end: x=(x*1664525+1013904223)&0xffffffff' &\nprobe_child=$!\n./devkit tuner top-down -c 0 -d 2 -L 1 -l 0\nprobe_status=$?\nwait \"$probe_child\"\nexit \"$probe_status\""
+  ],
+  "returncode": 126,
+  "stdout": "",
+  "stderr": "docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head \"http://%2Fvar%2Frun%2Fdocker.sock/_ping\": dial unix /var/run/docker.sock: connect: operation not permitted.\nSee 'docker run --help'.\n"
+}

@@ -1,0 +1,151 @@
+{
+  "schema": "hip09-topdown-readiness-v1",
+  "checked_at": "2026-10-27T22:49:03.099340+08:00",
+  "scope": "Host inventory, documentation verification, short counter probe only; no document workload",
+  "cpu": {
+    "argv": [
+      "lscpu"
+    ],
+    "returncode": 0,
+    "stdout": "Architecture:                         aarch64\nCPU op-mode(s):                       64-bit\nByte Order:                           Little Endian\nCPU(s):                               256\nOn-line CPU(s) list:                  0-255\nVendor ID:                            HiSilicon\nModel name:                           -\nModel:                                0\nThread(s) per core:                   2\nCore(s) per socket:                   64\nSocket(s):                            2\nStepping:                             0x0\nFrequency boost:                      disabled\nCPU(s) scaling MHz:                   100%\nCPU max MHz:                          2900.0000\nCPU min MHz:                          400.0000\nBogoMIPS:                             200.00\nFlags:                                fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint svei8mm svef32mm svef64mm svebf16 i8mm bf16 dgh rng ecv\nL1d cache:                            8 MiB (128 instances)\nL1i cache:                            8 MiB (128 instances)\nL2 cache:                             160 MiB (128 instances)\nL3 cache:                             224 MiB (4 instances)\nNUMA node(s):                         4\nNUMA node0 CPU(s):                    0-63\nNUMA node1 CPU(s):                    64-127\nNUMA node2 CPU(s):                    128-191\nNUMA node3 CPU(s):                    192-255\nVulnerability Gather data sampling:   Not affected\nVulnerability Itlb multihit:          Not affected\nVulnerability L1tf:                   Not affected\nVulnerability Mds:                    Not affected\nVulnerability Meltdown:               Not affected\nVulnerability Mmio stale data:        Not affected\nVulnerability Reg file data sampling: Not affected\nVulnerability Retbleed:               Not affected\nVulnerability Spec rstack overflow:   Not affected\nVulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:             Mitigation; __user pointer sanitization\nVulnerability Spectre v2:             Not affected\nVulnerability Srbds:                  Not affected\nVulnerability Tsx async abort:        Not affected\n",
+    "stderr": ""
+  },
+  "midr_el1": "0x00000000480fd020",
+  "hardware_family": "HiSilicon; HIP09 candidate, pending matching DevKit identification",
+  "kernel": "6.6.0-28.0.0.34.oe2403.aarch64",
+  "perf": {
+    "argv": [
+      "perf",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "perf version 6.6.0-145.0.13.139.oe2403.aarch64\n",
+    "stderr": ""
+  },
+  "pmu": {
+    "name": "armv8_pmuv3_0",
+    "type": "10",
+    "cpus": "0-255",
+    "caps": {
+      "slots": "0x00000006",
+      "bus_slots": "0x00000000",
+      "bus_width": "0x00000000"
+    },
+    "events": {
+      "br_retired": "event=0x0021",
+      "l2i_cache_refill": "event=0x0028",
+      "l1d_cache_refill": "event=0x0003",
+      "l3d_cache_allocate": "event=0x0029",
+      "cid_write_retired": "event=0x000b",
+      "ll_cache_miss_rd": "event=0x0037",
+      "st_align_lat": "event=0x4022",
+      "inst_spec": "event=0x001b",
+      "l1d_tlb_refill": "event=0x0005",
+      "stall_frontend": "event=0x0023",
+      "sample_filtrate": "event=0x4002",
+      "l1i_tlb_refill": "event=0x0002",
+      "br_mis_pred": "event=0x0010",
+      "ll_cache_rd": "event=0x0036",
+      "bus_access": "event=0x0019",
+      "mem_access": "event=0x0013",
+      "ldst_align_lat": "event=0x4020",
+      "br_pred": "event=0x0012",
+      "l2d_tlb": "event=0x002f",
+      "l1d_cache_lmiss_rd": "event=0x0039",
+      "l1d_cache": "event=0x0004",
+      "ll_cache_miss": "event=0x0033",
+      "l1i_cache_lmiss": "event=0x4006",
+      "op_spec": "event=0x003b",
+      "l2d_cache": "event=0x0016",
+      "inst_retired": "event=0x0008",
+      "remote_access": "event=0x0031",
+      "itlb_walk": "event=0x0035",
+      "l2d_cache_refill": "event=0x0017",
+      "l3d_cache": "event=0x002b",
+      "ld_align_lat": "event=0x4021",
+      "exc_return": "event=0x000a",
+      "l1d_tlb": "event=0x0025",
+      "remote_access_rd": "event=0x0038",
+      "sample_collision": "event=0x4003",
+      "l1d_cache_wb": "event=0x0015",
+      "l1i_cache_refill": "event=0x0001",
+      "l2d_tlb_refill": "event=0x002d",
+      "stall_slot_frontend": "event=0x003e",
+      "l2i_tlb_refill": "event=0x002e",
+      "dtlb_walk": "event=0x0034",
+      "br_mis_pred_retired": "event=0x0022",
+      "l2i_tlb": "event=0x0030",
+      "stall": "event=0x003c",
+      "stall_slot_backend": "event=0x003d",
+      "l1i_cache": "event=0x0014",
+      "stall_backend": "event=0x0024",
+      "memory_error": "event=0x001a",
+      "l2i_cache": "event=0x0027",
+      "l1i_tlb": "event=0x0026",
+      "ll_cache": "event=0x0032",
+      "ttbr_write_retired": "event=0x001c",
+      "stall_slot": "event=0x003f",
+      "l3d_cache_refill": "event=0x002a",
+      "sample_feed": "event=0x4001",
+      "cpu_cycles": "event=0x0011",
+      "exc_taken": "event=0x0009",
+      "br_return_retired": "event=0x000e",
+      "l2d_cache_wb": "event=0x0018",
+      "sample_pop": "event=0x4000"
+    }
+  },
+  "devkit": {
+    "path": null,
+    "package_search": {
+      "argv": [
+        "rpm",
+        "-qa",
+        "*devkit*",
+        "*DevKit*",
+        "*tuner*",
+        "*kperf*"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "status": "not_found_in_path_rpm_or_checked_common_locations",
+    "hip09_recognition": "not_verified",
+    "version": null
+  },
+  "basic_counter_probe": {
+    "argv": [
+      "perf",
+      "stat",
+      "-x",
+      ";",
+      "-e",
+      "{cycles:u,instructions:u,stalled-cycles-frontend:u,stalled-cycles-backend:u}",
+      "--",
+      "python3",
+      "-B",
+      "-c",
+      "sum(range(1000000))"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "67543080;;cycles:u;25714810;100.00;;\n279554855;;instructions:u;25714810;100.00;4.14;insn per cycle\n;;;;;0.03;stalled cycles per insn\n7290527;;stalled-cycles-frontend:u;25714810;100.00;10.79;frontend cycles idle\n3466770;;stalled-cycles-backend:u;25714810;100.00;5.13;backend cycles idle\n"
+  },
+  "decisions": {
+    "devkit_preferred": true,
+    "official_hip09_formulas_verified": false,
+    "topdown_ready": false,
+    "basic_event_listing_is_not_formula_support": true,
+    "formal_workload_started": false,
+    "stall_cycle_ratios_are_not_topdown_bounds": true,
+    "pipeline_width_not_inferred_from_sysfs_slots": true
+  },
+  "unresolved": [
+    "Obtain and identify DevKit Tuner CLI version/package",
+    "Confirm DevKit recognizes this CPU and chooses HIP09 model",
+    "Freeze per-metric events, formulas, normalization width, units and privilege scope",
+    "Check Resource Bound hierarchy for selected model/version",
+    "Validate child-process/cgroup capture scope and exact formal ROI",
+    "Validate multiplexing scaling, SMT semantics and idle measurement scope"
+  ]
+}
