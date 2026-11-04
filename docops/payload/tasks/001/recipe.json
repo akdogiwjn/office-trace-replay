@@ -1,0 +1,405 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "001",
+  "task_id": "docops_v2_l3_001_docx_controlled_document_release_repair",
+  "format": "docx",
+  "source_run_id": "word001-full-20261103T084219Z",
+  "historical_score": {
+    "status": "valid",
+    "reward": 1,
+    "detail": "consumed",
+    "tests_failed": 0,
+    "tests_error": 0,
+    "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/score.json",
+    "ctrf": null,
+    "ctrf_counts": null,
+    "raw_reward": null,
+    "raw_evidence": "summary_only"
+  },
+  "output_path": "/root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output.docx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/001/seed/root/docops_v2_l3_001_docx_controlled_document_release_repair_input.docx",
+      "destination": "/root/docops_v2_l3_001_docx_controlled_document_release_repair_input.docx",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_001_docx_controlled_document_release_repair/environment/docops_v2_l3_001_docx_controlled_document_release_repair_input.docx",
+      "sha256": "e0eff02c89aeb4a488545b39637cbe12d01619b080c59698ef384ed64fdd927a"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_001_docx_controlled_document_release_repair/environment/original_task_description.txt",
+      "sha256": "202870e366303acd5c19e6f4b00e523c04e855e0171dfd810e83ff94a330dfc4"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_001_docx_controlled_document_release_repair/environment/task_metadata.json",
+      "sha256": "74d514435c995cd06c27f268c06eb96da8716bf39dae485bbb15d432dc0d2a20"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_001_docx_controlled_document_release_repair/instruction.md",
+      "sha256": "130db59eb5a7830a52a29b3ed3916fd591c346e9147ca9d5e9d5abf538d6ddb4"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/001/seed/root/create_packet.py",
+      "destination": "/root/create_packet.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/word001-full-20261103T084219Z/preserve-out/files/root_create_packet.py.v2.update",
+      "sha256": "625a0bef02e4ac3d3f7d8d331d5aa60557049bd09ae4bfd8b7cfa60046ea509a",
+      "version": 2,
+      "source_item_id": "call_00_GXLsdLWNuW0GElWG86pu6900",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_and_final_render",
+      "source_item_id": "call_00_GzdHK1byKB7qcSB59Lur7703",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "set -e\npython3 /root/create_packet.py\nrender_dir=/root/tmp/docs/render_packet_20261103_v2\nmkdir -p \"$render_dir\"\nsoffice -env:UserInstallation=file:///tmp/lo_packet_profile_20261103_v2 --headless --convert-to pdf --outdir \"$render_dir\" /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output.docx\npdfinfo \"$render_dir/docops_v2_l3_001_docx_controlled_document_release_repair_output.pdf\" | sed -n '1,25p'\npdftoppm -png -r 150 \"$render_dir/docops_v2_l3_001_docx_controlled_document_release_repair_output.pdf\" \"$render_dir/page\"\nfind \"$render_dir\" -maxdepth 1 -type f -printf '%f %s bytes\\n' | sort"
+      ],
+      "shell_body": "tasks/001/commands/01.sh",
+      "shell_sha256": "b6b3807e0f8abfa841e4cb6b8ad3c22cdf35e52e17d4c0fce4669b039a976197",
+      "source_command_sha256": "7678e5bc8f80c62dacbb563fa6e2b9820ed6fe549314356fc15a27e3fd46ecae",
+      "source_exit_code": 0,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "final_structure_check",
+      "source_item_id": "call_00_uLGQx8YbTT9zZKXzrvdr8670",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python3 - <<'PY'\nfrom docx import Document\nfrom docx.shared import Inches\nfrom docx.oxml.ns import qn\nfrom pathlib import Path\np=Path('/root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output.docx')\nd=Document(p)\nexpected_headings=[\n'Controlled Document Release Repair Packet',\n'Correction Register Applied',\n'Controlled Document Metadata',\n'Revision History',\n'Distribution and Training Workflow',\n'Obsolete Copy Retirement Checklist',\n'Final Release Appendix']\nactual=[x.text for x in d.paragraphs if x.style.name in ('Title','Heading 1')]\nprint('headings_match',actual==expected_headings)\nprint('heading_styles',[(x.text,x.style.name) for x in d.paragraphs if x.style.name in ('Title','Heading 1')])\nprint('page_break_headings',[(x.text,x.paragraph_format.page_break_before) for x in d.paragraphs if x.style.name=='Heading 1' and x.paragraph_format.page_break_before])\nprint('margins_inches',[round(s.top_margin.inches,2) for s in d.sections],round(d.sections[0].bottom_margin.inches,2),round(d.sections[0].left_margin.inches,2),round(d.sections[0].right_margin.inches,2))\nprint('normal_style',d.styles['Normal'].font.name,d.styles['Normal'].font.size.pt)\nprint('title_style',d.styles['Title'].font.name,d.styles['Title'].font.size.pt,str(d.styles['Title'].font.color.rgb))\nprint('heading_style',d.styles['Heading 1'].font.name,d.styles['Heading 1'].font.size.pt,str(d.styles['Heading 1'].font.color.rgb))\nprint('core',d.core_properties.author,'|',d.core_properties.title,'|',d.core_properties.last_modified_by)\nprint('table_header_fill',d.tables[0].rows[0].cells[0]._tc.tcPr.find(qn('w:shd')).get(qn('w:fill')))\nprint('section_count',len(d.sections),'table_count',len(d.tables))\nPY"
+      ],
+      "shell_body": "tasks/001/commands/02.sh",
+      "shell_sha256": "82907e5e473e1dedf4ebb6996cce2131615b93ffa7abf78eee6ac1f00e4af294",
+      "source_command_sha256": "252c6c66d400a53eaf9c5b14e02973bcee27219c8048180f5372045be4f968b7",
+      "source_exit_code": 0,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "final_package_check",
+      "source_item_id": "call_01_b02ygC9sQrMLPPuUtNqh4527",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python3 - <<'PY'\nfrom zipfile import ZipFile\nfrom lxml import etree\nfrom pathlib import Path\np=Path('/root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output.docx')\nforbidden=['DRAFT','PRIVATE','TODO','uncertain','QMS-PR-700','version 4.1','2026-07-01','QA analyst','Interim Approver','2026-08-25','5 years','2026-09-05','aproval','effectve','obsolte','distribtuion','trainng','retetion']\nwith ZipFile(p) as z:\n    bad=[]\n    for n in z.namelist():\n        if n.endswith(('.xml','.rels')):\n            raw=z.read(n)\n            etree.fromstring(raw)\n            text=raw.decode('utf-8','ignore')\n            for item in forbidden:\n                if item in text:\n                    bad.append((n,item))\n    print('zip_xml_entries',len(z.namelist()))\n    print('zip_crc_test',z.testzip())\n    print('raw_forbidden_matches',bad)\nPY\nunzip -t /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output.docx | tail -2\nsha256sum /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output.docx"
+      ],
+      "shell_body": "tasks/001/commands/03.sh",
+      "shell_sha256": "30d9e5e12507538f07e2dfc08ec684e835d38b85d66c284ae99d18a970c1c1b5",
+      "source_command_sha256": "5db7baf010856cb7a8e5fef9ec5de713861b6fe37feac6ebd20da4cc276df279",
+      "source_exit_code": 0,
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "final_render_text_check",
+      "source_item_id": "call_02_NgYezcJqdAZIFoBeSrce7532",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftotext -layout /root/tmp/docs/render_packet_20261103_v2/docops_v2_l3_001_docx_controlled_document_release_repair_output.pdf - | sed -n '1,240p'"
+      ],
+      "shell_body": "tasks/001/commands/04.sh",
+      "shell_sha256": "98419d5198a41e32917463a91483e8c2925c4a19608c301a2f08e7146277ed5a",
+      "source_command_sha256": "a5050ef8bb396194b8b644910ef6a60de74e01d1b3f1d6516f0088638b3fe6d4",
+      "source_exit_code": 0,
+      "depends_on": [
+        "03"
+      ]
+    }
+  ],
+  "review": "Restore v2 before final build. Keep original inline final checks without inventing new assertions. Earlier inspections precede replacement and are excluded; final render cleanup is not measured.",
+  "excluded_items": [
+    {
+      "source_item_id": "01a1a093-08d7-74b0-9764-0bc98f62e443",
+      "type": "userMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e958b1e9-0099-4c75-8cae-e88dac1650e4",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "3edf9e9a-4bc2-443b-828f-faa0bbda3e25",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_KLoHgT9PkNTT0G3IFW661766",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "f1cd5a7c-7c84-4ecb-a7fe-73b1d9a179fe",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_3hgZMJKHRwObydWqVzFa7825",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_5RwFMbEvYv9iF8TOJU9n0442",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_7SGD5djqI6KqYvLC8Pre0208",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "928b4f9a-afb9-4a46-9dcc-4f3c2f6eb03f",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "046225ef-6250-4d5d-b867-26282e9ba686",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_U37tWKFQb842PYFM4pMx3616",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_FMJpn5t1R9w0FmICUZaW3677",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_vPOalQmrw84YVAZBqyB65767",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "ad8779d0-35e9-4ff8-8110-15460a98beb0",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_UTO8az5TzkD0dFahUl2n6925",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_gUpZGQl3HbXL1YBDLnH80136",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "3a237dbb-03a5-4ff1-bc66-c833aa2833cc",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "0233f1c1-6ab4-4f4e-a7f9-9e19550770ad",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_82Vfioh6NvLpXbwfetlH2876",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "92e841ce-e538-4e1f-9f33-6fde5566c952",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_BI3uNISeGB0HJLseeb7i5458",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "5347f0a9-9261-46a0-9213-8fe789a629ba",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_EcJI5gAd1YeCUU5AGa799980",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_d6X41Pa3YgcQac0wYluV3844",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "1667953d-946c-4ae6-96e4-d58a0575d903",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "dddfe163-5bed-49b9-8ed7-14d526229852",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_5vy5G5BYCSkDRdyrQSRa3438",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "aa7c4735-712f-41f1-8ff4-30c4b23e0a96",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_AXrt0rNmZZwAUuN0ULWZ9968",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "a8c07ada-b14d-4211-826f-27bba93e21cd",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_gJ5A2WCCHW18Fr4cGjtM2264",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "4b71f54e-657d-43d3-b652-0e02eccee367",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_q3gFemiLqGagth0iHTnt3405",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "b42315b8-4e81-402e-b45b-775b3b527dc4",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_A8PSEL8O6jTptTn3BJkg6715",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "87a7bb5b-d224-4d5a-9123-766e307c9ce6",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "d84f63b5-df22-4baf-9661-288ddc3eab75",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_GXLsdLWNuW0GElWG86pu6900",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "1178fb02-aaba-4912-bd04-4cab0f92835a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "332335fe-1847-47f2-a7b6-9a93028f9661",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_hiN4vGeLSKmoAQ7azpXg6637",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "0a3545c2-203e-4d3d-94fa-501ece2daa39",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_LjTUDNNRGTMvG3Mozx3i7933",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "83038de3-fe44-4781-9efe-c7e97ec30203",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_1LxuDZqhSxLVfvsmz3k73766",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "27c66680-3eb9-4e41-809b-9c278c56895d",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "d5d979b8-a87b-475c-9fa4-d4af303b4886",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "b8240db3-6325-40f4-9ad0-d4a8cb0df1a0",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_9g7pYHdvlaSLFgYxUvQk8792",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "call_00_ET_XgGnQhXY3JOFMRh0gvlv3834",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e4798970-171d-47fa-afed-fcd4d5d5a1d2",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "fad054aa-5704-4433-90d7-0215fcdde378",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    }
+  ],
+  "provenance": {
+    "trace": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/codex-native-sqlite/thread_history_consistent.sqlite",
+    "trace_sha256": "8f32feaadc438229816b9ba4d11f4ffb3d35c955b59c436994a70f69c310d7b0",
+    "run_env": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/run-env.json",
+    "run_env_sha256": "73450d64621f8840f92e5ecd983cf2462a9f08d8d6fad4322387fb65b6f2c5fa"
+  }
+}

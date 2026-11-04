@@ -2,7 +2,7 @@
 
 **[阅读代表性评估报告](docs/representativeness-assessment.md)** · [HTML 放映版](docs/representativeness-assessment.html) · [完整实验数据](docs/experimental-results.md) · [采集与分析入口](analysis/README.md) · [镜像验收](docs/evidence/image-qualification-agent-traces.md)
 
-本项目保存七个数据集的文档处理轨迹回放代码，并研究主要脚本、库、函数热点及 Topdown 特征。当前正式结果中，七例的 perf 热点和 DevKit Topdown 各有五次独立运行；PDF 每次处理十份记录。正式代码统一维护在 `main`。
+本项目保存文档处理轨迹回放代码，并研究主要脚本、库、函数热点及 Topdown 特征。既有七个数据集的正式结果中，perf 热点和 DevKit Topdown 各有五次独立运行；PDF 每次处理十份记录，形成“跨行业输入”部分。另已接入十二项 DocOps L3，Word、Excel、PPT、PDF 各三项；在[基于七例环境的统一镜像](docops/README.md#当前统一环境)中完成两路各一次独立采集、每份内部十轮回放，perf 已离线补齐可取得的匹配符号。正式报告末尾新增[“扩展任务操作”](docs/representativeness-assessment.md#七扩展任务操作与原始-pdfxlsx-基准比较)，逐项与 OPM／TLC 对照软件栈、热点及 Topdown 指标变化。原七例五次结果保持不变，原 Debian candidate-05 的[历史对比](analysis/docops/processed/first-comparison-batch-20261103/report.md)单独保留。正式代码统一维护在 `main`。
 
 ## 数据集与执行入口
 
@@ -19,17 +19,19 @@
 
 | 路径 | 用途与保留边界 |
 |---|---|
-| `docs/representativeness-assessment.md` | 正式评估报告，含关键发现、完整实验设计与方法、主要对比和 Word/PPT 覆盖边界 |
+| `docs/representativeness-assessment.md` | 正式评估报告：原七例跨行业输入，以及末尾十二项扩展任务操作与 OPM／TLC 对照 |
 | `docs/experimental-results.md` | 完整实验数据记录，含逐轮指标、逐采样点曲线、热点明细、实际命令与证据索引 |
 | `agent/` | 新五例的完整可执行材料；冻结文件不作目录重排 |
 | `document-oe/` | 旧 OPM/TLC 的执行器与冻结 workload |
+| `docops/` | 十二项 DocOps L3 的回放配方、独立脚本、输入与 Skill，以及静态编译检查；[接入状态](docops/README.md) |
 | `analysis/hotspots/` | perf 采集、解析、函数和脚本分组、逐轮与合并结果 |
 | `analysis/topdown/` | HIP09/DevKit 核验、门控采集、统计、相似度和特征图 |
+| `analysis/docops/` | DocOps 的 perf/DevKit 测量与结果入口，十二项首批已完成 |
 | `docs/` | 阅读入口：正式评估报告；`evidence/` 保存镜像构建、资格与整理证据，见 [文档导航](docs/README.md) |
 | `results/` | 本地功能运行产物、独立验收和 Docker inspect，不提交 Git |
 | `scripts/`、`tests/` | 离线镜像构建、环境探测和单元测试 |
 
-本地仅保留当前七例各五次的 perf 与 Topdown 原始采集和对应产物，共 70 次运行；旧分支数据及未采用试跑已删除，保留清单见 [数据保留记录](docs/evidence/data-retention.json)。最新五次复用的首轮、必要来源索引和冻结 DevKit 工具继续保留。Git 保存代码、输入、来源、派生统计和报告，不上传大型 perf 原始文件。原始运行记录中的旧绝对路径不改写，实际材料按本仓库相对路径及 SHA256 索引定位。
+既有七例保留各五次的 perf 与 Topdown 原始采集和对应产物，共 70 次运行；DocOps 另保留十二项首批两路数据（22 次新采集、031 两路复用）及离线恢复证据。原七例的旧分支数据及未采用试跑已删除，保留清单见 [数据保留记录](docs/evidence/data-retention.json)。最新五次复用的首轮、必要来源索引和冻结 DevKit 工具继续保留。Git 保存代码、输入、来源、派生统计和报告，不上传大型 perf 原始文件。原始运行记录中的旧绝对路径不改写，实际材料按本仓库相对路径及 SHA256 索引定位。
 
 ## 当前镜像与环境
 
@@ -75,6 +77,10 @@ python3 -B -m unittest discover -s analysis/topdown/tests
 # 只重建报告，不运行 workload 或采集器。
 python3 -B analysis/hotspots/compare.py \
   --config analysis/hotspots/comparison-inputs-pdf5-20261027.json --update-report
+
+# 在原章节之后恢复／更新扩展任务操作章节，再生成放映版；均为离线操作。
+python3 -B analysis/docops/operation_comparison.py --update --publish
+python3 -B scripts/build_presentation.py
 
 # 离线构建必须选择尚不存在的候选标签，基础镜像不被覆盖。
 make image IMAGE=office-trace-replay:candidate

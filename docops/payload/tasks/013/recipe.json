@@ -1,0 +1,456 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "013",
+  "task_id": "docops_v2_l3_013_xlsx_procurement_bid_evaluation_release",
+  "format": "xlsx",
+  "source_run_id": "xlsx013-rerun-20261103T112157Z",
+  "historical_score": {
+    "status": "valid",
+    "reward": 0,
+    "detail": "consumed",
+    "tests_failed": 2,
+    "tests_error": 0,
+    "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/score.json",
+    "ctrf": "reports/analysis/DOCOPS-L3-XLSX013-RERUN-01/evidence/xlsx013-rerun-ctrf.json",
+    "ctrf_counts": {
+      "total": 5,
+      "passed": 3,
+      "failed": 2
+    },
+    "raw_reward": 0,
+    "raw_evidence": "ctrf_and_summary"
+  },
+  "output_path": "/root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output.xlsx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/013/seed/root/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input.xlsx",
+      "destination": "/root/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input.xlsx",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release/environment/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input.xlsx",
+      "sha256": "23a6d90be7c312e1a418fa5b46e5a151919d246088c56a685289b689a544167a"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release/environment/original_task_description.txt",
+      "sha256": "59f2bb1947258a635eb70979ef298fc781470ded85be64659f47ce943b51796f"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release/environment/task_metadata.json",
+      "sha256": "c9a8060a1b321187a69d1608579e2c9c7ade96f7e751e681d26be91acfa84e08"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release/instruction.md",
+      "sha256": "c09c85de90310b0fd03dcebfc6b80cca1f96ea567e7826b766fb771b16c6b305"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/013/seed/root/tmp/docs/build_public_bid_workbook.py",
+      "destination": "/root/tmp/docs/build_public_bid_workbook.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/xlsx013-rerun-20261103T112157Z/preserve-out/files/root_tmp_docs_build_public_bid_workbook.py.v3.update",
+      "sha256": "9e520fcb17a3169a54e1bf60b63efd49fbf315a72869924fb199890ba9258604",
+      "version": 3,
+      "source_item_id": "call_00_8b0xFyZtYCgGooxve8R92010",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/013/seed/root/tmp/docs/verify_public_bid_workbook.py",
+      "destination": "/root/tmp/docs/verify_public_bid_workbook.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/xlsx013-rerun-20261103T112157Z/preserve-out/files/root_tmp_docs_verify_public_bid_workbook.py.v1.add",
+      "sha256": "1b1166cc7b7f59fa97b9508cc623f70a11a28b105c24d3b203df60f1f34fbe7a",
+      "version": 1,
+      "source_item_id": "call_00_ynuJaSCfTDnhxreUWhI29613",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_recalculate_verify",
+      "source_item_id": "call_00_AOsLvj5UBpUu2bkJgyHc3745",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_public_bid_workbook.py && python /root/.codex/skills/xlsx/scripts/recalc.py /root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output.xlsx 60 && python /root/tmp/docs/verify_public_bid_workbook.py"
+      ],
+      "shell_body": "tasks/013/commands/01.sh",
+      "shell_sha256": "6f7413e34b7997ef56b0501924b2345db9303a41ba87042d942ec77310a30fbc",
+      "source_command_sha256": "cfaf34410e4bb48d1cf0f26cdbfb42f0282e492dca74dcc703c9cc5314652f9d",
+      "source_exit_code": 0,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "render_contact_sheet",
+      "source_item_id": "call_00_s1wdlHb3BDVPIWVPwKqk1019",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "mkdir -p /root/tmp/docs/rendered-final && libreoffice --headless --convert-to pdf --outdir /root/tmp/docs/rendered-final /root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output.xlsx >/dev/null && pdftoppm -png -r 110 /root/tmp/docs/rendered-final/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output.pdf /root/tmp/docs/rendered-final/final-page >/dev/null 2>&1 && montage /root/tmp/docs/rendered-final/final-page-*.png -thumbnail 620x480 -tile 2x5 -geometry +10+10 /root/tmp/docs/rendered-final/final-contact-sheet.png"
+      ],
+      "shell_body": "tasks/013/commands/02.sh",
+      "shell_sha256": "f7a72193450872111a49aa506fd29b410681c21234d06ebae6c1a186e5e56a65",
+      "source_command_sha256": "010f74d3d301296cd613e42808b753b9e6f73eae5477eaf2cb5bff6621aa699a",
+      "source_exit_code": 0,
+      "depends_on": [
+        "01"
+      ]
+    }
+  ],
+  "review": "Final v3 builder and metadata-dependent verifier. Keep task_metadata.json from original injection. Original Skill recalc is unchanged; official failure remains a separate result.",
+  "excluded_items": [
+    {
+      "source_item_id": "01a1a125-1ecd-7913-83ce-5dba9ab12ae8",
+      "type": "userMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "ebe196b9-4e85-4f44-9fbc-527be556be43",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "5b58690f-a74c-4cbf-a5bd-1bcf84f6e980",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_j1U8ydH7AvctKIdTjN827518",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "856aa698-b7e8-4444-a2ee-4a6d579c1ede",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_CHBlNeSm8WMN8d5jlsFN5290",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_lDJxv8XcNWRyefXq2cFv8109",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_7J4REWbmzep0qAjzUeZX5768",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "d34bce2a-ddac-4084-82d0-05cb0b9d8ea5",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "447bda10-38a5-41f5-8654-c0511360ec1d",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_Oy88ROOvk8DCWI1feCDV6483",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_SmjswdCiGT7UKcjBRhnN9871",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_BqZuoyXR6q0tP4iICCZq5857",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "381ff19f-dd96-4c3a-81aa-d1d5a0888678",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_Rxb5R4jScvFxsmNXF72P8291",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "28139930-06c2-4792-bbca-f891753a7985",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_oGScDHjLamlEfRjwBXfB3666",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "1b12ba58-ea0c-410c-a0a1-cdd9483b9481",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "59b46023-2d29-44e2-a93a-627b9dbe6dfd",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_dkeakeMPWl3Up3lBqx6z0186",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "f1803039-9015-4f61-82b5-cd524ebac96d",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_kAyWO9x3FU4iYpIcy24k0887",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "8ba8cf43-f69a-4c5e-8080-6b5f6847ff7f",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_H0g3eAD4ipUR4J9w3MWL3814",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "4473ea28-7f61-40ed-9c73-5687ef5df155",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "202f78ea-369a-4294-b1c1-6cd14fb0dbf4",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_TJ0WeikWTVYD2cQdZTSO2774",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e1e85f96-c7ff-42fb-84f3-d3dccbbf703d",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_zksR11fVVf49QFi382YT4280",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "c218698f-fc3e-4970-80dd-9bd75457eba5",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_CGL47CHerC1RfS2Cjjgl8463",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "35094089-9d03-43a5-b873-f7a67564e5b5",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_06L6A9aGUujekMvToTZy1320",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e41bc013-8013-4857-aae4-5833ea52fb70",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "6b7ee920-64dd-4336-a678-340734fb82b5",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_SMJOrBaJfmCAGUrfbwGe3943",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "cadca414-2e4a-4ba7-84c9-ef9a6ba70dfe",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_6oNRMbm7MEKE6gSRSD0P5328",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "4fd7f550-9c86-4a08-8c73-43f46f0c4f25",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ns8SKmNXtJQTGL1ydllM2443",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "8240b542-370e-4fe0-a4c7-1e2076786476",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ynuJaSCfTDnhxreUWhI29613",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "09b9e3fd-ec06-4f1d-b0c3-f928ce83ca36",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_A38SxICd4IMVyH6mPNkQ0038",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e9f3a066-3ae7-43ea-8416-755602323053",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "4970213d-71c5-48ec-b9c0-dfd754a3019c",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_wJ9Fzc3c3L6EpT5M5u1P5081",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "66de31cf-dd88-426c-a774-d51cfa83241c",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_97q0G1FjeJksYBxJ0Ktq9467",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_3AKIqnZJRqCknAChNqrH4102",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "9c24f4f7-c7d9-4107-8023-4a731d823838",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_Uo0ODmhBYEidRczDKQZz2108",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "929afe89-7305-4c31-b2d6-8d2e405dd005",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_NbVcG5vQNBSERqCmgBuS8185",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "b88a03c3-63c4-4602-a193-938707bf2da4",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_1EQbrEMENmEq7H18W0kq5767",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_IGdrvhvHULJT8yOalXDj6846",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "c3453642-8bd3-4e13-99cd-4c87c585373c",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e1523a54-e034-435d-b9b0-fa465c59feaf",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_slNLzGSDKtWkM4WDVCL95800",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "80be0148-e388-47cd-913d-0082fc7797ce",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_8b0xFyZtYCgGooxve8R92010",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "af31c312-f54e-41a6-a91b-56475ad48387",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "58fcdf28-794a-4054-8e74-010a1f8d1d5a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_jccckqHMTMNyEiXiXb5t2071",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "3fc45421-e4d2-487a-991d-857a1cd810c0",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "21a2354a-179e-4d10-9436-040dc0948ced",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    }
+  ],
+  "provenance": {
+    "trace": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/xlsx013-rerun-20261103T112157Z/preserve-out/raw/thread_history_consistent.sqlite",
+    "trace_sha256": "1f2d3bf42c1334bd0103e8a2b9fa745aac9b89fe688770439f42fc49cb535d72",
+    "run_env": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/run-env.json",
+    "run_env_sha256": "12a85816920dc77a3507995a54af548864d8635aa13922559a4b07039e8ea10f"
+  }
+}

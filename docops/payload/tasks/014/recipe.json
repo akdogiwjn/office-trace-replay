@@ -1,0 +1,574 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "014",
+  "task_id": "docops_v2_l3_014_xlsx_disaster_housing_grant_public_release",
+  "format": "xlsx",
+  "source_run_id": "04-xlsx-014-20261103T103608Z",
+  "historical_score": {
+    "status": "valid",
+    "reward": 1,
+    "detail": "consumed",
+    "tests_failed": 0,
+    "tests_error": 0,
+    "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/score.json",
+    "ctrf": null,
+    "ctrf_counts": null,
+    "raw_reward": null,
+    "raw_evidence": "summary_only"
+  },
+  "output_path": "/root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output.xlsx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/014/seed/root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input.xlsx",
+      "destination": "/root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input.xlsx",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release/environment/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input.xlsx",
+      "sha256": "251a31df8f826ce68a4078719890ac61b054352272f589a1020c88d8c66851c0"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/014/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release/environment/original_task_description.txt",
+      "sha256": "aa158ddf1a912ae6273a7c572f63a5f55bfbeb91d06387373ee192b91791905d"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/014/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release/environment/task_metadata.json",
+      "sha256": "c2cf4b0cec4f4c93af3d57e2736ce8bf8c95be06457379d334b87e8e69f3e878"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/014/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release/instruction.md",
+      "sha256": "da6e6c097ccfcd1dccf9a42d87f6ba0a36ace021c6cbfbcc2bf6668be7be3552"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/014/seed/root/tmp/docs/build_disaster_release_v1.py",
+      "destination": "/root/tmp/docs/build_disaster_release_v1.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/04-xlsx-014-20261103T103608Z/preserve-out/files/root_tmp_docs_build_disaster_release_v1.py.v1.add",
+      "sha256": "245d8319fbe24073b13dfba485e11cb36166263776fc70592d3ea6d4152115e0",
+      "version": 1,
+      "source_item_id": "call_00_WHpDM4pCTcuRbBTgqnST1085",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/014/seed/root/tmp/docs/finalize_disaster_release_ooxml_v3.py",
+      "destination": "/root/tmp/docs/finalize_disaster_release_ooxml_v3.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/04-xlsx-014-20261103T103608Z/preserve-out/files/root_tmp_docs_finalize_disaster_release_ooxml_v3.py.v1.add",
+      "sha256": "0df081e546990558430aa88c57977d9417be08ad46ceab22a0b5b770123f1679",
+      "version": 1,
+      "source_item_id": "call_00_7nJHBHAHKinUUwQMIys60080",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/014/seed/root/tmp/docs/validate_disaster_release_v1.py",
+      "destination": "/root/tmp/docs/validate_disaster_release_v1.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/04-xlsx-014-20261103T103608Z/preserve-out/files/root_tmp_docs_validate_disaster_release_v1.py.v2.update",
+      "sha256": "84a5ace211a6691d5b3a260c300ace3e2c8d979b8198f569a746aa54a75c8c86",
+      "version": 2,
+      "source_item_id": "call_00_tfS2114OAzkxU259yyiu6311",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build",
+      "source_item_id": "call_00_WaiqiQFnoPGMigfda5CD5526",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_disaster_release_v1.py"
+      ],
+      "shell_body": "tasks/014/commands/01.sh",
+      "shell_sha256": "4e70dbc01677a2d1cf74a2b520215859b46b402d6170b9989c70aa28d1f0b6b2",
+      "source_command_sha256": "d64f2601797583f9dcb57c305744be9dc3bfc0c9cdf7a1a5255bfe11fa0f45e4",
+      "source_exit_code": 0,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "recalculate",
+      "source_item_id": "call_00_NJxBP4fsxN8tKh53CYPS3229",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/.codex/skills/xlsx/scripts/recalc.py /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output.xlsx 120"
+      ],
+      "shell_body": "tasks/014/commands/02.sh",
+      "shell_sha256": "b3b84e1fcdce5ef1231065e5462f71b0a3bb4908d05ecc0683e83e4b873a1f57",
+      "source_command_sha256": "0f76251078d0dec6038f801fa2f03815b3cc630a1c11eeefbe06191f19523157",
+      "source_exit_code": 0,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "final_ooxml_repair_and_validate",
+      "source_item_id": "call_00_PIFOykZOndOP74vkTP4w7940",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/finalize_disaster_release_ooxml_v3.py && python /root/tmp/docs/validate_disaster_release_v1.py"
+      ],
+      "shell_body": "tasks/014/commands/03.sh",
+      "shell_sha256": "b23507ab10f94b911a4078167c3ad330f444a5ca953d2e78f1ad61c8f9ffba8b",
+      "source_command_sha256": "316f635134e83cf8dd90cb60be4ce1c2581627cffe4a6ce9e79c8f4547a6c05b",
+      "source_exit_code": 0,
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "convert_pdf",
+      "source_item_id": "call_00_6YaPHYjmPyer5qZT8RXY2172",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "mkdir -p /root/tmp/docs/preview && libreoffice --headless --convert-to pdf --outdir /root/tmp/docs/preview /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output.xlsx"
+      ],
+      "shell_body": "tasks/014/commands/04.sh",
+      "shell_sha256": "ec4d0f26b78fda8f1c28cdd77a9b0b24c59a265adac9814bdfe84edca72319da",
+      "source_command_sha256": "94dfb39c57805b269fa70ab6986b10fc572639f61c79dfde042649727edeb498",
+      "source_exit_code": 0,
+      "depends_on": [
+        "03"
+      ]
+    },
+    {
+      "id": "05",
+      "name": "render",
+      "source_item_id": "call_01_t4QzXvFoITaIkaBXh7C69463",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftoppm -png -r 110 /root/tmp/docs/preview/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output.pdf /root/tmp/docs/preview/page"
+      ],
+      "shell_body": "tasks/014/commands/05.sh",
+      "shell_sha256": "38c7476b3068258dc1a558307e99d85a9185a4bd7351c391b7394e5f8756def3",
+      "source_command_sha256": "b05bb8c01c67cebcb8b1ef47eff5b50832fc4fae0ecd255129a722e57583c46f",
+      "source_exit_code": 0,
+      "depends_on": [
+        "04"
+      ]
+    }
+  ],
+  "review": "Source review: OOXML v3 contains v2 tab colors, draft removal, FALSE formula repair, structure protection and calc flag replacement, plus number-format repair. v1/v2 passes are redundant, not cumulative prerequisites; keep v3 only. Recalc precedes repair, with no openpyxl save afterward.",
+  "excluded_items": [
+    {
+      "source_item_id": "01a1a0fb-0ed3-7482-8409-0ac58c0c7a83",
+      "type": "userMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "58a533a3-55f1-479c-bbfd-f14a64d63950",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "682d609d-d9f5-4a9d-8ee8-a345824655af",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_KnjRNU9YSsGcOXpwvPEv7712",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "fcfb6c8c-de00-4eff-9f13-454bc0a3aaa0",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_3OXbfzlJ73XhiFqzi4Xn8722",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_L6db3KSdqwT8xCbI955l7323",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_7QGqnGNIky5fD2DPmpHS0447",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "390f7e3b-8ed2-466b-bf53-fcba0da6ba11",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_RPVOaebGy3V6cVoq7oi90320",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_v4onytsmQcYseflAA4BZ9017",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_iKkrOAzAG0dxD8c0loZm4995",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "c2945e54-c50c-4438-b40a-0928e9a8fb54",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "71e64e42-e7ea-4f21-8ce6-c53476f6e6b1",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_AmXcZ8AHc4wTxeShNNkj3071",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "168f7232-2b6f-42a4-bd6f-8b8f12453f0f",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_WHpDM4pCTcuRbBTgqnST1085",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "dc7b47d6-9fc2-45a9-954c-57c022e94143",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "2cffbfd6-a8c8-4404-909d-f488bd3bf610",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "6b4b3244-de57-4690-ae81-0d3f1a2aa5bf",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "cbf1935a-1535-4b57-b3df-e793236c192e",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_np17Q3tEiEMAu4ruAOm01729",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_1kxVVgubzmGGqQbfyNh82554",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_Q415DIyFMeHKc9hD3ztR4509",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e3a2cd5b-4034-404c-bfb0-e76eea460b4b",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_IVVUvhP2bHTbRsFhHDxO4932",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_UaXog3CTGXRND8ZBDvoD9918",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_8wz1UEr86wxkMhekzQJP0590",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "2cbcce0c-fa48-4026-9960-a407cc8003fa",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "f62d65f7-4e0f-4582-98fe-bffb04a91d3c",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_BmQjysKsxdn1HKre2dQi7078",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "2c8d4356-e734-4e6f-aa11-25a9a0d99d22",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ub3ZefyzLGcveWbfzWzw1854",
+      "type": "commandExecution",
+      "reason": "superseded_by_self_contained_ooxml_v3"
+    },
+    {
+      "source_item_id": "6496ea4c-23cf-49f4-a2a8-f683401c39a7",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_jv84I7ZQf1MzqP4pwfAf1792",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "d9a3856c-5c84-4288-bf32-4428a8125834",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_WO8nVtw80diHVE2F0wHR9868",
+      "type": "commandExecution",
+      "reason": "superseded_by_self_contained_ooxml_v3"
+    },
+    {
+      "source_item_id": "8bc28a1e-7ab1-42d1-b3e7-53682c573891",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_FtuP0C2YZHgXzYcu9wTA7497",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "8a430c2d-eb54-482c-a609-177f61c7bf54",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_7YXcOAjylAGJVpzsj79e0556",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "8b021052-9e96-4d5e-b1d2-ca4898aaa8dd",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_t376knUbJOUYhQxnn5602790",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "40e5a3e4-93d5-4a15-926c-2a91d5c6795d",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_tfS2114OAzkxU259yyiu6311",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "a547f03a-9a48-4ce5-b214-3ef9ede5b111",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_5mYwpCf88bfNi6JtW5iT2777",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "c1226b8f-1c2c-4eef-8303-332620657e0e",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_Gk3o64hBtYgGatoDUvFX7789",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "2203c68c-e90d-4ab8-86ff-5ea3b357bec9",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_6Kfw4KQx7GrgqxvKiVmP0950",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "7f354da5-3b95-45de-b608-07ae5285d58a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_7nJHBHAHKinUUwQMIys60080",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "cf2f593e-e1ad-4b9d-90c3-5f31e0a5e6c6",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "3568d4aa-a7df-40c4-a231-23b8a5116727",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "22b91b96-bb1e-4411-8c67-daa9ed1a4990",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "0c6d4b56-fe8f-473c-8809-ad336346020a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_XMgu0gnHR35i40xkFaQ65703",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "38eeb6a4-1bb5-42ad-9e68-c1523528f0ef",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_jtz49HSY0OnEXk926CPi6303",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "5e9f75d8-368c-4860-8dd2-06ae89eaae0b",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_yej4zRFqnkCuvFIjqNuw6482",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "616b69e9-e8eb-4043-b896-7047c95155eb",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_CBAFgC22PjH7Kp96osPe4281",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "a2cf7307-d2af-46d0-a7cf-ae9dc97a3187",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_hyN8JyDAi6u1L9yIdXhI4805",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "9cdf9b56-bca4-4dc6-be91-bff4b1e30f36",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_E18VdMc7juEXuZy6Ssmt6229",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "176a3c3e-95dc-4e72-a249-3ee3c29c77ee",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ZMhFdcbI3rsEgeVfvZuH3032",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "40d00f41-50fd-4f36-bbf1-ad120bb5a547",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_CNOxJ0FqLvzxYKvF9cLH5588",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "96f3b940-efce-4754-8f2d-fb4b50c1b148",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_XEirdiTmqSEm1B9PAJrX6179",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "1d4a5f80-3bfa-4ad2-9a4b-451192ff5596",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_7ruOBxfcNEGqNKW9OUep4934",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "24325421-8deb-460b-892f-4cbc65412d07",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "3fae9fba-9ce1-4bb5-8fd6-83593dcaeb8c",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    }
+  ],
+  "provenance": {
+    "trace": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/04-xlsx-014-20261103T103608Z/preserve-out/raw/thread_history_consistent.sqlite",
+    "trace_sha256": "31a5cc9e9003f59af602108899498c67fcd92cb62f43d88e90366a38bdd574c7",
+    "run_env": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/run-env.json",
+    "run_env_sha256": "5d6e03eede6ec45fc15aa6dd9849b996756a87bb29a7cf861068fd53d788e914"
+  }
+}

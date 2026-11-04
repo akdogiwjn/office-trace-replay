@@ -1,0 +1,1 @@
+python3 /root/tmp/docs/rebuild_closeout_binder.py && pdfinfo /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf

@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_disaster_release_v1.py

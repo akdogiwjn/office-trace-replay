@@ -1,0 +1,123 @@
+{
+  "schema": "docops-final-effective-payload-v1",
+  "status": "source_reviewed_pending_replay_validation",
+  "scope": "final_effective_execution",
+  "tasks": [
+    {
+      "task": "001",
+      "recipe": "tasks/001/recipe.json",
+      "steps": 4,
+      "scripts": 1,
+      "historical_reward": 1
+    },
+    {
+      "task": "003",
+      "recipe": "tasks/003/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": 0
+    },
+    {
+      "task": "009",
+      "recipe": "tasks/009/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": 1
+    },
+    {
+      "task": "013",
+      "recipe": "tasks/013/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": 0
+    },
+    {
+      "task": "014",
+      "recipe": "tasks/014/recipe.json",
+      "steps": 5,
+      "scripts": 3,
+      "historical_reward": 1
+    },
+    {
+      "task": "016",
+      "recipe": "tasks/016/recipe.json",
+      "steps": 3,
+      "scripts": 1,
+      "historical_reward": 0
+    },
+    {
+      "task": "021",
+      "recipe": "tasks/021/recipe.json",
+      "steps": 2,
+      "scripts": 3,
+      "historical_reward": 0
+    },
+    {
+      "task": "026",
+      "recipe": "tasks/026/recipe.json",
+      "steps": 4,
+      "scripts": 2,
+      "historical_reward": 0
+    },
+    {
+      "task": "029",
+      "recipe": "tasks/029/recipe.json",
+      "steps": 1,
+      "scripts": 2,
+      "historical_reward": 0
+    },
+    {
+      "task": "031",
+      "recipe": "tasks/031/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": 0
+    },
+    {
+      "task": "037",
+      "recipe": "tasks/037/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": 0
+    },
+    {
+      "task": "pdfwf005",
+      "recipe": "tasks/pdfwf005/recipe.json",
+      "steps": 5,
+      "scripts": 1,
+      "historical_reward": 1
+    }
+  ],
+  "environment": {
+    "base_image": "docops-l3-shared-tools:arm64-v3",
+    "base_image_id": "sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106",
+    "platform": "linux/arm64",
+    "python": "3.12.14",
+    "openpyxl": "3.1.5",
+    "pypdf": "6.16.2",
+    "python_docx": "1.2.0",
+    "python_pptx": "1.0.2",
+    "lxml": "6.1.2",
+    "unresolved_dependencies": [
+      "021: fonttools version and offline wheel identity",
+      "perf: Debian-compatible binary and unwind dependencies",
+      "DevKit: HIP09 CLI compatibility in the DocOps image"
+    ],
+    "dependency_status": "not_ready_to_build_release"
+  },
+  "historical_script_binding": "inferred_not_runtime_byte_proof",
+  "measurement_policy": {
+    "measured": "final construction, necessary repair, recalculation, selected final render and agent-authored checks",
+    "excluded": [
+      "model requests and waiting",
+      "source exploration and image viewing",
+      "failed/replaced commands",
+      "package installation and font environment setup",
+      "reset, payload restoration, archive, output hash and official scoring"
+    ],
+    "perf": "separate pass; command descendants; cycles:u; physical callchain; export inside the same image",
+    "topdown": "separate DevKit pass; fixed workload CPU set; controller outside set; preserve collection envelope and per-ROI markers",
+    "repetitions": "not scheduled; short tasks may require batches; do not pad with sleeps",
+    "official_score": "historical result retained; replay infrastructure status is separate"
+  }
+}

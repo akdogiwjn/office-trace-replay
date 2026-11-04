@@ -1,0 +1,180 @@
+{
+  "schema": "docops-current-candidate-v1",
+  "candidate_tag": "docops-replay:l3-candidate-05",
+  "candidate_id": "sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617",
+  "base_image_id": "sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106",
+  "platform": "linux/arm64",
+  "installation_status": "passed",
+  "acceptance_record": "docops/docker/records/20261103T130313Z-docops-ctx-7TjPBL/installation/acceptance.json",
+  "acceptance_sha256": "dfffc56820db356d051935e77b454e350174f7360748a71e4997884dee0eaf70",
+  "build_record_dir": "docops/docker/records/20261103T130313Z-docops-ctx-7TjPBL",
+  "real_workload_executed": true,
+  "profiling_started": true,
+  "functional_trials": {
+    "031": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-031-20261103T131236Z-e5cd6192/trial-record.json",
+      "record_sha256": "905f209278acca8086456697635de86b341d6560213342d17381cd431a9c8127",
+      "output_matches_historical": true,
+      "external_official_score": "not_run"
+    },
+    "001": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/001/trial-record.json",
+      "record_sha256": "73a7003f309a46634dbe16b7985491c1d0940f36bd827ba04ddbf0c1664f925b",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "003": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/003/trial-record.json",
+      "record_sha256": "1473185161c3ef6a0f3e604a5d38ffd2642ea93fb1d46b6c09751542c1d5cf97",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "009": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/009/trial-record.json",
+      "record_sha256": "089d033b2a31d5fae72c48093c7d3a9dde6b7ca819c50278d767675f19f3ee02",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "013": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/013/trial-record.json",
+      "record_sha256": "d47cc6564348da59cb4171cf9f54ea8d9028862283793b3f12a24eb9eb994555",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "014": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/014/trial-record.json",
+      "record_sha256": "177f55fd08485c0ab627ca09758dd6cb4e1a33cc89ab487e5ec56e58d28b258f",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "016": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/016/trial-record.json",
+      "record_sha256": "33974dd35fff3805bb638c1d0b3eb4c1d21ebdcd483ef78273d2ea2caff56eae",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "021": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/021/trial-record.json",
+      "record_sha256": "a419b96aa692afa88b77b79fc4fcaa46f4c675ce9eedd340dd1d54c41c3987b9",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "026": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/026/trial-record.json",
+      "record_sha256": "f9e1372382ecbf0cd6d000d46cf729951899697a7e518b354be7130409e8d9e4",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "029": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/029/trial-record.json",
+      "record_sha256": "24d3dcbf26f7ef588d6271acd8708d6f348526ea1cc09d0046adbedcef02902e",
+      "output_matches_historical": false,
+      "external_official_score": "not_run"
+    },
+    "037": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/037/trial-record.json",
+      "record_sha256": "ec4ccba78b00d700417258439c0be49410d9120bda706f3e735deb2d51dcad43",
+      "output_matches_historical": true,
+      "external_official_score": "not_run"
+    },
+    "pdfwf005": {
+      "status": "passed",
+      "requested": 1,
+      "completed": 1,
+      "successes": 1,
+      "failures": 0,
+      "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/pdfwf005/trial-record.json",
+      "record_sha256": "b2c0fc5b8b17427b2c10c5d25e7dd86f6853d5d88e496f012cbada5b0ced38fe",
+      "output_matches_historical": true,
+      "external_official_score": "not_run"
+    }
+  },
+  "functional_summary": {
+    "status": "passed",
+    "passed": 12,
+    "failed": 0,
+    "record": "results/docops/functional-remaining-11-20261103T141917Z-216451d1/twelve-task-status.json",
+    "record_sha256": "0ae23635db718842be6a7750e3ace6d701445664d8917d81a0fde211e9362553"
+  },
+  "collector_pilot": {
+    "status": "passed_with_symbol_limitations",
+    "task": "031",
+    "record": "analysis/docops/processed/031-collector-validation-20261103/validation.json",
+    "record_sha256": "e3549f2e6aa3f7f08323135f16ce605e887ddd382d8bc6c7884b9624896f6cd8",
+    "formal_similarity_eligible": false
+  },
+  "first_measurement_batch": {
+    "status": "complete_preliminary",
+    "tasks": 12,
+    "independent_captures_per_mode_per_task": 1,
+    "loops_per_capture": 10,
+    "new_captures": 22,
+    "reused_031_captures": 2,
+    "workload_retries": 0,
+    "symbol_limited_tasks": [
+      "016",
+      "021",
+      "026",
+      "029"
+    ],
+    "report": "analysis/docops/processed/first-comparison-batch-20261103/report.md",
+    "comparison": "analysis/docops/processed/first-comparison-batch-20261103/comparison.json",
+    "comparison_sha256": "057d7445b5bb3ea2d410ad2a4894d2e2f147355a350013d3eee669714dee1076",
+    "formal_similarity_eligible": false
+  }
+}

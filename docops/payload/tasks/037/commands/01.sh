@@ -1,0 +1,1 @@
+python3 /root/tmp/docs/build_bus_detour_packet.py && mkdir -p /root/tmp/docs/render_v2 && pdftoppm -png -r 150 /root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output.pdf /root/tmp/docs/render_v2/page

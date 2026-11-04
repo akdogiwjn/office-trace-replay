@@ -1,0 +1,76 @@
+{
+  "schema": "office-replay-final-repository-audit-v1",
+  "status": "passed",
+  "checked_utc": "2026-11-04T02:10:23.573555+00:00",
+  "scope": "Repository code, frozen inputs, measurement/result bindings and publication; no new real workload, profiling, image build or official scoring.",
+  "unit_tests": {
+    "agent": 37,
+    "document_oe": 4,
+    "repository": 19,
+    "docops": 51,
+    "docops_analysis": 29,
+    "topdown_analysis": 26,
+    "hotspot_analysis": 25,
+    "total": 191,
+    "failures": 0
+  },
+  "static_validation": {
+    "old_workload_files": 43,
+    "docops_payload_files": 247,
+    "docops_tasks": 12,
+    "offline_vendor_files": {
+      "debs": 8,
+      "fonttools": 718,
+      "unified": 90
+    },
+    "old_recipes_and_new_dataset_bindings": "passed",
+    "credential_pattern_scan": "no_credentials_detected",
+    "staged_diff_check": "passed"
+  },
+  "saved_results": {
+    "recompute_identical": true,
+    "source_bindings_verified": 67,
+    "figures_verified": 48,
+    "baseline_pairs": 24,
+    "interval_points": 533,
+    "original_seven_case_report_prefixes_unchanged": true,
+    "html_pages": 50,
+    "browser_record": "docs/evidence/task-operation-validation.json",
+    "browser_record_sha256": "969499b57a47adffe4185d6773900fc0cbf11fbf6bd0d7a7a8b60cd9a2f39f9c"
+  },
+  "isolated_staged_checkout": {
+    "passed_after_documented_prepare_checkout": true,
+    "checks": [
+      "43 old workload bytes and restored modes",
+      "five frozen dataset recipes",
+      "247-file twelve-task DocOps payload",
+      "all three offline vendor manifests",
+      "portable presentation sources without local raw traces"
+    ],
+    "initial_check_note": "Git archive cannot retain full 0664/0775 modes; README-required scripts/prepare_checkout.py was run before frozen mode validation."
+  },
+  "fixes": [
+    "Stream multi-GB capture evidence hashes with bounded memory.",
+    "Mark collection failed and retain acquisition facts if archive read/index publication fails; three negative/positive fixture tests.",
+    "Refresh current-image symbol status and clearly separate historical Debian notes from current unified measurements.",
+    "Exclude local symbol RPM/download caches from Git without deleting them.",
+    "Retain every frozen fontTools input, including bytecode indexed by the historical manifest.",
+    "Disable newline conversion only for imported byte-frozen evidence and vendor materials."
+  ],
+  "audited_fix_sha256": {
+    "analysis/docops/capture.py": "d43643b269dcbcb0ff21f93ec8daf5081b3b38a5ba044f81153177e74a0492ef",
+    "analysis/docops/quality.py": "510afb159b969ef6216cca6831859fce3efbb5609353f2d5f53b886686f13375",
+    "analysis/docops/tests/test_archive.py": "24379449e2b67233d42bc481d05c09db35141963eaf1b5216f89ee402aeeeedf",
+    ".gitignore": "8f2f0327c938a9fefce4e8967378d7c5a47d4c591746f18e0195c731d98691bc",
+    ".gitattributes": "46a8dab1f85ec4714ffd6ba6349cd1623fefce87ba346b721fbe9de5e2fa5518",
+    "docops/README.md": "534fd78ffd713776f05032846f792545ebe3a8bc776fe6f53441a55422950471",
+    "docops/docker/current-image.json": "fa675462300a1bd82d25f409b8d418af565aa68ccc5613ba726eb37f20bbce5f"
+  },
+  "preserved_boundaries": [
+    "Single DocOps capture with ten loops is not ten independent repeats.",
+    "Original official content scores remain four pass/eight fail.",
+    "DevKit CPU-envelope and HIP09 formula qualification limitations remain stated in the report.",
+    "Historical capture code hashes still describe the frozen code used then; current archive fixes apply to future runs.",
+    "Raw perf and symbol caches remain local, while offline image build vendor inputs are committed."
+  ]
+}

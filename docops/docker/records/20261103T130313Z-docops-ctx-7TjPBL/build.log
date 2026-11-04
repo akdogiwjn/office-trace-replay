@@ -1,0 +1,58 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.76kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/docops-l3-shared-tools:arm64-v3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/12] FROM docker.io/library/docops-l3-shared-tools:arm64-v3
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 125.69MB 0.4s done
+#5 DONE 0.4s
+
+#6 [ 2/12] COPY vendor/debs/ /opt/vendor-debs/
+#6 CACHED
+
+#7 [ 3/12] RUN dpkg -i --force-depends /opt/vendor-debs/*.deb     && rm -rf /opt/vendor-debs     && ln -sf /usr/bin/perf /usr/local/bin/perf
+#7 CACHED
+
+#8 [ 4/12] COPY vendor/fonttools/fontTools /usr/local/lib/python3.12/site-packages/fontTools/
+#8 CACHED
+
+#9 [ 5/12] COPY replay.py compile.py /opt/docops/
+#9 DONE 0.3s
+
+#10 [ 6/12] COPY payload /opt/docops/payload
+#10 DONE 0.1s
+
+#11 [ 7/12] COPY payload/skills/ /root/.codex/skills/
+#11 DONE 0.0s
+
+#12 [ 8/12] COPY install_state_check.py /opt/docops/docker/install_state_check.py
+#12 DONE 0.0s
+
+#13 [ 9/12] COPY devkit.sh /usr/local/bin/devkit
+#13 DONE 0.0s
+
+#14 [10/12] RUN chmod 0755 /usr/local/bin/devkit
+#14 DONE 0.1s
+
+#15 [11/12] COPY devkit/ /opt/devkit/
+#15 DONE 0.2s
+
+#16 [12/12] WORKDIR /root
+#16 DONE 0.0s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 0.2s done
+#17 writing image sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617 done
+#17 DONE 0.2s

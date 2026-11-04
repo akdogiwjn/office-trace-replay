@@ -1,0 +1,37 @@
+{
+  "schema": "docops-executor-targeted-fix-v1",
+  "recorded_at": "2026-11-03T20:58:14.408034+08:00",
+  "tests": {
+    "command": "python3 -B -m unittest discover -s docops/tests",
+    "passed": 44
+  },
+  "frozen_payload": {
+    "files": 247,
+    "tasks": 12,
+    "index_sha256": "8651b0ba063d8ee53673b7b8b529b5116f28d0ef6d6ffafaa9f1ed42363ce6af",
+    "unchanged_since_original_preparation": true
+  },
+  "offline_build_materials": "all declared deb/fontTools files and DevKit core/private libraries verified",
+  "checks": [
+    "shell syntax",
+    "git diff --check",
+    "no changes to original seven workload/analysis/report paths"
+  ],
+  "image_status": {
+    "candidate_04": "old executor; not qualified for real replay",
+    "fix_image_built": false
+  },
+  "real_workloads_run": false,
+  "profiling_started": false,
+  "source_sha256": {
+    "docops/replay.py": "323fb5776e4c8f70a6d9be10067e543b92e5153899d53cdb289a5083b32d85be",
+    "docops/tests/test_replay.py": "0920887209f0e182941c6a70a350eec65e9f13511cf8532c4e1971233dfc9692",
+    "docops/tests/test_install_build.py": "7f5c7063535956ba7089b775eaafd901679778ef8c597c02d7ba9c425a129967",
+    "docops/docker/build.sh": "b594591c2165992bb89332b271d1a5ed9c34ccc3cd1f133f2c6283b4fe8ddf9c",
+    "docops/docker/Dockerfile": "c63bc33a4902d10c0b06270c2bfe8c70cb09b87fea145f47ae6c9b97a1feb878",
+    "docops/docker/install_state_check.py": "408723a3ffcc16327b73f4c6f3fc234fdd03891363f81eb6c85870a0471d4b6f",
+    "docops/docker/verify_build_inputs.py": "369f6c6466d0bb958f1564abad40c0b0458f4f0600dc6711c37a2fade7cfda7b",
+    "docops/docker/devkit.sh": "ab12fade843a35e70171b7613501a2de3d3a46f4995e7a3a56402c918bc80b76"
+  },
+  "remaining": "rebuild under unused tag; perform installation check; real task/perf/DevKit validation remains separate"
+}

@@ -1,0 +1,8 @@
+{
+  "schema": "docops-offline-tool-source-v1",
+  "source_image": "sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617",
+  "source_path": "/usr/bin/rg",
+  "source_facts": "ripgrep\t13.0.0-4+b2\nripgrep 13.0.0\n-SIMD -AVX (compiled)\n\tlinux-vdso.so.1 (0x0000ffffa5fb6000)\n\tlibpcre2-8.so.0 => /lib/aarch64-linux-gnu/libpcre2-8.so.0 (0x0000ffffa5af0000)\n\tlibgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffa5ab0000)\n\tlibc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffa5900000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000ffffa5f79000)\n",
+  "sha256": "1f1f7f0dce26cf47dd44ea064ff3c22f1d7111671e53e55713be437806680b78",
+  "use": "private DocOps tool only; no core ELF or loader replacement"
+}

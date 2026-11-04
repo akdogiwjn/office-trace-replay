@@ -1,0 +1,2541 @@
+{
+  "schema": "docops-unified-symbol-comparison-v1",
+  "status": "passed",
+  "image_id": "sha256:57483856a27942ffd4aef853950ca66b00c12b0787aae6c1dac74371d03e6164",
+  "old_image_id": "sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617",
+  "captures_per_task": 1,
+  "loops_per_capture": 10,
+  "topdown_collected": false,
+  "campaign": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/campaign.json",
+  "campaign_sha256": "fa7c923e06ed269a4ea959e283dd0d5cdfc8d4aed4b66aaa6c7cf05ba9cfa6c3",
+  "baseline": "analysis/docops/processed/first-comparison-batch-20261103/comparison.json",
+  "baseline_sha256": "057d7445b5bb3ea2d410ad2a4894d2e2f147355a350013d3eee669714dee1076",
+  "tasks": {
+    "029": {
+      "format": "ppt",
+      "name": "季度业务回顾发布",
+      "old": {
+        "unknown_period": 7971247182,
+        "unknown_share": 0.35342417808311033,
+        "resolved_share": 0.6465758219168897,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 6000926864,
+            "share_roi": 0.26606534664176934
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 1015068344,
+            "share_roi": 0.04500546614417908
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 477278927,
+            "share_roi": 0.021161294919102135
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+            "period": 256828545,
+            "share_roi": 0.011387103592756975
+          },
+          {
+            "dso": "[vdso]",
+            "period": 89701439,
+            "share_roi": 0.0039771263677578
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 58056721,
+            "share_roi": 0.0025740826288712937
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libi18nlangtag.so",
+            "period": 44937456,
+            "share_roi": 0.0019924088526334116
+          },
+          {
+            "dso": "[unknown]",
+            "period": 10902970,
+            "share_roi": 0.00048340907300129557
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 10898700,
+            "share_roi": 0.0004832197524086758
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libexpwraplo.so",
+            "period": 3270620,
+            "share_roi": 0.00014501070647167673
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libanimcorelo.so",
+            "period": 1286069,
+            "share_roi": 5.702092394143093e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 830954,
+            "share_roi": 3.684231937231035e-05
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 727346,
+            "share_roi": 3.224861259007411e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 463358,
+            "share_roi": 2.054407755388984e-05
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libuno_salhelpergcc3.so.3",
+            "period": 60183,
+            "share_roi": 2.668356258931004e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 3840,
+            "share_roi": 1.702555212318272e-07
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 3118,
+            "share_roi": 1.3824393625021802e-07
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 1728,
+            "share_roi": 7.661498455432223e-08
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 3579478737,
+        "unknown_share": 0.09056033333824627,
+        "resolved_share": 0.9094396666617537,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 1159330085,
+            "share_roi": 0.029330896105462013
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 736713324,
+            "share_roi": 0.018638748571554214
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 423960208,
+            "share_roi": 0.010726136563339565
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 382659181,
+            "share_roi": 0.009681226103704695
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 225162341,
+            "share_roi": 0.005696577114820245
+          },
+          {
+            "dso": "[unknown]",
+            "period": 196831977,
+            "share_roi": 0.004979822694431059
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 160469503,
+            "share_roi": 0.004059856965230161
+          },
+          {
+            "dso": "/usr/lib64/libjpeg.so.62.4.0",
+            "period": 124203358,
+            "share_roi": 0.003142328346846536
+          },
+          {
+            "dso": "/usr/lib64/libcrypto.so.3.0.12",
+            "period": 103759458,
+            "share_roi": 0.0026251004109472836
+          },
+          {
+            "dso": "[vdso]",
+            "period": 52474634,
+            "share_roi": 0.0013276012224129805
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 9097290,
+            "share_roi": 0.0002301602203579997
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 3454634,
+            "share_roi": 8.740177818847568e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 469540,
+            "share_roi": 1.1879299205246307e-05
+          },
+          {
+            "dso": "/usr/lib64/libgcrypt.so.20.4.2",
+            "period": 468434,
+            "share_roi": 1.1851317553159153e-05
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 420687,
+            "share_roi": 1.0643324838687764e-05
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 4083,
+            "share_roi": 1.032993539528489e-07
+          }
+        ]
+      },
+      "unknown_share_change_pp": -26.286384474486407,
+      "quality": {
+        "unknown_leaf_dso_share": 0.004979822694431059,
+        "empty_stack_share": 5.803789320789502e-08,
+        "unknown_leaf_symbol_share": 0.09056033333824627,
+        "unresolved_script_share": 0.016830348817173765,
+        "first_observation_inference_share": 0.0010162798153783297,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 201923,
+        "reported_lost_records": 2239,
+        "reported_lost_sample_records": 7,
+        "perf_record_reported_lost_chunks": 2239,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 201812,
+      "roi_period": 39525900635,
+      "profile": "analysis/docops/raw/029-chain-pilot-20261103T170414Z-30e5b1db/perf/out/profile.json",
+      "profile_sha256": "e642cbb48b2911193b4005be2bd49351cb24a2632ada16cf8e8ef6a509f4a464",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/029/out/profile.json",
+      "old_python_unknown_share": 0.26606534664176934,
+      "new_python_unknown_share": 0
+    },
+    "016": {
+      "format": "excel",
+      "name": "预测模型情景级联",
+      "old": {
+        "unknown_period": 26032123556,
+        "unknown_share": 0.2930534317134775,
+        "resolved_share": 0.7069465682865226,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 18611848684,
+            "share_roi": 0.20952059925672278
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libsclo.so",
+            "period": 4391210477,
+            "share_roi": 0.049433512286953835
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 2312113584,
+            "share_roi": 0.026028334524648398
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 437390212,
+            "share_roi": 0.004923866558513711
+          },
+          {
+            "dso": "[unknown]",
+            "period": 258473012,
+            "share_roi": 0.002909728167545535
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 5994338,
+            "share_roi": 6.748052336074672e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 5274110,
+            "share_roi": 5.937264516317697e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 3349640,
+            "share_roi": 3.7708160645944835e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 1794981,
+            "share_roi": 2.0206778013284622e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30",
+            "period": 887215,
+            "share_roi": 9.987713828200028e-06
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_struct.cpython-312-aarch64-linux-gnu.so",
+            "period": 805221,
+            "share_roi": 9.064676449853819e-06
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 616044,
+            "share_roi": 6.9350396212639085e-06
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 573288,
+            "share_roi": 6.453719205763133e-06
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 369145,
+            "share_roi": 4.155604471420005e-06
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libexpwraplo.so",
+            "period": 365389,
+            "share_roi": 4.113321763013678e-06
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpcre2-8.so.0.11.2",
+            "period": 329947,
+            "share_roi": 3.714337803658769e-06
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsoftokn3.so",
+            "period": 274338,
+            "share_roi": 3.0883263202276108e-06
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libuno_salhelpergcc3.so.3",
+            "period": 225764,
+            "share_roi": 2.5415104847300277e-06
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libtasn1.so.6.6.3",
+            "period": 211477,
+            "share_roi": 2.3806763380310944e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 12521,
+            "share_roi": 1.4095361873152793e-07
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 1656,
+            "share_roi": 1.864221648585658e-08
+          },
+          {
+            "dso": "/usr/bin/timeout",
+            "period": 1551,
+            "share_roi": 1.746019188983307e-08
+          },
+          {
+            "dso": "[vdso]",
+            "period": 524,
+            "share_roi": 5.89886560301259e-09
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libharfbuzz.so.0.60000.0",
+            "period": 435,
+            "share_roi": 4.896959040668849e-09
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/select.cpython-312-aarch64-linux-gnu.so",
+            "period": 2,
+            "share_roi": 2.2514754209971717e-11
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libgcrypt.so.20.4.1",
+            "period": 1,
+            "share_roi": 1.1257377104985858e-11
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 5612613479,
+        "unknown_share": 0.07470527922079616,
+        "resolved_share": 0.9252947207792038,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 1781869512,
+            "share_roi": 0.023717125707487866
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 1187151976,
+            "share_roi": 0.01580128761341342
+          },
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 861639963,
+            "share_roi": 0.011468641883955301
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 565746141,
+            "share_roi": 0.0075302216319772545
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 438361418,
+            "share_roi": 0.005834699334604606
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 322838822,
+            "share_roi": 0.004297064893397928
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 128965459,
+            "share_roi": 0.0017165622860866774
+          },
+          {
+            "dso": "/usr/lib64/libcrypto.so.3.0.12",
+            "period": 90619253,
+            "share_roi": 0.0012061647614742099
+          },
+          {
+            "dso": "[unknown]",
+            "period": 88682168,
+            "share_roi": 0.001180381679075812
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 60497256,
+            "share_roi": 0.0008052335010208505
+          },
+          {
+            "dso": "/usr/lib64/libtasn1.so.6.6.3",
+            "period": 52579240,
+            "share_roi": 0.0006998427417305596
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 15573156,
+            "share_roi": 0.00020728257373894553
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 12994026,
+            "share_roi": 0.00017295371294750886
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 1917037,
+            "share_roi": 2.551623853975308e-05
+          },
+          {
+            "dso": "/usr/bin/bc",
+            "period": 565414,
+            "share_roi": 7.5258007527846085e-06
+          },
+          {
+            "dso": "/usr/bin/dirname",
+            "period": 487049,
+            "share_roi": 6.482743141915465e-06
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 453019,
+            "share_roi": 6.02979539103335e-06
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 440576,
+            "share_roi": 5.864175970985564e-06
+          },
+          {
+            "dso": "/usr/bin/df",
+            "period": 410772,
+            "share_roi": 5.4674773295723825e-06
+          },
+          {
+            "dso": "/usr/lib64/libselinux.so.1",
+            "period": 403907,
+            "share_roi": 5.376102474744122e-06
+          },
+          {
+            "dso": "/usr/bin/uname",
+            "period": 234716,
+            "share_roi": 3.1241282484879967e-06
+          },
+          {
+            "dso": "/usr/bin/users",
+            "period": 170907,
+            "share_roi": 2.2748146124011064e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 8823,
+            "share_roi": 1.1743632107061127e-07
+          },
+          {
+            "dso": "[vdso]",
+            "period": 1689,
+            "share_roi": 2.2481009439902803e-08
+          },
+          {
+            "dso": "/usr/bin/timeout",
+            "period": 912,
+            "share_roi": 1.213894648264734e-08
+          },
+          {
+            "dso": "/usr/bin/gawk",
+            "period": 268,
+            "share_roi": 3.5671465541112797e-09
+          }
+        ]
+      },
+      "unknown_share_change_pp": -21.83481524926813,
+      "quality": {
+        "unknown_leaf_dso_share": 0.001180381679075812,
+        "empty_stack_share": 3.592436025950128e-08,
+        "unknown_leaf_symbol_share": 0.07470527922079616,
+        "unresolved_script_share": 0.011368244650671825,
+        "first_observation_inference_share": 0.0005573573984572937,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 166462,
+        "reported_lost_records": 5666,
+        "reported_lost_sample_records": 5,
+        "perf_record_reported_lost_chunks": 5666,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 166358,
+      "roi_period": 75130078323,
+      "profile": "analysis/docops/raw/016-chain-pilot-20261103T170618Z-98bd69e1/perf/out/profile.json",
+      "profile_sha256": "7c6e2acde409874c8aa6c56fb2c2ba41f7b7209bccfe2b8a772c028903c84782",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/016/out/profile.json",
+      "old_python_unknown_share": 0.20952059925672278,
+      "new_python_unknown_share": 0
+    },
+    "021": {
+      "format": "ppt",
+      "name": "庇护所无障碍整改",
+      "old": {
+        "unknown_period": 15905643130,
+        "unknown_share": 0.2053132076182146,
+        "resolved_share": 0.7946867923817854,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 8068363570,
+            "share_roi": 0.10414804300884935
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+            "period": 3526933933,
+            "share_roi": 0.045526365260639114
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 2190114254,
+            "share_roi": 0.02827043074360195
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 843430579,
+            "share_roi": 0.01088716980272007
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 450089124,
+            "share_roi": 0.005809840005036774
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/ImageMagick-6.9.11/modules-Q16/coders/jpeg.so",
+            "period": 285355804,
+            "share_roi": 0.003683429519502526
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/array.cpython-312-aarch64-linux-gnu.so",
+            "period": 122818755,
+            "share_roi": 0.0015853689372147778
+          },
+          {
+            "dso": "[unknown]",
+            "period": 118685033,
+            "share_roi": 0.0015320100308011658
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libglib-2.0.so.0.7400.6",
+            "period": 80358730,
+            "share_roi": 0.0010372864826388225
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libi18nlangtag.so",
+            "period": 78870233,
+            "share_roi": 0.0010180726670702036
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0",
+            "period": 61317591,
+            "share_roi": 0.0007914996701948365
+          },
+          {
+            "dso": "[vdso]",
+            "period": 53581304,
+            "share_roi": 0.000691638137653015
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 9147032,
+            "share_roi": 0.0001180717098175239
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libexpwraplo.so",
+            "period": 8739250,
+            "share_roi": 0.00011280797859051939
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libsdlo.so",
+            "period": 3062696,
+            "share_roi": 3.95338896126406e-05
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 2208120,
+            "share_roi": 2.8502852497101888e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libharfbuzz.so.0.60000.0",
+            "period": 1048337,
+            "share_roi": 1.353214267261485e-05
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 521851,
+            "share_roi": 6.736156584997698e-06
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 515215,
+            "share_roi": 6.650497776069394e-06
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 367660,
+            "share_roi": 4.745828464523885e-06
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libuno_salhelpergcc3.so.3",
+            "period": 104962,
+            "share_roi": 1.3548703892002284e-06
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 4861,
+            "share_roi": 6.274675560586031e-08
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 3056,
+            "share_roi": 3.9447456311769e-08
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libicuuc.so.72.1",
+            "period": 752,
+            "share_roi": 9.706965689283473e-09
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 426,
+            "share_roi": 5.498892797386648e-09
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/oosplash",
+            "period": 2,
+            "share_roi": 2.5816398109796467e-11
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 24215293180,
+        "unknown_share": 0.2091577627103852,
+        "resolved_share": 0.7908422372896148,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.2",
+            "period": 12198370840,
+            "share_roi": 0.10536250520036042
+          },
+          {
+            "dso": "/usr/lib64/libjpeg.so.62.4.0",
+            "period": 5061575291,
+            "share_roi": 0.04371897361664431
+          },
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 2286846902,
+            "share_roi": 0.01975246709292559
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 1296797582,
+            "share_roi": 0.01120099099867092
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 919978034,
+            "share_roi": 0.007946240663031224
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 868434140,
+            "share_roi": 0.007501034178423168
+          },
+          {
+            "dso": "/usr/lib64/ImageMagick-7.1.2/modules-Q16HDRI/coders/jpeg.so",
+            "period": 503226875,
+            "share_roi": 0.004346584058609307
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 336456301,
+            "share_roi": 0.002906115843565101
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 332801349,
+            "share_roi": 0.0028745464721991894
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 222328418,
+            "share_roi": 0.0019203448890813442
+          },
+          {
+            "dso": "[unknown]",
+            "period": 119528567,
+            "share_roi": 0.0010324189539173845
+          },
+          {
+            "dso": "[vdso]",
+            "period": 62393365,
+            "share_roi": 0.0005389179694983339
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 3584341,
+            "share_roi": 3.095947419584803e-05
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 2967690,
+            "share_roi": 2.5633197839233555e-05
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 3485,
+            "share_roi": 3.010142382449951e-08
+          }
+        ]
+      },
+      "unknown_share_change_pp": 0.3844555092170604,
+      "quality": {
+        "unknown_leaf_dso_share": 0.0010324189539173845,
+        "empty_stack_share": 6.793334243319615e-08,
+        "unknown_leaf_symbol_share": 0.2091577627103852,
+        "unresolved_script_share": 0.015348676180948666,
+        "first_observation_inference_share": 0.00032937670670199416,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 573177,
+        "reported_lost_records": 4716,
+        "reported_lost_sample_records": 8,
+        "perf_record_reported_lost_chunks": 4716,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": false,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "limited",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 572915,
+      "roi_period": 115775254364,
+      "profile": "analysis/docops/raw/021-chain-pilot-20261103T170820Z-b0737ac3/perf/out/profile.json",
+      "profile_sha256": "d54c5b2adc7fceaf4b48d63d13a3d14a78bfb2bb4b81a3f3f6564685bda4c1b3",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/021/out/profile.json",
+      "old_python_unknown_share": 0.10414804300884935,
+      "new_python_unknown_share": 0
+    },
+    "026": {
+      "format": "ppt",
+      "name": "气候披露图表重建",
+      "old": {
+        "unknown_period": 10932403205,
+        "unknown_share": 0.2108644017461239,
+        "resolved_share": 0.7891355982538761,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 5163222526,
+            "share_roi": 0.09958833466086935
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 1909591070,
+            "share_roi": 0.03683222901723286
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+            "period": 1659266744,
+            "share_roi": 0.03200396863800075
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 1261236118,
+            "share_roi": 0.024326746324270218
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 369734652,
+            "share_roi": 0.0071314490269746055
+          },
+          {
+            "dso": "[unknown]",
+            "period": 189109704,
+            "share_roi": 0.0036475515813493608
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libi18nlangtag.so",
+            "period": 87760712,
+            "share_roi": 0.0016927302886368318
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 62549953,
+            "share_roi": 0.0012064646877057044
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libgcc3_uno.so",
+            "period": 61392637,
+            "share_roi": 0.0011841423546015241
+          },
+          {
+            "dso": "[vdso]",
+            "period": 52462387,
+            "share_roi": 0.0010118955220997656
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libharfbuzz.so.0.60000.0",
+            "period": 50834071,
+            "share_roi": 0.0009804885320029673
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30",
+            "period": 48540399,
+            "share_roi": 0.0009362481426747881
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libexpwraplo.so",
+            "period": 8326260,
+            "share_roi": 0.00016059706185001448
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libsdlo.so",
+            "period": 4341955,
+            "share_roi": 8.374771093924278e-05
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 1378760,
+            "share_roi": 2.6593549204123576e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 1192367,
+            "share_roi": 2.2998397461395175e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 983023,
+            "share_roi": 1.8960566392472343e-05
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 373124,
+            "share_roi": 7.1968228359100965e-06
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libuno_salhelpergcc3.so.3",
+            "period": 88041,
+            "share_roi": 1.6981364889322607e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 16467,
+            "share_roi": 3.176158103979684e-07
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 2235,
+            "share_roi": 4.3108722671977856e-08
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 7729456127,
+        "unknown_share": 0.11009149365354694,
+        "resolved_share": 0.889908506346453,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libjpeg.so.62.4.0",
+            "period": 1853340083,
+            "share_roi": 0.026397326620786532
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 1773716240,
+            "share_roi": 0.025263235468411003
+          },
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 1426711700,
+            "share_roi": 0.02032081164382695
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 1304378862,
+            "share_roi": 0.018578411578801343
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 484925826,
+            "share_roi": 0.006906851868792554
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 340427921,
+            "share_roi": 0.0048487523169121
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 230640179,
+            "share_roi": 0.0032850334338447858
+          },
+          {
+            "dso": "/usr/lib64/libcrypto.so.3.0.12",
+            "period": 194871453,
+            "share_roi": 0.0027755755358085843
+          },
+          {
+            "dso": "[unknown]",
+            "period": 74709437,
+            "share_roi": 0.0010640947272622465
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 17665642,
+            "share_roi": 0.0002516136817615489
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 17633614,
+            "share_roi": 0.00025115750343531205
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 4641729,
+            "share_roi": 6.611265661499041e-05
+          },
+          {
+            "dso": "/usr/bin/df",
+            "period": 1580453,
+            "share_roi": 2.251056588722251e-05
+          },
+          {
+            "dso": "/usr/bin/gawk",
+            "period": 1431226,
+            "share_roi": 2.0385109315181106e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 926245,
+            "share_roi": 1.3192609397565391e-05
+          },
+          {
+            "dso": "/usr/lib64/libsigsegv.so.2.0.7",
+            "period": 645635,
+            "share_roi": 9.195850307852815e-06
+          },
+          {
+            "dso": "/usr/lib64/libgcrypt.so.20.4.2",
+            "period": 469434,
+            "share_roi": 6.686200087381536e-06
+          },
+          {
+            "dso": "/usr/lib64/libpcre2-8.so.0.11.2",
+            "period": 403470,
+            "share_roi": 5.746667581078125e-06
+          },
+          {
+            "dso": "/usr/bin/whoami",
+            "period": 312659,
+            "share_roi": 4.453236521258844e-06
+          },
+          {
+            "dso": "[vdso]",
+            "period": 12675,
+            "share_roi": 1.8053141891631407e-07
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 11644,
+            "share_roi": 1.658467725334565e-07
+          }
+        ]
+      },
+      "unknown_share_change_pp": -10.077290809257695,
+      "quality": {
+        "unknown_leaf_dso_share": 0.0010640947272622465,
+        "empty_stack_share": 3.409800527697482e-08,
+        "unknown_leaf_symbol_share": 0.11009149365354694,
+        "unresolved_script_share": 0.020750056861557283,
+        "first_observation_inference_share": 0.0004358613132304241,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 196407,
+        "reported_lost_records": 1811,
+        "reported_lost_sample_records": 5,
+        "perf_record_reported_lost_chunks": 1811,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 196298,
+      "roi_period": 70209385580,
+      "profile": "analysis/docops/raw/026-chain-pilot-20261103T171337Z-ccddd655/perf/out/profile.json",
+      "profile_sha256": "8eaa0b195aa7fa53fadc4f0b3c0bb298d6520c6103998d680e6253ada0a53554",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/026/out/profile.json",
+      "old_python_unknown_share": 0.09958833466086935,
+      "new_python_unknown_share": 0
+    },
+    "001": {
+      "format": "word",
+      "name": "受控文档发布修复",
+      "old": {
+        "unknown_period": 6880490090,
+        "unknown_share": 0.1585670048749793,
+        "resolved_share": 0.8414329951250207,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 4011834176,
+            "share_roi": 0.09245628160528323
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 1270950398,
+            "share_roi": 0.029290180687626406
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 1093890804,
+            "share_roi": 0.025209685092441286
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 402537430,
+            "share_roi": 0.009276832578821668
+          },
+          {
+            "dso": "[unknown]",
+            "period": 47911243,
+            "share_roi": 0.0011041571462167919
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libstocserviceslo.so",
+            "period": 47248013,
+            "share_roi": 0.0010888724218341378
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 3359461,
+            "share_roi": 7.742176237395072e-05
+          },
+          {
+            "dso": "/usr/bin/sort",
+            "period": 1043691,
+            "share_roi": 2.4052786025446045e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 977035,
+            "share_roi": 2.2516639306434257e-05
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 500117,
+            "share_roi": 1.1525640432549482e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsoftokn3.so",
+            "period": 219834,
+            "share_roi": 5.066269770571852e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 17362,
+            "share_roi": 4.0012270966578636e-07
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 525,
+            "share_roi": 1.2099091266820519e-08
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libfreeblpriv3.so",
+            "period": 1,
+            "share_roi": 2.3045888127277178e-11
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 6856320089,
+        "unknown_share": 0.12075988160360178,
+        "resolved_share": 0.8792401183963983,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 3030752044,
+            "share_roi": 0.05338042174992657
+          },
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 1186923024,
+            "share_roi": 0.02090519141321685
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 1090417918,
+            "share_roi": 0.019205453795453038
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 707053655,
+            "share_roi": 0.012453286100539565
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 333345974,
+            "share_roi": 0.0058711991025419755
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 173668347,
+            "share_roi": 0.003058808333009441
+          },
+          {
+            "dso": "[unknown]",
+            "period": 140629559,
+            "share_roi": 0.0024768984928303763
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 128992952,
+            "share_roi": 0.002271943755398828
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 53296300,
+            "share_roi": 0.0009387039686545244
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 3467910,
+            "share_roi": 6.10800539612827e-05
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 2930401,
+            "share_roi": 5.161294589772999e-05
+          },
+          {
+            "dso": "/usr/bin/unzip",
+            "period": 2234655,
+            "share_roi": 3.935882072627323e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 1002406,
+            "share_roi": 1.7655306098230218e-05
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 619073,
+            "share_roi": 1.090368903632827e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 509148,
+            "share_roi": 8.967587773119593e-06
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 458914,
+            "share_roi": 8.082819878136426e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 17809,
+            "share_roi": 3.1366865950860425e-07
+          }
+        ]
+      },
+      "unknown_share_change_pp": -3.7807123271377514,
+      "quality": {
+        "unknown_leaf_dso_share": 0.0024768984928303763,
+        "empty_stack_share": 2.395358397055993e-09,
+        "unknown_leaf_symbol_share": 0.12075988160360178,
+        "unresolved_script_share": 0.0008385111465905483,
+        "first_observation_inference_share": 0.0009767406043844108,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 3849,
+        "reported_lost_records": 0,
+        "reported_lost_sample_records": 0,
+        "perf_record_reported_lost_chunks": 0,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 3736,
+      "roi_period": 56776472434,
+      "profile": "analysis/docops/raw/001-chain-pilot-20261103T171603Z-c48c0cbf/perf/out/profile.json",
+      "profile_sha256": "154056a99347cf88f7ebac27af1e938577209546bc03a01d2686b6162614e63f",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/001/out/profile.json",
+      "old_python_unknown_share": 0.09245628160528323,
+      "new_python_unknown_share": 0
+    },
+    "003": {
+      "format": "word",
+      "name": "公开记录元数据清理",
+      "old": {
+        "unknown_period": 4813457765,
+        "unknown_share": 0.13464021620889552,
+        "resolved_share": 0.8653597837911045,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 3510693525,
+            "share_roi": 0.09819978866048482
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 714146716,
+            "share_roi": 0.01997584126452031
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 452356675,
+            "share_roi": 0.012653149461162269
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 126323121,
+            "share_roi": 0.0035334624617034465
+          },
+          {
+            "dso": "[unknown]",
+            "period": 3225716,
+            "share_roi": 9.022850534318413e-05
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 3010957,
+            "share_roi": 8.4221347993003e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 1049243,
+            "share_roi": 2.9349027512589002e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 956599,
+            "share_roi": 2.6757624658458648e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 503011,
+            "share_roi": 1.4070033041092393e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libgpg-error.so.0.33.1",
+            "period": 468692,
+            "share_roi": 1.3110074980657832e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 425015,
+            "share_roi": 1.1888358491086445e-05
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 280333,
+            "share_roi": 7.841368424365578e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 10827,
+            "share_roi": 3.0284874035738255e-07
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 7335,
+            "share_roi": 2.0517183989298984e-07
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 8357787530,
+        "unknown_share": 0.15694311013047202,
+        "resolved_share": 0.843056889869528,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 4820020182,
+            "share_roi": 0.09051067110038435
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 1318983091,
+            "share_roi": 0.02476795536713571
+          },
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 760148979,
+            "share_roi": 0.014274129905616642
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 655523169,
+            "share_roi": 0.012309459236210449
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 267324780,
+            "share_roi": 0.005019843138815016
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 189338655,
+            "share_roi": 0.003555414309942436
+          },
+          {
+            "dso": "[unknown]",
+            "period": 149128905,
+            "share_roi": 0.002800352853795471
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 74978093,
+            "share_roi": 0.0014079437967085737
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 58317335,
+            "share_roi": 0.0010950869349774712
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 57801797,
+            "share_roi": 0.0010854061268904004
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 5802052,
+            "share_roi": 0.00010895133224554769
+          },
+          {
+            "dso": "/usr/lib64/libcap.so.2.69",
+            "period": 409440,
+            "share_roi": 7.688492532403544e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 11052,
+            "share_roi": 2.0753521753644971e-07
+          }
+        ]
+      },
+      "unknown_share_change_pp": 2.23028939215765,
+      "quality": {
+        "unknown_leaf_dso_share": 0.002800352853795471,
+        "empty_stack_share": 2.3472586131067872e-09,
+        "unknown_leaf_symbol_share": 0.15694311013047202,
+        "unresolved_script_share": 0.0010050016656676661,
+        "first_observation_inference_share": 0.0010375539175659536,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 3396,
+        "reported_lost_records": 0,
+        "reported_lost_sample_records": 0,
+        "perf_record_reported_lost_chunks": 0,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 3280,
+      "roi_period": 53253612236,
+      "profile": "analysis/docops/raw/003-chain-pilot-20261103T171640Z-11999db3/perf/out/profile.json",
+      "profile_sha256": "c07b6e4ea448a98ebf723d285d88d3f736fb329e54ed02e8873dcd77335a2a12",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/003/out/profile.json",
+      "old_python_unknown_share": 0.09819978866048482,
+      "new_python_unknown_share": 0
+    },
+    "009": {
+      "format": "word",
+      "name": "事件手册发布",
+      "old": {
+        "unknown_period": 3109939841,
+        "unknown_share": 0.05675765327487045,
+        "resolved_share": 0.9432423467251295,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 1267234089,
+            "share_roi": 0.02312753195201062
+          },
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 1043415701,
+            "share_roi": 0.01904275632543141
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 375060734,
+            "share_roi": 0.006845009288200702
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 116463937,
+            "share_roi": 0.0021255137054827537
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libexpwraplo.so",
+            "period": 91923348,
+            "share_roi": 0.0016776380831764314
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libharfbuzz.so.0.60000.0",
+            "period": 84433196,
+            "share_roi": 0.0015409397957731037
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libi18nlangtag.so",
+            "period": 76797384,
+            "share_roi": 0.0014015831547685182
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 43886417,
+            "share_roi": 0.0008009447664304128
+          },
+          {
+            "dso": "[unknown]",
+            "period": 6779777,
+            "share_roi": 0.00012373365785854162
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 2119737,
+            "share_roi": 3.868605305279089e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 934168,
+            "share_roi": 1.704894183015136e-05
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 862546,
+            "share_roi": 1.5741811515519413e-05
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 17558,
+            "share_roi": 3.204405638533943e-07
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 11248,
+            "share_roi": 2.0528052524336365e-07
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 1,
+            "share_roi": 1.825040231537728e-11
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 18026035256,
+        "unknown_share": 0.2590122732025564,
+        "resolved_share": 0.7409877267974436,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 13221124244,
+            "share_roi": 0.1899715270773167
+          },
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 1387417666,
+            "share_roi": 0.019935509858299654
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 812573501,
+            "share_roi": 0.011675696105615656
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 768789784,
+            "share_roi": 0.011046577172451876
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 720896509,
+            "share_roi": 0.010358408872950956
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 398860455,
+            "share_roi": 0.005731141189561865
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 277958435,
+            "share_roi": 0.003993925734790265
+          },
+          {
+            "dso": "[unknown]",
+            "period": 165658018,
+            "share_roi": 0.0023803048871841176
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 136996146,
+            "share_roi": 0.0019684685340687156
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 115624736,
+            "share_roi": 0.001661387281478723
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 11948563,
+            "share_roi": 0.00017168636475976262
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 6238999,
+            "share_roi": 8.964685193104763e-05
+          },
+          {
+            "dso": "/usr/bin/df",
+            "period": 1173037,
+            "share_roi": 1.6855119587074835e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 521134,
+            "share_roi": 7.488063795848432e-06
+          },
+          {
+            "dso": "/usr/bin/uname",
+            "period": 246130,
+            "share_roi": 3.5365897102706303e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 7899,
+            "share_roi": 1.1349905383914073e-07
+          }
+        ]
+      },
+      "unknown_share_change_pp": 20.225461992768594,
+      "quality": {
+        "unknown_leaf_dso_share": 0.0023803048871841176,
+        "empty_stack_share": 1.13513422626815e-09,
+        "unknown_leaf_symbol_share": 0.2590122732025564,
+        "unresolved_script_share": 0.0026749227826645284,
+        "first_observation_inference_share": 0.000778294422344844,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 7809,
+        "reported_lost_records": 0,
+        "reported_lost_sample_records": 0,
+        "perf_record_reported_lost_chunks": 0,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": false,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "limited",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 7707,
+      "roi_period": 69595293818,
+      "profile": "analysis/docops/raw/009-chain-pilot-20261103T171713Z-5cc572a2/perf/out/profile.json",
+      "profile_sha256": "31a4c99eda085bf4dab714394d6504b6bcceb0ba32c0573b46425877ac97cbfa",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/009/out/profile.json",
+      "old_python_unknown_share": 0.01904275632543141,
+      "new_python_unknown_share": 0
+    },
+    "013": {
+      "format": "excel",
+      "name": "采购投标评审发布",
+      "old": {
+        "unknown_period": 15526853121,
+        "unknown_share": 0.1725768106633965,
+        "resolved_share": 0.8274231893366035,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 10607424601,
+            "share_roi": 0.11789868125416599
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libsclo.so",
+            "period": 2020628566,
+            "share_roi": 0.02245874490716981
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 1915604684,
+            "share_roi": 0.021291432609062518
+          },
+          {
+            "dso": "[unknown]",
+            "period": 272242684,
+            "share_roi": 0.0030259044614532288
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/ImageMagick-6.9.11/modules-Q16/coders/png.so",
+            "period": 216359189,
+            "share_roi": 0.002404774393391972
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 215169613,
+            "share_roi": 0.002391552575002767
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/pyexpat.cpython-312-aarch64-linux-gnu.so",
+            "period": 107841515,
+            "share_roi": 0.0011986295336714184
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libfreeblpriv3.so",
+            "period": 59470453,
+            "share_roi": 0.0006609981447925504
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libi18nlangtag.so",
+            "period": 46025590,
+            "share_roi": 0.0005115620962729603
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libharfbuzz.so.0.60000.0",
+            "period": 44268994,
+            "share_roi": 0.000492038002566292
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0",
+            "period": 10680103,
+            "share_roi": 0.00011870648217852573
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 3210673,
+            "share_roi": 3.568576981472686e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 2695657,
+            "share_roi": 2.996150501824918e-05
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 1748794,
+            "share_roi": 1.9437376567895715e-05
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libexpwraplo.so",
+            "period": 1585659,
+            "share_roi": 1.7624174769168324e-05
+          },
+          {
+            "dso": "[vdso]",
+            "period": 466201,
+            "share_roi": 5.181699155720771e-06
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 464494,
+            "share_roi": 5.162726308260523e-06
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 419414,
+            "share_roi": 4.661674191384127e-06
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+            "period": 412567,
+            "share_roi": 4.585571621635842e-06
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libuno_salhelpergcc3.so.3",
+            "period": 124963,
+            "share_roi": 1.3889302502490014e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 6320,
+            "share_roi": 7.024510600396669e-08
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 1362,
+            "share_roi": 1.5138264933133328e-08
+          },
+          {
+            "dso": "/usr/bin/timeout",
+            "period": 1024,
+            "share_roi": 1.1381485529756627e-08
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/select.cpython-312-aarch64-linux-gnu.so",
+            "period": 1,
+            "share_roi": 1.1114731962652956e-11
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 23890652935,
+        "unknown_share": 0.2695935292228975,
+        "resolved_share": 0.7304064707771025,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.2",
+            "period": 11786127004,
+            "share_roi": 0.13300028188943488
+          },
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 7844154756,
+            "share_roi": 0.08851718578785742
+          },
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 1376796444,
+            "share_roi": 0.015536428132347959
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 1279120900,
+            "share_roi": 0.014434210679465003
+          },
+          {
+            "dso": "/usr/lib64/ImageMagick-7.1.2/modules-Q16HDRI/coders/png.so",
+            "period": 387470285,
+            "share_roi": 0.004372399611109746
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 327116691,
+            "share_roi": 0.0036913408534435276
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 316393017,
+            "share_roi": 0.0035703297982931496
+          },
+          {
+            "dso": "[unknown]",
+            "period": 275173656,
+            "share_roi": 0.0031051908573635446
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 170842486,
+            "share_roi": 0.0019278681443853744
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 117207354,
+            "share_roi": 0.0013226237182260372
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 5034467,
+            "share_roi": 5.681132826210105e-05
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 3132172,
+            "share_roi": 3.534492363647663e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 885505,
+            "share_roi": 9.99246101578018e-06
+          },
+          {
+            "dso": "/usr/lib64/libselinux.so.1",
+            "period": 478645,
+            "share_roi": 5.401258607120348e-06
+          },
+          {
+            "dso": "/usr/lib64/libgcrypt.so.20.4.2",
+            "period": 426305,
+            "share_roi": 4.8106290685339655e-06
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 285355,
+            "share_roi": 3.220082001973962e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 5710,
+            "share_roi": 6.443436502346663e-08
+          },
+          {
+            "dso": "[vdso]",
+            "period": 2180,
+            "share_roi": 2.4600160376735072e-08
+          },
+          {
+            "dso": "/usr/lib64/libtasn1.so.6.6.3",
+            "period": 3,
+            "share_roi": 3.385343171110331e-11
+          }
+        ]
+      },
+      "unknown_share_change_pp": 9.701671855950098,
+      "quality": {
+        "unknown_leaf_dso_share": 0.0031051908573635446,
+        "empty_stack_share": 1.904819757611413e-08,
+        "unknown_leaf_symbol_share": 0.2695935292228975,
+        "unresolved_script_share": 0.00879902110149001,
+        "first_observation_inference_share": 0.00036211737370096255,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 156146,
+        "reported_lost_records": 4490,
+        "reported_lost_sample_records": 7,
+        "perf_record_reported_lost_chunks": 4490,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": false,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "limited",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 156032,
+      "roi_period": 88617308449,
+      "profile": "analysis/docops/raw/013-chain-pilot-20261103T171749Z-33834d51/perf/out/profile.json",
+      "profile_sha256": "b32d6a520f4f0fbdf48ce242ccc6dfbad4fee581c67ac03384cf367107744fa8",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/013/out/profile.json",
+      "old_python_unknown_share": 0.11789868125416599,
+      "new_python_unknown_share": 0
+    },
+    "014": {
+      "format": "excel",
+      "name": "灾害补助公开发布",
+      "old": {
+        "unknown_period": 9628529903,
+        "unknown_share": 0.14368857551462666,
+        "resolved_share": 0.8563114244853733,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 6915666852,
+            "share_roi": 0.10320395000154599
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libmergedlo.so",
+            "period": 1843088767,
+            "share_roi": 0.027504801059476926
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libsclo.so",
+            "period": 311979507,
+            "share_roi": 0.004655735756360718
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 180005580,
+            "share_roi": 0.002686261104805354
+          },
+          {
+            "dso": "[unknown]",
+            "period": 60007509,
+            "share_roi": 0.0008955046694827862
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+            "period": 58922378,
+            "share_roi": 0.0008793110314915721
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+            "period": 57130619,
+            "share_roi": 0.0008525722353337811
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libchartcorelo.so",
+            "period": 51120502,
+            "share_roi": 0.0007628819961065892
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30",
+            "period": 46149334,
+            "share_roi": 0.0006886962111778497
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libreflectionlo.so",
+            "period": 45715417,
+            "share_roi": 0.000682220776584023
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libi18nlangtag.so",
+            "period": 39994288,
+            "share_roi": 0.0005968431660217618
+          },
+          {
+            "dso": "/usr/bin/dash",
+            "period": 7185645,
+            "share_roi": 0.00010723289064949581
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 2709341,
+            "share_roi": 4.043206520572553e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libxml2.so.2.9.14",
+            "period": 2586465,
+            "share_roi": 3.859836083103858e-05
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libexpwraplo.so",
+            "period": 1715528,
+            "share_roi": 2.5601184922181413e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 1416241,
+            "share_roi": 2.113486211555575e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libsqlite3.so.0.8.6",
+            "period": 1075012,
+            "share_roi": 1.604263002735256e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libgcrypt.so.20.4.1",
+            "period": 479321,
+            "share_roi": 7.153008029064473e-06
+          },
+          {
+            "dso": "[vdso]",
+            "period": 460454,
+            "share_roi": 6.871451822504861e-06
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libgpg-error.so.0.33.1",
+            "period": 334563,
+            "share_roi": 4.992753969110257e-06
+          },
+          {
+            "dso": "/usr/bin/gpgconf",
+            "period": 333878,
+            "share_roi": 4.982531570133559e-06
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 325642,
+            "share_roi": 4.859624011050242e-06
+          },
+          {
+            "dso": "/usr/lib/libreoffice/program/libuno_salhelpergcc3.so.3",
+            "period": 103961,
+            "share_roi": 1.5514318540384661e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 20526,
+            "share_roi": 3.063138122564573e-07
+          },
+          {
+            "dso": "/usr/local/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-aarch64-linux-gnu.so",
+            "period": 1725,
+            "share_roi": 2.574253756905334e-08
+          },
+          {
+            "dso": "/usr/bin/timeout",
+            "period": 848,
+            "share_roi": 1.2654882236844772e-08
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 8394132062,
+        "unknown_share": 0.1322137997996605,
+        "resolved_share": 0.8677862002003395,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 4808553703,
+            "share_roi": 0.07573828382953528
+          },
+          {
+            "dso": "/usr/lib64/libfreeblpriv3.so",
+            "period": 1231629687,
+            "share_roi": 0.019399080174292416
+          },
+          {
+            "dso": "/usr/lib64/libpixman-1.so.0.42.2",
+            "period": 1180582672,
+            "share_roi": 0.018595051863595075
+          },
+          {
+            "dso": "/usr/lib64/pkcs11/p11-kit-trust.so",
+            "period": 317914256,
+            "share_roi": 0.005007385097802148
+          },
+          {
+            "dso": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+            "period": 288878048,
+            "share_roi": 0.004550043306763109
+          },
+          {
+            "dso": "/usr/lib64/libcairo.so.2.11800.0",
+            "period": 241820114,
+            "share_roi": 0.0038088459776161048
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 177139574,
+            "share_roi": 0.002790079546098181
+          },
+          {
+            "dso": "[unknown]",
+            "period": 124928037,
+            "share_roi": 0.001967709151021763
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 12012980,
+            "share_roi": 0.00018921333629088734
+          },
+          {
+            "dso": "/usr/lib64/libsqlite3.so.0.8.6",
+            "period": 5096738,
+            "share_roi": 8.02774000439978e-05
+          },
+          {
+            "dso": "/usr/bin/sed",
+            "period": 1454131,
+            "share_roi": 2.290364072145332e-05
+          },
+          {
+            "dso": "/usr/bin/ls",
+            "period": 1323761,
+            "share_roi": 2.085021662083524e-05
+          },
+          {
+            "dso": "/usr/lib64/libnssutil3.so",
+            "period": 1012427,
+            "share_roi": 1.594647543082351e-05
+          },
+          {
+            "dso": "/usr/lib64/libgpg-error.so.0.34.0",
+            "period": 890770,
+            "share_roi": 1.4030287536301045e-05
+          },
+          {
+            "dso": "/usr/lib64/libgcrypt.so.20.4.2",
+            "period": 474046,
+            "share_roi": 7.466575755170656e-06
+          },
+          {
+            "dso": "/usr/lib64/libselinux.so.1",
+            "period": 394751,
+            "share_roi": 6.217620749736041e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 21000,
+            "share_roi": 3.307655604278567e-07
+          },
+          {
+            "dso": "/usr/bin/timeout",
+            "period": 3042,
+            "share_roi": 4.791375403912096e-08
+          },
+          {
+            "dso": "[vdso]",
+            "period": 2325,
+            "share_roi": 3.6620472761655564e-08
+          }
+        ]
+      },
+      "unknown_share_change_pp": -1.1474775714966161,
+      "quality": {
+        "unknown_leaf_dso_share": 0.001967709151021763,
+        "empty_stack_share": 2.392537553761497e-08,
+        "unknown_leaf_symbol_share": 0.1322137997996605,
+        "unresolved_script_share": 0.008042674541975325,
+        "first_observation_inference_share": 0.0007690577753048068,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 109682,
+        "reported_lost_records": 2910,
+        "reported_lost_sample_records": 7,
+        "perf_record_reported_lost_chunks": 2910,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 109567,
+      "roi_period": 63489076592,
+      "profile": "analysis/docops/raw/014-chain-pilot-20261103T171940Z-b692da2e/perf/out/profile.json",
+      "profile_sha256": "ff3e554fa5e306da18d938e285a2659f9ab0209a717eb9199c25ccda04f34e46",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/014/out/profile.json",
+      "old_python_unknown_share": 0.10320395000154599,
+      "new_python_unknown_share": 0
+    },
+    "031": {
+      "format": "pdf",
+      "name": "听证材料包扁平化发布",
+      "old": {
+        "unknown_period": 1633769268,
+        "unknown_share": 0.04859342712907086,
+        "resolved_share": 0.9514065728709291,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 1573564008,
+            "share_roi": 0.04680273368667422
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+            "period": 58945821,
+            "share_roi": 0.0017532337726203055
+          },
+          {
+            "dso": "[vdso]",
+            "period": 660611,
+            "share_roi": 1.9648645079766936e-05
+          },
+          {
+            "dso": "[unknown]",
+            "period": 586727,
+            "share_roi": 1.7451102966369642e-05
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 12101,
+            "share_roi": 3.5992173020167647e-07
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 3422138875,
+        "unknown_share": 0.08678559227865153,
+        "resolved_share": 0.9132144077213484,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 3421412927,
+            "share_roi": 0.08676718220546491
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 713738,
+            "share_roi": 1.8100427049963066e-05
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 11590,
+            "share_roi": 2.9392290939962834e-07
+          },
+          {
+            "dso": "[unknown]",
+            "period": 620,
+            "share_roi": 1.572322725002326e-08
+          }
+        ]
+      },
+      "unknown_share_change_pp": 3.819216514958067,
+      "quality": {
+        "unknown_leaf_dso_share": 1.572322725002326e-08,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.08678559227865153,
+        "unresolved_script_share": 0.0001701531134534227,
+        "first_observation_inference_share": 0.00019619805611207532,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 875,
+        "reported_lost_records": 0,
+        "reported_lost_sample_records": 0,
+        "perf_record_reported_lost_chunks": 0,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 773,
+      "roi_period": 39432108316,
+      "profile": "analysis/docops/raw/031-chain-pilot-20261103T172103Z-a25988a3/perf/out/profile.json",
+      "profile_sha256": "95abab2e2ff69c43ba5762974993cd2325f177838d5bb0836d21b35ed975420d",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/031/out/profile.json",
+      "old_python_unknown_share": 0.04680273368667422,
+      "new_python_unknown_share": 0
+    },
+    "037": {
+      "format": "pdf",
+      "name": "公交绕行材料修复",
+      "old": {
+        "unknown_period": 5224659675,
+        "unknown_share": 0.11913380599414275,
+        "resolved_share": 0.8808661940058573,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 5162087357,
+            "share_roi": 0.1177070186324921
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+            "period": 60688974,
+            "share_roi": 0.001383842949445233
+          },
+          {
+            "dso": "/usr/bin/id",
+            "period": 807764,
+            "share_roi": 1.841880728146235e-05
+          },
+          {
+            "dso": "[unknown]",
+            "period": 692663,
+            "share_roi": 1.5794249691741097e-05
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libselinux.so.1",
+            "period": 375413,
+            "share_roi": 8.560247421221577e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 7504,
+            "share_roi": 1.7110781099441604e-07
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 5824002624,
+        "unknown_share": 0.10316929638915899,
+        "resolved_share": 0.896830703610841,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 5797867418,
+            "share_roi": 0.10270632427391742
+          },
+          {
+            "dso": "/usr/bin/grep",
+            "period": 10504177,
+            "share_roi": 0.00018607624690472442
+          },
+          {
+            "dso": "[unknown]",
+            "period": 7919864,
+            "share_roi": 0.00014029643342032777
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 6462359,
+            "share_roi": 0.00011447746062075762
+          },
+          {
+            "dso": "/usr/bin/df",
+            "period": 802513,
+            "share_roi": 1.421611680117834e-05
+          },
+          {
+            "dso": "[vdso]",
+            "period": 438716,
+            "share_roi": 7.771634725600403e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 7023,
+            "share_roi": 1.2440893579876648e-07
+          },
+          {
+            "dso": "/usr/bin/gawk",
+            "period": 554,
+            "share_roi": 9.813833181335132e-09
+          }
+        ]
+      },
+      "unknown_share_change_pp": -1.5964509604983759,
+      "quality": {
+        "unknown_leaf_dso_share": 0.00014029643342032777,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.10316929638915899,
+        "unresolved_script_share": 0.0022129129359586054,
+        "first_observation_inference_share": 0.0002994102719583542,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 5192,
+        "reported_lost_records": 0,
+        "reported_lost_sample_records": 0,
+        "perf_record_reported_lost_chunks": 0,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 5084,
+      "roi_period": 56450928986,
+      "profile": "analysis/docops/raw/037-chain-pilot-20261103T172125Z-ae8d3d0d/perf/out/profile.json",
+      "profile_sha256": "1c9abe744522b69b7b0a9bed1aa7aa03b5ecc995b680ca664dbc27994a8cf2fd",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/037/out/profile.json",
+      "old_python_unknown_share": 0.1177070186324921,
+      "new_python_unknown_share": 0
+    },
+    "pdfwf005": {
+      "format": "pdf",
+      "name": "结算材料包重建",
+      "old": {
+        "unknown_period": 6371178901,
+        "unknown_share": 0.13549881252976984,
+        "resolved_share": 0.8645011874702302,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/local/lib/libpython3.12.so.1.0",
+            "period": 5818929303,
+            "share_roi": 0.1237538645520419
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/ImageMagick-6.9.11/modules-Q16/coders/png.so",
+            "period": 345439066,
+            "share_roi": 0.007346612608389661
+          },
+          {
+            "dso": "[vdso]",
+            "period": 79760836,
+            "share_roi": 0.0016963106408274622
+          },
+          {
+            "dso": "[unknown]",
+            "period": 67342147,
+            "share_roi": 0.0014321966300888216
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0",
+            "period": 58793310,
+            "share_roi": 0.0012503845541747788
+          },
+          {
+            "dso": "/usr/lib/aarch64-linux-gnu/libtinfo.so.6.4",
+            "period": 895018,
+            "share_roi": 1.9034762337898684e-05
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 19221,
+            "share_roi": 4.0878190929875225e-07
+          }
+        ]
+      },
+      "new": {
+        "unknown_period": 15722748304,
+        "unknown_share": 0.3879932880830576,
+        "resolved_share": 0.6120067119169423,
+        "unresolved_dsos": [
+          {
+            "dso": "/usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.2",
+            "period": 10402702527,
+            "share_roi": 0.25670949380865077
+          },
+          {
+            "dso": "/usr/lib64/libpng16.so.16.40.0",
+            "period": 4699487250,
+            "share_roi": 0.11597015198468995
+          },
+          {
+            "dso": "/usr/lib64/ImageMagick-7.1.2/modules-Q16HDRI/coders/png.so",
+            "period": 488957271,
+            "share_roi": 0.012066092749137522
+          },
+          {
+            "dso": "[unknown]",
+            "period": 66350398,
+            "share_roi": 0.001637341550464823
+          },
+          {
+            "dso": "/usr/lib64/libfontconfig.so.1.12.1",
+            "period": 58730114,
+            "share_roi": 0.0014492943345379152
+          },
+          {
+            "dso": "/usr/bin/bash",
+            "period": 5703637,
+            "share_roi": 0.00014074974876365524
+          },
+          {
+            "dso": "/usr/bin/mkdir",
+            "period": 427844,
+            "share_roi": 1.0557988790317005e-05
+          },
+          {
+            "dso": "/opt/docops/venv/bin/rg",
+            "period": 371092,
+            "share_roi": 9.157508755939824e-06
+          },
+          {
+            "dso": "/usr/bin/taskset",
+            "period": 18171,
+            "share_roi": 4.4840926671602333e-07
+          }
+        ]
+      },
+      "unknown_share_change_pp": 25.249447555328775,
+      "quality": {
+        "unknown_leaf_dso_share": 0.001637341550464823,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.3879932880830576,
+        "unresolved_script_share": 0.00014592892391475086,
+        "first_observation_inference_share": 0.0009739599557174955,
+        "unknown_categories_may_overlap": true
+      },
+      "capture_quality": {
+        "aggregated_sample_events": 1352,
+        "reported_lost_records": 0,
+        "reported_lost_sample_records": 0,
+        "perf_record_reported_lost_chunks": 0,
+        "quantified_lost_samples": null,
+        "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+      },
+      "qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": false,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "limited",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 1239,
+      "roi_period": 40523248177,
+      "profile": "analysis/docops/raw/pdfwf005-chain-pilot-20261103T172155Z-b9bffc63/perf/out/profile.json",
+      "profile_sha256": "a6398584e4e37ac3b09ab93fbc20bbf4ed8cac3b936090656378aed294f06659",
+      "historical_profile": "analysis/docops/raw/first-comparison-batch-20261103/offline-symbol-enrichment-v3/pdfwf005/out/profile.json",
+      "old_python_unknown_share": 0.1237538645520419,
+      "new_python_unknown_share": 0
+    }
+  },
+  "interpretation": "New runtime captures, not a re-symbolization of the same perf.data; changed versions, optional dependencies and workload weights can affect unresolved shares. One capture does not estimate repeat variability."
+}

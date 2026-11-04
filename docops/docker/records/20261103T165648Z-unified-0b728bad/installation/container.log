@@ -1,0 +1,188 @@
+{
+  "status": "passed",
+  "errors": [],
+  "payload": {
+    "files": 247,
+    "tasks": 12,
+    "status": "static_valid",
+    "replay_validated": false
+  },
+  "environment": {
+    "runtime_profile": "seven-case-openeuler-unified",
+    "python": {
+      "present": true,
+      "version": "3.12.3",
+      "executable": "/opt/docops/venv/bin/python3",
+      "prefix": "/opt/docops/venv",
+      "command_path": "/opt/docops/venv/bin/python"
+    },
+    "docx": {
+      "present": true,
+      "version": "1.2.0"
+    },
+    "pptx": {
+      "present": true,
+      "version": "1.0.2"
+    },
+    "openpyxl": {
+      "present": true,
+      "version": "3.1.5"
+    },
+    "pypdf": {
+      "present": true,
+      "version": "6.10.0"
+    },
+    "lxml": {
+      "present": true,
+      "version": "6.1.2"
+    },
+    "fontTools": {
+      "present": true,
+      "version": "4.68.0"
+    },
+    "PIL": {
+      "present": true,
+      "version": "12.2.0"
+    },
+    "reportlab": {
+      "present": true,
+      "version": "5.0.1"
+    },
+    "python3": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/python3"
+    },
+    "bash": {
+      "present": true,
+      "command_path": "/usr/bin/bash"
+    },
+    "soffice": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/soffice"
+    },
+    "libreoffice": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/libreoffice"
+    },
+    "pdftoppm": {
+      "present": true,
+      "command_path": "/usr/bin/pdftoppm"
+    },
+    "pdftotext": {
+      "present": true,
+      "command_path": "/usr/bin/pdftotext"
+    },
+    "pdfinfo": {
+      "present": true,
+      "command_path": "/usr/bin/pdfinfo"
+    },
+    "montage": {
+      "present": true,
+      "command_path": "/usr/bin/montage"
+    },
+    "fc-list": {
+      "present": true,
+      "command_path": "/usr/bin/fc-list"
+    },
+    "fc-cache": {
+      "present": true,
+      "command_path": "/usr/bin/fc-cache"
+    },
+    "fc-match": {
+      "present": true,
+      "command_path": "/usr/bin/fc-match"
+    },
+    "perf": {
+      "present": true,
+      "command_path": "/usr/bin/perf"
+    },
+    "unzip": {
+      "present": true,
+      "command_path": "/usr/bin/unzip"
+    },
+    "rg": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/rg"
+    },
+    "timeout": {
+      "present": true,
+      "command_path": "/usr/bin/timeout"
+    },
+    "cp": {
+      "present": true,
+      "command_path": "/usr/bin/cp"
+    },
+    "mkdir": {
+      "present": true,
+      "command_path": "/usr/bin/mkdir"
+    },
+    "find": {
+      "present": true,
+      "command_path": "/usr/bin/find"
+    },
+    "sort": {
+      "present": true,
+      "command_path": "/usr/bin/sort"
+    },
+    "sed": {
+      "present": true,
+      "command_path": "/usr/bin/sed"
+    },
+    "ls": {
+      "present": true,
+      "command_path": "/usr/bin/ls"
+    },
+    "cat": {
+      "present": true,
+      "command_path": "/usr/bin/cat"
+    },
+    "tail": {
+      "present": true,
+      "command_path": "/usr/bin/tail"
+    },
+    "sha256sum": {
+      "present": true,
+      "command_path": "/usr/bin/sha256sum"
+    },
+    "skills": {
+      "doc": true,
+      "xlsx": true,
+      "pptx": true,
+      "pdf": true
+    },
+    "payload_catalog": true,
+    "payload_tasks": [
+      "001",
+      "003",
+      "009",
+      "013",
+      "014",
+      "016",
+      "021",
+      "026",
+      "029",
+      "031",
+      "037",
+      "pdfwf005"
+    ],
+    "optional_numpy_present": false,
+    "frozen_font_sources": {
+      "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf": true,
+      "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf": true
+    }
+  },
+  "perf": {
+    "present": true,
+    "rc": 0,
+    "version": "perf version 6.6.0-145.3.23.154.oe2403sp3.aarch64"
+  },
+  "devkit": {
+    "present": true,
+    "root": "/opt/devkit",
+    "binary": "/opt/devkit/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64/devkit",
+    "version": "devkit version 26.0.RC1",
+    "version_rc": 0,
+    "libtuner_unresolved": 0,
+    "libtuner_ldd_rc": 0
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "docops-replay-location-migration-v1",
+  "recorded_at": "2026-11-03T20:10:48.721874+08:00",
+  "source_repository": "/home/lcq/agent_workload_characterization",
+  "replay_repository": "/home/lcq/office-trace-replay",
+  "scope": "location_migration_and_static_import_only",
+  "original_preparation_record": "docops/provenance/source-preparation.json",
+  "payload": "docops/payload",
+  "payload_index_sha256": "8651b0ba063d8ee53673b7b8b529b5116f28d0ef6d6ffafaa9f1ed42363ce6af",
+  "fresh_import_matches_migrated_payload": true,
+  "source_repository_evidence_verification": {
+    "outputs": 12,
+    "inputs": 322,
+    "issues": []
+  },
+  "targeted_tests": {
+    "command": "python3 -B -m unittest discover -s docops/tests -p test_compile.py",
+    "passed": 13
+  },
+  "runtime_status": {
+    "tasks": 12,
+    "scripts": 23,
+    "selected_commands": 37,
+    "payload_files": 247,
+    "replay_executed": false,
+    "image_built": false,
+    "profiling_started": false
+  },
+  "code_files": {
+    "docops/compile.py": "acae40838f761891cd1d7a79a122b47440d3f24d531148fcb88bc94c2345d0f2",
+    "docops/tests/test_compile.py": "5179ee7dbb07f49f85e2f0f637d66ae60720babaa30a37ccb599e373e2889ad0",
+    "docops/config/selection.json": "ae2892379634e33b1e3c5e30db5d1e22ed365fdcca660c81513a6f2261cfae70",
+    "docops/README.md": "18ab790c8f8084adb3bc63a06ab3db080f38e003c49117c326cfee0ec127cb4e",
+    "analysis/docops/README.md": "0bca68d8b98e72514598d0cf4fb3354af9cc524aa5034a470e99ae764251c84d"
+  },
+  "moves": {
+    "scripts/docops_replay_compile.py": "docops/compile.py",
+    "tests/test_docops_replay_compile.py": "docops/tests/test_compile.py",
+    "env/docops-l3-replay-01/selection.json": "docops/config/selection.json",
+    "data/derived/docops-l3-final-effective-01": "docops/payload"
+  },
+  "adaptations": [
+    "compiler source root is explicit at import only",
+    "selection loads from office-trace-replay/docops/config",
+    "compiled payload remains byte-for-byte unchanged",
+    "original preparation record retained as historical metadata; its old paths are not current commands"
+  ]
+}

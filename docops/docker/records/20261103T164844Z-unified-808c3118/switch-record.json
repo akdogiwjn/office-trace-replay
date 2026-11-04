@@ -1,0 +1,45 @@
+{
+  "schema": "docops-unified-runtime-switch-v1",
+  "status": "passed_installation_and_synthetic_compatibility",
+  "candidate_reference": "docops-replay:openeuler-unified-candidate-03",
+  "candidate_id": "sha256:2c08fd3cb72cae12f6e7f0d201eff98d8a2b06073ca8393d247bb4c5fc238d8d",
+  "runtime_profile": "seven-case-openeuler-unified",
+  "current_pointer_sha256": "17bc56b38a8ed199a6083634ec1284551c40722b287c04a7ef4e631ecfb95623",
+  "frozen_payload_unchanged": true,
+  "payload_index_sha256": "8651b0ba063d8ee53673b7b8b529b5116f28d0ef6d6ffafaa9f1ed42363ce6af",
+  "targeted_tests_passed": 66,
+  "python_calc_writer_impress_full_symbols": true,
+  "additional_lxml_full_debug_symbols": false,
+  "real_workload_executed": false,
+  "profiling_started": false,
+  "previous_candidate_snapshot": "previous-candidate.json",
+  "old_images_deleted": false,
+  "existing_measurement_records_modified": false,
+  "source_sha256": {
+    "replay.py": "698aa4fd595d778b0232c0fb6ac3022812b884ce51451bd7d0d80bf1e03a7f57",
+    "compile.py": "acae40838f761891cd1d7a79a122b47440d3f24d531148fcb88bc94c2345d0f2",
+    "docker/install_state_check.py": "f6bdac2c93aaec4f20297248c189ca4bbb4ef2e4785f9e794bb1d4fc806ba7a6",
+    "docker/devkit.sh": "ab12fade843a35e70171b7613501a2de3d3a46f4995e7a3a56402c918bc80b76",
+    "docker/Dockerfile.unified": "b1a7ef83cb65d30d39315c77445c533f70ded1e464ada65eaef945472f3a4e91",
+    "docker/build_unified.py": "fad6f077b7868b44633b55f9fd526fa8a6032dc0f42ba179c2540083bf70694e",
+    "docker/check_image.py": "4567c98c2156e1c4067aaed5f1a949c59f508aa7278743748045348e7706bb15",
+    "docker/runtime-profile.json": "68c3ccd5c3694471915b3dbed45c6663a90b21993cb2f319bfa0b625211eff24",
+    "docker/core_identity.py": "8f9c2a7a29b753c3d789bb95f637a22b1a1e14e3c97687643bf6d2c695063e51",
+    "docker/smoke_unified.py": "2846e9b11705f725b998849d2502588a6ab0853724a1e0a361228d1115728bc7",
+    "docker/docops-runtime.sh": "13742902081cecdc6b77b5286b6d90e7cda1f9ea264b33d1d635d0385183428f",
+    "docker/soffice-unified": "5b4d3d671af0a24632b2b5f0d824f5c26ee41a6de8e07f0553ffc810b90edb9c",
+    "docker/verify_build_inputs.py": "369f6c6466d0bb958f1564abad40c0b0458f4f0600dc6711c37a2fade7cfda7b"
+  },
+  "measurement_launcher_sha256": "6b7b2c683064c0be9d5a4fc44c438293199037d94b6aaee6a777ee4f6723be4f",
+  "changes": [
+    "Private DocOps venv on the exact seven-case Python 3.12.3 interpreter",
+    "Same Python/LO/Poppler/perf core ELF hashes and build-ids; original seven-case entry bytes unchanged",
+    "Normal Linux LO profile adapter; original Skill scripts untouched",
+    "All frozen CLI tools preflighted; original rg binary in private prefix, no system-library replacement",
+    "Do not mount historical Debian symbols over unified runtime symbols"
+  ],
+  "not_validated": [
+    "Twelve real DocOps task outputs under the unified runtime",
+    "Formal perf/DevKit captures and actual unresolved-symbol rates under the unified runtime"
+  ]
+}

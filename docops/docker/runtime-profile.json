@@ -1,0 +1,12 @@
+{
+  "schema": "docops-runtime-profile-v1",
+  "id": "seven-case-openeuler-unified",
+  "base_reference": "office-trace-replay:measured-five-repeats",
+  "base_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "python": "/opt/docops/venv/bin/python3",
+  "interpreter_base": "/opt/python-3.12.3",
+  "libreoffice_profile": "DocOps private launcher binds the normal ~/.config/libreoffice/4 used by frozen Skills; explicit UserInstallation arguments are preserved",
+  "original_agent_environment": "preserved unchanged in payload/catalog.json",
+  "numpy": "not installed: not imported by the selected frozen scripts; avoids optional BLAS initialization",
+  "existing_measurements": "belong to the original Debian candidate; not reusable as unified-runtime captures"
+}

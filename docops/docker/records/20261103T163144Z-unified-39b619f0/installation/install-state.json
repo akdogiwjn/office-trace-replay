@@ -1,0 +1,120 @@
+{
+  "schema": "docops-replay-install-state-check-v1",
+  "image": {
+    "actual_id": "unknown",
+    "reported_reference": "docops-replay:openeuler-unified-candidate-01",
+    "note": "bind actual ID using host docker inspect; environment is not identity proof"
+  },
+  "payload": {
+    "files": 247,
+    "tasks": 12,
+    "status": "static_valid",
+    "replay_validated": false
+  },
+  "environment": {
+    "runtime_profile": "seven-case-openeuler-unified",
+    "python": {
+      "present": true,
+      "version": "3.12.3",
+      "executable": "/opt/docops/venv/bin/python3",
+      "prefix": "/opt/docops/venv"
+    },
+    "docx": {
+      "present": true,
+      "version": "1.2.0"
+    },
+    "pptx": {
+      "present": true,
+      "version": "1.0.2"
+    },
+    "openpyxl": {
+      "present": true,
+      "version": "3.1.5"
+    },
+    "pypdf": {
+      "present": true,
+      "version": "6.10.0"
+    },
+    "lxml": {
+      "present": true,
+      "version": "6.1.2"
+    },
+    "fontTools": {
+      "present": true,
+      "version": "4.68.0"
+    },
+    "PIL": {
+      "present": true,
+      "version": "12.2.0"
+    },
+    "reportlab": {
+      "present": true,
+      "version": "5.0.1"
+    },
+    "soffice": {
+      "present": true
+    },
+    "pdftoppm": {
+      "present": true
+    },
+    "montage": {
+      "present": true
+    },
+    "fc-list": {
+      "present": true
+    },
+    "fc-cache": {
+      "present": true
+    },
+    "perf": {
+      "present": true
+    },
+    "skills": {
+      "doc": true,
+      "xlsx": true,
+      "pptx": true,
+      "pdf": true
+    },
+    "payload_catalog": true,
+    "payload_tasks": [
+      "001",
+      "003",
+      "009",
+      "013",
+      "014",
+      "016",
+      "021",
+      "026",
+      "029",
+      "031",
+      "037",
+      "pdfwf005"
+    ],
+    "optional_numpy_present": false
+  },
+  "extra": {
+    "perf": {
+      "present": true,
+      "rc": 0,
+      "version": "perf version 6.6.0-145.3.23.154.oe2403sp3.aarch64"
+    },
+    "soffice": {
+      "present": true,
+      "rc": 0,
+      "version": "LibreOfficeDev 25.8.7.3"
+    },
+    "devkit": {
+      "present": true,
+      "root": "/opt/devkit",
+      "binary": "/opt/devkit/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64/devkit",
+      "version": "devkit version 26.0.RC1",
+      "version_rc": 0,
+      "libtuner_unresolved": 0,
+      "libtuner_ldd_rc": 0
+    }
+  },
+  "errors": [],
+  "status": "passed",
+  "perf_capture_validated": false,
+  "devkit_capture_validated": false
+}

@@ -1,0 +1,38 @@
+# Same exact Python/LibreOffice/Poppler/perf ELF as the seven-case measured image.
+# Host downloads are frozen first; the build itself has no network.
+ARG BASE_IMAGE=office-trace-replay:measured-five-repeats
+FROM ${BASE_IMAGE}
+COPY vendor/rpms/ /opt/docops-offline/rpms/
+# RPM dependency checks remain strict. No --nodeps, --force, or core upgrades.
+RUN rpm -ivh /opt/docops-offline/rpms/*.rpm && rm -rf /opt/docops-offline/rpms
+COPY vendor/wheels/ /opt/docops-offline/wheels/
+COPY requirements.lock /opt/docops-offline/requirements.lock
+RUN /opt/python-3.12.3/bin/python3.12 -m venv /opt/docops/venv \
+    && /opt/docops/venv/bin/python -m pip install --no-index --no-compile --require-hashes \
+       --find-links=/opt/docops-offline/wheels -r /opt/docops-offline/requirements.lock \
+    && /opt/docops/venv/bin/python -m pip check \
+    && rm -rf /opt/docops-offline
+COPY vendor/bin/rg /opt/docops/venv/bin/rg
+COPY vendor/fonts/ /usr/share/fonts/truetype/liberation/
+RUN fc-cache -f /usr/share/fonts/truetype/liberation
+COPY replay.py compile.py /opt/docops/
+COPY payload /opt/docops/payload
+COPY payload/skills/ /root/.codex/skills/
+COPY install_state_check.py /opt/docops/docker/install_state_check.py
+COPY smoke_unified.py /opt/docops/docker/smoke_unified.py
+COPY core_identity.py /opt/docops/docker/core_identity.py
+COPY runtime-profile.json /opt/docops/runtime-profile.json
+COPY core-baseline.json /opt/docops/core-baseline.json
+COPY docops-runtime.sh /etc/profile.d/docops-runtime.sh
+COPY soffice-unified /opt/docops/venv/bin/soffice
+COPY devkit.sh /usr/local/bin/devkit
+COPY devkit/ /opt/devkit/
+RUN chmod 0755 /usr/local/bin/devkit /opt/docops/venv/bin/soffice \
+    && ln -s soffice /opt/docops/venv/bin/libreoffice
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 \
+    DOCOPS_RUNTIME_ACTIVE=1 VIRTUAL_ENV=/opt/docops/venv
+ENV PATH="/opt/docops/venv/bin:${PATH}"
+WORKDIR /root
+# Preserve the earlier DocOps command style: image python3 /opt/docops/replay.py ...
+ENTRYPOINT []
+CMD ["/bin/bash"]

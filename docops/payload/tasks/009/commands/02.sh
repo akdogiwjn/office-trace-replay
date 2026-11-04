@@ -1,0 +1,1 @@
+python3 /root/.codex/skills/doc/scripts/render_docx.py /root/submission/docops_v2_l3_009_docx_incident_manual_publication_output.docx --output_dir /root/tmp/docs/render_v1

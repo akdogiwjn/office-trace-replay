@@ -1,0 +1,455 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "026",
+  "task_id": "docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild",
+  "format": "pptx",
+  "source_run_id": "07-pptx-026-20261103T104652Z",
+  "historical_score": {
+    "status": "valid",
+    "reward": 0,
+    "detail": "consumed",
+    "tests_failed": 4,
+    "tests_error": 0,
+    "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/score.json",
+    "ctrf": null,
+    "ctrf_counts": null,
+    "raw_reward": null,
+    "raw_evidence": "summary_only"
+  },
+  "output_path": "/root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output.pptx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/026/seed/root/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input.pptx",
+      "destination": "/root/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input.pptx",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild/environment/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input.pptx",
+      "sha256": "35b5baebd8a70b066b61b64e6ecaee3ab4518205b6c0ed7a3f438405055121f8"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild/environment/original_task_description.txt",
+      "sha256": "ae0f3ddeb5f6730043d9755d9f1c02ea9539710681671de31eb0fe503266448d"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild/environment/task_metadata.json",
+      "sha256": "d24140f6994324aeae18220d37f2cc52664ee533a018f55946ea21f4efb8f57f"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild/instruction.md",
+      "sha256": "1e4c2214edb6f1a6d744f585be0a07265e543a37ae47ecf0b47fa2baa21df18d"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/026/seed/root/tmp/docs/build_climate_disclosure.py",
+      "destination": "/root/tmp/docs/build_climate_disclosure.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/07-pptx-026-20261103T104652Z/preserve-out/files/root_tmp_docs_build_climate_disclosure.py.v2.update",
+      "sha256": "7aa55dbd1c9127656ce56ab2ac0c1f09c3c1c84b499d1c4b6e1cde2499f2a766",
+      "version": 2,
+      "source_item_id": "call_00_ET_jVutcAs9ZRE9zmOQVEW62347",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/026/seed/root/tmp/docs/qa_climate_disclosure.py",
+      "destination": "/root/tmp/docs/qa_climate_disclosure.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/07-pptx-026-20261103T104652Z/preserve-out/files/root_tmp_docs_qa_climate_disclosure.py.v1.add",
+      "sha256": "319dacd6007cf06e25668f1eb7dbe54422fad91a85f0a5fc87eb849d0e5ef5c7",
+      "version": 1,
+      "source_item_id": "call_00_aQFA3PH0u0FLeUPA0F9h2159",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build",
+      "source_item_id": "call_00_iwvby0eKej2wT8TDRzgL7490",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-lc",
+        "python /root/tmp/docs/build_climate_disclosure.py"
+      ],
+      "shell_body": "tasks/026/commands/01.sh",
+      "shell_sha256": "740ea3037d11a805f0a5227fc4b870c04a457dd2b577cd5d7cabfa0caa6d348e",
+      "source_command_sha256": "27550678adc8bd3c72321ff8fb141f95c7584e943222ac6315e9f1183a8754cd",
+      "source_exit_code": 0,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "convert_pdf",
+      "source_item_id": "call_00_bsLGbudDm0m2A4A6Hy3S8256",
+      "phase": "workflow",
+      "cwd": "/root/tmp/docs",
+      "argv": [
+        "/bin/bash",
+        "-lc",
+        "python /root/.codex/skills/pptx/scripts/office/soffice.py --headless --convert-to pdf /root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output.pptx"
+      ],
+      "shell_body": "tasks/026/commands/02.sh",
+      "shell_sha256": "494f484a1eaa02f0c66bc27d66f6a06099ae82536145a2426f20e462bd17dc66",
+      "source_command_sha256": "609081af221e7cea15093d0ceb02f66a0eb72415551e743ac55bd5f7f26cafbc",
+      "source_exit_code": 0,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "render",
+      "source_item_id": "call_00_ByRs2gVQ0FdoIPnrWayI2503",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-lc",
+        "mkdir -p /root/tmp/docs/rendered && pdftoppm -jpeg -r 150 /root/tmp/docs/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output.pdf /root/tmp/docs/rendered/slide"
+      ],
+      "shell_body": "tasks/026/commands/03.sh",
+      "shell_sha256": "4f741989bc02e836cf0701b04b6c379d248e1b0e878f3a03a508b8609e61b2f5",
+      "source_command_sha256": "5e59d01131be6355988ad4109253db45d1dbd75aee8d8cdafcc8cd15b11aaf6d",
+      "source_exit_code": 0,
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "validate",
+      "source_item_id": "call_00_mZ2VvLL4PuPvjQN5PTIX2488",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-lc",
+        "python /root/tmp/docs/qa_climate_disclosure.py"
+      ],
+      "shell_body": "tasks/026/commands/04.sh",
+      "shell_sha256": "409008a3cf0ffef091316b4fbccf9815c54369d2685fadfbbeba1560e77d8bed",
+      "source_command_sha256": "0fdccda8cdf6288fecd86057ac630ba53c2cf8876b8e3b531d051d64ff3e93a2",
+      "source_exit_code": 0,
+      "depends_on": [
+        "03"
+      ]
+    }
+  ],
+  "review": "Converter runs with original cwd /root/tmp/docs. It has no --outdir; preserving cwd is required for the following renderer. Duplicate thumbnail generation is omitted.",
+  "excluded_items": [
+    {
+      "source_item_id": "01a1a104-e3f1-7401-b1ba-af0cbac4c6aa",
+      "type": "userMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "4cd93bfb-8d97-4ff4-89aa-9321c47cefe2",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "afdb1615-6047-4189-8eff-7fd5cb0ed983",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_TlPPuioQJoa7bZELPdGh0233",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "bc042822-2a6a-4e2f-8e1c-4f9bcc82f7e3",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_7rKddLiU1hVB4xyz88Fg7390",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_NWs2K2viRPPppcbzM9fu4320",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_TdQeCV9AL7OliSEfNgvs9131",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_Ze0CDjppBAbOdlrEGRZP5220",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "77743321-f11e-4eae-8e3d-c12153f87573",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "d2526c89-0a2a-4999-9afd-ebd4e56f57ed",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_5CP3YlOchTgx6NGcG6XY7147",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_j21GhWnrwwUkXokfV78L2239",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_tqpjYADNGR6Bg6zRlze94384",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "a00dabd6-6235-4261-8874-e85a9bf8f3bf",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_L7vwclYYFfGxtRfnFwu95052",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "f0cade8e-e69d-4dce-8371-84db80ff69e5",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_rRGAtTumC7eYbAndgy2l9558",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e7c43e4a-d561-4446-968e-d6e7e8682e20",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "a92ef587-471b-4249-980d-9d963f8b64c8",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_C1reHauAFeGHq82ct5BR2450",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "3ab13bb3-2bdb-4232-809a-083ee96f1331",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_fDkcx6qI13rnHI4cNTu96369",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "8aeb73a2-a690-42cd-ba64-4cc67a00effc",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_pEn6kuGxzG0kC3iirH9H2658",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "8032c265-0a28-4dd1-a63e-7acd03ae1741",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "342014dc-f5a1-4f83-bcfb-a97eb83d1d5d",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_UD7fQItbxjQEw5LyaOb87850",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_jVutcAs9ZRE9zmOQVEW62347",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "c39ff441-5f16-4ee1-9bf9-55b051cd1435",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "e5f2b9b0-fdce-48c7-8fc4-c3e128037841",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "1b7ce863-7f39-4908-8b34-fbda1c42a156",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_nXc2l2m88YpytN7KNO697559",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_7fqMkPExylyHpjwY2GWr3878",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "057df609-c340-4217-ab39-b413b0da1412",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_lUk8PgCFOc843mRsZZ7r7714",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "e29b2478-e56f-45a9-8cdb-46b10b937357",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "0dc617b6-bbfa-4f31-b3c4-a1b93fc64b83",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "d01ff315-95e3-42a3-8769-2007cb8a9413",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_CvOFBfZGNDcWXsPHrkQd4005",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "82de1ad5-4881-4a0c-af94-080272f8d218",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_zpDcQjfswtiDyza7Mmw12333",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_01_nMC10ga7douTSekrt1oy5014",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_02_ryHfHtJ1pOwhs8t5hXTu2360",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_03_euTzo0WY3OuKHSvidVc28652",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "1b24ddec-a7e7-43c1-9a35-6691aa9ff9ed",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_xZ2dUAuMmzTRRurI7HuS7430",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_01_Dlog73vo2SNc794TbgKA6419",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_02_7DHijIL5gmrbXSTmwGre6684",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_03_qKtZqibRSU60N0Lu8eTT0734",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_04_9e0N5DHuWGW9IEbvhBqw0696",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "4f9deca8-e16d-4cb0-81f8-f521885d00b5",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "bd75adc3-1378-4694-a40d-5dd0cb3202bf",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_aQFA3PH0u0FLeUPA0F9h2159",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "18cfb5f2-4efc-43b3-ba79-eaf80167c812",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_my5ojlDk8V8YwUdYxzKi0446",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_QGDX1rUa5VgRYoSh2qIk9463",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_etxs2eJ9ryQ4xRHjeQva1983",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "8ed713d1-a995-4fe2-9d9f-51d6d27fb23b",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "31500980-56b2-4d49-8b02-d26ffdf2b018",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    }
+  ],
+  "provenance": {
+    "trace": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/07-pptx-026-20261103T104652Z/preserve-out/raw/thread_history_consistent.sqlite",
+    "trace_sha256": "3745f5b7f4b44d15f66616f185c83e1003b927993c4f9adacec44bfa9e761b83",
+    "run_env": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/run-env.json",
+    "run_env_sha256": "d0849377df46ec9c2a4c121f972f85a195e370dacb21a1600f66043077d0be17"
+  }
+}

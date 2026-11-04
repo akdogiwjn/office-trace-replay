@@ -1,0 +1,1 @@
+python /root/tmp/docs/make_qa_fonts.py && mkdir -p /root/.local/share/fonts && cp /root/tmp/docs/qa_fonts/*.ttf /root/.local/share/fonts/ && fc-cache -f /root/.local/share/fonts >/dev/null && fc-match 'Aptos Display' && fc-match 'Aptos'

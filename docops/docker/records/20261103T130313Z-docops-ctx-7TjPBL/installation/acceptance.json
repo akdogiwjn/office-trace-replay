@@ -1,0 +1,111 @@
+{
+  "schema": "docops-inspected-installation-v1",
+  "status": "passed",
+  "real_workload_executed": false,
+  "profiling_started": false,
+  "image_reference": "docops-replay:l3-candidate-05",
+  "actual_image_id": "sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617",
+  "container_id": "5c6db919ef8d28c2c0f53da65c298996660bf882f36b279e90959c2e5dec1f83",
+  "container_name": "docops-install-20261103T130710Z-180c51b1",
+  "container_exit_code": 0,
+  "environment": {
+    "python": {
+      "present": true,
+      "version": "3.12.14"
+    },
+    "docx": {
+      "present": true,
+      "version": "1.2.0"
+    },
+    "pptx": {
+      "present": true,
+      "version": "1.0.2"
+    },
+    "openpyxl": {
+      "present": true,
+      "version": "3.1.5"
+    },
+    "pypdf": {
+      "present": true,
+      "version": "6.16.2"
+    },
+    "lxml": {
+      "present": true,
+      "version": "6.1.2"
+    },
+    "fontTools": {
+      "present": true,
+      "version": "4.68.0"
+    },
+    "soffice": {
+      "present": true
+    },
+    "pdftoppm": {
+      "present": true
+    },
+    "montage": {
+      "present": true
+    },
+    "fc-list": {
+      "present": true
+    },
+    "fc-cache": {
+      "present": true
+    },
+    "perf": {
+      "present": true
+    },
+    "skills": {
+      "doc": true,
+      "xlsx": true,
+      "pptx": true,
+      "pdf": true
+    },
+    "payload_catalog": true,
+    "payload_tasks": [
+      "001",
+      "003",
+      "009",
+      "013",
+      "014",
+      "016",
+      "021",
+      "026",
+      "029",
+      "031",
+      "037",
+      "pdfwf005"
+    ]
+  },
+  "tools": {
+    "perf": {
+      "present": true,
+      "rc": 0,
+      "version": "perf version 6.1.190"
+    },
+    "soffice": {
+      "present": true,
+      "rc": 0,
+      "version": "LibreOffice 7.4.7.2 40(Build:2)"
+    },
+    "devkit": {
+      "present": true,
+      "root": "/opt/devkit",
+      "binary": "/opt/devkit/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64/devkit",
+      "version": "devkit version 26.0.RC1",
+      "version_rc": 0,
+      "libtuner_unresolved": 0,
+      "libtuner_ldd_rc": 0
+    }
+  },
+  "small_fixtures": "passed",
+  "source_binding": "image bytes match frozen build inputs",
+  "files": {
+    "container-after.json": "0a9711b67efe21013715de0559f590f62cfc4bf9ab067887ad935d918421712c",
+    "container-before.json": "d5ba07dc62b5ba25a455589dc8ae1f984193b73f3e03a3a6d9b26f4d863d9747",
+    "container.log": "2a9a3ebe28ccc37981baed1519a8c82a184cfa91960a188d81fb9cad2d5f2e6b",
+    "image-inspect.json": "961cf784784ba8e870699bf823e5e3ab2f68090d8ec20002086c249e7c852fad",
+    "install-state.json": "af425cfedcdf6709831052b24c0a7bf6ddcf255bd626ba8db9dc1c8b6212ee6c",
+    "runtime-sources.json": "ddb8b6bff770018518a97a656cd0d7a24c14a8ebfa9d411e2b9ed6fd9f1ab3e6"
+  }
+}

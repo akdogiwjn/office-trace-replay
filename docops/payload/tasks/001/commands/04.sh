@@ -1,0 +1,1 @@
+pdftotext -layout /root/tmp/docs/render_packet_20261103_v2/docops_v2_l3_001_docx_controlled_document_release_repair_output.pdf - | sed -n '1,240p'

@@ -1,0 +1,875 @@
+{
+  "schema": "docops-collector-chain-validation-v1",
+  "status": "passed_with_symbol_limitations",
+  "task": "031",
+  "validation_utc": "2026-11-03T14:51:07.890484+00:00",
+  "image_id": "sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617",
+  "formal_similarity_eligible": false,
+  "perf": {
+    "original": "analysis/docops/raw/031-chain-pilot-20261103T143556Z-48720214/perf/out",
+    "original_status": "failed",
+    "recovery": "analysis/docops/raw/031-perf-symbol-recovery-20261103T144210Z-c74df423",
+    "recovery_status": "passed",
+    "counts": {
+      "requested": 10,
+      "completed": 10,
+      "successes": 10,
+      "failures": 0
+    },
+    "roi_seconds": 15.532190674,
+    "roi_samples": 694,
+    "roi_period": 33621198679,
+    "quality": {
+      "unknown_leaf_dso_share": 1.7451102966369642e-05,
+      "empty_stack_share": 0.0,
+      "unknown_leaf_symbol_share": 0.184481212113181,
+      "unresolved_script_share": 0.00030753974891616027,
+      "first_observation_inference_share": 0.00019463642752533286,
+      "unknown_categories_may_overlap": true
+    },
+    "capture_quality": {
+      "aggregated_sample_events": 763,
+      "reported_lost_records": 0,
+      "reported_lost_sample_records": 0,
+      "perf_record_reported_lost_chunks": 0,
+      "quantified_lost_samples": null,
+      "note": "No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown."
+    },
+    "processes": [
+      {
+        "script": "pdftoppm",
+        "period": 30835025760,
+        "share_roi": 0.9171304704034762
+      },
+      {
+        "script": "validate_public_packet.py",
+        "period": 2456188724,
+        "share_roi": 0.07305476367605389
+      },
+      {
+        "script": "build_public_packet.py",
+        "period": 314414830,
+        "share_roi": 0.009351684126490867
+      },
+      {
+        "script": "unknown:bash",
+        "period": 10948463,
+        "share_roi": 0.0003256416615163241
+      },
+      {
+        "script": "bash",
+        "period": 4608773,
+        "share_roi": 0.00013707937792469807
+      },
+      {
+        "script": "unknown:taskset",
+        "period": 12129,
+        "share_roi": 3.607545381056222e-07
+      }
+    ],
+    "libraries": [
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "period": 24668176554,
+        "share_roi": 0.7337090146464019
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libpng16.so.16.39.0",
+        "period": 4568710217,
+        "share_roi": 0.13588778498411014
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "period": 2765746179,
+        "share_roi": 0.08226197422067232
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+        "period": 1124425244,
+        "share_roi": 0.03344393680711696
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "period": 243832885,
+        "share_roi": 0.00725235549535298
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libfreetype.so.6.18.3",
+        "period": 236056948,
+        "share_roi": 0.007021074716989271
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "period": 6518100,
+        "share_roi": 0.00019386875709673148
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "period": 6473113,
+        "share_roi": 0.00019253070248334556
+      },
+      {
+        "dso": "[vdso]",
+        "period": 660611,
+        "share_roi": 1.9648645079766936e-05
+      },
+      {
+        "dso": "[unknown]",
+        "period": 586727,
+        "share_roi": 1.7451102966369642e-05
+      },
+      {
+        "dso": "/usr/bin/taskset",
+        "period": 12101,
+        "share_roi": 3.5992173020167647e-07
+      }
+    ],
+    "functions": [
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "function": "longest_match",
+        "period": 21529096542,
+        "share_roi": 0.6403429201781315
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libpng16.so.16.39.0",
+        "function": "[unknown]",
+        "period": 4568710217,
+        "share_roi": 0.13588778498411014
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "function": "deflate_slow",
+        "period": 2547033019,
+        "share_roi": 0.075756758208353
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "[unknown]",
+        "period": 1573564008,
+        "share_roi": 0.04680273368667422
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+        "function": "Splash::pipeRunAARGB8",
+        "period": 652321129,
+        "share_roi": 0.019402078290785142
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "_PyEval_EvalFrameDefault",
+        "period": 496730477,
+        "share_roi": 0.01477432383486853
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "PyObject_GC_Track",
+        "period": 429005485,
+        "share_roi": 0.012759969955144976
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "function": "fill_window",
+        "period": 296755044,
+        "share_roi": 0.008826426649248379
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+        "function": "Splash::compositeBackground",
+        "period": 236238305,
+        "share_roi": 0.007026468843526267
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+        "function": "Splash::drawAALine",
+        "period": 176919989,
+        "share_roi": 0.005262155900185239
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "__memcpy_sve",
+        "period": 176540969,
+        "share_roi": 0.0052508826554797565
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "PyFunction_NewWithQualName",
+        "period": 140227556,
+        "share_roi": 0.0041708077495638774
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "function": "adler32_z",
+        "period": 118103201,
+        "share_roi": 0.00351275997407457
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libfreetype.so.6.18.3",
+        "function": "gray_convert_glyph",
+        "period": 118043364,
+        "share_roi": 0.0035109802338406985
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "PyType_GenericAlloc",
+        "period": 72184571,
+        "share_roi": 0.0021469957597046326
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "_int_free",
+        "period": 59631479,
+        "share_roi": 0.0017736273941132913
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "function": "scan_tree",
+        "period": 59119937,
+        "share_roi": 0.0017584125290847129
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "function": "crc32_z",
+        "period": 59048822,
+        "share_roi": 0.001756297345724388
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libfreetype.so.6.18.3",
+        "function": "FT_Load_Glyph",
+        "period": 59038752,
+        "share_roi": 0.0017559978323103617
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+        "function": "compress_block",
+        "period": 59019989,
+        "share_roi": 0.0017554397617853
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libfreetype.so.6.18.3",
+        "function": "load_truetype_glyph",
+        "period": 58974832,
+        "share_roi": 0.0017540966508382116
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+        "function": "[unknown]",
+        "period": 58945821,
+        "share_roi": 0.0017532337726203055
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "PyObject_GetItem",
+        "period": 53018572,
+        "share_roi": 0.0015769387791969391
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "function": "flatten.constprop.0",
+        "period": 2277519,
+        "share_roi": 6.774056516380399e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "do_lookup_x",
+        "period": 2236899,
+        "share_roi": 6.653239884029418e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "_int_malloc",
+        "period": 1957405,
+        "share_roi": 5.821936982938704e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "_dl_relocate_object",
+        "period": 1929619,
+        "share_roi": 5.739292695727864e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "__mbrtowc",
+        "period": 1470923,
+        "share_roi": 4.374986787484015e-05
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "function": "hash_insert",
+        "period": 1378238,
+        "share_roi": 4.099312499708274e-05
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "function": "add_or_supercede_exported_var",
+        "period": 881569,
+        "share_roi": 2.622062968119674e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "fillin_rpath.isra.0",
+        "period": 867226,
+        "share_roi": 2.579402383240055e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "_dl_map_object_from_fd",
+        "period": 848168,
+        "share_roi": 2.5227179081207797e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "__GI_strtoll",
+        "period": 847375,
+        "share_roi": 2.5203592771642477e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "name_to_database_index",
+        "period": 749876,
+        "share_roi": 2.230366642068526e-05
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "function": "execute_command_internal",
+        "period": 731219,
+        "share_roi": 2.1748748668402584e-05
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "_PyUnicodeWriter_Finish",
+        "period": 675430,
+        "share_roi": 2.00894086629302e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "__strlen_generic",
+        "period": 675364,
+        "share_roi": 2.0087445615728043e-05
+      },
+      {
+        "dso": "[vdso]",
+        "function": "[unknown]",
+        "period": 660611,
+        "share_roi": 1.9648645079766936e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "check_match",
+        "period": 634915,
+        "share_roi": 1.8884365369060196e-05
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "function": "change_flag",
+        "period": 620737,
+        "share_roi": 1.8462667138269403e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "getpwuid_r@@GLIBC_2.17",
+        "period": 588259,
+        "share_roi": 1.7496669455971242e-05
+      },
+      {
+        "dso": "[unknown]",
+        "function": "[unknown]",
+        "period": 586727,
+        "share_roi": 1.7451102966369642e-05
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "function": "set_login_shell",
+        "period": 583245,
+        "share_roi": 1.7347537354886108e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "nss_database_check_reload_and_get",
+        "period": 544554,
+        "share_roi": 1.619674554733028e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "_int_realloc",
+        "period": 416419,
+        "share_roi": 1.2385608376898762e-05
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "_IO_link_in",
+        "period": 409903,
+        "share_roi": 1.2191802080394827e-05
+      },
+      {
+        "dso": "/usr/local/lib/libpython3.12.so.1.0",
+        "function": "PyObject_IsTrue",
+        "period": 340080,
+        "share_roi": 1.0115046856209085e-05
+      },
+      {
+        "dso": "/usr/bin/taskset",
+        "function": "[unknown]",
+        "period": 12101,
+        "share_roi": 3.5992173020167647e-07
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "_dl_tlsdesc_return",
+        "period": 882,
+        "share_roi": 2.6233448974289617e-08
+      },
+      {
+        "dso": "/usr/bin/bash",
+        "function": "initialize_traps",
+        "period": 586,
+        "share_roi": 1.742947970400648e-08
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "_dl_start",
+        "period": 388,
+        "share_roi": 1.15403380975333e-08
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "pthread_mutex_lock@@GLIBC_2.17",
+        "period": 329,
+        "share_roi": 9.785492871362001e-09
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "sched_setaffinity@@GLIBC_2.17",
+        "period": 28,
+        "share_roi": 8.328079039457022e-10
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+        "function": "_start",
+        "period": 3,
+        "share_roi": 8.922941827989666e-11
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "__GI___readdir64",
+        "period": 1,
+        "share_roi": 2.974313942663222e-11
+      },
+      {
+        "dso": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+        "function": "cfree@GLIBC_2.17",
+        "period": 1,
+        "share_roi": 2.974313942663222e-11
+      }
+    ],
+    "scope": "workflow time union, descendant process record, dispatcher excluded, cycles:u period; no total CPU-seconds claim"
+  },
+  "topdown": {
+    "raw": "analysis/docops/raw/031-chain-pilot-20261103T144406Z-0e5f48a2",
+    "counts": {
+      "requested": 10,
+      "completed": 10,
+      "successes": 10,
+      "failures": 0
+    },
+    "roi_seconds": 15.467737445,
+    "metrics": {
+      "IPC": 1.05,
+      "Bad Speculation": 2.26,
+      "Frontend Bound": 7.44,
+      "Backend Bound": 72.85,
+      "Retiring": 17.45,
+      "Core Bound": 57.34,
+      "Memory Bound": 15.52,
+      "Fetch Latency Bound": 6.5,
+      "Fetch Bandwidth Bound": 0.93
+    },
+    "arithmetic": {
+      "events": {
+        "r0008": 105445937263,
+        "r0010": 173837733,
+        "r0011": 100722530818,
+        "r001b": 119093644192,
+        "r0027": 195854865,
+        "r0028": 22101823,
+        "r002e": 314867,
+        "r0030": 38985886,
+        "r100d": 1206343,
+        "r1010": 13949671,
+        "r1013": 2934591,
+        "r1016": 320721,
+        "r104f": 38582744,
+        "r2004": 720870844,
+        "r2005": 55051960,
+        "r2006": 4991947998,
+        "r2007": 42584,
+        "r2008": 5164094,
+        "r2009": 57,
+        "r200a": 0,
+        "r200b": 789435414,
+        "r200c": 3284183,
+        "r200d": 1247294657,
+        "r200f": 5087147,
+        "r2010": 6692779,
+        "r2011": 44955393721,
+        "r2012": 6551669886,
+        "r5090": 349937180,
+        "r5091": 46520075,
+        "r5092": 4030844,
+        "r5093": 32369050,
+        "r5094": 1625219399,
+        "r5095": 1060191063,
+        "r5096": 52964925,
+        "r50a0": 973277762,
+        "r50a2": 568416077,
+        "r50a3": 31482701484,
+        "r50a4": 109184134,
+        "r7000": 3563246620,
+        "r7001": 94381753549,
+        "r7002": 116218,
+        "r7003": 16610701,
+        "r7004": 25376202,
+        "r7005": 20094860488,
+        "r7006": 4722598,
+        "r7007": 5020115924,
+        "r7008": 4275095360,
+        "r700a": 5695369065,
+        "r700b": 21778332201,
+        "r700c": 18155858194,
+        "r700d": 19006853127,
+        "r700e": 14305007436,
+        "r700f": 10508593214,
+        "r7010": 6101471016,
+        "r7011": 4842957639,
+        "r701e": 83420,
+        "r701f": 311038689,
+        "r7020": 611586554
+      },
+      "checks": [
+        {
+          "metric": "IPC",
+          "reported": 1.05,
+          "recalculated": 1.0468952319470102,
+          "absolute_error": 0.0031047680529898702,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Retiring",
+          "reported": 17.45,
+          "recalculated": 17.448253865783503,
+          "absolute_error": 0.0017461342164963867,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Bad Speculation",
+          "reported": 2.26,
+          "recalculated": 2.258300901523322,
+          "absolute_error": 0.0016990984766778183,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Frontend Bound",
+          "reported": 7.44,
+          "recalculated": 7.4388178685713475,
+          "absolute_error": 0.0011821314286528661,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Backend Bound",
+          "reported": 72.85,
+          "recalculated": 72.85462736412182,
+          "absolute_error": 0.004627364121830624,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Fetch Latency Bound",
+          "reported": 6.5,
+          "recalculated": 6.5046716288717,
+          "absolute_error": 0.004671628871699696,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Fetch Bandwidth Bound",
+          "reported": 0.93,
+          "recalculated": 0.9341462396996478,
+          "absolute_error": 0.00414623969964778,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Memory Bound",
+          "reported": 15.52,
+          "recalculated": 15.515156063978967,
+          "absolute_error": 0.004843936021032391,
+          "within_print_precision": true
+        },
+        {
+          "metric": "Core Bound",
+          "reported": 57.34,
+          "recalculated": 57.33947130014286,
+          "absolute_error": 0.0005286998571421009,
+          "within_print_precision": true
+        }
+      ],
+      "debug_not_counted_events": [
+        "r2007",
+        "r2009",
+        "r200a",
+        "r200c",
+        "r7002"
+      ],
+      "printed_zero_is_not_independently_confirmed_zero": true,
+      "all_within_print_precision": true,
+      "formula_status": "empirical diagnostics; raw aggregate formula may differ from DevKit aggregation/printing"
+    },
+    "profiler_envelope_seconds": 17.678635963,
+    "outside_workflow_envelope_seconds": 2.2108985180000023,
+    "pmu_read_count": 18,
+    "idle_pct": 87.55398230088495,
+    "exact_roi_event_filtering": false,
+    "scope": "CPU-scoped envelope includes initial read, inter-step/round gaps and tail; excluded work is affinity-isolated on CPU 9",
+    "profiler_affinity": [
+      9
+    ],
+    "privilege_scope": "DevKit defaults, not restricted to user mode"
+  },
+  "affinity_evidence": {
+    "perf": {
+      "workflow_steps": 30,
+      "observed_main_processes": 30,
+      "affinity_observations": {
+        "9": 2,
+        "0 1 2 3 4 5 6 7": 47
+      },
+      "note": "perf includes two early taskset launch observations still on dispatcher CPU 9; settled workflow is pinned 0-7; not a CPU-scoped perf filter"
+    },
+    "topdown": {
+      "workflow_steps": 30,
+      "observed_main_processes": 30,
+      "affinity_observations": {
+        "0 1 2 3 4 5 6 7": 45
+      },
+      "note": "perf includes two early taskset launch observations still on dispatcher CPU 9; settled workflow is pinned 0-7; not a CPU-scoped perf filter"
+    }
+  },
+  "archive_checks": [
+    {
+      "path": "analysis/docops/raw/031-chain-pilot-20261103T143556Z-48720214/perf/out",
+      "verified_files": 43,
+      "index_sha256": "e3940b4879ed94a4f4a09373c76b14806f561ac85670cd9c7690a445c42723fb"
+    },
+    {
+      "path": "analysis/docops/raw/031-perf-symbol-recovery-20261103T144210Z-c74df423/out",
+      "verified_files": 5,
+      "index_sha256": "9094e0d1a1aef47f2df1dd235793bf26a6c6bd89c681e28fccdc321e23c30c20"
+    },
+    {
+      "path": "analysis/docops/raw/031-chain-pilot-20261103T144406Z-0e5f48a2/topdown/out",
+      "verified_files": 32,
+      "index_sha256": "a4fed53aa89868a1acbd8060a0fa4e98b0cb16c57f8721d9228eddd60f1be25a"
+    }
+  ],
+  "hardware": {
+    "kernel": "6.6.0-28.0.0.34.oe2403.aarch64",
+    "machine": "aarch64",
+    "lscpu": {
+      "lscpu": [
+        {
+          "field": "Architecture:",
+          "data": "aarch64"
+        },
+        {
+          "field": "CPU op-mode(s):",
+          "data": "64-bit"
+        },
+        {
+          "field": "Byte Order:",
+          "data": "Little Endian"
+        },
+        {
+          "field": "CPU(s):",
+          "data": "256"
+        },
+        {
+          "field": "On-line CPU(s) list:",
+          "data": "0-255"
+        },
+        {
+          "field": "Vendor ID:",
+          "data": "HiSilicon"
+        },
+        {
+          "field": "Model name:",
+          "data": "-"
+        },
+        {
+          "field": "Model:",
+          "data": "0"
+        },
+        {
+          "field": "Thread(s) per core:",
+          "data": "2"
+        },
+        {
+          "field": "Core(s) per socket:",
+          "data": "64"
+        },
+        {
+          "field": "Socket(s):",
+          "data": "2"
+        },
+        {
+          "field": "Stepping:",
+          "data": "0x0"
+        },
+        {
+          "field": "Frequency boost:",
+          "data": "disabled"
+        },
+        {
+          "field": "CPU(s) scaling MHz:",
+          "data": "100%"
+        },
+        {
+          "field": "CPU max MHz:",
+          "data": "2900.0000"
+        },
+        {
+          "field": "CPU min MHz:",
+          "data": "400.0000"
+        },
+        {
+          "field": "BogoMIPS:",
+          "data": "200.00"
+        },
+        {
+          "field": "Flags:",
+          "data": "fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint svei8mm svef32mm svef64mm svebf16 i8mm bf16 dgh rng ecv"
+        },
+        {
+          "field": "L1d cache:",
+          "data": "8 MiB (128 instances)"
+        },
+        {
+          "field": "L1i cache:",
+          "data": "8 MiB (128 instances)"
+        },
+        {
+          "field": "L2 cache:",
+          "data": "160 MiB (128 instances)"
+        },
+        {
+          "field": "L3 cache:",
+          "data": "224 MiB (4 instances)"
+        },
+        {
+          "field": "NUMA node(s):",
+          "data": "4"
+        },
+        {
+          "field": "NUMA node0 CPU(s):",
+          "data": "0-63"
+        },
+        {
+          "field": "NUMA node1 CPU(s):",
+          "data": "64-127"
+        },
+        {
+          "field": "NUMA node2 CPU(s):",
+          "data": "128-191"
+        },
+        {
+          "field": "NUMA node3 CPU(s):",
+          "data": "192-255"
+        },
+        {
+          "field": "Vulnerability Gather data sampling:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Itlb multihit:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability L1tf:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Mds:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Meltdown:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Mmio stale data:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Reg file data sampling:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Retbleed:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Spec rstack overflow:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Spec store bypass:",
+          "data": "Mitigation; Speculative Store Bypass disabled via prctl"
+        },
+        {
+          "field": "Vulnerability Spectre v1:",
+          "data": "Mitigation; __user pointer sanitization"
+        },
+        {
+          "field": "Vulnerability Spectre v2:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Srbds:",
+          "data": "Not affected"
+        },
+        {
+          "field": "Vulnerability Tsx async abort:",
+          "data": "Not affected"
+        }
+      ]
+    },
+    "midr_el1": "0x00000000480fd020"
+  },
+  "measurement_code_sha256": {
+    "analysis/docops/recover_perf.py": "75baa6831567bdfad1d598e3f9de52ec9315b2b7cbc9dfa2dfc2523543d92b7b",
+    "analysis/docops/quality.py": "30e37f5f8655a85975315fe38a75833763aa66bcdc9a4a190d15ca8c3ab4a230",
+    "analysis/docops/worker.py": "5c922a72a343438fa58d7350ced06ad9cddcc1812c620c3c26b60032b11e3d65",
+    "analysis/docops/monitor.py": "8d86e7751a47aa3d711240dd210c3ff191d2b2977e1ed642fff86b4f23f0841c",
+    "analysis/docops/capture.py": "14cdff39debf2eb0d004bb75af17b45f1ff67813129453f019a6ac7ef9be7019",
+    "analysis/docops/pilot.py": "6e57931e747a3a2f242e758873d20cb73808c92cfaf2f786ab2237701dd5adc9",
+    "analysis/docops/symbols/index.json": "60e27d22bf20ec34f9b821b5a9ef73ebf4014907b3e1df17b37abeaf0af66bf5"
+  },
+  "failures_preserved": [
+    {
+      "path": "analysis/docops/raw/031-chain-pilot-20261103T143556Z-48720214",
+      "cause": "stripped library internal symbols; same data recovered with build-id-matched debuginfo"
+    },
+    {
+      "path": "analysis/docops/raw/031-chain-pilot-20261103T144300Z-ae764513",
+      "cause": "shared Topdown parser import expected deeper mount; stopped before workload and PMU; fixed measurement mount path"
+    }
+  ],
+  "tests": {
+    "targeted_quality_tests": 5,
+    "status": "passed",
+    "syntax": "passed",
+    "diff_check": "passed"
+  },
+  "limits": [
+    "18.4481% ROI leaf-symbol period unresolved, dominated by libpng and stripped custom Python; retained in denominator",
+    "DevKit CPU 0-7 envelope includes startup, gaps, tail and other host activity; no exact process or ROI PMU attribution",
+    "Batch 10 loops is one profile per mode, not 10 independent profiles; stability and all-12-task comparison not measured",
+    "Some raw-event diagnostics reported not counted; keep raw status, do not infer true zero from printed zero"
+  ]
+}

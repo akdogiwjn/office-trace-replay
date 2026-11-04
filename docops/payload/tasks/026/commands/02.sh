@@ -1,0 +1,1 @@
+python /root/.codex/skills/pptx/scripts/office/soffice.py --headless --convert-to pdf /root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output.pptx

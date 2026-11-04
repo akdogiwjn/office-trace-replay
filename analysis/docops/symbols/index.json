@@ -1,0 +1,81 @@
+{
+  "schema": "docops-debug-symbols-v1",
+  "source": "Debian debuginfod; analysis only, no runtime replacement",
+  "fetched_utc": "2026-11-03T14:41:25.218822+00:00",
+  "files": [
+    {
+      "build_id": "49057df2bb24947d2dfb9f4e21ff2a2545d30ad8",
+      "runtime_path": "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1",
+      "url": "https://debuginfod.debian.net/buildid/49057df2bb24947d2dfb9f4e21ff2a2545d30ad8/debuginfo",
+      "status": "downloaded",
+      "path": ".build-id/49/057df2bb24947d2dfb9f4e21ff2a2545d30ad8.debug",
+      "sha256": "c983cce63ac00a1ea8a61d4fbb8879cb1fceec538ff47a5db440d124598111be",
+      "bytes": 492360,
+      "build_id_verified": true
+    },
+    {
+      "build_id": "6f268ff546c56d7f14e9501a55698cc2d0ab4732",
+      "runtime_path": "/usr/lib/aarch64-linux-gnu/libc.so.6",
+      "url": "https://debuginfod.debian.net/buildid/6f268ff546c56d7f14e9501a55698cc2d0ab4732/debuginfo",
+      "status": "downloaded",
+      "path": ".build-id/6f/268ff546c56d7f14e9501a55698cc2d0ab4732.debug",
+      "sha256": "0a4d08adc1d20aaabce01af92e5aa64f30c5ae0801e4033fd880c7fa21cd944a",
+      "bytes": 3990656,
+      "build_id_verified": true
+    },
+    {
+      "build_id": "567e568e51b0e021ed3b5c1592ef569f4a3ef272",
+      "runtime_path": "/usr/lib/aarch64-linux-gnu/libz.so.1.2.13",
+      "url": "https://debuginfod.debian.net/buildid/567e568e51b0e021ed3b5c1592ef569f4a3ef272/debuginfo",
+      "status": "downloaded",
+      "path": ".build-id/56/7e568e51b0e021ed3b5c1592ef569f4a3ef272.debug",
+      "sha256": "0262326efe10e9d930b3322769f986fd3a3ec4761ddbab8b873302535475aeab",
+      "bytes": 121144,
+      "build_id_verified": true
+    },
+    {
+      "build_id": "8fcea1ba46332d14b90d40ae83347154197836bb",
+      "runtime_path": "/usr/lib/aarch64-linux-gnu/libcrypto.so.3",
+      "url": "https://debuginfod.debian.net/buildid/8fcea1ba46332d14b90d40ae83347154197836bb/debuginfo",
+      "status": "downloaded",
+      "path": ".build-id/8f/cea1ba46332d14b90d40ae83347154197836bb.debug",
+      "sha256": "a8e510b653cda0a0c0070254b343554a717b71c372f1d10a5e6353ae25178afe",
+      "bytes": 4298096,
+      "build_id_verified": true
+    },
+    {
+      "build_id": "25c4cf0e7fd5222786280ededf14ef9f787bdb68",
+      "runtime_path": "/usr/bin/bash",
+      "url": "https://debuginfod.debian.net/buildid/25c4cf0e7fd5222786280ededf14ef9f787bdb68/debuginfo",
+      "status": "downloaded",
+      "path": ".build-id/25/c4cf0e7fd5222786280ededf14ef9f787bdb68.debug",
+      "sha256": "2f5314f5378a9cc491be2120025a3affb21dbce2b178237cad00eb7d77b55b20",
+      "bytes": 1576792,
+      "build_id_verified": true
+    },
+    {
+      "build_id": "15e6229bacc3dc190c66c921e73ccdb5c941fd60",
+      "runtime_path": "/usr/lib/aarch64-linux-gnu/libpoppler.so.126.0.0",
+      "url": "https://debuginfod.debian.net/buildid/15e6229bacc3dc190c66c921e73ccdb5c941fd60/debuginfo",
+      "status": "failed",
+      "error": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     9    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0\ncurl: (22) The requested URL returned error: 404\n"
+    },
+    {
+      "build_id": "879222c318a2d0ac11fb71ef614b80e229e72f35",
+      "runtime_path": "/usr/lib/aarch64-linux-gnu/libfreetype.so.6.18.3",
+      "url": "https://debuginfod.debian.net/buildid/879222c318a2d0ac11fb71ef614b80e229e72f35/debuginfo",
+      "status": "downloaded",
+      "path": ".build-id/87/9222c318a2d0ac11fb71ef614b80e229e72f35.debug",
+      "sha256": "0838907c27081d7962430816f840a593a57aad9336903604d7cc716a319e5328",
+      "bytes": 1168448,
+      "build_id_verified": true
+    },
+    {
+      "build_id": "4ff4496e386713bd4653311a5224feeac80026b4",
+      "runtime_path": "/usr/lib/aarch64-linux-gnu/libpng16.so.16.39.0",
+      "url": "https://debuginfod.debian.net/buildid/4ff4496e386713bd4653311a5224feeac80026b4/debuginfo",
+      "status": "failed",
+      "error": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     9    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0\ncurl: (22) The requested URL returned error: 404\n"
+    }
+  ]
+}

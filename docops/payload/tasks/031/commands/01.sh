@@ -1,0 +1,1 @@
+python3 /root/tmp/docs/build_public_packet.py

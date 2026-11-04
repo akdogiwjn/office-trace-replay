@@ -1,0 +1,82 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.95kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/office-trace-replay:measured-five-repeats
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/20] FROM docker.io/library/office-trace-replay:measured-five-repeats
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 166.50MB 0.4s done
+#5 DONE 0.4s
+
+#6 [ 8/20] COPY payload /opt/docops/payload
+#6 CACHED
+
+#7 [ 6/20] RUN /opt/python-3.12.3/bin/python3.12 -m venv /opt/docops/venv     && /opt/docops/venv/bin/python -m pip install --no-index --no-compile --require-hashes        --find-links=/opt/docops-offline/wheels -r /opt/docops-offline/requirements.lock     && /opt/docops/venv/bin/python -m pip check     && rm -rf /opt/docops-offline
+#7 CACHED
+
+#8 [ 7/20] COPY replay.py compile.py /opt/docops/
+#8 CACHED
+
+#9 [ 9/20] COPY payload/skills/ /root/.codex/skills/
+#9 CACHED
+
+#10 [ 2/20] COPY vendor/rpms/ /opt/docops-offline/rpms/
+#10 CACHED
+
+#11 [ 4/20] COPY vendor/wheels/ /opt/docops-offline/wheels/
+#11 CACHED
+
+#12 [ 5/20] COPY requirements.lock /opt/docops-offline/requirements.lock
+#12 CACHED
+
+#13 [ 3/20] RUN rpm -ivh /opt/docops-offline/rpms/*.rpm && rm -rf /opt/docops-offline/rpms
+#13 CACHED
+
+#14 [10/20] COPY install_state_check.py /opt/docops/docker/install_state_check.py
+#14 CACHED
+
+#15 [11/20] COPY smoke_unified.py /opt/docops/docker/smoke_unified.py
+#15 DONE 0.3s
+
+#16 [12/20] COPY core_identity.py /opt/docops/docker/core_identity.py
+#16 DONE 0.0s
+
+#17 [13/20] COPY runtime-profile.json /opt/docops/runtime-profile.json
+#17 DONE 0.0s
+
+#18 [14/20] COPY core-baseline.json /opt/docops/core-baseline.json
+#18 DONE 0.0s
+
+#19 [15/20] COPY docops-runtime.sh /etc/profile.d/docops-runtime.sh
+#19 DONE 0.0s
+
+#20 [16/20] COPY soffice-unified /opt/docops/venv/bin/soffice
+#20 DONE 0.0s
+
+#21 [17/20] COPY devkit.sh /usr/local/bin/devkit
+#21 DONE 0.0s
+
+#22 [18/20] COPY devkit/ /opt/devkit/
+#22 DONE 0.2s
+
+#23 [19/20] RUN chmod 0755 /usr/local/bin/devkit /opt/docops/venv/bin/soffice     && ln -s soffice /opt/docops/venv/bin/libreoffice
+#23 DONE 0.1s
+
+#24 [20/20] WORKDIR /root
+#24 DONE 0.0s
+
+#25 exporting to image
+#25 exporting layers
+#25 exporting layers 0.2s done
+#25 writing image sha256:1e83461c551d2565a35a1f9faa965df033778358a5703a344bf5f91f16cbe934 done
+#25 DONE 0.2s

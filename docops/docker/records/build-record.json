@@ -1,0 +1,46 @@
+{
+  "schema": "docops-replay-candidate-build-record-v1",
+  "built_utc": "2026-11-03T12:45:00Z",
+  "candidate_tag": "docops-replay:l3-candidate-04",
+  "candidate_id": "sha256:3c17f77047d3bb6ccd31cd74261a78f71429c6a6508c4d07d91d6d62d8f1f5d2",
+  "base_image": {
+    "tag": "docops-l3-shared-tools:arm64-v3",
+    "id": "sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106",
+    "arch": "arm64",
+    "os": "linux"
+  },
+  "python": "3.12.14",
+  "libs": {
+    "docx": "1.2.0",
+    "pptx": "1.0.2",
+    "openpyxl": "3.1.5",
+    "pypdf": "6.16.2",
+    "lxml": "6.1.2",
+    "fontTools": "4.68.0"
+  },
+  "libreoffice": "7.4.7.2",
+  "perf": {
+    "package": "linux-perf 6.1.190-1",
+    "binary": "/usr/bin/perf -> /usr/local/bin/perf",
+    "note": "Debian/arm64; DWARF via libdw1/libelf1 present; python-scripting unconfigured (base uses /usr/local/bin/python3)",
+    "debs_sha256": "docops/vendor/debs-sha256.json"
+  },
+  "fonttools_source": "read-only copy of fontTools 4.68.0 from docops-formal-01 container site-packages; current-environment evidence, not a verified historical install; sha index docops/vendor/fonttools-sha256.json",
+  "devkit": {
+    "version": "26.0.RC1",
+    "in_image": "/opt/devkit",
+    "libtuner_unresolved": 0,
+    "note": "ldd resolved in-image with LD_LIBRARY_PATH=tuner/lib; formal PMU capture still needs PERFMON and CPU-scope validation"
+  },
+  "entry_sha256": {
+    "docops/replay.py": "09e5127f11fcc81a239fcf5f781daaeb42af97cf42ae7ae637658b159bb2191f",
+    "docops/compile.py": "acae40838f761891cd1d7a79a122b47440d3f24d531148fcb88bc94c2345d0f2",
+    "docops/docker/Dockerfile": "8e0a1320747a768d6336c405a65ebc969c2fc6c5e5e3024a32535bfc866cfea0",
+    "docops/docker/build.sh": "027e274a333608611ec328a3de67f3d6374f4d8f25460b95a757fe84d979e52f",
+    "docops/docker/install_state_check.py": "8c46f14d4df902addd6762d0f4802fbf1db48de509dd5154c20cdff23a2bb5f8"
+  },
+  "build_command": "bash docops/docker/build.sh docops-replay:l3-candidate-04",
+  "offline_build": true,
+  "no_host_mount_dependency": true,
+  "source_repo_not_required_at_runtime": true
+}

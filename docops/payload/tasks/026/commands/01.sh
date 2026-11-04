@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_climate_disclosure.py

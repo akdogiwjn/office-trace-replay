@@ -1,0 +1,1 @@
+pdfinfo /root/tmp/docs/render_landscape/docops_v2_l3_016_xlsx_forecast_driver_cascade_output.pdf | sed -n '1,25p'; pdftoppm -f 1 -singlefile -png -r 150 /root/tmp/docs/render_landscape/docops_v2_l3_016_xlsx_forecast_driver_cascade_output.pdf /root/tmp/docs/render_landscape/dashboard

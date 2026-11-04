@@ -1,0 +1,1 @@
+mkdir -p /root/tmp/docs/rendered && pdftoppm -jpeg -r 150 /root/tmp/docs/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output.pdf /root/tmp/docs/rendered/slide

@@ -1,0 +1,42 @@
+{
+  "schema": "docops-unified-topdown-verification-v1",
+  "status": "passed",
+  "checked_utc": "2026-11-04T01:25:31.976556+00:00",
+  "campaign_sha256": "780d43cb273f9a67872580343e1cfc82f0e31b8e99b3a141c67c1804d038964e",
+  "tasks_verified": 12,
+  "distinct_capture_containers": 12,
+  "workload_rounds": 120,
+  "workload_successes": 120,
+  "workload_failures": 0,
+  "archive_files_verified": 384,
+  "total_interval_points": 533,
+  "point_counts": {
+    "031": 21,
+    "037": 26,
+    "pdfwf005": 20,
+    "001": 31,
+    "003": 27,
+    "009": 26,
+    "013": 53,
+    "014": 43,
+    "016": 55,
+    "021": 110,
+    "026": 68,
+    "029": 53
+  },
+  "midr_el1": "0x00000000480fd020",
+  "checks": [
+    "exact planned twelve tasks",
+    "one successful capture container per task",
+    "same immutable image ID and network none",
+    "all capture containers exited zero and stopped",
+    "ten successful workload rounds per task",
+    "controller affinity CPU 9",
+    "nine metric hierarchy",
+    "interval cycle/instruction sum versus ALL <= 1 printed unit",
+    "all archive hashes and sizes",
+    "report hashes and measurement source snapshots",
+    "no perf.data collected in this Topdown pass"
+  ],
+  "method_boundary": "DevKit CPU Model banner remains unknown, as in earlier preflight. Hardware MIDR and tool-output scope retained; empirical formulas are diagnostic, not a complete official HIP09 semantic verification."
+}

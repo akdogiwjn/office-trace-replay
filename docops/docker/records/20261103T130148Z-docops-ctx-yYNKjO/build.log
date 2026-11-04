@@ -1,0 +1,152 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.76kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106
+#2 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+------
+ > [internal] load metadata for docker.io/library/sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106:
+------
+Dockerfile:12
+--------------------
+  10 |     # perf python-scripting support is the documented unconfigured edge.
+  11 |     ARG BASE_IMAGE=docops-l3-shared-tools:arm64-v3
+  12 | >>> FROM ${BASE_IMAGE}
+  13 |     
+  14 |     # Debian/arm64 perf + required runtime libs (frozen debs)
+--------------------
+ERROR: failed to build: failed to solve: sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+9249  /usr/bin/dockerd -H fd:// --live-restore --default-ulimit nofile=1024:1024
+github.com/moby/buildkit/util/resolver.invalidAuthorization
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/util/resolver/authorizer.go:435
+github.com/moby/buildkit/util/resolver.(*dockerAuthorizer).AddResponses
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/util/resolver/authorizer.go:159
+github.com/containerd/containerd/remotes/docker.(*request).retryRequest
+	/go/src/github.com/docker/docker/vendor/github.com/containerd/containerd/remotes/docker/resolver.go:627
+github.com/containerd/containerd/remotes/docker.(*request).doWithRetries
+	/go/src/github.com/docker/docker/vendor/github.com/containerd/containerd/remotes/docker/resolver.go:606
+github.com/containerd/containerd/remotes/docker.(*request).doWithRetries
+	/go/src/github.com/docker/docker/vendor/github.com/containerd/containerd/remotes/docker/resolver.go:613
+github.com/containerd/containerd/remotes/docker.(*dockerResolver).Resolve
+	/go/src/github.com/docker/docker/vendor/github.com/containerd/containerd/remotes/docker/resolver.go:293
+github.com/moby/buildkit/util/resolver.(*Resolver).Resolve
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/util/resolver/pool.go:204
+github.com/moby/buildkit/util/imageutil.Config
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/util/imageutil/config.go:142
+github.com/docker/docker/builder/builder-next/adapters/containerimage.(*Source).resolveRemote.func1
+	/go/src/github.com/docker/docker/builder/builder-next/adapters/containerimage/pull.go:119
+github.com/moby/buildkit/util/flightcontrol.(*call[...]).run
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/util/flightcontrol/flightcontrol.go:121
+sync.(*Once).doSlow
+	/usr/local/go/src/sync/once.go:74
+sync.(*Once).Do
+	/usr/local/go/src/sync/once.go:65
+runtime.goexit
+	/usr/local/go/src/runtime/asm_arm64.s:1197
+
+9249  /usr/bin/dockerd -H fd:// --live-restore --default-ulimit nofile=1024:1024
+github.com/moby/buildkit/frontend/gateway.(*llbBridgeForwarder).Return
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/frontend/gateway/gateway.go:923
+github.com/moby/buildkit/control/gateway.(*GatewayForwarder).Return
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/control/gateway/gateway.go:135
+github.com/moby/buildkit/frontend/gateway/pb._LLBBridge_Return_Handler.func1
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/frontend/gateway/pb/gateway.pb.go:3216
+github.com/docker/docker/api/server/router/grpc.NewRouter.ChainUnaryServer.func1.1.1
+	/go/src/github.com/docker/docker/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:25
+go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc.UnaryServerInterceptor.func1
+	/go/src/github.com/docker/docker/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc/interceptor.go:376
+github.com/docker/docker/api/server/router/grpc.unaryInterceptor.func1
+	/go/src/github.com/docker/docker/api/server/router/grpc/grpc.go:58
+github.com/docker/docker/api/server/router/grpc.NewRouter.ChainUnaryServer.func1.1.1
+	/go/src/github.com/docker/docker/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:25
+github.com/docker/docker/api/server/router/grpc.NewRouter.ChainUnaryServer.func1
+	/go/src/github.com/docker/docker/vendor/github.com/grpc-ecosystem/go-grpc-middleware/chain.go:34
+github.com/moby/buildkit/frontend/gateway/pb._LLBBridge_Return_Handler
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/frontend/gateway/pb/gateway.pb.go:3218
+google.golang.org/grpc.(*Server).processUnaryRPC
+	/go/src/github.com/docker/docker/vendor/google.golang.org/grpc/server.go:1374
+google.golang.org/grpc.(*Server).handleStream
+	/go/src/github.com/docker/docker/vendor/google.golang.org/grpc/server.go:1751
+google.golang.org/grpc.(*Server).serveStreams.func1.1
+	/go/src/github.com/docker/docker/vendor/google.golang.org/grpc/server.go:986
+runtime.goexit
+	/usr/local/go/src/runtime/asm_arm64.s:1197
+
+3926047 v0.35.0 /usr/local/lib/docker/cli-plugins/docker-buildx buildx build --network none --build-arg BASE_IMAGE=sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106 --iidfile /home/lcq/office-trace-replay/docops/docker/records/20261103T130148Z-docops-ctx-yYNKjO/image-id.txt /tmp/docops-ctx-yYNKjO
+github.com/docker/buildx/commands.runBuildWithOptions
+	github.com/docker/buildx/commands/build.go:504
+github.com/docker/buildx/commands.runBuild
+	github.com/docker/buildx/commands/build.go:419
+github.com/docker/buildx/commands.buildCmd.func1
+	github.com/docker/buildx/commands/build.go:540
+github.com/docker/cli/cli-plugins/plugin.RunPlugin.func1.1.2
+	github.com/docker/cli@v29.5.3+incompatible/cli-plugins/plugin/plugin.go:65
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.10.2/command.go:1015
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.10.2/command.go:1148
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.10.2/command.go:1071
+github.com/docker/cli/cli-plugins/plugin.RunPlugin
+	github.com/docker/cli@v29.5.3+incompatible/cli-plugins/plugin/plugin.go:80
+main.runPlugin
+	github.com/docker/buildx/cmd/buildx/main.go:65
+main.run
+	github.com/docker/buildx/cmd/buildx/main.go:79
+main.main
+	github.com/docker/buildx/cmd/buildx/main.go:89
+runtime.main
+	runtime/proc.go:290
+runtime.goexit
+	runtime/asm_arm64.s:1447
+
+3926047 v0.35.0 /usr/local/lib/docker/cli-plugins/docker-buildx buildx build --network none --build-arg BASE_IMAGE=sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106 --iidfile /home/lcq/office-trace-replay/docops/docker/records/20261103T130148Z-docops-ctx-yYNKjO/image-id.txt /tmp/docops-ctx-yYNKjO
+google.golang.org/grpc.(*ClientConn).Invoke
+	google.golang.org/grpc@v1.81.1/call.go:35
+github.com/moby/buildkit/frontend/gateway/pb.(*lLBBridgeClient).Solve
+	github.com/moby/buildkit@v0.31.0/frontend/gateway/pb/gateway_grpc.pb.go:105
+github.com/moby/buildkit/client.(*gatewayClientForBuild).Solve
+	github.com/moby/buildkit@v0.31.0/client/build.go:98
+github.com/moby/buildkit/frontend/gateway/grpcclient.(*grpcClient).Solve
+	github.com/moby/buildkit@v0.31.0/frontend/gateway/grpcclient/client.go:415
+github.com/docker/buildx/build.solve
+	github.com/docker/buildx/build/build.go:1321
+github.com/docker/buildx/build.BuildWithResultHandler.func2.4.2
+	github.com/docker/buildx/build/build.go:619
+github.com/moby/buildkit/frontend/gateway/grpcclient.(*grpcClient).Run
+	github.com/moby/buildkit@v0.31.0/frontend/gateway/grpcclient/client.go:218
+github.com/moby/buildkit/client.(*Client).Build.func2
+	github.com/moby/buildkit@v0.31.0/client/build.go:59
+github.com/moby/buildkit/client.(*Client).solve.func3
+	github.com/moby/buildkit@v0.31.0/client/solve.go:349
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	golang.org/x/sync@v0.20.0/errgroup/errgroup.go:93
+runtime.goexit
+	runtime/asm_arm64.s:1447
+
+3926047 v0.35.0 /usr/local/lib/docker/cli-plugins/docker-buildx buildx build --network none --build-arg BASE_IMAGE=sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106 --iidfile /home/lcq/office-trace-replay/docops/docker/records/20261103T130148Z-docops-ctx-yYNKjO/image-id.txt /tmp/docops-ctx-yYNKjO
+google.golang.org/grpc.(*ClientConn).Invoke
+	google.golang.org/grpc@v1.81.1/call.go:35
+github.com/moby/buildkit/api/services/control.(*controlClient).Solve
+	github.com/moby/buildkit@v0.31.0/api/services/control/control_grpc.pb.go:88
+github.com/moby/buildkit/client.(*Client).solve.func2
+	github.com/moby/buildkit@v0.31.0/client/solve.go:337
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	golang.org/x/sync@v0.20.0/errgroup/errgroup.go:93
+
+9249  /usr/bin/dockerd -H fd:// --live-restore --default-ulimit nofile=1024:1024
+github.com/moby/buildkit/frontend/dockerfile/dockerfile2llb.toDispatchState.toDispatchState.func3.func4
+	/go/src/github.com/docker/docker/vendor/github.com/moby/buildkit/frontend/dockerfile/dockerfile2llb/convert.go:413
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	/go/src/github.com/docker/docker/vendor/golang.org/x/sync/errgroup/errgroup.go:75
+runtime.goexit
+	/usr/local/go/src/runtime/asm_arm64.s:1197
+
+3926047 v0.35.0 /usr/local/lib/docker/cli-plugins/docker-buildx buildx build --network none --build-arg BASE_IMAGE=sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106 --iidfile /home/lcq/office-trace-replay/docops/docker/records/20261103T130148Z-docops-ctx-yYNKjO/image-id.txt /tmp/docops-ctx-yYNKjO
+github.com/moby/buildkit/client.(*Client).solve.func2
+	github.com/moby/buildkit@v0.31.0/client/solve.go:339
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	golang.org/x/sync@v0.20.0/errgroup/errgroup.go:93
+

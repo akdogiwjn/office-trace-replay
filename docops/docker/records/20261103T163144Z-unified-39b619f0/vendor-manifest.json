@@ -1,0 +1,797 @@
+{
+  "schema": "docops-unified-offline-vendor-v1",
+  "source": {
+    "common_wheels": "read-only copy from openclaw-trace-bench/vendor/wheels, matching the seven-case versions",
+    "extra_wheels": "PyPI official URLs and SHA256 in unified/download-sources.json",
+    "rpms": "official openEuler-24.03-LTS-SP3 OS/everything aarch64 repositories; dnf install --downloadonly; no existing-package upgrades requested"
+  },
+  "packages": [
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "wheel": "charset_normalizer-3.5.2-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "sha256": "b91363207bd9dc966a691e959bb47f64b30f7ac4b072be9968b366982f7db77c"
+    },
+    {
+      "name": "et_xmlfile",
+      "version": "2.0.0",
+      "wheel": "et_xmlfile-2.0.0-py3-none-any.whl",
+      "sha256": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.68.0",
+      "wheel": "fonttools-4.68.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "sha256": "b41e71b2657c9843b2327b4e3c116db1757dc8cd05d978cd47cb5061272d4997"
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.2",
+      "wheel": "lxml-6.1.2-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+      "sha256": "261d98065326676d7253882db0198d0aa06748d7ee0443367acf10b148273f99"
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5",
+      "wheel": "openpyxl-3.1.5-py2.py3-none-any.whl",
+      "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2"
+    },
+    {
+      "name": "pdf2image",
+      "version": "1.17.0",
+      "wheel": "pdf2image-1.17.0-py3-none-any.whl",
+      "sha256": "ecdd58d7afb810dffe21ef2b1bbc057ef434dabbac6c33778a38a3f7744a27e2"
+    },
+    {
+      "name": "pillow",
+      "version": "12.2.0",
+      "wheel": "pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+      "sha256": "7371b48c4fa448d20d2714c9a1f775a81155050d383333e0a6c15b1123dda005"
+    },
+    {
+      "name": "pypdf",
+      "version": "6.10.0",
+      "wheel": "pypdf-6.10.0-py3-none-any.whl",
+      "sha256": "90005e959e1596c6e6c84c8b0ad383285b3e17011751cedd17f2ce8fcdfc86de"
+    },
+    {
+      "name": "python-docx",
+      "version": "1.2.0",
+      "wheel": "python_docx-1.2.0-py3-none-any.whl",
+      "sha256": "3fd478f3250fbbbfd3b94fe1e985955737c145627498896a8a6bf81f4baf66c7"
+    },
+    {
+      "name": "python-pptx",
+      "version": "1.0.2",
+      "wheel": "python_pptx-1.0.2-py3-none-any.whl",
+      "sha256": "160838e0b8565a8b1f67947675886e9fea18aa5e795db7ae531606d68e785cba"
+    },
+    {
+      "name": "reportlab",
+      "version": "5.0.1",
+      "wheel": "reportlab-5.0.1-py3-none-any.whl",
+      "sha256": "1c36e6bb0e71780c72331eba60da7f602e8d4389a8723825af71342e49d791e8"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "wheel": "typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    {
+      "name": "xlsxwriter",
+      "version": "3.3.1",
+      "wheel": "xlsxwriter-3.3.1-py3-none-any.whl",
+      "sha256": "8e2c89e59d733fe59e112317218c64fbbc276d90a8c144ebd6f7fa15e7ab184a"
+    }
+  ],
+  "rpms": [
+    {
+      "file": "ImageMagick-7.1.2.9-1.oe2403sp3.aarch64.rpm",
+      "package": "ImageMagick 7.1.2.9-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "Imath-3.1.9-1.oe2403sp3.aarch64.rpm",
+      "package": "Imath 3.1.9-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "OpenEXR-libs-3.1.11-4.oe2403sp3.aarch64.rpm",
+      "package": "OpenEXR-libs 3.1.11-4.oe2403sp3 aarch64"
+    },
+    {
+      "file": "adobe-mappings-cmap-20231115-1.oe2403sp3.noarch.rpm",
+      "package": "adobe-mappings-cmap 20231115-1.oe2403sp3 noarch"
+    },
+    {
+      "file": "adobe-mappings-cmap-lang-20231115-1.oe2403sp3.noarch.rpm",
+      "package": "adobe-mappings-cmap-lang 20231115-1.oe2403sp3 noarch"
+    },
+    {
+      "file": "adobe-mappings-pdf-20230118-1.oe2403sp3.noarch.rpm",
+      "package": "adobe-mappings-pdf 20230118-1.oe2403sp3 noarch"
+    },
+    {
+      "file": "adwaita-cursor-theme-45.0-2.oe2403sp3.noarch.rpm",
+      "package": "adwaita-cursor-theme 45.0-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "adwaita-icon-theme-45.0-2.oe2403sp3.noarch.rpm",
+      "package": "adwaita-icon-theme 45.0-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "at-spi2-atk-2.51.0-5.oe2403sp3.aarch64.rpm",
+      "package": "at-spi2-atk 2.51.0-5.oe2403sp3 aarch64"
+    },
+    {
+      "file": "at-spi2-core-2.51.0-5.oe2403sp3.aarch64.rpm",
+      "package": "at-spi2-core 2.51.0-5.oe2403sp3 aarch64"
+    },
+    {
+      "file": "atk-2.51.0-5.oe2403sp3.aarch64.rpm",
+      "package": "atk 2.51.0-5.oe2403sp3 aarch64"
+    },
+    {
+      "file": "cairo-gobject-1.18.0-2.oe2403sp3.aarch64.rpm",
+      "package": "cairo-gobject 1.18.0-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "colord-libs-1.4.6-2.oe2403sp3.aarch64.rpm",
+      "package": "colord-libs 1.4.6-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "emacs-filesystem-29.1-7.oe2403sp3.noarch.rpm",
+      "package": "emacs-filesystem 29.1-7.oe2403sp3 noarch"
+    },
+    {
+      "file": "fribidi-1.0.13-1.oe2403sp3.aarch64.rpm",
+      "package": "fribidi 1.0.13-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "gdk-pixbuf2-2.42.10-6.oe2403sp3.aarch64.rpm",
+      "package": "gdk-pixbuf2 2.42.10-6.oe2403sp3 aarch64"
+    },
+    {
+      "file": "gdk-pixbuf2-modules-2.42.10-6.oe2403sp3.aarch64.rpm",
+      "package": "gdk-pixbuf2-modules 2.42.10-6.oe2403sp3 aarch64"
+    },
+    {
+      "file": "ghostscript-9.56.1-18.oe2403sp3.aarch64.rpm",
+      "package": "ghostscript 9.56.1-18.oe2403sp3 aarch64"
+    },
+    {
+      "file": "google-droid-sans-fonts-20200215-1.oe2403sp3.noarch.rpm",
+      "package": "google-droid-sans-fonts 20200215-1.oe2403sp3 noarch"
+    },
+    {
+      "file": "graphite2-1.3.14-7.oe2403sp3.aarch64.rpm",
+      "package": "graphite2 1.3.14-7.oe2403sp3 aarch64"
+    },
+    {
+      "file": "gtk3-3.24.43-1.oe2403sp3.aarch64.rpm",
+      "package": "gtk3 3.24.43-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "harfbuzz-8.3.0-2.oe2403sp3.aarch64.rpm",
+      "package": "harfbuzz 8.3.0-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "hicolor-icon-theme-0.17-7.oe2403sp3.noarch.rpm",
+      "package": "hicolor-icon-theme 0.17-7.oe2403sp3 noarch"
+    },
+    {
+      "file": "jbig2dec-0.20-2.oe2403sp3.aarch64.rpm",
+      "package": "jbig2dec 0.20-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "json-glib-1.8.0-1.oe2403sp3.aarch64.rpm",
+      "package": "json-glib 1.8.0-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libICE-1.1.1-1.oe2403sp3.aarch64.rpm",
+      "package": "libICE 1.1.1-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libSM-1.2.4-1.oe2403sp3.aarch64.rpm",
+      "package": "libSM 1.2.4-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXcomposite-0.4.6-1.oe2403sp3.aarch64.rpm",
+      "package": "libXcomposite 0.4.6-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXcursor-1.2.1-2.oe2403sp3.aarch64.rpm",
+      "package": "libXcursor 1.2.1-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXdamage-1.1.6-1.oe2403sp3.aarch64.rpm",
+      "package": "libXdamage 1.1.6-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXfixes-6.0.1-1.oe2403sp3.aarch64.rpm",
+      "package": "libXfixes 6.0.1-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXft-2.3.8-1.oe2403sp3.aarch64.rpm",
+      "package": "libXft 2.3.8-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXi-1.8.1-1.oe2403sp3.aarch64.rpm",
+      "package": "libXi 1.8.1-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXrandr-1.5.4-1.oe2403sp3.aarch64.rpm",
+      "package": "libXrandr 1.5.4-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXt-1.3.0-2.oe2403sp3.aarch64.rpm",
+      "package": "libXt 1.3.0-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXtst-1.2.4-2.oe2403sp3.aarch64.rpm",
+      "package": "libXtst 1.2.4-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXv-1.0.12-1.oe2403sp3.aarch64.rpm",
+      "package": "libXv 1.0.12-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXxf86dga-1.1.6-1.oe2403sp3.aarch64.rpm",
+      "package": "libXxf86dga 1.1.6-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libXxf86vm-1.1.5-3.oe2403sp3.aarch64.rpm",
+      "package": "libXxf86vm 1.1.5-3.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libdatrie-0.2.13-2.oe2403sp3.aarch64.rpm",
+      "package": "libdatrie 0.2.13-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libdmx-1.1.5-1.oe2403sp3.aarch64.rpm",
+      "package": "libdmx 1.1.5-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libepoxy-1.5.10-3.oe2403sp3.aarch64.rpm",
+      "package": "libepoxy 1.5.10-3.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libgusb-0.4.8-3.oe2403sp3.aarch64.rpm",
+      "package": "libgusb 0.4.8-3.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libicu-74.1-5.oe2403sp3.aarch64.rpm",
+      "package": "libicu 74.1-5.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libidn-1.41-1.oe2403sp3.aarch64.rpm",
+      "package": "libidn 1.41-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libijs-0.35-10.oe2403sp3.aarch64.rpm",
+      "package": "libijs 0.35-10.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libpaper-1.1.29-2.oe2403sp3.aarch64.rpm",
+      "package": "libpaper 1.1.29-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "librsvg2-2.57.1-5.oe2403sp3.aarch64.rpm",
+      "package": "librsvg2 2.57.1-5.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libthai-0.1.29-2.oe2403sp3.aarch64.rpm",
+      "package": "libthai 0.1.29-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libusbx-1.0.26-2.oe2403sp3.aarch64.rpm",
+      "package": "libusbx 1.0.26-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libwebp-1.3.2-3.oe2403sp3.aarch64.rpm",
+      "package": "libwebp 1.3.2-3.oe2403sp3 aarch64"
+    },
+    {
+      "file": "libwmf-0.2.13-1.oe2403sp3.aarch64.rpm",
+      "package": "libwmf 0.2.13-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "open-sans-fonts-1.10-11.oe2403sp3.noarch.rpm",
+      "package": "open-sans-fonts 1.10-11.oe2403sp3 noarch"
+    },
+    {
+      "file": "pango-1.51.0-1.oe2403sp3.aarch64.rpm",
+      "package": "pango 1.51.0-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "shared-mime-info-2.4-2.oe2403sp3.aarch64.rpm",
+      "package": "shared-mime-info 2.4-2.oe2403sp3 aarch64"
+    },
+    {
+      "file": "unzip-6.0-54.oe2403sp3.aarch64.rpm",
+      "package": "unzip 6.0-54.oe2403sp3 aarch64"
+    },
+    {
+      "file": "urw-base35-bookman-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-bookman-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-c059-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-c059-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-d050000l-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-d050000l-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-fonts-common-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-fonts-common 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-gothic-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-gothic-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-nimbus-mono-ps-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-nimbus-mono-ps-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-nimbus-roman-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-nimbus-roman-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-nimbus-sans-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-nimbus-sans-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-p052-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-p052-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-standard-symbols-ps-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-standard-symbols-ps-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "urw-base35-z003-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "package": "urw-base35-z003-fonts 20200910-2.oe2403sp3 noarch"
+    },
+    {
+      "file": "wayland-1.22.0-1.oe2403sp3.aarch64.rpm",
+      "package": "wayland 1.22.0-1.oe2403sp3 aarch64"
+    },
+    {
+      "file": "xorg-x11-utils-7.5-31.oe2403sp3.aarch64.rpm",
+      "package": "xorg-x11-utils 7.5-31.oe2403sp3 aarch64"
+    }
+  ],
+  "files": [
+    {
+      "file": "download-sources.json",
+      "bytes": 3343,
+      "sha256": "261573a4b843d9826bb5f6063e23719e81a8f88f1519ce62c62e988da063206f"
+    },
+    {
+      "file": "requirements.lock",
+      "bytes": 1263,
+      "sha256": "15ff53fe84e92b590b88898d5a34e5d9dc665dcdb169c891f20cdadb2e1b8eef"
+    },
+    {
+      "file": "rpms/ImageMagick-7.1.2.9-1.oe2403sp3.aarch64.rpm",
+      "bytes": 2202881,
+      "sha256": "23dac0d5301214bd9be0bea808f1552046e28ee54bcc2a3dd3d74e137f0b0049"
+    },
+    {
+      "file": "rpms/Imath-3.1.9-1.oe2403sp3.aarch64.rpm",
+      "bytes": 69117,
+      "sha256": "4764679ebd099ab6f8a75f90cf03e62136f4a754b29216915dae92dbda9fac3c"
+    },
+    {
+      "file": "rpms/OpenEXR-libs-3.1.11-4.oe2403sp3.aarch64.rpm",
+      "bytes": 1129025,
+      "sha256": "4fe0fdc13b3d5c5ee314a7330cf2b3d28b6be6bb62c884fab0d5c43b55424fa6"
+    },
+    {
+      "file": "rpms/adobe-mappings-cmap-20231115-1.oe2403sp3.noarch.rpm",
+      "bytes": 10269,
+      "sha256": "6ac34d1a376799d4648929d0f4f980e2d305012d6c3078409b1d58044e5d509b"
+    },
+    {
+      "file": "rpms/adobe-mappings-cmap-lang-20231115-1.oe2403sp3.noarch.rpm",
+      "bytes": 2756237,
+      "sha256": "82e6f5d40a3fe9d4ccb8be8c81f6fcfa42174d4b0940eb6be771dceae0ffe5dc"
+    },
+    {
+      "file": "rpms/adobe-mappings-pdf-20230118-1.oe2403sp3.noarch.rpm",
+      "bytes": 770077,
+      "sha256": "94fc137821d2ad2dbb59f1b398f33c6848ccb01578fe400db7405ca7d9e43987"
+    },
+    {
+      "file": "rpms/adwaita-cursor-theme-45.0-2.oe2403sp3.noarch.rpm",
+      "bytes": 1403005,
+      "sha256": "756212f8f10ec53e57b853e92a6841001881e369a188bbb7daa40d3c8c8d7785"
+    },
+    {
+      "file": "rpms/adwaita-icon-theme-45.0-2.oe2403sp3.noarch.rpm",
+      "bytes": 303745,
+      "sha256": "777a20eb75eb0c863b452bbc655069c88ebcd205f5ada60dc75996e28b2ff660"
+    },
+    {
+      "file": "rpms/at-spi2-atk-2.51.0-5.oe2403sp3.aarch64.rpm",
+      "bytes": 75241,
+      "sha256": "79c8a9f348bf0437a620955b866c24f1859aad893215d74aec6924085f7c4e92"
+    },
+    {
+      "file": "rpms/at-spi2-core-2.51.0-5.oe2403sp3.aarch64.rpm",
+      "bytes": 342249,
+      "sha256": "94830c74d2147c6a612b2f07ea3a78ba914656eca10f5b9ab4eefb13f143748c"
+    },
+    {
+      "file": "rpms/atk-2.51.0-5.oe2403sp3.aarch64.rpm",
+      "bytes": 73945,
+      "sha256": "ae0e78e4d48545b941028ecc2baf51e957fb3e733345a27a098ae3894dfe4aeb"
+    },
+    {
+      "file": "rpms/cairo-gobject-1.18.0-2.oe2403sp3.aarch64.rpm",
+      "bytes": 13905,
+      "sha256": "d31ddbd724a9c7605c5875d38fb02f62f01cd8c77f0a052ee30136920d2a3a13"
+    },
+    {
+      "file": "rpms/colord-libs-1.4.6-2.oe2403sp3.aarch64.rpm",
+      "bytes": 184609,
+      "sha256": "1d52b6ae82433faad442d67d4debfa6f43bf5bf33f1b8f2d2e379d0c8d561d8c"
+    },
+    {
+      "file": "rpms/emacs-filesystem-29.1-7.oe2403sp3.noarch.rpm",
+      "bytes": 3673,
+      "sha256": "d49c02f510a663584265ca504bd5a1fac1e3339a95dbfc843b2eefad7b868477"
+    },
+    {
+      "file": "rpms/fribidi-1.0.13-1.oe2403sp3.aarch64.rpm",
+      "bytes": 89953,
+      "sha256": "92a8a543ee18715ea953ba851e6fbe3b75dbe71db57d3a8825f3ec7ba9c07b57"
+    },
+    {
+      "file": "rpms/gdk-pixbuf2-2.42.10-6.oe2403sp3.aarch64.rpm",
+      "bytes": 461141,
+      "sha256": "31014302c419e4747b34c9e4e18f237b9ec6d5d65472e68309e9597ad6a5ce4e"
+    },
+    {
+      "file": "rpms/gdk-pixbuf2-modules-2.42.10-6.oe2403sp3.aarch64.rpm",
+      "bytes": 65181,
+      "sha256": "b4c2f6eb98f0397d1d5995fb79ada2c483f971d5c4027f647faa447fe47d7c7c"
+    },
+    {
+      "file": "rpms/ghostscript-9.56.1-18.oe2403sp3.aarch64.rpm",
+      "bytes": 5532753,
+      "sha256": "fb06f539cdcbdcd5aa780107762706bd78d70d4e71548c575da8f53bb2802988"
+    },
+    {
+      "file": "rpms/google-droid-sans-fonts-20200215-1.oe2403sp3.noarch.rpm",
+      "bytes": 2511469,
+      "sha256": "9d61dc8cb8cf5ad1d12ae4bf2ea26bf035b3b0f69d20bc30e3fa4249229bbfe9"
+    },
+    {
+      "file": "rpms/graphite2-1.3.14-7.oe2403sp3.aarch64.rpm",
+      "bytes": 85761,
+      "sha256": "1f44679e0f0e96323a7cec7a6f54a781683a1039e7be22643d5a804834954d16"
+    },
+    {
+      "file": "rpms/gtk3-3.24.43-1.oe2403sp3.aarch64.rpm",
+      "bytes": 5575381,
+      "sha256": "ca8187503aa88aa7be2e4903014629428331b14e8b62ad7c92ca8a23f6da0534"
+    },
+    {
+      "file": "rpms/harfbuzz-8.3.0-2.oe2403sp3.aarch64.rpm",
+      "bytes": 946393,
+      "sha256": "f690d7dc46322e8f570d7be9c9384d64b10d246fe0abb175382ed9e48b3de328"
+    },
+    {
+      "file": "rpms/hicolor-icon-theme-0.17-7.oe2403sp3.noarch.rpm",
+      "bytes": 42793,
+      "sha256": "ed09f3e34b2e1e33d632881af1af455692a2137997a7cfcaa95438a955a2c6e2"
+    },
+    {
+      "file": "rpms/jbig2dec-0.20-2.oe2403sp3.aarch64.rpm",
+      "bytes": 71609,
+      "sha256": "7c79d9974056353497725e161e52f409ef0b649602a2bb0c68c89f0452ba3541"
+    },
+    {
+      "file": "rpms/json-glib-1.8.0-1.oe2403sp3.aarch64.rpm",
+      "bytes": 151481,
+      "sha256": "d6ddb2cc1b87f198387b2cf2e0a2323a8fb58e07717c477cd949cac953f8523f"
+    },
+    {
+      "file": "rpms/libICE-1.1.1-1.oe2403sp3.aarch64.rpm",
+      "bytes": 49885,
+      "sha256": "fe23104766c97c095476c35057839c97e25e730ec53bcb9cbb1632f16dd3a05b"
+    },
+    {
+      "file": "rpms/libSM-1.2.4-1.oe2403sp3.aarch64.rpm",
+      "bytes": 20585,
+      "sha256": "84eb48904981066b72bfbb3d0ba3655df188391a1f55fe5492b3bec180540173"
+    },
+    {
+      "file": "rpms/libXcomposite-0.4.6-1.oe2403sp3.aarch64.rpm",
+      "bytes": 11241,
+      "sha256": "01692a763cd666d23f72e040394de67fd8f4b2249a4b247fd0134ef911e55757"
+    },
+    {
+      "file": "rpms/libXcursor-1.2.1-2.oe2403sp3.aarch64.rpm",
+      "bytes": 24605,
+      "sha256": "9c7e1a4fc1a02d70f06204be6747ceb0adc74dfc4bae6e70bc6d62338182703e"
+    },
+    {
+      "file": "rpms/libXdamage-1.1.6-1.oe2403sp3.aarch64.rpm",
+      "bytes": 11197,
+      "sha256": "0a97f1431b8ccdd6e8bb0e750fd08eeed10db1b874cd83d77e069a2fa8f08bf0"
+    },
+    {
+      "file": "rpms/libXfixes-6.0.1-1.oe2403sp3.aarch64.rpm",
+      "bytes": 15493,
+      "sha256": "b75f13773ca6d08ec9662428e5ebe69ffdf70784b4b6e5e865d3c2651589915d"
+    },
+    {
+      "file": "rpms/libXft-2.3.8-1.oe2403sp3.aarch64.rpm",
+      "bytes": 45993,
+      "sha256": "2667a13aa385d502123fc57fb1582da376c66976aab1b2bc5341541a00445627"
+    },
+    {
+      "file": "rpms/libXi-1.8.1-1.oe2403sp3.aarch64.rpm",
+      "bytes": 32433,
+      "sha256": "a20ed17a4f360356deeecd8431ab37e505217769a06697835918a202d037c13b"
+    },
+    {
+      "file": "rpms/libXrandr-1.5.4-1.oe2403sp3.aarch64.rpm",
+      "bytes": 22385,
+      "sha256": "8099ab29a1cc282ececeaeed439a83835e9738355b27b47b99efc351de269c9f"
+    },
+    {
+      "file": "rpms/libXt-1.3.0-2.oe2403sp3.aarch64.rpm",
+      "bytes": 157737,
+      "sha256": "1a477c0586fa1fddcbcc99076b2ff5133359a53942969286bde3c70a936c7cac"
+    },
+    {
+      "file": "rpms/libXtst-1.2.4-2.oe2403sp3.aarch64.rpm",
+      "bytes": 16649,
+      "sha256": "6ca501a8b8fb9b56eb634158d28cc9e39d52c366e2df7de000501a947f20cea9"
+    },
+    {
+      "file": "rpms/libXv-1.0.12-1.oe2403sp3.aarch64.rpm",
+      "bytes": 14549,
+      "sha256": "4483389acaf2686f4545ea506b9ed3b405fc5bab0289084eb66ad4522c1cba83"
+    },
+    {
+      "file": "rpms/libXxf86dga-1.1.6-1.oe2403sp3.aarch64.rpm",
+      "bytes": 15273,
+      "sha256": "fa614a6b426491e77e7793513607932c7b729b661f6c848bf2c64ffa06806a04"
+    },
+    {
+      "file": "rpms/libXxf86vm-1.1.5-3.oe2403sp3.aarch64.rpm",
+      "bytes": 13717,
+      "sha256": "554a655ef629749e12ad524ef0eacdf8430761b23fdf78942c88c6f4831f0787"
+    },
+    {
+      "file": "rpms/libdatrie-0.2.13-2.oe2403sp3.aarch64.rpm",
+      "bytes": 28401,
+      "sha256": "af85e95a3b55f7e9a6ba250bd452117c576e7179376c98e6e973b18ca59bb133"
+    },
+    {
+      "file": "rpms/libdmx-1.1.5-1.oe2403sp3.aarch64.rpm",
+      "bytes": 13001,
+      "sha256": "9d3fc3065b765c42e4162fef55b6122dedd76adcea46046c5865482017a4a3b1"
+    },
+    {
+      "file": "rpms/libepoxy-1.5.10-3.oe2403sp3.aarch64.rpm",
+      "bytes": 205625,
+      "sha256": "08b466373c29c6140893f03bab7c1cf861f1494d51c5db750dee285171cb5d07"
+    },
+    {
+      "file": "rpms/libgusb-0.4.8-3.oe2403sp3.aarch64.rpm",
+      "bytes": 51237,
+      "sha256": "8e79f30be43602f9a5309a63484e05019162d934d735eb80d762df6f02771887"
+    },
+    {
+      "file": "rpms/libicu-74.1-5.oe2403sp3.aarch64.rpm",
+      "bytes": 10425221,
+      "sha256": "3a58ccd801ebc09db9fefda035bfa349295f89e554f639463f2c6cbe6472be6c"
+    },
+    {
+      "file": "rpms/libidn-1.41-1.oe2403sp3.aarch64.rpm",
+      "bytes": 144133,
+      "sha256": "dae1160e2ba35ebf612a3117a042324a9643debcaf1e60999095b25aa1ed092b"
+    },
+    {
+      "file": "rpms/libijs-0.35-10.oe2403sp3.aarch64.rpm",
+      "bytes": 25297,
+      "sha256": "416dc7602f251871cdc5f57c70c78f95edb558d9869a986133404b1bf17b832d"
+    },
+    {
+      "file": "rpms/libpaper-1.1.29-2.oe2403sp3.aarch64.rpm",
+      "bytes": 32481,
+      "sha256": "0c3c8527bbc26840e5122faf3047bda7a9ca5f738348364da4dc71d3bb330811"
+    },
+    {
+      "file": "rpms/librsvg2-2.57.1-5.oe2403sp3.aarch64.rpm",
+      "bytes": 1389729,
+      "sha256": "f9fbb889af15eb3c1a4a6b54a5b866ebf08263a39408b3f966202f41028a2a46"
+    },
+    {
+      "file": "rpms/libthai-0.1.29-2.oe2403sp3.aarch64.rpm",
+      "bytes": 204981,
+      "sha256": "f267a8021b10a4831d50ac0cd4bf7f0053dd95859c4f2b9d980c059e1058c34d"
+    },
+    {
+      "file": "rpms/libusbx-1.0.26-2.oe2403sp3.aarch64.rpm",
+      "bytes": 68149,
+      "sha256": "84dda4af3a0456a1c3ac4fead048164a6d26b4c1682797a928764218790d4b20"
+    },
+    {
+      "file": "rpms/libwebp-1.3.2-3.oe2403sp3.aarch64.rpm",
+      "bytes": 211901,
+      "sha256": "6a4a91b75f32f4c35ee04cc2ea16fc214ebd61c5339310e9a371c77701068f81"
+    },
+    {
+      "file": "rpms/libwmf-0.2.13-1.oe2403sp3.aarch64.rpm",
+      "bytes": 172089,
+      "sha256": "351a93a8efd111d2443517c1a2492375cf9da4a23f1cd5e32e8ddef53c93c4e9"
+    },
+    {
+      "file": "rpms/open-sans-fonts-1.10-11.oe2403sp3.noarch.rpm",
+      "bytes": 462973,
+      "sha256": "6a3c1b30413a47103a8a0d5d2e0e8cbbfc9db400b7d4b7b25c73a60a0e4ac5b3"
+    },
+    {
+      "file": "rpms/pango-1.51.0-1.oe2403sp3.aarch64.rpm",
+      "bytes": 272509,
+      "sha256": "1f586e68a94224597ec361f7e9c3d2aba988c49276022c06a4d4d4065ed47daf"
+    },
+    {
+      "file": "rpms/shared-mime-info-2.4-2.oe2403sp3.aarch64.rpm",
+      "bytes": 312129,
+      "sha256": "53cfac6ed06be0a68855fed894482e72ad7866e9934ce4ba44bcf284961e6ca3"
+    },
+    {
+      "file": "rpms/unzip-6.0-54.oe2403sp3.aarch64.rpm",
+      "bytes": 124185,
+      "sha256": "528e9f3e99497f4da9709efb47099ad9718b4d6fbcf19ed9585d77ae7c3178e1"
+    },
+    {
+      "file": "rpms/urw-base35-bookman-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 870621,
+      "sha256": "8ef3eba84918a3c3091aafcbebe97fbd5fc41a3a376bd41c4928716d14d0981a"
+    },
+    {
+      "file": "rpms/urw-base35-c059-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 898409,
+      "sha256": "fe096b6ce3aa825c1c437147cc6bec7a2cdd1d7170be11f281cff2e1d8884e2c"
+    },
+    {
+      "file": "rpms/urw-base35-d050000l-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 73913,
+      "sha256": "2462217ff30338c97e507b014c74c977ffc412ab0c458cf59d2bf2790d4d2d7d"
+    },
+    {
+      "file": "rpms/urw-base35-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 5209,
+      "sha256": "7bde24e8b3934dcb1450931d2e28ba2b66f1552fd65c26baf7de1c41a571bd98"
+    },
+    {
+      "file": "rpms/urw-base35-fonts-common-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 16597,
+      "sha256": "61594c7de11ce5592f3cfee89e9f257882921ec829cdfa4a1ce5087a365283fc"
+    },
+    {
+      "file": "rpms/urw-base35-gothic-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 663285,
+      "sha256": "c0df1348df7362d6b392505b750eb81f1fab028186b128ecc81ea0c098b80b67"
+    },
+    {
+      "file": "rpms/urw-base35-nimbus-mono-ps-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 813413,
+      "sha256": "4d53384a636084dfed2faa6d15141b2e3b049405b19d42a6965e4e5634e013ac"
+    },
+    {
+      "file": "rpms/urw-base35-nimbus-roman-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 878821,
+      "sha256": "76e6b2c761084be7f238d3bc00ebf2671fef601daa7e4667c40cc894588db346"
+    },
+    {
+      "file": "rpms/urw-base35-nimbus-sans-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 1382849,
+      "sha256": "05c5861e083703ed4a41c368c165806cc9f216d8106613c684452a21a2a3ef76"
+    },
+    {
+      "file": "rpms/urw-base35-p052-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 999201,
+      "sha256": "ec8a7d37ee27615af54f18367f2a1983d94c7940d422b6ed2799ee2a7e94fa63"
+    },
+    {
+      "file": "rpms/urw-base35-standard-symbols-ps-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 37629,
+      "sha256": "5bd1fcbfe6b30b38b78e0ac4c59ba442ee6f6715fe0f6771e959b97afb0cdcf9"
+    },
+    {
+      "file": "rpms/urw-base35-z003-fonts-20200910-2.oe2403sp3.noarch.rpm",
+      "bytes": 279093,
+      "sha256": "bf9aea3175647e97ca41c102c1d699186785376539b56f6dd4ba446896e34dc7"
+    },
+    {
+      "file": "rpms/wayland-1.22.0-1.oe2403sp3.aarch64.rpm",
+      "bytes": 58569,
+      "sha256": "220cab3fee250b126bf7ef61c2524a10c6ec476fbab0896dd04b70327e9f7980"
+    },
+    {
+      "file": "rpms/xorg-x11-utils-7.5-31.oe2403sp3.aarch64.rpm",
+      "bytes": 95741,
+      "sha256": "5b89023888e9027859cd090b552f738ac5b67900170e3e5b9bf4b41813fdcd72"
+    },
+    {
+      "file": "wheels/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "bytes": 246730,
+      "sha256": "b91363207bd9dc966a691e959bb47f64b30f7ac4b072be9968b366982f7db77c"
+    },
+    {
+      "file": "wheels/et_xmlfile-2.0.0-py3-none-any.whl",
+      "bytes": 18059,
+      "sha256": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa"
+    },
+    {
+      "file": "wheels/fonttools-4.68.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+      "bytes": 5462605,
+      "sha256": "b41e71b2657c9843b2327b4e3c116db1757dc8cd05d978cd47cb5061272d4997"
+    },
+    {
+      "file": "wheels/lxml-6.1.2-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+      "bytes": 5011863,
+      "sha256": "261d98065326676d7253882db0198d0aa06748d7ee0443367acf10b148273f99"
+    },
+    {
+      "file": "wheels/openpyxl-3.1.5-py2.py3-none-any.whl",
+      "bytes": 250910,
+      "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2"
+    },
+    {
+      "file": "wheels/pdf2image-1.17.0-py3-none-any.whl",
+      "bytes": 11618,
+      "sha256": "ecdd58d7afb810dffe21ef2b1bbc057ef434dabbac6c33778a38a3f7744a27e2"
+    },
+    {
+      "file": "wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+      "bytes": 6398371,
+      "sha256": "7371b48c4fa448d20d2714c9a1f775a81155050d383333e0a6c15b1123dda005"
+    },
+    {
+      "file": "wheels/pypdf-6.10.0-py3-none-any.whl",
+      "bytes": 334459,
+      "sha256": "90005e959e1596c6e6c84c8b0ad383285b3e17011751cedd17f2ce8fcdfc86de"
+    },
+    {
+      "file": "wheels/python_docx-1.2.0-py3-none-any.whl",
+      "bytes": 252987,
+      "sha256": "3fd478f3250fbbbfd3b94fe1e985955737c145627498896a8a6bf81f4baf66c7"
+    },
+    {
+      "file": "wheels/python_pptx-1.0.2-py3-none-any.whl",
+      "bytes": 472788,
+      "sha256": "160838e0b8565a8b1f67947675886e9fea18aa5e795db7ae531606d68e785cba"
+    },
+    {
+      "file": "wheels/reportlab-5.0.1-py3-none-any.whl",
+      "bytes": 1957258,
+      "sha256": "1c36e6bb0e71780c72331eba60da7f602e8d4389a8723825af71342e49d791e8"
+    },
+    {
+      "file": "wheels/typing_extensions-4.16.0-py3-none-any.whl",
+      "bytes": 45571,
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    {
+      "file": "wheels/xlsxwriter-3.3.1-py3-none-any.whl",
+      "bytes": 180583,
+      "sha256": "8e2c89e59d733fe59e112317218c64fbbc276d90a8c144ebd6f7fa15e7ab184a"
+    }
+  ]
+}

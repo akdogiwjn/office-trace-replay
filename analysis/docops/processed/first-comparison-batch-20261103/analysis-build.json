@@ -1,0 +1,24 @@
+{
+  "schema": "docops-comparison-build-v1",
+  "campaign_sha256": "252342e9b8a249c95a7dd4fa1ed2c01b41cda4ca23aaddd649eebda3b2d0a4d1",
+  "enrichment_sha256": "c9c60bf572afb66580c030522d6c0f1900701ccaa9091e294b97b4c632a07b8a",
+  "code_sha256": {
+    "analysis/docops/compare.py": "e9b847a7a5586176b7c755b4b3c6e7b6767e4e56554887185788db07b88737ba",
+    "analysis/docops/native_adapter.py": "4362c36506d27733e101e888819c85888d121a9998641cd2b937f2394a123615",
+    "analysis/docops/recover_perf.py": "45fac31faf824f3862d86e73593b246b1504e870cf87ab3cb3092aaf44adeded",
+    "analysis/docops/campaign.py": "5bbfdd2a6774714f346479a681e0ab08ae95d9c1c15b18916172e5574f4a8fac",
+    "analysis/docops/quality.py": "c8d61167d991d2f4abf9143b219c3efde34a8035b4f003623418c87aeb672721",
+    "analysis/docops/worker.py": "5c922a72a343438fa58d7350ced06ad9cddcc1812c620c3c26b60032b11e3d65",
+    "analysis/docops/monitor.py": "8d86e7751a47aa3d711240dd210c3ff191d2b2977e1ed642fff86b4f23f0841c",
+    "analysis/docops/enrich_campaign.py": "d94393178fdeb27e0f45e74830f2df91e74bd670f983d5e278e1fe3916bd8e80",
+    "analysis/docops/capture.py": "544547e0a1bc31c1ab37a723710612accd07244ae5eccb162e2d0e1593a6e9ba",
+    "analysis/docops/fetch_symbols.py": "634ea5719e53feb11674aa72d3fe3ab718d1ecbb408e1106269c3bbe00a22378",
+    "analysis/docops/pilot.py": "069b12d85acd5fe3a94249e68584cbe8780701e0090f7709e77f7bdee9f30e26"
+  },
+  "output_sha256": {
+    "report.md": "618618a67c5753cb9c7d22b7b427a70b64e2e777ba26e85517175f9a55cbe094",
+    "comparison.json": "057d7445b5bb3ea2d410ad2a4894d2e2f147355a350013d3eee669714dee1076",
+    "pairs.csv": "9b367d8168ccb88e321b128563e7afb473f3c72b75b634e025d7261f0f9786f7",
+    "checks.json": "c31d606cdcdf2a5b70b12a91517f8fc1815eb1b383f0e857e875b1ce744f00f8"
+  }
+}

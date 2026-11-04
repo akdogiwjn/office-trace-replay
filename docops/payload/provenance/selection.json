@@ -1,0 +1,416 @@
+{
+  "schema": "docops-final-effective-selection-v1",
+  "environment": {
+    "base_image": "docops-l3-shared-tools:arm64-v3",
+    "base_image_id": "sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106",
+    "platform": "linux/arm64",
+    "python": "3.12.14",
+    "openpyxl": "3.1.5",
+    "pypdf": "6.16.2",
+    "python_docx": "1.2.0",
+    "python_pptx": "1.0.2",
+    "lxml": "6.1.2",
+    "unresolved_dependencies": [
+      "021: fonttools version and offline wheel identity",
+      "perf: Debian-compatible binary and unwind dependencies",
+      "DevKit: HIP09 CLI compatibility in the DocOps image"
+    ],
+    "dependency_status": "not_ready_to_build_release"
+  },
+  "measurement_policy": {
+    "measured": "final construction, necessary repair, recalculation, selected final render and agent-authored checks",
+    "excluded": [
+      "model requests and waiting",
+      "source exploration and image viewing",
+      "failed/replaced commands",
+      "package installation and font environment setup",
+      "reset, payload restoration, archive, output hash and official scoring"
+    ],
+    "perf": "separate pass; command descendants; cycles:u; physical callchain; export inside the same image",
+    "topdown": "separate DevKit pass; fixed workload CPU set; controller outside set; preserve collection envelope and per-ROI markers",
+    "repetitions": "not scheduled; short tasks may require batches; do not pad with sleeps",
+    "official_score": "historical result retained; replay infrastructure status is separate"
+  },
+  "tasks": {
+    "001": {
+      "scripts": [
+        {
+          "path": "/root/create_packet.py",
+          "version": 2
+        }
+      ],
+      "steps": [
+        {
+          "name": "build_and_final_render",
+          "source_item_id": "call_00_GzdHK1byKB7qcSB59Lur7703",
+          "phase": "workflow"
+        },
+        {
+          "name": "final_structure_check",
+          "source_item_id": "call_00_uLGQx8YbTT9zZKXzrvdr8670",
+          "phase": "workflow"
+        },
+        {
+          "name": "final_package_check",
+          "source_item_id": "call_01_b02ygC9sQrMLPPuUtNqh4527",
+          "phase": "workflow"
+        },
+        {
+          "name": "final_render_text_check",
+          "source_item_id": "call_02_NgYezcJqdAZIFoBeSrce7532",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Restore v2 before final build. Keep original inline final checks without inventing new assertions. Earlier inspections precede replacement and are excluded; final render cleanup is not measured.",
+      "exclusion_reasons": {}
+    },
+    "003": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_public_packet.py",
+          "version": 4
+        },
+        {
+          "path": "/root/tmp/docs/audit_public_packet.py",
+          "version": 2
+        }
+      ],
+      "steps": [
+        {
+          "name": "build",
+          "source_item_id": "call_00_ymiwKRuUP0DnkB33z36l1800",
+          "phase": "workflow"
+        },
+        {
+          "name": "audit",
+          "source_item_id": "call_00_ET_Rbq69NL8JsOCTp2f5bfg2893",
+          "phase": "workflow"
+        },
+        {
+          "name": "render",
+          "source_item_id": "call_00_GqhtK8VAL3UCICtI7Qm90422",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Final v4 builder includes source OOXML processing and staging. v2 audit is agent-authored, not the official scorer. Historical reward 0 is retained.",
+      "exclusion_reasons": {}
+    },
+    "009": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_incident_manual_publication.py",
+          "version": 1
+        },
+        {
+          "path": "/root/tmp/docs/validate_incident_manual_publication.py",
+          "version": 1
+        }
+      ],
+      "steps": [
+        {
+          "name": "build",
+          "source_item_id": "call_00_CBxBvEeJ0Cu6gYbUBkIM0802",
+          "phase": "workflow"
+        },
+        {
+          "name": "render",
+          "source_item_id": "call_00_BfSjs8eRmEaYiatmkcGd7707",
+          "phase": "workflow"
+        },
+        {
+          "name": "validate",
+          "source_item_id": "call_00_mfpDd5V1v7kq68c1odU03308",
+          "phase": "workflow"
+        }
+      ],
+      "review": "One effective builder, full final render, original validation. Builder constructs from embedded task facts; no additional source-reading step is invented.",
+      "exclusion_reasons": {}
+    },
+    "013": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_public_bid_workbook.py",
+          "version": 3
+        },
+        {
+          "path": "/root/tmp/docs/verify_public_bid_workbook.py",
+          "version": 1
+        }
+      ],
+      "steps": [
+        {
+          "name": "build_recalculate_verify",
+          "source_item_id": "call_00_AOsLvj5UBpUu2bkJgyHc3745",
+          "phase": "workflow"
+        },
+        {
+          "name": "render_contact_sheet",
+          "source_item_id": "call_00_s1wdlHb3BDVPIWVPwKqk1019",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Final v3 builder and metadata-dependent verifier. Keep task_metadata.json from original injection. Original Skill recalc is unchanged; official failure remains a separate result.",
+      "exclusion_reasons": {}
+    },
+    "014": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_disaster_release_v1.py",
+          "version": 1
+        },
+        {
+          "path": "/root/tmp/docs/finalize_disaster_release_ooxml_v3.py",
+          "version": 1
+        },
+        {
+          "path": "/root/tmp/docs/validate_disaster_release_v1.py",
+          "version": 2
+        }
+      ],
+      "steps": [
+        {
+          "name": "build",
+          "source_item_id": "call_00_WaiqiQFnoPGMigfda5CD5526",
+          "phase": "workflow"
+        },
+        {
+          "name": "recalculate",
+          "source_item_id": "call_00_NJxBP4fsxN8tKh53CYPS3229",
+          "phase": "workflow"
+        },
+        {
+          "name": "final_ooxml_repair_and_validate",
+          "source_item_id": "call_00_PIFOykZOndOP74vkTP4w7940",
+          "phase": "workflow"
+        },
+        {
+          "name": "convert_pdf",
+          "source_item_id": "call_00_6YaPHYjmPyer5qZT8RXY2172",
+          "phase": "workflow"
+        },
+        {
+          "name": "render",
+          "source_item_id": "call_01_t4QzXvFoITaIkaBXh7C69463",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Source review: OOXML v3 contains v2 tab colors, draft removal, FALSE formula repair, structure protection and calc flag replacement, plus number-format repair. v1/v2 passes are redundant, not cumulative prerequisites; keep v3 only. Recalc precedes repair, with no openpyxl save afterward.",
+      "exclusion_reasons": {
+        "call_00_ub3ZefyzLGcveWbfzWzw1854": "superseded_by_self_contained_ooxml_v3",
+        "call_00_WO8nVtw80diHVE2F0wHR9868": "superseded_by_self_contained_ooxml_v3"
+      }
+    },
+    "016": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_forecast_dashboard_v1.py",
+          "version": 4
+        }
+      ],
+      "steps": [
+        {
+          "name": "build_recalculate_convert",
+          "source_item_id": "call_00_ipl59dSoYECv9HIVG5UU8275",
+          "phase": "workflow"
+        },
+        {
+          "name": "render_dashboard",
+          "source_item_id": "call_00_coJmhjSkISrmdIHygXyF8832",
+          "phase": "workflow"
+        },
+        {
+          "name": "verify_base_scenario_cascade",
+          "source_item_id": "call_00_Y3nGgmTo16zrPpXeXynR6808",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Keep the final v4 builder and the actual alternate-scenario test, which writes and recalculates a separate test workbook without replacing the submission. Its CPU work belongs to this task's final verification.",
+      "exclusion_reasons": {}
+    },
+    "021": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_public_shelter_briefing.py",
+          "version": 6
+        },
+        {
+          "path": "/root/tmp/docs/make_qa_fonts.py",
+          "version": 1
+        },
+        {
+          "path": "/root/tmp/docs/validate_public_shelter_briefing.py",
+          "version": 1
+        }
+      ],
+      "steps": [
+        {
+          "name": "prepare_render_fonts",
+          "source_item_id": "call_00_fjAKQfAIikOZzN6Ic9vp0355",
+          "phase": "environment_setup"
+        },
+        {
+          "name": "build_validate_render",
+          "source_item_id": "call_00_rHpcQSRDe7lQSx9z3tWX3495",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Builder v6 does not read source_audit.json or preview images, so audit_source.py is exploratory. Font generation/install is an explicit prerequisite outside measured ROI, performed from the exact agent script after offline fonttools installation. Isolate per-task font state; do not leak Aptos substitutes into other tasks.",
+      "exclusion_reasons": {
+        "call_00_LDvRjybMOE7O9VDydiRC3939": "source_exploration_output_not_consumed_by_final_builder",
+        "call_00_RtUeoYqgoO2xN6MUcYKK7079": "dependency_installation_moves_to_offline_image_build",
+        "call_00_6AeVidZOZsibhnO3m81C6220": "duplicate_final_validation_already_in_selected_command"
+      }
+    },
+    "026": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_climate_disclosure.py",
+          "version": 2
+        },
+        {
+          "path": "/root/tmp/docs/qa_climate_disclosure.py",
+          "version": 1
+        }
+      ],
+      "steps": [
+        {
+          "name": "build",
+          "source_item_id": "call_00_iwvby0eKej2wT8TDRzgL7490",
+          "phase": "workflow"
+        },
+        {
+          "name": "convert_pdf",
+          "source_item_id": "call_00_bsLGbudDm0m2A4A6Hy3S8256",
+          "phase": "workflow"
+        },
+        {
+          "name": "render",
+          "source_item_id": "call_00_ByRs2gVQ0FdoIPnrWayI2503",
+          "phase": "workflow"
+        },
+        {
+          "name": "validate",
+          "source_item_id": "call_00_mZ2VvLL4PuPvjQN5PTIX2488",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Converter runs with original cwd /root/tmp/docs. It has no --outdir; preserving cwd is required for the following renderer. Duplicate thumbnail generation is omitted.",
+      "exclusion_reasons": {}
+    },
+    "029": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_release_deck.py",
+          "version": 6
+        },
+        {
+          "path": "/root/tmp/docs/validate_release_deck.py",
+          "version": 1
+        }
+      ],
+      "steps": [
+        {
+          "name": "build_validate_render",
+          "source_item_id": "call_00_eJb2ALjlazk1wi73q5T11844",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Final v6 combined command builds, validates, converts and renders page 1. Earlier full-deck previews concern replaced versions; do not introduce an unobserved full-deck final rendering.",
+      "exclusion_reasons": {}
+    },
+    "031": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_public_packet.py",
+          "version": 1
+        },
+        {
+          "path": "/root/tmp/docs/validate_public_packet.py",
+          "version": 1
+        }
+      ],
+      "steps": [
+        {
+          "name": "build",
+          "source_item_id": "call_00_IhRAX2EdXHNZ78EHFaka5239",
+          "phase": "workflow"
+        },
+        {
+          "name": "render",
+          "source_item_id": "call_03_3egrZ2al25Xbzaq5zLGQ0719",
+          "phase": "workflow"
+        },
+        {
+          "name": "validate",
+          "source_item_id": "call_00_6ar622IXxiRbAu3Xm2l28299",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Task-private build_public_packet.py differs from Word003 despite the identical basename. Keep independent payloads and clean workspaces, no common business helper.",
+      "exclusion_reasons": {}
+    },
+    "037": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/build_bus_detour_packet.py",
+          "version": 2
+        },
+        {
+          "path": "/root/tmp/docs/validate_bus_detour_packet.py",
+          "version": 1
+        }
+      ],
+      "steps": [
+        {
+          "name": "build_render",
+          "source_item_id": "call_00_FfZ7ENipWDkc92bg6KIM9848",
+          "phase": "workflow"
+        },
+        {
+          "name": "validate",
+          "source_item_id": "call_00_PHS1XfRHc2iq54BPaOBv0128",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Final v2 builds both intermediate ReportLab and final pypdf output. Do not use the old v1 output or compare stale preview images.",
+      "exclusion_reasons": {}
+    },
+    "pdfwf005": {
+      "scripts": [
+        {
+          "path": "/root/tmp/docs/rebuild_closeout_binder.py",
+          "version": 2
+        }
+      ],
+      "steps": [
+        {
+          "name": "build_and_pdfinfo",
+          "source_item_id": "call_00_v1cCHqTgERBQhN1UPmLU9206",
+          "phase": "workflow"
+        },
+        {
+          "name": "final_text",
+          "source_item_id": "call_00_cWzerBVYkS7NJCET0DhY9249",
+          "phase": "workflow"
+        },
+        {
+          "name": "page_labels_and_bookmarks",
+          "source_item_id": "call_01_QDJs8DTPNPtJ1etcI5fz2327",
+          "phase": "workflow"
+        },
+        {
+          "name": "render_contact_sheet",
+          "source_item_id": "call_02_DA556CXNwdvFBYHNa3gZ9661",
+          "phase": "workflow"
+        },
+        {
+          "name": "forbidden_text_diagnostic",
+          "source_item_id": "call_03_oOJ2VRXApN5DJAyPKRBT7803",
+          "phase": "workflow"
+        }
+      ],
+      "review": "Keep v2 builder and original inline page-label/bookmark inspections. Print-only checks and 'rg ... || true' remain diagnostics, not invented strict assertions; official historical score remains separate.",
+      "exclusion_reasons": {}
+    }
+  }
+}

@@ -1,0 +1,17 @@
+[
+  "docker",
+  "--host",
+  "unix:///var/run/docker.sock",
+  "create",
+  "--name",
+  "docops-unified-compat-20261103T1649",
+  "--network",
+  "none",
+  "-v",
+  "/home/lcq/office-trace-replay/docops/docker/records/20261103T164844Z-unified-808c3118/compatibility:/results",
+  "--entrypoint",
+  "/opt/docops/venv/bin/python3",
+  "sha256:2c08fd3cb72cae12f6e7f0d201eff98d8a2b06073ca8393d247bb4c5fc238d8d",
+  "-B",
+  "/opt/docops/docker/smoke_unified.py"
+]

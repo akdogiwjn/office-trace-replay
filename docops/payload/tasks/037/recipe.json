@@ -1,0 +1,342 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "037",
+  "task_id": "docops_v2_l3_037_pdf_bus_detour_notice_layout_repair",
+  "format": "pdf",
+  "source_run_id": "10-pdf-037-20261103T105547Z",
+  "historical_score": {
+    "status": "valid",
+    "reward": 0,
+    "detail": "consumed",
+    "tests_failed": 2,
+    "tests_error": 0,
+    "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/score.json",
+    "ctrf": null,
+    "ctrf_counts": null,
+    "raw_reward": null,
+    "raw_evidence": "summary_only"
+  },
+  "output_path": "/root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output.pdf",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/037/seed/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input.pdf",
+      "destination": "/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input.pdf",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair/environment/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input.pdf",
+      "sha256": "03f2d841b430eb9707d6e356623bee4d3f5619506ace6afad3ef9b0dce13aaa1"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair/environment/original_task_description.txt",
+      "sha256": "1b5e05492bd4411014858f5e775f363e10c654b7b8ba7614618c13b0f1071c9e"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair/environment/task_metadata.json",
+      "sha256": "a7f9810bf54241ca367913339429dbe0b5c63c23359e1e390aa7a8c8d969a53c"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair/instruction.md",
+      "sha256": "a0f9349e3fece4bebb49fc3efe6bb899df29ccd02c1f499d84caebf8740878ae"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/037/seed/root/tmp/docs/build_bus_detour_packet.py",
+      "destination": "/root/tmp/docs/build_bus_detour_packet.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/10-pdf-037-20261103T105547Z/preserve-out/files/root_tmp_docs_build_bus_detour_packet.py.v2.update",
+      "sha256": "e70385a417913c6bede0c6b15f21945b5169a27e10ed721f8056aa345a725666",
+      "version": 2,
+      "source_item_id": "call_00_ET_ExOh7YCAjI6tvRITm3rS1608",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/037/seed/root/tmp/docs/validate_bus_detour_packet.py",
+      "destination": "/root/tmp/docs/validate_bus_detour_packet.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/10-pdf-037-20261103T105547Z/preserve-out/files/root_tmp_docs_validate_bus_detour_packet.py.v1.add",
+      "sha256": "3c5e323c5df67a991b6500b906f817415e156691357791a92da6719113f793d1",
+      "version": 1,
+      "source_item_id": "call_00_e94HMIjxkTgw1JzT0kTC0078",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_render",
+      "source_item_id": "call_00_FfZ7ENipWDkc92bg6KIM9848",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-lc",
+        "python3 /root/tmp/docs/build_bus_detour_packet.py && mkdir -p /root/tmp/docs/render_v2 && pdftoppm -png -r 150 /root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output.pdf /root/tmp/docs/render_v2/page"
+      ],
+      "shell_body": "tasks/037/commands/01.sh",
+      "shell_sha256": "edc8be45545dd7d8ec98e1f4d6e82df7ff6f6a0645a7754312dc3b1259402ac5",
+      "source_command_sha256": "af17b952978b0f167dd74f8492c2920bcae4cf4af7cd733e61fc75d2880579ca",
+      "source_exit_code": 0,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "validate",
+      "source_item_id": "call_00_PHS1XfRHc2iq54BPaOBv0128",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-lc",
+        "python3 /root/tmp/docs/validate_bus_detour_packet.py"
+      ],
+      "shell_body": "tasks/037/commands/02.sh",
+      "shell_sha256": "bd87ebef32ffdf300331daf4028bca9bd9532d8256553eb8add2320eabf1bbdb",
+      "source_command_sha256": "9de50244d9197505499bc3e4b0853d2e73015eae585e20c4f6a5e9b878a8426c",
+      "source_exit_code": 0,
+      "depends_on": [
+        "01"
+      ]
+    }
+  ],
+  "review": "Final v2 builds both intermediate ReportLab and final pypdf output. Do not use the old v1 output or compare stale preview images.",
+  "excluded_items": [
+    {
+      "source_item_id": "01a1a10d-0c83-7f72-84b5-8a07c28c1491",
+      "type": "userMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "64e15ded-010f-4702-872f-3e49514f3057",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "921b4710-352c-4379-afe2-066b92d08ec6",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_aAArCGzyTHxb9Amr3xfW1158",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "06af0043-4573-4ea3-933b-602292b9c9ac",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_r8f1EFtFLSYS2x30BfBP3925",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_8NoQPq5RGr4oJlmjCeux0781",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_iOgFKKQGqYrdflVr8gXL3464",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_EL1SrihoKg4AJnHbeHgL9109",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "934193a0-3a51-47a0-b22e-834a74a0c776",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "392320db-f22d-433e-9bc9-ba440e81def9",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_2XHI5AMMDYufVar73ur75053",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "a831caa9-5dc8-4d2d-af8c-69ba7e8028d4",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_xVqsOxwhDDGKpvYpWyaR5499",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "7e092122-75e3-4bad-b55c-6bffd8683ec2",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_giZiOXxFsKiz2kmEFXqw1019",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "7c68fa55-4588-4d50-a2e8-067106344cfc",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_tm68JppHsebLW3MS4GpM6565",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_rLYyk6K19N89eZzmuHov1101",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_P3G6wSIRRxQROGds3yc21880",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_1ebUDdORQuRY1V7s09oP0267",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "51fb2e35-a4a8-4228-90a3-61cff1ee8b02",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "57722252-7bf8-4a66-a536-4d6af3589aff",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_PIczCF6Z5g1GHidsYKzc0844",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "280b9dd4-8bb1-439d-b0bc-b85b98a52e07",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_0TqyZ4KxrBh2rM2TvfD98155",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_01_80t3EV4KDT3MSFtNSazR1548",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_02_w8mYVHoNVQntqmSSIUBJ9527",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "7cdc0951-fb2d-4724-977f-bd31a86953a7",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_2bYodfgi4nGOnbI71Yur6185",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_01_E69b9fXoXtS53YIWAgzV9843",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "8bfa1210-de51-4571-9a17-313043c1cdba",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "db9ad919-6b05-47c3-a9a1-a297c42e97b8",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_C4h0Hk7NwfAlGD7mKIzX6549",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_ExOh7YCAjI6tvRITm3rS1608",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "344c45f1-06f3-42cd-8a66-146ba42d9e96",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "76ccd122-106c-4e7b-8304-9a23142978d0",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ENUuOiSZB8Afs4niIxM64880",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "fe92277d-b859-4e46-a885-9c746f6464d4",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_e94HMIjxkTgw1JzT0kTC0078",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "72d97786-8bb2-47a5-99dc-127da6ceab06",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_MVWjbYnp76dTC5HFvu1D1835",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_1fQg9OUEcElXROwhAWaM5266",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "1a6abbd0-c686-41d0-bbd4-3aef7a4f2f5a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "83933b1a-7c1e-42ef-bb95-24a0bbe5b8cf",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    }
+  ],
+  "provenance": {
+    "trace": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/10-pdf-037-20261103T105547Z/preserve-out/raw/thread_history_consistent.sqlite",
+    "trace_sha256": "699992a7e4d3d7a9e4bd2a428aec75f760a139894466833c8df57a688371aaca",
+    "run_env": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/run-env.json",
+    "run_env_sha256": "64aec1bffe75dbc853f15cf3990e4396eb5e651c49ab34dd91b0525626ec4c29"
+  }
+}

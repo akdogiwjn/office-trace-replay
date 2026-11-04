@@ -1,0 +1,406 @@
+{
+  "schema": "docops-symbol-search-v1",
+  "searched_at_utc": "2026-11-03T17:30:20.272262+00:00",
+  "image_id": "sha256:57483856a27942ffd4aef853950ca66b00c12b0787aae6c1dac74371d03e6164",
+  "repository": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/",
+  "repomd_sha256": "113cd9282f7a54570da9bf9e633df4dd966696e3e22dc73790cd2195bc2460b9",
+  "primary_compressed_sha256": "9869436b826364a0e06a140f34dd504e60c605b9775401ba11b24d17e8da8094",
+  "packages": [
+    {
+      "package": "ImageMagick-debuginfo",
+      "version": {
+        "epoch": "1",
+        "ver": "7.1.2.9",
+        "rel": "1.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/ImageMagick-debuginfo-7.1.2.9-1.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "29dbc67214ae91da16a637436b9c4f7b07307bb960169dd9d27a5eacda9ba67d",
+      "expected_size": 7113745,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.2",
+          "runtime_build_id": "5020afb6cf0edb3231c469c619023b9e3756c94b",
+          "runtime_sha256": "64e90437322af0a3ceb412908413539de700ef8c31c6fc9526720e32bebd08ba",
+          "runtime_package": "ImageMagick|7.1.2.9|1.oe2403sp3|aarch64|ImageMagick-7.1.2.9-1.oe2403sp3.src.rpm",
+          "debuglink": "libMagickCore-7.Q16HDRI.so.10.0.2-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libMagickCore-7.Q16HDRI.so.10.0.2-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.2-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "debug_build_id": "5020afb6cf0edb3231c469c619023b9e3756c94b",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "2d91c9dca5d08811af2656533122fe94a27658a4832dfab5d5ee1bb0c88195a3",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        },
+        {
+          "runtime_path": "/usr/lib64/ImageMagick-7.1.2/modules-Q16HDRI/coders/png.so",
+          "runtime_build_id": "bd80f8e0836185202d91ff792d43f824db61e02f",
+          "runtime_sha256": "5ac5ec379a8c7d48d91e025cda3045954ac00bc70bdeda6eade3014c736abfc5",
+          "runtime_package": "ImageMagick|7.1.2.9|1.oe2403sp3|aarch64|ImageMagick-7.1.2.9-1.oe2403sp3.src.rpm",
+          "debuglink": "png.so-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/png.so-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/ImageMagick-7.1.2/modules-Q16HDRI/coders/png.so-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "debug_build_id": "bd80f8e0836185202d91ff792d43f824db61e02f",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "5b95e8fdb69dc2366305c31f1ebf93e7c29c3c791ebefad5eca3330a49726019",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        },
+        {
+          "runtime_path": "/usr/lib64/ImageMagick-7.1.2/modules-Q16HDRI/coders/jpeg.so",
+          "runtime_build_id": "3b970795719a933d0a499ccb4cb2c6b8e82a6e19",
+          "runtime_sha256": "944c4cd344f03b752344d8304e63790524e60dfbe2bb71cf48e1e55122c0be75",
+          "runtime_package": "ImageMagick|7.1.2.9|1.oe2403sp3|aarch64|ImageMagick-7.1.2.9-1.oe2403sp3.src.rpm",
+          "debuglink": "jpeg.so-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/jpeg.so-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/ImageMagick-7.1.2/modules-Q16HDRI/coders/jpeg.so-7.1.2.9-1.oe2403sp3.aarch64.debug",
+          "debug_build_id": "3b970795719a933d0a499ccb4cb2c6b8e82a6e19",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "2a841a5fea8dbcf1a67709e11cc01abecba9895293f7596b12b235f45d6107bf",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "29dbc67214ae91da16a637436b9c4f7b07307bb960169dd9d27a5eacda9ba67d",
+      "status": "verified"
+    },
+    {
+      "package": "cairo-debuginfo",
+      "version": {
+        "epoch": "0",
+        "ver": "1.18.0",
+        "rel": "2.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/cairo-debuginfo-1.18.0-2.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "22c57d4927e4e88c7a25a0d252f8955b02634a7fc6367cde91e8d5ceeb5f2ccd",
+      "expected_size": 2321437,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libcairo.so.2.11800.0",
+          "runtime_build_id": "6222227c9e8e73147d1665ad3633631730af6c1a",
+          "runtime_sha256": "2e3e875cda6286acfa2ce57dd9d8a3706819f74f7e2cfb43b59803e23070d630",
+          "runtime_package": "cairo|1.18.0|2.oe2403sp3|aarch64|cairo-1.18.0-2.oe2403sp3.src.rpm",
+          "debuglink": "libcairo.so.2.11800.0-1.18.0-2.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libcairo.so.2.11800.0-1.18.0-2.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libcairo.so.2.11800.0-1.18.0-2.oe2403sp3.aarch64.debug",
+          "debug_build_id": "6222227c9e8e73147d1665ad3633631730af6c1a",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "ea730a0dfe4f42868505bc512f2cc655eac68b8bfb662a249b14a0aca34b88c8",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "22c57d4927e4e88c7a25a0d252f8955b02634a7fc6367cde91e8d5ceeb5f2ccd",
+      "status": "verified"
+    },
+    {
+      "package": "fontconfig-debuginfo",
+      "version": {
+        "epoch": "0",
+        "ver": "2.15.0",
+        "rel": "2.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/fontconfig-debuginfo-2.15.0-2.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "4613ab3a4b72c36e09888e599bcf0de5d2fc91b4888986f0c83d2bc39b807d60",
+      "expected_size": 419029,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libfontconfig.so.1.12.1",
+          "runtime_build_id": "087febe9edf1e32c4608340fab2e980cf8325848",
+          "runtime_sha256": "1c4d9c807f7837a7220088a686e91ffcfb4cb21d2fbb53cda1456116add0d2f2",
+          "runtime_package": "fontconfig|2.15.0|2.oe2403sp3|aarch64|fontconfig-2.15.0-2.oe2403sp3.src.rpm",
+          "debuglink": "libfontconfig.so.1.12.1-2.15.0-2.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libfontconfig.so.1.12.1-2.15.0-2.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libfontconfig.so.1.12.1-2.15.0-2.oe2403sp3.aarch64.debug",
+          "debug_build_id": "087febe9edf1e32c4608340fab2e980cf8325848",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "676925bd2ea0b5c98b49f425fcda5bb3732f435682f62f652ed74f933e500f9a",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "4613ab3a4b72c36e09888e599bcf0de5d2fc91b4888986f0c83d2bc39b807d60",
+      "status": "verified"
+    },
+    {
+      "package": "libjpeg-turbo-debuginfo",
+      "version": {
+        "epoch": "0",
+        "ver": "3.0.1",
+        "rel": "2.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/libjpeg-turbo-debuginfo-3.0.1-2.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "ab395c855dd0ed8330b23d0e61bbc0a3561490fa422a86691fb05d53bf8458e1",
+      "expected_size": 1774101,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libjpeg.so.62.4.0",
+          "runtime_build_id": "9dbcf0fa06ec73918ed6a139a43acbeaf5405172",
+          "runtime_sha256": "55d96812bac371f33978880a990a0ec2c40dc9e476642e4bd61eb5ff6d2128ed",
+          "runtime_package": "libjpeg-turbo|3.0.1|2.oe2403sp3|aarch64|libjpeg-turbo-3.0.1-2.oe2403sp3.src.rpm",
+          "debuglink": "libjpeg.so.62.4.0-3.0.1-2.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libjpeg.so.62.4.0-3.0.1-2.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libjpeg.so.62.4.0-3.0.1-2.oe2403sp3.aarch64.debug",
+          "debug_build_id": "9dbcf0fa06ec73918ed6a139a43acbeaf5405172",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "36c5a150a0375a8c933d7fc1b7dc8709f814a1299e2ccbe89803fbd0eef68431",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "ab395c855dd0ed8330b23d0e61bbc0a3561490fa422a86691fb05d53bf8458e1",
+      "status": "verified"
+    },
+    {
+      "package": "libpng-debuginfo",
+      "version": {
+        "epoch": "2",
+        "ver": "1.6.40",
+        "rel": "3.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/libpng-debuginfo-1.6.40-3.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "628fabb0216a7b14704e3a31572c9c4779358c3227440342987a932c2e7df818",
+      "expected_size": 291813,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libpng16.so.16.40.0",
+          "runtime_build_id": "8c8986474d5bda1445d0c8c668f3a6975b65b645",
+          "runtime_sha256": "0045c6b6aa944c47e8df9d388368084d3c9205649cd7c73a9e0e5c36b28fe2df",
+          "runtime_package": "libpng|1.6.40|3.oe2403sp3|aarch64|libpng-1.6.40-3.oe2403sp3.src.rpm",
+          "debuglink": "libpng16.so.16.40.0-1.6.40-3.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libpng16.so.16.40.0-1.6.40-3.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libpng16.so.16.40.0-1.6.40-3.oe2403sp3.aarch64.debug",
+          "debug_build_id": "8c8986474d5bda1445d0c8c668f3a6975b65b645",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "107f7d83f0cdc3fe54a31d8cdb98abea609a564b172ddbcf19bfce0598f40ff3",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "628fabb0216a7b14704e3a31572c9c4779358c3227440342987a932c2e7df818",
+      "status": "verified"
+    },
+    {
+      "package": "nss-debuginfo",
+      "version": {
+        "epoch": "0",
+        "ver": "3.94.0",
+        "rel": "8.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/nss-debuginfo-3.94.0-8.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "d550e75b297923a288e0a6645023e76732659d93c66a3aba43273190f91aaed4",
+      "expected_size": 6920425,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libfreeblpriv3.so",
+          "runtime_build_id": "55cb54d6f196b7e6d6b0767b3a23cd05fc8da9dd",
+          "runtime_sha256": "9a6efacf9e08828b8027e01b63228ae2971e3abd5fbd28e6ad30d80acb338b8c",
+          "runtime_package": "nss-softokn|3.94.0|8.oe2403sp3|aarch64|nss-3.94.0-8.oe2403sp3.src.rpm",
+          "debuglink": "libfreeblpriv3.so-3.94.0-8.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libfreeblpriv3.so-3.94.0-8.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libfreeblpriv3.so-3.94.0-8.oe2403sp3.aarch64.debug",
+          "debug_build_id": "55cb54d6f196b7e6d6b0767b3a23cd05fc8da9dd",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "84aac2f14fff8c994e9774b4b110ed3a4a67102a1ce5f81cd0c09673ed6cad9e",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "d550e75b297923a288e0a6645023e76732659d93c66a3aba43273190f91aaed4",
+      "status": "verified"
+    },
+    {
+      "package": "openssl-debuginfo",
+      "version": {
+        "epoch": "1",
+        "ver": "3.0.12",
+        "rel": "31.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/openssl-debuginfo-3.0.12-31.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "144d9a787f1db1383a9081a61fdbc69a69de332aae0869015e34f5a28022d35e",
+      "expected_size": 6742785,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libcrypto.so.3.0.12",
+          "runtime_build_id": "d8d1a256ba102b61c8af801d044b01e3f1c0bd77",
+          "runtime_sha256": "155320c5b216a9f386ccb69e9ec89d7ad78edab351bba49016dca0dc81bea9c2",
+          "runtime_package": "openssl-libs|3.0.12|31.oe2403sp3|aarch64|openssl-3.0.12-31.oe2403sp3.src.rpm",
+          "debuglink": "libcrypto.so.3.0.12-3.0.12-31.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libcrypto.so.3.0.12-3.0.12-31.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libcrypto.so.3.0.12-3.0.12-31.oe2403sp3.aarch64.debug",
+          "debug_build_id": "d8d1a256ba102b61c8af801d044b01e3f1c0bd77",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "00538033e7b5aaf2459680555d0b1ef0b68f5b25677c45c436498460211a7cda",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "144d9a787f1db1383a9081a61fdbc69a69de332aae0869015e34f5a28022d35e",
+      "status": "verified"
+    },
+    {
+      "package": "p11-kit-debuginfo",
+      "version": {
+        "epoch": "0",
+        "ver": "0.25.0",
+        "rel": "2.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/p11-kit-debuginfo-0.25.0-2.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "5d63480cfe233571a8de9ac2128b0678e9b19b24ebbb426cec1c4aa7e7b383c3",
+      "expected_size": 3711609,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/pkcs11/p11-kit-trust.so",
+          "runtime_build_id": "88fcfc9a2a98a9fee17afc1834aee52e24cdf450",
+          "runtime_sha256": "ecc96ad3c6b3e141e30f6f71dc433702ea00d0b78c204477180b3097ec4e8dcd",
+          "runtime_package": "p11-kit-trust|0.25.0|2.oe2403sp3|aarch64|p11-kit-0.25.0-2.oe2403sp3.src.rpm",
+          "debuglink": "p11-kit-trust.so-0.25.0-2.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/p11-kit-trust.so-0.25.0-2.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/pkcs11/p11-kit-trust.so-0.25.0-2.oe2403sp3.aarch64.debug",
+          "debug_build_id": "88fcfc9a2a98a9fee17afc1834aee52e24cdf450",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "54afed43aaf413eed946003b3cd5ce7b406e5e323248826f5025cf3b6645c3f5",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "5d63480cfe233571a8de9ac2128b0678e9b19b24ebbb426cec1c4aa7e7b383c3",
+      "status": "verified"
+    },
+    {
+      "package": "pixman-debuginfo",
+      "version": {
+        "epoch": "0",
+        "ver": "0.42.2",
+        "rel": "1.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/pixman-debuginfo-0.42.2-1.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "1daa431d8e01a54a84da9aca3815f0f24bbe9b16f36b6b62d726c89669e63d12",
+      "expected_size": 779185,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libpixman-1.so.0.42.2",
+          "runtime_build_id": "333ba6d78be73a9f628594d1ba782582e300a397",
+          "runtime_sha256": "0e2aa3fdc853918c3c3d8f5600a6dfc9ec1b41794319126bbffe22b70e136c2c",
+          "runtime_package": "pixman|0.42.2|1.oe2403sp3|aarch64|pixman-0.42.2-1.oe2403sp3.src.rpm",
+          "debuglink": "libpixman-1.so.0.42.2-0.42.2-1.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libpixman-1.so.0.42.2-0.42.2-1.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libpixman-1.so.0.42.2-0.42.2-1.oe2403sp3.aarch64.debug",
+          "debug_build_id": "333ba6d78be73a9f628594d1ba782582e300a397",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "1da028b37e0027003be298d4e23dd334b30e6e75b7a9100e477905d8a565e4a4",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "1daa431d8e01a54a84da9aca3815f0f24bbe9b16f36b6b62d726c89669e63d12",
+      "status": "verified"
+    },
+    {
+      "package": "sqlite-debuginfo",
+      "version": {
+        "epoch": "0",
+        "ver": "3.42.0",
+        "rel": "4.oe2403sp3"
+      },
+      "arch": "aarch64",
+      "url": "https://repo.openeuler.org/openEuler-24.03-LTS-SP3/debuginfo/aarch64/Packages/sqlite-debuginfo-3.42.0-4.oe2403sp3.aarch64.rpm",
+      "metadata_sha256": "f55743803adef91b42cf1b8bd2cc8c4af485eecf2b92d6e5c3a91b7b01018146",
+      "expected_size": 6599869,
+      "targets": [
+        {
+          "runtime_path": "/usr/lib64/libsqlite3.so.0.8.6",
+          "runtime_build_id": "87dfa4df52209c88ee784eff8d39837450bcdaea",
+          "runtime_sha256": "af6e7d428db287e3e71ef789ad02657d12cbece94909802c8a18237fee3ece96",
+          "runtime_package": "sqlite|3.42.0|4.oe2403sp3|aarch64|sqlite-3.42.0-4.oe2403sp3.src.rpm",
+          "debuglink": "libsqlite3.so.0.8.6-3.42.0-4.oe2403sp3.aarch64.debug",
+          "path": "debugfiles/libsqlite3.so.0.8.6-3.42.0-4.oe2403sp3.aarch64.debug",
+          "rpm_member": "./usr/lib/debug/usr/lib64/libsqlite3.so.0.8.6-3.42.0-4.oe2403sp3.aarch64.debug",
+          "debug_build_id": "87dfa4df52209c88ee784eff8d39837450bcdaea",
+          "has_symtab": true,
+          "has_debug_info": true,
+          "is_aarch64": true,
+          "debug_sha256": "00cc079e5454fa1e50f8a45350afbfb70fd0e57d16e7aa647e1e452f4b766f4e",
+          "exact_build_id_match": true,
+          "status": "found_exact"
+        }
+      ],
+      "download_sha256": "f55743803adef91b42cf1b8bd2cc8c4af485eecf2b92d6e5c3a91b7b01018146",
+      "status": "verified"
+    }
+  ],
+  "lxml": {
+    "status": "no_matching_separate_debug_artifact_found",
+    "source": "https://pypi.org/pypi/lxml/6.1.2/json",
+    "release_asset_count": 176,
+    "debug_named_assets": [],
+    "runtime_targets": [
+      {
+        "path": "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so",
+        "package": {
+          "rc": 1,
+          "stdout": "file /opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so is not owned by any package",
+          "stderr": ""
+        },
+        "build_id": "98ae619e7028b6c39a946cc87b3b3babafc143fa",
+        "debuglink": {
+          "rc": 0,
+          "stdout": "",
+          "stderr": "readelf: Warning: Section '.gnu_debuglink' was not dumped because it does not exist"
+        },
+        "sha256": "a6c9374a9c39b69808ee8caff8aafb2c4e506c23f555884ea44a2807e7063eee"
+      },
+      {
+        "path": "/opt/docops/venv/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so",
+        "package": {
+          "rc": 1,
+          "stdout": "file /opt/docops/venv/lib/python3.12/site-packages/lxml/_elementpath.cpython-312-aarch64-linux-gnu.so is not owned by any package",
+          "stderr": ""
+        },
+        "build_id": "870a05c172d99671d2628f236b173d824871caa2",
+        "debuglink": {
+          "rc": 0,
+          "stdout": "",
+          "stderr": "readelf: Warning: Section '.gnu_debuglink' was not dumped because it does not exist"
+        },
+        "sha256": "809a39b1ed9f47b8b772f72167837303d13d8b5b2742254a8019073a7fe760b3"
+      }
+    ]
+  },
+  "scope": {
+    "runtime_changed": false,
+    "symbols_installed": false,
+    "perf_reexported": false,
+    "workloads_or_profilers_started": false
+  }
+}

@@ -1,0 +1,169 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.89kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/office-trace-replay:measured-five-repeats
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/19] FROM docker.io/library/office-trace-replay:measured-five-repeats
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 166.50MB 0.4s done
+#5 DONE 0.4s
+
+#6 [ 2/19] COPY vendor/rpms/ /opt/docops-offline/rpms/
+#6 DONE 0.5s
+
+#7 [ 3/19] RUN rpm -ivh /opt/docops-offline/rpms/*.rpm && rm -rf /opt/docops-offline/rpms
+#7 0.187 Verifying...                          ########################################
+#7 0.351 Preparing...                          ########################################
+#7 0.395 Updating / installing...
+#7 0.395 urw-base35-fonts-common-20200910-2.oe2########################################
+#7 0.401 libXi-1.8.1-1.oe2403sp3               ########################################
+#7 0.407 libICE-1.1.1-1.oe2403sp3              ########################################
+#7 0.415 libSM-1.2.4-1.oe2403sp3               ########################################
+#7 0.423 libXfixes-6.0.1-1.oe2403sp3           ########################################
+#7 0.432 cairo-gobject-1.18.0-2.oe2403sp3      ########################################
+#7 0.437 libXt-1.3.0-2.oe2403sp3               ########################################
+#7 0.451 libXtst-1.2.4-2.oe2403sp3             ########################################
+#7 0.458 adobe-mappings-cmap-lang-20231115-1.oe########################################
+#7 0.682 adobe-mappings-cmap-20231115-1.oe2403s########################################
+#7 0.686 libXrandr-1.5.4-1.oe2403sp3           ########################################
+#7 0.693 libXcomposite-0.4.6-1.oe2403sp3       ########################################
+#7 0.703 fribidi-1.0.13-1.oe2403sp3            ########################################
+#7 0.807 Imath-3.1.9-1.oe2403sp3               ########################################
+#7 0.819 OpenEXR-libs-3.1.11-4.oe2403sp3       ########################################
+#7 0.914 libXcursor-1.2.1-2.oe2403sp3          ########################################
+#7 0.920 libXdamage-1.1.6-1.oe2403sp3          ########################################
+#7 0.925 urw-base35-bookman-fonts-20200910-2.oe########################################
+#7 0.968 urw-base35-c059-fonts-20200910-2.oe240########################################
+#7 1.013 urw-base35-d050000l-fonts-20200910-2.o########################################
+#7 1.023 urw-base35-gothic-fonts-20200910-2.oe2########################################
+#7 1.060 urw-base35-nimbus-mono-ps-fonts-202009########################################
+#7 1.095 urw-base35-nimbus-roman-fonts-20200910########################################
+#7 1.134 urw-base35-nimbus-sans-fonts-20200910-########################################
+#7 1.204 urw-base35-p052-fonts-20200910-2.oe240########################################
+#7 1.243 urw-base35-standard-symbols-ps-fonts-2########################################
+#7 1.253 urw-base35-z003-fonts-20200910-2.oe240########################################
+#7 1.269 urw-base35-fonts-20200910-2.oe2403sp3 ########################################
+#7 1.272 wayland-1.22.0-1.oe2403sp3            ########################################
+#7 1.294 shared-mime-info-2.4-2.oe2403sp3      ########################################
+#7 1.326 gdk-pixbuf2-2.42.10-6.oe2403sp3       ########################################
+#7 1.387 gdk-pixbuf2-modules-2.42.10-6.oe2403sp########################################
+#7 1.399 libwmf-0.2.13-1.oe2403sp3             ########################################
+#7 1.425 open-sans-fonts-1.10-11.oe2403sp3     ########################################
+#7 1.455 libwebp-1.3.2-3.oe2403sp3             ########################################
+#7 1.473 libusbx-1.0.26-2.oe2403sp3            ########################################
+#7 1.481 libpaper-1.1.29-2.oe2403sp3           ########################################
+#7 1.493 libijs-0.35-10.oe2403sp3              ########################################
+#7 1.498 libicu-74.1-5.oe2403sp3               ########################################
+#7 2.159 libepoxy-1.5.10-3.oe2403sp3           ########################################
+#7 2.178 libdmx-1.1.5-1.oe2403sp3              ########################################
+#7 2.183 libdatrie-0.2.13-2.oe2403sp3          ########################################
+#7 2.202 libthai-0.1.29-2.oe2403sp3            ########################################
+#7 2.221 libXxf86vm-1.1.5-3.oe2403sp3          ########################################
+#7 2.225 libXxf86dga-1.1.6-1.oe2403sp3         ########################################
+#7 2.229 libXv-1.0.12-1.oe2403sp3              ########################################
+#7 2.249 xorg-x11-utils-7.5-31.oe2403sp3       ########################################
+#7 2.263 at-spi2-core-2.51.0-5.oe2403sp3       ########################################
+#7 2.305 atk-2.51.0-5.oe2403sp3                ########################################
+#7 2.315 at-spi2-atk-2.51.0-5.oe2403sp3        ########################################
+#7 2.325 libXft-2.3.8-1.oe2403sp3              ########################################
+#7 2.332 json-glib-1.8.0-1.oe2403sp3           ########################################
+#7 2.357 libgusb-0.4.8-3.oe2403sp3             ########################################
+#7 2.364 colord-libs-1.4.6-2.oe2403sp3         ########################################
+#7 2.383 jbig2dec-0.20-2.oe2403sp3             ########################################
+#7 2.392 hicolor-icon-theme-0.17-7.oe2403sp3   ########################################
+#7 2.420 graphite2-1.3.14-7.oe2403sp3          ########################################
+#7 2.436 harfbuzz-8.3.0-2.oe2403sp3            ########################################
+#7 2.506 pango-1.51.0-1.oe2403sp3              ########################################
+#7 2.529 librsvg2-2.57.1-5.oe2403sp3           ########################################
+#7 2.622 google-droid-sans-fonts-20200215-1.oe2########################################
+#7 2.779 emacs-filesystem-1:29.1-7.oe2403sp3   ########################################
+#7 2.782 libidn-1.41-1.oe2403sp3               ########################################
+#7 2.800 adwaita-cursor-theme-45.0-2.oe2403sp3 ########################################
+#7 2.992 adwaita-icon-theme-45.0-2.oe2403sp3   ########################################
+#7 3.068 gtk3-3.24.43-1.oe2403sp3              ########################################
+#7 3.456 adobe-mappings-pdf-20230118-1.oe2403sp########################################
+#7 3.521 ghostscript-9.56.1-18.oe2403sp3       ########################################
+#7 3.945 ImageMagick-1:7.1.2.9-1.oe2403sp3     ########################################
+#7 4.144 unzip-6.0-54.oe2403sp3                ########################################
+#7 DONE 5.4s
+
+#8 [ 4/19] COPY vendor/wheels/ /opt/docops-offline/wheels/
+#8 DONE 0.1s
+
+#9 [ 5/19] COPY requirements.lock /opt/docops-offline/requirements.lock
+#9 DONE 0.0s
+
+#10 [ 6/19] RUN /opt/python-3.12.3/bin/python3.12 -m venv /opt/docops/venv     && /opt/docops/venv/bin/python -m pip install --no-index --no-compile --require-hashes        --find-links=/opt/docops-offline/wheels -r /opt/docops-offline/requirements.lock     && /opt/docops/venv/bin/python -m pip check     && rm -rf /opt/docops-offline
+#10 3.028 Looking in links: /opt/docops-offline/wheels
+#10 3.036 Processing /opt/docops-offline/wheels/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r /opt/docops-offline/requirements.lock (line 1))
+#10 3.042 Processing /opt/docops-offline/wheels/et_xmlfile-2.0.0-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 2))
+#10 3.046 Processing /opt/docops-offline/wheels/fonttools-4.68.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r /opt/docops-offline/requirements.lock (line 3))
+#10 3.067 Processing /opt/docops-offline/wheels/lxml-6.1.2-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl (from -r /opt/docops-offline/requirements.lock (line 4))
+#10 3.095 Processing /opt/docops-offline/wheels/openpyxl-3.1.5-py2.py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 5))
+#10 3.100 Processing /opt/docops-offline/wheels/pdf2image-1.17.0-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 6))
+#10 3.104 Processing /opt/docops-offline/wheels/pillow-12.2.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (from -r /opt/docops-offline/requirements.lock (line 7))
+#10 3.125 Processing /opt/docops-offline/wheels/pypdf-6.10.0-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 8))
+#10 3.130 Processing /opt/docops-offline/wheels/python_docx-1.2.0-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 9))
+#10 3.135 Processing /opt/docops-offline/wheels/python_pptx-1.0.2-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 10))
+#10 3.140 Processing /opt/docops-offline/wheels/reportlab-5.0.1-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 11))
+#10 3.150 Processing /opt/docops-offline/wheels/typing_extensions-4.16.0-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 12))
+#10 3.154 Processing /opt/docops-offline/wheels/xlsxwriter-3.3.1-py3-none-any.whl (from -r /opt/docops-offline/requirements.lock (line 13))
+#10 3.277 Installing collected packages: xlsxwriter, typing_extensions, pypdf, pillow, lxml, fonttools, et_xmlfile, charset-normalizer, reportlab, python-pptx, python-docx, pdf2image, openpyxl
+#10 3.775 Successfully installed charset-normalizer-3.5.2 et_xmlfile-2.0.0 fonttools-4.68.0 lxml-6.1.2 openpyxl-3.1.5 pdf2image-1.17.0 pillow-12.2.0 pypdf-6.10.0 python-docx-1.2.0 python-pptx-1.0.2 reportlab-5.0.1 typing_extensions-4.16.0 xlsxwriter-3.3.1
+#10 4.140 No broken requirements found.
+#10 DONE 4.4s
+
+#11 [ 7/19] COPY replay.py compile.py /opt/docops/
+#11 DONE 0.0s
+
+#12 [ 8/19] COPY payload /opt/docops/payload
+#12 DONE 0.1s
+
+#13 [ 9/19] COPY payload/skills/ /root/.codex/skills/
+#13 DONE 0.0s
+
+#14 [10/19] COPY install_state_check.py /opt/docops/docker/install_state_check.py
+#14 DONE 0.0s
+
+#15 [11/19] COPY smoke_unified.py /opt/docops/docker/smoke_unified.py
+#15 DONE 0.0s
+
+#16 [12/19] COPY core_identity.py /opt/docops/docker/core_identity.py
+#16 DONE 0.0s
+
+#17 [13/19] COPY runtime-profile.json /opt/docops/runtime-profile.json
+#17 DONE 0.0s
+
+#18 [14/19] COPY core-baseline.json /opt/docops/core-baseline.json
+#18 DONE 0.0s
+
+#19 [15/19] COPY docops-runtime.sh /etc/profile.d/docops-runtime.sh
+#19 DONE 0.0s
+
+#20 [16/19] COPY devkit.sh /usr/local/bin/devkit
+#20 DONE 0.0s
+
+#21 [17/19] COPY devkit/ /opt/devkit/
+#21 DONE 0.2s
+
+#22 [18/19] RUN chmod 0755 /usr/local/bin/devkit     && ln -s /usr/local/bin/soffice /opt/docops/venv/bin/libreoffice
+#22 DONE 0.1s
+
+#23 [19/19] WORKDIR /root
+#23 DONE 0.0s
+
+#24 exporting to image
+#24 exporting layers
+#24 exporting layers 0.7s done
+#24 writing image sha256:3d6ddbf444832614ba1a0eca00d078ffba512de0e7d8c4504d5c5b007f27a8d6 done
+#24 DONE 0.7s

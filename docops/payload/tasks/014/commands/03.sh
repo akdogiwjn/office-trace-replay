@@ -1,0 +1,1 @@
+python /root/tmp/docs/finalize_disaster_release_ooxml_v3.py && python /root/tmp/docs/validate_disaster_release_v1.py

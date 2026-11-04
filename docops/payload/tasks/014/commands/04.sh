@@ -1,0 +1,1 @@
+mkdir -p /root/tmp/docs/preview && libreoffice --headless --convert-to pdf --outdir /root/tmp/docs/preview /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output.xlsx

@@ -1,0 +1,6 @@
+# Imported, hash-frozen bytes must survive checkout without line conversion.
+# Upstream whitespace and captured terminal output are part of that evidence.
+/docops/payload/** -text -whitespace
+/docops/vendor/** -text -whitespace
+/docops/docker/records/** -text -whitespace
+/analysis/docops/processed/**/*.csv -text -whitespace

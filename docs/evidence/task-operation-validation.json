@@ -1,0 +1,496 @@
+{
+  "schema": "docops-operation-publication-verification-v1",
+  "status": "passed",
+  "checked_utc": "2026-11-04T02:00:08.078238+00:00",
+  "analysis_path": "analysis/docops/processed/task-operation-expansion-20261104/comparison.json",
+  "analysis_sha256": "af803fd13cf59432d1a1e7ad31fdfce2b4749d033ea79dedd673b455b5d76e6d",
+  "original_prefixes_unchanged": {
+    "docs/representativeness-assessment.md": {
+      "prefix_bytes": 25710,
+      "prefix_sha256": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
+      "append_sha256": "1f2bf266ca6aac2bf74a30a5d159ad4a34f6f76f2ce125bfdd7a37a94831e9c2",
+      "sha256": "ca145c7f6997a101d727316e7d64cd02820594910557e6a28d07c9703051ef0e"
+    },
+    "docs/experimental-results.md": {
+      "prefix_bytes": 83791,
+      "prefix_sha256": "c6cfa6013753065b39a9e0d4510e2be1919332f95992c76b701274350e5b6238",
+      "append_sha256": "dd3fa9931be81b4c536f7da53db8316f6a3ebf5a69b252c1308f9eafa2f08651",
+      "sha256": "6d0da233d6e70aad678982874779498c3f516ab9b834445a13719c0a762a4553"
+    }
+  },
+  "publication_manifest_sha256": "8844a1bcd779359491de7927628d8e109d0c49c46bdd1b404e41fc15fb4fc9d7",
+  "reference_comparison_pairs": 24,
+  "same_format_supplemental_pairs": 12,
+  "docops_points": 533,
+  "input_bindings_verified": 67,
+  "figure_files_verified": 48,
+  "targeted_tests": {
+    "operation_comparison": 4,
+    "presentation": 3,
+    "failed": 0
+  },
+  "html": {
+    "slides": 50,
+    "sha256": "a229537065c10473f2d8cb26d08006872de5f22ce31552a651c0727edcf993dd",
+    "browser": "Chromium 125.0.6422.26",
+    "layout": [
+      {
+        "slide": 1,
+        "title": "文档解析类 Agent 代表性评估报告",
+        "overflow": false,
+        "contentBottom": 417.8046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 2,
+        "title": "二、数据集选择与任务设计",
+        "overflow": false,
+        "contentBottom": 350.3046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 3,
+        "title": "二、数据集选择与任务设计（续）",
+        "overflow": false,
+        "contentBottom": 320.9296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 4,
+        "title": "三、实验环境、轨迹来源与回放流程",
+        "overflow": false,
+        "contentBottom": 439.0546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 5,
+        "title": "三、实验环境、轨迹来源与回放流程（续）",
+        "overflow": false,
+        "contentBottom": 417.8046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 6,
+        "title": "三、实验环境、轨迹来源与回放流程（续）",
+        "overflow": false,
+        "contentBottom": 357.8046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 7,
+        "title": "三、实验环境、轨迹来源与回放流程（续）",
+        "overflow": false,
+        "contentBottom": 302.8046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 8,
+        "title": "四、采集方法与分析方法",
+        "overflow": false,
+        "contentBottom": 418.4296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 9,
+        "title": "四、采集方法与分析方法（续）",
+        "overflow": false,
+        "contentBottom": 362.1796875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 10,
+        "title": "四、采集方法与分析方法（续）",
+        "overflow": false,
+        "contentBottom": 344.0546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 11,
+        "title": "五、实验结果与代表性分析",
+        "overflow": false,
+        "contentBottom": 317.1796875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 12,
+        "title": "五、实验结果与代表性分析（续）",
+        "overflow": false,
+        "contentBottom": 410.9296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 13,
+        "title": "五、实验结果与代表性分析（续）",
+        "overflow": false,
+        "contentBottom": 436.5546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 14,
+        "title": "五、实验结果与代表性分析（续）",
+        "overflow": false,
+        "contentBottom": 225.9296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 15,
+        "title": "五、实验结果与代表性分析（续）",
+        "overflow": false,
+        "contentBottom": 402.1796875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 16,
+        "title": "五、实验结果与代表性分析（续）",
+        "overflow": false,
+        "contentBottom": 418.4296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 17,
+        "title": "五、实验结果与代表性分析（续）",
+        "overflow": false,
+        "contentBottom": 403.4296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 18,
+        "title": "五、实验结果与代表性分析（续）",
+        "overflow": false,
+        "contentBottom": 394.6796875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 19,
+        "title": "OPM：五轮 Topdown 过程曲线",
+        "overflow": false,
+        "contentBottom": 415.080078125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 20,
+        "title": "IRS W-4：五轮 Topdown 过程曲线",
+        "overflow": false,
+        "contentBottom": 415.080078125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 21,
+        "title": "SBA 1919：五轮 Topdown 过程曲线",
+        "overflow": false,
+        "contentBottom": 415.080078125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 22,
+        "title": "5.4 逐采样点过程与五轮稳定性",
+        "overflow": false,
+        "contentBottom": 157.1796875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 23,
+        "title": "TLC：五轮 Topdown 过程曲线",
+        "overflow": false,
+        "contentBottom": 415.080078125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 24,
+        "title": "HR Metro：五轮 Topdown 过程曲线",
+        "overflow": false,
+        "contentBottom": 415.080078125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 25,
+        "title": "eGRID：五轮 Topdown 过程曲线",
+        "overflow": false,
+        "contentBottom": 415.080078125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 26,
+        "title": "Industry Productivity：五轮 Topdown 过程曲线",
+        "overflow": false,
+        "contentBottom": 415.080078125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 27,
+        "title": "5.4 逐采样点过程与五轮稳定性",
+        "overflow": false,
+        "contentBottom": 418.4296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 28,
+        "title": "六、已有实验的覆盖边界与 Word/PPT 扩展价值",
+        "overflow": false,
+        "contentBottom": 439.0546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 29,
+        "title": "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
+        "overflow": false,
+        "contentBottom": 375.9296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 30,
+        "title": "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
+        "overflow": false,
+        "contentBottom": 409.0546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 31,
+        "title": "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
+        "overflow": false,
+        "contentBottom": 327.8046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 32,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较",
+        "overflow": false,
+        "contentBottom": 364.6796875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 33,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 419.0546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 34,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 370.3046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 35,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 436.5546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 36,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 284.0546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 37,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 370.9296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 38,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 388.4296875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 39,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 326.5546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 40,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 451.5546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 41,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 396.5546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 42,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 401.5546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 43,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 322.8046875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 44,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 292.1796875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 45,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+        "overflow": false,
+        "contentBottom": 439.0546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 46,
+        "title": "扩展操作 031 的真实 Topdown 过程点",
+        "overflow": false,
+        "contentBottom": 391.61328125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 47,
+        "title": "扩展操作 016 的真实 Topdown 过程点",
+        "overflow": false,
+        "contentBottom": 391.61328125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 48,
+        "title": "扩展操作 021 的真实 Topdown 过程点",
+        "overflow": false,
+        "contentBottom": 391.61328125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 49,
+        "title": "扩展操作 029 的真实 Topdown 过程点",
+        "overflow": false,
+        "contentBottom": 391.61328125,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      },
+      {
+        "slide": 50,
+        "title": "七、扩展任务操作：与原始 PDF/XLSX 基准比较",
+        "overflow": false,
+        "contentBottom": 211.5546875,
+        "footerTop": 481.125,
+        "footerOverlap": false,
+        "widthOverflow": false
+      }
+    ],
+    "overflow_or_overlap_pages": 0,
+    "whole_document_hash_and_original_prefix_verified": true,
+    "rebuild_without_raw_capture_directories": true
+  },
+  "measurement_rerun": false,
+  "image_build": false,
+  "agent_or_llm_execution": false,
+  "new_original_trace_execution": false
+}

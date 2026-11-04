@@ -1,0 +1,123 @@
+{
+  "schema": "docops-inspected-installation-v1",
+  "status": "passed",
+  "real_workload_executed": false,
+  "profiling_started": false,
+  "image_reference": "docops-replay:openeuler-unified-candidate-02",
+  "actual_image_id": "sha256:1e83461c551d2565a35a1f9faa965df033778358a5703a344bf5f91f16cbe934",
+  "container_id": "e86a3e09af32c6f769c86ea2cc4b3663a47e11fad62ff482ceb87373a6a09bcb",
+  "container_name": "docops-install-20261103T164348Z-d548d623",
+  "container_exit_code": 0,
+  "environment": {
+    "runtime_profile": "seven-case-openeuler-unified",
+    "python": {
+      "present": true,
+      "version": "3.12.3",
+      "executable": "/opt/docops/venv/bin/python3",
+      "prefix": "/opt/docops/venv"
+    },
+    "docx": {
+      "present": true,
+      "version": "1.2.0"
+    },
+    "pptx": {
+      "present": true,
+      "version": "1.0.2"
+    },
+    "openpyxl": {
+      "present": true,
+      "version": "3.1.5"
+    },
+    "pypdf": {
+      "present": true,
+      "version": "6.10.0"
+    },
+    "lxml": {
+      "present": true,
+      "version": "6.1.2"
+    },
+    "fontTools": {
+      "present": true,
+      "version": "4.68.0"
+    },
+    "PIL": {
+      "present": true,
+      "version": "12.2.0"
+    },
+    "reportlab": {
+      "present": true,
+      "version": "5.0.1"
+    },
+    "soffice": {
+      "present": true
+    },
+    "pdftoppm": {
+      "present": true
+    },
+    "montage": {
+      "present": true
+    },
+    "fc-list": {
+      "present": true
+    },
+    "fc-cache": {
+      "present": true
+    },
+    "perf": {
+      "present": true
+    },
+    "skills": {
+      "doc": true,
+      "xlsx": true,
+      "pptx": true,
+      "pdf": true
+    },
+    "payload_catalog": true,
+    "payload_tasks": [
+      "001",
+      "003",
+      "009",
+      "013",
+      "014",
+      "016",
+      "021",
+      "026",
+      "029",
+      "031",
+      "037",
+      "pdfwf005"
+    ],
+    "optional_numpy_present": false
+  },
+  "tools": {
+    "perf": {
+      "present": true,
+      "rc": 0,
+      "version": "perf version 6.6.0-145.3.23.154.oe2403sp3.aarch64"
+    },
+    "soffice": {
+      "present": true,
+      "rc": 0,
+      "version": "LibreOfficeDev 25.8.7.3"
+    },
+    "devkit": {
+      "present": true,
+      "root": "/opt/devkit",
+      "binary": "/opt/devkit/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64/devkit",
+      "version": "devkit version 26.0.RC1",
+      "version_rc": 0,
+      "libtuner_unresolved": 0,
+      "libtuner_ldd_rc": 0
+    }
+  },
+  "small_fixtures": "passed",
+  "source_binding": "image bytes match frozen build inputs",
+  "files": {
+    "container-after.json": "b40ef8140d6f44860fc6d1c9065ce5d28bd864285bb226f4d4ad27707bbe0b0f",
+    "container-before.json": "31bef28dced1bccc64660b44eacb86ccde909bfc72ecdfe4cc9d917bf6b7f478",
+    "container.log": "434fb4debb6218e58819bf536ff19250b1b6ac0e6eb829b2e3b3da1e239c74e6",
+    "image-inspect.json": "9acdbffa0a14a7e35f667f8e11d8f3f12c086b864cd13012223ac1515eb4d62b",
+    "install-state.json": "53a5e0b94fc7db5be43e503ed9dd0ce4fa53785ea139ddeb86e8c6c976b3f602",
+    "runtime-sources.json": "0c82fc578943a8477f1adf880f2a182ebbd1da25be6dd53dabb9f41473bc9c30"
+  }
+}

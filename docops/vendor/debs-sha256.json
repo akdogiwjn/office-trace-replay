@@ -1,0 +1,47 @@
+{
+  "schema": "docops-replay-vendor-debs-v1",
+  "purpose": "Debian/arm64 perf (linux-perf) and required runtime libs for the DocOps replay image",
+  "base_image": "docops-l3-shared-tools:arm64-v3",
+  "files": [
+    {
+      "file": "libbabeltrace1_1.5.11-1+b2_arm64.deb",
+      "bytes": 158496,
+      "sha256": "ae914a416a552cf1d943ccc3b8a4ca3f8e1fbd9b3e1552ebf8aaa88a8e6aeb0f"
+    },
+    {
+      "file": "libopencsd1_1.3.3-1_arm64.deb",
+      "bytes": 169292,
+      "sha256": "e526954fa16bb58fc1afb08da5a4d487863f593542c218efb1444ab24d24e188"
+    },
+    {
+      "file": "libpython3.11-minimal_3.11.2-6+deb12u9_arm64.deb",
+      "bytes": 813684,
+      "sha256": "dd9847d2f77c5a924b1d3dd953b81f161db9374c94d03b9216191925350928c3"
+    },
+    {
+      "file": "libpython3.11-stdlib_3.11.2-6+deb12u9_arm64.deb",
+      "bytes": 1750132,
+      "sha256": "9937cbe3f647aa89a590fec647438ce02098c113d1c6f70e4cb1230c368d42a4"
+    },
+    {
+      "file": "libpython3.11_3.11.2-6+deb12u9_arm64.deb",
+      "bytes": 1840520,
+      "sha256": "afdd9cc70e2ffe43551b79288d351920cb495d1190b600d5ceee4c11677fde4e"
+    },
+    {
+      "file": "libslang2_2.3.3-3_arm64.deb",
+      "bytes": 501736,
+      "sha256": "9dafcae211f5fccd147858384dd4ef161fae8a7d681256aaa7a772cbce15df55"
+    },
+    {
+      "file": "linux-perf_6.1.190-1_arm64.deb",
+      "bytes": 2920888,
+      "sha256": "50a858cbe5e03854ae4de859a766fbcb8a868b6e7f0cbfcbcbe464ecb9e6d26f"
+    },
+    {
+      "file": "media-types_10.0.0_all.deb",
+      "bytes": 26136,
+      "sha256": "aaa46dcb3b39948ae2e0fdb72cfcb2f48c0b59f19785a3da8045c05eb19955dd"
+    }
+  ]
+}

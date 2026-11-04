@@ -10,3 +10,18 @@ agent/.import-staging/
 
 # Retired prior-version measurement trees are excluded from the current suite.
 /analysis/hotspot-comparison/
+
+# DocOps raw profiles and temporary image contexts stay local.
+/analysis/docops/raw/
+/analysis/docops/symbols/.build-id/
+/docops/.build/
+
+# Symbol download/extraction caches stay local; provenance and hashes are tracked.
+/analysis/docops/symbol-search/*/packages/
+/analysis/docops/symbol-search/*/debugfiles/
+/analysis/docops/symbol-search/*/primary.xml
+
+# This historical vendor snapshot is byte-frozen, including upstream bytecode.
+# Keep its indexed files so an offline checkout passes the original manifest.
+!/docops/vendor/fonttools/**/__pycache__/
+!/docops/vendor/fonttools/**/*.pyc

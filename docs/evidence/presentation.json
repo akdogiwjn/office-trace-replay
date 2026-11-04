@@ -1,25 +1,89 @@
 {
   "schema": "representativeness-html-presentation-v2",
   "title": "文档解析类 Agent 代表性评估报告",
-  "slide_count": 31,
+  "slide_count": 50,
   "image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
   "sources": {
     "analysis/hotspots/comparison-inputs-pdf5-20261027.json": "52fc656ec63d04403415281a3f3e908f4cc7af7dbfda9f6f17b0b81e9754b609",
-    "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/build.json": "1f7222eca4f92782865c2f382335c879758d84cb3a5875f033f260f7b56eff47",
+    "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/build.json": "d49cc825ae75d8ae6341503f57909c3d17961c1894132906757023982bc8c844",
     "analysis/hotspots/reports/pdf-xlsx-common-hotspots-20261027/comparison.json": "cf425e2d1f9d9dc233384f7257e2b15d264c5623ee21eb7b4bf8ec1904823d43",
-    "docs/representativeness-assessment.md": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
-    "docs/experimental-results.md": "c6cfa6013753065b39a9e0d4510e2be1919332f95992c76b701274350e5b6238",
+    "docs/evidence/task-operation-extension.json": "8844a1bcd779359491de7927628d8e109d0c49c46bdd1b404e41fc15fb4fc9d7",
+    "docs/representativeness-assessment.md": "ca145c7f6997a101d727316e7d64cd02820594910557e6a28d07c9703051ef0e",
+    "docs/experimental-results.md": "6d0da233d6e70aad678982874779498c3f516ab9b834445a13719c0a762a4553",
     "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json": "d1c8fa355c099e292c1449b96eb4b02140eb654c121984541b968f6f8f5032bd",
-    "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/time-series.json": "cc91ced000866e83e2bc893ee2511d340fc35bb3666bf62e733b6a8a086373dc"
+    "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/time-series.json": "cc91ced000866e83e2bc893ee2511d340fc35bb3666bf62e733b6a8a086373dc",
+    "analysis/docops/processed/task-operation-expansion-20261104/base-publication-build.json": "1f7222eca4f92782865c2f382335c879758d84cb3a5875f033f260f7b56eff47",
+    "analysis/docops/processed/task-operation-expansion-20261104/comparison.json": "af803fd13cf59432d1a1e7ad31fdfce2b4749d033ea79dedd673b455b5d76e6d",
+    "analysis/docops/operation_comparison.py": "5d858e738845a99e939ad73fd7a132e58fde57a001d6604e9a4caef87bd20dfd",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/031-bounds.svg": "25def6ce1e5179091a8277dbc3fe67acdf062b47a5dd520eb2ccab4b5f0d0ffb",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/031-bounds.png": "30d046fce61735f89b1f242761be3d7f3026c067a215d2d09fe81bc4ad512f0f",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/031-all-metrics.svg": "265fab6e0cfbf383f531cce087510425d58767e1accb781c4b8296990af5c257",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/031-all-metrics.png": "ae97e74ef8b1686b56a6a6b18ec7bd590ef76987726adf7012f7d11720977ef4",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/037-bounds.svg": "b1f7d921b9fd736f1a4658396b409d98c4ff2bf8b2e3c83f5cfa1df5f95b37dd",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/037-bounds.png": "4a4f3a5f0e46b4011d2a7c8bdc60d766c1c6c8d74dc754a48d9834650359975f",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/037-all-metrics.svg": "bfa4268fa3229eb667face69000f0e2099755df6f8802b1affeee9aba2ad595d",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/037-all-metrics.png": "b10c13bda951732878f94363a0635f8ce32a1f544f858b2f969f0cae6d51570e",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/pdfwf005-bounds.svg": "47e5d6221d0b0cd302ce70dd2b257c75f52f6689f7f4c65dd9ccc9a6f4fed874",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/pdfwf005-bounds.png": "c147c8d3c1fc1ce08b70e73a2ed74faeff6b9a4836c5ddb62b7a0e4c15daf47a",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/pdfwf005-all-metrics.svg": "e31f3bc1eaec65650e4345899862b4277cde9ed1dbfaa98076a76716122120ad",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/pdfwf005-all-metrics.png": "24a9da993e59224c7974e83e83dfe18e04acda0b2aa20324520ca8a8707af2ef",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/013-bounds.svg": "202ac69bb0ef92e5ccbc428a9eb0aa17c1fead0cc9537c260a033be18df8ca54",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/013-bounds.png": "ab2d41692a984397f16abf3c98b0f1c095a36c865582f607f469dc51f10820ca",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/013-all-metrics.svg": "bde5e7fd09641bcb210557f8ba84b581a247b510635d08e09c28fdf5789bdece",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/013-all-metrics.png": "906cda90ae27d95c828d0c4537fe0e78a7fbadc81c3cdb37e5bd6cad82a1b987",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/014-bounds.svg": "92a10cb466e0a12d8f403661eaba3bc839c817b6b15ef4812bcfc978b695f05a",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/014-bounds.png": "86e9644721f050b256af0600c50b1440232222bc009163c7c917b5a475583a51",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/014-all-metrics.svg": "6ef316e562d8fe4a0d212af95ea512b1f70fbcb79eff3ed9607aa282dd01f598",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/014-all-metrics.png": "03ffa9f45c5f558e7822b41c3848f45ca944eeeb355c40749809c85c6fb56457",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/016-bounds.svg": "66e56648f916755dc3529d60e7a25c45fafde612eedf9fb5f3f43459925a74e7",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/016-bounds.png": "e80346d0433fcd6cdc2cc6e802aabbc8c0b1ad97f9f5d8a9add6a747eacd4bdd",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/016-all-metrics.svg": "c372fb926bd5773be3c86c4d2af53ecefe38914f22e24e1e19e9df6395244023",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/016-all-metrics.png": "a06198b700c126825c08b862078d1acfcd64eba83867174668a76346c03d7252",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/001-bounds.svg": "36d5f886f0ec7623fed926ac73b00267858c021d5a601f7fb6d8fb11cc5d2106",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/001-bounds.png": "4ba565b0492ef389134909455f2e3949a03c068db40ed5d0f12e77b6030a43a1",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/001-all-metrics.svg": "ea043f91159a97d833eb3501aa55f2e4d207f0dbb5f1350ce5cb34c86af49d72",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/001-all-metrics.png": "d3c61a80c011e2346ff2833cdbafc2169c0a8e76530de3eba4cec7a589788e66",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/003-bounds.svg": "ff4716bfc3fd7ae864647b9c6622b8928b837ba84e01ad5f7b3aa8292639ceaa",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/003-bounds.png": "d51ea48c44a02a78948668c932da949f872fae04294553ed9287bd4bf8dab486",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/003-all-metrics.svg": "8d8e90ce4fd751ae031371814724fa274c600c5feb75f2b60336fe67e2e1e60e",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/003-all-metrics.png": "854297cc5689d8bc7b5fc6a625b984dd4c8b585d4b006c0f2acff574f626dfcc",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/009-bounds.svg": "30b41cf5991a97ad8df7b76c904bd9d869e3c9502bb74a324dc45af1beb474d1",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/009-bounds.png": "28ef3c7e9912f25188eab1db14fc415030b6a80be77cdb9abe761e2a6e0ecf8a",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/009-all-metrics.svg": "b0f3cc201cf5d552c07cd68072c4d30b5d1134a6099eed0e78aa6d50d95c69e1",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/009-all-metrics.png": "6ad5e9f61bea6ee4e872b9c19e595ce7ea32d81468d3fa93c8206bd73a710f40",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/021-bounds.svg": "28209dc637161cdc42e118d14d6d59cd28febc9cd5461b3da65d24f3a66237ff",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/021-bounds.png": "2d7773eb674dd888fca35a2290f630b549ea28e54158df7fed6e502224e4f1fc",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/021-all-metrics.svg": "0d967cd31e96eba8e3ab68d3f28aa5c083410d383415a69303d6922c01d49c7c",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/021-all-metrics.png": "c979b903cfc9b1be85e20fb993410f363694a8ec8d056a15d7ee7673ad48aec8",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/026-bounds.svg": "25e604088aa62f3628a98c72d62198c23ef9fd710f425457ef84920ce9438ba7",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/026-bounds.png": "76f10d47bae6a380aeef46ec695a8d136b84053e2b633c04ace31fc57de366ac",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/026-all-metrics.svg": "ce2a1d21360050324e16c43d2c696ff8055fc3b8bfec0bc5153928dd68cd3731",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/026-all-metrics.png": "9c2d5d62051f6f45d894a1fe34d31f012d820e0128a914345b9047efe3424fda",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.svg": "b53285822b4bc67de831cef8d761ec1589fe3931542620f4e20d0ae79e79fa28",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.png": "45afb41c83c46d2877868d195bd631bf2d1b752dd848bb2839f45eaca24ba3c3",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.svg": "170fec070252c10eaa8a8555c58b98c6656eb6ce6b7641eed0fc53bb92abb536",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.png": "042231366ed321e81a44eacd31ce43ce1ec93d1768483b33c75b33a99249f460"
   },
-  "generator_sha256": "3aeabe2a95c71c660043bee5c0dcce07f2e78a14fb5e5eafba171e46305a5cd2",
+  "generator_sha256": "99866c38cee093abe301592a08ef8b53327fd2be21544cb1cc2840460ab0313c",
   "measurement_changes": false,
   "layout": "Complete assessment text, plain black-on-white pages; only metric curves use distinguishing colors.",
-  "source_report_blocks": 76,
+  "source_report_blocks": 118,
   "interval_policy": "Original points retained; five separate polylines per metric; no smoothing or interpolation.",
+  "task_operation_extension": {
+    "images": {
+      "reference": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+      "docops": "sha256:57483856a27942ffd4aef853950ca66b00c12b0787aae6c1dac74371d03e6164"
+    },
+    "analysis": {
+      "path": "analysis/docops/processed/task-operation-expansion-20261104/comparison.json",
+      "sha256": "af803fd13cf59432d1a1e7ad31fdfce2b4749d033ea79dedd673b455b5d76e6d"
+    },
+    "original_prefixes_unchanged": true,
+    "interval_policy": "DocOps curves retain each original point from one capture containing ten replay loops; ALL is not an interval point."
+  },
   "output": {
     "path": "docs/representativeness-assessment.html",
-    "sha256": "0567d760154310556b89bfec58cf1f4a192219c5eb5e172eda96876779556884"
+    "sha256": "a229537065c10473f2d8cb26d08006872de5f22ce31552a651c0727edcf993dd"
   },
   "slide_titles": [
     "文档解析类 Agent 代表性评估报告",
@@ -52,67 +116,25 @@
     "六、已有实验的覆盖边界与 Word/PPT 扩展价值",
     "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
     "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
-    "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）"
-  ],
-  "validation": {
-    "browser": "Chromium 125.0.6422.26",
-    "viewport": [
-      1440,
-      860
-    ],
-    "html_sha256": "0567d760154310556b89bfec58cf1f4a192219c5eb5e172eda96876779556884",
-    "browser_check": {
-      "slides": 31,
-      "layout_failures": [],
-      "nonblack_text": [],
-      "navigation": [
-        {
-          "name": "Home",
-          "pass": true
-        },
-        {
-          "name": "Next button",
-          "pass": true
-        },
-        {
-          "name": "Right arrow",
-          "pass": true
-        },
-        {
-          "name": "Left arrow",
-          "pass": true
-        },
-        {
-          "name": "Space",
-          "pass": true
-        },
-        {
-          "name": "End",
-          "pass": true
-        },
-        {
-          "name": "Page picker",
-          "pass": true
-        },
-        {
-          "name": "Print button",
-          "pass": true
-        },
-        {
-          "name": "Fullscreen supported",
-          "pass": true
-        }
-      ],
-      "external_images": [],
-      "external_scripts": []
-    },
-    "tests": {
-      "passed": 3,
-      "failed": 0,
-      "skipped": 0,
-      "command": "python3 -B -m unittest discover -s tests -p test_presentation.py"
-    },
-    "source_text_coverage": "All report paragraphs, headings, table cells and command blocks retained; original overview images rendered as seven per-dataset plots from the same interval data.",
-    "measurement_changes": false
-  }
+    "六、已有实验的覆盖边界与 Word/PPT 扩展价值（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较（续）",
+    "扩展操作 031 的真实 Topdown 过程点",
+    "扩展操作 016 的真实 Topdown 过程点",
+    "扩展操作 021 的真实 Topdown 过程点",
+    "扩展操作 029 的真实 Topdown 过程点",
+    "七、扩展任务操作：与原始 PDF/XLSX 基准比较"
+  ]
 }

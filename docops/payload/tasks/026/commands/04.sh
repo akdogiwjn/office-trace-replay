@@ -1,0 +1,1 @@
+python /root/tmp/docs/qa_climate_disclosure.py

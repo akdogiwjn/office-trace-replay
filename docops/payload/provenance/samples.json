@@ -1,0 +1,1409 @@
+{
+  "schema": "docops-l3-selected-samples-v1",
+  "totals": {
+    "primary_samples": 12,
+    "formats": {
+      "docx": 3,
+      "xlsx": 3,
+      "pptx": 3,
+      "pdf": 3
+    },
+    "reward_1": 4,
+    "reward_0": 8,
+    "native_tool_items": 443,
+    "script_versions": 51,
+    "resource_window_sum_s": 2410.9316018703394,
+    "cpu_sum_core_s": 347.96449391000004,
+    "historical_starts_including_primary": 18,
+    "starts_with_model_execution_recorded": 16,
+    "starts_without_model_execution_recorded": 2,
+    "native_tool_counts": {
+      "commandExecution": 301,
+      "fileChange": 52,
+      "imageView": 90
+    },
+    "per_format": {
+      "docx": {
+        "tasks": [
+          "001",
+          "003",
+          "009"
+        ],
+        "reward_1": 2,
+        "resource_window_s_range": [
+          162.0587441767566,
+          538.2290929537266
+        ],
+        "cpu_sum_core_s": 23.7061618,
+        "sampled_memory_peak_bytes_range": [
+          1463119872,
+          1611448320
+        ],
+        "task_io_write_sum_bytes": 11071488,
+        "native_tool_items": 97
+      },
+      "xlsx": {
+        "tasks": [
+          "013",
+          "014",
+          "016"
+        ],
+        "reward_1": 1,
+        "resource_window_s_range": [
+          162.07088525034487,
+          184.06732733175159
+        ],
+        "cpu_sum_core_s": 238.47549615,
+        "sampled_memory_peak_bytes_range": [
+          1505468416,
+          1731796992
+        ],
+        "task_io_write_sum_bytes": 53272576,
+        "native_tool_items": 115
+      },
+      "pptx": {
+        "tasks": [
+          "021",
+          "026",
+          "029"
+        ],
+        "reward_1": 0,
+        "resource_window_s_range": [
+          148.05421713320538,
+          282.09695144183934
+        ],
+        "cpu_sum_core_s": 63.32405705000001,
+        "sampled_memory_peak_bytes_range": [
+          1618767872,
+          1685803008
+        ],
+        "task_io_write_sum_bytes": 60276736,
+        "native_tool_items": 143
+      },
+      "pdf": {
+        "tasks": [
+          "031",
+          "037",
+          "pdfwf005"
+        ],
+        "reward_1": 1,
+        "resource_window_s_range": [
+          70.02625396009535,
+          152.06457965588197
+        ],
+        "cpu_sum_core_s": 22.45877891,
+        "sampled_memory_peak_bytes_range": [
+          1533894656,
+          1631571968
+        ],
+        "task_io_write_sum_bytes": 23695360,
+        "native_tool_items": 88
+      }
+    }
+  },
+  "samples": [
+    {
+      "task": "001",
+      "task_id": "docops_v2_l3_001_docx_controlled_document_release_repair",
+      "runtime_task_id": "docops_v2_l3_001_docx_controlled_document_release_repair",
+      "format": "docx",
+      "run_id": "word001-full-20261103T084219Z",
+      "selection_reason": "explicitly_selected_final_Word001_run_with_task_IO_not_maximum_reward_search",
+      "report_dir": "reports/analysis/DOCOPS-L3-WORD001-FULL-RESOURCE-RERUN-01",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "passed",
+      "score": {
+        "status": "valid",
+        "reward": 1,
+        "detail": "consumed",
+        "tests_failed": 0,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 162.0587441767566,
+        "cpu_core_s": 7.24250539,
+        "average_cpu_cores": 0.04469061775587153,
+        "sampled_memory_peak_bytes": 1463119872,
+        "task_io_delta": {
+          "read_bytes": 0,
+          "write_bytes": 1880064
+        },
+        "raw_sample_rows": 83,
+        "maximum_sample_gap_s": 2.0009370199404657,
+        "boundary_start_utc": "2026-11-03T08:42:32Z",
+        "boundary_end_utc": "2026-11-03T08:45:14Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 82,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 54,
+        "jsonl_tool_calls": 21,
+        "jsonl_counts": {
+          "commandExecution": 18,
+          "fileChange": 3
+        },
+        "native_counts": {
+          "commandExecution": 18,
+          "fileChange": 3,
+          "imageView": 7
+        },
+        "native_tool_items": 28,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 669088,
+          "cached_input_tokens": 649984,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 22559,
+          "reasoning_output_tokens": 8165
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/codex-native-sqlite/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/word001-full-20261103T084219Z/preserve-out/preservation-manifest.json",
+        "file_paths": 1,
+        "versions": 2,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_001_docx_controlled_document_release_repair/environment/docops_v2_l3_001_docx_controlled_document_release_repair_input.docx",
+        "sha256": "e0eff02c89aeb4a488545b39637cbe12d01619b080c59698ef384ed64fdd927a",
+        "bytes": 36828,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_001_docx_controlled_document_release_repair/instruction.md",
+      "skill": "references/repos/DocOps/skills/doc/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output.docx",
+        "bytes": 42066,
+        "sha256": "acd55de74a4780c522848b49dc103b4c720edd03c7521cccd7c2212b9d6f3156"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-WORD001-FULL-RESOURCE-RERUN-01/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "backend": "DeepSeek-V4.1-Flash-1017",
+        "provider": "deepseek",
+        "base_url": "https://api.deepseek.com/",
+        "wire_api": "responses",
+        "reasoning_effort": "high"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/word001-full-20261103T084219Z/collect-result.json",
+      "prompt_path": null,
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": [
+        "raw_CTRF_not_found_in_selected_local_archive; score_summary_preserved",
+        "exact_combined_runtime_prompt_not_archived; official_instruction_and_native_user_message_available"
+      ]
+    },
+    {
+      "task": "003",
+      "task_id": "docops_v2_l3_003_docx_public_records_release_metadata_cleanup",
+      "runtime_task_id": "docops_v2_l3_003_docx_public_records_release_metadata_cleanup",
+      "format": "docx",
+      "run_id": "01-docx-003-20261103T091000Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/01-docx-003",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 3,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/01-docx-003-20261103T091000Z/session/score.json",
+        "ctrf": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/evidence/01-docx-003/ctrf.json",
+        "ctrf_counts": {
+          "total": 6,
+          "passed": 3,
+          "failed": 3
+        },
+        "raw_reward": 0,
+        "raw_evidence": "ctrf_and_summary"
+      },
+      "resource": {
+        "wall_s": 538.2290929537266,
+        "cpu_core_s": 9.57867398,
+        "average_cpu_cores": 0.01779664850042491,
+        "sampled_memory_peak_bytes": 1611448320,
+        "task_io_delta": {
+          "read_bytes": 0,
+          "write_bytes": 5910528
+        },
+        "raw_sample_rows": 271,
+        "maximum_sample_gap_s": 2.0010603819973767,
+        "boundary_start_utc": "2026-11-03T09:10:01Z",
+        "boundary_end_utc": "2026-11-03T09:19:00Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 270,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/01-docx-003-20261103T091000Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/01-docx-003-20261103T091000Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 79,
+        "jsonl_tool_calls": 33,
+        "jsonl_counts": {
+          "commandExecution": 27,
+          "fileChange": 6
+        },
+        "native_counts": {
+          "commandExecution": 27,
+          "fileChange": 6,
+          "imageView": 7
+        },
+        "native_tool_items": 40,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 1,
+        "usage": {
+          "input_tokens": 1073939,
+          "cached_input_tokens": 1053056,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 30617,
+          "reasoning_output_tokens": 9808
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/01-docx-003-20261103T091000Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/01-docx-003-20261103T091000Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/01-docx-003-20261103T091000Z/preserve-out/preservation-manifest.json",
+        "file_paths": 2,
+        "versions": 6,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_003_docx_public_records_release_metadata_cleanup/environment/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_input.docx",
+        "sha256": "c1c65f23233c11037b6a7f0e873a803e95136488f5a5b2fca6bab1a26112c2f3",
+        "bytes": 38635,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_003_docx_public_records_release_metadata_cleanup/instruction.md",
+      "skill": "references/repos/DocOps/skills/doc/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/01-docx-003-20261103T091000Z/submission/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_output.docx",
+        "bytes": 37132,
+        "sha256": "3a0742b1aade55c618ee66d27c9d8d44453507ea6b2b7a1fa1fb5bc0a75c27db"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/01-docx-003/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/01-docx-003-20261103T091000Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/01-docx-003-20261103T091000Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/01-docx-003-20261103T091000Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    },
+    {
+      "task": "009",
+      "task_id": "docops_v2_l3_009_docx_incident_manual_publication",
+      "runtime_task_id": "docops_v2_l3_009_docx_incident_manual_publication",
+      "format": "docx",
+      "run_id": "02-docx-009-20261103T092824Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/02-docx-009",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "passed",
+      "score": {
+        "status": "valid",
+        "reward": 1,
+        "detail": "consumed",
+        "tests_failed": 0,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/02-docx-009-20261103T092824Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 198.07073231972754,
+        "cpu_core_s": 6.88498243,
+        "average_cpu_cores": 0.03476022100471765,
+        "sampled_memory_peak_bytes": 1486409728,
+        "task_io_delta": {
+          "read_bytes": 0,
+          "write_bytes": 3280896
+        },
+        "raw_sample_rows": 101,
+        "maximum_sample_gap_s": 2.001048920676112,
+        "boundary_start_utc": "2026-11-03T09:28:25Z",
+        "boundary_end_utc": "2026-11-03T09:31:43Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 100,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/02-docx-009-20261103T092824Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/02-docx-009-20261103T092824Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 54,
+        "jsonl_tool_calls": 22,
+        "jsonl_counts": {
+          "commandExecution": 20,
+          "fileChange": 2
+        },
+        "native_counts": {
+          "commandExecution": 20,
+          "fileChange": 2,
+          "imageView": 7
+        },
+        "native_tool_items": 29,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 382785,
+          "cached_input_tokens": 366336,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 21627,
+          "reasoning_output_tokens": 8528
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/02-docx-009-20261103T092824Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/02-docx-009-20261103T092824Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/02-docx-009-20261103T092824Z/preserve-out/preservation-manifest.json",
+        "file_paths": 2,
+        "versions": 2,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_009_docx_incident_manual_publication/environment/docops_v2_l3_009_docx_incident_manual_publication_input.docx",
+        "sha256": "801c97d5a1a78066d07c4968876d1a8cd65e1f07cc7d08b52cb8fb0bab17fea6",
+        "bytes": 38938,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_009_docx_incident_manual_publication/instruction.md",
+      "skill": "references/repos/DocOps/skills/doc/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/02-docx-009-20261103T092824Z/submission/docops_v2_l3_009_docx_incident_manual_publication_output.docx",
+        "bytes": 41604,
+        "sha256": "4211e7406062a7837d1b8fb0bd38bb134d4c96b90ef5538c4b27cae7bf8ec33c"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/02-docx-009/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/02-docx-009-20261103T092824Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/02-docx-009-20261103T092824Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/02-docx-009-20261103T092824Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    },
+    {
+      "task": "013",
+      "task_id": "docops_v2_l3_013_xlsx_procurement_bid_evaluation_release",
+      "runtime_task_id": "docops_v2_l3_013_xlsx_procurement_bid_evaluation_release",
+      "format": "xlsx",
+      "run_id": "xlsx013-rerun-20261103T112157Z",
+      "selection_reason": "explicitly_selected_normal_completion_rerun; old_timeout_retained",
+      "report_dir": "reports/analysis/DOCOPS-L3-XLSX013-RERUN-01",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 2,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/score.json",
+        "ctrf": "reports/analysis/DOCOPS-L3-XLSX013-RERUN-01/evidence/xlsx013-rerun-ctrf.json",
+        "ctrf_counts": {
+          "total": 5,
+          "passed": 3,
+          "failed": 2
+        },
+        "raw_reward": 0,
+        "raw_evidence": "ctrf_and_summary"
+      },
+      "resource": {
+        "wall_s": 170.06214047968388,
+        "cpu_core_s": 87.42083096,
+        "average_cpu_cores": 0.5140522794398413,
+        "sampled_memory_peak_bytes": 1731796992,
+        "task_io_delta": {
+          "read_bytes": 0,
+          "write_bytes": 17600512
+        },
+        "raw_sample_rows": 87,
+        "maximum_sample_gap_s": 2.0009847418405116,
+        "boundary_start_utc": "2026-11-03T11:22:06Z",
+        "boundary_end_utc": "2026-11-03T11:24:56Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 86,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 75,
+        "jsonl_tool_calls": 31,
+        "jsonl_counts": {
+          "commandExecution": 27,
+          "fileChange": 4
+        },
+        "native_counts": {
+          "commandExecution": 27,
+          "fileChange": 4,
+          "imageView": 2
+        },
+        "native_tool_items": 33,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 1170581,
+          "cached_input_tokens": 1146880,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 26303,
+          "reasoning_output_tokens": 11362
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/xlsx013-rerun-20261103T112157Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/xlsx013-rerun-20261103T112157Z/preserve-out/preservation-manifest.json",
+        "file_paths": 2,
+        "versions": 4,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release/environment/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input.xlsx",
+        "sha256": "23a6d90be7c312e1a418fa5b46e5a151919d246088c56a685289b689a544167a",
+        "bytes": 7220,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release/instruction.md",
+      "skill": "references/repos/DocOps/skills/xlsx/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output.xlsx",
+        "bytes": 26480,
+        "sha256": "92d7f9589100eb0ceae4feedc3da062c77813ca5722dac6715aecd4748e5f5dc"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-XLSX013-RERUN-01/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "base_url": "https://api.deepseek.com/",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling alias, not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/xlsx013-rerun-20261103T112157Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    },
+    {
+      "task": "014",
+      "task_id": "docops_v2_l3_014_xlsx_disaster_housing_grant_public_release",
+      "runtime_task_id": "docops_v2_l3_014_xlsx_disaster_housing_grant_public_release",
+      "format": "xlsx",
+      "run_id": "04-xlsx-014-20261103T103608Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/04-xlsx-014",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "passed",
+      "score": {
+        "status": "valid",
+        "reward": 1,
+        "detail": "consumed",
+        "tests_failed": 0,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 162.07088525034487,
+        "cpu_core_s": 55.7648637,
+        "average_cpu_cores": 0.34407699824593474,
+        "sampled_memory_peak_bytes": 1505468416,
+        "task_io_delta": {
+          "read_bytes": 0,
+          "write_bytes": 19447808
+        },
+        "raw_sample_rows": 83,
+        "maximum_sample_gap_s": 2.0011760597117245,
+        "boundary_start_utc": "2026-11-03T10:36:09Z",
+        "boundary_end_utc": "2026-11-03T10:38:51Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 82,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 81,
+        "jsonl_tool_calls": 35,
+        "jsonl_counts": {
+          "commandExecution": 29,
+          "fileChange": 6
+        },
+        "native_counts": {
+          "commandExecution": 29,
+          "fileChange": 6,
+          "imageView": 7
+        },
+        "native_tool_items": 42,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 1599610,
+          "cached_input_tokens": 1563648,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 25685,
+          "reasoning_output_tokens": 7826
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/04-xlsx-014-20261103T103608Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/04-xlsx-014-20261103T103608Z/preserve-out/preservation-manifest.json",
+        "file_paths": 5,
+        "versions": 6,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release/environment/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input.xlsx",
+        "sha256": "251a31df8f826ce68a4078719890ac61b054352272f589a1020c88d8c66851c0",
+        "bytes": 9193,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release/instruction.md",
+      "skill": "references/repos/DocOps/skills/xlsx/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output.xlsx",
+        "bytes": 20950,
+        "sha256": "bfdacc63cf8e7505c370c33a0e0fcec3719f0c3a9c9d90c415bcf78f99fd8c5d"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/04-xlsx-014/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/04-xlsx-014-20261103T103608Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    },
+    {
+      "task": "016",
+      "task_id": "docops_v2_l3_016_xlsx_forecast_driver_cascade",
+      "runtime_task_id": "docops_v2_l3_016_xlsx_forecast_driver_cascade",
+      "format": "xlsx",
+      "run_id": "05-xlsx-016-20261103T103856Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/05-xlsx-016",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 1,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 184.06732733175159,
+        "cpu_core_s": 95.28980149,
+        "average_cpu_cores": 0.5176899283068067,
+        "sampled_memory_peak_bytes": 1560948736,
+        "task_io_delta": {
+          "read_bytes": 4096,
+          "write_bytes": 16224256
+        },
+        "raw_sample_rows": 94,
+        "maximum_sample_gap_s": 2.0009085070341825,
+        "boundary_start_utc": "2026-11-03T10:38:57Z",
+        "boundary_end_utc": "2026-11-03T10:42:01Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 93,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 79,
+        "jsonl_tool_calls": 34,
+        "jsonl_counts": {
+          "commandExecution": 30,
+          "fileChange": 4
+        },
+        "native_counts": {
+          "commandExecution": 30,
+          "fileChange": 4,
+          "imageView": 6
+        },
+        "native_tool_items": 40,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 1217418,
+          "cached_input_tokens": 1186816,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 28037,
+          "reasoning_output_tokens": 12143
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/05-xlsx-016-20261103T103856Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/05-xlsx-016-20261103T103856Z/preserve-out/preservation-manifest.json",
+        "file_paths": 1,
+        "versions": 4,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_016_xlsx_forecast_driver_cascade/environment/docops_v2_l3_016_xlsx_forecast_driver_cascade_input.xlsx",
+        "sha256": "c9cada30e31d73549581d153d0d8617db1f95fc456703dd2ac65ecf4e6778adb",
+        "bytes": 6501,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_016_xlsx_forecast_driver_cascade/instruction.md",
+      "skill": "references/repos/DocOps/skills/xlsx/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/submission/docops_v2_l3_016_xlsx_forecast_driver_cascade_output.xlsx",
+        "bytes": 23143,
+        "sha256": "ac81902cbff04037cb0c25f9882974fe308993e2dbcb595217bfce16c868d117"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/05-xlsx-016/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/05-xlsx-016-20261103T103856Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    },
+    {
+      "task": "021",
+      "task_id": "docops_v2_l3_021_pptx_shelter_accessibility_public_remediation",
+      "runtime_task_id": "docops_v2_l3_021_pptx_shelter_accessibility_public_remediation",
+      "format": "pptx",
+      "run_id": "06-pptx-021-20261103T104204Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/06-pptx-021",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 3,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 282.09695144183934,
+        "cpu_core_s": 35.94087118,
+        "average_cpu_cores": 0.12740609565718766,
+        "sampled_memory_peak_bytes": 1671438336,
+        "task_io_delta": {
+          "read_bytes": 184320,
+          "write_bytes": 20586496
+        },
+        "raw_sample_rows": 143,
+        "maximum_sample_gap_s": 2.0010126177221537,
+        "boundary_start_utc": "2026-11-03T10:42:05Z",
+        "boundary_end_utc": "2026-11-03T10:46:48Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 142,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 103,
+        "jsonl_tool_calls": 45,
+        "jsonl_counts": {
+          "commandExecution": 36,
+          "fileChange": 9
+        },
+        "native_counts": {
+          "commandExecution": 36,
+          "imageView": 15,
+          "fileChange": 9
+        },
+        "native_tool_items": 60,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 2762633,
+          "cached_input_tokens": 2705536,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 41364,
+          "reasoning_output_tokens": 10661
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/06-pptx-021-20261103T104204Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/06-pptx-021-20261103T104204Z/preserve-out/preservation-manifest.json",
+        "file_paths": 4,
+        "versions": 9,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation/environment/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input.pptx",
+        "sha256": "1eb7d9dfdfd339b3d2395710a3ba6e2c68cc69d706f2709b3886b39684b55ec8",
+        "bytes": 50722,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation/instruction.md",
+      "skill": "references/repos/DocOps/skills/pptx/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output.pptx",
+        "bytes": 63766,
+        "sha256": "373109df299e77d03bfe5e66fe9de1a92e717ec06f01a56fbf787f2ead3073d9"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/06-pptx-021/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/06-pptx-021-20261103T104204Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": [
+        "historical_script_size_metadata_corrected_in_new_index_only; SHA_checks_are_independent"
+      ]
+    },
+    {
+      "task": "026",
+      "task_id": "docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild",
+      "runtime_task_id": "docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild",
+      "format": "pptx",
+      "run_id": "07-pptx-026-20261103T104652Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/07-pptx-026",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 4,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 148.05421713320538,
+        "cpu_core_s": 10.41855357,
+        "average_cpu_cores": 0.07036985350188545,
+        "sampled_memory_peak_bytes": 1618767872,
+        "task_io_delta": {
+          "read_bytes": 20480,
+          "write_bytes": 21176320
+        },
+        "raw_sample_rows": 76,
+        "maximum_sample_gap_s": 2.0009900550357997,
+        "boundary_start_utc": "2026-11-03T10:46:54Z",
+        "boundary_end_utc": "2026-11-03T10:49:22Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 75,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 62,
+        "jsonl_tool_calls": 25,
+        "jsonl_counts": {
+          "commandExecution": 22,
+          "fileChange": 3
+        },
+        "native_counts": {
+          "commandExecution": 22,
+          "imageView": 11,
+          "fileChange": 3
+        },
+        "native_tool_items": 36,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 737443,
+          "cached_input_tokens": 711680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 25493,
+          "reasoning_output_tokens": 8845
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/07-pptx-026-20261103T104652Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/07-pptx-026-20261103T104652Z/preserve-out/preservation-manifest.json",
+        "file_paths": 2,
+        "versions": 3,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild/environment/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input.pptx",
+        "sha256": "35b5baebd8a70b066b61b64e6ecaee3ab4518205b6c0ed7a3f438405055121f8",
+        "bytes": 64467,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild/instruction.md",
+      "skill": "references/repos/DocOps/skills/pptx/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output.pptx",
+        "bytes": 67293,
+        "sha256": "1d1d66b6afd18fb891be05bc73b877a96a4cac9b863578cf2a22b6b77550a5b7"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/07-pptx-026/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/07-pptx-026-20261103T104652Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": [
+        "historical_script_size_metadata_corrected_in_new_index_only; SHA_checks_are_independent"
+      ]
+    },
+    {
+      "task": "029",
+      "task_id": "docops_v2_l3_029_pptx_qbr_release_deck",
+      "runtime_task_id": "docops_v2_l3_029_pptx_qbr_release_deck",
+      "format": "pptx",
+      "run_id": "08-pptx-029-20261103T104925Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/08-pptx-029",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 1,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/08-pptx-029-20261103T104925Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 216.07630564412102,
+        "cpu_core_s": 16.9646323,
+        "average_cpu_cores": 0.07851222858253072,
+        "sampled_memory_peak_bytes": 1685803008,
+        "task_io_delta": {
+          "read_bytes": 65536,
+          "write_bytes": 18513920
+        },
+        "raw_sample_rows": 110,
+        "maximum_sample_gap_s": 2.000992075074464,
+        "boundary_start_utc": "2026-11-03T10:49:27Z",
+        "boundary_end_utc": "2026-11-03T10:53:03Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 109,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/08-pptx-029-20261103T104925Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/08-pptx-029-20261103T104925Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 80,
+        "jsonl_tool_calls": 34,
+        "jsonl_counts": {
+          "commandExecution": 26,
+          "fileChange": 8
+        },
+        "native_counts": {
+          "commandExecution": 26,
+          "imageView": 13,
+          "fileChange": 8
+        },
+        "native_tool_items": 47,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 2076323,
+          "cached_input_tokens": 2039808,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 31756,
+          "reasoning_output_tokens": 9885
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/08-pptx-029-20261103T104925Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/08-pptx-029-20261103T104925Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/08-pptx-029-20261103T104925Z/preserve-out/preservation-manifest.json",
+        "file_paths": 3,
+        "versions": 8,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_029_pptx_qbr_release_deck/environment/docops_v2_l3_029_pptx_qbr_release_deck_input.pptx",
+        "sha256": "7041b89420c5ca8d856bb630951cfec8b26649350c3e1995b4f06c30467135aa",
+        "bytes": 45814,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_029_pptx_qbr_release_deck/instruction.md",
+      "skill": "references/repos/DocOps/skills/pptx/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/08-pptx-029-20261103T104925Z/submission/docops_v2_l3_029_pptx_qbr_release_deck_output.pptx",
+        "bytes": 51896,
+        "sha256": "d1f16e6490a390cca9f0fd6bbb0f9a6f9480edef49f540668af573f67b358722"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/08-pptx-029/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/08-pptx-029-20261103T104925Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/08-pptx-029-20261103T104925Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/08-pptx-029-20261103T104925Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": [
+        "historical_script_size_metadata_corrected_in_new_index_only; SHA_checks_are_independent"
+      ]
+    },
+    {
+      "task": "031",
+      "task_id": "docops_v2_l3_031_pdf_public_hearing_packet_flatten_release",
+      "runtime_task_id": "docops_v2_l3_031_pdf_public_hearing_packet_flatten_release",
+      "format": "pdf",
+      "run_id": "09-pdf-031-20261103T105309Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/09-pdf-031",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 1,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 152.06457965588197,
+        "cpu_core_s": 6.49579896,
+        "average_cpu_cores": 0.04271737030871895,
+        "sampled_memory_peak_bytes": 1558818816,
+        "task_io_delta": {
+          "read_bytes": 0,
+          "write_bytes": 3497984
+        },
+        "raw_sample_rows": 78,
+        "maximum_sample_gap_s": 2.001047845929861,
+        "boundary_start_utc": "2026-11-03T10:53:10Z",
+        "boundary_end_utc": "2026-11-03T10:55:42Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 77,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 64,
+        "jsonl_tool_calls": 26,
+        "jsonl_counts": {
+          "commandExecution": 24,
+          "fileChange": 2
+        },
+        "native_counts": {
+          "commandExecution": 24,
+          "imageView": 7,
+          "fileChange": 2
+        },
+        "native_tool_items": 33,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 512830,
+          "cached_input_tokens": 493440,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 26921,
+          "reasoning_output_tokens": 11173
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/09-pdf-031-20261103T105309Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/09-pdf-031-20261103T105309Z/preserve-out/preservation-manifest.json",
+        "file_paths": 2,
+        "versions": 2,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release/environment/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_input.pdf",
+        "sha256": "14208dd5a5fec993c932b0ffd54ecb6f8d61c998b0f142fe53502c96267f0fe9",
+        "bytes": 6608,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release/instruction.md",
+      "skill": "references/repos/DocOps/skills/pdf/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output.pdf",
+        "bytes": 15798,
+        "sha256": "4d755731c220a73e26378ba9387907ae967500156d499429d5c3a6c8fc1d37f5"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/09-pdf-031/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/09-pdf-031-20261103T105309Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    },
+    {
+      "task": "037",
+      "task_id": "docops_v2_l3_037_pdf_bus_detour_notice_layout_repair",
+      "runtime_task_id": "docops_v2_l3_037_pdf_bus_detour_notice_layout_repair",
+      "format": "pdf",
+      "run_id": "10-pdf-037-20261103T105547Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/10-pdf-037",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "not_passed",
+      "score": {
+        "status": "valid",
+        "reward": 0,
+        "detail": "consumed",
+        "tests_failed": 2,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 128.0543715232052,
+        "cpu_core_s": 6.85093299,
+        "average_cpu_cores": 0.053500188306796835,
+        "sampled_memory_peak_bytes": 1631571968,
+        "task_io_delta": {
+          "read_bytes": 0,
+          "write_bytes": 10780672
+        },
+        "raw_sample_rows": 66,
+        "maximum_sample_gap_s": 2.0010794661939144,
+        "boundary_start_utc": "2026-11-03T10:55:48Z",
+        "boundary_end_utc": "2026-11-03T10:57:56Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 65,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 50,
+        "jsonl_tool_calls": 20,
+        "jsonl_counts": {
+          "commandExecution": 17,
+          "fileChange": 3
+        },
+        "native_counts": {
+          "commandExecution": 17,
+          "fileChange": 3,
+          "imageView": 6
+        },
+        "native_tool_items": 26,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 466627,
+          "cached_input_tokens": 451968,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 20660,
+          "reasoning_output_tokens": 9021
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/10-pdf-037-20261103T105547Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/10-pdf-037-20261103T105547Z/preserve-out/preservation-manifest.json",
+        "file_paths": 2,
+        "versions": 3,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair/environment/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input.pdf",
+        "sha256": "03f2d841b430eb9707d6e356623bee4d3f5619506ace6afad3ef9b0dce13aaa1",
+        "bytes": 2864,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair/instruction.md",
+      "skill": "references/repos/DocOps/skills/pdf/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output.pdf",
+        "bytes": 16746,
+        "sha256": "882669f492439ce7db7b78286f104af52eeb7c561d7f502d0a2928b37be725b2"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/10-pdf-037/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/10-pdf-037-20261103T105547Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    },
+    {
+      "task": "pdfwf005",
+      "task_id": "single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed",
+      "runtime_task_id": "pdfwf_005",
+      "format": "pdf",
+      "run_id": "11-pdf-pdfwf005-20261103T105800Z",
+      "selection_reason": "sole_formal_batch_run_regardless_of_reward",
+      "report_dir": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/11-pdf-pdfwf005",
+      "agent_outcome": "agent_success",
+      "agent_exit": 0,
+      "content_status": "passed",
+      "score": {
+        "status": "valid",
+        "reward": 1,
+        "detail": "consumed",
+        "tests_failed": 0,
+        "tests_error": 0,
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/score.json",
+        "ctrf": null,
+        "ctrf_counts": null,
+        "raw_reward": null,
+        "raw_evidence": "summary_only"
+      },
+      "resource": {
+        "wall_s": 70.02625396009535,
+        "cpu_core_s": 9.11204696,
+        "average_cpu_cores": 0.13012329583119678,
+        "sampled_memory_peak_bytes": 1533894656,
+        "task_io_delta": {
+          "read_bytes": 176128,
+          "write_bytes": 9416704
+        },
+        "raw_sample_rows": 37,
+        "maximum_sample_gap_s": 2.0010227262973785,
+        "boundary_start_utc": "2026-11-03T10:58:01Z",
+        "boundary_end_utc": "2026-11-03T10:59:11Z",
+        "complete_observable_metrics": true,
+        "scope": "container cgroup boundary deltas; sampler overhead included; remote model excluded",
+        "recorded_partial": false,
+        "recorded_sample_count": 36,
+        "source_jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/resource.jsonl",
+        "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/resource.json"
+      },
+      "trace": {
+        "jsonl_event_rows": 65,
+        "jsonl_tool_calls": 27,
+        "jsonl_counts": {
+          "commandExecution": 25,
+          "fileChange": 2
+        },
+        "native_counts": {
+          "commandExecution": 25,
+          "imageView": 2,
+          "fileChange": 2
+        },
+        "native_tool_items": 29,
+        "pairing_anomalies": [],
+        "native_duplicate_ids": false,
+        "command_file_count_cross_check": true,
+        "turn_completed": 1,
+        "reconnect_events": 0,
+        "usage": {
+          "input_tokens": 423609,
+          "cached_input_tokens": 406272,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 10479,
+          "reasoning_output_tokens": 2748
+        },
+        "timing_note": "native item created_at_ms is a stored-item timestamp, not measured subprocess start; no interpolated timing used",
+        "jsonl": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/codex.jsonl",
+        "sqlite": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/11-pdf-pdfwf005-20261103T105800Z/preserve-out/raw/thread_history_consistent.sqlite"
+      },
+      "scripts": {
+        "source_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/11-pdf-pdfwf005-20261103T105800Z/preserve-out/preservation-manifest.json",
+        "file_paths": 1,
+        "versions": 2,
+        "hash_verified": true,
+        "binding": "inferred; not a validated replay recipe"
+      },
+      "input": {
+        "path": "references/repos/DocOps/tasks/single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed/environment/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf",
+        "sha256": "a8b274c38355100275f816ea14b4ddbee573df0b673b76c58e8d74d02b46d6a3",
+        "bytes": 5127,
+        "matches_run_injection": true
+      },
+      "instruction": "references/repos/DocOps/tasks/single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed/instruction.md",
+      "skill": "references/repos/DocOps/skills/pdf/SKILL.md",
+      "submission": {
+        "path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf",
+        "bytes": 5893,
+        "sha256": "daccf3f14a849809f0b26e8be84bb361a6f14b29cba4400e6a87f9d3188ce335"
+      },
+      "identity": "reports/analysis/DOCOPS-L3-REMAINING-11-SEQUENTIAL-FAIL-STOP-01/tasks/11-pdf-pdfwf005/identity.json",
+      "model": {
+        "request": "deepseek-flash",
+        "provider": "deepseek",
+        "wire_api": "responses",
+        "reasoning_effort": "high",
+        "note": "rolling provider alias; not a fixed snapshot"
+      },
+      "official_timeout_s": 1200.0,
+      "archive_manifest": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/archive-manifest.json",
+      "collection_result": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/collection/11-pdf-pdfwf005-20261103T105800Z/collect-result.json",
+      "prompt_path": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/prompt.txt",
+      "technical_check_scope": "historical opening/format checks; official content result separate",
+      "warnings": []
+    }
+  ]
+}

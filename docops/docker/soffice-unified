@@ -1,0 +1,13 @@
+#!/bin/sh
+# The seven-case LO developer build has UserInstallation=$ORIGIN/.. .
+# Frozen upstream Skills install their Basic macro in the normal Linux user
+# profile instead. Bind that profile without changing any Skill/trace script
+# or the shared LO executable; explicit caller profiles always take precedence.
+for argument in "$@"; do
+    case "$argument" in
+        -env:UserInstallation=*)
+            exec /usr/local/bin/soffice "$@"
+            ;;
+    esac
+done
+exec /usr/local/bin/soffice "-env:UserInstallation=file://${HOME}/.config/libreoffice/4" "$@"

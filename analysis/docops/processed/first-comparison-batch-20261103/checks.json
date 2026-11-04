@@ -1,0 +1,26 @@
+{
+  "schema": "docops-first-batch-closeout-checks-v1",
+  "status": "passed",
+  "tasks": 12,
+  "profiles": 24,
+  "new_capture_containers_exit_zero": 22,
+  "reused_profiles": 2,
+  "new_workflow_loops": 220,
+  "analyzed_workflow_loops_including_reuse": 240,
+  "independent_profiles_per_mode_per_task": 1,
+  "archive_sets_verified": 37,
+  "indexed_file_entries_verified": 965,
+  "same_format_pairs": 12,
+  "cross_format_pairs": 54,
+  "targeted_tests_passed": 16,
+  "payload_validation": "247 files static_valid",
+  "code_hashes_verified": 11,
+  "measurement_or_workload_retries_this_campaign": 0,
+  "offline_failed_attempts_preserved": true,
+  "symbol_limited_tasks": [
+    "016",
+    "021",
+    "026",
+    "029"
+  ]
+}

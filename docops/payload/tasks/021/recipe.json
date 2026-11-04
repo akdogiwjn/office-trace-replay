@@ -1,0 +1,687 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "021",
+  "task_id": "docops_v2_l3_021_pptx_shelter_accessibility_public_remediation",
+  "format": "pptx",
+  "source_run_id": "06-pptx-021-20261103T104204Z",
+  "historical_score": {
+    "status": "valid",
+    "reward": 0,
+    "detail": "consumed",
+    "tests_failed": 3,
+    "tests_error": 0,
+    "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/score.json",
+    "ctrf": null,
+    "ctrf_counts": null,
+    "raw_reward": null,
+    "raw_evidence": "summary_only"
+  },
+  "output_path": "/root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output.pptx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/021/seed/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input.pptx",
+      "destination": "/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input.pptx",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation/environment/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input.pptx",
+      "sha256": "1eb7d9dfdfd339b3d2395710a3ba6e2c68cc69d706f2709b3886b39684b55ec8"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation/environment/original_task_description.txt",
+      "sha256": "798de7c55e0ee1fdfd7536626702881501b99439f0d3d17f77edd23377d81a59"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation/environment/task_metadata.json",
+      "sha256": "09a09742b643d52027c2d0e311a8dd76ee2cd814a0815697d9991dc60e9c86ef"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "references/repos/DocOps/tasks/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation/instruction.md",
+      "sha256": "acbd32a17e3e177cca6ec872752d58c0eb0facaab81b5f7b49a9918eb5993f51"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/021/seed/root/tmp/docs/build_public_shelter_briefing.py",
+      "destination": "/root/tmp/docs/build_public_shelter_briefing.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/06-pptx-021-20261103T104204Z/preserve-out/files/root_tmp_docs_build_public_shelter_briefing.py.v6.update",
+      "sha256": "12d0046dddb35ebce7b552527519f5008c74a7feabcb445de11ba4d758d6ff96",
+      "version": 6,
+      "source_item_id": "call_00_ET_zh2d9daJ7RYaUhtzvjm45830",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/021/seed/root/tmp/docs/make_qa_fonts.py",
+      "destination": "/root/tmp/docs/make_qa_fonts.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/06-pptx-021-20261103T104204Z/preserve-out/files/root_tmp_docs_make_qa_fonts.py.v1.add",
+      "sha256": "35e84cbb0ac797dee14392fe3569f3b1905e06b4c2dd923e1cb2c34ef015f241",
+      "version": 1,
+      "source_item_id": "call_00_lvJTPPD8uKuTbQSRqtMH9997",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/021/seed/root/tmp/docs/validate_public_shelter_briefing.py",
+      "destination": "/root/tmp/docs/validate_public_shelter_briefing.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/06-pptx-021-20261103T104204Z/preserve-out/files/root_tmp_docs_validate_public_shelter_briefing.py.v1.add",
+      "sha256": "4e6eaa97847ee54f12bbbe1b933c0b39232c1426481975e97f631d3db41c492b",
+      "version": 1,
+      "source_item_id": "call_00_KxaGW7oKFx1pvIkb9m1K3683",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "prepare_render_fonts",
+      "source_item_id": "call_00_fjAKQfAIikOZzN6Ic9vp0355",
+      "phase": "environment_setup",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/make_qa_fonts.py && mkdir -p /root/.local/share/fonts && cp /root/tmp/docs/qa_fonts/*.ttf /root/.local/share/fonts/ && fc-cache -f /root/.local/share/fonts >/dev/null && fc-match 'Aptos Display' && fc-match 'Aptos'"
+      ],
+      "shell_body": "tasks/021/commands/01.sh",
+      "shell_sha256": "7d9e798dbef972d8daa5a28b9b30b6bb5b87d75f705779bef3f1aaca21c5d18f",
+      "source_command_sha256": "8dd905c12e86bfb7f19022cc836d45613386c06a16a32c315710a381574672f9",
+      "source_exit_code": 0,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "build_validate_render",
+      "source_item_id": "call_00_rHpcQSRDe7lQSx9z3tWX3495",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_public_shelter_briefing.py && python /root/tmp/docs/validate_public_shelter_briefing.py > /root/tmp/docs/validation_final_console.txt && mkdir -p /root/tmp/docs/render3 && python /root/.codex/skills/pptx/scripts/office/soffice.py --headless --convert-to pdf --outdir /root/tmp/docs/render3 /root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output.pptx && pdftoppm -jpeg -r 150 /root/tmp/docs/render3/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output.pdf /root/tmp/docs/render3/slide && montage /root/tmp/docs/render3/slide-{1..8}.jpg -thumbnail 720x405 -tile 2x4 -geometry +18+18 -background '#D9E2EC' /root/tmp/docs/render3/contact_sheet.jpg"
+      ],
+      "shell_body": "tasks/021/commands/02.sh",
+      "shell_sha256": "ef20306a156045b7bde386e2151d96be15e5241f16577e1546718fb08c367efb",
+      "source_command_sha256": "980164f895055edc43887bdbea4c643a4a822eeef96c2e30564868b6dc436c10",
+      "source_exit_code": 0,
+      "depends_on": [
+        "01"
+      ]
+    }
+  ],
+  "review": "Builder v6 does not read source_audit.json or preview images, so audit_source.py is exploratory. Font generation/install is an explicit prerequisite outside measured ROI, performed from the exact agent script after offline fonttools installation. Isolate per-task font state; do not leak Aptos substitutes into other tasks.",
+  "excluded_items": [
+    {
+      "source_item_id": "01a1a100-7e6f-73e3-94f2-b97d16d5d140",
+      "type": "userMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "6c03e52c-f046-4c04-815c-56f2cc35bef8",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "0099f3cd-96b6-4ce2-9563-9a21a557c65d",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_8tKjVJ9zEVt0NYLe1t5Y5178",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "a2b0de4d-f586-4800-a3a3-dce17d7e647c",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_RoyETkJFWE05YEHXzllE7191",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "77a366fe-e5f6-40bb-a1f1-1ff9e64a81a4",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_2bu07g1w5jHv7f1lB8aK0913",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_ipl9dDGrjM9yLy8Rnp3R4727",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_rDHaYNoFjzgMBVnnB2pv1759",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_rW5hi6IFsL0oXPmSQlfS5520",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "396bbcb2-4219-4c52-93c2-231ef14d0229",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_z65dehrhDRADIxSF38FA3772",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "d6149b90-32cc-405f-9721-f2af7e75a373",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "2e902c19-989f-461d-8b67-956b178eb33d",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_IlxGX9TLSPFklv85e8TB7273",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "c63600b1-b028-490b-beb5-acfb8d7d718b",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_LDvRjybMOE7O9VDydiRC3939",
+      "type": "commandExecution",
+      "reason": "source_exploration_output_not_consumed_by_final_builder"
+    },
+    {
+      "source_item_id": "9be9e780-c11a-4519-a4d6-ff8554bd7a6e",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_6zXUodpwMXBz1t31p4zY8094",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_GHriguFlFz8DRxZxdGLY0369",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_0wsQzb4ExsiD7O1NCI3J4661",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_bp7yutx9Ltcyr77wdiMJ1921",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "26b940d5-4163-42e0-a7dc-1370e1a66083",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "a8a529c4-77d3-4a19-9f77-97e402befcbe",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_9tDQmDgbPg47wz2khodV2820",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "a7724959-54ff-4cd5-851e-accac48d6b2b",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_MsBiaXpm2ZP0vyqR52W68549",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "d4f89dd6-a2af-4fd4-8f58-4e96601eae30",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_o1f5enLnU7Yzz9wMjFDC4684",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "44223be6-1f9e-4dc7-adf0-322216b89386",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_MamX2CPSihVrR4Ofxj7W6053",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "66cad341-8948-4983-aff2-9958a10ae903",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_37sZEdVbYG3yGgRDwAB81468",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "11f49eb9-60b9-4244-99f3-71a0aa5f94c2",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_GZbMOMqAChkhc2fyyOGj9242",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "c7a62112-2b00-4b3f-95a3-ac697a0a2d8c",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_c418a8qJ6RigpmnNMuDt4797",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "0c4aa631-ab3e-4af0-8975-9bd6227cafed",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_D9eOU1t92Sd0G7tmeRpc3361",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_tjiaIADKNG3NWcrCM7aN4566",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "eb3820c2-9ff5-4924-98e9-eb5ffcc995bf",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_nhzStzrWpg1b2ieOHnJB2152",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "3c65ac73-fc0f-4441-bee9-5344002e6e50",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_KxaGW7oKFx1pvIkb9m1K3683",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "12b8d539-c2e6-4bc2-ba86-f7f0edec21e0",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_VIQ1Z4BFNgDO9a4oL3u99756",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "61239649-22ae-4031-a07e-03b5b5a0fe6e",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "11375e1a-af65-4e38-b093-29765e2e61ea",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_i2NrCIx4IUekblhjn3bC5068",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_0CcjSIZlHB4HPt13dp3a8412",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "63ac6bb3-153d-4d88-837d-0c791ecc72eb",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_aFLcXwM3LmzFc0heNQUP4997",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "989fcbe2-f1b7-4fd2-b809-69e9b627aa99",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_U5TwsbBSTyvPUhJnqwhW8292",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "216ec9df-678d-4ecc-b4d7-11d08cda8706",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ObnBmgHe93vsC9SrACLT7228",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "af17c132-1d50-4227-bc0d-4ddc9eb8a8cd",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_zZANb6agjkpcT8boNLoE8655",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "c159821e-e4df-4a4b-ba72-99fa07dff74a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_b904mCxMFbEXBfFY5IUR9277",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_YBSLzjyEqU0FMujSKSKi2075",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "8038a96c-2a99-48fb-b718-13e4f3d20369",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ciPkY83IlDSiEVlVdIUs7675",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "9ed9467d-b9ed-49ca-bd79-0d0d02141457",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "8ccab5af-b3d1-4acc-9701-63d0fb09aa04",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_21TZYbrkXtILE3EmYUFb8986",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "5d8be1c7-371d-460a-9d6d-3600dfe2b371",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_lvJTPPD8uKuTbQSRqtMH9997",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "c216a611-4721-4c84-8815-4f884d8b83b9",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_iMqGcWeilKJIBNsEQmUJ9611",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "6c2506c7-10c4-4019-8a3b-a918c81a4860",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_RtUeoYqgoO2xN6MUcYKK7079",
+      "type": "commandExecution",
+      "reason": "dependency_installation_moves_to_offline_image_build"
+    },
+    {
+      "source_item_id": "8edd6ab6-65d5-42a1-b229-4652dbd14fe9",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "cb283a74-2fc3-483d-a448-2bab11424572",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_zNd1G0PMHF1qHkjtCKBd9806",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_iKX4DYbDqag80W0ROGY23740",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "29244c7b-1397-4958-b804-4052ad0a5a84",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_5wsEFy0cjGvMLCVusXBG6904",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "dc020cf2-666d-473b-96f6-c674bdb682e3",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_c7RnTc4WXq7gKh2nlzym6170",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "c1d904fa-04cd-45e9-a479-1e03db7a46cc",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_JcR5tdasYdLi8VcO5uck9220",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "1dd3ff6d-2ac5-446f-8815-42c98764843e",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_JEAX2ei1tbpdCiRQ8e5j7372",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "2b7cd9ff-df61-4f76-8156-2c293edc3c4c",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_UKurIpXrqL3nSlOJyyJq5973",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "d4c1d66f-55ae-4b7b-a189-bc0059631f08",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_c8spJroiDqVhfDwefBga1638",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "1e477715-40bc-4983-a1cf-03af04cae45a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_u435uV1Kys2PvKXCUDGM1292",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "00d17d11-88e7-484e-b927-b0c124a783a9",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_pHhAnMQEbPyNl1a4cmec8683",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "cb5fed88-8b40-4418-bd27-ca1237289962",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "41128eee-e9e0-4a72-9126-e7b3282ff8c4",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_Ef8VlUCF99alX4YeOd5B8270",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_zh2d9daJ7RYaUhtzvjm45830",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "a47f54f9-a7ec-41f3-8aa0-692e9abadc4e",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "aa8ea6e4-edc3-45c6-be72-eb836faccf82",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_xjW7wlzq4jXHOQqHH2Wi0010",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "809b5ed9-6b65-4460-9772-5b1d99510254",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_sc8d9iNt4xyFqZLLbzEL6940",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_01_dhye8ms0jFE6lQxLLXYi6467",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "call_02_acflK8gv5MHmpiXffFit5246",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "797bf21f-ecf0-496b-955c-5f503809bddd",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "877bd57b-e569-4195-8582-32a8a4e6a883",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_6AeVidZOZsibhnO3m81C6220",
+      "type": "commandExecution",
+      "reason": "duplicate_final_validation_already_in_selected_command"
+    },
+    {
+      "source_item_id": "call_01_XzZVgoE5SKGkuOCYU5fE7659",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_OSmujq18s31phxsZsANe4566",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_03_1T6e24pPKHpsr84UoYLR6577",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "ea828da1-aadd-4455-9549-8b11d547984a",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "450e7e6e-ff84-480d-b372-c7ea7da4d613",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    }
+  ],
+  "provenance": {
+    "trace": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/06-pptx-021-20261103T104204Z/preserve-out/raw/thread_history_consistent.sqlite",
+    "trace_sha256": "a9fdadcc782fecb9c06e5a2839fb1a02949227dfc6b5130669484b697d33a10f",
+    "run_env": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/run-env.json",
+    "run_env_sha256": "47d031fb3a639676eed7499a6d99fb128c5210547212172df0b313a0c183aef0"
+  }
+}

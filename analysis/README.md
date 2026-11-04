@@ -1,6 +1,6 @@
 # 采集与分析导航
 
-正式结论统一在 [代表性评估报告](../docs/representativeness-assessment.md)。完整明细统一在 [实验数据汇总记录](../docs/experimental-results.md)。以下目录负责代码与证据。
+既有七例的正式结论统一在 [代表性评估报告](../docs/representativeness-assessment.md)。完整明细统一在 [实验数据汇总记录](../docs/experimental-results.md)。以下目录负责代码与证据。
 
 | 目录／文件 | 用途 |
 |---|---|
@@ -12,6 +12,7 @@
 | `topdown/summarize.py`、`verify_campaign.py` | 单次最终指标、五次统计及来源验证 |
 | `topdown/compare_similarity.py`、`repeat_plots.py` | 十维向量、四 Bound 余弦、热点 Jaccard 与特征图 |
 | `topdown/CAMPAIGN.md` | 当前五次结果的完整索引和离线复核命令 |
+| `docops/README.md` | 十二项 DocOps L3 首批测量与分析入口；两路各一批，每批十轮 |
 | `topdown/README.md`、`hip09-preflight-20261027/` | 预检时冻结的说明与证据，原字节受 SHA256 索引保护；其中阶段状态是历史快照，当前状态以 CAMPAIGN 为准 |
 
 ## 当前数据
@@ -21,7 +22,7 @@
 - 正式报告源配置：`hotspots/comparison-inputs-pdf5-20261027.json`，名称沿用历史命名，内容已统一为七例五次。
 - 每次实际执行的 profile、summary、输入绑定和质量诊断在各自日期目录中。这些目录用于溯源，不能仅因日期较早就删除；当前五次结果仍引用最初首轮。
 - `hotspots/raw/`、`topdown/raw/` 是本地原始采集；`topdown/tools/`、`downloads/` 是冻结工具及安装包，均不提交 Git。
-- 仅保留上述 70 次实际采集。旧 `hotspot-comparison/`、独立功能试跑、未采用的单轮 PDF 和失败试点已删除，完整清单见 [数据保留记录](../docs/evidence/data-retention.json)。少量原始来源清单用于解释最新五次中的首轮复用，不代表额外保留历史测量。
+- 原七例保留上述 70 次实际采集。旧 `hotspot-comparison/`、独立功能试跑、未采用的单轮 PDF 和失败试点已删除，完整清单见 [数据保留记录](../docs/evidence/data-retention.json)。少量原始来源清单用于解释最新五次中的首轮复用，不代表额外保留历史测量。
 
 不要把 perf 用户周期比例、py-spy Python 样本比例、CPU 时间账本和 DevKit 按核指标相互换算。当前报告逐项说明对象、窗口和分母。
 
@@ -32,3 +33,12 @@
 3. 运行根 README 中的报告生成命令。代表性报告与实验数据记录由同一生成入口更新，均在 `docs/`；原深层 `report.md` 仅是指向它的兼容链接，报告内容只有一份。
 
 搬迁项目不改写原始运行记录、raw 文件或冻结 SHA256。优先按 JSON 中仓库相对路径定位数据，而不是把历史宿主绝对路径当作当前路径。
+
+DocOps 统一环境新十二项的[扩展任务操作分析](docops/processed/task-operation-expansion-20261104/comparison.json)已追加到两份正式文档末尾：与原始 OPM／TLC 比较软件栈、热点函数、Topdown 百分点变化与总变差，余弦仅辅助展示。原七例章节原文及五次统计不变，DocOps 每路一次采集、内部十轮，不合并为五次结果。离线更新追加章节：
+
+```bash
+python3 -B analysis/docops/operation_comparison.py --update --publish
+python3 -B scripts/build_presentation.py
+```
+
+原 Debian 首批的[十二任务对比](docops/processed/first-comparison-batch-20261103/report.md)保留为历史记录，不与统一环境结果混算。

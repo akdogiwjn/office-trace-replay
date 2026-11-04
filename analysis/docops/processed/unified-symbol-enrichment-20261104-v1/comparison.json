@@ -1,0 +1,569 @@
+{
+  "schema": "docops-unified-offline-symbol-enrichment-v1",
+  "status": "passed",
+  "image_id": "sha256:57483856a27942ffd4aef853950ca66b00c12b0787aae6c1dac74371d03e6164",
+  "campaign": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/campaign.json",
+  "campaign_sha256": "fa7c923e06ed269a4ea959e283dd0d5cdfc8d4aed4b66aaa6c7cf05ba9cfa6c3",
+  "workload_rerun": false,
+  "perf_record_rerun": false,
+  "topdown_rerun": false,
+  "loops_per_original_capture": 10,
+  "source_sha256": {
+    "enrich_unified.py": "9ea8b7d4f689ef1b526e98dd1dc1f8a9bdbf20a926f5379e18dfcc94098ede90",
+    "native_adapter.py": "4362c36506d27733e101e888819c85888d121a9998641cd2b937f2394a123615",
+    "recover_perf.py": "8b55cb9dfb1c1ab31c958b6976c73df6d1593aaf9c94354ec71e59cfae8ee0e8",
+    "native_capture_helpers.py": "29c65bcaa20ff84d41d3cfa7368eae7effab0ee6e6ea33007172cb4d2bdc795c",
+    "quality.py": "c8d61167d991d2f4abf9143b219c3efde34a8035b4f003623418c87aeb672721",
+    "native_profile.py": "451bd54e3c8616091232aefd0adfcf84c6b6b3c72c7c9ece8c0f373b9b66888b"
+  },
+  "symbol_index_sha256": "189826d43dc029c47857edc7f8f38eb8e84b042ed9bb5bccbb1778bf198b4bc3",
+  "tasks": {
+    "031": {
+      "status": "passed",
+      "format": "pdf",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/031/out",
+      "container_id": "ddf1095e53f5a4082ea4e11045ad8994859ae8e375fe7d59e68dda8735c83a79",
+      "original_archive": {
+        "index": "analysis/docops/raw/031-chain-pilot-20261103T172103Z-a25988a3/perf/out/sha256-index.json",
+        "sha256": "e332a9dedf6f6d784e3fcadc4f697727505da19252c0021e1cec2d31f2226e20",
+        "files_verified": 43
+      },
+      "record_sha256": "a04eaf0184ad1d393f675137f3ffbb4088dd6f118dd9b85add621f42e29d502a",
+      "quality_before": {
+        "unknown_leaf_dso_share": 1.572322725002326e-08,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.08678559227865153,
+        "unresolved_script_share": 0.0001701531134534227,
+        "first_observation_inference_share": 0.00019619805611207532,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 1.572322725002326e-08,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 1.841007318661272e-05,
+        "unresolved_script_share": 0.0001701531134534227,
+        "first_observation_inference_share": 0.00019619805611207532,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 773,
+      "roi_period": 39432108316,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/031/out/sha256-index.json",
+        "sha256": "5742154b806dd1d970e16921514394afe8e54c043c5eab42cbc2e39202a1586e",
+        "files_verified": 5
+      },
+      "profile_sha256": "9574fdfc42d9a0a13445889d3869e9a47116d2c4e81079841e836b84474a15ad"
+    },
+    "pdfwf005": {
+      "status": "passed",
+      "format": "pdf",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/pdfwf005/out",
+      "container_id": "f7cd1035cd39a85883865b296b99377fab8c24d76d408e8e47c835f3a3bdf1f6",
+      "original_archive": {
+        "index": "analysis/docops/raw/pdfwf005-chain-pilot-20261103T172155Z-b9bffc63/perf/out/sha256-index.json",
+        "sha256": "61af624896d206b1fc844c3669ee493c37db6068c04d088b4ca4dd6c01c66687",
+        "files_verified": 43
+      },
+      "record_sha256": "f474ea22c58ca9d517a6848c366150241bdeb7784f6e264411f7864502b335f3",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.001637341550464823,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.3879932880830576,
+        "unresolved_script_share": 0.00014592892391475086,
+        "first_observation_inference_share": 0.0009739599557174955,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.001637341550464823,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.0017982552060414514,
+        "unresolved_script_share": 0.00014592892391475086,
+        "first_observation_inference_share": 0.0009739599557174955,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 1239,
+      "roi_period": 40523248177,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/pdfwf005/out/sha256-index.json",
+        "sha256": "a0e78e1e917caa227febba568ce46d6dffd3ce49b7fdc24c5e98dd7c8132138c",
+        "files_verified": 5
+      },
+      "profile_sha256": "0d69d564bf110bb7d8f59b0fb7c044b8b75db092a3df46ee054e3e91faee43cd"
+    },
+    "003": {
+      "status": "passed",
+      "format": "word",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/003/out",
+      "container_id": "ac6221714e74794f980d9280ea7e89d52a191f7cab29dd6e45fd55dfc0c1e650",
+      "original_archive": {
+        "index": "analysis/docops/raw/003-chain-pilot-20261103T171640Z-11999db3/perf/out/sha256-index.json",
+        "sha256": "8ef72e773da0f54f5d85f15b7f5ff7169490f2d0d70eb3838d798f22021a53f2",
+        "files_verified": 43
+      },
+      "record_sha256": "9fc00382df324e20da2594e34b66763d9ed905bfff1020d47eadba797d198629",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.002800352853795471,
+        "empty_stack_share": 2.3472586131067872e-09,
+        "unknown_leaf_symbol_share": 0.15694311013047202,
+        "unresolved_script_share": 0.0010050016656676661,
+        "first_observation_inference_share": 0.0010375539175659536,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.002800352853795471,
+        "empty_stack_share": 2.3472586131067872e-09,
+        "unknown_leaf_symbol_share": 0.028770561707817065,
+        "unresolved_script_share": 0.0010050016656676661,
+        "first_observation_inference_share": 0.0010375539175659536,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 3280,
+      "roi_period": 53253612236,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/003/out/sha256-index.json",
+        "sha256": "ea6324816b8501e07a77ea354b2beb1167e7728bec454366d6d6c0eec4f78166",
+        "files_verified": 5
+      },
+      "profile_sha256": "c6ec732ab2ced0588f513ddc076fb3f5ae7628967e4103c000dba4145fe1e880"
+    },
+    "001": {
+      "status": "passed",
+      "format": "word",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/001/out",
+      "container_id": "4eb3e228aaa774c8cb2f8e89d47f89a659673cdf98d425ecea55cb374f869273",
+      "original_archive": {
+        "index": "analysis/docops/raw/001-chain-pilot-20261103T171603Z-c48c0cbf/perf/out/sha256-index.json",
+        "sha256": "2dc78228b4f70fb73ea7305f96ec65053a0abd68218ec9c8e8f444079390f414",
+        "files_verified": 43
+      },
+      "record_sha256": "084f8160d1987e13291df7e4a15c3bece6917fb77f4c7226362352f750ee8eb6",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.0024768984928303763,
+        "empty_stack_share": 2.395358397055993e-09,
+        "unknown_leaf_symbol_share": 0.12075988160360178,
+        "unresolved_script_share": 0.0008385111465905483,
+        "first_observation_inference_share": 0.0009767406043844108,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.0024768984928303763,
+        "empty_stack_share": 2.395358397055993e-09,
+        "unknown_leaf_symbol_share": 0.02487805545936218,
+        "unresolved_script_share": 0.0008385111465905483,
+        "first_observation_inference_share": 0.0009767406043844108,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 3736,
+      "roi_period": 56776472434,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/001/out/sha256-index.json",
+        "sha256": "3a085436ba9229490072a68ec5617a31f1d85ea2c4354f6597919f70df4d4235",
+        "files_verified": 5
+      },
+      "profile_sha256": "9be738a89b1ba4ca648234a0befa7e63a354882366f350495bb4bfafd1c32171"
+    },
+    "037": {
+      "status": "passed",
+      "format": "pdf",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/037/out",
+      "container_id": "96018dde016327c7f3067755d088dc209b049e02712ffed3e9cbc7697773a559",
+      "original_archive": {
+        "index": "analysis/docops/raw/037-chain-pilot-20261103T172125Z-ae8d3d0d/perf/out/sha256-index.json",
+        "sha256": "f16f14c19404bce73bca4cbbb0492b6fe68efaafdd566a064e3d8c37d478f0b4",
+        "files_verified": 43
+      },
+      "record_sha256": "7acf66fd97de79a7b2db63007812e042492d854a9235e523899c52b9e1af7832",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.00014029643342032777,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.10316929638915899,
+        "unresolved_script_share": 0.0022129129359586054,
+        "first_observation_inference_share": 0.0002994102719583542,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.00014029643342032777,
+        "empty_stack_share": 0.0,
+        "unknown_leaf_symbol_share": 0.00046297211524156865,
+        "unresolved_script_share": 0.0022129129359586054,
+        "first_observation_inference_share": 0.0002994102719583542,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 5084,
+      "roi_period": 56450928986,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/037/out/sha256-index.json",
+        "sha256": "5c813f92c59cccabb8d5682087d7b8175aaf0002740dfbb43c05daab47bf18c8",
+        "files_verified": 5
+      },
+      "profile_sha256": "4ef4af2135d0a37beb33df9501ae3ab654e76fc5b506ed92c5fa280e870b2bb2"
+    },
+    "009": {
+      "status": "passed",
+      "format": "word",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/009/out",
+      "container_id": "2582dd1d12621f7124ef8bb514b15be6951c60bc1f9dec616d2b74253e1f7afd",
+      "original_archive": {
+        "index": "analysis/docops/raw/009-chain-pilot-20261103T171713Z-5cc572a2/perf/out/sha256-index.json",
+        "sha256": "66fde5c3dadc624a46fbca5788ddace6ed73ec9a96fe1ed3d738a0c020c28776",
+        "files_verified": 43
+      },
+      "record_sha256": "ba06cbff97b556c1d400a496802d4aa7c21b7e61cebd8e78b84273c2eb252800",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.0023803048871841176,
+        "empty_stack_share": 1.13513422626815e-09,
+        "unknown_leaf_symbol_share": 0.2590122732025564,
+        "unresolved_script_share": 0.0026749227826645284,
+        "first_observation_inference_share": 0.000778294422344844,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.0023803048871841176,
+        "empty_stack_share": 1.13513422626815e-09,
+        "unknown_leaf_symbol_share": 0.025391904654089494,
+        "unresolved_script_share": 0.0026749227826645284,
+        "first_observation_inference_share": 0.000778294422344844,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 7707,
+      "roi_period": 69595293818,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/009/out/sha256-index.json",
+        "sha256": "ad783b036801e0f42ec9e7300e7b54f362c103d518826b75696fd99b5feacb20",
+        "files_verified": 5
+      },
+      "profile_sha256": "db6e688d9f03bbe7b7c4b08393d43c005eb22701b926114d77b77192d35ec5ef"
+    },
+    "014": {
+      "status": "passed",
+      "format": "excel",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/014/out",
+      "container_id": "ed5aed0d675a9c7e9cd3e630ff69f7638b03948e4ea7719296868b6cd57dfcd4",
+      "original_archive": {
+        "index": "analysis/docops/raw/014-chain-pilot-20261103T171940Z-b692da2e/perf/out/sha256-index.json",
+        "sha256": "d0a46adf3e473dd505d2ed6202894c633cab3be504bd230254d9e3f5fcce87fb",
+        "files_verified": 43
+      },
+      "record_sha256": "d835878dbc1014667dfebe45caf2f6ae48d031f3524ed7bb819dbdf72de17c0c",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.001967709151021763,
+        "empty_stack_share": 2.392537553761497e-08,
+        "unknown_leaf_symbol_share": 0.1322137997996605,
+        "unresolved_script_share": 0.008042674541975325,
+        "first_observation_inference_share": 0.0007690577753048068,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.001967709151021763,
+        "empty_stack_share": 2.392537553761497e-08,
+        "unknown_leaf_symbol_share": 0.006794795910677308,
+        "unresolved_script_share": 0.008042674541975325,
+        "first_observation_inference_share": 0.0007690577753048068,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 109567,
+      "roi_period": 63489076592,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/014/out/sha256-index.json",
+        "sha256": "5422a7ac650e78e6f4d5ac4a04e2f151dd13566d639a16c1fcdf225eb9becdb9",
+        "files_verified": 5
+      },
+      "profile_sha256": "424327ea0f02340dffcb4e5376910aceb052a32874c540e37815031dd556e512"
+    },
+    "013": {
+      "status": "passed",
+      "format": "excel",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/013/out",
+      "container_id": "3b3853f1388d49dd02f5a0f94f17bb20907dd4647255cb7f4e4bdc67b7f44361",
+      "original_archive": {
+        "index": "analysis/docops/raw/013-chain-pilot-20261103T171749Z-33834d51/perf/out/sha256-index.json",
+        "sha256": "624bdfb9f0940699e141e51cdf1ff750ef65028fda63075ea8430cd973daa6a4",
+        "files_verified": 43
+      },
+      "record_sha256": "c223d4e113bec4d62714b6a991f55057d116b91bf1a240ad86833203283a0845",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.0031051908573635446,
+        "empty_stack_share": 1.904819757611413e-08,
+        "unknown_leaf_symbol_share": 0.2695935292228975,
+        "unresolved_script_share": 0.00879902110149001,
+        "first_observation_inference_share": 0.00036211737370096255,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.0031051908573635446,
+        "empty_stack_share": 1.904819757611413e-08,
+        "unknown_leaf_symbol_share": 0.005091917424457636,
+        "unresolved_script_share": 0.00879902110149001,
+        "first_observation_inference_share": 0.00036211737370096255,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 156032,
+      "roi_period": 88617308449,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/013/out/sha256-index.json",
+        "sha256": "d96ac21c92a7c3c888c7b94e1c852bba3efef70b5fe0917d1afe8ce87db685b6",
+        "files_verified": 5
+      },
+      "profile_sha256": "2be27e1515395790ec53c3d08e2287459ac87feefb80b1b15a42f4b5e0675145"
+    },
+    "016": {
+      "status": "passed",
+      "format": "excel",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/016/out",
+      "container_id": "bb72007cd694007f8d178b00065bc98140040cd092cac1152b83d32ed72695af",
+      "original_archive": {
+        "index": "analysis/docops/raw/016-chain-pilot-20261103T170618Z-98bd69e1/perf/out/sha256-index.json",
+        "sha256": "8ec7cc3ed9622adca72a72bab8e54b497f72094edd6761946da85c27440674f9",
+        "files_verified": 43
+      },
+      "record_sha256": "d7fbc0422a5fe42658932a49d2f476e41e2f6173b1b9c78d621dbda7fcf84947",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.001180381679075812,
+        "empty_stack_share": 3.592436025950128e-08,
+        "unknown_leaf_symbol_share": 0.07470527922079616,
+        "unresolved_script_share": 0.011368244650671825,
+        "first_observation_inference_share": 0.0005573573984572937,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.001180381679075812,
+        "empty_stack_share": 3.592436025950128e-08,
+        "unknown_leaf_symbol_share": 0.004044839893464728,
+        "unresolved_script_share": 0.011368244650671825,
+        "first_observation_inference_share": 0.0005573573984572937,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 166358,
+      "roi_period": 75130078323,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/016/out/sha256-index.json",
+        "sha256": "531ee22f92c93000cf58901a435ec0d524a8d6d3029f08c060b4035863f964ec",
+        "files_verified": 5
+      },
+      "profile_sha256": "bf5362b2377f5931c9982291e54ac8afc9d851ecf4f4600f80707afae99e982a"
+    },
+    "026": {
+      "status": "passed",
+      "format": "ppt",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/026/out",
+      "container_id": "df23fee0284b349b25a5e64e78dd88d8bd88c1fbe231b941f6b0a5854ea802b1",
+      "original_archive": {
+        "index": "analysis/docops/raw/026-chain-pilot-20261103T171337Z-ccddd655/perf/out/sha256-index.json",
+        "sha256": "27a47d70c84491d50ec20ddaea9605af401cc5f378fee9a4edd5b4df30c3bc83",
+        "files_verified": 43
+      },
+      "record_sha256": "b2511aeb7c19c3f4421d0e67fbc729a905bc7b24071cb615c8bf22d73645b916",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.0010640947272622465,
+        "empty_stack_share": 3.409800527697482e-08,
+        "unknown_leaf_symbol_share": 0.11009149365354694,
+        "unresolved_script_share": 0.020750056861557283,
+        "first_observation_inference_share": 0.0004358613132304241,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.0010640947272622465,
+        "empty_stack_share": 3.409800527697482e-08,
+        "unknown_leaf_symbol_share": 0.030197651432003886,
+        "unresolved_script_share": 0.020750056861557283,
+        "first_observation_inference_share": 0.0004358613132304241,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 196298,
+      "roi_period": 70209385580,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/026/out/sha256-index.json",
+        "sha256": "12aa1e0540cb63cc5cd2f923001be16867cac69fcef1b69847b25df38d455515",
+        "files_verified": 5
+      },
+      "profile_sha256": "285d3e60d626ff4cc77d1fb7804d5134c6f62c6110c11adb18efd7e202ac43e8"
+    },
+    "029": {
+      "status": "passed",
+      "format": "ppt",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/029/out",
+      "container_id": "f04281e1edfdfc9a321c6821e72015ed3fb62b4b3533ff313eb39cfe66cc0ab8",
+      "original_archive": {
+        "index": "analysis/docops/raw/029-chain-pilot-20261103T170414Z-30e5b1db/perf/out/sha256-index.json",
+        "sha256": "a89eb980f32bf40d5f36d2be21ea8d300516c4bad07dd5ea36433b22fb68f494",
+        "files_verified": 43
+      },
+      "record_sha256": "77e745aa61ade015a7c07fbe0c347f80ff29771e98e58cad52f500716ffffb2f",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.004979822694431059,
+        "empty_stack_share": 5.803789320789502e-08,
+        "unknown_leaf_symbol_share": 0.09056033333824627,
+        "unresolved_script_share": 0.016830348817173765,
+        "first_observation_inference_share": 0.0010162798153783297,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.004979822694431059,
+        "empty_stack_share": 5.803789320789502e-08,
+        "unknown_leaf_symbol_share": 0.01625328748185778,
+        "unresolved_script_share": 0.016830348817173765,
+        "first_observation_inference_share": 0.0010162798153783297,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 201812,
+      "roi_period": 39525900635,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/029/out/sha256-index.json",
+        "sha256": "6197be5edb03e7e844ef779724b61a525515dfb9fd7d3294af20ff31ef369730",
+        "files_verified": 5
+      },
+      "profile_sha256": "786924125957098d3c66aeec07eb71bde65ff7ede9db2614f7a49e699074cf90"
+    },
+    "021": {
+      "status": "passed",
+      "format": "ppt",
+      "out": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/021/out",
+      "container_id": "a84d601c99ce31097359e65802b7274e863194c68576d7c8300a6a7c08d6bbbf",
+      "original_archive": {
+        "index": "analysis/docops/raw/021-chain-pilot-20261103T170820Z-b0737ac3/perf/out/sha256-index.json",
+        "sha256": "ffc82657c70899e7c9145598b2bd5ccde2f7277b66a4bad0ab2c157e2b9e00d3",
+        "files_verified": 43
+      },
+      "record_sha256": "f62d0552e2fbb81e30141c1f7be154662c0ea09b71ad45ad341647dc7aec2c38",
+      "quality_before": {
+        "unknown_leaf_dso_share": 0.0010324189539173845,
+        "empty_stack_share": 6.793334243319615e-08,
+        "unknown_leaf_symbol_share": 0.2091577627103852,
+        "unresolved_script_share": 0.015348676180948666,
+        "first_observation_inference_share": 0.00032937670670199416,
+        "unknown_categories_may_overlap": true
+      },
+      "quality_after": {
+        "unknown_leaf_dso_share": 0.0010324189539173845,
+        "empty_stack_share": 6.793334243319615e-08,
+        "unknown_leaf_symbol_share": 0.02074423188438092,
+        "unresolved_script_share": 0.015348676180948666,
+        "first_observation_inference_share": 0.00032937670670199416,
+        "unknown_categories_may_overlap": true
+      },
+      "function_qualification": {
+        "stack_eligible": true,
+        "function_profile_eligible": true,
+        "empty_stack_share_max": 0.2,
+        "unknown_leaf_symbol_share_max": 0.2,
+        "status": "passed",
+        "note": "Acquisition success does not imply complete symbols; threshold unchanged from pilot; unresolved period retained."
+      },
+      "roi_samples": 572915,
+      "roi_period": 115775254364,
+      "archive": {
+        "index": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/021/out/sha256-index.json",
+        "sha256": "48c6442e41a5fe652f4d39fd49dc74f45f8013fefbf9233e69bb5508cf624676",
+        "files_verified": 5
+      },
+      "profile_sha256": "db0713650c91061b193a1c5e6ced10381919146d4467b5509f00761041e5ebac"
+    }
+  },
+  "record_path": "analysis/docops/raw/unified-symbol-check-20261103T1703Z/offline-symbol-enrichment-v1/enrichment.json",
+  "started_utc": "2026-11-03T17:36:51.857361+00:00",
+  "task_order": [
+    "031",
+    "pdfwf005",
+    "003",
+    "001",
+    "037",
+    "009",
+    "014",
+    "013",
+    "016",
+    "026",
+    "029",
+    "021"
+  ],
+  "active_task": null,
+  "finished_utc": "2026-11-03T17:44:15.544772+00:00",
+  "not_processed": []
+}

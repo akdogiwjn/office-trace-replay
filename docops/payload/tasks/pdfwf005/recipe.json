@@ -1,0 +1,399 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "pdfwf005",
+  "task_id": "single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed",
+  "format": "pdf",
+  "source_run_id": "11-pdf-pdfwf005-20261103T105800Z",
+  "historical_score": {
+    "status": "valid",
+    "reward": 1,
+    "detail": "consumed",
+    "tests_failed": 0,
+    "tests_error": 0,
+    "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/score.json",
+    "ctrf": null,
+    "ctrf_counts": null,
+    "raw_reward": null,
+    "raw_evidence": "summary_only"
+  },
+  "output_path": "/root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005/seed/root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf",
+      "destination": "/root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf",
+      "source": "references/repos/DocOps/tasks/single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed/environment/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf",
+      "sha256": "a8b274c38355100275f816ea14b4ddbee573df0b673b76c58e8d74d02b46d6a3"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "references/repos/DocOps/tasks/single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed/environment/original_task_description.txt",
+      "sha256": "d551e6e480bbed39703cb7701b19c0dc13a92b6ff610430a2aa224397501e55a"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "references/repos/DocOps/tasks/single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed/environment/task_metadata.json",
+      "sha256": "e438a7be036ed1884e3c97ed253dd7343a453cf80440a3dbed9d168b193de4e3"
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "references/repos/DocOps/tasks/single_doc_workflow__pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed/instruction.md",
+      "sha256": "26fd18f5be2fc32e52a04ee6c9eab61ddb0830f058035334b5bf704a9c445462"
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/pdfwf005/seed/root/tmp/docs/rebuild_closeout_binder.py",
+      "destination": "/root/tmp/docs/rebuild_closeout_binder.py",
+      "source": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/11-pdf-pdfwf005-20261103T105800Z/preserve-out/files/root_tmp_docs_rebuild_closeout_binder.py.v2.update",
+      "sha256": "df4686cb9b917ef104effbfc5002c562498e262017dd59a37b29f49de0f85a60",
+      "version": 2,
+      "source_item_id": "call_00_ET_7e2YbOj2OnxEu4zaKUFs2348",
+      "historical_binding": "inferred_from_historical_manifest_not_byte_bound"
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_and_pdfinfo",
+      "source_item_id": "call_00_v1cCHqTgERBQhN1UPmLU9206",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python3 /root/tmp/docs/rebuild_closeout_binder.py && pdfinfo /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf"
+      ],
+      "shell_body": "tasks/pdfwf005/commands/01.sh",
+      "shell_sha256": "1286b398cccea93fb0bad6654a1af9ca9aea358d90799e61d4b2bc479f223dd0",
+      "source_command_sha256": "720fbe78af97e5ab8bb6c244d08c7bc156e28b685583d304a45995d251296f9c",
+      "source_exit_code": 0,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "final_text",
+      "source_item_id": "call_00_cWzerBVYkS7NJCET0DhY9249",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftotext -layout /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf -"
+      ],
+      "shell_body": "tasks/pdfwf005/commands/02.sh",
+      "shell_sha256": "d16dac3fcdd45de89a59d4450b4106688d43decab47c38fb536b660611ac74e6",
+      "source_command_sha256": "77cf0715c6e14accdc78722812adfa47fe78f4a6596044f8fa968e8b71113c60",
+      "source_exit_code": 0,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "page_labels_and_bookmarks",
+      "source_item_id": "call_01_QDJs8DTPNPtJ1etcI5fz2327",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python3 - <<'PY'\nfrom pypdf import PdfReader\np='/root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf'\nr=PdfReader(p)\nprint('pages', len(r.pages))\nprint('page_labels', r.page_labels)\nprint('outline entries:')\nfor item in r.outline:\n    if isinstance(item, list):\n        print('  nested:', [str(x.title) for x in item])\n    else:\n        print(' ', repr(item.title), 'page_index', r.get_destination_page_number(item))\nprint('named_destinations', list(r.named_destinations))\nPY"
+      ],
+      "shell_body": "tasks/pdfwf005/commands/03.sh",
+      "shell_sha256": "8f20591885ebf49de8b0ca95abf3ce30913a2540ba17f07daf0ad9feb067c492",
+      "source_command_sha256": "a78ddb30aeabdd73e326bbd0d8ce66615843b9fb3bac43f370711686f11c0761",
+      "source_exit_code": 0,
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "render_contact_sheet",
+      "source_item_id": "call_02_DA556CXNwdvFBYHNa3gZ9661",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "mkdir -p /root/tmp/docs/render-output && pdftoppm -png -r 130 /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf /root/tmp/docs/render-output/page && montage /root/tmp/docs/render-output/page-*.png -thumbnail 30% -tile 3x2 -geometry +18+24 -background '#d9d9d9' -label '%f' /root/tmp/docs/output-contact.png && ls -lh /root/tmp/docs/output-contact.png /root/tmp/docs/render-output/page-*.png"
+      ],
+      "shell_body": "tasks/pdfwf005/commands/04.sh",
+      "shell_sha256": "0384188dc1fcc7e4d074e32c78bbe427fa972ec5e0a4eb8a8b3287d9eabdd4df",
+      "source_command_sha256": "6617371b5b460ad3bf5abbf6d5036edb9c159384cfa90253070a93d766c4a8a7",
+      "source_exit_code": 0,
+      "depends_on": [
+        "03"
+      ]
+    },
+    {
+      "id": "05",
+      "name": "forbidden_text_diagnostic",
+      "source_item_id": "call_03_oOJ2VRXApN5DJAyPKRBT7803",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftotext /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf - | rg -n 'Draft:|Obsolete|Superseded' || true"
+      ],
+      "shell_body": "tasks/pdfwf005/commands/05.sh",
+      "shell_sha256": "52df72aa94fc5016b5ff112f20aa9cca10b585aee465649ef0155d0c1539ea31",
+      "source_command_sha256": "0c16ed2c0cc027438a0f0c737b61e9dd15540d7f16fa91761fdb4627737e6d67",
+      "source_exit_code": 0,
+      "depends_on": [
+        "04"
+      ]
+    }
+  ],
+  "review": "Keep v2 builder and original inline page-label/bookmark inspections. Print-only checks and 'rg ... || true' remain diagnostics, not invented strict assertions; official historical score remains separate.",
+  "excluded_items": [
+    {
+      "source_item_id": "01a1a10f-1515-70c0-8b23-2ce31a1e701b",
+      "type": "userMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "b2b7daab-1c39-4051-955f-642100a54866",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "ae8f7c0f-8494-4eab-893a-cd69ee11af94",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_wXX0kYhkJHhfTxbFDq9O2209",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_KeAysjcQtvd3jaBYmz8E9276",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_RDbdHABiqypBdADqssdi7502",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "585b8ea4-ab70-41c7-9ab1-9c11558efb29",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "35cfa36f-9fa2-4a18-b73d-deffd3157a9b",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_kvIuhhdTPDeh8OHHRKAn6444",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_MlTh7YuvXoVxTdxDF1Ok2563",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_ntaVlID6XOkieGxZWVku2232",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "33956e10-b245-464a-b05e-b3a0b6d64608",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_3hR0zKCrWeU2xd9yEjJx1666",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_PLotCyql59H2pvMwKm1N0388",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_8cxYhmMsem2NutheDJVk7428",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "3936bc5a-6fd7-467a-a091-d58bc17a2695",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_3AV98Q4ruk8fq0PKT0Hn3899",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "ae181d59-4930-48a0-8b5f-17725339cb0b",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_Df4DMyaKNzmwdqkAbfyI8175",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_qC3UlJzFRFslxowzHVGS4668",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "38c0e189-4953-4a1f-b712-88bdf7097ce3",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "bfca4606-3aef-4c39-bacc-43ed29908166",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_4WWayAzArRDST4XH1Xxp1916",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_KuSZrMi5Gy5PcHcAt7sy4095",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_02_hZf6hETf0x8BT4SSBrBA3661",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "b77199e1-1901-42b6-949f-2b95dc939717",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_3miltDD0qhQ6o4umtddo6218",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_01_ikOPu32VQUBA4Es3NLaD1737",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "d21d1ec0-ae20-4726-b8f9-f3b440d1bdc7",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_3oO1uQtPWZS0X1HoSZrf7980",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "287a7d52-d8e3-4b4b-b61d-6c671eb6f84e",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_W8ebudwlS9YU14YPW81L2810",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "924106bd-6a6f-4e8f-991d-c5fd3c12eb3e",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_B686Z0V8ISfTMmD8sYJp6414",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "9718908d-20c1-4b0c-a6d9-76f2cee7db97",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_hEJUDXwbezMk8WEwme7P7859",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "72f1b69c-76da-4c2b-8444-9e22e633502c",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "cf67b070-59a6-4c5f-923c-b9ac30755bc5",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_AldnG0vUIBCAdBdC0Icp4408",
+      "type": "commandExecution",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_ET_7e2YbOj2OnxEu4zaKUFs2348",
+      "type": "fileChange",
+      "reason": "script_materialized_as_frozen_bytes"
+    },
+    {
+      "source_item_id": "49fbe980-d0d0-4b39-87b9-48a3459dbebd",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "16b3a5ff-e176-44f8-989b-3965bc286d38",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "95d11cca-5e33-4b82-8c32-afe86ed4a24e",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "ca136e95-6f5e-4519-96db-f69b90e9edf7",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "call_00_oRNxMJRTNj1syZvohnvY1271",
+      "type": "imageView",
+      "reason": "agent_visual_interaction_not_executable_replay"
+    },
+    {
+      "source_item_id": "4c9a18f2-28a8-4f0d-8e49-2bd0d7153bca",
+      "type": "reasoning",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    },
+    {
+      "source_item_id": "4f49597b-4cce-4f5d-b312-39d98a86b86d",
+      "type": "agentMessage",
+      "reason": "not_in_reviewed_final_dependency_chain"
+    }
+  ],
+  "provenance": {
+    "trace": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/preserved/11-pdf-pdfwf005-20261103T105800Z/preserve-out/raw/thread_history_consistent.sqlite",
+    "trace_sha256": "3a6c35f8eb547f8a73f43c386e61be82bd80ad8cac293b5cc5e23b3ff54d3ec9",
+    "run_env": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/run-env.json",
+    "run_env_sha256": "785653cb2d2912ecc99a887731651e8bd36c79002544ec5a1285034377e87727"
+  }
+}

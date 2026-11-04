@@ -102,10 +102,29 @@ def load_inputs(root):
     if build['config_sha256'] != sha(root / CONFIG):
         raise ValueError('report build belongs to a different config')
     comparison = read(output / 'comparison.json', build['output_sha256']['comparison.json'])
+    extension_path = Path('docs/evidence/task-operation-extension.json')
+    extension = read(extension_path) if (root / extension_path).is_file() else None
+    if build.get('document_extension'):
+        binding = build['document_extension']
+        if not extension or binding['sha256'] != sha(root / extension_path):
+            raise ValueError('report document changed: extension publication binding')
     for path, expected in build['document_sha256'].items():
-        if sha(root / path) != expected:
+        actual = sha(root / path)
+        if extension:
+            binding = extension.get('documents', {}).get(path, {})
+            data = (root / path).read_bytes()
+            length = binding.get('prefix_bytes', -1)
+            original_expected = build.get('base_document_sha256', build['document_sha256'])[path]
+            valid = (extension.get('status') == 'passed' and binding.get('sha256') == actual
+                     and (not build.get('document_extension') or actual == expected)
+                     and length >= 0 and binding.get('prefix_sha256') == original_expected
+                     and hashlib.sha256(data[:length]).hexdigest() == original_expected
+                     and hashlib.sha256(data[length:]).hexdigest() == binding.get('append_sha256'))
+        else:
+            valid = actual == expected
+        if not valid:
             raise ValueError('report document changed: ' + path)
-        sources[path] = expected
+        sources[path] = actual
     joint = comparison['joint_comparison']
     binding = config['joint_comparison']
     if read(binding['path'], binding['sha256']) != joint:
@@ -118,6 +137,26 @@ def load_inputs(root):
     pdf_top5 = [{(r['library'], r['function']) for r in resolved_functions(comparison['profiles'][ds], 5)} for ds in PDF]
     if any(len(s) != 5 for s in pdf_top5) or any(s != pdf_top5[0] for s in pdf_top5[1:]):
         raise ValueError('PDF Top-5 headline must agree with current qualified data')
+    if extension:
+        if extension.get('base_publication_build'):
+            binding = extension['base_publication_build']
+            original_build = read(binding['path'], binding['sha256'])
+            expected = build.get('base_document_sha256', build['document_sha256'])
+            if original_build['document_sha256'] != expected:
+                raise ValueError('original publication snapshot mismatch')
+        expanded = read(extension['analysis']['path'], extension['analysis']['sha256'])
+        if expanded['reference_image_id'] != joint['image_id'] or expanded['docops_image_id'] != extension['images']['docops']:
+            raise ValueError('extension runtime identity mismatch')
+        # The offline comparison verifies the raw-origin bindings. Rebuilding
+        # this portable publication needs its bound result and figures, not
+        # another checkout's local, Git-ignored collection directories.
+        for path, expected in {**extension['analysis_sources'], **extension['figures']}.items():
+            if sha(root / path) != expected:
+                raise ValueError('extension source hash mismatch: ' + path)
+            sources[path] = expected
+        config['_extension_svgs'] = {md_path: (root / path).read_text()
+                                     for md_path, path in extension['presentation_figures'].items()}
+        config['_task_operation_extension'] = extension
     return config, comparison, joint, series, sources
 
 
@@ -152,6 +191,9 @@ def report_blocks(markdown):
     while i < len(lines):
         line = lines[i].strip()
         if not line:
+            i += 1
+            continue
+        if line.startswith('<!--') and line.endswith('-->'):
             i += 1
             continue
         if line.startswith('```'):
@@ -221,6 +263,8 @@ def table_widths(headers):
     first = headers[0]
     if count == 2:
         return [.18, .82]
+    if first in ('任务', '配置', '基准') and count >= 5:
+        return [.12] + [.88 / (count - 1)] * (count - 1)
     if '基准热点' in first:
         return [.47] + [.53 / (count - 1)] * (count - 1)
     if '职责' in first:
@@ -339,7 +383,16 @@ def make_slides(config, comparison, joint, series, markdown):
                 put(report_table(headers, rows), cost)
         elif kind == 'image':
             flush()
-            if 'pdf-bound-five-repeats' in block['path']:
+            if block['path'] in config.get('_extension_svgs', {}):
+                svg = config['_extension_svgs'][block['path']]
+                svg = svg[svg.index('<svg'):].replace('<svg ', '<svg class="curve" ', 1)
+                slides.append(dict(title=block['value'], section=section, subtitle='',
+                    cls='report-page chart-slide', body=svg +
+                    '<p>每条线为一个顶层 Bound，横轴为该次采集中实际输出的编号点。每项一次独立采集，内部回放十轮；最终指标取 ALL 累计报告。</p>'))
+                current_title = section
+                part = 1
+                continue
+            elif 'pdf-bound-five-repeats' in block['path']:
                 datasets = ('opm', 'irs_w4', 'sba1919')
             elif 'xlsx-bound-five-repeats' in block['path']:
                 datasets = XLSX
@@ -359,7 +412,7 @@ def make_slides(config, comparison, joint, series, markdown):
 
 CSS = r'''
 :root{font-family:"Noto Sans CJK SC","Microsoft YaHei","PingFang SC",Arial,sans-serif;color:#000;background:#fff;font-synthesis:none}
-*{box-sizing:border-box}body{margin:0;background:#fff;color:#000}button,select{font:inherit;color:#000}a{color:#000;text-decoration:underline;text-underline-offset:2px}strong,b{color:#000}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#000;overflow:hidden}button,select{font:inherit;color:#000}a{color:#000;text-decoration:underline;text-underline-offset:2px}strong,b{color:#000}
 .viewport{height:calc(100vh - 44px);width:100vw;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .deck{position:relative;width:1280px;height:720px;flex:none;transform-origin:center center}
 .slide{position:absolute;inset:0;background:#fff;color:#000;padding:26px 46px 48px;display:flex;flex-direction:column;overflow:hidden}
@@ -372,7 +425,7 @@ code{font-family:"DejaVu Sans Mono",Consolas,monospace;font-size:16px;color:#000
 .toolbar{height:44px;display:flex;align-items:center;justify-content:center;gap:8px;padding:5px 12px;background:#fff;border-top:1px solid #aaa;font-size:14px;color:#000}.toolbar button,.toolbar select{border:1px solid #999;background:#fff;color:#000;border-radius:0;padding:4px 9px;cursor:pointer}.toolbar button:disabled{color:#000;cursor:default}.toolbar select{max-width:430px}.toolbar .hint{color:#000;margin-left:10px}.toolbar button:focus-visible,.toolbar select:focus-visible{outline:2px solid #000;outline-offset:2px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 @media(max-width:700px){.toolbar .hint{display:none}.toolbar select{max-width:36vw}.toolbar{gap:4px}.toolbar button{padding:4px 6px}}
 @page{size:338.6667mm 190.5mm;margin:0}
-@media print{html,body{background:#fff;width:1280px!important}.toolbar{display:none!important}.viewport{display:block;width:1280px;height:auto;overflow:visible}.deck{position:static;transform:none!important;width:1280px;height:auto}.slide,.slide[hidden]{display:flex!important;position:relative;inset:auto;width:1280px;height:720px;break-after:page;page-break-after:always;print-color-adjust:exact;-webkit-print-color-adjust:exact}.slide:last-child{break-after:auto;page-break-after:auto}}
+@media print{html,body{background:#fff;width:1280px!important;overflow:visible}.toolbar{display:none!important}.viewport{display:block;width:1280px;height:auto;overflow:visible}.deck{position:static;transform:none!important;width:1280px;height:auto}.slide,.slide[hidden]{display:flex!important;position:relative;inset:auto;width:1280px;height:720px;break-after:page;page-break-after:always;print-color-adjust:exact;-webkit-print-color-adjust:exact}.slide:last-child{break-after:auto;page-break-after:auto}}
 '''
 
 JS = r'''
@@ -473,6 +526,11 @@ def build(root=ROOT):
         layout='Complete assessment text, plain black-on-white pages; only metric curves use distinguishing colors.',
         source_report_blocks=len(report_blocks(markdown)),
         interval_policy='Original points retained; five separate polylines per metric; no smoothing or interpolation.')
+    if config.get('_task_operation_extension'):
+        extension = config['_task_operation_extension']
+        metadata['task_operation_extension'] = dict(images=extension['images'], analysis=extension['analysis'],
+            original_prefixes_unchanged=True,
+            interval_policy='DocOps curves retain each original point from one capture containing ten replay loops; ALL is not an interval point.')
     destination = root / 'docs/representativeness-assessment.html'
     destination.write_text(render(slides, metadata))
     manifest = root / 'docs/evidence/presentation.json'

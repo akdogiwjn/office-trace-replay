@@ -1,0 +1,217 @@
+{
+  "schema": "docops-current-candidate-v2",
+  "candidate_tag": "docops-replay:openeuler-unified-candidate-03",
+  "candidate_id": "sha256:2c08fd3cb72cae12f6e7f0d201eff98d8a2b06073ca8393d247bb4c5fc238d8d",
+  "base_image_id": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
+  "platform": "linux/arm64",
+  "runtime_profile": "seven-case-openeuler-unified",
+  "installation_status": "passed",
+  "acceptance_record": "docops/docker/records/20261103T164844Z-unified-808c3118/installation/acceptance.json",
+  "acceptance_sha256": "df4ef71165c7f9dff2b8e46115a8f3eb96fc70a6267d6a3a82dc2af001909179",
+  "compatibility_record": "docops/docker/records/20261103T164844Z-unified-808c3118/compatibility/unified-smoke.json",
+  "compatibility_sha256": "61aab2aac43d4839609397eb9fe463a2ea6b727457ccf053a9ce9c7623154044",
+  "build_record_dir": "docops/docker/records/20261103T164844Z-unified-808c3118",
+  "real_workload_executed": true,
+  "profiling_started": false,
+  "functional_summary": {
+    "status": "failed_font_preparation",
+    "passed": 6,
+    "failed": 1,
+    "not_started": 5,
+    "record": "results/docops/unified-functional-20261103T165353Z-39540bea/campaign.json",
+    "record_sha256": "41dda1f7a667d563f5093e47d570efea99357a3d612e7735a64c8c8eea84dedb"
+  },
+  "symbol_validation": {
+    "python_and_calc_writer_impress_full_symtab_debug_info": true,
+    "core_binaries_equal_seven_case_base": true,
+    "additional_lxml_full_debug_symbols": false,
+    "formal_capture_quality_not_yet_measured": true
+  },
+  "previous_candidate_record": {
+    "path": "docops/docker/records/20261103T164844Z-unified-808c3118/previous-candidate.json",
+    "sha256": "4970ad91b9325fe83853a4514ea0d0e083950325f30323abc9674672235b1023",
+    "image_preserved": true,
+    "note": "Original Debian functional trials and first measurement batch remain associated with this historical candidate only"
+  },
+  "environment": {
+    "runtime_profile": "seven-case-openeuler-unified",
+    "python": {
+      "present": true,
+      "version": "3.12.3",
+      "executable": "/opt/docops/venv/bin/python3",
+      "prefix": "/opt/docops/venv",
+      "command_path": "/opt/docops/venv/bin/python"
+    },
+    "docx": {
+      "present": true,
+      "version": "1.2.0"
+    },
+    "pptx": {
+      "present": true,
+      "version": "1.0.2"
+    },
+    "openpyxl": {
+      "present": true,
+      "version": "3.1.5"
+    },
+    "pypdf": {
+      "present": true,
+      "version": "6.10.0"
+    },
+    "lxml": {
+      "present": true,
+      "version": "6.1.2"
+    },
+    "fontTools": {
+      "present": true,
+      "version": "4.68.0"
+    },
+    "PIL": {
+      "present": true,
+      "version": "12.2.0"
+    },
+    "reportlab": {
+      "present": true,
+      "version": "5.0.1"
+    },
+    "python3": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/python3"
+    },
+    "bash": {
+      "present": true,
+      "command_path": "/usr/bin/bash"
+    },
+    "soffice": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/soffice"
+    },
+    "libreoffice": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/libreoffice"
+    },
+    "pdftoppm": {
+      "present": true,
+      "command_path": "/usr/bin/pdftoppm"
+    },
+    "pdftotext": {
+      "present": true,
+      "command_path": "/usr/bin/pdftotext"
+    },
+    "pdfinfo": {
+      "present": true,
+      "command_path": "/usr/bin/pdfinfo"
+    },
+    "montage": {
+      "present": true,
+      "command_path": "/usr/bin/montage"
+    },
+    "fc-list": {
+      "present": true,
+      "command_path": "/usr/bin/fc-list"
+    },
+    "fc-cache": {
+      "present": true,
+      "command_path": "/usr/bin/fc-cache"
+    },
+    "fc-match": {
+      "present": true,
+      "command_path": "/usr/bin/fc-match"
+    },
+    "perf": {
+      "present": true,
+      "command_path": "/usr/bin/perf"
+    },
+    "unzip": {
+      "present": true,
+      "command_path": "/usr/bin/unzip"
+    },
+    "rg": {
+      "present": true,
+      "command_path": "/opt/docops/venv/bin/rg"
+    },
+    "timeout": {
+      "present": true,
+      "command_path": "/usr/bin/timeout"
+    },
+    "cp": {
+      "present": true,
+      "command_path": "/usr/bin/cp"
+    },
+    "mkdir": {
+      "present": true,
+      "command_path": "/usr/bin/mkdir"
+    },
+    "find": {
+      "present": true,
+      "command_path": "/usr/bin/find"
+    },
+    "sort": {
+      "present": true,
+      "command_path": "/usr/bin/sort"
+    },
+    "sed": {
+      "present": true,
+      "command_path": "/usr/bin/sed"
+    },
+    "ls": {
+      "present": true,
+      "command_path": "/usr/bin/ls"
+    },
+    "cat": {
+      "present": true,
+      "command_path": "/usr/bin/cat"
+    },
+    "tail": {
+      "present": true,
+      "command_path": "/usr/bin/tail"
+    },
+    "sha256sum": {
+      "present": true,
+      "command_path": "/usr/bin/sha256sum"
+    },
+    "skills": {
+      "doc": true,
+      "xlsx": true,
+      "pptx": true,
+      "pdf": true
+    },
+    "payload_catalog": true,
+    "payload_tasks": [
+      "001",
+      "003",
+      "009",
+      "013",
+      "014",
+      "016",
+      "021",
+      "026",
+      "029",
+      "031",
+      "037",
+      "pdfwf005"
+    ],
+    "optional_numpy_present": false
+  },
+  "tools": {
+    "perf": {
+      "present": true,
+      "rc": 0,
+      "version": "perf version 6.6.0-145.3.23.154.oe2403sp3.aarch64"
+    },
+    "soffice": {
+      "present": true,
+      "rc": 0,
+      "version": "LibreOfficeDev 25.8.7.3"
+    },
+    "devkit": {
+      "present": true,
+      "root": "/opt/devkit",
+      "binary": "/opt/devkit/DevKit-Tuner-CLI-26.0.RC1-Linux-aarch64/devkit",
+      "version": "devkit version 26.0.RC1",
+      "version_rc": 0,
+      "libtuner_unresolved": 0,
+      "libtuner_ldd_rc": 0
+    }
+  }
+}

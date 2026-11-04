@@ -1,0 +1,109 @@
+{
+  "schema": "docops-unified-smoke-v1",
+  "status": "passed",
+  "real_workload_executed": false,
+  "profiling_started": false,
+  "core_identity": {
+    "/opt/python-3.12.3/lib/libpython3.12.so.1.0": {
+      "sha256": "d84e4e8eeaed8fe0220280936dd3eb447a284e0209c16bee79620cf35ecb7c16",
+      "bytes": 30428088,
+      "build_id": "a9e4b5a412d7fe8dcce8f8ee7a1a142f9b165eea",
+      "symtab": true,
+      "debug_info": true
+    },
+    "/opt/libreoffice25.8-symbols/program/libsclo.so": {
+      "sha256": "d182d8613ef8a6132884dc5b4e75fa3fe56dec9b3c3020d79adb9b436f0d0508",
+      "bytes": 688147856,
+      "build_id": "ee5cd3d8e2782221fd78bdaf9cc28e2b3e924db6",
+      "symtab": true,
+      "debug_info": true
+    },
+    "/opt/libreoffice25.8-symbols/program/libswlo.so": {
+      "sha256": "83815209ffd5019307d783952957217df871d292e4bda9956e7dbc2796dde669",
+      "bytes": 615967392,
+      "build_id": "f76b4bfc36887c8c0e5730e20d19a127713e7de8",
+      "symtab": true,
+      "debug_info": true
+    },
+    "/opt/libreoffice25.8-symbols/program/libsdlo.so": {
+      "sha256": "935ecfeb9068a0775be3f4e3edbea5bb0214f4f8708efa01d4dc2f1748af3a1a",
+      "bytes": 187588792,
+      "build_id": "26b373b0ee17d3d97ce2c4cc445a41e1029b4030",
+      "symtab": true,
+      "debug_info": true
+    },
+    "/usr/lib64/libpoppler.so.133.0.0": {
+      "sha256": "474326e6d8ca2a101e6aa324b7e6dc7138340cc6b87d7937588b4a695e815c61",
+      "bytes": 3831528,
+      "build_id": "bd696ac1cc4cfc6e643c9952bffcea5e26968106",
+      "symtab": false,
+      "debug_info": false
+    },
+    "/usr/bin/perf": {
+      "sha256": "73e6fe7e794d0ecb03fb2c74dcf117efa2e8aee3b5dd7f75e98a00151558c99e",
+      "bytes": 3888608,
+      "build_id": "7b7994d7037767a0bb9fd8289cc16aadc30300c5",
+      "symtab": false,
+      "debug_info": false
+    },
+    "/opt/office-trace-replay/agent/replay.py": {
+      "sha256": "540a32c25eb07c2ff2cc433d70ed3ec52b51d85220868ad014e17e7f948800a4",
+      "bytes": 10365
+    },
+    "/opt/office-trace-replay/document-oe/run.py": {
+      "sha256": "1af858c85d9d49a73237dc254af98c8bf37d9a91cd43e2f8872fdc82e32753d3",
+      "bytes": 6420
+    }
+  },
+  "child_interpreters": [
+    [
+      "/opt/docops/venv",
+      "3.12.3",
+      "3.1.5",
+      "6.10.0"
+    ],
+    [
+      "/opt/docops/venv",
+      "3.12.3",
+      "3.1.5",
+      "6.10.0"
+    ],
+    [
+      "/opt/docops/venv",
+      "3.12.3",
+      "3.1.5",
+      "6.10.0"
+    ]
+  ],
+  "formats": [
+    "docx",
+    "pptx",
+    "xlsx",
+    "pdf"
+  ],
+  "conversions": [
+    {
+      "format": "docx",
+      "stdout": "convert /tmp/docops-unified-fixture-nvx_zscs/fixture.docx as a Writer document -> /tmp/docops-unified-fixture-nvx_zscs/docx/fixture.pdf using filter : writer_pdf_Export"
+    },
+    {
+      "format": "pptx",
+      "stdout": "convert /tmp/docops-unified-fixture-nvx_zscs/fixture.pptx as a Impress document -> /tmp/docops-unified-fixture-nvx_zscs/pptx/fixture.pdf using filter : impress_pdf_Export"
+    }
+  ],
+  "frozen_skill_recalc": {
+    "status": "success",
+    "total_errors": 0,
+    "error_summary": {},
+    "total_formulas": 1
+  },
+  "fresh_profile_recalc": true,
+  "synthetic_checks": "passed",
+  "additional_native_modules": {
+    "/opt/docops/venv/lib/python3.12/site-packages/lxml/etree.cpython-312-aarch64-linux-gnu.so": {
+      "sha256": "a6c9374a9c39b69808ee8caff8aafb2c4e506c23f555884ea44a2807e7063eee",
+      "symtab": false,
+      "debug_info": false
+    }
+  }
+}

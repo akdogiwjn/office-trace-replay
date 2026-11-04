@@ -1,0 +1,230 @@
+{
+  "Id": "5c6db919ef8d28c2c0f53da65c298996660bf882f36b279e90959c2e5dec1f83",
+  "Created": "2026-11-03T13:07:10.955832945Z",
+  "Path": "python3",
+  "Args": [
+    "-B",
+    "-c",
+    "\nimport hashlib, importlib.util, json, os, pathlib, runpy, tempfile\nroot = pathlib.Path('/opt/docops')\npaths = {'replay.py': root/'replay.py', 'compile.py': root/'compile.py',\n         'docker/install_state_check.py': root/'docker/install_state_check.py',\n         'docker/devkit.sh': pathlib.Path('/usr/local/bin/devkit')}\nhashes = {k: hashlib.sha256(v.read_bytes()).hexdigest() for k,v in paths.items()}\nspec = importlib.util.spec_from_file_location('replay_image_probe', root/'replay.py')\nm = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)\nrecipe = json.loads((root/'payload/tasks/031/recipe.json').read_text())\nassert '/root' not in m.task_scoped_paths(recipe)\nwith tempfile.TemporaryDirectory(prefix='docops-install-fixture-') as temporary:\n    os.environ['DOC_REPLAY_ROOT'] = temporary\n    base = pathlib.Path(temporary)\n    sentinel = base/'root/.codex/skills/pdf/SKILL.md'\n    sentinel.parent.mkdir(parents=True); sentinel.write_text('preserved')\n    m.reset_workspace(recipe)\n    assert sentinel.read_text() == 'preserved'\n    first, second = m.WorkLock(base/'one'), m.WorkLock(base/'two')\n    try:\n        assert first.acquire()\n        assert not second.acquire()\n    finally:\n        first.release(); second.release()\n    font = base/'root/.local/share/fonts/Aptos-regular.ttf'\n    font.parent.mkdir(parents=True); font.write_text('original')\n    snapshot = m.snapshot_environment(base/'scratch', {'task':'fixture', 'steps':[{'phase':'environment_setup'}]})\n    font.write_text('changed'); added = font.parent/'AptosDisplay-bold.ttf'; added.write_text('new')\n    m.restore_fonts(snapshot)\n    assert font.read_text() == 'original' and not added.exists()\n    del os.environ['DOC_REPLAY_ROOT']\npathlib.Path('/results/runtime-sources.json').write_text(json.dumps({'sha256':hashes,'small_fixtures':'passed'}))\nrunpy.run_path(str(root/'docker/install_state_check.py'), run_name='__main__')\n"
+  ],
+  "State": {
+    "Status": "created",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "0001-01-01T00:00:00Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617",
+  "ResolvConfPath": "",
+  "HostnamePath": "",
+  "HostsPath": "",
+  "LogPath": "",
+  "Name": "/docops-install-20261103T130710Z-180c51b1",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": [
+      "/home/lcq/office-trace-replay/docops/docker/records/20261103T130313Z-docops-ctx-7TjPBL/installation:/results"
+    ],
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {
+        "max-file": "5",
+        "max-size": "50m"
+      }
+    },
+    "NetworkMode": "none",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": null,
+    "CgroupnsMode": "host",
+    "Dns": [],
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": false,
+    "SecurityOpt": null,
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 0,
+    "NanoCpus": 0,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 0,
+    "MemorySwappiness": null,
+    "OomKillDisable": false,
+    "PidsLimit": null,
+    "Ulimits": [
+      {
+        "Name": "nofile",
+        "Hard": 1024,
+        "Soft": 1024
+      }
+    ],
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "MaskedPaths": [
+      "/proc/asound",
+      "/proc/acpi",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/sys/firmware",
+      "/sys/devices/virtual/powercap"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "GraphDriver": {
+    "Data": {
+      "LowerDir": "/home/e2b/docker-data/overlay2/8d3251404ec4647d4273f95820c80f5e4da216f0ff953f463575423d6999ff42-init/diff:/home/e2b/docker-data/overlay2/kpmaf5i05xoysvua6cw99fdyc/diff:/home/e2b/docker-data/overlay2/thyfz0d6bujh5kpnc09hyk5ce/diff:/home/e2b/docker-data/overlay2/q30s7z2ivh4yo8597p27bswg7/diff:/home/e2b/docker-data/overlay2/at9enxddj1ily06k2f2wi3jsn/diff:/home/e2b/docker-data/overlay2/dqobq815r8rvie30nyp9hi2a9/diff:/home/e2b/docker-data/overlay2/9banesz8j28lw6fomczba8h0k/diff:/home/e2b/docker-data/overlay2/qrvm3vo3wstw2da2gabj5yi7h/diff:/home/e2b/docker-data/overlay2/caajm2bx4b7yhjkfp5wopy7m3/diff:/home/e2b/docker-data/overlay2/xgiakmxhdwg2xo86fxiu15xva/diff:/home/e2b/docker-data/overlay2/wqmhclm3y4haqobaag07i1f3l/diff:/home/e2b/docker-data/overlay2/nieqbj5wck3t6r08n11h9kr7r/diff:/home/e2b/docker-data/overlay2/zvry1nljgr8ag5x8ri1yozx4w/diff:/home/e2b/docker-data/overlay2/38mur4d77wpz70purmf7c772c/diff:/home/e2b/docker-data/overlay2/80cnoe3h9mbmyzvxyqcalltok/diff:/home/e2b/docker-data/overlay2/iswfa0tcr63zae719thacf74y/diff:/home/e2b/docker-data/overlay2/6gua4zgblz5ab4s0m7ac73gy8/diff:/home/e2b/docker-data/overlay2/naqdydlliqueu3gbr5yedzci3/diff:/home/e2b/docker-data/overlay2/x3lar6ukdhhwyw2h56qfscl94/diff:/home/e2b/docker-data/overlay2/3tzsg8sngk29txd6wtjzcz2kl/diff:/home/e2b/docker-data/overlay2/4tqy3pjqanavirfmtko1juf27/diff:/home/e2b/docker-data/overlay2/yaqvwrmggpdyjs253kcl66fk5/diff:/home/e2b/docker-data/overlay2/ygb8tnak053uun59ebswuqdg4/diff:/home/e2b/docker-data/overlay2/mp89rtbkvn2jgppuucz80ry53/diff:/home/e2b/docker-data/overlay2/ock18t1152kh2m4c0bvu7xvby/diff:/home/e2b/docker-data/overlay2/bsj3djjx9jnq0afi3py7z6m74/diff:/home/e2b/docker-data/overlay2/2c28mph99b6d4gffmwicv0mrd/diff:/home/e2b/docker-data/overlay2/s78bc2foqzg9r5xvmky3cwoqg/diff:/home/e2b/docker-data/overlay2/u44qaw3sfzhfyt2uhqha4m0e9/diff:/home/e2b/docker-data/overlay2/utqerexbeqk2575tk4m84mk6g/diff:/home/e2b/docker-data/overlay2/zldpvfstes8arym70d1y24e5p/diff:/home/e2b/docker-data/overlay2/ry5fuq3gvty83rhvxidbi3uyv/diff:/home/e2b/docker-data/overlay2/lhga76zsix1lnsaj5g75ozbti/diff:/home/e2b/docker-data/overlay2/8r3sbunod0zbdfj9y9gf88jro/diff:/home/e2b/docker-data/overlay2/6cd38f3c2b2b25a62f058537a281e4c94792cfd53c95f379cd8485173fcab5da/diff:/home/e2b/docker-data/overlay2/c7c832587f31fecf7651d0ab142039b1bcc113fce82dfc31417301a2265cd6cc/diff:/home/e2b/docker-data/overlay2/db070cda3af387494a3486387eacb5c96eb44d8a766dada05886bd1540b0dbc9/diff:/home/e2b/docker-data/overlay2/8fe5a2b00582784854fc5b7c1ebc63124ad59efd957d3684cb53f17506e86cb6/diff",
+      "MergedDir": "/home/e2b/docker-data/overlay2/8d3251404ec4647d4273f95820c80f5e4da216f0ff953f463575423d6999ff42/merged",
+      "UpperDir": "/home/e2b/docker-data/overlay2/8d3251404ec4647d4273f95820c80f5e4da216f0ff953f463575423d6999ff42/diff",
+      "WorkDir": "/home/e2b/docker-data/overlay2/8d3251404ec4647d4273f95820c80f5e4da216f0ff953f463575423d6999ff42/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "/home/lcq/office-trace-replay/docops/docker/records/20261103T130313Z-docops-ctx-7TjPBL/installation",
+      "Destination": "/results",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "5c6db919ef8d",
+    "Domainname": "",
+    "User": "",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "DOC_INSTALL_STATE_OUT=/results/install-state.json",
+      "DOC_IMAGE_REFERENCE=docops-replay:l3-candidate-05",
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+      "PYTHON_VERSION=3.12.14",
+      "PYTHON_SHA256=5c8462af5790baf43a321a1559dbe0db06d1be4300fb85fb53c40060668e548a",
+      "NODE_PATH=/usr/local/lib/node_modules",
+      "PYTHONDONTWRITEBYTECODE=1"
+    ],
+    "Cmd": [
+      "-B",
+      "-c",
+      "\nimport hashlib, importlib.util, json, os, pathlib, runpy, tempfile\nroot = pathlib.Path('/opt/docops')\npaths = {'replay.py': root/'replay.py', 'compile.py': root/'compile.py',\n         'docker/install_state_check.py': root/'docker/install_state_check.py',\n         'docker/devkit.sh': pathlib.Path('/usr/local/bin/devkit')}\nhashes = {k: hashlib.sha256(v.read_bytes()).hexdigest() for k,v in paths.items()}\nspec = importlib.util.spec_from_file_location('replay_image_probe', root/'replay.py')\nm = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)\nrecipe = json.loads((root/'payload/tasks/031/recipe.json').read_text())\nassert '/root' not in m.task_scoped_paths(recipe)\nwith tempfile.TemporaryDirectory(prefix='docops-install-fixture-') as temporary:\n    os.environ['DOC_REPLAY_ROOT'] = temporary\n    base = pathlib.Path(temporary)\n    sentinel = base/'root/.codex/skills/pdf/SKILL.md'\n    sentinel.parent.mkdir(parents=True); sentinel.write_text('preserved')\n    m.reset_workspace(recipe)\n    assert sentinel.read_text() == 'preserved'\n    first, second = m.WorkLock(base/'one'), m.WorkLock(base/'two')\n    try:\n        assert first.acquire()\n        assert not second.acquire()\n    finally:\n        first.release(); second.release()\n    font = base/'root/.local/share/fonts/Aptos-regular.ttf'\n    font.parent.mkdir(parents=True); font.write_text('original')\n    snapshot = m.snapshot_environment(base/'scratch', {'task':'fixture', 'steps':[{'phase':'environment_setup'}]})\n    font.write_text('changed'); added = font.parent/'AptosDisplay-bold.ttf'; added.write_text('new')\n    m.restore_fonts(snapshot)\n    assert font.read_text() == 'original' and not added.exists()\n    del os.environ['DOC_REPLAY_ROOT']\npathlib.Path('/results/runtime-sources.json').write_text(json.dumps({'sha256':hashes,'small_fixtures':'passed'}))\nrunpy.run_path(str(root/'docker/install_state_check.py'), run_name='__main__')\n"
+    ],
+    "Image": "sha256:bda6808f5b05feff831fb1700a24ee90f42c5b332f5411c80a752cf960baf617",
+    "Volumes": null,
+    "WorkingDir": "/root",
+    "Entrypoint": [
+      "python3"
+    ],
+    "OnBuild": null,
+    "Labels": {}
+  },
+  "NetworkSettings": {
+    "Bridge": "",
+    "SandboxID": "",
+    "SandboxKey": "",
+    "Ports": {},
+    "HairpinMode": false,
+    "LinkLocalIPv6Address": "",
+    "LinkLocalIPv6PrefixLen": 0,
+    "SecondaryIPAddresses": null,
+    "SecondaryIPv6Addresses": null,
+    "EndpointID": "",
+    "Gateway": "",
+    "GlobalIPv6Address": "",
+    "GlobalIPv6PrefixLen": 0,
+    "IPAddress": "",
+    "IPPrefixLen": 0,
+    "IPv6Gateway": "",
+    "MacAddress": "",
+    "Networks": {
+      "none": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "MacAddress": "",
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DriverOpts": null,
+        "DNSNames": null
+      }
+    }
+  }
+}

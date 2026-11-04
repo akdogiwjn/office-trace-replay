@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_public_bid_workbook.py && python /root/.codex/skills/xlsx/scripts/recalc.py /root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output.xlsx 60 && python /root/tmp/docs/verify_public_bid_workbook.py
