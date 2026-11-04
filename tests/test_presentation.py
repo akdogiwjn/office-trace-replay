@@ -123,6 +123,15 @@ class PresentationTests(unittest.TestCase):
                 self.assertEqual(point_count, expected[repeat])
             self.assertNotIn('smooth', svg)
 
+    def test_all_twelve_extension_charts_have_titles_and_reading_notes(self):
+        config, comparison, joint, series, _ = presentation.load_inputs(ROOT)
+        markdown = (ROOT/'docs/representativeness-assessment.md').read_text()
+        slides = presentation.make_slides(config, comparison, joint, series, markdown)
+        charts = [s for s in slides if s['title'].startswith('图 7-')]
+        self.assertEqual(len(charts),12)
+        self.assertTrue(all('chart-slide' in s['cls'] and '<svg' in s['body'] for s in charts))
+        self.assertTrue(all('读图：' in s['body'] and '十轮回放' in s['body'] for s in charts))
+
 
 if __name__ == '__main__':
     unittest.main()

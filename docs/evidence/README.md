@@ -16,5 +16,6 @@
 
 - [HTML 放映版来源绑定](presentation.json)：当前文字报告、机器结果、曲线点与生成器的 SHA256，放映版不改变测量数据。
 - [扩展任务操作追加绑定](task-operation-extension.json)：原七例章节的字节前缀保护、统一环境十二任务与 OPM／TLC 的比较来源，以及新章节和图表 SHA256。
-- [扩展报告核验](task-operation-validation.json)：24 组基准对照、533 个过程点、原文章节不变核验，以及 50 页 HTML 的实际浏览器布局检查。
+- [扩展报告可读性修订核验（当前）](task-operation-readable-revision-v2.json)：软件用途与表格读法、完整四项 Topdown 变化、十二张曲线；63 页 HTML 布局通过，全部比较数值及 533 个过程点不变。
+- [扩展报告首版核验（历史快照）](task-operation-validation.json)：首版 24 组对照、533 个过程点及当时 50 页 HTML 的布局检查，保留原记录。
 - [最终仓库审计](repository-audit-20261104.json)：191 项测试、冻结材料与离线依赖核对、隔离 checkout 检查，以及本次收尾修复。

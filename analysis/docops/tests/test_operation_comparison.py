@@ -1,5 +1,6 @@
 import hashlib
 import importlib.util
+import json
 from pathlib import Path
 import unittest
 
@@ -50,6 +51,17 @@ class OperationComparisonTests(unittest.TestCase):
         self.assertEqual(module.original_prefix(original+module.BEGIN.encode()+b'\nnew section',digest),original)
         with self.assertRaisesRegex(ValueError,'prefix changed'):
             module.original_prefix(b'# modified\n'+original,digest)
+
+    def test_reader_report_keeps_all_tasks_four_bound_changes_and_figure_notes(self):
+        result=json.loads((module.ROOT/module.DEFAULT_OUTPUT/'comparison.json').read_text())
+        report=module.main_section(result,module.ROOT/module.DEFAULT_OUTPUT)
+        self.assertIn('| 误推测 Δpp | 前端 Δpp | 后端 Δpp | 有效完成 Δpp |',report)
+        self.assertIn('共同函数数量少，不一定表示共同计算的权重小',report)
+        self.assertEqual(report.count('![图 7-'),12)
+        self.assertEqual(report.count('**读图：**'),12)
+        for task in result['tasks']:
+            self.assertIn('/'+task+'-bounds.svg)',report)
+        self.assertIn('### 7.6 最终判断',report)
 
 
 if __name__=='__main__':unittest.main()

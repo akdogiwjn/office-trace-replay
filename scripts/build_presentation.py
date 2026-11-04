@@ -308,6 +308,7 @@ def make_slides(config, comparison, joint, series, markdown):
     current_title = ''
     budget = 510
     part = 1
+    consumed = set()
 
     def flush():
         nonlocal body, used, part
@@ -330,12 +331,21 @@ def make_slides(config, comparison, joint, series, markdown):
         used += height + (9 if used else 0)
 
     for block_index, block in enumerate(blocks):
+        if block_index in consumed:
+            continue
         kind = block['kind']
         if kind == 'section':
             flush()
             section = current_title = block['value']
             part = 1
         elif kind == 'heading':
+            # A figure's heading becomes the chart slide title, not a lone page.
+            if (block_index + 1 < len(blocks)
+                    and blocks[block_index + 1]['kind'] == 'image'
+                    and blocks[block_index + 1]['path'] in config.get('_extension_svgs', {})
+                    and blocks[block_index + 1]['value'] == block['value']):
+                flush()
+                continue
             # Keep a heading with subsequent content; do not leave it at the page bottom.
             next_height = 100
             if block_index + 1 < len(blocks):
@@ -352,7 +362,16 @@ def make_slides(config, comparison, joint, series, markdown):
             current_title = section
             put('<h2>' + text(block['value']) + '</h2>', 40)
         elif kind == 'paragraph':
-            put('<p>' + inline_markdown(block['value']) + '</p>', line_count(block['value'], 1188) * 29)
+            height = line_count(block['value'], 1188) * 29
+            if (block['value'].startswith('**表 ') and block_index + 1 < len(blocks)
+                    and blocks[block_index + 1]['kind'] == 'table'):
+                following = blocks[block_index + 1]
+                minimum = table_row_height(following['headers'], following['headers'])
+                if following['rows']:
+                    minimum += table_row_height(following['headers'], following['rows'][0])
+                if used and used + height + minimum + 18 > budget:
+                    flush()
+            put('<p>' + inline_markdown(block['value']) + '</p>', height)
         elif kind == 'code':
             put('<pre><code>' + text(block['value']) + '</code></pre>', (len(block['value'].splitlines()) + 1) * 23)
         elif kind == 'list':
@@ -386,9 +405,15 @@ def make_slides(config, comparison, joint, series, markdown):
             if block['path'] in config.get('_extension_svgs', {}):
                 svg = config['_extension_svgs'][block['path']]
                 svg = svg[svg.index('<svg'):].replace('<svg ', '<svg class="curve" ', 1)
+                note = ''
+                if (block_index + 1 < len(blocks)
+                        and blocks[block_index + 1]['kind'] == 'paragraph'
+                        and blocks[block_index + 1]['value'].startswith('**读图：**')):
+                    note = '<p>' + inline_markdown(blocks[block_index + 1]['value']) + '</p>'
+                    consumed.add(block_index + 1)
                 slides.append(dict(title=block['value'], section=section, subtitle='',
                     cls='report-page chart-slide', body=svg +
-                    '<p>每条线为一个顶层 Bound，横轴为该次采集中实际输出的编号点。每项一次独立采集，内部回放十轮；最终指标取 ALL 累计报告。</p>'))
+                    '<p>四条线为误推测、前端受限、后端受限、有效完成；横轴为实际输出点。每项一次采集、内部十轮回放，最终指标取 ALL 累计报告。</p>' + note))
                 current_title = section
                 part = 1
                 continue
