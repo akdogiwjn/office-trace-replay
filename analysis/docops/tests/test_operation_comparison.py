@@ -52,6 +52,31 @@ class OperationComparisonTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'prefix changed'):
             module.original_prefix(b'# modified\n'+original,digest)
 
+    def test_complete_reference_presence_deduplicates_union_and_keeps_unknown(self):
+        a=dict(library='a.so',function='shared',period=40,share_roi=.4)
+        b=dict(library='a.so',function='second',period=10,share_roi=.1)
+        c=dict(library='b.so',function='shared',period=30,share_roi=.3)
+        refs={'OPM':{'functions':[a]},'TLC':{'functions':[a,b]}}
+        result=module.function_presence(refs,dict(roi_period=100,functions=[a,b,c]))
+        self.assertEqual(result['OPM']['observed_period'],40)
+        self.assertEqual(result['TLC']['observed_period'],50)
+        union=result['OPM+TLC']
+        self.assertEqual(union['observed_period'],50)
+        self.assertEqual(union['not_observed_period'],30)
+        self.assertEqual(union['unresolved_period'],20)
+        self.assertEqual(union['reference_function_count'],2)
+        self.assertEqual(union['not_observed_top20'],[c])
+
+    def test_presence_checks_entire_list_and_rejects_nonconserving_target(self):
+        old=self.rows([('a.so',str(i)) for i in range(12)])
+        target=dict(library='a.so',function='11',period=80,share_roi=.8)
+        refs={'OPM':{'functions':old},'TLC':{'functions':[]}}
+        self.assertEqual(module.function_presence(refs,dict(roi_period=100,functions=[target]))['OPM']['observed_period'],80)
+        with self.assertRaisesRegex(ValueError,'exceeds'):
+            module.function_presence(refs,dict(roi_period=10,functions=[target]))
+        with self.assertRaisesRegex(ValueError,'duplicate'):
+            module.function_presence(refs,dict(roi_period=200,functions=[target,target]))
+
     def test_reader_report_keeps_all_tasks_four_bound_changes_and_figure_notes(self):
         result=json.loads((module.ROOT/module.DEFAULT_OUTPUT/'comparison.json').read_text())
         report=module.main_section(result,module.ROOT/module.DEFAULT_OUTPUT)
@@ -62,6 +87,8 @@ class OperationComparisonTests(unittest.TestCase):
         for task in result['tasks']:
             self.assertIn('/'+task+'-bounds.svg)',report)
         self.assertIn('### 7.6 最终判断',report)
+        self.assertIn('旧两例合并已见',report)
+        self.assertIn('016 再次重算属于已有机制重复执行',report)
 
 
 if __name__=='__main__':unittest.main()

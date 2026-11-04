@@ -1745,6 +1745,237 @@ Topdown 四顶层总变差＝0.5 × Σ|新指标−基准指标|，指标单位�
 | 021 | 029 | 2 | 0.1111 | 5.480 | 0.995532 |
 | 026 | 029 | 4 | 0.2500 | 2.275 | 0.999167 |
 
+### 9.6A 完整函数清单的出现范围与周期分区
+
+该补充统计以 OPM、TLC 各自完整已解析函数清单及其去重并集为参考，按库文件名＋完整物理叶函数名精确匹配。统计目标是新任务中哪些函数已由旧采样观察到；不限定旧前十，也不将旧清单未见项等同为新业务算法或新计算机制。
+
+对每个新任务、每个参考范围：已见 period＋未见 period＋未解析 period＝新任务完整 ROI period。以下百分比的分母均为目标完整 ROI。OPM 与 TLC 出现集合有交集，不相加；OPM+TLC 使用去重并集。旧例中极低权重函数也算已见，故“路径出现过”不证明旧负载充分体现相同成本。
+
+| 任务 | 参考清单 | 已见 period | 未见 period | 未解析 period | 已见 % | 未见 % | 未解析 % | 未见函数数 |
+|---|---|---|---|---|---|---|---|---|
+| 031 | OPM | 29907346184 | 9524036184 | 725948 | 75.845161 | 24.152998 | 0.001841 | 65 |
+| 031 | TLC | 29697233693 | 9734148675 | 725948 | 75.312315 | 24.685844 | 0.001841 | 69 |
+| 031 | OPM+TLC | 31209821314 | 8221561054 | 725948 | 79.148244 | 20.849915 | 0.001841 | 54 |
+| 037 | OPM | 39988274916 | 16436518864 | 26135206 | 70.837231 | 29.116472 | 0.046297 | 138 |
+| 037 | TLC | 37243110581 | 19181683199 | 26135206 | 65.974309 | 33.979393 | 0.046297 | 123 |
+| 037 | OPM+TLC | 41079968555 | 15344825225 | 26135206 | 72.771112 | 27.182591 | 0.046297 | 105 |
+| pdfwf005 | OPM | 17250417403 | 23199959632 | 72871142 | 42.569187 | 57.250987 | 0.179826 | 112 |
+| pdfwf005 | TLC | 16302370738 | 24148006297 | 72871142 | 40.229674 | 59.590500 | 0.179826 | 103 |
+| pdfwf005 | OPM+TLC | 18401972879 | 22048404156 | 72871142 | 45.410903 | 54.409272 | 0.179826 | 93 |
+| 013 | OPM | 44964540185 | 43201536247 | 451232017 | 50.740133 | 48.750675 | 0.509192 | 528 |
+| 013 | TLC | 50205824959 | 37960251473 | 451232017 | 56.654649 | 42.836159 | 0.509192 | 333 |
+| 013 | OPM+TLC | 52424821064 | 35741255368 | 451232017 | 59.158670 | 40.332138 | 0.509192 | 315 |
+| 014 | OPM | 32934592591 | 30123088683 | 431395318 | 51.874424 | 47.446097 | 0.679480 | 511 |
+| 014 | TLC | 40165751851 | 22891929423 | 431395318 | 63.264035 | 36.056485 | 0.679480 | 322 |
+| 014 | OPM+TLC | 42010681701 | 21046999573 | 431395318 | 66.169937 | 33.150584 | 0.679480 | 303 |
+| 016 | OPM | 25824361613 | 49001827572 | 303889138 | 34.372867 | 65.222649 | 0.404484 | 678 |
+| 016 | TLC | 40112955227 | 34713233958 | 303889138 | 53.391340 | 46.204176 | 0.404484 | 447 |
+| 016 | OPM+TLC | 42260093003 | 32566096182 | 303889138 | 56.249233 | 43.346283 | 0.404484 | 428 |
+| 001 | OPM | 35004349448 | 20359634756 | 1412488230 | 61.652914 | 35.859281 | 2.487806 | 237 |
+| 001 | TLC | 39749635481 | 15614348723 | 1412488230 | 70.010752 | 27.501442 | 2.487806 | 171 |
+| 001 | OPM+TLC | 40845325993 | 14518658211 | 1412488230 | 71.940584 | 25.571610 | 2.487806 | 158 |
+| 003 | OPM | 30669300128 | 21052175771 | 1532136337 | 57.591023 | 39.531921 | 2.877056 | 210 |
+| 003 | TLC | 35875694719 | 15845781180 | 1532136337 | 67.367627 | 29.755317 | 2.877056 | 152 |
+| 003 | OPM+TLC | 36560345532 | 15161130367 | 1532136337 | 68.653269 | 28.469675 | 2.877056 | 142 |
+| 009 | OPM | 39981575365 | 27846561388 | 1767157065 | 57.448677 | 40.012133 | 2.539190 | 271 |
+| 009 | TLC | 43930071800 | 23898064953 | 1767157065 | 63.122187 | 34.338622 | 2.539190 | 216 |
+| 009 | OPM+TLC | 45242799871 | 22585336882 | 1767157065 | 65.008419 | 32.452391 | 2.539190 | 201 |
+| 021 | OPM | 42758646847 | 70614938794 | 2401668723 | 36.932458 | 60.993119 | 2.074423 | 705 |
+| 021 | TLC | 27982652715 | 85390932926 | 2401668723 | 24.169805 | 73.755772 | 2.074423 | 532 |
+| 021 | OPM+TLC | 53935080006 | 59438505635 | 2401668723 | 46.586017 | 51.339560 | 2.074423 | 497 |
+| 026 | OPM | 34248357052 | 33840869975 | 2120158553 | 48.780312 | 48.199923 | 3.019765 | 585 |
+| 026 | TLC | 18751954655 | 49337272372 | 2120158553 | 26.708615 | 70.271620 | 3.019765 | 418 |
+| 026 | OPM+TLC | 41697987754 | 26391239273 | 2120158553 | 59.390903 | 37.589332 | 3.019765 | 396 |
+| 029 | OPM | 14856789509 | 24026685300 | 642425826 | 37.587479 | 60.787192 | 1.625329 | 470 |
+| 029 | TLC | 19169826407 | 19713648402 | 642425826 | 48.499404 | 49.875267 | 1.625329 | 320 |
+| 029 | OPM+TLC | 21940646517 | 16942828292 | 642425826 | 55.509542 | 42.865129 | 1.625329 | 303 |
+
+### 9.6B 旧两例均未见的主要具体函数
+
+下表每项列旧 OPM／TLC 合并清单未见函数中的前十项，按目标完整 ROI period 排序；函数名称显示最多 180 字符，完整签名和 period 仍在 comparison.json 的函数列表及 function_presence 字段中。旧采样未见不证明永不执行；通用辅助路径、不同实现和具体对象操作分别解释。
+
+**031 听证材料包扁平化发布：未见函数 54 个，合计 20.85%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `png_write_find_filter` | libpng16.so.16.40.0 | 3421412927 | 8.68% |
+| `term_rule` | libpython3.12.so.1.0 | 567246634 | 1.44% |
+| `shift_expr_rule` | libpython3.12.so.1.0 | 428663053 | 1.09% |
+| `expression_rule` | libpython3.12.so.1.0 | 370058830 | 0.94% |
+| `tok_get_normal_mode` | libpython3.12.so.1.0 | 349607343 | 0.89% |
+| `code_hash` | libpython3.12.so.1.0 | 323985885 | 0.82% |
+| `cfg_to_instr_sequence.isra.0` | libpython3.12.so.1.0 | 303514806 | 0.77% |
+| `sum_rule` | libpython3.12.so.1.0 | 294543029 | 0.75% |
+| `bitwise_or_rule` | libpython3.12.so.1.0 | 169152987 | 0.43% |
+| `bitwise_xor_rule` | libpython3.12.so.1.0 | 163140221 | 0.41% |
+
+**037 公交绕行材料修复：未见函数 105 个，合计 27.18%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `png_write_find_filter` | libpng16.so.16.40.0 | 5797867418 | 10.27% |
+| `_PyPegen_expect_token` | libpython3.12.so.1.0 | 845923366 | 1.50% |
+| `star_target_rule` | libpython3.12.so.1.0 | 832342895 | 1.47% |
+| `astfold_expr` | libpython3.12.so.1.0 | 755634100 | 1.34% |
+| `compiler_visit_expr1` | libpython3.12.so.1.0 | 570148750 | 1.01% |
+| `tok_get_normal_mode` | libpython3.12.so.1.0 | 549244333 | 0.97% |
+| `compiler_visit_stmt` | libpython3.12.so.1.0 | 486030611 | 0.86% |
+| `atom_rule` | libpython3.12.so.1.0 | 438102907 | 0.78% |
+| `shift_expr_rule` | libpython3.12.so.1.0 | 350756704 | 0.62% |
+| `term_raw` | libpython3.12.so.1.0 | 348065234 | 0.62% |
+
+**pdfwf005 结算材料包重建：未见函数 93 个，合计 54.41%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `HorizontalFilter._omp_fn.0` | libMagickCore-7.Q16HDRI.so.10.0.2 | 5102262862 | 12.59% |
+| `VerticalFilter._omp_fn.0` | libMagickCore-7.Q16HDRI.so.10.0.2 | 4645151623 | 11.46% |
+| `png_write_find_filter` | libpng16.so.16.40.0 | 4283600071 | 10.57% |
+| `instr_sequence_to_cfg` | libpython3.12.so.1.0 | 646473128 | 1.60% |
+| `bitwise_xor_rule` | libpython3.12.so.1.0 | 511402065 | 1.26% |
+| `png_read_filter_row_up` | libpng16.so.16.40.0 | 415887179 | 1.03% |
+| `_PyPegen_fill_token` | libpython3.12.so.1.0 | 412862893 | 1.02% |
+| `shift_expr_rule` | libpython3.12.so.1.0 | 406708457 | 1.00% |
+| `ReadOnePNGImage` | png.so | 381398690 | 0.94% |
+| `term_raw` | libpython3.12.so.1.0 | 352838622 | 0.87% |
+
+**013 采购投标评审发布：未见函数 315 个，合计 40.33%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `png_write_find_filter` | libpng16.so.16.40.0 | 7423314478 | 8.38% |
+| `HorizontalFilter._omp_fn.0` | libMagickCore-7.Q16HDRI.so.10.0.2 | 7129663715 | 8.05% |
+| `VerticalFilter._omp_fn.0` | libMagickCore-7.Q16HDRI.so.10.0.2 | 3118338666 | 3.52% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 894731742 | 1.01% |
+| `FcStrHashIgnoreCase` | libfontconfig.so.1.12.1 | 704536289 | 0.80% |
+| `CompositeOverImage._omp_fn.0` | libMagickCore-7.Q16HDRI.so.10.0.2 | 684497496 | 0.77% |
+| `rtl::uri::detail::readUcs4(char16_t const**, char16_t const*, bool, unsigned short, rtl::uri::detail::EscapeType*)` | libuno_sal.so.3 | 521699635 | 0.59% |
+| `pixman_composite_src_n_8888_asm_neon` | libpixman-1.so.0.42.2 | 482064702 | 0.54% |
+| `code_hash` | libpython3.12.so.1.0 | 472765708 | 0.53% |
+| `SfxInterface::GetSlot(rtl::OUString const&) const` | libsfxlo.so | 404013552 | 0.46% |
+
+**014 灾害补助公开发布：未见函数 303 个，合计 33.15%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `png_write_find_filter` | libpng16.so.16.40.0 | 4808553703 | 7.57% |
+| `s_mpv_mul_d_add_prop` | libfreeblpriv3.so | 1056881590 | 1.66% |
+| `ScColumnData::GetMostUsedPattern(int, int) const` | libsclo.so | 679020089 | 1.07% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 675512585 | 1.06% |
+| `SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const` | libpoppler.so.133.0.0 | 665314676 | 1.05% |
+| `_PyPegen_new_identifier` | libpython3.12.so.1.0 | 592821474 | 0.93% |
+| `pixman_composite_src_n_8888_asm_neon` | libpixman-1.so.0.42.2 | 505070087 | 0.80% |
+| `primary_raw` | libpython3.12.so.1.0 | 499088978 | 0.79% |
+| `std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, …` | libconfigmgrlo.so | 474289921 | 0.75% |
+| `std::_Hashtable<std::basic_string_view<char, std::char_traits<char> >, std::pair<std::basic_string_view<char, std::char_traits<char> > const, unsigned long>, std::allocator<std::p…` | liborcus-parser-0.20.so.0 | 397355800 | 0.63% |
+
+**016 预测模型情景级联：未见函数 428 个，合计 43.35%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_insert_unique_pos(int const&)` | libsclo.so | 2333994024 | 3.11% |
+| `_PyPegen_fill_token` | libpython3.12.so.1.0 | 1553336085 | 2.07% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 1284599382 | 1.71% |
+| `png_write_find_filter` | libpng16.so.16.40.0 | 861639963 | 1.15% |
+| `__mbsrtowcs_l` | libc.so.6 | 780592409 | 1.04% |
+| `bitwise_xor_rule` | libpython3.12.so.1.0 | 656380887 | 0.87% |
+| `shift_expr_rule` | libpython3.12.so.1.0 | 601845376 | 0.80% |
+| `conjunction_rule` | libpython3.12.so.1.0 | 584054454 | 0.78% |
+| `s_mpv_mul_d_add` | libfreeblpriv3.so | 565473814 | 0.75% |
+| `t_primary_raw` | libpython3.12.so.1.0 | 526658889 | 0.70% |
+
+**001 受控文档发布修复：未见函数 158 个，合计 25.57%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `png_write_find_filter` | libpng16.so.16.40.0 | 3030752044 | 5.34% |
+| `cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)` | libuno_cppu.so.3 | 854286631 | 1.50% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 798015082 | 1.41% |
+| `s_mpv_mul_d_add_prop` | libfreeblpriv3.so | 438599142 | 0.77% |
+| `code_hash` | libpython3.12.so.1.0 | 433364467 | 0.76% |
+| `std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, …` | libconfigmgrlo.so | 417854267 | 0.74% |
+| `pixman_composite_src_n_8888_asm_neon` | libpixman-1.so.0.42.2 | 388907942 | 0.68% |
+| `FcConfigSubstituteWithPat` | libfontconfig.so.1.12.1 | 326298231 | 0.57% |
+| `com::sun::star::lang::cppu_detail_getUnoType(com::sun::star::lang::XComponent const*) [clone .isra.0]` | libcomphelper.so | 286327881 | 0.50% |
+| `term_raw` | libpython3.12.so.1.0 | 269746631 | 0.48% |
+
+**003 公开记录元数据清理：未见函数 142 个，合计 28.47%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `png_write_find_filter` | libpng16.so.16.40.0 | 4820020182 | 9.05% |
+| `_PyUnicode_ToLowerFull` | libpython3.12.so.1.0 | 1181208257 | 2.22% |
+| `do_upper_or_lower` | libpython3.12.so.1.0 | 940464371 | 1.77% |
+| `(anonymous namespace)::InterfaceTypeDescription::~InterfaceTypeDescription()` | libuno_cppuhelpergcc3.so.3 | 525105853 | 0.99% |
+| `s_mpv_mul_d_add_prop` | libfreeblpriv3.so | 490281519 | 0.92% |
+| `pixman_composite_src_n_8888_asm_neon` | libpixman-1.so.0.42.2 | 429757719 | 0.81% |
+| `_PyPegen_expect_token` | libpython3.12.so.1.0 | 392806016 | 0.74% |
+| `bitwise_xor_rule` | libpython3.12.so.1.0 | 390545667 | 0.73% |
+| `std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, …` | libconfigmgrlo.so | 362782754 | 0.68% |
+| `xmlreader::XmlReader::scanName(char const**)` | libxmlreaderlo.so | 362034946 | 0.68% |
+
+**009 事件手册发布：未见函数 201 个，合计 32.45%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `png_write_find_filter` | libpng16.so.16.40.0 | 13221124244 | 19.00% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 1064971704 | 1.53% |
+| `unoidl::detail::UnoidlProvider::findEntity(rtl::OUString const&) const` | libunoidllo.so | 434952618 | 0.62% |
+| `xmlStrEqual` | etree.cpython-312-aarch64-linux-gnu.so | 424283850 | 0.61% |
+| `s_mpv_mul_d_add_prop` | libfreeblpriv3.so | 371459659 | 0.53% |
+| `pixman_composite_src_n_8888_asm_neon` | libpixman-1.so.0.42.2 | 322445962 | 0.46% |
+| `configmgr::ValueParser::endElement()` | libconfigmgrlo.so | 271490796 | 0.39% |
+| `configmgr::GroupNode::GroupNode(configmgr::GroupNode const&, bool)` | libconfigmgrlo.so | 154408110 | 0.22% |
+| `std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, …` | libconfigmgrlo.so | 149001943 | 0.21% |
+| `rtl_string_assign` | libuno_sal.so.3 | 135824275 | 0.20% |
+
+**021 庇护所无障碍整改：未见函数 497 个，合计 51.34%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `VerticalFilter._omp_fn.0` | libMagickCore-7.Q16HDRI.so.10.0.2 | 8054283077 | 6.96% |
+| `vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)` | libvcllo.so | 4498309322 | 3.89% |
+| `HorizontalFilter._omp_fn.0` | libMagickCore-7.Q16HDRI.so.10.0.2 | 3110449977 | 2.69% |
+| `BitmapReadAccess::SetPixelForN24BitTcBgr(unsigned char*, long, BitmapColor const&)` | libvcllo.so | 1862579409 | 1.61% |
+| `expandRow(unsigned char*, unsigned char*, int, int, int)` | libpoppler.so.133.0.0 | 1765066367 | 1.52% |
+| `vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)` | libvcllo.so | 1728129377 | 1.49% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 1638241511 | 1.42% |
+| `Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)` | libpoppler.so.133.0.0 | 1584486401 | 1.37% |
+| `decode_mcu_AC_refine` | libjpeg.so.62.4.0 | 1295515376 | 1.12% |
+| `rgb_ycc_convert` | libjpeg.so.62.4.0 | 1123735968 | 0.97% |
+
+**026 气候披露图表重建：未见函数 396 个，合计 37.59%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `s_mpv_mul_d_add_prop` | libfreeblpriv3.so | 1026985354 | 1.46% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 940457347 | 1.34% |
+| `expandRow(unsigned char*, unsigned char*, int, int, int)` | libpoppler.so.133.0.0 | 905703410 | 1.29% |
+| `SplashClip::testClipPaths(int, int)` | libpoppler.so.133.0.0 | 839534814 | 1.20% |
+| `Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)` | libpoppler.so.133.0.0 | 710605042 | 1.01% |
+| `_PyPegen_singleton_seq.isra.0` | libpython3.12.so.1.0 | 623546364 | 0.89% |
+| `void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)` | libvcllo.so | 615142019 | 0.88% |
+| `jsimd_huff_encode_one_block_neon` | libjpeg.so.62.4.0 | 557913808 | 0.79% |
+| `shift_expr_rule` | libpython3.12.so.1.0 | 544492462 | 0.78% |
+| `SplashBitmap::getPixel(int, int, unsigned char*)` | libpoppler.so.133.0.0 | 527967918 | 0.75% |
+
+**029 季度业务回顾发布：未见函数 303 个，合计 42.87%。**
+
+| 函数 | 库文件名 | 目标 period | 完整 ROI 占比 |
+|---|---|---|---|
+| `oox::drawingml::table::applyTableStylePart(oox::core::XmlFilterBase const&, oox::drawingml::FillProperties&, oox::drawingml::TextCharacterProperties&, oox::drawingml::LineProperti…` | libooxlo.so | 788694859 | 2.00% |
+| `oox::PropertyMap::fillSequences(com::sun::star::uno::Sequence<rtl::OUString>&, com::sun::star::uno::Sequence<com::sun::star::uno::Any>&) const` | libooxlo.so | 731549829 | 1.85% |
+| `pixman_composite_src_8888_8888_asm_neon` | libpixman-1.so.0.42.2 | 659671424 | 1.67% |
+| `std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const` | libstdc++.so.6.0.30 | 579807158 | 1.47% |
+| `pixman_composite_src_n_8888_asm_neon` | libpixman-1.so.0.42.2 | 499658661 | 1.26% |
+| `s_mpv_mul_d_add_prop` | libfreeblpriv3.so | 456324822 | 1.15% |
+| `void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)` | libvcllo.so | 302309086 | 0.76% |
+| `bitwise_or_rule` | libpython3.12.so.1.0 | 294244957 | 0.74% |
+| `std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, …` | libconfigmgrlo.so | 281849467 | 0.71% |
+| `SfxItemPool::CheckItemInfoFlag(unsigned short, unsigned short) const` | libsvllo.so | 266149663 | 0.67% |
+
+以上只新增既有数据的集合统计，没有重跑、导出或重新采样。原任务 profile、原基准函数权重、Topdown 指标及 533 个过程点保持原样。
+
 ### 9.7 来源与离线复算
 
 - 原始基准：`analysis/hotspots/comparison-inputs-pdf5-20261027.json`。

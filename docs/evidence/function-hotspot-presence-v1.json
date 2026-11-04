@@ -1,0 +1,381 @@
+{
+  "schema": "full-function-presence-document-supplement-v1",
+  "status": "passed",
+  "checked_utc": "2026-11-04T06:59:41.447805+00:00",
+  "previous_commit": "dd5e67a32e57d42030c7d6824a8c4747abf52e45",
+  "scope": "Markdown reports, HTML presentation and reproducible derived function-presence statistics; preserve all previous measurement fields.",
+  "reference_scope": [
+    "OPM",
+    "TLC",
+    "OPM+TLC"
+  ],
+  "target_tasks": 12,
+  "partition_checks": [
+    {
+      "task": "031",
+      "reference": "OPM",
+      "roi_period": 39432108316,
+      "observed_period": 29907346184,
+      "not_observed_period": 9524036184,
+      "unresolved_period": 725948,
+      "not_observed_functions": 65
+    },
+    {
+      "task": "031",
+      "reference": "TLC",
+      "roi_period": 39432108316,
+      "observed_period": 29697233693,
+      "not_observed_period": 9734148675,
+      "unresolved_period": 725948,
+      "not_observed_functions": 69
+    },
+    {
+      "task": "031",
+      "reference": "OPM+TLC",
+      "roi_period": 39432108316,
+      "observed_period": 31209821314,
+      "not_observed_period": 8221561054,
+      "unresolved_period": 725948,
+      "not_observed_functions": 54
+    },
+    {
+      "task": "037",
+      "reference": "OPM",
+      "roi_period": 56450928986,
+      "observed_period": 39988274916,
+      "not_observed_period": 16436518864,
+      "unresolved_period": 26135206,
+      "not_observed_functions": 138
+    },
+    {
+      "task": "037",
+      "reference": "TLC",
+      "roi_period": 56450928986,
+      "observed_period": 37243110581,
+      "not_observed_period": 19181683199,
+      "unresolved_period": 26135206,
+      "not_observed_functions": 123
+    },
+    {
+      "task": "037",
+      "reference": "OPM+TLC",
+      "roi_period": 56450928986,
+      "observed_period": 41079968555,
+      "not_observed_period": 15344825225,
+      "unresolved_period": 26135206,
+      "not_observed_functions": 105
+    },
+    {
+      "task": "pdfwf005",
+      "reference": "OPM",
+      "roi_period": 40523248177,
+      "observed_period": 17250417403,
+      "not_observed_period": 23199959632,
+      "unresolved_period": 72871142,
+      "not_observed_functions": 112
+    },
+    {
+      "task": "pdfwf005",
+      "reference": "TLC",
+      "roi_period": 40523248177,
+      "observed_period": 16302370738,
+      "not_observed_period": 24148006297,
+      "unresolved_period": 72871142,
+      "not_observed_functions": 103
+    },
+    {
+      "task": "pdfwf005",
+      "reference": "OPM+TLC",
+      "roi_period": 40523248177,
+      "observed_period": 18401972879,
+      "not_observed_period": 22048404156,
+      "unresolved_period": 72871142,
+      "not_observed_functions": 93
+    },
+    {
+      "task": "013",
+      "reference": "OPM",
+      "roi_period": 88617308449,
+      "observed_period": 44964540185,
+      "not_observed_period": 43201536247,
+      "unresolved_period": 451232017,
+      "not_observed_functions": 528
+    },
+    {
+      "task": "013",
+      "reference": "TLC",
+      "roi_period": 88617308449,
+      "observed_period": 50205824959,
+      "not_observed_period": 37960251473,
+      "unresolved_period": 451232017,
+      "not_observed_functions": 333
+    },
+    {
+      "task": "013",
+      "reference": "OPM+TLC",
+      "roi_period": 88617308449,
+      "observed_period": 52424821064,
+      "not_observed_period": 35741255368,
+      "unresolved_period": 451232017,
+      "not_observed_functions": 315
+    },
+    {
+      "task": "014",
+      "reference": "OPM",
+      "roi_period": 63489076592,
+      "observed_period": 32934592591,
+      "not_observed_period": 30123088683,
+      "unresolved_period": 431395318,
+      "not_observed_functions": 511
+    },
+    {
+      "task": "014",
+      "reference": "TLC",
+      "roi_period": 63489076592,
+      "observed_period": 40165751851,
+      "not_observed_period": 22891929423,
+      "unresolved_period": 431395318,
+      "not_observed_functions": 322
+    },
+    {
+      "task": "014",
+      "reference": "OPM+TLC",
+      "roi_period": 63489076592,
+      "observed_period": 42010681701,
+      "not_observed_period": 21046999573,
+      "unresolved_period": 431395318,
+      "not_observed_functions": 303
+    },
+    {
+      "task": "016",
+      "reference": "OPM",
+      "roi_period": 75130078323,
+      "observed_period": 25824361613,
+      "not_observed_period": 49001827572,
+      "unresolved_period": 303889138,
+      "not_observed_functions": 678
+    },
+    {
+      "task": "016",
+      "reference": "TLC",
+      "roi_period": 75130078323,
+      "observed_period": 40112955227,
+      "not_observed_period": 34713233958,
+      "unresolved_period": 303889138,
+      "not_observed_functions": 447
+    },
+    {
+      "task": "016",
+      "reference": "OPM+TLC",
+      "roi_period": 75130078323,
+      "observed_period": 42260093003,
+      "not_observed_period": 32566096182,
+      "unresolved_period": 303889138,
+      "not_observed_functions": 428
+    },
+    {
+      "task": "001",
+      "reference": "OPM",
+      "roi_period": 56776472434,
+      "observed_period": 35004349448,
+      "not_observed_period": 20359634756,
+      "unresolved_period": 1412488230,
+      "not_observed_functions": 237
+    },
+    {
+      "task": "001",
+      "reference": "TLC",
+      "roi_period": 56776472434,
+      "observed_period": 39749635481,
+      "not_observed_period": 15614348723,
+      "unresolved_period": 1412488230,
+      "not_observed_functions": 171
+    },
+    {
+      "task": "001",
+      "reference": "OPM+TLC",
+      "roi_period": 56776472434,
+      "observed_period": 40845325993,
+      "not_observed_period": 14518658211,
+      "unresolved_period": 1412488230,
+      "not_observed_functions": 158
+    },
+    {
+      "task": "003",
+      "reference": "OPM",
+      "roi_period": 53253612236,
+      "observed_period": 30669300128,
+      "not_observed_period": 21052175771,
+      "unresolved_period": 1532136337,
+      "not_observed_functions": 210
+    },
+    {
+      "task": "003",
+      "reference": "TLC",
+      "roi_period": 53253612236,
+      "observed_period": 35875694719,
+      "not_observed_period": 15845781180,
+      "unresolved_period": 1532136337,
+      "not_observed_functions": 152
+    },
+    {
+      "task": "003",
+      "reference": "OPM+TLC",
+      "roi_period": 53253612236,
+      "observed_period": 36560345532,
+      "not_observed_period": 15161130367,
+      "unresolved_period": 1532136337,
+      "not_observed_functions": 142
+    },
+    {
+      "task": "009",
+      "reference": "OPM",
+      "roi_period": 69595293818,
+      "observed_period": 39981575365,
+      "not_observed_period": 27846561388,
+      "unresolved_period": 1767157065,
+      "not_observed_functions": 271
+    },
+    {
+      "task": "009",
+      "reference": "TLC",
+      "roi_period": 69595293818,
+      "observed_period": 43930071800,
+      "not_observed_period": 23898064953,
+      "unresolved_period": 1767157065,
+      "not_observed_functions": 216
+    },
+    {
+      "task": "009",
+      "reference": "OPM+TLC",
+      "roi_period": 69595293818,
+      "observed_period": 45242799871,
+      "not_observed_period": 22585336882,
+      "unresolved_period": 1767157065,
+      "not_observed_functions": 201
+    },
+    {
+      "task": "021",
+      "reference": "OPM",
+      "roi_period": 115775254364,
+      "observed_period": 42758646847,
+      "not_observed_period": 70614938794,
+      "unresolved_period": 2401668723,
+      "not_observed_functions": 705
+    },
+    {
+      "task": "021",
+      "reference": "TLC",
+      "roi_period": 115775254364,
+      "observed_period": 27982652715,
+      "not_observed_period": 85390932926,
+      "unresolved_period": 2401668723,
+      "not_observed_functions": 532
+    },
+    {
+      "task": "021",
+      "reference": "OPM+TLC",
+      "roi_period": 115775254364,
+      "observed_period": 53935080006,
+      "not_observed_period": 59438505635,
+      "unresolved_period": 2401668723,
+      "not_observed_functions": 497
+    },
+    {
+      "task": "026",
+      "reference": "OPM",
+      "roi_period": 70209385580,
+      "observed_period": 34248357052,
+      "not_observed_period": 33840869975,
+      "unresolved_period": 2120158553,
+      "not_observed_functions": 585
+    },
+    {
+      "task": "026",
+      "reference": "TLC",
+      "roi_period": 70209385580,
+      "observed_period": 18751954655,
+      "not_observed_period": 49337272372,
+      "unresolved_period": 2120158553,
+      "not_observed_functions": 418
+    },
+    {
+      "task": "026",
+      "reference": "OPM+TLC",
+      "roi_period": 70209385580,
+      "observed_period": 41697987754,
+      "not_observed_period": 26391239273,
+      "unresolved_period": 2120158553,
+      "not_observed_functions": 396
+    },
+    {
+      "task": "029",
+      "reference": "OPM",
+      "roi_period": 39525900635,
+      "observed_period": 14856789509,
+      "not_observed_period": 24026685300,
+      "unresolved_period": 642425826,
+      "not_observed_functions": 470
+    },
+    {
+      "task": "029",
+      "reference": "TLC",
+      "roi_period": 39525900635,
+      "observed_period": 19169826407,
+      "not_observed_period": 19713648402,
+      "unresolved_period": 642425826,
+      "not_observed_functions": 320
+    },
+    {
+      "task": "029",
+      "reference": "OPM+TLC",
+      "roi_period": 39525900635,
+      "observed_period": 21940646517,
+      "not_observed_period": 16942828292,
+      "unresolved_period": 642425826,
+      "not_observed_functions": 303
+    }
+  ],
+  "all_previous_comparison_fields_unchanged": true,
+  "raw_capture_and_existing_profiles_unchanged": true,
+  "input_bindings_verified": 67,
+  "figure_hashes_verified": 48,
+  "original_report_prefixes_unchanged": {
+    "docs/representativeness-assessment.md": {
+      "prefix_bytes": 25710,
+      "prefix_sha256": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
+      "append_sha256": "54f600da65126155778d44eb3d8cc32a0c1bb78c16fe6f5fdff439f366c370e5",
+      "sha256": "07847e85f62590ab6868cb9b6d1a3396aa4c9d299ecff85a711c6ae71e606e40"
+    },
+    "docs/experimental-results.md": {
+      "prefix_bytes": 83791,
+      "prefix_sha256": "c6cfa6013753065b39a9e0d4510e2be1919332f95992c76b701274350e5b6238",
+      "append_sha256": "6014f0ca347b8982336e9aca27b60e6b34e35367da392321683eda45824f015c",
+      "sha256": "237626111d2f39e5833ba4f6bc4b8583d36964e1052377602b67c3006e6b986f"
+    }
+  },
+  "comparison_sha256": "e5142c1b1382a7b3dfbe7967a8ce71f251274f578e9c59af271aa87150c01cd8",
+  "publication_manifest_sha256": "a846a0d40790c0828f8420e40c95475abd623092d99767a3d0fa06b16feca151",
+  "html_updated": true,
+  "tests": {
+    "docops_analysis": 32,
+    "failures": 0
+  },
+  "measurement_rerun": false,
+  "image_build": false,
+  "source_sha256": {
+    "analysis/docops/operation_comparison.py": "330e00c1fd42f0411c92be76038614791ec0269043ab8d24a5cb09f417502678",
+    "analysis/docops/tests/test_operation_comparison.py": "f7e4f761dfda8ea173467a70a4f378695963b043d3de1ad3abc12fa0fef54748"
+  },
+  "interpretation": "Presence in a complete saved reference function list is not proof of representative weight or mechanism coverage; absence is not proof of a new algorithm. Unresolved period retained in full target ROI denominator.",
+  "previous_html_hash_snapshot": {
+    "docs/representativeness-assessment.html": "f27926fa2cb01e16b1fc5f6041fde61ee6e6a0f863da692c87ec72ec8967bba8",
+    "docs/evidence/presentation.json": "092a0b4de6fa88d26424c5764bfed33349e19dc9a08e259ed7d1030aa92e11d6"
+  },
+  "html": {
+    "pages": 68,
+    "sha256": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "source_binding_sha256": "fa2c0ede0c26f2a91326b4b6001924742c266de39b3aba589fdfa2b17904e46c",
+    "content_and_binding_tests_passed": true
+  }
+}

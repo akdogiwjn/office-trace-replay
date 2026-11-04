@@ -16,7 +16,9 @@ python3 -B scripts/build_presentation.py
 
 扩展任务操作采用[统一环境的新十二项结果](../analysis/docops/processed/task-operation-expansion-20261104/comparison.json)，原 Debian 首批对比仅作为[历史记录](../analysis/docops/processed/first-comparison-batch-20261103/report.md)。不同批次分别汇总，不混算重复次数。
 
-第七节增加软件用途、热点表读法、四项 Topdown 原值与变化、十二张中文过程图和最终覆盖判断；当前 HTML 为 63 页。[修订核验](evidence/task-operation-readable-revision-v2.json)确认测量数值不变、原七例章节不变，并记录浏览器排版检查。
+第七节增加软件用途、热点表读法、四项 Topdown 原值与变化、十二张中文过程图和最终覆盖判断；此前 HTML 为 63 页。[修订核验](evidence/task-operation-readable-revision-v2.json)确认测量数值不变、原七例章节不变，并记录浏览器排版检查。
+
+Markdown 的 7.3.1–7.3.3 另补充了旧 OPM／TLC 完整函数清单的出现范围：分别比较 PDF、Excel、Word、PPT，区分旧函数变重、不同软件实现和新增操作。[函数出现范围核验](evidence/function-hotspot-presence-v1.json)记录三分区守恒与来源。本次按最新要求保留并同步 HTML 修改；当前放映版为 68 页，已包含这段补充。
 
 只更新追加章节和对应曲线，不重新生成原七例内容：
 

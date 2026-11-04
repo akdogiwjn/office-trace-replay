@@ -19,3 +19,4 @@
 - [扩展报告可读性修订核验（当前）](task-operation-readable-revision-v2.json)：软件用途与表格读法、完整四项 Topdown 变化、十二张曲线；63 页 HTML 布局通过，全部比较数值及 533 个过程点不变。
 - [扩展报告首版核验（历史快照）](task-operation-validation.json)：首版 24 组对照、533 个过程点及当时 50 页 HTML 的布局检查，保留原记录。
 - [最终仓库审计](repository-audit-20261104.json)：191 项测试、冻结材料与离线依赖核对、隔离 checkout 检查，以及本次收尾修复。
+- [完整函数出现范围补充（当前）](function-hotspot-presence-v1.json)：旧 OPM、旧 TLC 及其并集与十二项新任务的 36 组周期分区；原测量不变，文档和 HTML 均已同步。

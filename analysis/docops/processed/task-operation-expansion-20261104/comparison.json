@@ -62917,6 +62917,4821 @@
       }
     }
   },
+  "function_presence": {
+    "031": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 29907346184,
+        "not_observed_period": 9524036184,
+        "unresolved_period": 725948,
+        "observed_share_roi": 0.7584516137034645,
+        "not_observed_share_roi": 0.24152997622334893,
+        "unresolved_share_roi": 1.841007318661272e-05,
+        "observed_function_count": 54,
+        "not_observed_function_count": 65,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 3421412927,
+            "share_roi": 0.08676718220546491
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "PyObject_Vectorcall",
+            "period": 736115684,
+            "share_roi": 0.01866792609973921
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 567246634,
+            "share_roi": 0.014385399569665759
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 428663053,
+            "share_roi": 0.010870913864528653
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "expression_rule",
+            "period": 370058830,
+            "share_roi": 0.00938470819349633
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 349607343,
+            "share_roi": 0.008866057584299723
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 323985885,
+            "share_roi": 0.008216296283314358
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "cfg_to_instr_sequence.isra.0",
+            "period": 303514806,
+            "share_roi": 0.0076971488201366504
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 294543029,
+            "share_roi": 0.007469624161092244
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 169152987,
+            "share_roi": 0.004289727184872952
+          },
+          {
+            "library": "libc.so.6",
+            "function": "__memset_generic",
+            "period": 166084377,
+            "share_roi": 0.004211907100402478
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 163140221,
+            "share_roi": 0.004137243174841963
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "target_with_star_atom_rule",
+            "period": 143923941,
+            "share_roi": 0.003649917469454742
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 137384642,
+            "share_roi": 0.003484080559401758
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "astfold_expr",
+            "period": 127408256,
+            "share_roi": 0.003231078971963128
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyAssemble_MakeCodeObject",
+            "period": 127103279,
+            "share_roi": 0.003223344741838886
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_raw",
+            "period": 119028630,
+            "share_roi": 0.003018571288304736
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 117646554,
+            "share_roi": 0.0029835217802002146
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_and_rule",
+            "period": 112666277,
+            "share_roi": 0.002857221736588821
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_ResolveJumps",
+            "period": 81090869,
+            "share_roi": 0.0020564680019175266
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 29697233693,
+        "not_observed_period": 9734148675,
+        "unresolved_period": 725948,
+        "observed_share_roi": 0.7531231516969137,
+        "not_observed_share_roi": 0.2468584382298997,
+        "unresolved_share_roi": 1.841007318661272e-05,
+        "observed_function_count": 50,
+        "not_observed_function_count": 69,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 3421412927,
+            "share_roi": 0.08676718220546491
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+            "period": 773450445,
+            "share_roi": 0.019614737279623574
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 567246634,
+            "share_roi": 0.014385399569665759
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 428663053,
+            "share_roi": 0.010870913864528653
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "expression_rule",
+            "period": 370058830,
+            "share_roi": 0.00938470819349633
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 349607343,
+            "share_roi": 0.008866057584299723
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 323985885,
+            "share_roi": 0.008216296283314358
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "cfg_to_instr_sequence.isra.0",
+            "period": 303514806,
+            "share_roi": 0.0076971488201366504
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 294543029,
+            "share_roi": 0.007469624161092244
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 169152987,
+            "share_roi": 0.004289727184872952
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 163140221,
+            "share_roi": 0.004137243174841963
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "target_with_star_atom_rule",
+            "period": 143923941,
+            "share_roi": 0.003649917469454742
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 137384642,
+            "share_roi": 0.003484080559401758
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 127690842,
+            "share_roi": 0.0032382453653432494
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "astfold_expr",
+            "period": 127408256,
+            "share_roi": 0.003231078971963128
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyAssemble_MakeCodeObject",
+            "period": 127103279,
+            "share_roi": 0.003223344741838886
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_raw",
+            "period": 119028630,
+            "share_roi": 0.003018571288304736
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::compositeBackground(unsigned char const*)",
+            "period": 118715732,
+            "share_roi": 0.0030106361812723523
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::drawAALine(SplashPipe*, int, int, int, bool, unsigned char)",
+            "period": 118061386,
+            "share_roi": 0.0029940419379527656
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 117646554,
+            "share_roi": 0.0029835217802002146
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 31209821314,
+        "not_observed_period": 8221561054,
+        "unresolved_period": 725948,
+        "observed_share_roi": 0.7914824402461961,
+        "not_observed_share_roi": 0.20849914968061734,
+        "unresolved_share_roi": 1.841007318661272e-05,
+        "observed_function_count": 65,
+        "not_observed_function_count": 54,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 3421412927,
+            "share_roi": 0.08676718220546491
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 567246634,
+            "share_roi": 0.014385399569665759
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 428663053,
+            "share_roi": 0.010870913864528653
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "expression_rule",
+            "period": 370058830,
+            "share_roi": 0.00938470819349633
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 349607343,
+            "share_roi": 0.008866057584299723
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 323985885,
+            "share_roi": 0.008216296283314358
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "cfg_to_instr_sequence.isra.0",
+            "period": 303514806,
+            "share_roi": 0.0076971488201366504
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 294543029,
+            "share_roi": 0.007469624161092244
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 169152987,
+            "share_roi": 0.004289727184872952
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 163140221,
+            "share_roi": 0.004137243174841963
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "target_with_star_atom_rule",
+            "period": 143923941,
+            "share_roi": 0.003649917469454742
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 137384642,
+            "share_roi": 0.003484080559401758
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "astfold_expr",
+            "period": 127408256,
+            "share_roi": 0.003231078971963128
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyAssemble_MakeCodeObject",
+            "period": 127103279,
+            "share_roi": 0.003223344741838886
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_raw",
+            "period": 119028630,
+            "share_roi": 0.003018571288304736
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 117646554,
+            "share_roi": 0.0029835217802002146
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_and_rule",
+            "period": 112666277,
+            "share_roi": 0.002857221736588821
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_ResolveJumps",
+            "period": 81090869,
+            "share_roi": 0.0020564680019175266
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_Py_normalize_encoding",
+            "period": 72671092,
+            "share_roi": 0.0018429420871344312
+          },
+          {
+            "library": "libfreetype.so.6.20.1",
+            "function": "cf2_glyphpath_hintPoint",
+            "period": 59037627,
+            "share_roi": 0.0014971968155211436
+          }
+        ]
+      }
+    },
+    "037": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 39988274916,
+        "not_observed_period": 16436518864,
+        "unresolved_period": 26135206,
+        "observed_share_roi": 0.7083723090884335,
+        "not_observed_share_roi": 0.29116471879632494,
+        "unresolved_share_roi": 0.00046297211524156865,
+        "observed_function_count": 78,
+        "not_observed_function_count": 138,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 5797867418,
+            "share_roi": 0.10270632427391742
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_expect_token",
+            "period": 845923366,
+            "share_roi": 0.01498510974389441
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "star_target_rule",
+            "period": 832342895,
+            "share_roi": 0.014744538485919754
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "astfold_expr",
+            "period": 755634100,
+            "share_roi": 0.013385680511783953
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_visit_expr1",
+            "period": 570148750,
+            "share_roi": 0.010099900218495937
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 549244333,
+            "share_roi": 0.009729588916707008
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_visit_stmt",
+            "period": 486030611,
+            "share_roi": 0.00860978941764691
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "atom_rule",
+            "period": 438102907,
+            "share_roi": 0.007760774089451227
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 350756704,
+            "share_roi": 0.006213479747817591
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 348065234,
+            "share_roi": 0.00616580170162162
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 329511534,
+            "share_roi": 0.005837132176898627
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "factor_rule",
+            "period": 307926862,
+            "share_roi": 0.005454770497689538
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "disjunction_rule",
+            "period": 267328404,
+            "share_roi": 0.004735589100159861
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "inversion_rule",
+            "period": 216219510,
+            "share_roi": 0.0038302205806679123
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "conjunction_rule",
+            "period": 205460150,
+            "share_roi": 0.0036396238944261614
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_nameop",
+            "period": 175344606,
+            "share_roi": 0.0031061420803807495
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 170555195,
+            "share_roi": 0.003021300057653581
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 159835304,
+            "share_roi": 0.002831402545025249
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 124713877,
+            "share_roi": 0.002209244014937813
+          },
+          {
+            "library": "libfreetype.so.6.20.1",
+            "function": "cf2_interpT2CharString",
+            "period": 118121670,
+            "share_roi": 0.0020924663618785535
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 37243110581,
+        "not_observed_period": 19181683199,
+        "unresolved_period": 26135206,
+        "observed_share_roi": 0.6597430945775296,
+        "not_observed_share_roi": 0.3397939333072289,
+        "unresolved_share_roi": 0.00046297211524156865,
+        "observed_function_count": 93,
+        "not_observed_function_count": 123,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 5797867418,
+            "share_roi": 0.10270632427391742
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+            "period": 1718237606,
+            "share_roi": 0.030437720633900073
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_expect_token",
+            "period": 845923366,
+            "share_roi": 0.01498510974389441
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "star_target_rule",
+            "period": 832342895,
+            "share_roi": 0.014744538485919754
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "astfold_expr",
+            "period": 755634100,
+            "share_roi": 0.013385680511783953
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_visit_expr1",
+            "period": 570148750,
+            "share_roi": 0.010099900218495937
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 549244333,
+            "share_roi": 0.009729588916707008
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_visit_stmt",
+            "period": 486030611,
+            "share_roi": 0.00860978941764691
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "atom_rule",
+            "period": 438102907,
+            "share_roi": 0.007760774089451227
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "unsafe_latin_compare",
+            "period": 362324136,
+            "share_roi": 0.006418391025767839
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::drawAALine(SplashPipe*, int, int, int, bool, unsigned char)",
+            "period": 354042254,
+            "share_roi": 0.006271681624368016
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::compositeBackground(unsigned char const*)",
+            "period": 353996105,
+            "share_roi": 0.00627086411789241
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 350756704,
+            "share_roi": 0.006213479747817591
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_OptimizeCodeUnit.isra.0",
+            "period": 349346424,
+            "share_roi": 0.006188497342295978
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 348065234,
+            "share_roi": 0.00616580170162162
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_Py_hashtable_get",
+            "period": 338259332,
+            "share_roi": 0.0059920950474329545
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 329511534,
+            "share_roi": 0.005837132176898627
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "factor_rule",
+            "period": 307926862,
+            "share_roi": 0.005454770497689538
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "disjunction_rule",
+            "period": 267328404,
+            "share_roi": 0.004735589100159861
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 237517106,
+            "share_roi": 0.004207496851981036
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 41079968555,
+        "not_observed_period": 15344825225,
+        "unresolved_period": 26135206,
+        "observed_share_roi": 0.7277111164138318,
+        "not_observed_share_roi": 0.2718259114709266,
+        "unresolved_share_roi": 0.00046297211524156865,
+        "observed_function_count": 111,
+        "not_observed_function_count": 105,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 5797867418,
+            "share_roi": 0.10270632427391742
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_expect_token",
+            "period": 845923366,
+            "share_roi": 0.01498510974389441
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "star_target_rule",
+            "period": 832342895,
+            "share_roi": 0.014744538485919754
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "astfold_expr",
+            "period": 755634100,
+            "share_roi": 0.013385680511783953
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_visit_expr1",
+            "period": 570148750,
+            "share_roi": 0.010099900218495937
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 549244333,
+            "share_roi": 0.009729588916707008
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_visit_stmt",
+            "period": 486030611,
+            "share_roi": 0.00860978941764691
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "atom_rule",
+            "period": 438102907,
+            "share_roi": 0.007760774089451227
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 350756704,
+            "share_roi": 0.006213479747817591
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 348065234,
+            "share_roi": 0.00616580170162162
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 329511534,
+            "share_roi": 0.005837132176898627
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "factor_rule",
+            "period": 307926862,
+            "share_roi": 0.005454770497689538
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "disjunction_rule",
+            "period": 267328404,
+            "share_roi": 0.004735589100159861
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "inversion_rule",
+            "period": 216219510,
+            "share_roi": 0.0038302205806679123
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "conjunction_rule",
+            "period": 205460150,
+            "share_roi": 0.0036396238944261614
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "compiler_nameop",
+            "period": 175344606,
+            "share_roi": 0.0031061420803807495
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 170555195,
+            "share_roi": 0.003021300057653581
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 159835304,
+            "share_roi": 0.002831402545025249
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 124713877,
+            "share_roi": 0.002209244014937813
+          },
+          {
+            "library": "libfreetype.so.6.20.1",
+            "function": "cf2_interpT2CharString",
+            "period": 118121670,
+            "share_roi": 0.0020924663618785535
+          }
+        ]
+      }
+    },
+    "pdfwf005": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 17250417403,
+        "not_observed_period": 23199959632,
+        "unresolved_period": 72871142,
+        "observed_share_roi": 0.4256918726665873,
+        "not_observed_share_roi": 0.5725098721273713,
+        "unresolved_share_roi": 0.0017982552060414514,
+        "observed_function_count": 66,
+        "not_observed_function_count": 112,
+        "not_observed_top20": [
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 5102262862,
+            "share_roi": 0.12590952333618505
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 4645151623,
+            "share_roi": 0.11462930125222474
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4283600071,
+            "share_roi": 0.10570722396906145
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "instr_sequence_to_cfg",
+            "period": 646473128,
+            "share_roi": 0.01595314188971955
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 511402065,
+            "share_roi": 0.0126199672535199
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_read_filter_row_up",
+            "period": 415887179,
+            "share_roi": 0.010262928015628505
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 412862893,
+            "share_roi": 0.010188297127532112
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 406708457,
+            "share_roi": 0.010036422925022031
+          },
+          {
+            "library": "png.so",
+            "function": "ReadOnePNGImage",
+            "period": 381398690,
+            "share_roi": 0.00941184893012778
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 352838622,
+            "share_roi": 0.008707066631451882
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 305744044,
+            "share_roi": 0.007544904659778305
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCode_New",
+            "period": 304896807,
+            "share_roi": 0.007523997229152325
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "expression_rule",
+            "period": 304473500,
+            "share_roi": 0.007513551200784829
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 294591824,
+            "share_roi": 0.007269699178932134
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 292791358,
+            "share_roi": 0.007225268732682223
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "ImportRGBQuantum",
+            "period": 253030826,
+            "share_roi": 0.006244090426680408
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 235461066,
+            "share_roi": 0.005810518075242594
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "PyDict_SetDefault",
+            "period": 180569865,
+            "share_roi": 0.004455957336176398
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 164673361,
+            "share_roi": 0.004063676245317979
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 163264337,
+            "share_roi": 0.0040289054886933975
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 16302370738,
+        "not_observed_period": 24148006297,
+        "unresolved_period": 72871142,
+        "observed_share_roi": 0.40229674252156383,
+        "not_observed_share_roi": 0.5959050022723947,
+        "unresolved_share_roi": 0.0017982552060414514,
+        "observed_function_count": 75,
+        "not_observed_function_count": 103,
+        "not_observed_top20": [
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 5102262862,
+            "share_roi": 0.12590952333618505
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 4645151623,
+            "share_roi": 0.11462930125222474
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4283600071,
+            "share_roi": 0.10570722396906145
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 930927392,
+            "share_roi": 0.02297267454804799
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "instr_sequence_to_cfg",
+            "period": 646473128,
+            "share_roi": 0.01595314188971955
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 511402065,
+            "share_roi": 0.0126199672535199
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_OptimizeCodeUnit.isra.0",
+            "period": 442667120,
+            "share_roi": 0.010923781777474762
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_read_filter_row_up",
+            "period": 415887179,
+            "share_roi": 0.010262928015628505
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 412862893,
+            "share_roi": 0.010188297127532112
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 406708457,
+            "share_roi": 0.010036422925022031
+          },
+          {
+            "library": "png.so",
+            "function": "ReadOnePNGImage",
+            "period": 381398690,
+            "share_roi": 0.00941184893012778
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 352838622,
+            "share_roi": 0.008707066631451882
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 305744044,
+            "share_roi": 0.007544904659778305
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "expression_rule",
+            "period": 304473500,
+            "share_roi": 0.007513551200784829
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 294591824,
+            "share_roi": 0.007269699178932134
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 292791358,
+            "share_roi": 0.007225268732682223
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::compositeBackground(unsigned char const*)",
+            "period": 292161939,
+            "share_roi": 0.007209736438793767
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "ImportRGBQuantum",
+            "period": 253030826,
+            "share_roi": 0.006244090426680408
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 235461066,
+            "share_roi": 0.005810518075242594
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_Py_hashtable_get",
+            "period": 211965463,
+            "share_roi": 0.005230712554782476
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 18401972879,
+        "not_observed_period": 22048404156,
+        "unresolved_period": 72871142,
+        "observed_share_roi": 0.4541090289362467,
+        "not_observed_share_roi": 0.5440927158577118,
+        "unresolved_share_roi": 0.0017982552060414514,
+        "observed_function_count": 85,
+        "not_observed_function_count": 93,
+        "not_observed_top20": [
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 5102262862,
+            "share_roi": 0.12590952333618505
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 4645151623,
+            "share_roi": 0.11462930125222474
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4283600071,
+            "share_roi": 0.10570722396906145
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "instr_sequence_to_cfg",
+            "period": 646473128,
+            "share_roi": 0.01595314188971955
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 511402065,
+            "share_roi": 0.0126199672535199
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_read_filter_row_up",
+            "period": 415887179,
+            "share_roi": 0.010262928015628505
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 412862893,
+            "share_roi": 0.010188297127532112
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 406708457,
+            "share_roi": 0.010036422925022031
+          },
+          {
+            "library": "png.so",
+            "function": "ReadOnePNGImage",
+            "period": 381398690,
+            "share_roi": 0.00941184893012778
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 352838622,
+            "share_roi": 0.008707066631451882
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 305744044,
+            "share_roi": 0.007544904659778305
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "expression_rule",
+            "period": 304473500,
+            "share_roi": 0.007513551200784829
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 294591824,
+            "share_roi": 0.007269699178932134
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 292791358,
+            "share_roi": 0.007225268732682223
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "ImportRGBQuantum",
+            "period": 253030826,
+            "share_roi": 0.006244090426680408
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 235461066,
+            "share_roi": 0.005810518075242594
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "PyDict_SetDefault",
+            "period": 180569865,
+            "share_roi": 0.004455957336176398
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 164673361,
+            "share_roi": 0.004063676245317979
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 163264337,
+            "share_roi": 0.0040289054886933975
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyAssemble_MakeCodeObject",
+            "period": 156723284,
+            "share_roi": 0.0038674906640122765
+          }
+        ]
+      }
+    },
+    "013": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 44964540185,
+        "not_observed_period": 43201536247,
+        "unresolved_period": 451232017,
+        "observed_share_roi": 0.5074013301913527,
+        "not_observed_share_roi": 0.48750675238418967,
+        "unresolved_share_roi": 0.005091917424457636,
+        "observed_function_count": 101,
+        "not_observed_function_count": 528,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 7423314478,
+            "share_roi": 0.08376822325033917
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 7129663715,
+            "share_roi": 0.08045452789962788
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 3118338666,
+            "share_roi": 0.035188821693841334
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 1296566296,
+            "share_roi": 0.014631072853518055
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 894731742,
+            "share_roi": 0.010096579975851169
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcStrHashIgnoreCase",
+            "period": 704536289,
+            "share_roi": 0.007950323715885216
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 684497496,
+            "share_roi": 0.00772419641241907
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl::uri::detail::readUcs4(char16_t const**, char16_t const*, bool, unsigned short, rtl::uri::detail::EscapeType*)",
+            "period": 521699635,
+            "share_roi": 0.005887107655726674
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 482064702,
+            "share_roi": 0.005439848156496789
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 472765708,
+            "share_roi": 0.00533491387037647
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::release<_rtl_uString>(_rtl_uString*)",
+            "period": 438631893,
+            "share_roi": 0.004949731611995824
+          },
+          {
+            "library": "libscfiltlo.so",
+            "function": "XclExpRowBuffer::GetOrCreateRow(unsigned int, bool)",
+            "period": 416205660,
+            "share_roi": 0.004696663296194894
+          },
+          {
+            "library": "libsfxlo.so",
+            "function": "SfxInterface::GetSlot(rtl::OUString const&) const",
+            "period": 404013552,
+            "share_roi": 0.004559081730997429
+          },
+          {
+            "library": "libuno_cppuhelpergcc3.so.3",
+            "function": "cppu::OWeakObject::acquire()",
+            "period": 351192924,
+            "share_roi": 0.003963028556685565
+          },
+          {
+            "library": "libscfiltlo.so",
+            "function": "XclExpMultiCellBase::GetXFIndexes(std::vector<unsigned short, std::allocator<unsigned short> >&) const",
+            "period": 350743506,
+            "share_roi": 0.003957957109494652
+          },
+          {
+            "library": "libsclo.so",
+            "function": "std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_insert_unique_pos(int const&)",
+            "period": 332220859,
+            "share_roi": 0.0037489387210535275
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 320012099,
+            "share_roi": 0.0036111692467411106
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcCacheObjectDereference",
+            "period": 303103343,
+            "share_roi": 0.003420362774552541
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_read_filter_row_up",
+            "period": 298896169,
+            "share_roi": 0.003372887015317298
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 288794140,
+            "share_roi": 0.0032588908990189365
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 50205824959,
+        "not_observed_period": 37960251473,
+        "unresolved_period": 451232017,
+        "observed_share_roi": 0.5665464889163709,
+        "not_observed_share_roi": 0.4283615936591715,
+        "unresolved_share_roi": 0.005091917424457636,
+        "observed_function_count": 296,
+        "not_observed_function_count": 333,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 7423314478,
+            "share_roi": 0.08376822325033917
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 7129663715,
+            "share_roi": 0.08045452789962788
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 3118338666,
+            "share_roi": 0.035188821693841334
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 894731742,
+            "share_roi": 0.010096579975851169
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcStrHashIgnoreCase",
+            "period": 704536289,
+            "share_roi": 0.007950323715885216
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 684497496,
+            "share_roi": 0.00772419641241907
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 568475298,
+            "share_roi": 0.006414946560097368
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl::uri::detail::readUcs4(char16_t const**, char16_t const*, bool, unsigned short, rtl::uri::detail::EscapeType*)",
+            "period": 521699635,
+            "share_roi": 0.005887107655726674
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 482064702,
+            "share_roi": 0.005439848156496789
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 472765708,
+            "share_roi": 0.00533491387037647
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_OptimizeCodeUnit.isra.0",
+            "period": 443203040,
+            "share_roi": 0.005001314616264463
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_Py_hashtable_get",
+            "period": 419725597,
+            "share_roi": 0.00473638394514719
+          },
+          {
+            "library": "libsfxlo.so",
+            "function": "SfxInterface::GetSlot(rtl::OUString const&) const",
+            "period": 404013552,
+            "share_roi": 0.004559081730997429
+          },
+          {
+            "library": "libsclo.so",
+            "function": "std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_insert_unique_pos(int const&)",
+            "period": 332220859,
+            "share_roi": 0.0037489387210535275
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 320012099,
+            "share_roi": 0.0036111692467411106
+          },
+          {
+            "library": "libfreetype.so.6.20.1",
+            "function": "gray_render_line",
+            "period": 313112052,
+            "share_roi": 0.003533305823435143
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcCacheObjectDereference",
+            "period": 303103343,
+            "share_roi": 0.003420362774552541
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_read_filter_row_up",
+            "period": 298896169,
+            "share_roi": 0.003372887015317298
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 288794140,
+            "share_roi": 0.0032588908990189365
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "ExportRGBQuantum",
+            "period": 284899080,
+            "share_roi": 0.003214937183112053
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 52424821064,
+        "not_observed_period": 35741255368,
+        "unresolved_period": 451232017,
+        "observed_share_roi": 0.5915866999523115,
+        "not_observed_share_roi": 0.40332138262323086,
+        "unresolved_share_roi": 0.005091917424457636,
+        "observed_function_count": 314,
+        "not_observed_function_count": 315,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 7423314478,
+            "share_roi": 0.08376822325033917
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 7129663715,
+            "share_roi": 0.08045452789962788
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 3118338666,
+            "share_roi": 0.035188821693841334
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 894731742,
+            "share_roi": 0.010096579975851169
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcStrHashIgnoreCase",
+            "period": 704536289,
+            "share_roi": 0.007950323715885216
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 684497496,
+            "share_roi": 0.00772419641241907
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl::uri::detail::readUcs4(char16_t const**, char16_t const*, bool, unsigned short, rtl::uri::detail::EscapeType*)",
+            "period": 521699635,
+            "share_roi": 0.005887107655726674
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 482064702,
+            "share_roi": 0.005439848156496789
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 472765708,
+            "share_roi": 0.00533491387037647
+          },
+          {
+            "library": "libsfxlo.so",
+            "function": "SfxInterface::GetSlot(rtl::OUString const&) const",
+            "period": 404013552,
+            "share_roi": 0.004559081730997429
+          },
+          {
+            "library": "libsclo.so",
+            "function": "std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_insert_unique_pos(int const&)",
+            "period": 332220859,
+            "share_roi": 0.0037489387210535275
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 320012099,
+            "share_roi": 0.0036111692467411106
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcCacheObjectDereference",
+            "period": 303103343,
+            "share_roi": 0.003420362774552541
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_read_filter_row_up",
+            "period": 298896169,
+            "share_roi": 0.003372887015317298
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 288794140,
+            "share_roi": 0.0032588908990189365
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "ExportRGBQuantum",
+            "period": 284899080,
+            "share_roi": 0.003214937183112053
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 283703280,
+            "share_roi": 0.003201443205232007
+          },
+          {
+            "library": "png.so",
+            "function": "ReadOnePNGImage",
+            "period": 281189170,
+            "share_roi": 0.0031730727881656064
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strncmp@plt",
+            "period": 276008813,
+            "share_roi": 0.0031146151675193945
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 255858466,
+            "share_roi": 0.0028872290354795493
+          }
+        ]
+      }
+    },
+    "014": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 32934592591,
+        "not_observed_period": 30123088683,
+        "unresolved_period": 431395318,
+        "observed_share_roi": 0.5187442369440597,
+        "not_observed_share_roi": 0.47446096714526304,
+        "unresolved_share_roi": 0.006794795910677308,
+        "observed_function_count": 112,
+        "not_observed_function_count": 511,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4808553703,
+            "share_roi": 0.07573828382953528
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 1056881590,
+            "share_roi": 0.01664666816296354
+          },
+          {
+            "library": "libc.so.6",
+            "function": "malloc_consolidate",
+            "period": 774544481,
+            "share_roi": 0.012199649492108021
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "inflate_table",
+            "period": 732492400,
+            "share_roi": 0.011537298056911704
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 716823040,
+            "share_roi": 0.011290494026342855
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::release<_rtl_uString>(_rtl_uString*)",
+            "period": 707808636,
+            "share_roi": 0.011148510483915087
+          },
+          {
+            "library": "libsclo.so",
+            "function": "ScColumnData::GetMostUsedPattern(int, int) const",
+            "period": 679020089,
+            "share_roi": 0.010695069537136103
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 675512585,
+            "share_roi": 0.0106398237501712
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+            "period": 665314676,
+            "share_roi": 0.010479199127048472
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 592821474,
+            "share_roi": 0.009337377480060862
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 505070087,
+            "share_roi": 0.007955228113423874
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_raw",
+            "period": 499088978,
+            "share_roi": 0.00786102121483506
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 474289921,
+            "share_roi": 0.007470417691659471
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_M_erase(std::_Rb_tree_node<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >*) [clone .isra.0]",
+            "period": 406329102,
+            "share_roi": 0.006399984435294179
+          },
+          {
+            "library": "liborcus-parser-0.20.so.0",
+            "function": "std::_Hashtable<std::basic_string_view<char, std::char_traits<char> >, std::pair<std::basic_string_view<char, std::char_traits<char> > const, unsigned long>, std::allocator<std::pair<std::basic_string_view<char, std::char_traits<char> > const, unsigned long> >, std::__detail::_Select1st, std::equal_to<std::basic_string_view<char, std::char_traits<char> > >, std::hash<std::basic_string_view<char, std::char_traits<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_find_before_node(unsigned long, std::basic_string_view<char, std::char_traits<char> > const&, unsigned long) const",
+            "period": 397355800,
+            "share_roi": 0.0062586482798218735
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::Access::Access(configmgr::Components&)",
+            "period": 387863282,
+            "share_roi": 0.006109134087624659
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)",
+            "period": 364211364,
+            "share_roi": 0.0057365988536978154
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::handleRawText(xmlreader::Span*)",
+            "period": 346896154,
+            "share_roi": 0.005463871466098957
+          },
+          {
+            "library": "libfilterconfiglo.so",
+            "function": "filter::config::(anonymous namespace)::getFlatTypeRank(std::basic_string_view<char16_t, std::char_traits<char16_t> >)",
+            "period": 346603234,
+            "share_roi": 0.005459257759053217
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_uString_acquire",
+            "period": 304423479,
+            "share_roi": 0.004794895363753947
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 40165751851,
+        "not_observed_period": 22891929423,
+        "unresolved_period": 431395318,
+        "observed_share_roi": 0.632640353381059,
+        "not_observed_share_roi": 0.3605648507082637,
+        "unresolved_share_roi": 0.006794795910677308,
+        "observed_function_count": 301,
+        "not_observed_function_count": 322,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4808553703,
+            "share_roi": 0.07573828382953528
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 1056881590,
+            "share_roi": 0.01664666816296354
+          },
+          {
+            "library": "libsclo.so",
+            "function": "ScColumnData::GetMostUsedPattern(int, int) const",
+            "period": 679020089,
+            "share_roi": 0.010695069537136103
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 675512585,
+            "share_roi": 0.0106398237501712
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+            "period": 665314676,
+            "share_roi": 0.010479199127048472
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 592821474,
+            "share_roi": 0.009337377480060862
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 505070087,
+            "share_roi": 0.007955228113423874
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_raw",
+            "period": 499088978,
+            "share_roi": 0.00786102121483506
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 474289921,
+            "share_roi": 0.007470417691659471
+          },
+          {
+            "library": "liborcus-parser-0.20.so.0",
+            "function": "std::_Hashtable<std::basic_string_view<char, std::char_traits<char> >, std::pair<std::basic_string_view<char, std::char_traits<char> > const, unsigned long>, std::allocator<std::pair<std::basic_string_view<char, std::char_traits<char> > const, unsigned long> >, std::__detail::_Select1st, std::equal_to<std::basic_string_view<char, std::char_traits<char> > >, std::hash<std::basic_string_view<char, std::char_traits<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_find_before_node(unsigned long, std::basic_string_view<char, std::char_traits<char> > const&, unsigned long) const",
+            "period": 397355800,
+            "share_roi": 0.0062586482798218735
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::Access::Access(configmgr::Components&)",
+            "period": 387863282,
+            "share_roi": 0.006109134087624659
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)",
+            "period": 364211364,
+            "share_roi": 0.0057365988536978154
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 354095307,
+            "share_roi": 0.005577263460225189
+          },
+          {
+            "library": "libfilterconfiglo.so",
+            "function": "filter::config::(anonymous namespace)::getFlatTypeRank(std::basic_string_view<char16_t, std::char_traits<char16_t> >)",
+            "period": 346603234,
+            "share_roi": 0.005459257759053217
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_OptimizeCodeUnit.isra.0",
+            "period": 279674804,
+            "share_roi": 0.004405085394410047
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "simple_stmt_rule",
+            "period": 277902403,
+            "share_roi": 0.004377168765359195
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+            "period": 252977220,
+            "share_roi": 0.003984578664227676
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::compositeBackground(unsigned char const*)",
+            "period": 235921335,
+            "share_roi": 0.0037159358375315776
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 232571079,
+            "share_roi": 0.003663166823083159
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 228651469,
+            "share_roi": 0.0036014300612589385
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 42010681701,
+        "not_observed_period": 21046999573,
+        "unresolved_period": 431395318,
+        "observed_share_roi": 0.6616993655613129,
+        "not_observed_share_roi": 0.3315058385280098,
+        "unresolved_share_roi": 0.006794795910677308,
+        "observed_function_count": 320,
+        "not_observed_function_count": 303,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4808553703,
+            "share_roi": 0.07573828382953528
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 1056881590,
+            "share_roi": 0.01664666816296354
+          },
+          {
+            "library": "libsclo.so",
+            "function": "ScColumnData::GetMostUsedPattern(int, int) const",
+            "period": 679020089,
+            "share_roi": 0.010695069537136103
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 675512585,
+            "share_roi": 0.0106398237501712
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+            "period": 665314676,
+            "share_roi": 0.010479199127048472
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_new_identifier",
+            "period": 592821474,
+            "share_roi": 0.009337377480060862
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 505070087,
+            "share_roi": 0.007955228113423874
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_raw",
+            "period": 499088978,
+            "share_roi": 0.00786102121483506
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 474289921,
+            "share_roi": 0.007470417691659471
+          },
+          {
+            "library": "liborcus-parser-0.20.so.0",
+            "function": "std::_Hashtable<std::basic_string_view<char, std::char_traits<char> >, std::pair<std::basic_string_view<char, std::char_traits<char> > const, unsigned long>, std::allocator<std::pair<std::basic_string_view<char, std::char_traits<char> > const, unsigned long> >, std::__detail::_Select1st, std::equal_to<std::basic_string_view<char, std::char_traits<char> > >, std::hash<std::basic_string_view<char, std::char_traits<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_find_before_node(unsigned long, std::basic_string_view<char, std::char_traits<char> > const&, unsigned long) const",
+            "period": 397355800,
+            "share_roi": 0.0062586482798218735
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::Access::Access(configmgr::Components&)",
+            "period": 387863282,
+            "share_roi": 0.006109134087624659
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)",
+            "period": 364211364,
+            "share_roi": 0.0057365988536978154
+          },
+          {
+            "library": "libfilterconfiglo.so",
+            "function": "filter::config::(anonymous namespace)::getFlatTypeRank(std::basic_string_view<char16_t, std::char_traits<char16_t> >)",
+            "period": 346603234,
+            "share_roi": 0.005459257759053217
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "simple_stmt_rule",
+            "period": 277902403,
+            "share_roi": 0.004377168765359195
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 232571079,
+            "share_roi": 0.003663166823083159
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 228651469,
+            "share_roi": 0.0036014300612589385
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::scanName(char const**)",
+            "period": 227596249,
+            "share_roi": 0.0035848095643696678
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 214837017,
+            "share_roi": 0.00338384220612638
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 177576463,
+            "share_roi": 0.002796960871571027
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 169826370,
+            "share_roi": 0.0026748911642132645
+          }
+        ]
+      }
+    },
+    "016": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 25824361613,
+        "not_observed_period": 49001827572,
+        "unresolved_period": 303889138,
+        "observed_share_roi": 0.3437286661937931,
+        "not_observed_share_roi": 0.6522264939127421,
+        "unresolved_share_roi": 0.004044839893464728,
+        "observed_function_count": 114,
+        "not_observed_function_count": 678,
+        "not_observed_top20": [
+          {
+            "library": "libsclo.so",
+            "function": "std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_insert_unique_pos(int const&)",
+            "period": 2333994024,
+            "share_roi": 0.031066040074731044
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::release<_rtl_uString>(_rtl_uString*)",
+            "period": 1597440316,
+            "share_roi": 0.0212623273082755
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 1553336085,
+            "share_roi": 0.020675289040986776
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1284599382,
+            "share_roi": 0.017098336786995447
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 1033245298,
+            "share_roi": 0.013752751508628293
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 861639963,
+            "share_roi": 0.011468641883955301
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_uString_acquire",
+            "period": 802133388,
+            "share_roi": 0.01067659459306644
+          },
+          {
+            "library": "libc.so.6",
+            "function": "__mbsrtowcs_l",
+            "period": 780592409,
+            "share_roi": 0.010389878813170793
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 656380887,
+            "share_roi": 0.008736592609128938
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCode_New",
+            "period": 611993363,
+            "share_roi": 0.008145783641658296
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 601845376,
+            "share_roi": 0.0080107114145754
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&) const",
+            "period": 596014124,
+            "share_roi": 0.007933096002344228
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "conjunction_rule",
+            "period": 584054454,
+            "share_roi": 0.0077739098246247945
+          },
+          {
+            "library": "libscfiltlo.so",
+            "function": "XclExpRowBuffer::GetOrCreateRow(unsigned int, bool)",
+            "period": 579839322,
+            "share_roi": 0.007717805370934779
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add",
+            "period": 565473814,
+            "share_roi": 0.0075265968919785925
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "t_primary_raw",
+            "period": 526658889,
+            "share_roi": 0.007009960601076212
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 520755047,
+            "share_roi": 0.0069313789979183115
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyTuple_FromArray",
+            "period": 510629908,
+            "share_roi": 0.006796610883389402
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 497270130,
+            "share_roi": 0.006618788920492418
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 492194584,
+            "share_roi": 0.0065512321427904285
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 40112955227,
+        "not_observed_period": 34713233958,
+        "unresolved_period": 303889138,
+        "observed_share_roi": 0.5339133955716906,
+        "not_observed_share_roi": 0.46204176453484463,
+        "unresolved_share_roi": 0.004044839893464728,
+        "observed_function_count": 345,
+        "not_observed_function_count": 447,
+        "not_observed_top20": [
+          {
+            "library": "libsclo.so",
+            "function": "std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_insert_unique_pos(int const&)",
+            "period": 2333994024,
+            "share_roi": 0.031066040074731044
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 1553336085,
+            "share_roi": 0.020675289040986776
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1284599382,
+            "share_roi": 0.017098336786995447
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_Py_hashtable_get",
+            "period": 1092142257,
+            "share_roi": 0.01453668465916741
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 861639963,
+            "share_roi": 0.011468641883955301
+          },
+          {
+            "library": "libc.so.6",
+            "function": "__mbsrtowcs_l",
+            "period": 780592409,
+            "share_roi": 0.010389878813170793
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 656380887,
+            "share_roi": 0.008736592609128938
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 601845376,
+            "share_roi": 0.0080107114145754
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "conjunction_rule",
+            "period": 584054454,
+            "share_roi": 0.0077739098246247945
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add",
+            "period": 565473814,
+            "share_roi": 0.0075265968919785925
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "t_primary_raw",
+            "period": 526658889,
+            "share_roi": 0.007009960601076212
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 520755047,
+            "share_roi": 0.0069313789979183115
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyTuple_FromArray",
+            "period": 510629908,
+            "share_roi": 0.006796610883389402
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 497270130,
+            "share_roi": 0.006618788920492418
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 492194584,
+            "share_roi": 0.0065512321427904285
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 481772424,
+            "share_roi": 0.006412510604990442
+          },
+          {
+            "library": "ld-linux-aarch64.so.1",
+            "function": "_dl_map_object",
+            "period": 481227351,
+            "share_roi": 0.006405255547999065
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "ImplConvertUtf8ToUnicode(void const*, void*, char const*, unsigned long, char16_t*, unsigned long, unsigned int, unsigned int*, unsigned long*)",
+            "period": 431821168,
+            "share_roi": 0.005747646982923537
+          },
+          {
+            "library": "libsclo.so",
+            "function": "std::pair<std::_Rb_tree_iterator<int>, bool> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_unique<int const&>(int const&)",
+            "period": 358667558,
+            "share_roi": 0.004773954267131371
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_rule",
+            "period": 358358693,
+            "share_roi": 0.004769843197279
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 42260093003,
+        "not_observed_period": 32566096182,
+        "unresolved_period": 303889138,
+        "observed_share_roi": 0.5624923325823644,
+        "not_observed_share_roi": 0.4334628275241709,
+        "unresolved_share_roi": 0.004044839893464728,
+        "observed_function_count": 364,
+        "not_observed_function_count": 428,
+        "not_observed_top20": [
+          {
+            "library": "libsclo.so",
+            "function": "std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_insert_unique_pos(int const&)",
+            "period": 2333994024,
+            "share_roi": 0.031066040074731044
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 1553336085,
+            "share_roi": 0.020675289040986776
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1284599382,
+            "share_roi": 0.017098336786995447
+          },
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 861639963,
+            "share_roi": 0.011468641883955301
+          },
+          {
+            "library": "libc.so.6",
+            "function": "__mbsrtowcs_l",
+            "period": 780592409,
+            "share_roi": 0.010389878813170793
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 656380887,
+            "share_roi": 0.008736592609128938
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 601845376,
+            "share_roi": 0.0080107114145754
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "conjunction_rule",
+            "period": 584054454,
+            "share_roi": 0.0077739098246247945
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add",
+            "period": 565473814,
+            "share_roi": 0.0075265968919785925
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "t_primary_raw",
+            "period": 526658889,
+            "share_roi": 0.007009960601076212
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_get_normal_mode",
+            "period": 520755047,
+            "share_roi": 0.0069313789979183115
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyTuple_FromArray",
+            "period": 510629908,
+            "share_roi": 0.006796610883389402
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 497270130,
+            "share_roi": 0.006618788920492418
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "sum_rule",
+            "period": 492194584,
+            "share_roi": 0.0065512321427904285
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 481772424,
+            "share_roi": 0.006412510604990442
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "ImplConvertUtf8ToUnicode(void const*, void*, char const*, unsigned long, char16_t*, unsigned long, unsigned int, unsigned int*, unsigned long*)",
+            "period": 431821168,
+            "share_roi": 0.005747646982923537
+          },
+          {
+            "library": "libsclo.so",
+            "function": "std::pair<std::_Rb_tree_iterator<int>, bool> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_unique<int const&>(int const&)",
+            "period": 358667558,
+            "share_roi": 0.004773954267131371
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "primary_rule",
+            "period": 358358693,
+            "share_roi": 0.004769843197279
+          },
+          {
+            "library": "libsclo.so",
+            "function": "std::_Rb_tree<short, short, std::_Identity<short>, std::less<short>, std::allocator<short> >::erase(short const&) [clone .isra.0]",
+            "period": 344317142,
+            "share_roi": 0.004582946666443075
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::Pad::add(char const*, int)",
+            "period": 344296278,
+            "share_roi": 0.004582668961421788
+          }
+        ]
+      }
+    },
+    "001": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 35004349448,
+        "not_observed_period": 20359634756,
+        "unresolved_period": 1412488230,
+        "observed_share_roi": 0.6165291351746258,
+        "not_observed_share_roi": 0.35859280936601207,
+        "unresolved_share_roi": 0.02487805545936218,
+        "observed_function_count": 83,
+        "not_observed_function_count": 237,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 3030752044,
+            "share_roi": 0.05338042174992657
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 1278799538,
+            "share_roi": 0.022523405966909
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)",
+            "period": 854286631,
+            "share_roi": 0.015046490110724444
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 798015082,
+            "share_roi": 0.014055383291514902
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 438599142,
+            "share_roi": 0.00772501571861216
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 433364467,
+            "share_roi": 0.007632817757456946
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 417854267,
+            "share_roi": 0.007359637700030344
+          },
+          {
+            "library": "libc.so.6",
+            "function": "malloc_consolidate",
+            "period": 404964800,
+            "share_roi": 0.007132616427883093
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::release<_rtl_uString>(_rtl_uString*)",
+            "period": 399564345,
+            "share_roi": 0.007037498595293586
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 388907942,
+            "share_roi": 0.006849808121701949
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcConfigSubstituteWithPat",
+            "period": 326298231,
+            "share_roi": 0.0057470677027232795
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_M_erase(std::_Rb_tree_node<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >*) [clone .isra.0]",
+            "period": 293713098,
+            "share_roi": 0.005173148056026689
+          },
+          {
+            "library": "libcomphelper.so",
+            "function": "com::sun::star::lang::cppu_detail_getUnoType(com::sun::star::lang::XComponent const*) [clone .isra.0]",
+            "period": 286327881,
+            "share_roi": 0.005043072750474993
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 269746631,
+            "share_roi": 0.004751028365025106
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_uString_acquire",
+            "period": 249367450,
+            "share_roi": 0.0043920912890436795
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_get_last_nonnwhitespace_token.isra.0",
+            "period": 244959095,
+            "share_roi": 0.004314447243702108
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "stringlib__two_way.lto_priv.0",
+            "period": 237629262,
+            "share_roi": 0.004185347412631754
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 234574991,
+            "share_roi": 0.00413155275317047
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "PyList_New",
+            "period": 221737925,
+            "share_roi": 0.0039054544161361907
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 219082994,
+            "share_roi": 0.0038586933038975563
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 39749635481,
+        "not_observed_period": 15614348723,
+        "unresolved_period": 1412488230,
+        "observed_share_roi": 0.700107523009766,
+        "not_observed_share_roi": 0.2750144215308718,
+        "unresolved_share_roi": 0.02487805545936218,
+        "observed_function_count": 149,
+        "not_observed_function_count": 171,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 3030752044,
+            "share_roi": 0.05338042174992657
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)",
+            "period": 854286631,
+            "share_roi": 0.015046490110724444
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 798015082,
+            "share_roi": 0.014055383291514902
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 438599142,
+            "share_roi": 0.00772501571861216
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 433364467,
+            "share_roi": 0.007632817757456946
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 417854267,
+            "share_roi": 0.007359637700030344
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 388907942,
+            "share_roi": 0.006849808121701949
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcConfigSubstituteWithPat",
+            "period": 326298231,
+            "share_roi": 0.0057470677027232795
+          },
+          {
+            "library": "libcomphelper.so",
+            "function": "com::sun::star::lang::cppu_detail_getUnoType(com::sun::star::lang::XComponent const*) [clone .isra.0]",
+            "period": 286327881,
+            "share_roi": 0.005043072750474993
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 269746631,
+            "share_roi": 0.004751028365025106
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_get_last_nonnwhitespace_token.isra.0",
+            "period": 244959095,
+            "share_roi": 0.004314447243702108
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "stringlib__two_way.lto_priv.0",
+            "period": 237629262,
+            "share_roi": 0.004185347412631754
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 236822921,
+            "share_roi": 0.004171145385534397
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 234574991,
+            "share_roi": 0.00413155275317047
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 219082994,
+            "share_roi": 0.0038586933038975563
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree_node<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >* std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_M_copy<false, std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_Alloc_node>(std::_Rb_tree_node<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >*, std::_Rb_tree_node_base*, std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_Alloc_node&) [clone .isra.0]",
+            "period": 187155084,
+            "share_roi": 0.003296349279493527
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 180144492,
+            "share_roi": 0.0031728722176146036
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_OptimizeCodeUnit.isra.0",
+            "period": 179593865,
+            "share_roi": 0.0031631740631433117
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+            "period": 177146152,
+            "share_roi": 0.0031200626669070385
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_number_token",
+            "period": 169438377,
+            "share_roi": 0.002984306170077125
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 40845325993,
+        "not_observed_period": 14518658211,
+        "unresolved_period": 1412488230,
+        "observed_share_roi": 0.7194058426310438,
+        "not_observed_share_roi": 0.25571610190959404,
+        "unresolved_share_roi": 0.02487805545936218,
+        "observed_function_count": 162,
+        "not_observed_function_count": 158,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 3030752044,
+            "share_roi": 0.05338042174992657
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)",
+            "period": 854286631,
+            "share_roi": 0.015046490110724444
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 798015082,
+            "share_roi": 0.014055383291514902
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 438599142,
+            "share_roi": 0.00772501571861216
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 433364467,
+            "share_roi": 0.007632817757456946
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 417854267,
+            "share_roi": 0.007359637700030344
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 388907942,
+            "share_roi": 0.006849808121701949
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcConfigSubstituteWithPat",
+            "period": 326298231,
+            "share_roi": 0.0057470677027232795
+          },
+          {
+            "library": "libcomphelper.so",
+            "function": "com::sun::star::lang::cppu_detail_getUnoType(com::sun::star::lang::XComponent const*) [clone .isra.0]",
+            "period": 286327881,
+            "share_roi": 0.005043072750474993
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_raw",
+            "period": 269746631,
+            "share_roi": 0.004751028365025106
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_get_last_nonnwhitespace_token.isra.0",
+            "period": 244959095,
+            "share_roi": 0.004314447243702108
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "stringlib__two_way.lto_priv.0",
+            "period": 237629262,
+            "share_roi": 0.004185347412631754
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 234574991,
+            "share_roi": 0.00413155275317047
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "tok_nextc",
+            "period": 219082994,
+            "share_roi": 0.0038586933038975563
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree_node<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >* std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_M_copy<false, std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_Alloc_node>(std::_Rb_tree_node<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >*, std::_Rb_tree_node_base*, std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::_Alloc_node&) [clone .isra.0]",
+            "period": 187155084,
+            "share_roi": 0.003296349279493527
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "term_rule",
+            "period": 180144492,
+            "share_roi": 0.0031728722176146036
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_number_token",
+            "period": 169438377,
+            "share_roi": 0.002984306170077125
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add",
+            "period": 159487006,
+            "share_roi": 0.002809033375319261
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "symtable_visit_stmt",
+            "period": 151256218,
+            "share_roi": 0.002664065087450234
+          },
+          {
+            "library": "libcairo.so.2.11800.0",
+            "function": "_cairo_path_fixed_line_to",
+            "period": 141518510,
+            "share_roi": 0.0024925555240246505
+          }
+        ]
+      }
+    },
+    "003": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 30669300128,
+        "not_observed_period": 21052175771,
+        "unresolved_period": 1532136337,
+        "observed_share_roi": 0.5759102310672407,
+        "not_observed_share_roi": 0.3953192072249422,
+        "unresolved_share_roi": 0.028770561707817065,
+        "observed_function_count": 78,
+        "not_observed_function_count": 210,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4820020182,
+            "share_roi": 0.09051067110038435
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyUnicode_ToLowerFull",
+            "period": 1181208257,
+            "share_roi": 0.022180810040928846
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "do_upper_or_lower",
+            "period": 940464371,
+            "share_roi": 0.017660104761198458
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_uString_assign",
+            "period": 807598429,
+            "share_roi": 0.015165138947214081
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&) const",
+            "period": 641107208,
+            "share_roi": 0.012038755327222758
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "make_gen",
+            "period": 622131459,
+            "share_roi": 0.011682427404979536
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "PyObject_CallOneArg",
+            "period": 621412185,
+            "share_roi": 0.011668920828246067
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 601175921,
+            "share_roi": 0.011288922868477245
+          },
+          {
+            "library": "libuno_cppuhelpergcc3.so.3",
+            "function": "(anonymous namespace)::InterfaceTypeDescription::~InterfaceTypeDescription()",
+            "period": 525105853,
+            "share_roi": 0.009860473889976292
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 490281519,
+            "share_roi": 0.009206540146558632
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 429757719,
+            "share_roi": 0.008070020059775012
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::release<_rtl_uString>(_rtl_uString*)",
+            "period": 418666315,
+            "share_roi": 0.007861744911211435
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_expect_token",
+            "period": 392806016,
+            "share_roi": 0.0073761384346893
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 390545667,
+            "share_roi": 0.007333693445418282
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 362782754,
+            "share_roi": 0.006812359552104807
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::scanName(char const**)",
+            "period": 362034946,
+            "share_roi": 0.006798317161953205
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 330391260,
+            "share_roi": 0.006204109845841632
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::handleAttributeValue(char const*, char const*, bool)",
+            "period": 262643223,
+            "share_roi": 0.004931932538887013
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "ucs2lib__two_way",
+            "period": 233103999,
+            "share_roi": 0.004377242955219088
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::Pad::add(char const*, int)",
+            "period": 221704524,
+            "share_roi": 0.004163182828189923
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 35875694719,
+        "not_observed_period": 15845781180,
+        "unresolved_period": 1532136337,
+        "observed_share_roi": 0.6736762674428994,
+        "not_observed_share_roi": 0.29755317084928345,
+        "unresolved_share_roi": 0.028770561707817065,
+        "observed_function_count": 136,
+        "not_observed_function_count": 152,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4820020182,
+            "share_roi": 0.09051067110038435
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyUnicode_ToLowerFull",
+            "period": 1181208257,
+            "share_roi": 0.022180810040928846
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "do_upper_or_lower",
+            "period": 940464371,
+            "share_roi": 0.017660104761198458
+          },
+          {
+            "library": "libuno_cppuhelpergcc3.so.3",
+            "function": "(anonymous namespace)::InterfaceTypeDescription::~InterfaceTypeDescription()",
+            "period": 525105853,
+            "share_roi": 0.009860473889976292
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 493548222,
+            "share_roi": 0.009267882520584326
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 490281519,
+            "share_roi": 0.009206540146558632
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 429757719,
+            "share_roi": 0.008070020059775012
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_expect_token",
+            "period": 392806016,
+            "share_roi": 0.0073761384346893
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 390545667,
+            "share_roi": 0.007333693445418282
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 362782754,
+            "share_roi": 0.006812359552104807
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::scanName(char const**)",
+            "period": 362034946,
+            "share_roi": 0.006798317161953205
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 330391260,
+            "share_roi": 0.006204109845841632
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "ucs2lib__two_way",
+            "period": 233103999,
+            "share_roi": 0.004377242955219088
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::Pad::add(char const*, int)",
+            "period": 221704524,
+            "share_roi": 0.004163182828189923
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcCompare",
+            "period": 215741482,
+            "share_roi": 0.004051208414631384
+          },
+          {
+            "library": "libsaxlo.so",
+            "function": "normal_nameLength",
+            "period": 195565827,
+            "share_roi": 0.0036723485748408153
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::ChildAccess::ChildAccess(configmgr::Components&, rtl::Reference<configmgr::RootAccess> const&, rtl::Reference<configmgr::Access> const&, rtl::OUString, rtl::Reference<configmgr::Node> const&)",
+            "period": 185837322,
+            "share_roi": 0.0034896660376095958
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::(anonymous namespace)::parseValue(rtl::OString const&, xmlreader::Span const&, configmgr::Type)",
+            "period": 163515296,
+            "share_roi": 0.0030705014952856465
+          },
+          {
+            "library": "libxml2.so.16",
+            "function": "xmlXPathNextChildElement",
+            "period": 144957024,
+            "share_roi": 0.0027220129849146184
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::XcuParser::handlePlainGroupProp(xmlreader::XmlReader const&, configmgr::GroupNode*, std::_Rb_tree_iterator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > const&, std::basic_string_view<char16_t, std::char_traits<char16_t> >, configmgr::Type, configmgr::XcuParser::Operation, bool)",
+            "period": 142879398,
+            "share_roi": 0.0026829991807281015
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 36560345532,
+        "not_observed_period": 15161130367,
+        "unresolved_period": 1532136337,
+        "observed_share_roi": 0.6865326875851779,
+        "not_observed_share_roi": 0.28469675070700495,
+        "unresolved_share_roi": 0.028770561707817065,
+        "observed_function_count": 146,
+        "not_observed_function_count": 142,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 4820020182,
+            "share_roi": 0.09051067110038435
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyUnicode_ToLowerFull",
+            "period": 1181208257,
+            "share_roi": 0.022180810040928846
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "do_upper_or_lower",
+            "period": 940464371,
+            "share_roi": 0.017660104761198458
+          },
+          {
+            "library": "libuno_cppuhelpergcc3.so.3",
+            "function": "(anonymous namespace)::InterfaceTypeDescription::~InterfaceTypeDescription()",
+            "period": 525105853,
+            "share_roi": 0.009860473889976292
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 490281519,
+            "share_roi": 0.009206540146558632
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 429757719,
+            "share_roi": 0.008070020059775012
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_expect_token",
+            "period": 392806016,
+            "share_roi": 0.0073761384346893
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 390545667,
+            "share_roi": 0.007333693445418282
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 362782754,
+            "share_roi": 0.006812359552104807
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::scanName(char const**)",
+            "period": 362034946,
+            "share_roi": 0.006798317161953205
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 330391260,
+            "share_roi": 0.006204109845841632
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "ucs2lib__two_way",
+            "period": 233103999,
+            "share_roi": 0.004377242955219088
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::Pad::add(char const*, int)",
+            "period": 221704524,
+            "share_roi": 0.004163182828189923
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcCompare",
+            "period": 215741482,
+            "share_roi": 0.004051208414631384
+          },
+          {
+            "library": "libsaxlo.so",
+            "function": "normal_nameLength",
+            "period": 195565827,
+            "share_roi": 0.0036723485748408153
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::ChildAccess::ChildAccess(configmgr::Components&, rtl::Reference<configmgr::RootAccess> const&, rtl::Reference<configmgr::Access> const&, rtl::OUString, rtl::Reference<configmgr::Node> const&)",
+            "period": 185837322,
+            "share_roi": 0.0034896660376095958
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::(anonymous namespace)::parseValue(rtl::OString const&, xmlreader::Span const&, configmgr::Type)",
+            "period": 163515296,
+            "share_roi": 0.0030705014952856465
+          },
+          {
+            "library": "libxml2.so.16",
+            "function": "xmlXPathNextChildElement",
+            "period": 144957024,
+            "share_roi": 0.0027220129849146184
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::XcuParser::handlePlainGroupProp(xmlreader::XmlReader const&, configmgr::GroupNode*, std::_Rb_tree_iterator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > const&, std::basic_string_view<char16_t, std::char_traits<char16_t> >, configmgr::Type, configmgr::XcuParser::Operation, bool)",
+            "period": 142879398,
+            "share_roi": 0.0026829991807281015
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::ValueParser::endElement()",
+            "period": 117570275,
+            "share_roi": 0.0022077427251126686
+          }
+        ]
+      }
+    },
+    "009": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 39981575365,
+        "not_observed_period": 27846561388,
+        "unresolved_period": 1767157065,
+        "observed_share_roi": 0.5744867673029241,
+        "not_observed_share_roi": 0.4001213280429864,
+        "unresolved_share_roi": 0.025391904654089494,
+        "observed_function_count": 83,
+        "not_observed_function_count": 271,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 13221124244,
+            "share_roi": 0.1899715270773167
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 1322430217,
+            "share_roi": 0.01900171900212553
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1064971704,
+            "share_roi": 0.015302352293892575
+          },
+          {
+            "library": "libc.so.6",
+            "function": "malloc_consolidate",
+            "period": 735154041,
+            "share_roi": 0.010563272323018213
+          },
+          {
+            "library": "libunoidllo.so",
+            "function": "unoidl::detail::UnoidlProvider::findEntity(rtl::OUString const&) const",
+            "period": 434952618,
+            "share_roi": 0.006249741816414383
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free_create_chunk",
+            "period": 429892621,
+            "share_roi": 0.006177035793888887
+          },
+          {
+            "library": "etree.cpython-312-aarch64-linux-gnu.so",
+            "function": "xmlStrEqual",
+            "period": 424283850,
+            "share_roi": 0.006096444554276226
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 371459659,
+            "share_roi": 0.005337424969731593
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 322445962,
+            "share_roi": 0.00463315756440708
+          },
+          {
+            "library": "libuno_cppuhelpergcc3.so.3",
+            "function": "cppu::OWeakObject::release()",
+            "period": 316686101,
+            "share_roi": 0.004550395344664712
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::ValueParser::endElement()",
+            "period": 271490796,
+            "share_roi": 0.003900993603245369
+          },
+          {
+            "library": "libc.so.6",
+            "function": "__libc_calloc",
+            "period": 188893796,
+            "share_roi": 0.002714174847712833
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::GroupNode::GroupNode(configmgr::GroupNode const&, bool)",
+            "period": 154408110,
+            "share_roi": 0.0022186573477769294
+          },
+          {
+            "library": "libxml2.so.16",
+            "function": "xmlSkipBlankChars",
+            "period": 149970859,
+            "share_roi": 0.002154899430300441
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 149001943,
+            "share_roi": 0.0021409772820222277
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::release<_rtl_uString>(_rtl_uString*)",
+            "period": 144269554,
+            "share_roi": 0.002072978589289128
+          },
+          {
+            "library": "libxml2.so.16",
+            "function": "xmlParseNCName",
+            "period": 136589783,
+            "share_roi": 0.001962629590403032
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_string_assign",
+            "period": 135824275,
+            "share_roi": 0.001951630168488069
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::XcdParser::endElement(xmlreader::XmlReader const&)",
+            "period": 129391378,
+            "share_roi": 0.0018591972373645537
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::newConcat<(rtl::str::ThrowPolicy)0, _rtl_uString, char16_t, char16_t>(_rtl_uString**, char16_t const*, int, char16_t const*, int)",
+            "period": 127908425,
+            "share_roi": 0.0018378890005766165
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 43930071800,
+        "not_observed_period": 23898064953,
+        "unresolved_period": 1767157065,
+        "observed_share_roi": 0.6312218742100921,
+        "not_observed_share_roi": 0.34338622113581835,
+        "unresolved_share_roi": 0.025391904654089494,
+        "observed_function_count": 138,
+        "not_observed_function_count": 216,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 13221124244,
+            "share_roi": 0.1899715270773167
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1064971704,
+            "share_roi": 0.015302352293892575
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::compositeBackground(unsigned char const*)",
+            "period": 465135664,
+            "share_roi": 0.006683435595751421
+          },
+          {
+            "library": "libunoidllo.so",
+            "function": "unoidl::detail::UnoidlProvider::findEntity(rtl::OUString const&) const",
+            "period": 434952618,
+            "share_roi": 0.006249741816414383
+          },
+          {
+            "library": "etree.cpython-312-aarch64-linux-gnu.so",
+            "function": "xmlStrEqual",
+            "period": 424283850,
+            "share_roi": 0.006096444554276226
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 371459659,
+            "share_roi": 0.005337424969731593
+          },
+          {
+            "library": "libz.so.1.2.13",
+            "function": "adler32_z",
+            "period": 361891570,
+            "share_roi": 0.005199943130441976
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 322445962,
+            "share_roi": 0.00463315756440708
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::ValueParser::endElement()",
+            "period": 271490796,
+            "share_roi": 0.003900993603245369
+          },
+          {
+            "library": "ld-linux-aarch64.so.1",
+            "function": "_dl_map_object",
+            "period": 216642111,
+            "share_roi": 0.003112884494266882
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::GroupNode::GroupNode(configmgr::GroupNode const&, bool)",
+            "period": 154408110,
+            "share_roi": 0.0022186573477769294
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 149001943,
+            "share_roi": 0.0021409772820222277
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_string_assign",
+            "period": 135824275,
+            "share_roi": 0.001951630168488069
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::XcdParser::endElement(xmlreader::XmlReader const&)",
+            "period": 129391378,
+            "share_roi": 0.0018591972373645537
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::newConcat<(rtl::str::ThrowPolicy)0, _rtl_uString, char16_t, char16_t>(_rtl_uString**, char16_t const*, int, char16_t const*, int)",
+            "period": 127908425,
+            "share_roi": 0.0018378890005766165
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 122859427,
+            "share_roi": 0.0017653410203467502
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_Py_hashtable_get",
+            "period": 122849766,
+            "share_roi": 0.001765202203489029
+          },
+          {
+            "library": "libucb1.so",
+            "function": "(anonymous namespace)::matchStringIgnoreCase(char16_t const**, char16_t const*, rtl::OUString const&) [clone .isra.0]",
+            "period": 118677377,
+            "share_roi": 0.001705250031853526
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::XcdParser::characters(xmlreader::Span const&)",
+            "period": 117441683,
+            "share_roi": 0.0016874946071371438
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "SHA256_Update_Native",
+            "period": 112980290,
+            "share_roi": 0.001623389798388623
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 45242799871,
+        "not_observed_period": 22585336882,
+        "unresolved_period": 1767157065,
+        "observed_share_roi": 0.6500841851363588,
+        "not_observed_share_roi": 0.3245239102095517,
+        "unresolved_share_roi": 0.025391904654089494,
+        "observed_function_count": 153,
+        "not_observed_function_count": 201,
+        "not_observed_top20": [
+          {
+            "library": "libpng16.so.16.40.0",
+            "function": "png_write_find_filter",
+            "period": 13221124244,
+            "share_roi": 0.1899715270773167
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1064971704,
+            "share_roi": 0.015302352293892575
+          },
+          {
+            "library": "libunoidllo.so",
+            "function": "unoidl::detail::UnoidlProvider::findEntity(rtl::OUString const&) const",
+            "period": 434952618,
+            "share_roi": 0.006249741816414383
+          },
+          {
+            "library": "etree.cpython-312-aarch64-linux-gnu.so",
+            "function": "xmlStrEqual",
+            "period": 424283850,
+            "share_roi": 0.006096444554276226
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 371459659,
+            "share_roi": 0.005337424969731593
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 322445962,
+            "share_roi": 0.00463315756440708
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::ValueParser::endElement()",
+            "period": 271490796,
+            "share_roi": 0.003900993603245369
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::GroupNode::GroupNode(configmgr::GroupNode const&, bool)",
+            "period": 154408110,
+            "share_roi": 0.0022186573477769294
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 149001943,
+            "share_roi": 0.0021409772820222277
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_string_assign",
+            "period": 135824275,
+            "share_roi": 0.001951630168488069
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::XcdParser::endElement(xmlreader::XmlReader const&)",
+            "period": 129391378,
+            "share_roi": 0.0018591972373645537
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::newConcat<(rtl::str::ThrowPolicy)0, _rtl_uString, char16_t, char16_t>(_rtl_uString**, char16_t const*, int, char16_t const*, int)",
+            "period": 127908425,
+            "share_roi": 0.0018378890005766165
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strings_rule",
+            "period": 122859427,
+            "share_roi": 0.0017653410203467502
+          },
+          {
+            "library": "libucb1.so",
+            "function": "(anonymous namespace)::matchStringIgnoreCase(char16_t const**, char16_t const*, rtl::OUString const&) [clone .isra.0]",
+            "period": 118677377,
+            "share_roi": 0.001705250031853526
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::XcdParser::characters(xmlreader::Span const&)",
+            "period": 117441683,
+            "share_roi": 0.0016874946071371438
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "SHA256_Update_Native",
+            "period": 112980290,
+            "share_roi": 0.001623389798388623
+          },
+          {
+            "library": "p11-kit-trust.so",
+            "function": "p11_b64_pton",
+            "period": 111358975,
+            "share_roi": 0.0016000934674004971
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_set_expr_context",
+            "period": 106309613,
+            "share_roi": 0.0015275402569319173
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_uStringbuffer_insertUtf32",
+            "period": 100861000,
+            "share_roi": 0.0014492502936155934
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "typelib_static_type_getByTypeClass",
+            "period": 97666639,
+            "share_roi": 0.0014033511986515917
+          }
+        ]
+      }
+    },
+    "021": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 42758646847,
+        "not_observed_period": 70614938794,
+        "unresolved_period": 2401668723,
+        "observed_share_roi": 0.36932457701682825,
+        "not_observed_share_roi": 0.6099311910987908,
+        "unresolved_share_roi": 0.02074423188438092,
+        "observed_function_count": 124,
+        "not_observed_function_count": 705,
+        "not_observed_top20": [
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 8054283077,
+            "share_roi": 0.0695682606896043
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+            "period": 4498309322,
+            "share_roi": 0.03885380642617475
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 3110449977,
+            "share_roi": 0.02686627633933479
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN24BitTcBgr(unsigned char*, long, BitmapColor const&)",
+            "period": 1862579409,
+            "share_roi": 0.016087888722265367
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+            "period": 1765066367,
+            "share_roi": 0.015245627199838333
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+            "period": 1728129377,
+            "share_roi": 0.01492658674337024
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1638241511,
+            "share_roi": 0.014150187101721511
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 1584486401,
+            "share_roi": 0.013685881406214313
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "decode_mcu_AC_refine",
+            "period": 1295515376,
+            "share_roi": 0.011189916041357773
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "rgb_ycc_convert",
+            "period": 1123735968,
+            "share_roi": 0.009706184401607523
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 1038249623,
+            "share_roi": 0.008967802564576709
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 917339544,
+            "share_roi": 0.00792345090528468
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 854346690,
+            "share_roi": 0.0073793548949062536
+          },
+          {
+            "library": "libc.so.6",
+            "function": "malloc_consolidate",
+            "period": 841683327,
+            "share_roi": 0.007269976055105254
+          },
+          {
+            "library": "libsvllo.so",
+            "function": "std::_Hashtable<unsigned short, std::pair<unsigned short const, SfxPoolItem const*>, std::allocator<std::pair<unsigned short const, SfxPoolItem const*> >, std::__detail::_Select1st, std::equal_to<unsigned short>, std::hash<unsigned short>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::find(unsigned short const&) const",
+            "period": 773541450,
+            "share_roi": 0.006681405748139998
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN8BitPal(unsigned char*, long, BitmapColor const&)",
+            "period": 766537579,
+            "share_roi": 0.006620910342291183
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 715931635,
+            "share_roi": 0.006183805329842721
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::GetPixelForN24BitTcBgr(unsigned char const*, long)",
+            "period": 705347787,
+            "share_roi": 0.006092388143517877
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::readSome()",
+            "period": 704684069,
+            "share_roi": 0.006086655329509858
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 687209337,
+            "share_roi": 0.005935718654000089
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 27982652715,
+        "not_observed_period": 85390932926,
+        "unresolved_period": 2401668723,
+        "observed_share_roi": 0.24169804565509234,
+        "not_observed_share_roi": 0.7375577224605268,
+        "unresolved_share_roi": 0.02074423188438092,
+        "observed_function_count": 297,
+        "not_observed_function_count": 532,
+        "not_observed_top20": [
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRun(SplashPipe*)",
+            "period": 11508286317,
+            "share_roi": 0.09940195234482223
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 8054283077,
+            "share_roi": 0.0695682606896043
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+            "period": 7088472977,
+            "share_roi": 0.061226149024157454
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+            "period": 4498309322,
+            "share_roi": 0.03885380642617475
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 3110449977,
+            "share_roi": 0.02686627633933479
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::drawAALine(SplashPipe*, int, int, int, bool, unsigned char)",
+            "period": 2331407457,
+            "share_roi": 0.02013735551528138
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN24BitTcBgr(unsigned char*, long, BitmapColor const&)",
+            "period": 1862579409,
+            "share_roi": 0.016087888722265367
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+            "period": 1765066367,
+            "share_roi": 0.015245627199838333
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+            "period": 1728129377,
+            "share_roi": 0.01492658674337024
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::getChars(int, unsigned char*)",
+            "period": 1723889544,
+            "share_roi": 0.014889965506618993
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1638241511,
+            "share_roi": 0.014150187101721511
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 1584486401,
+            "share_roi": 0.013685881406214313
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "decode_mcu_AC_refine",
+            "period": 1295515376,
+            "share_roi": 0.011189916041357773
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "rgb_ycc_convert",
+            "period": 1123735968,
+            "share_roi": 0.009706184401607523
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 1038249623,
+            "share_roi": 0.008967802564576709
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 917339544,
+            "share_roi": 0.00792345090528468
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 854346690,
+            "share_roi": 0.0073793548949062536
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN8BitPal(unsigned char*, long, BitmapColor const&)",
+            "period": 766537579,
+            "share_roi": 0.006620910342291183
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::GetPixelForN24BitTcBgr(unsigned char const*, long)",
+            "period": 705347787,
+            "share_roi": 0.006092388143517877
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::readSome()",
+            "period": 704684069,
+            "share_roi": 0.006086655329509858
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 53935080006,
+        "not_observed_period": 59438505635,
+        "unresolved_period": 2401668723,
+        "observed_share_roi": 0.46586017281747355,
+        "not_observed_share_roi": 0.5133955952981455,
+        "unresolved_share_roi": 0.02074423188438092,
+        "observed_function_count": 332,
+        "not_observed_function_count": 497,
+        "not_observed_top20": [
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "VerticalFilter._omp_fn.0",
+            "period": 8054283077,
+            "share_roi": 0.0695682606896043
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+            "period": 4498309322,
+            "share_roi": 0.03885380642617475
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "HorizontalFilter._omp_fn.0",
+            "period": 3110449977,
+            "share_roi": 0.02686627633933479
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN24BitTcBgr(unsigned char*, long, BitmapColor const&)",
+            "period": 1862579409,
+            "share_roi": 0.016087888722265367
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+            "period": 1765066367,
+            "share_roi": 0.015245627199838333
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+            "period": 1728129377,
+            "share_roi": 0.01492658674337024
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 1638241511,
+            "share_roi": 0.014150187101721511
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 1584486401,
+            "share_roi": 0.013685881406214313
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "decode_mcu_AC_refine",
+            "period": 1295515376,
+            "share_roi": 0.011189916041357773
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "rgb_ycc_convert",
+            "period": 1123735968,
+            "share_roi": 0.009706184401607523
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 1038249623,
+            "share_roi": 0.008967802564576709
+          },
+          {
+            "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+            "function": "CompositeOverImage._omp_fn.0",
+            "period": 917339544,
+            "share_roi": 0.00792345090528468
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 854346690,
+            "share_roi": 0.0073793548949062536
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN8BitPal(unsigned char*, long, BitmapColor const&)",
+            "period": 766537579,
+            "share_roi": 0.006620910342291183
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::GetPixelForN24BitTcBgr(unsigned char const*, long)",
+            "period": 705347787,
+            "share_roi": 0.006092388143517877
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::readSome()",
+            "period": 704684069,
+            "share_roi": 0.006086655329509858
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 687209337,
+            "share_roi": 0.005935718654000089
+          },
+          {
+            "library": "libsvllo.so",
+            "function": "SfxItemPool::registerPoolItemHolder(SfxPoolItemHolder&)",
+            "period": 685469772,
+            "share_roi": 0.0059206932929282766
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "typelib_static_type_getByTypeClass",
+            "period": 672788809,
+            "share_roi": 0.005811162434458895
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 647386047,
+            "share_roi": 0.005591747999659787
+          }
+        ]
+      }
+    },
+    "026": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 34248357052,
+        "not_observed_period": 33840869975,
+        "unresolved_period": 2120158553,
+        "observed_share_roi": 0.487803115909279,
+        "not_observed_share_roi": 0.48199923265871714,
+        "unresolved_share_roi": 0.030197651432003886,
+        "observed_function_count": 106,
+        "not_observed_function_count": 585,
+        "not_observed_top20": [
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 1026985354,
+            "share_roi": 0.014627465338374208
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 940457347,
+            "share_roi": 0.013395037418870402
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+            "period": 905703410,
+            "share_roi": 0.012900033272161274
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 860266806,
+            "share_roi": 0.012252874724559012
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashClip::testClipPaths(int, int)",
+            "period": 839534814,
+            "share_roi": 0.01195758668252969
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 710605042,
+            "share_roi": 0.010121225761053013
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_singleton_seq.isra.0",
+            "period": 623546364,
+            "share_roi": 0.008881239436136367
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 615142019,
+            "share_roi": 0.008761535426044673
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "jsimd_huff_encode_one_block_neon",
+            "period": 557913808,
+            "share_roi": 0.007946427723175071
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 544492462,
+            "share_roi": 0.0077552660161023445
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashBitmap::getPixel(int, int, unsigned char*)",
+            "period": 527967918,
+            "share_roi": 0.007519905118645535
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::scanName(char const**)",
+            "period": 520032981,
+            "share_roi": 0.007406886938320362
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+            "period": 519797588,
+            "share_roi": 0.007403534209934329
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 486410656,
+            "share_roi": 0.006928000465774764
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 486254353,
+            "share_roi": 0.006925774224956549
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strncmp@plt",
+            "period": 461884724,
+            "share_roi": 0.006578674919091921
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_uString_assign",
+            "period": 355045789,
+            "share_roi": 0.005056956218416746
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "jsimd_rgb_ycc_convert_neon.localalias",
+            "period": 353083329,
+            "share_roi": 0.00502900468481781
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN24BitTcBgr(unsigned char*, long, BitmapColor const&)",
+            "period": 345241728,
+            "share_roi": 0.004917315899405141
+          },
+          {
+            "library": "libsvllo.so",
+            "function": "std::_Hashtable<unsigned short, std::pair<unsigned short const, SfxPoolItem const*>, std::allocator<std::pair<unsigned short const, SfxPoolItem const*> >, std::__detail::_Select1st, std::equal_to<unsigned short>, std::hash<unsigned short>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::find(unsigned short const&) const",
+            "period": 323633962,
+            "share_roi": 0.004609554111981733
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 18751954655,
+        "not_observed_period": 49337272372,
+        "unresolved_period": 2120158553,
+        "observed_share_roi": 0.2670861523725073,
+        "not_observed_share_roi": 0.7027161961954888,
+        "unresolved_share_roi": 0.030197651432003886,
+        "observed_function_count": 273,
+        "not_observed_function_count": 418,
+        "not_observed_top20": [
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+            "period": 8990565727,
+            "share_roi": 0.12805361637520257
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRun(SplashPipe*)",
+            "period": 8244660715,
+            "share_roi": 0.11742960925937218
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::drawAALine(SplashPipe*, int, int, int, bool, unsigned char)",
+            "period": 1767186802,
+            "share_roi": 0.02517023596491072
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_OptimizeCodeUnit.isra.0",
+            "period": 1289205981,
+            "share_roi": 0.01836230256610088
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::getChars(int, unsigned char*)",
+            "period": 1206329166,
+            "share_roi": 0.01718187897578807
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 1026985354,
+            "share_roi": 0.014627465338374208
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 940457347,
+            "share_roi": 0.013395037418870402
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+            "period": 905703410,
+            "share_roi": 0.012900033272161274
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashClip::testClipPaths(int, int)",
+            "period": 839534814,
+            "share_roi": 0.01195758668252969
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 710605042,
+            "share_roi": 0.010121225761053013
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_singleton_seq.isra.0",
+            "period": 623546364,
+            "share_roi": 0.008881239436136367
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 615142019,
+            "share_roi": 0.008761535426044673
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "jsimd_huff_encode_one_block_neon",
+            "period": 557913808,
+            "share_roi": 0.007946427723175071
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 544492462,
+            "share_roi": 0.0077552660161023445
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashBitmap::getPixel(int, int, unsigned char*)",
+            "period": 527967918,
+            "share_roi": 0.007519905118645535
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::scanName(char const**)",
+            "period": 520032981,
+            "share_roi": 0.007406886938320362
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+            "period": 519797588,
+            "share_roi": 0.007403534209934329
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 486410656,
+            "share_roi": 0.006928000465774764
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 486254353,
+            "share_roi": 0.006925774224956549
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strncmp@plt",
+            "period": 461884724,
+            "share_roi": 0.006578674919091921
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 41697987754,
+        "not_observed_period": 26391239273,
+        "unresolved_period": 2120158553,
+        "observed_share_roi": 0.5939090252611209,
+        "not_observed_share_roi": 0.3758933233068752,
+        "unresolved_share_roi": 0.030197651432003886,
+        "observed_function_count": 295,
+        "not_observed_function_count": 396,
+        "not_observed_top20": [
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 1026985354,
+            "share_roi": 0.014627465338374208
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 940457347,
+            "share_roi": 0.013395037418870402
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+            "period": 905703410,
+            "share_roi": 0.012900033272161274
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashClip::testClipPaths(int, int)",
+            "period": 839534814,
+            "share_roi": 0.01195758668252969
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 710605042,
+            "share_roi": 0.010121225761053013
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_singleton_seq.isra.0",
+            "period": 623546364,
+            "share_roi": 0.008881239436136367
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 615142019,
+            "share_roi": 0.008761535426044673
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "jsimd_huff_encode_one_block_neon",
+            "period": 557913808,
+            "share_roi": 0.007946427723175071
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 544492462,
+            "share_roi": 0.0077552660161023445
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "SplashBitmap::getPixel(int, int, unsigned char*)",
+            "period": 527967918,
+            "share_roi": 0.007519905118645535
+          },
+          {
+            "library": "libxmlreaderlo.so",
+            "function": "xmlreader::XmlReader::scanName(char const**)",
+            "period": 520032981,
+            "share_roi": 0.007406886938320362
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+            "period": 519797588,
+            "share_roi": 0.007403534209934329
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 486410656,
+            "share_roi": 0.006928000465774764
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 486254353,
+            "share_roi": 0.006925774224956549
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "strncmp@plt",
+            "period": 461884724,
+            "share_roi": 0.006578674919091921
+          },
+          {
+            "library": "libjpeg.so.62.4.0",
+            "function": "jsimd_rgb_ycc_convert_neon.localalias",
+            "period": 353083329,
+            "share_roi": 0.00502900468481781
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "BitmapReadAccess::SetPixelForN24BitTcBgr(unsigned char*, long, BitmapColor const&)",
+            "period": 345241728,
+            "share_roi": 0.004917315899405141
+          },
+          {
+            "library": "libuno_cppu.so.3",
+            "function": "cppu::_copyConstructAnyFromData(_uno_Any*, void*, _typelib_TypeDescriptionReference*, _typelib_TypeDescription*, void (*)(void*), _uno_Mapping*)",
+            "period": 298304380,
+            "share_roi": 0.004248782089968548
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 294372110,
+            "share_roi": 0.00419277433591237
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_xor_rule",
+            "period": 282681721,
+            "share_roi": 0.0040262668397503445
+          }
+        ]
+      }
+    },
+    "029": {
+      "OPM": {
+        "reference_function_count": 277,
+        "observed_period": 14856789509,
+        "not_observed_period": 24026685300,
+        "unresolved_period": 642425826,
+        "observed_share_roi": 0.37587478767895255,
+        "not_observed_share_roi": 0.6078719248391897,
+        "unresolved_share_roi": 0.01625328748185778,
+        "observed_function_count": 96,
+        "not_observed_function_count": 470,
+        "not_observed_top20": [
+          {
+            "library": "libooxlo.so",
+            "function": "oox::drawingml::table::applyTableStylePart(oox::core::XmlFilterBase const&, oox::drawingml::FillProperties&, oox::drawingml::TextCharacterProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::table::TableStylePart&, bool, int, int, int, int)",
+            "period": 788694859,
+            "share_roi": 0.019953874455212652
+          },
+          {
+            "library": "libooxlo.so",
+            "function": "oox::PropertyMap::fillSequences(com::sun::star::uno::Sequence<rtl::OUString>&, com::sun::star::uno::Sequence<com::sun::star::uno::Any>&) const",
+            "period": 731549829,
+            "share_roi": 0.018508112838603253
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 659671424,
+            "share_roi": 0.01668959880488755
+          },
+          {
+            "library": "libsvllo.so",
+            "function": "std::_Hashtable<unsigned short, std::pair<unsigned short const, SfxPoolItem const*>, std::allocator<std::pair<unsigned short const, SfxPoolItem const*> >, std::__detail::_Select1st, std::equal_to<unsigned short>, std::hash<unsigned short>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::find(unsigned short const&) const",
+            "period": 607989843,
+            "share_roi": 0.015382061717314236
+          },
+          {
+            "library": "libstdc++.so.6.0.30",
+            "function": "std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const",
+            "period": 579807158,
+            "share_roi": 0.014669043555874941
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::release<_rtl_uString>(_rtl_uString*)",
+            "period": 529988113,
+            "share_roi": 0.013408628380012118
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 499658661,
+            "share_roi": 0.012641297300574464
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 456324822,
+            "share_roi": 0.011544956969201266
+          },
+          {
+            "library": "libc.so.6",
+            "function": "_int_free",
+            "period": 353433341,
+            "share_roi": 0.00894181626027356
+          },
+          {
+            "library": "libstdc++.so.6.0.30",
+            "function": "operator new(unsigned long)",
+            "period": 318909050,
+            "share_roi": 0.008068356315140041
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "property_descr_get",
+            "period": 315697278,
+            "share_roi": 0.007987098913071991
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 302309086,
+            "share_roi": 0.00764837944596528
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 294244957,
+            "share_roi": 0.0074443580607356855
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "rtl_string2UString_status(_rtl_uString**, char const*, int, unsigned short, unsigned int, unsigned int*)",
+            "period": 285477067,
+            "share_roi": 0.0072225316163248
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 281849467,
+            "share_roi": 0.0071307538214682355
+          },
+          {
+            "library": "libsvllo.so",
+            "function": "SfxItemPool::CheckItemInfoFlag(unsigned short, unsigned short) const",
+            "period": 266149663,
+            "share_roi": 0.006733550879909001
+          },
+          {
+            "library": "libc.so.6",
+            "function": "malloc_consolidate",
+            "period": 248740963,
+            "share_roi": 0.006293113098091965
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 240171009,
+            "share_roi": 0.006076294408009762
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 236169544,
+            "share_roi": 0.005975057878652687
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 234210472,
+            "share_roi": 0.00592549361905261
+          }
+        ]
+      },
+      "TLC": {
+        "reference_function_count": 1221,
+        "observed_period": 19169826407,
+        "not_observed_period": 19713648402,
+        "unresolved_period": 642425826,
+        "observed_share_roi": 0.48499404438681426,
+        "not_observed_share_roi": 0.49875266813132796,
+        "unresolved_share_roi": 0.01625328748185778,
+        "observed_function_count": 246,
+        "not_observed_function_count": 320,
+        "not_observed_top20": [
+          {
+            "library": "libooxlo.so",
+            "function": "oox::drawingml::table::applyTableStylePart(oox::core::XmlFilterBase const&, oox::drawingml::FillProperties&, oox::drawingml::TextCharacterProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::table::TableStylePart&, bool, int, int, int, int)",
+            "period": 788694859,
+            "share_roi": 0.019953874455212652
+          },
+          {
+            "library": "libooxlo.so",
+            "function": "oox::PropertyMap::fillSequences(com::sun::star::uno::Sequence<rtl::OUString>&, com::sun::star::uno::Sequence<com::sun::star::uno::Any>&) const",
+            "period": 731549829,
+            "share_roi": 0.018508112838603253
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRunAARGB8(SplashPipe*)",
+            "period": 694850488,
+            "share_roi": 0.017579624419353852
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyCfg_OptimizeCodeUnit.isra.0",
+            "period": 664838792,
+            "share_roi": 0.016820332524220546
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 659671424,
+            "share_roi": 0.01668959880488755
+          },
+          {
+            "library": "libstdc++.so.6.0.30",
+            "function": "std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const",
+            "period": 579807158,
+            "share_roi": 0.014669043555874941
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 499658661,
+            "share_roi": 0.012641297300574464
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 456324822,
+            "share_roi": 0.011544956969201266
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::pipeRun(SplashPipe*)",
+            "period": 334776380,
+            "share_roi": 0.008469797642094892
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 302309086,
+            "share_roi": 0.00764837944596528
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 294244957,
+            "share_roi": 0.0074443580607356855
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 281849467,
+            "share_roi": 0.0071307538214682355
+          },
+          {
+            "library": "libsvllo.so",
+            "function": "SfxItemPool::CheckItemInfoFlag(unsigned short, unsigned short) const",
+            "period": 266149663,
+            "share_roi": 0.006733550879909001
+          },
+          {
+            "library": "ld-linux-aarch64.so.1",
+            "function": "_dl_map_object_deps",
+            "period": 243968687,
+            "share_roi": 0.0061723751535206475
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 240171009,
+            "share_roi": 0.006076294408009762
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 236169544,
+            "share_roi": 0.005975057878652687
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 234210472,
+            "share_roi": 0.00592549361905261
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_Py_hashtable_get",
+            "period": 222454563,
+            "share_roi": 0.005628070693549675
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 213417899,
+            "share_roi": 0.005399444302883752
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcStrCaseWalkerNextNonBlank",
+            "period": 210982712,
+            "share_roi": 0.005337834397457747
+          }
+        ]
+      },
+      "OPM+TLC": {
+        "reference_function_count": 1339,
+        "observed_period": 21940646517,
+        "not_observed_period": 16942828292,
+        "unresolved_period": 642425826,
+        "observed_share_roi": 0.5550954226093373,
+        "not_observed_share_roi": 0.42865128990880486,
+        "unresolved_share_roi": 0.01625328748185778,
+        "observed_function_count": 263,
+        "not_observed_function_count": 303,
+        "not_observed_top20": [
+          {
+            "library": "libooxlo.so",
+            "function": "oox::drawingml::table::applyTableStylePart(oox::core::XmlFilterBase const&, oox::drawingml::FillProperties&, oox::drawingml::TextCharacterProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::table::TableStylePart&, bool, int, int, int, int)",
+            "period": 788694859,
+            "share_roi": 0.019953874455212652
+          },
+          {
+            "library": "libooxlo.so",
+            "function": "oox::PropertyMap::fillSequences(com::sun::star::uno::Sequence<rtl::OUString>&, com::sun::star::uno::Sequence<com::sun::star::uno::Any>&) const",
+            "period": 731549829,
+            "share_roi": 0.018508112838603253
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_8888_8888_asm_neon",
+            "period": 659671424,
+            "share_roi": 0.01668959880488755
+          },
+          {
+            "library": "libstdc++.so.6.0.30",
+            "function": "std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const",
+            "period": 579807158,
+            "share_roi": 0.014669043555874941
+          },
+          {
+            "library": "libpixman-1.so.0.42.2",
+            "function": "pixman_composite_src_n_8888_asm_neon",
+            "period": 499658661,
+            "share_roi": 0.012641297300574464
+          },
+          {
+            "library": "libfreeblpriv3.so",
+            "function": "s_mpv_mul_d_add_prop",
+            "period": 456324822,
+            "share_roi": 0.011544956969201266
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 302309086,
+            "share_roi": 0.00764837944596528
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "bitwise_or_rule",
+            "period": 294244957,
+            "share_roi": 0.0074443580607356855
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "std::_Rb_tree<rtl::OUString, std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> >, std::_Select1st<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > >, LengthContentsCompare, std::allocator<std::pair<rtl::OUString const, rtl::Reference<configmgr::Node> > > >::find(rtl::OUString const&)",
+            "period": 281849467,
+            "share_roi": 0.0071307538214682355
+          },
+          {
+            "library": "libsvllo.so",
+            "function": "SfxItemPool::CheckItemInfoFlag(unsigned short, unsigned short) const",
+            "period": 266149663,
+            "share_roi": 0.006733550879909001
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+            "period": 240171009,
+            "share_roi": 0.006076294408009762
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "code_hash",
+            "period": 236169544,
+            "share_roi": 0.005975057878652687
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "_PyPegen_fill_token",
+            "period": 234210472,
+            "share_roi": 0.00592549361905261
+          },
+          {
+            "library": "libpoppler.so.133.0.0",
+            "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+            "period": 213417899,
+            "share_roi": 0.005399444302883752
+          },
+          {
+            "library": "libfontconfig.so.1.12.1",
+            "function": "FcStrCaseWalkerNextNonBlank",
+            "period": 210982712,
+            "share_roi": 0.005337834397457747
+          },
+          {
+            "library": "libooxlo.so",
+            "function": "std::array<oox::drawingml::TextParagraphProperties, 9ul>::~array()",
+            "period": 208433721,
+            "share_roi": 0.00527334526605152
+          },
+          {
+            "library": "libuno_sal.so.3",
+            "function": "void rtl::str::newReplaceAllFromIndex<_rtl_uString, char, char>(_rtl_uString**, _rtl_uString*, char const*, int, char const*, int, int)",
+            "period": 190271566,
+            "share_roi": 0.004813845173499106
+          },
+          {
+            "library": "libconfigmgrlo.so",
+            "function": "configmgr::PropertyNode::clone(bool) const",
+            "period": 176124515,
+            "share_roi": 0.004455926675179731
+          },
+          {
+            "library": "libpython3.12.so.1.0",
+            "function": "shift_expr_rule",
+            "period": 162657907,
+            "share_roi": 0.0041152232937601224
+          },
+          {
+            "library": "libvcllo.so",
+            "function": "(anonymous namespace)::ImplWriteDIBBits(SvStream&, BitmapReadAccess const&, unsigned long, unsigned int&) [clone .constprop.0]",
+            "period": 159280459,
+            "share_roi": 0.004029774311049041
+          }
+        ]
+      }
+    }
+  },
+  "function_presence_method": "Complete saved resolved physical function lists for OPM, TLC and their deduplicated union; exact DSO basename plus full symbol; target full ROI period denominator includes unresolved weight. Presence does not imply representative weight, business-operation coverage or a new mechanism when absent.",
   "same_format_pairs": [
     {
       "baseline": "031",
