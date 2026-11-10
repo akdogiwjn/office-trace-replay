@@ -1,0 +1,304 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "026-u10",
+  "task_id": "docops_synthetic_026-u10_scale_variant",
+  "format": "pptx",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u10.pptx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/026-u10/seed/root/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input_u10.pptx",
+      "destination": "/root/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input_u10.pptx",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "3e41dcb8bb62268a2373c022be2ece2cb5a73e9fab0ed14a9aef5bd3e1eb93ca",
+      "bytes": 59501
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026-u10/seed/root/tmp/docs/units.json",
+      "destination": "/root/tmp/docs/units.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "d2614241443fe31023d6565948feff9e7860f142ba586e541f4e4ab70cd1b619",
+      "bytes": 35839
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026-u10/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "aeef7179e650f843066ffef91a8e762217a427206d0d023434d8bfd7fb33e857",
+      "bytes": 504
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026-u10/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "7f6c405ce7a7a3ae15b40312a0ef39b6bf21be47bddb7ab38ac91e8aa4c6c384",
+      "bytes": 4776
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026-u10/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "39c36114a3b2b31ff5a7f930af4d0a0e965a1c85afdf0e0ea4e076ac0e6bfc9a",
+      "bytes": 2251
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/026-u10/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "f214e3286ad11b03ab09b4bef76d11cd76f2acfa2c3f139d0a425238a3ea8371",
+      "bytes": 50265
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/026-u10/seed/root/tmp/docs/build_climate_disclosure_variant.py",
+      "destination": "/root/tmp/docs/build_climate_disclosure_variant.py",
+      "source": "docops/scaling/cases/026/scripts",
+      "sha256": "0c6081e729a5fe2bda18831da06ce06c6acc8936929287a03d6f5adcae818c87",
+      "bytes": 28349
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/026-u10/seed/root/tmp/docs/validate_climate_disclosure_variant.py",
+      "destination": "/root/tmp/docs/validate_climate_disclosure_variant.py",
+      "source": "docops/scaling/cases/026/scripts",
+      "sha256": "af8fb8b901155173eb2204b0bbc1d5ab371c1ba48fed2f12da4504beacb03425",
+      "bytes": 10745
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_climate_disclosure_variant.py --units /root/tmp/docs/units.json --output /root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u10.pptx"
+      ],
+      "shell_body": "tasks/026-u10/commands/01.sh",
+      "shell_sha256": "faa58ee7148afbb9d1ae3b97fa6f6d0a25a81e96b7311c5faf7c63af83a57654",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "convert_pdf",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/.codex/skills/pptx/scripts/office/soffice.py --headless --convert-to pdf --outdir /root/tmp/docs /root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u10.pptx"
+      ],
+      "shell_body": "tasks/026-u10/commands/02.sh",
+      "shell_sha256": "80157c4609ba9374dc239cf044334a7629dfd3eeab3ff25e9b6665e4b0e8b2ab",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "render",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "mkdir -p /root/tmp/docs/rendered && pdftoppm -jpeg -r 150 /root/tmp/docs/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u10.pdf /root/tmp/docs/rendered/slide"
+      ],
+      "shell_body": "tasks/026-u10/commands/03.sh",
+      "shell_sha256": "ce4a1dfcebbf50d96672ce9fe1a75a6c523a658b6166c553fe0a5e9af71c8924",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "validate",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/validate_climate_disclosure_variant.py --output /root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u10.pptx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json"
+      ],
+      "shell_body": "tasks/026-u10/commands/04.sh",
+      "shell_sha256": "c57d28e5cec04475d054bd8be1d39d7ad60d5b6c2728a249fe79ce888bfe28ed",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "03"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 026; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "026",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 0,
+      "detail": "consumed",
+      "tests_failed": 4,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/07-pptx-026-20261103T104652Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/026/seed/root/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input.pptx",
+      "sha256": "35b5baebd8a70b066b61b64e6ecaee3ab4518205b6c0ed7a3f438405055121f8"
+    },
+    "parent_scripts": {
+      "payload/tasks/026/seed/root/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input.pptx": {
+        "sha256": "35b5baebd8a70b066b61b64e6ecaee3ab4518205b6c0ed7a3f438405055121f8",
+        "bytes": 64467
+      },
+      "payload/tasks/026/seed/root/tmp/docs/build_climate_disclosure.py": {
+        "sha256": "7aa55dbd1c9127656ce56ab2ac0c1f09c3c1c84b499d1c4b6e1cde2499f2a766",
+        "bytes": 29226
+      },
+      "payload/tasks/026/seed/root/tmp/docs/qa_climate_disclosure.py": {
+        "sha256": "319dacd6007cf06e25668f1eb7dbe54422fad91a85f0a5fc87eb849d0e5ef5c7",
+        "bytes": 4148
+      }
+    },
+    "generator": "docops/scaling/cases/026/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110610,
+    "scale": {
+      "units": 10,
+      "slides_per_unit": 9,
+      "pages": 90
+    },
+    "input_sha256": "3e41dcb8bb62268a2373c022be2ece2cb5a73e9fab0ed14a9aef5bd3e1eb93ca",
+    "expected_sha256": "f214e3286ad11b03ab09b4bef76d11cd76f2acfa2c3f139d0a425238a3ea8371",
+    "config_sha256": "7f6c405ce7a7a3ae15b40312a0ef39b6bf21be47bddb7ab38ac91e8aa4c6c384",
+    "scale_metadata": {
+      "units": 10,
+      "unit_ids": [
+        "DSC-001",
+        "DSC-002",
+        "DSC-003",
+        "DSC-004",
+        "DSC-005",
+        "DSC-006",
+        "DSC-007",
+        "DSC-008",
+        "DSC-009",
+        "DSC-010"
+      ],
+      "slides_per_unit": 9,
+      "input_slides": 13,
+      "output_slides": 90,
+      "expected_output_slides": "10 x 9 = 90",
+      "render_scope": "all 90 pages rendered (convert-to-pdf then pdftoppm -jpeg -r 150)",
+      "expected_render_images": 90,
+      "chart_categories": [
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "series_name": "Total emissions tCO2e",
+      "first_unit": {
+        "id": "DSC-001",
+        "name": "Arcadia Renewables",
+        "base_year": 2024,
+        "scope_1": 8587,
+        "scope_2_location_based": 15934,
+        "renewable_electricity_pct": 50,
+        "assurance_owner": "Kara Saito",
+        "submission_status": "Submitted",
+        "trend_values": [
+          43709,
+          38454,
+          34293
+        ]
+      },
+      "middle_unit": {
+        "id": "DSC-006",
+        "name": "Bridger Renewables",
+        "base_year": 2024,
+        "scope_1": 9516,
+        "scope_2_location_based": 15271,
+        "renewable_electricity_pct": 52,
+        "assurance_owner": "Liam Novak",
+        "submission_status": "Submitted",
+        "trend_values": [
+          44056,
+          41216,
+          36035
+        ]
+      },
+      "last_unit": {
+        "id": "DSC-010",
+        "name": "Cinder Renewables",
+        "base_year": 2024,
+        "scope_1": 8292,
+        "scope_2_location_based": 15274,
+        "renewable_electricity_pct": 44,
+        "assurance_owner": "Maya Chen",
+        "submission_status": "Submitted",
+        "trend_values": [
+          44685,
+          39989,
+          36082
+        ]
+      },
+      "parameterized_ranges": [
+        "10 reporting units x 9 public slides per unit",
+        "per-unit native clustered-column trend chart (categories ['2024', '2025', '2026'], series 'Total emissions tCO2e') with per-unit cached 3-year values from units.json",
+        "per-unit corrected emissions inventory table (5 rows x 4 cols)",
+        "per-unit supplier engagement register table (5 rows x 4 cols)",
+        "per-unit transition action cards and board decision cards",
+        "per-unit public speaker notes on all 9 pages"
+      ],
+      "preserved_parent_behavior": [
+        "frozen 9-page public disclosure sequence and page titles",
+        "native clustered-column trend chart with embedded per-unit data",
+        "public style tokens (title/content background, Aptos Display bold titles, accent 22C55E, table header 166534 white bold)",
+        "public speaker notes retained on every page",
+        "correction-first workflow: internal slides and confidential notes removed before any rebuild",
+        "footer 'Public Climate Disclosure | FY2026' on every page"
+      ],
+      "changed_parent_behavior": [
+        "the parent's single-report deck becomes a per-unit iteration: units.json drives N x 9 pages, each with its own corrected facts",
+        "trend chart data is per-unit (3-year cached values from units.json), not the frozen 42,800 / 39,750 / 36,220 series",
+        "inventory and supplier tables carry per-unit facts",
+        "all speaker notes are per-unit"
+      ],
+      "input_bytes": 59501,
+      "input_sha256": "3e41dcb8bb62268a2373c022be2ece2cb5a73e9fab0ed14a9aef5bd3e1eb93ca",
+      "units_json_sha256": "d2614241443fe31023d6565948feff9e7860f142ba586e541f4e4ab70cd1b619",
+      "seed": 2026110610
+    },
+    "modified_steps": [
+      "01 build: builder reads units.json and iterates reporting units, deleting every internal slide/note and rebuilding the 9-page public disclosure set per unit with that unit's own facts",
+      "02 convert_pdf: unchanged soffice convert-to-pdf",
+      "03 render: unchanged pdftoppm -jpeg -r 150 over every page",
+      "04 validate: dynamic validator checks every slide and every unit chart against the frozen expected.json"
+    ]
+  }
+}

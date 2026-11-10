@@ -1,0 +1,317 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "037-u20",
+  "task_id": "docops_synthetic_037-u20_scale_variant",
+  "format": "pdf",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output_u20.pdf",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/037-u20/seed/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input_u20.pdf",
+      "destination": "/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input_u20.pdf",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "4dd7e9f8864414bd5fdfa347de9be44c7021b55d4c724bca26c359af4d07a623",
+      "bytes": 3859
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037-u20/seed/root/tmp/docs/notices.json",
+      "destination": "/root/tmp/docs/notices.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "c8829401f99ca7a98b9733d8210e527dabde998ee780a48f6eb76c2b469f93fa",
+      "bytes": 103216
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037-u20/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "2ccd58b2e023a46a4e77368921af3d3e245af915b6da61509309e1027f423989",
+      "bytes": 423
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037-u20/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "feb6bc0729f78c5bf8c68511ce97815df0b8137a74018e9d5887df1a08534f17",
+      "bytes": 4285
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037-u20/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "55867a20282fba5b63592278f23b9eb76a347e85b1aa4f9fe726c4ab4d10411f",
+      "bytes": 2593
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/037-u20/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "dac3e4a4b16f5b83f54271e22025636804f3a7dc55a6bbabb00dd4f314f12cda",
+      "bytes": 37754
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/037-u20/seed/root/tmp/docs/build_bus_detour_packet_variant.py",
+      "destination": "/root/tmp/docs/build_bus_detour_packet_variant.py",
+      "source": "docops/scaling/cases/037/scripts",
+      "sha256": "08321f886e4529d6bec082daf8cc17a2006eb6de777853f87ac0af821a43c270",
+      "bytes": 23315
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/037-u20/seed/root/tmp/docs/validate_bus_detour_packet_variant.py",
+      "destination": "/root/tmp/docs/validate_bus_detour_packet_variant.py",
+      "source": "docops/scaling/cases/037/scripts",
+      "sha256": "342b1c6a7f441e61a9f61772df53f2291356a4be654c224368493da0c6d5f031",
+      "bytes": 7248
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_render",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_bus_detour_packet_variant.py --notices /root/tmp/docs/notices.json --output /root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output_u20.pdf && mkdir -p /root/tmp/docs/render_v2 && pdftoppm -png -r 150 /root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output_u20.pdf /root/tmp/docs/render_v2/page"
+      ],
+      "shell_body": "tasks/037-u20/commands/01.sh",
+      "shell_sha256": "7809381341fa0d1dfdfeb247d3616db79440cd59556e3319098f0fb5d5da6d82",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "validate",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/validate_bus_detour_packet_variant.py --output /root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output_u20.pdf --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json"
+      ],
+      "shell_body": "tasks/037-u20/commands/02.sh",
+      "shell_sha256": "562ce3493e6173d89a599eea6e48acdeeeaec805997e9ab0b76d9d1ec6ae2068",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 037; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "037",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 0,
+      "detail": "consumed",
+      "tests_failed": 2,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/10-pdf-037-20261103T105547Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/037/seed/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input.pdf",
+      "sha256": "03f2d841b430eb9707d6e356623bee4d3f5619506ace6afad3ef9b0dce13aaa1"
+    },
+    "parent_scripts": {
+      "payload/tasks/037/seed/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input.pdf": {
+        "sha256": "03f2d841b430eb9707d6e356623bee4d3f5619506ace6afad3ef9b0dce13aaa1",
+        "bytes": 2864
+      },
+      "payload/tasks/037/seed/root/tmp/docs/build_bus_detour_packet.py": {
+        "sha256": "e70385a417913c6bede0c6b15f21945b5169a27e10ed721f8056aa345a725666",
+        "bytes": 22161
+      },
+      "payload/tasks/037/seed/root/tmp/docs/validate_bus_detour_packet.py": {
+        "sha256": "3c5e323c5df67a991b6500b906f817415e156691357791a92da6719113f793d1",
+        "bytes": 3224
+      }
+    },
+    "generator": "docops/scaling/cases/037/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110508,
+    "scale": {
+      "notice_groups": 20,
+      "pages": 100
+    },
+    "input_sha256": "4dd7e9f8864414bd5fdfa347de9be44c7021b55d4c724bca26c359af4d07a623",
+    "expected_sha256": "dac3e4a4b16f5b83f54271e22025636804f3a7dc55a6bbabb00dd4f314f12cda",
+    "config_sha256": "feb6bc0729f78c5bf8c68511ce97815df0b8137a74018e9d5887df1a08534f17",
+    "scale_metadata": {
+      "notice_groups": 20,
+      "pages": 100,
+      "pages_per_group": 5,
+      "page_titles": [
+        "Public Bus Detour Notice Packet",
+        "Corrected Detour Summary",
+        "Stop Closure and Shuttle Matrix",
+        "Rider Communication Timeline",
+        "Release Checklist"
+      ],
+      "group_ids": [
+        "N-01",
+        "N-02",
+        "N-03",
+        "N-04",
+        "N-05",
+        "N-06",
+        "N-07",
+        "N-08",
+        "N-09",
+        "N-10",
+        "N-11",
+        "N-12",
+        "N-13",
+        "N-14",
+        "N-15",
+        "N-16",
+        "N-17",
+        "N-18",
+        "N-19",
+        "N-20"
+      ],
+      "routes": [
+        "Route 12",
+        "Route 18",
+        "Route 24",
+        "Route 30",
+        "Route 36",
+        "Route 42",
+        "Route 48",
+        "Route 54",
+        "Route 60",
+        "Route 66",
+        "Route 72",
+        "Route 78",
+        "Route 84",
+        "Route 90",
+        "Route 96",
+        "Route 102",
+        "Route 108",
+        "Route 114",
+        "Route 120",
+        "Route 210"
+      ],
+      "closure_begins": [
+        "2026-10-11",
+        "2026-10-15",
+        "2026-10-05",
+        "2026-10-18",
+        "2026-10-15",
+        "2026-10-08",
+        "2026-10-05",
+        "2026-10-05",
+        "2026-10-18",
+        "2026-10-03",
+        "2026-10-15",
+        "2026-10-15",
+        "2026-10-11",
+        "2026-10-05",
+        "2026-10-18",
+        "2026-10-18",
+        "2026-10-15",
+        "2026-10-05",
+        "2026-10-18",
+        "2026-10-18"
+      ],
+      "reopening_targets": [
+        "2026-10-28",
+        "2026-10-28",
+        "2026-10-28",
+        "2026-10-28",
+        "2026-10-25",
+        "2026-10-25",
+        "2026-10-28",
+        "2026-10-25",
+        "2026-10-28",
+        "2026-10-25",
+        "2026-10-28",
+        "2026-10-25",
+        "2026-10-28",
+        "2026-10-25",
+        "2026-10-28",
+        "2026-10-28",
+        "2026-10-25",
+        "2026-10-28",
+        "2026-10-28",
+        "2026-10-25"
+      ],
+      "closed_stop_counts": [
+        8,
+        18,
+        11,
+        15,
+        11,
+        14,
+        9,
+        16,
+        14,
+        12,
+        18,
+        17,
+        10,
+        18,
+        12,
+        8,
+        11,
+        10,
+        18,
+        9
+      ],
+      "headways": [
+        "10 minutes",
+        "10 minutes",
+        "15 minutes",
+        "10 minutes",
+        "15 minutes",
+        "15 minutes",
+        "15 minutes",
+        "15 minutes",
+        "10 minutes",
+        "15 minutes",
+        "10 minutes",
+        "10 minutes",
+        "10 minutes",
+        "15 minutes",
+        "10 minutes",
+        "10 minutes",
+        "15 minutes",
+        "10 minutes",
+        "10 minutes",
+        "10 minutes"
+      ],
+      "total_stops": 259,
+      "input_bytes": 3859,
+      "input_sha256": "4dd7e9f8864414bd5fdfa347de9be44c7021b55d4c724bca26c359af4d07a623",
+      "notices_json_sha256": "c8829401f99ca7a98b9733d8210e527dabde998ee780a48f6eb76c2b469f93fa",
+      "seed": 2026110508,
+      "scale_driven_by": "frozen notices.json prepared material; the builder iterates every declared notice group through the real five-page drawing functions (no page duplication). The synthetic input PDF is an artifact only and is not read by the builder."
+    },
+    "modified_steps": [
+      "01 build_render: page sizes, portrait/landscape rules, fonts, drawing helpers, pageCompression and 150 DPI PNG rendering are unchanged; the builder iterates notices.json groups (5 pages per group), global page numbers and bookmark targets are computed over all groups",
+      "02 validate: dynamic validator reads frozen expected.json and checks every group's pages, facts, bookmarks and orientation"
+    ]
+  }
+}

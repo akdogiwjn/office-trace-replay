@@ -1,0 +1,80 @@
+{
+  "schema": "docops-reviewed-closeout-audit-v1",
+  "checked_at_utc": "2026-11-07T04:57:44.096487+00:00",
+  "status": "two_existing_driver_requirements_still_unwired",
+  "verified": {
+    "image_id": "sha256:9ae9d418980ab88a305eb37fc2399edadea129a70d803cdbc642357daa56f7d6",
+    "image_architecture": "arm64",
+    "campaign_files_checked": 36,
+    "campaign_mismatches": 0,
+    "build_records_checked": 7,
+    "build_record_mismatches": 0,
+    "host_payload_files_equal_build_input": 419,
+    "payload_build_mismatches": 0,
+    "official_static": {
+      "tasks": 12,
+      "files": 247,
+      "status": "static_valid"
+    },
+    "scaling_static": {
+      "tasks": 24,
+      "files": 418,
+      "status": "static_valid"
+    },
+    "actual_frozen_before_after_equal": true,
+    "actual_readonly_verify_mounts_correct": true,
+    "actual_016_u100_own_cache_check_passed": true,
+    "actual_016_u500_own_cache_check_passed": true,
+    "actual_016_u500_issue_text": "Forecast exceeds capacity by 64.7 units",
+    "all_original_outputs_unchanged": true,
+    "rerun_tests": {
+      "functional_fixed_host": 28,
+      "016_host": 36,
+      "009_host": 24,
+      "029_reviewed_image": 22,
+      "total": 110,
+      "all_passed": true
+    },
+    "git_diff_check": "passed"
+  },
+  "remaining": [
+    {
+      "id": "F5-main",
+      "location": "docops/scaling/functional_fixed_campaign.py:596",
+      "issue": "acceptance_problems receives literal True for frozen_ok; final frozen_after is never compared to preflight.frozen_before. Helper tests prove only that passing False is rejected, not that main derives this value.",
+      "probe": {
+        "all_external_actions": "mocked",
+        "before": "old",
+        "after": "new",
+        "exit": 0,
+        "status": "passed"
+      },
+      "required": "Compute and enforce protected hashes before final success, including resume; test main rather than only helper."
+    },
+    {
+      "id": "F7-main",
+      "location": "docops/scaling/functional_fixed_campaign.py:548",
+      "issue": "reuse branch directly sets accepted=True without bindings_ok, acceptance/render/index validation. bindings_ok is called only for new run or reverify.",
+      "probe": {
+        "all_external_actions": "mocked",
+        "completed_attempt_archive_exists": false,
+        "bindings_ok_mock_value": false,
+        "bindings_ok_call_count": 0,
+        "workload_call_count": 0,
+        "exit": 0,
+        "status": "passed"
+      },
+      "required": "Validate archived artifact, task/recipe/input/expected/image binding and required acceptance evidence before reuse. Missing or mismatched evidence must fail without rerunning completed workload."
+    }
+  ],
+  "scope": {
+    "modified_business_code_or_payload": false,
+    "ran_full_workload": false,
+    "ran_profiler": false,
+    "rebuilt_image": false,
+    "modified_formal_report_or_html": false,
+    "modified_original_evidence": false,
+    "mock_driver_probes_and_readonly_offline_checks_only": true
+  },
+  "next_step": "Host campaign-driver corrections and main-flow mock regressions; these two findings do not require rebuilding the image or rerunning successful workloads."
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "seven-component-topdown-report-update-v1",
+  "status": "passed",
+  "scope": "Section 7.4 plus one consistent 7.6 summary bullet; section 7.3 and figures unchanged",
+  "before_report_sha256": "3bf6aac00bb5e7bf73ef12bec2032ef6a40c97a449e99f953e2984f4a987ff93",
+  "after_report_sha256": "459276bec7648049c598e2a6a90c1c4008e48a65228d77d4b4755f9e34d527cc",
+  "initial_report_before_sha256": "7c9fae34388cde3e919dfd3e306d8f6a4e4db8646b3fe2c50ed79b252cd92514",
+  "protected_files": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
+  },
+  "protected_section_sha256": {
+    "before_7.4": "97358f093f214130cd991d8bdd0b580e3d6d65d0c1170d7b033820e0008e4db4",
+    "7.3": "336e0a4b41921a393cf66602d305acef40f4484dc005d00685bc7ffe257e1ca1",
+    "7.5": "992c63b27088a3258d5366e285c4f1ad522952cf442bbc61182cb30e35277f83"
+  },
+  "dimensions": 7,
+  "reference_scale_pp": 4.277999999999998,
+  "target_configurations": 36,
+  "nearest_baseline_repeat_envelopes": {
+    "OPM": 1.962000000000002,
+    "TLC": 0.47999999999999665
+  },
+  "large_within_reference_scale": [
+    "013-v1000",
+    "026-u10"
+  ],
+  "data_inputs_rechecked": 111,
+  "scale_inputs_rechecked": 254,
+  "presentation_binding_sha256": "0917eacdac68f6fb2a7d5f9e64ffdf03e03fa2750ec5790cadf4cfdf30f651b5",
+  "html_generated": false,
+  "workload_or_collector_run": false,
+  "self_review": {
+    "status": "passed",
+    "source_files_checked": 3,
+    "input_files_checked": 111,
+    "outputs_checked": 5,
+    "target_configurations_checked": 36,
+    "paired_distances_independently_checked": 72,
+    "baseline_captures": 10,
+    "metrics_csv_rows": 48,
+    "pair_csv_rows": 72,
+    "section73_unchanged": true,
+    "section75_figures_unchanged": true,
+    "latest_scale_input_hashes_preserved": 254,
+    "markdown_renderer_idempotent": true,
+    "current_complete_renderer_matches_published_appendix": true,
+    "presentation_input_validation_passed": true,
+    "html_generated": false,
+    "targeted_tests_passed": 33
+  }
+}

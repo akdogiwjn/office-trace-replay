@@ -1,0 +1,355 @@
+{
+  "schema": "docops-final-effective-payload-v1",
+  "kind": "scaling",
+  "status": "synthetic_scale_variants_static_valid",
+  "scope": "synthetic_scale_input_size_variants",
+  "synthetic": true,
+  "declaration": "Manually labelled synthetic scale variants for input-size hotspot studies. Parent scores are NOT inherited as acceptance results. Nothing here is a historical benchmark task.",
+  "tasks": [
+    {
+      "task": "014-n1000",
+      "recipe": "tasks/014-n1000/recipe.json",
+      "steps": 5,
+      "scripts": 3,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "014",
+      "scale": {
+        "deduped_applications": 1000
+      }
+    },
+    {
+      "task": "014-n10000",
+      "recipe": "tasks/014-n10000/recipe.json",
+      "steps": 5,
+      "scripts": 3,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "014",
+      "scale": {
+        "deduped_applications": 10000
+      }
+    },
+    {
+      "task": "021-g5",
+      "recipe": "tasks/021-g5/recipe.json",
+      "steps": 2,
+      "scripts": 4,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "021",
+      "scale": {
+        "regions": 5,
+        "pages": 40
+      }
+    },
+    {
+      "task": "021-g10",
+      "recipe": "tasks/021-g10/recipe.json",
+      "steps": 2,
+      "scripts": 4,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "021",
+      "scale": {
+        "regions": 10,
+        "pages": 80
+      }
+    },
+    {
+      "task": "003-u100",
+      "recipe": "tasks/003-u100/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "003",
+      "scale": {
+        "business_units": 100
+      }
+    },
+    {
+      "task": "003-u500",
+      "recipe": "tasks/003-u500/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "003",
+      "scale": {
+        "business_units": 500
+      }
+    },
+    {
+      "task": "037-u5",
+      "recipe": "tasks/037-u5/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "037",
+      "scale": {
+        "notice_groups": 5,
+        "pages": 25
+      }
+    },
+    {
+      "task": "037-u20",
+      "recipe": "tasks/037-u20/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "037",
+      "scale": {
+        "notice_groups": 20,
+        "pages": 100
+      }
+    },
+    {
+      "task": "001-u100",
+      "recipe": "tasks/001-u100/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "001",
+      "scale": {
+        "records": 100
+      }
+    },
+    {
+      "task": "001-u500",
+      "recipe": "tasks/001-u500/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "001",
+      "scale": {
+        "records": 500
+      }
+    },
+    {
+      "task": "009-u100",
+      "recipe": "tasks/009-u100/recipe.json",
+      "steps": 3,
+      "scripts": 3,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "009",
+      "scale": {
+        "incident_cases": 100
+      }
+    },
+    {
+      "task": "009-u500",
+      "recipe": "tasks/009-u500/recipe.json",
+      "steps": 3,
+      "scripts": 3,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "009",
+      "scale": {
+        "incident_cases": 500
+      }
+    },
+    {
+      "task": "013-v100",
+      "recipe": "tasks/013-v100/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "013",
+      "scale": {
+        "vendors": 100
+      }
+    },
+    {
+      "task": "013-v1000",
+      "recipe": "tasks/013-v1000/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "013",
+      "scale": {
+        "vendors": 1000
+      }
+    },
+    {
+      "task": "016-u100",
+      "recipe": "tasks/016-u100/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "016",
+      "scale": {
+        "business_units": 100,
+        "periods": 4,
+        "model_rows": 400
+      }
+    },
+    {
+      "task": "016-u500",
+      "recipe": "tasks/016-u500/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "016",
+      "scale": {
+        "business_units": 500,
+        "periods": 4,
+        "model_rows": 2000
+      }
+    },
+    {
+      "task": "026-u5",
+      "recipe": "tasks/026-u5/recipe.json",
+      "steps": 4,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "026",
+      "scale": {
+        "units": 5,
+        "slides_per_unit": 9,
+        "pages": 45
+      }
+    },
+    {
+      "task": "026-u10",
+      "recipe": "tasks/026-u10/recipe.json",
+      "steps": 4,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "026",
+      "scale": {
+        "units": 10,
+        "slides_per_unit": 9,
+        "pages": 90
+      }
+    },
+    {
+      "task": "029-u5",
+      "recipe": "tasks/029-u5/recipe.json",
+      "steps": 1,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "029",
+      "scale": {
+        "units": 5,
+        "slides_per_unit": 8,
+        "pages": 41
+      }
+    },
+    {
+      "task": "029-u10",
+      "recipe": "tasks/029-u10/recipe.json",
+      "steps": 1,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "029",
+      "scale": {
+        "units": 10,
+        "slides_per_unit": 8,
+        "pages": 81
+      }
+    },
+    {
+      "task": "031-u5",
+      "recipe": "tasks/031-u5/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "031",
+      "scale": {
+        "groups": 5,
+        "pages": 25
+      }
+    },
+    {
+      "task": "031-u20",
+      "recipe": "tasks/031-u20/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "031",
+      "scale": {
+        "groups": 20,
+        "pages": 100
+      }
+    },
+    {
+      "task": "pdfwf005-u5",
+      "recipe": "tasks/pdfwf005-u5/recipe.json",
+      "steps": 5,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "pdfwf005",
+      "scale": {
+        "groups": 5,
+        "input_pages": 35,
+        "output_pages": 30
+      }
+    },
+    {
+      "task": "pdfwf005-u20",
+      "recipe": "tasks/pdfwf005-u20/recipe.json",
+      "steps": 5,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "pdfwf005",
+      "scale": {
+        "groups": 20,
+        "input_pages": 140,
+        "output_pages": 120
+      }
+    }
+  ],
+  "environment": {
+    "base_image": "docops-l3-shared-tools:arm64-v3",
+    "base_image_id": "sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106",
+    "platform": "linux/arm64",
+    "python": "3.12.14",
+    "openpyxl": "3.1.5",
+    "pypdf": "6.16.2",
+    "python_docx": "1.2.0",
+    "python_pptx": "1.0.2",
+    "lxml": "6.1.2",
+    "unresolved_dependencies": [
+      "021: fonttools version and offline wheel identity",
+      "perf: Debian-compatible binary and unwind dependencies",
+      "DevKit: HIP09 CLI compatibility in the DocOps image"
+    ],
+    "dependency_status": "not_ready_to_build_release",
+    "note": "same installed environment; synthetic payload does not change it"
+  },
+  "measurement_policy": {
+    "parent_reference": {
+      "measured": "final construction, necessary repair, recalculation, selected final render and agent-authored checks",
+      "excluded": [
+        "model requests and waiting",
+        "source exploration and image viewing",
+        "failed/replaced commands",
+        "package installation and font environment setup",
+        "reset, payload restoration, archive, output hash and official scoring"
+      ],
+      "perf": "separate pass; command descendants; cycles:u; physical callchain; export inside the same image",
+      "topdown": "separate DevKit pass; fixed workload CPU set; controller outside set; preserve collection envelope and per-ROI markers",
+      "repetitions": "not scheduled; short tasks may require batches; do not pad with sleeps",
+      "official_score": "historical result retained; replay infrastructure status is separate"
+    },
+    "scaling": "same measurement policy as the frozen official package; only input size / region count vary"
+  }
+}

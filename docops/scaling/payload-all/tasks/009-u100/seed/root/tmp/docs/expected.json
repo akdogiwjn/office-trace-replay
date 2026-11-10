@@ -1,0 +1,6142 @@
+{
+  "schema": "docops-scaling-expectation-v1",
+  "variant_task_id": "009-u100",
+  "kind": "docx",
+  "title": "Incident Response Manual | Public Release",
+  "toc_entry_titles": [
+    "Publication Summary",
+    "Response Timeline",
+    "Customer Communication",
+    "Control Exceptions",
+    "Action Register",
+    "Appendix A - Evidence Index",
+    "Appendix B - Approval Record"
+  ],
+  "case_count": 100,
+  "case_ids": [
+    "IC-001",
+    "IC-002",
+    "IC-003",
+    "IC-004",
+    "IC-005",
+    "IC-006",
+    "IC-007",
+    "IC-008",
+    "IC-009",
+    "IC-010",
+    "IC-011",
+    "IC-012",
+    "IC-013",
+    "IC-014",
+    "IC-015",
+    "IC-016",
+    "IC-017",
+    "IC-018",
+    "IC-019",
+    "IC-020",
+    "IC-021",
+    "IC-022",
+    "IC-023",
+    "IC-024",
+    "IC-025",
+    "IC-026",
+    "IC-027",
+    "IC-028",
+    "IC-029",
+    "IC-030",
+    "IC-031",
+    "IC-032",
+    "IC-033",
+    "IC-034",
+    "IC-035",
+    "IC-036",
+    "IC-037",
+    "IC-038",
+    "IC-039",
+    "IC-040",
+    "IC-041",
+    "IC-042",
+    "IC-043",
+    "IC-044",
+    "IC-045",
+    "IC-046",
+    "IC-047",
+    "IC-048",
+    "IC-049",
+    "IC-050",
+    "IC-051",
+    "IC-052",
+    "IC-053",
+    "IC-054",
+    "IC-055",
+    "IC-056",
+    "IC-057",
+    "IC-058",
+    "IC-059",
+    "IC-060",
+    "IC-061",
+    "IC-062",
+    "IC-063",
+    "IC-064",
+    "IC-065",
+    "IC-066",
+    "IC-067",
+    "IC-068",
+    "IC-069",
+    "IC-070",
+    "IC-071",
+    "IC-072",
+    "IC-073",
+    "IC-074",
+    "IC-075",
+    "IC-076",
+    "IC-077",
+    "IC-078",
+    "IC-079",
+    "IC-080",
+    "IC-081",
+    "IC-082",
+    "IC-083",
+    "IC-084",
+    "IC-085",
+    "IC-086",
+    "IC-087",
+    "IC-088",
+    "IC-089",
+    "IC-090",
+    "IC-091",
+    "IC-092",
+    "IC-093",
+    "IC-094",
+    "IC-095",
+    "IC-096",
+    "IC-097",
+    "IC-098",
+    "IC-099",
+    "IC-100"
+  ],
+  "headings": [
+    "Publication Summary",
+    "Response Timeline",
+    "Customer Communication",
+    "Control Exceptions",
+    "Action Register",
+    "Appendix A - Evidence Index",
+    "Appendix B - Approval Record"
+  ],
+  "page_break_headings": [
+    "Control Exceptions",
+    "Action Register",
+    "Appendix A - Evidence Index",
+    "Appendix B - Approval Record"
+  ],
+  "paragraph_count": 39,
+  "table_count": 7,
+  "cover_table": {
+    "rows": [
+      [
+        "Release date",
+        "2026-06-05"
+      ],
+      [
+        "Distribution",
+        "Public"
+      ],
+      [
+        "Publication state",
+        "Approved for release"
+      ]
+    ]
+  },
+  "tables": {
+    "timeline": {
+      "header": [
+        "Time",
+        "Milestone",
+        "Public Summary"
+      ],
+      "rows": [
+        [
+          "2026-06-01 08:12",
+          "Service restored",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-01 09:12",
+          "Containment applied",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-01 10:12",
+          "Containment applied",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-01 11:12",
+          "Customer notified",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-01 12:12",
+          "Draft notification prepared",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-01 13:12",
+          "Draft notification prepared",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-01 14:12",
+          "Customer notified",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-01 15:12",
+          "Alert opened",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-01 16:12",
+          "Containment applied",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-01 17:12",
+          "Containment applied",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-01 18:12",
+          "Customer notified",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-01 19:12",
+          "Evidence preserved",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-01 20:12",
+          "Evidence preserved",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-01 21:12",
+          "Containment applied",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-01 22:12",
+          "Evidence preserved",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-01 23:12",
+          "Customer notified",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-02 00:12",
+          "Containment applied",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-02 01:12",
+          "Alert opened",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-02 02:12",
+          "Evidence preserved",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-02 03:12",
+          "Evidence preserved",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-02 04:12",
+          "Customer notified",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-02 05:12",
+          "Containment applied",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-02 06:12",
+          "Evidence preserved",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-02 07:12",
+          "Draft notification prepared",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-02 08:12",
+          "Draft notification prepared",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-02 09:12",
+          "Customer notified",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-02 10:12",
+          "Containment applied",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-02 11:12",
+          "Service restored",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-02 12:12",
+          "Containment applied",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-02 13:12",
+          "Customer notified",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-02 14:12",
+          "Customer notified",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-02 15:12",
+          "Customer notified",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-02 16:12",
+          "Evidence preserved",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-02 17:12",
+          "Service restored",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-02 18:12",
+          "Draft notification prepared",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-02 19:12",
+          "Draft notification prepared",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-02 20:12",
+          "Alert opened",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-02 21:12",
+          "Service restored",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-02 22:12",
+          "Containment applied",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-02 23:12",
+          "Containment applied",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-03 00:12",
+          "Service restored",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-03 01:12",
+          "Containment applied",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-03 02:12",
+          "Service restored",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-03 03:12",
+          "Containment applied",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-03 04:12",
+          "Customer notified",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-03 05:12",
+          "Service restored",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-03 06:12",
+          "Draft notification prepared",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-03 07:12",
+          "Service restored",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-03 08:12",
+          "Service restored",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-03 09:12",
+          "Containment applied",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-03 10:12",
+          "Draft notification prepared",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-03 11:12",
+          "Service restored",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-03 12:12",
+          "Alert opened",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-03 13:12",
+          "Containment applied",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-03 14:12",
+          "Service restored",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-03 15:12",
+          "Service restored",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-03 16:12",
+          "Alert opened",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-03 17:12",
+          "Alert opened",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-03 18:12",
+          "Containment applied",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-03 19:12",
+          "Alert opened",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-03 20:12",
+          "Customer notified",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-03 21:12",
+          "Containment applied",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-03 22:12",
+          "Evidence preserved",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-03 23:12",
+          "Evidence preserved",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-04 00:12",
+          "Containment applied",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-04 01:12",
+          "Containment applied",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-04 02:12",
+          "Containment applied",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-04 03:12",
+          "Evidence preserved",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-04 04:12",
+          "Containment applied",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-04 05:12",
+          "Draft notification prepared",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-04 06:12",
+          "Evidence preserved",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-04 07:12",
+          "Containment applied",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-04 08:12",
+          "Alert opened",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-04 09:12",
+          "Alert opened",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-04 10:12",
+          "Service restored",
+          "Public status notice prepared."
+        ],
+        [
+          "2026-06-04 11:12",
+          "Evidence preserved",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-04 12:12",
+          "Customer notified",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-04 13:12",
+          "Draft notification prepared",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-04 14:12",
+          "Service restored",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-04 15:12",
+          "Draft notification prepared",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-04 16:12",
+          "Service restored",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-04 17:12",
+          "Draft notification prepared",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-04 18:12",
+          "Alert opened",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-04 19:12",
+          "Service restored",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-04 20:12",
+          "Alert opened",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-04 21:12",
+          "Containment applied",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-04 22:12",
+          "Service restored",
+          "Incident response process started."
+        ],
+        [
+          "2026-06-04 23:12",
+          "Alert opened",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-05 00:12",
+          "Service restored",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-05 01:12",
+          "Alert opened",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-05 02:12",
+          "Draft notification prepared",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-05 03:12",
+          "Customer notified",
+          "Containment controls were applied."
+        ],
+        [
+          "2026-06-05 04:12",
+          "Service restored",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-05 05:12",
+          "Alert opened",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-05 06:12",
+          "Draft notification prepared",
+          "Release evidence archived for review."
+        ],
+        [
+          "2026-06-05 07:12",
+          "Containment applied",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-05 08:12",
+          "Evidence preserved",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-05 09:12",
+          "Alert opened",
+          "Public update published to customers."
+        ],
+        [
+          "2026-06-05 10:12",
+          "Evidence preserved",
+          "Customer service was restored."
+        ],
+        [
+          "2026-06-05 11:12",
+          "Service restored",
+          "Release evidence archived for review."
+        ]
+      ]
+    },
+    "communication": {
+      "header": [
+        "Audience",
+        "Message Owner",
+        "Required Update",
+        "Status"
+      ],
+      "rows": [
+        [
+          "Partners",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Ivy Zhang",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Ivy Zhang",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Sam Foster",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Rina Patel",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Sam Foster",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Sam Foster",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Jon Bell",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Jon Bell",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Sam Foster",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Rina Patel",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Sam Foster",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Maya Chen",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Jon Bell",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Ivy Zhang",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Sam Foster",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Sam Foster",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Ivy Zhang",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Ivy Zhang",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Sam Foster",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Ivy Zhang",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Ivy Zhang",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Sam Foster",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Jon Bell",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Jon Bell",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Ivy Zhang",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Rina Patel",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Ivy Zhang",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Rina Patel",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Rina Patel",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Ivy Zhang",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Maya Chen",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Maya Chen",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Jon Bell",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Sam Foster",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Rina Patel",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Rina Patel",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Sam Foster",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Maya Chen",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Maya Chen",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Maya Chen",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Ivy Zhang",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Rina Patel",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Ivy Zhang",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Rina Patel",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Jon Bell",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Sam Foster",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Rina Patel",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Ivy Zhang",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Maya Chen",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Rina Patel",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Ivy Zhang",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Maya Chen",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Rina Patel",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Jon Bell",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Rina Patel",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Maya Chen",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Account teams",
+          "Maya Chen",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Ivy Zhang",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Maya Chen",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Sam Foster",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Sam Foster",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Jon Bell",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Ivy Zhang",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Maya Chen",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Maya Chen",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Sam Foster",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Maya Chen",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Ivy Zhang",
+          "Use approved FAQ language only.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Sam Foster",
+          "Send public restoration summary.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Maya Chen",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Support desk",
+          "Rina Patel",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Partners",
+          "Jon Bell",
+          "Send updated service status.",
+          "Ready"
+        ],
+        [
+          "Customers",
+          "Maya Chen",
+          "Publish confirmed resolution notice.",
+          "Ready"
+        ],
+        [
+          "Public website",
+          "Jon Bell",
+          "Use approved FAQ language only.",
+          "Ready"
+        ]
+      ]
+    },
+    "exception": {
+      "header": [
+        "Exception ID",
+        "Control",
+        "Owner",
+        "Release Status"
+      ],
+      "rows": [
+        [
+          "EX-001",
+          "Log retention",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-002",
+          "Vendor notification",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-003",
+          "Change control",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-004",
+          "MFA evidence",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-005",
+          "Access review",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-006",
+          "Access review",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-007",
+          "Change control",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-008",
+          "Log retention",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-009",
+          "Change control",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-010",
+          "Access review",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-011",
+          "MFA evidence",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-012",
+          "Change control",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-013",
+          "MFA evidence",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-014",
+          "Access review",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-015",
+          "Change control",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-016",
+          "Vendor notification",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-017",
+          "Log retention",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-018",
+          "Change control",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-019",
+          "Vendor notification",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-020",
+          "Log retention",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-021",
+          "Vendor notification",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-022",
+          "Log retention",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-023",
+          "Log retention",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-024",
+          "Log retention",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-025",
+          "Change control",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-026",
+          "MFA evidence",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-027",
+          "Log retention",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-028",
+          "Log retention",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-029",
+          "Access review",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-030",
+          "Change control",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-031",
+          "Vendor notification",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-032",
+          "Change control",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-033",
+          "Change control",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-034",
+          "Vendor notification",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-035",
+          "MFA evidence",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-036",
+          "Log retention",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-037",
+          "Access review",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-038",
+          "Log retention",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-039",
+          "Log retention",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-040",
+          "Change control",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-041",
+          "MFA evidence",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-042",
+          "Access review",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-043",
+          "Vendor notification",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-044",
+          "Vendor notification",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-045",
+          "Access review",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-046",
+          "Access review",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-047",
+          "Log retention",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-048",
+          "Access review",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-049",
+          "Vendor notification",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-050",
+          "MFA evidence",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-051",
+          "Log retention",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-052",
+          "Access review",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-053",
+          "Access review",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-054",
+          "Vendor notification",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-055",
+          "Log retention",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-056",
+          "Change control",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-057",
+          "Access review",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-058",
+          "Log retention",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-059",
+          "Change control",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-060",
+          "Access review",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-061",
+          "Log retention",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-062",
+          "Access review",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-063",
+          "Access review",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-064",
+          "MFA evidence",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-065",
+          "MFA evidence",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-066",
+          "Access review",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-067",
+          "MFA evidence",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-068",
+          "MFA evidence",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-069",
+          "MFA evidence",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-070",
+          "Change control",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-071",
+          "Vendor notification",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-072",
+          "Log retention",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-073",
+          "MFA evidence",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-074",
+          "Vendor notification",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-075",
+          "Log retention",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-076",
+          "Vendor notification",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-077",
+          "Log retention",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-078",
+          "MFA evidence",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-079",
+          "Change control",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-080",
+          "Log retention",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-081",
+          "MFA evidence",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-082",
+          "Change control",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-083",
+          "Change control",
+          "Sam Foster",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-084",
+          "MFA evidence",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-085",
+          "Vendor notification",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-086",
+          "Log retention",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-087",
+          "MFA evidence",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-088",
+          "Change control",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-089",
+          "Access review",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-090",
+          "Vendor notification",
+          "Rina Patel",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-091",
+          "Change control",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-092",
+          "Log retention",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-093",
+          "Vendor notification",
+          "Sam Foster",
+          "Open - owner required"
+        ],
+        [
+          "EX-094",
+          "MFA evidence",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-095",
+          "Change control",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-096",
+          "Access review",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-097",
+          "Log retention",
+          "Rina Patel",
+          "Open - owner required"
+        ],
+        [
+          "EX-098",
+          "Vendor notification",
+          "Unassigned",
+          "Closed - evidence exported"
+        ],
+        [
+          "EX-099",
+          "Vendor notification",
+          "Unassigned",
+          "Open - owner required"
+        ],
+        [
+          "EX-100",
+          "Change control",
+          "Rina Patel",
+          "Open - owner required"
+        ]
+      ]
+    },
+    "action": {
+      "header": [
+        "Action ID",
+        "Owner",
+        "Due Date",
+        "Publish Status"
+      ],
+      "rows": [
+        [
+          "ACT-001",
+          "Unassigned",
+          "2026-06-05",
+          "Ready"
+        ],
+        [
+          "ACT-002",
+          "Unassigned",
+          "2026-06-06",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-003",
+          "Unassigned",
+          "2026-06-07",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-004",
+          "Rina Patel",
+          "2026-06-08",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-005",
+          "Unassigned",
+          "2026-06-09",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-006",
+          "Unassigned",
+          "2026-06-10",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-007",
+          "Rina Patel",
+          "2026-06-11",
+          "Ready"
+        ],
+        [
+          "ACT-008",
+          "Rina Patel",
+          "2026-06-12",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-009",
+          "Rina Patel",
+          "2026-06-13",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-010",
+          "Rina Patel",
+          "2026-06-14",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-011",
+          "Rina Patel",
+          "2026-06-15",
+          "Ready"
+        ],
+        [
+          "ACT-012",
+          "Maya Chen",
+          "2026-06-16",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-013",
+          "Rina Patel",
+          "2026-06-17",
+          "Ready"
+        ],
+        [
+          "ACT-014",
+          "Unassigned",
+          "2026-06-18",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-015",
+          "Maya Chen",
+          "2026-06-19",
+          "Ready"
+        ],
+        [
+          "ACT-016",
+          "Unassigned",
+          "2026-06-20",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-017",
+          "Rina Patel",
+          "2026-06-21",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-018",
+          "Rina Patel",
+          "2026-06-22",
+          "Ready"
+        ],
+        [
+          "ACT-019",
+          "Unassigned",
+          "2026-06-23",
+          "Ready"
+        ],
+        [
+          "ACT-020",
+          "Unassigned",
+          "2026-06-24",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-021",
+          "Unassigned",
+          "2026-06-25",
+          "Ready"
+        ],
+        [
+          "ACT-022",
+          "Maya Chen",
+          "2026-06-26",
+          "Ready"
+        ],
+        [
+          "ACT-023",
+          "Maya Chen",
+          "2026-06-27",
+          "Ready"
+        ],
+        [
+          "ACT-024",
+          "Unassigned",
+          "2026-06-28",
+          "Ready"
+        ],
+        [
+          "ACT-025",
+          "Maya Chen",
+          "2026-06-29",
+          "Ready"
+        ],
+        [
+          "ACT-026",
+          "Rina Patel",
+          "2026-06-30",
+          "Ready"
+        ],
+        [
+          "ACT-027",
+          "Unassigned",
+          "2026-07-01",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-028",
+          "Maya Chen",
+          "2026-07-02",
+          "Ready"
+        ],
+        [
+          "ACT-029",
+          "Maya Chen",
+          "2026-07-03",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-030",
+          "Maya Chen",
+          "2026-07-04",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-031",
+          "Unassigned",
+          "2026-07-05",
+          "Ready"
+        ],
+        [
+          "ACT-032",
+          "Rina Patel",
+          "2026-07-06",
+          "Ready"
+        ],
+        [
+          "ACT-033",
+          "Unassigned",
+          "2026-07-07",
+          "Ready"
+        ],
+        [
+          "ACT-034",
+          "Unassigned",
+          "2026-07-08",
+          "Ready"
+        ],
+        [
+          "ACT-035",
+          "Rina Patel",
+          "2026-07-09",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-036",
+          "Unassigned",
+          "2026-07-10",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-037",
+          "Rina Patel",
+          "2026-07-11",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-038",
+          "Rina Patel",
+          "2026-07-12",
+          "Ready"
+        ],
+        [
+          "ACT-039",
+          "Maya Chen",
+          "2026-07-13",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-040",
+          "Maya Chen",
+          "2026-07-14",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-041",
+          "Maya Chen",
+          "2026-07-15",
+          "Ready"
+        ],
+        [
+          "ACT-042",
+          "Maya Chen",
+          "2026-07-16",
+          "Ready"
+        ],
+        [
+          "ACT-043",
+          "Maya Chen",
+          "2026-07-17",
+          "Ready"
+        ],
+        [
+          "ACT-044",
+          "Maya Chen",
+          "2026-07-18",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-045",
+          "Unassigned",
+          "2026-07-19",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-046",
+          "Unassigned",
+          "2026-07-20",
+          "Ready"
+        ],
+        [
+          "ACT-047",
+          "Rina Patel",
+          "2026-07-21",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-048",
+          "Maya Chen",
+          "2026-07-22",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-049",
+          "Unassigned",
+          "2026-07-23",
+          "Ready"
+        ],
+        [
+          "ACT-050",
+          "Rina Patel",
+          "2026-07-24",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-051",
+          "Unassigned",
+          "2026-07-25",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-052",
+          "Unassigned",
+          "2026-07-26",
+          "Ready"
+        ],
+        [
+          "ACT-053",
+          "Unassigned",
+          "2026-07-27",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-054",
+          "Rina Patel",
+          "2026-07-28",
+          "Ready"
+        ],
+        [
+          "ACT-055",
+          "Maya Chen",
+          "2026-07-29",
+          "Ready"
+        ],
+        [
+          "ACT-056",
+          "Maya Chen",
+          "2026-07-30",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-057",
+          "Unassigned",
+          "2026-07-31",
+          "Ready"
+        ],
+        [
+          "ACT-058",
+          "Maya Chen",
+          "2026-08-01",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-059",
+          "Unassigned",
+          "2026-08-02",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-060",
+          "Unassigned",
+          "2026-08-03",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-061",
+          "Unassigned",
+          "2026-08-04",
+          "Ready"
+        ],
+        [
+          "ACT-062",
+          "Maya Chen",
+          "2026-08-05",
+          "Ready"
+        ],
+        [
+          "ACT-063",
+          "Unassigned",
+          "2026-08-06",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-064",
+          "Rina Patel",
+          "2026-08-07",
+          "Ready"
+        ],
+        [
+          "ACT-065",
+          "Rina Patel",
+          "2026-08-08",
+          "Ready"
+        ],
+        [
+          "ACT-066",
+          "Maya Chen",
+          "2026-08-09",
+          "Ready"
+        ],
+        [
+          "ACT-067",
+          "Rina Patel",
+          "2026-08-10",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-068",
+          "Maya Chen",
+          "2026-08-11",
+          "Ready"
+        ],
+        [
+          "ACT-069",
+          "Unassigned",
+          "2026-08-12",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-070",
+          "Unassigned",
+          "2026-08-13",
+          "Ready"
+        ],
+        [
+          "ACT-071",
+          "Maya Chen",
+          "2026-08-14",
+          "Ready"
+        ],
+        [
+          "ACT-072",
+          "Rina Patel",
+          "2026-08-15",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-073",
+          "Rina Patel",
+          "2026-08-16",
+          "Ready"
+        ],
+        [
+          "ACT-074",
+          "Maya Chen",
+          "2026-08-17",
+          "Ready"
+        ],
+        [
+          "ACT-075",
+          "Unassigned",
+          "2026-08-18",
+          "Ready"
+        ],
+        [
+          "ACT-076",
+          "Unassigned",
+          "2026-08-19",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-077",
+          "Maya Chen",
+          "2026-08-20",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-078",
+          "Maya Chen",
+          "2026-08-21",
+          "Ready"
+        ],
+        [
+          "ACT-079",
+          "Rina Patel",
+          "2026-08-22",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-080",
+          "Rina Patel",
+          "2026-08-23",
+          "Ready"
+        ],
+        [
+          "ACT-081",
+          "Rina Patel",
+          "2026-08-24",
+          "Ready"
+        ],
+        [
+          "ACT-082",
+          "Unassigned",
+          "2026-08-25",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-083",
+          "Maya Chen",
+          "2026-08-26",
+          "Ready"
+        ],
+        [
+          "ACT-084",
+          "Maya Chen",
+          "2026-08-27",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-085",
+          "Maya Chen",
+          "2026-08-28",
+          "Ready"
+        ],
+        [
+          "ACT-086",
+          "Maya Chen",
+          "2026-08-29",
+          "Ready"
+        ],
+        [
+          "ACT-087",
+          "Maya Chen",
+          "2026-08-30",
+          "Ready"
+        ],
+        [
+          "ACT-088",
+          "Unassigned",
+          "2026-08-31",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-089",
+          "Unassigned",
+          "2026-09-01",
+          "Ready"
+        ],
+        [
+          "ACT-090",
+          "Rina Patel",
+          "2026-09-02",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-091",
+          "Unassigned",
+          "2026-09-03",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-092",
+          "Maya Chen",
+          "2026-09-04",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-093",
+          "Unassigned",
+          "2026-09-05",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-094",
+          "Maya Chen",
+          "2026-09-06",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-095",
+          "Rina Patel",
+          "2026-09-07",
+          "Ready"
+        ],
+        [
+          "ACT-096",
+          "Unassigned",
+          "2026-09-08",
+          "Ready"
+        ],
+        [
+          "ACT-097",
+          "Maya Chen",
+          "2026-09-09",
+          "Blocked until owner assigned"
+        ],
+        [
+          "ACT-098",
+          "Rina Patel",
+          "2026-09-10",
+          "Ready"
+        ],
+        [
+          "ACT-099",
+          "Rina Patel",
+          "2026-09-11",
+          "Ready"
+        ],
+        [
+          "ACT-100",
+          "Unassigned",
+          "2026-09-12",
+          "Blocked until owner assigned"
+        ]
+      ]
+    },
+    "evidence": {
+      "header": [
+        "Evidence ID",
+        "Public Label",
+        "Disposition"
+      ],
+      "rows": [
+        [
+          "EV-001",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-002",
+          "Approval chain",
+          "Publish"
+        ],
+        [
+          "EV-003",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-004",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-005",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-006",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-007",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-008",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-009",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-010",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-011",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-012",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-013",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-014",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-015",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-016",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-017",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-018",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-019",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-020",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-021",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-022",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-023",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-024",
+          "Containment log",
+          "Publish"
+        ],
+        [
+          "EV-025",
+          "Approval chain",
+          "Publish"
+        ],
+        [
+          "EV-026",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-027",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-028",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-029",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-030",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-031",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-032",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-033",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-034",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-035",
+          "Containment log",
+          "Publish"
+        ],
+        [
+          "EV-036",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-037",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-038",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-039",
+          "Approval chain",
+          "Publish"
+        ],
+        [
+          "EV-040",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-041",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-042",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-043",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-044",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-045",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-046",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-047",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-048",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-049",
+          "Containment log",
+          "Publish"
+        ],
+        [
+          "EV-050",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-051",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-052",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-053",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-054",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-055",
+          "Approval chain",
+          "Publish"
+        ],
+        [
+          "EV-056",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-057",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-058",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-059",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-060",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-061",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-062",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-063",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-064",
+          "Approval chain",
+          "Publish"
+        ],
+        [
+          "EV-065",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-066",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-067",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-068",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-069",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-070",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-071",
+          "Approval chain",
+          "Publish"
+        ],
+        [
+          "EV-072",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-073",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-074",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-075",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-076",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-077",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-078",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-079",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-080",
+          "Containment log",
+          "Publish"
+        ],
+        [
+          "EV-081",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-082",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-083",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-084",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-085",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-086",
+          "Customer notification record",
+          "Publish"
+        ],
+        [
+          "EV-087",
+          "Approval chain",
+          "Exclude"
+        ],
+        [
+          "EV-088",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-089",
+          "Internal Slack excerpt",
+          "Exclude"
+        ],
+        [
+          "EV-090",
+          "Containment log",
+          "Exclude"
+        ],
+        [
+          "EV-091",
+          "Internal Slack excerpt",
+          "Publish"
+        ],
+        [
+          "EV-092",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-093",
+          "Customer notification record",
+          "Exclude"
+        ],
+        [
+          "EV-094",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-095",
+          "Containment log",
+          "Publish"
+        ],
+        [
+          "EV-096",
+          "Approval chain",
+          "Publish"
+        ],
+        [
+          "EV-097",
+          "Containment log",
+          "Publish"
+        ],
+        [
+          "EV-098",
+          "Alert chronology",
+          "Exclude"
+        ],
+        [
+          "EV-099",
+          "Alert chronology",
+          "Publish"
+        ],
+        [
+          "EV-100",
+          "Approval chain",
+          "Publish"
+        ]
+      ]
+    },
+    "approval": {
+      "header": [
+        "Approver",
+        "Role",
+        "Decision"
+      ],
+      "rows": [
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Incident Lead",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Legal",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved after privileged text removal"
+        ],
+        [
+          "Jon Bell",
+          "Security Coordinator",
+          "Approved"
+        ],
+        [
+          "Maya Chen",
+          "Security Coordinator",
+          "Approved"
+        ]
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "IC-001",
+      "required_public": [
+        "2026-06-01 08:12",
+        "Service restored",
+        "Public status notice prepared.",
+        "Partners",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-001",
+        "Log retention",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-001",
+        "Unassigned",
+        "2026-06-05",
+        "Ready",
+        "EV-001",
+        "Alert chronology",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-002",
+      "required_public": [
+        "2026-06-01 09:12",
+        "Containment applied",
+        "Incident response process started.",
+        "Support desk",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-002",
+        "Vendor notification",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-002",
+        "Unassigned",
+        "2026-06-06",
+        "Blocked until owner assigned",
+        "EV-002",
+        "Approval chain",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-003",
+      "required_public": [
+        "2026-06-01 10:12",
+        "Containment applied",
+        "Public update published to customers.",
+        "Account teams",
+        "Ivy Zhang",
+        "Send public restoration summary.",
+        "EX-003",
+        "Change control",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-003",
+        "Unassigned",
+        "2026-06-07",
+        "Blocked until owner assigned",
+        "EV-003",
+        "Internal Slack excerpt",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-004",
+      "required_public": [
+        "2026-06-01 11:12",
+        "Customer notified",
+        "Incident response process started.",
+        "Support desk",
+        "Ivy Zhang",
+        "Publish confirmed resolution notice.",
+        "EX-004",
+        "MFA evidence",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-004",
+        "Rina Patel",
+        "2026-06-08",
+        "Blocked until owner assigned",
+        "EV-004",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-005",
+      "required_public": [
+        "2026-06-01 12:12",
+        "Draft notification prepared",
+        "Customer service was restored.",
+        "Public website",
+        "Sam Foster",
+        "Use approved FAQ language only.",
+        "EX-005",
+        "Access review",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-005",
+        "Unassigned",
+        "2026-06-09",
+        "Blocked until owner assigned",
+        "EV-005",
+        "Alert chronology",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-006",
+      "required_public": [
+        "2026-06-01 13:12",
+        "Draft notification prepared",
+        "Incident response process started.",
+        "Public website",
+        "Jon Bell",
+        "Send public restoration summary.",
+        "EX-006",
+        "Access review",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-006",
+        "Unassigned",
+        "2026-06-10",
+        "Blocked until owner assigned",
+        "EV-006",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-007",
+      "required_public": [
+        "2026-06-01 14:12",
+        "Customer notified",
+        "Incident response process started.",
+        "Customers",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-007",
+        "Change control",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-007",
+        "Rina Patel",
+        "2026-06-11",
+        "Ready",
+        "EV-007",
+        "Customer notification record",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-008",
+      "required_public": [
+        "2026-06-01 15:12",
+        "Alert opened",
+        "Public status notice prepared.",
+        "Support desk",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-008",
+        "Log retention",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-008",
+        "Rina Patel",
+        "2026-06-12",
+        "Blocked until owner assigned",
+        "EV-008",
+        "Customer notification record",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-009",
+      "required_public": [
+        "2026-06-01 16:12",
+        "Containment applied",
+        "Release evidence archived for review.",
+        "Customers",
+        "Rina Patel",
+        "Send public restoration summary.",
+        "EX-009",
+        "Change control",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-009",
+        "Rina Patel",
+        "2026-06-13",
+        "Blocked until owner assigned",
+        "EV-009",
+        "Containment log",
+        "Exclude",
+        "Maya Chen",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-010",
+      "required_public": [
+        "2026-06-01 17:12",
+        "Containment applied",
+        "Customer service was restored.",
+        "Account teams",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-010",
+        "Access review",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-010",
+        "Rina Patel",
+        "2026-06-14",
+        "Blocked until owner assigned",
+        "EV-010",
+        "Customer notification record",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-011",
+      "required_public": [
+        "2026-06-01 18:12",
+        "Customer notified",
+        "Incident response process started.",
+        "Support desk",
+        "Sam Foster",
+        "Send updated service status.",
+        "EX-011",
+        "MFA evidence",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-011",
+        "Rina Patel",
+        "2026-06-15",
+        "Ready",
+        "EV-011",
+        "Alert chronology",
+        "Exclude",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-012",
+      "required_public": [
+        "2026-06-01 19:12",
+        "Evidence preserved",
+        "Incident response process started.",
+        "Public website",
+        "Jon Bell",
+        "Use approved FAQ language only.",
+        "EX-012",
+        "Change control",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-012",
+        "Maya Chen",
+        "2026-06-16",
+        "Blocked until owner assigned",
+        "EV-012",
+        "Customer notification record",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-013",
+      "required_public": [
+        "2026-06-01 20:12",
+        "Evidence preserved",
+        "Public status notice prepared.",
+        "Support desk",
+        "Sam Foster",
+        "Send public restoration summary.",
+        "EX-013",
+        "MFA evidence",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-013",
+        "Rina Patel",
+        "2026-06-17",
+        "Ready",
+        "EV-013",
+        "Alert chronology",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-014",
+      "required_public": [
+        "2026-06-01 21:12",
+        "Containment applied",
+        "Customer service was restored.",
+        "Support desk",
+        "Jon Bell",
+        "Send public restoration summary.",
+        "EX-014",
+        "Access review",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-014",
+        "Unassigned",
+        "2026-06-18",
+        "Blocked until owner assigned",
+        "EV-014",
+        "Approval chain",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-015",
+      "required_public": [
+        "2026-06-01 22:12",
+        "Evidence preserved",
+        "Public update published to customers.",
+        "Support desk",
+        "Jon Bell",
+        "Send public restoration summary.",
+        "EX-015",
+        "Change control",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-015",
+        "Maya Chen",
+        "2026-06-19",
+        "Ready",
+        "EV-015",
+        "Alert chronology",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-016",
+      "required_public": [
+        "2026-06-01 23:12",
+        "Customer notified",
+        "Incident response process started.",
+        "Customers",
+        "Sam Foster",
+        "Use approved FAQ language only.",
+        "EX-016",
+        "Vendor notification",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-016",
+        "Unassigned",
+        "2026-06-20",
+        "Blocked until owner assigned",
+        "EV-016",
+        "Customer notification record",
+        "Exclude",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-017",
+      "required_public": [
+        "2026-06-02 00:12",
+        "Containment applied",
+        "Incident response process started.",
+        "Public website",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-017",
+        "Log retention",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-017",
+        "Rina Patel",
+        "2026-06-21",
+        "Blocked until owner assigned",
+        "EV-017",
+        "Internal Slack excerpt",
+        "Publish",
+        "Maya Chen",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-018",
+      "required_public": [
+        "2026-06-02 01:12",
+        "Alert opened",
+        "Containment controls were applied.",
+        "Partners",
+        "Rina Patel",
+        "Send updated service status.",
+        "EX-018",
+        "Change control",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-018",
+        "Rina Patel",
+        "2026-06-22",
+        "Ready",
+        "EV-018",
+        "Customer notification record",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-019",
+      "required_public": [
+        "2026-06-02 02:12",
+        "Evidence preserved",
+        "Release evidence archived for review.",
+        "Customers",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-019",
+        "Vendor notification",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-019",
+        "Unassigned",
+        "2026-06-23",
+        "Ready",
+        "EV-019",
+        "Customer notification record",
+        "Publish",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-020",
+      "required_public": [
+        "2026-06-02 03:12",
+        "Evidence preserved",
+        "Public status notice prepared.",
+        "Support desk",
+        "Sam Foster",
+        "Publish confirmed resolution notice.",
+        "EX-020",
+        "Log retention",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-020",
+        "Unassigned",
+        "2026-06-24",
+        "Blocked until owner assigned",
+        "EV-020",
+        "Containment log",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-021",
+      "required_public": [
+        "2026-06-02 04:12",
+        "Customer notified",
+        "Containment controls were applied.",
+        "Support desk",
+        "Maya Chen",
+        "Publish confirmed resolution notice.",
+        "EX-021",
+        "Vendor notification",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-021",
+        "Unassigned",
+        "2026-06-25",
+        "Ready",
+        "EV-021",
+        "Customer notification record",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-022",
+      "required_public": [
+        "2026-06-02 05:12",
+        "Containment applied",
+        "Containment controls were applied.",
+        "Partners",
+        "Jon Bell",
+        "Send public restoration summary.",
+        "EX-022",
+        "Log retention",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-022",
+        "Maya Chen",
+        "2026-06-26",
+        "Ready",
+        "EV-022",
+        "Alert chronology",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-023",
+      "required_public": [
+        "2026-06-02 06:12",
+        "Evidence preserved",
+        "Public update published to customers.",
+        "Customers",
+        "Ivy Zhang",
+        "Use approved FAQ language only.",
+        "EX-023",
+        "Log retention",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-023",
+        "Maya Chen",
+        "2026-06-27",
+        "Ready",
+        "EV-023",
+        "Customer notification record",
+        "Publish",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-024",
+      "required_public": [
+        "2026-06-02 07:12",
+        "Draft notification prepared",
+        "Public update published to customers.",
+        "Public website",
+        "Sam Foster",
+        "Send public restoration summary.",
+        "EX-024",
+        "Log retention",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-024",
+        "Unassigned",
+        "2026-06-28",
+        "Ready",
+        "EV-024",
+        "Containment log",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-025",
+      "required_public": [
+        "2026-06-02 08:12",
+        "Draft notification prepared",
+        "Public update published to customers.",
+        "Customers",
+        "Sam Foster",
+        "Send updated service status.",
+        "EX-025",
+        "Change control",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-025",
+        "Maya Chen",
+        "2026-06-29",
+        "Ready",
+        "EV-025",
+        "Approval chain",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-026",
+      "required_public": [
+        "2026-06-02 09:12",
+        "Customer notified",
+        "Customer service was restored.",
+        "Customers",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-026",
+        "MFA evidence",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-026",
+        "Rina Patel",
+        "2026-06-30",
+        "Ready",
+        "EV-026",
+        "Internal Slack excerpt",
+        "Publish",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-027",
+      "required_public": [
+        "2026-06-02 10:12",
+        "Containment applied",
+        "Release evidence archived for review.",
+        "Customers",
+        "Ivy Zhang",
+        "Send public restoration summary.",
+        "EX-027",
+        "Log retention",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-027",
+        "Unassigned",
+        "2026-07-01",
+        "Blocked until owner assigned",
+        "EV-027",
+        "Customer notification record",
+        "Exclude",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-028",
+      "required_public": [
+        "2026-06-02 11:12",
+        "Service restored",
+        "Incident response process started.",
+        "Account teams",
+        "Ivy Zhang",
+        "Send public restoration summary.",
+        "EX-028",
+        "Log retention",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-028",
+        "Maya Chen",
+        "2026-07-02",
+        "Ready",
+        "EV-028",
+        "Alert chronology",
+        "Exclude",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-029",
+      "required_public": [
+        "2026-06-02 12:12",
+        "Containment applied",
+        "Public update published to customers.",
+        "Customers",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-029",
+        "Access review",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-029",
+        "Maya Chen",
+        "2026-07-03",
+        "Blocked until owner assigned",
+        "EV-029",
+        "Internal Slack excerpt",
+        "Publish",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-030",
+      "required_public": [
+        "2026-06-02 13:12",
+        "Customer notified",
+        "Public status notice prepared.",
+        "Account teams",
+        "Sam Foster",
+        "Publish confirmed resolution notice.",
+        "EX-030",
+        "Change control",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-030",
+        "Maya Chen",
+        "2026-07-04",
+        "Blocked until owner assigned",
+        "EV-030",
+        "Alert chronology",
+        "Exclude",
+        "Maya Chen",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-031",
+      "required_public": [
+        "2026-06-02 14:12",
+        "Customer notified",
+        "Public update published to customers.",
+        "Partners",
+        "Ivy Zhang",
+        "Send public restoration summary.",
+        "EX-031",
+        "Vendor notification",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-031",
+        "Unassigned",
+        "2026-07-05",
+        "Ready",
+        "EV-031",
+        "Alert chronology",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-032",
+      "required_public": [
+        "2026-06-02 15:12",
+        "Customer notified",
+        "Customer service was restored.",
+        "Account teams",
+        "Ivy Zhang",
+        "Send public restoration summary.",
+        "EX-032",
+        "Change control",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-032",
+        "Rina Patel",
+        "2026-07-06",
+        "Ready",
+        "EV-032",
+        "Alert chronology",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-033",
+      "required_public": [
+        "2026-06-02 16:12",
+        "Evidence preserved",
+        "Release evidence archived for review.",
+        "Public website",
+        "Sam Foster",
+        "Use approved FAQ language only.",
+        "EX-033",
+        "Change control",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-033",
+        "Unassigned",
+        "2026-07-07",
+        "Ready",
+        "EV-033",
+        "Approval chain",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-034",
+      "required_public": [
+        "2026-06-02 17:12",
+        "Service restored",
+        "Containment controls were applied.",
+        "Customers",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-034",
+        "Vendor notification",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-034",
+        "Unassigned",
+        "2026-07-08",
+        "Ready",
+        "EV-034",
+        "Customer notification record",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-035",
+      "required_public": [
+        "2026-06-02 18:12",
+        "Draft notification prepared",
+        "Release evidence archived for review.",
+        "Support desk",
+        "Jon Bell",
+        "Use approved FAQ language only.",
+        "EX-035",
+        "MFA evidence",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-035",
+        "Rina Patel",
+        "2026-07-09",
+        "Blocked until owner assigned",
+        "EV-035",
+        "Containment log",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-036",
+      "required_public": [
+        "2026-06-02 19:12",
+        "Draft notification prepared",
+        "Incident response process started.",
+        "Partners",
+        "Jon Bell",
+        "Use approved FAQ language only.",
+        "EX-036",
+        "Log retention",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-036",
+        "Unassigned",
+        "2026-07-10",
+        "Blocked until owner assigned",
+        "EV-036",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-037",
+      "required_public": [
+        "2026-06-02 20:12",
+        "Alert opened",
+        "Public status notice prepared.",
+        "Customers",
+        "Ivy Zhang",
+        "Publish confirmed resolution notice.",
+        "EX-037",
+        "Access review",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-037",
+        "Rina Patel",
+        "2026-07-11",
+        "Blocked until owner assigned",
+        "EV-037",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-038",
+      "required_public": [
+        "2026-06-02 21:12",
+        "Service restored",
+        "Containment controls were applied.",
+        "Partners",
+        "Rina Patel",
+        "Send updated service status.",
+        "EX-038",
+        "Log retention",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-038",
+        "Rina Patel",
+        "2026-07-12",
+        "Ready",
+        "EV-038",
+        "Internal Slack excerpt",
+        "Publish",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-039",
+      "required_public": [
+        "2026-06-02 22:12",
+        "Containment applied",
+        "Public update published to customers.",
+        "Public website",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-039",
+        "Log retention",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-039",
+        "Maya Chen",
+        "2026-07-13",
+        "Blocked until owner assigned",
+        "EV-039",
+        "Approval chain",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-040",
+      "required_public": [
+        "2026-06-02 23:12",
+        "Containment applied",
+        "Release evidence archived for review.",
+        "Support desk",
+        "Ivy Zhang",
+        "Use approved FAQ language only.",
+        "EX-040",
+        "Change control",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-040",
+        "Maya Chen",
+        "2026-07-14",
+        "Blocked until owner assigned",
+        "EV-040",
+        "Customer notification record",
+        "Exclude",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-041",
+      "required_public": [
+        "2026-06-03 00:12",
+        "Service restored",
+        "Containment controls were applied.",
+        "Customers",
+        "Rina Patel",
+        "Use approved FAQ language only.",
+        "EX-041",
+        "MFA evidence",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-041",
+        "Maya Chen",
+        "2026-07-15",
+        "Ready",
+        "EV-041",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-042",
+      "required_public": [
+        "2026-06-03 01:12",
+        "Containment applied",
+        "Public update published to customers.",
+        "Partners",
+        "Rina Patel",
+        "Use approved FAQ language only.",
+        "EX-042",
+        "Access review",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-042",
+        "Maya Chen",
+        "2026-07-16",
+        "Ready",
+        "EV-042",
+        "Customer notification record",
+        "Publish",
+        "Maya Chen",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-043",
+      "required_public": [
+        "2026-06-03 02:12",
+        "Service restored",
+        "Incident response process started.",
+        "Support desk",
+        "Ivy Zhang",
+        "Send public restoration summary.",
+        "EX-043",
+        "Vendor notification",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-043",
+        "Maya Chen",
+        "2026-07-17",
+        "Ready",
+        "EV-043",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-044",
+      "required_public": [
+        "2026-06-03 03:12",
+        "Containment applied",
+        "Customer service was restored.",
+        "Customers",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-044",
+        "Vendor notification",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-044",
+        "Maya Chen",
+        "2026-07-18",
+        "Blocked until owner assigned",
+        "EV-044",
+        "Containment log",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-045",
+      "required_public": [
+        "2026-06-03 04:12",
+        "Customer notified",
+        "Public status notice prepared.",
+        "Customers",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-045",
+        "Access review",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-045",
+        "Unassigned",
+        "2026-07-19",
+        "Blocked until owner assigned",
+        "EV-045",
+        "Internal Slack excerpt",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-046",
+      "required_public": [
+        "2026-06-03 05:12",
+        "Service restored",
+        "Release evidence archived for review.",
+        "Customers",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-046",
+        "Access review",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-046",
+        "Unassigned",
+        "2026-07-20",
+        "Ready",
+        "EV-046",
+        "Containment log",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-047",
+      "required_public": [
+        "2026-06-03 06:12",
+        "Draft notification prepared",
+        "Incident response process started.",
+        "Customers",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-047",
+        "Log retention",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-047",
+        "Rina Patel",
+        "2026-07-21",
+        "Blocked until owner assigned",
+        "EV-047",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-048",
+      "required_public": [
+        "2026-06-03 07:12",
+        "Service restored",
+        "Public status notice prepared.",
+        "Public website",
+        "Maya Chen",
+        "Send public restoration summary.",
+        "EX-048",
+        "Access review",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-048",
+        "Maya Chen",
+        "2026-07-22",
+        "Blocked until owner assigned",
+        "EV-048",
+        "Approval chain",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-049",
+      "required_public": [
+        "2026-06-03 08:12",
+        "Service restored",
+        "Release evidence archived for review.",
+        "Support desk",
+        "Maya Chen",
+        "Use approved FAQ language only.",
+        "EX-049",
+        "Vendor notification",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-049",
+        "Unassigned",
+        "2026-07-23",
+        "Ready",
+        "EV-049",
+        "Containment log",
+        "Publish",
+        "Maya Chen",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-050",
+      "required_public": [
+        "2026-06-03 09:12",
+        "Containment applied",
+        "Public status notice prepared.",
+        "Account teams",
+        "Jon Bell",
+        "Use approved FAQ language only.",
+        "EX-050",
+        "MFA evidence",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-050",
+        "Rina Patel",
+        "2026-07-24",
+        "Blocked until owner assigned",
+        "EV-050",
+        "Customer notification record",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-051",
+      "required_public": [
+        "2026-06-03 10:12",
+        "Draft notification prepared",
+        "Public update published to customers.",
+        "Account teams",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-051",
+        "Log retention",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-051",
+        "Unassigned",
+        "2026-07-25",
+        "Blocked until owner assigned",
+        "EV-051",
+        "Approval chain",
+        "Exclude",
+        "Jon Bell",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-052",
+      "required_public": [
+        "2026-06-03 11:12",
+        "Service restored",
+        "Public status notice prepared.",
+        "Account teams",
+        "Sam Foster",
+        "Send updated service status.",
+        "EX-052",
+        "Access review",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-052",
+        "Unassigned",
+        "2026-07-26",
+        "Ready",
+        "EV-052",
+        "Containment log",
+        "Exclude",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-053",
+      "required_public": [
+        "2026-06-03 12:12",
+        "Alert opened",
+        "Public update published to customers.",
+        "Partners",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-053",
+        "Access review",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-053",
+        "Unassigned",
+        "2026-07-27",
+        "Blocked until owner assigned",
+        "EV-053",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Jon Bell",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-054",
+      "required_public": [
+        "2026-06-03 13:12",
+        "Containment applied",
+        "Public update published to customers.",
+        "Public website",
+        "Jon Bell",
+        "Send public restoration summary.",
+        "EX-054",
+        "Vendor notification",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-054",
+        "Rina Patel",
+        "2026-07-28",
+        "Ready",
+        "EV-054",
+        "Alert chronology",
+        "Publish",
+        "Maya Chen",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-055",
+      "required_public": [
+        "2026-06-03 14:12",
+        "Service restored",
+        "Incident response process started.",
+        "Partners",
+        "Rina Patel",
+        "Send public restoration summary.",
+        "EX-055",
+        "Log retention",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-055",
+        "Maya Chen",
+        "2026-07-29",
+        "Ready",
+        "EV-055",
+        "Approval chain",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-056",
+      "required_public": [
+        "2026-06-03 15:12",
+        "Service restored",
+        "Public status notice prepared.",
+        "Customers",
+        "Rina Patel",
+        "Send updated service status.",
+        "EX-056",
+        "Change control",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-056",
+        "Maya Chen",
+        "2026-07-30",
+        "Blocked until owner assigned",
+        "EV-056",
+        "Containment log",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-057",
+      "required_public": [
+        "2026-06-03 16:12",
+        "Alert opened",
+        "Public status notice prepared.",
+        "Partners",
+        "Sam Foster",
+        "Send public restoration summary.",
+        "EX-057",
+        "Access review",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-057",
+        "Unassigned",
+        "2026-07-31",
+        "Ready",
+        "EV-057",
+        "Approval chain",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-058",
+      "required_public": [
+        "2026-06-03 17:12",
+        "Alert opened",
+        "Customer service was restored.",
+        "Partners",
+        "Maya Chen",
+        "Use approved FAQ language only.",
+        "EX-058",
+        "Log retention",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-058",
+        "Maya Chen",
+        "2026-08-01",
+        "Blocked until owner assigned",
+        "EV-058",
+        "Containment log",
+        "Exclude",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-059",
+      "required_public": [
+        "2026-06-03 18:12",
+        "Containment applied",
+        "Public update published to customers.",
+        "Public website",
+        "Maya Chen",
+        "Publish confirmed resolution notice.",
+        "EX-059",
+        "Change control",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-059",
+        "Unassigned",
+        "2026-08-02",
+        "Blocked until owner assigned",
+        "EV-059",
+        "Approval chain",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-060",
+      "required_public": [
+        "2026-06-03 19:12",
+        "Alert opened",
+        "Incident response process started.",
+        "Customers",
+        "Maya Chen",
+        "Publish confirmed resolution notice.",
+        "EX-060",
+        "Access review",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-060",
+        "Unassigned",
+        "2026-08-03",
+        "Blocked until owner assigned",
+        "EV-060",
+        "Approval chain",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-061",
+      "required_public": [
+        "2026-06-03 20:12",
+        "Customer notified",
+        "Containment controls were applied.",
+        "Customers",
+        "Ivy Zhang",
+        "Send public restoration summary.",
+        "EX-061",
+        "Log retention",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-061",
+        "Unassigned",
+        "2026-08-04",
+        "Ready",
+        "EV-061",
+        "Internal Slack excerpt",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-062",
+      "required_public": [
+        "2026-06-03 21:12",
+        "Containment applied",
+        "Customer service was restored.",
+        "Support desk",
+        "Rina Patel",
+        "Publish confirmed resolution notice.",
+        "EX-062",
+        "Access review",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-062",
+        "Maya Chen",
+        "2026-08-05",
+        "Ready",
+        "EV-062",
+        "Customer notification record",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-063",
+      "required_public": [
+        "2026-06-03 22:12",
+        "Evidence preserved",
+        "Containment controls were applied.",
+        "Partners",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-063",
+        "Access review",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-063",
+        "Unassigned",
+        "2026-08-06",
+        "Blocked until owner assigned",
+        "EV-063",
+        "Approval chain",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-064",
+      "required_public": [
+        "2026-06-03 23:12",
+        "Evidence preserved",
+        "Customer service was restored.",
+        "Public website",
+        "Ivy Zhang",
+        "Use approved FAQ language only.",
+        "EX-064",
+        "MFA evidence",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-064",
+        "Rina Patel",
+        "2026-08-07",
+        "Ready",
+        "EV-064",
+        "Approval chain",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-065",
+      "required_public": [
+        "2026-06-04 00:12",
+        "Containment applied",
+        "Public status notice prepared.",
+        "Customers",
+        "Rina Patel",
+        "Publish confirmed resolution notice.",
+        "EX-065",
+        "MFA evidence",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-065",
+        "Rina Patel",
+        "2026-08-08",
+        "Ready",
+        "EV-065",
+        "Alert chronology",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-066",
+      "required_public": [
+        "2026-06-04 01:12",
+        "Containment applied",
+        "Containment controls were applied.",
+        "Partners",
+        "Jon Bell",
+        "Send public restoration summary.",
+        "EX-066",
+        "Access review",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-066",
+        "Maya Chen",
+        "2026-08-09",
+        "Ready",
+        "EV-066",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-067",
+      "required_public": [
+        "2026-06-04 02:12",
+        "Containment applied",
+        "Customer service was restored.",
+        "Support desk",
+        "Sam Foster",
+        "Publish confirmed resolution notice.",
+        "EX-067",
+        "MFA evidence",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-067",
+        "Rina Patel",
+        "2026-08-10",
+        "Blocked until owner assigned",
+        "EV-067",
+        "Internal Slack excerpt",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-068",
+      "required_public": [
+        "2026-06-04 03:12",
+        "Evidence preserved",
+        "Incident response process started.",
+        "Partners",
+        "Rina Patel",
+        "Send public restoration summary.",
+        "EX-068",
+        "MFA evidence",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-068",
+        "Maya Chen",
+        "2026-08-11",
+        "Ready",
+        "EV-068",
+        "Approval chain",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-069",
+      "required_public": [
+        "2026-06-04 04:12",
+        "Containment applied",
+        "Customer service was restored.",
+        "Customers",
+        "Ivy Zhang",
+        "Publish confirmed resolution notice.",
+        "EX-069",
+        "MFA evidence",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-069",
+        "Unassigned",
+        "2026-08-12",
+        "Blocked until owner assigned",
+        "EV-069",
+        "Alert chronology",
+        "Exclude",
+        "Maya Chen",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-070",
+      "required_public": [
+        "2026-06-04 05:12",
+        "Draft notification prepared",
+        "Customer service was restored.",
+        "Account teams",
+        "Maya Chen",
+        "Use approved FAQ language only.",
+        "EX-070",
+        "Change control",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-070",
+        "Unassigned",
+        "2026-08-13",
+        "Ready",
+        "EV-070",
+        "Alert chronology",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-071",
+      "required_public": [
+        "2026-06-04 06:12",
+        "Evidence preserved",
+        "Incident response process started.",
+        "Customers",
+        "Rina Patel",
+        "Publish confirmed resolution notice.",
+        "EX-071",
+        "Vendor notification",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-071",
+        "Maya Chen",
+        "2026-08-14",
+        "Ready",
+        "EV-071",
+        "Approval chain",
+        "Publish",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-072",
+      "required_public": [
+        "2026-06-04 07:12",
+        "Containment applied",
+        "Public status notice prepared.",
+        "Public website",
+        "Ivy Zhang",
+        "Send updated service status.",
+        "EX-072",
+        "Log retention",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-072",
+        "Rina Patel",
+        "2026-08-15",
+        "Blocked until owner assigned",
+        "EV-072",
+        "Customer notification record",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-073",
+      "required_public": [
+        "2026-06-04 08:12",
+        "Alert opened",
+        "Customer service was restored.",
+        "Account teams",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-073",
+        "MFA evidence",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-073",
+        "Rina Patel",
+        "2026-08-16",
+        "Ready",
+        "EV-073",
+        "Customer notification record",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-074",
+      "required_public": [
+        "2026-06-04 09:12",
+        "Alert opened",
+        "Release evidence archived for review.",
+        "Public website",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-074",
+        "Vendor notification",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-074",
+        "Maya Chen",
+        "2026-08-17",
+        "Ready",
+        "EV-074",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-075",
+      "required_public": [
+        "2026-06-04 10:12",
+        "Service restored",
+        "Public status notice prepared.",
+        "Public website",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-075",
+        "Log retention",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-075",
+        "Unassigned",
+        "2026-08-18",
+        "Ready",
+        "EV-075",
+        "Customer notification record",
+        "Publish",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-076",
+      "required_public": [
+        "2026-06-04 11:12",
+        "Evidence preserved",
+        "Release evidence archived for review.",
+        "Partners",
+        "Maya Chen",
+        "Send public restoration summary.",
+        "EX-076",
+        "Vendor notification",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-076",
+        "Unassigned",
+        "2026-08-19",
+        "Blocked until owner assigned",
+        "EV-076",
+        "Approval chain",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-077",
+      "required_public": [
+        "2026-06-04 12:12",
+        "Customer notified",
+        "Public update published to customers.",
+        "Partners",
+        "Rina Patel",
+        "Send public restoration summary.",
+        "EX-077",
+        "Log retention",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-077",
+        "Maya Chen",
+        "2026-08-20",
+        "Blocked until owner assigned",
+        "EV-077",
+        "Customer notification record",
+        "Publish",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-078",
+      "required_public": [
+        "2026-06-04 13:12",
+        "Draft notification prepared",
+        "Customer service was restored.",
+        "Support desk",
+        "Jon Bell",
+        "Use approved FAQ language only.",
+        "EX-078",
+        "MFA evidence",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-078",
+        "Maya Chen",
+        "2026-08-21",
+        "Ready",
+        "EV-078",
+        "Alert chronology",
+        "Exclude",
+        "Maya Chen",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-079",
+      "required_public": [
+        "2026-06-04 14:12",
+        "Service restored",
+        "Containment controls were applied.",
+        "Account teams",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-079",
+        "Change control",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-079",
+        "Rina Patel",
+        "2026-08-22",
+        "Blocked until owner assigned",
+        "EV-079",
+        "Alert chronology",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-080",
+      "required_public": [
+        "2026-06-04 15:12",
+        "Draft notification prepared",
+        "Public update published to customers.",
+        "Account teams",
+        "Rina Patel",
+        "Publish confirmed resolution notice.",
+        "EX-080",
+        "Log retention",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-080",
+        "Rina Patel",
+        "2026-08-23",
+        "Ready",
+        "EV-080",
+        "Containment log",
+        "Publish",
+        "Jon Bell",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-081",
+      "required_public": [
+        "2026-06-04 16:12",
+        "Service restored",
+        "Containment controls were applied.",
+        "Support desk",
+        "Maya Chen",
+        "Publish confirmed resolution notice.",
+        "EX-081",
+        "MFA evidence",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-081",
+        "Rina Patel",
+        "2026-08-24",
+        "Ready",
+        "EV-081",
+        "Alert chronology",
+        "Exclude",
+        "Jon Bell",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-082",
+      "required_public": [
+        "2026-06-04 17:12",
+        "Draft notification prepared",
+        "Containment controls were applied.",
+        "Account teams",
+        "Maya Chen",
+        "Publish confirmed resolution notice.",
+        "EX-082",
+        "Change control",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-082",
+        "Unassigned",
+        "2026-08-25",
+        "Blocked until owner assigned",
+        "EV-082",
+        "Containment log",
+        "Exclude",
+        "Jon Bell",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-083",
+      "required_public": [
+        "2026-06-04 18:12",
+        "Alert opened",
+        "Release evidence archived for review.",
+        "Support desk",
+        "Ivy Zhang",
+        "Use approved FAQ language only.",
+        "EX-083",
+        "Change control",
+        "Sam Foster",
+        "Closed - evidence exported",
+        "ACT-083",
+        "Maya Chen",
+        "2026-08-26",
+        "Ready",
+        "EV-083",
+        "Alert chronology",
+        "Publish",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-084",
+      "required_public": [
+        "2026-06-04 19:12",
+        "Service restored",
+        "Public update published to customers.",
+        "Partners",
+        "Maya Chen",
+        "Send public restoration summary.",
+        "EX-084",
+        "MFA evidence",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-084",
+        "Maya Chen",
+        "2026-08-27",
+        "Blocked until owner assigned",
+        "EV-084",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-085",
+      "required_public": [
+        "2026-06-04 20:12",
+        "Alert opened",
+        "Customer service was restored.",
+        "Customers",
+        "Sam Foster",
+        "Use approved FAQ language only.",
+        "EX-085",
+        "Vendor notification",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-085",
+        "Maya Chen",
+        "2026-08-28",
+        "Ready",
+        "EV-085",
+        "Alert chronology",
+        "Exclude",
+        "Maya Chen",
+        "Legal",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-086",
+      "required_public": [
+        "2026-06-04 21:12",
+        "Containment applied",
+        "Incident response process started.",
+        "Support desk",
+        "Sam Foster",
+        "Use approved FAQ language only.",
+        "EX-086",
+        "Log retention",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-086",
+        "Maya Chen",
+        "2026-08-29",
+        "Ready",
+        "EV-086",
+        "Customer notification record",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-087",
+      "required_public": [
+        "2026-06-04 22:12",
+        "Service restored",
+        "Incident response process started.",
+        "Customers",
+        "Jon Bell",
+        "Publish confirmed resolution notice.",
+        "EX-087",
+        "MFA evidence",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-087",
+        "Maya Chen",
+        "2026-08-30",
+        "Ready",
+        "EV-087",
+        "Approval chain",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-088",
+      "required_public": [
+        "2026-06-04 23:12",
+        "Alert opened",
+        "Containment controls were applied.",
+        "Support desk",
+        "Ivy Zhang",
+        "Use approved FAQ language only.",
+        "EX-088",
+        "Change control",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-088",
+        "Unassigned",
+        "2026-08-31",
+        "Blocked until owner assigned",
+        "EV-088",
+        "Internal Slack excerpt",
+        "Publish",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-089",
+      "required_public": [
+        "2026-06-05 00:12",
+        "Service restored",
+        "Public update published to customers.",
+        "Partners",
+        "Maya Chen",
+        "Send public restoration summary.",
+        "EX-089",
+        "Access review",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-089",
+        "Unassigned",
+        "2026-09-01",
+        "Ready",
+        "EV-089",
+        "Internal Slack excerpt",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-090",
+      "required_public": [
+        "2026-06-05 01:12",
+        "Alert opened",
+        "Customer service was restored.",
+        "Support desk",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-090",
+        "Vendor notification",
+        "Rina Patel",
+        "Closed - evidence exported",
+        "ACT-090",
+        "Rina Patel",
+        "2026-09-02",
+        "Blocked until owner assigned",
+        "EV-090",
+        "Containment log",
+        "Exclude",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-091",
+      "required_public": [
+        "2026-06-05 02:12",
+        "Draft notification prepared",
+        "Customer service was restored.",
+        "Partners",
+        "Maya Chen",
+        "Use approved FAQ language only.",
+        "EX-091",
+        "Change control",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-091",
+        "Unassigned",
+        "2026-09-03",
+        "Blocked until owner assigned",
+        "EV-091",
+        "Internal Slack excerpt",
+        "Publish",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-092",
+      "required_public": [
+        "2026-06-05 03:12",
+        "Customer notified",
+        "Containment controls were applied.",
+        "Partners",
+        "Sam Foster",
+        "Send updated service status.",
+        "EX-092",
+        "Log retention",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-092",
+        "Maya Chen",
+        "2026-09-04",
+        "Blocked until owner assigned",
+        "EV-092",
+        "Customer notification record",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-093",
+      "required_public": [
+        "2026-06-05 04:12",
+        "Service restored",
+        "Public update published to customers.",
+        "Partners",
+        "Maya Chen",
+        "Publish confirmed resolution notice.",
+        "EX-093",
+        "Vendor notification",
+        "Sam Foster",
+        "Open - owner required",
+        "ACT-093",
+        "Unassigned",
+        "2026-09-05",
+        "Blocked until owner assigned",
+        "EV-093",
+        "Customer notification record",
+        "Exclude",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-094",
+      "required_public": [
+        "2026-06-05 05:12",
+        "Alert opened",
+        "Public update published to customers.",
+        "Public website",
+        "Ivy Zhang",
+        "Use approved FAQ language only.",
+        "EX-094",
+        "MFA evidence",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-094",
+        "Maya Chen",
+        "2026-09-06",
+        "Blocked until owner assigned",
+        "EV-094",
+        "Alert chronology",
+        "Publish",
+        "Jon Bell",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-095",
+      "required_public": [
+        "2026-06-05 06:12",
+        "Draft notification prepared",
+        "Release evidence archived for review.",
+        "Customers",
+        "Sam Foster",
+        "Send public restoration summary.",
+        "EX-095",
+        "Change control",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-095",
+        "Rina Patel",
+        "2026-09-07",
+        "Ready",
+        "EV-095",
+        "Containment log",
+        "Publish",
+        "Maya Chen",
+        "Incident Lead",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-096",
+      "required_public": [
+        "2026-06-05 07:12",
+        "Containment applied",
+        "Customer service was restored.",
+        "Public website",
+        "Maya Chen",
+        "Send updated service status.",
+        "EX-096",
+        "Access review",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-096",
+        "Unassigned",
+        "2026-09-08",
+        "Ready",
+        "EV-096",
+        "Approval chain",
+        "Publish",
+        "Maya Chen",
+        "Legal",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-097",
+      "required_public": [
+        "2026-06-05 08:12",
+        "Evidence preserved",
+        "Public update published to customers.",
+        "Support desk",
+        "Rina Patel",
+        "Publish confirmed resolution notice.",
+        "EX-097",
+        "Log retention",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-097",
+        "Maya Chen",
+        "2026-09-09",
+        "Blocked until owner assigned",
+        "EV-097",
+        "Containment log",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-098",
+      "required_public": [
+        "2026-06-05 09:12",
+        "Alert opened",
+        "Public update published to customers.",
+        "Partners",
+        "Jon Bell",
+        "Send updated service status.",
+        "EX-098",
+        "Vendor notification",
+        "Unassigned",
+        "Closed - evidence exported",
+        "ACT-098",
+        "Rina Patel",
+        "2026-09-10",
+        "Ready",
+        "EV-098",
+        "Alert chronology",
+        "Exclude",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved after privileged text removal"
+      ]
+    },
+    {
+      "id": "IC-099",
+      "required_public": [
+        "2026-06-05 10:12",
+        "Evidence preserved",
+        "Customer service was restored.",
+        "Customers",
+        "Maya Chen",
+        "Publish confirmed resolution notice.",
+        "EX-099",
+        "Vendor notification",
+        "Unassigned",
+        "Open - owner required",
+        "ACT-099",
+        "Rina Patel",
+        "2026-09-11",
+        "Ready",
+        "EV-099",
+        "Alert chronology",
+        "Publish",
+        "Jon Bell",
+        "Security Coordinator",
+        "Approved"
+      ]
+    },
+    {
+      "id": "IC-100",
+      "required_public": [
+        "2026-06-05 11:12",
+        "Service restored",
+        "Release evidence archived for review.",
+        "Public website",
+        "Jon Bell",
+        "Use approved FAQ language only.",
+        "EX-100",
+        "Change control",
+        "Rina Patel",
+        "Open - owner required",
+        "ACT-100",
+        "Unassigned",
+        "2026-09-12",
+        "Blocked until owner assigned",
+        "EV-100",
+        "Approval chain",
+        "Publish",
+        "Maya Chen",
+        "Security Coordinator",
+        "Approved"
+      ]
+    }
+  ],
+  "first_case": {
+    "id": "IC-001",
+    "required_public": [
+      "2026-06-01 08:12",
+      "Service restored",
+      "Public status notice prepared.",
+      "Partners",
+      "Jon Bell",
+      "Send updated service status.",
+      "EX-001",
+      "Log retention",
+      "Unassigned",
+      "Closed - evidence exported",
+      "ACT-001",
+      "Unassigned",
+      "2026-06-05",
+      "Ready",
+      "EV-001",
+      "Alert chronology",
+      "Publish",
+      "Maya Chen",
+      "Security Coordinator",
+      "Approved"
+    ]
+  },
+  "middle_case": {
+    "id": "IC-051",
+    "required_public": [
+      "2026-06-03 10:12",
+      "Draft notification prepared",
+      "Public update published to customers.",
+      "Account teams",
+      "Jon Bell",
+      "Publish confirmed resolution notice.",
+      "EX-051",
+      "Log retention",
+      "Sam Foster",
+      "Open - owner required",
+      "ACT-051",
+      "Unassigned",
+      "2026-07-25",
+      "Blocked until owner assigned",
+      "EV-051",
+      "Approval chain",
+      "Exclude",
+      "Jon Bell",
+      "Legal",
+      "Approved"
+    ]
+  },
+  "last_case": {
+    "id": "IC-100",
+    "required_public": [
+      "2026-06-05 11:12",
+      "Service restored",
+      "Release evidence archived for review.",
+      "Public website",
+      "Jon Bell",
+      "Use approved FAQ language only.",
+      "EX-100",
+      "Change control",
+      "Rina Patel",
+      "Open - owner required",
+      "ACT-100",
+      "Unassigned",
+      "2026-09-12",
+      "Blocked until owner assigned",
+      "EV-100",
+      "Approval chain",
+      "Publish",
+      "Maya Chen",
+      "Security Coordinator",
+      "Approved"
+    ]
+  },
+  "fixed_paragraphs": [
+    "This public manual summarizes the June 2026 incident response without privileged root-cause analysis.",
+    "Customer-facing language has been normalized and internal notes have been removed.",
+    "Exception: MFA evidence owner remains unassigned.",
+    "Resolved exception: log retention evidence was exported and approved."
+  ],
+  "required_values": [
+    "Incident Response Manual | Public Release",
+    "Incident Response Manual | Public Release | 2026-06-05",
+    "2026-06-05",
+    "Incident Response Manual | Public Release",
+    "Exception: MFA evidence owner remains unassigned.",
+    "100"
+  ],
+  "document_level": {
+    "core": {
+      "author": "Security Operations Publication Office",
+      "subject": "Release-safe public incident response manual",
+      "title": "Incident Response Manual | Public Release",
+      "last_modified_by": "Security Operations Publication Office",
+      "keywords": "incident response; public release; control exceptions",
+      "comments": "Public edition with privileged and internal material removed.",
+      "category": "Public Release"
+    },
+    "header": "Incident Response Manual | Public Release | 2026-06-05",
+    "footer_contains": "Page",
+    "margin_twips": {
+      "top": 1440,
+      "bottom": 1440,
+      "left": 1800,
+      "right": 1800
+    },
+    "title_font": "Arial",
+    "title_size_pt": 21,
+    "title_color": "17324D",
+    "title_bold": true,
+    "heading_color": "17324D",
+    "table_header_fill": "17324D"
+  },
+  "forbidden_phrases": [
+    "draft:",
+    "[internal]",
+    "do not publish",
+    "phone bridge",
+    "555-0199",
+    "privileged vendor-root-cause"
+  ],
+  "forbidden_xml": [
+    "draft:",
+    "[internal]",
+    "do not publish",
+    "phone bridge",
+    "555-0199",
+    "privileged vendor-root-cause"
+  ]
+}

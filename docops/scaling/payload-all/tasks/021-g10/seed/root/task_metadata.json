@@ -1,0 +1,69 @@
+{
+  "schema": "docops-scaling-task-metadata-v1",
+  "variant_task_id": "021-g10",
+  "synthetic": true,
+  "parent_task": "021",
+  "kind": "pptx",
+  "seed": 2026110504,
+  "scale": {
+    "regions": 10,
+    "pages": 80
+  },
+  "generator": "docops/scaling/cases/021/synth.py",
+  "generator_version": "1.0",
+  "modified_workflow": [
+    "01 prepare_render_fonts: unchanged font-prep step",
+    "02 build_validate_render: builder reads regions.json and iterates regions (8 public slides per region); validate checks every slide against frozen expected.json; contact sheets grouped by region (8 pages each) with numeric zero-padded filename sorting instead of fixed slide-{1..8}.jpg"
+  ],
+  "scale_metadata": {
+    "regions": 10,
+    "pages": 80,
+    "pages_per_region": 8,
+    "shelter_counts": [
+      11,
+      17,
+      16,
+      11,
+      13,
+      12,
+      12,
+      15,
+      16,
+      10
+    ],
+    "accessible_counts": [
+      7,
+      13,
+      10,
+      8,
+      10,
+      7,
+      8,
+      10,
+      13,
+      6
+    ],
+    "accessible_le_shelter": true,
+    "input_bytes": 53294,
+    "input_sha256": "e1f71b84bdbf03e9fe4378028ba1dfc8e914f5c7da05826f988039b62b78b972",
+    "regions_json_sha256": "ccb160116740bc7b5947a79e42b682ef68e1f4ff7f6a9a3c637b84efd86c2422",
+    "seed": 2026110504,
+    "source_must_contain": [
+      "DRAFT",
+      "PRIVATE",
+      "INTERNAL",
+      "staff-only",
+      "personal phone",
+      "555-0199",
+      "emergency operations center",
+      "do not publish",
+      "internal.example",
+      "eoc.internal",
+      "16 shelters",
+      "11 wheelchair"
+    ]
+  },
+  "input_path": "/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input_g10.pptx",
+  "output_path": "/root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output_g10.pptx",
+  "measurement_scope": "Measures per-region document generation, validation, conversion and rendering scale: regions -> 8 public slides each (5 -> 40, 10 -> 80). The synthetic source PPTX page count is NOT what this variant parses or repairs; this variant does NOT measure a larger source-PPT parse/cleanup cost. Distinguish input PPTX pages vs region count vs expected output pages."
+}

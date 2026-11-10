@@ -1,0 +1,235 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "021-g10",
+  "task_id": "docops_synthetic_021-g10_scale_variant",
+  "format": "pptx",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output_g10.pptx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/021-g10/seed/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input_g10.pptx",
+      "destination": "/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input_g10.pptx",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "e1f71b84bdbf03e9fe4378028ba1dfc8e914f5c7da05826f988039b62b78b972",
+      "bytes": 53294
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021-g10/seed/root/tmp/docs/regions.json",
+      "destination": "/root/tmp/docs/regions.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "ccb160116740bc7b5947a79e42b682ef68e1f4ff7f6a9a3c637b84efd86c2422",
+      "bytes": 8132
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021-g10/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "ef1f08f7d1171b9c31926153969ec7f1093091c39da9dd6446af8e855bc5e73b",
+      "bytes": 493
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021-g10/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "3ad7935511ae6b9180f877f79187437c2a2dc8036b5d547b1df31e0cc77d91c6",
+      "bytes": 2201
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021-g10/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "e97c393d78b46c5fbbb38baf80d154393661eef76d585106e7ebfc0717f8d36a",
+      "bytes": 2361
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/021-g10/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "33469987ccc277b739ce1f035fee7fa797bf12f2f2a2fd8d1e5fa053e5f5ea0e",
+      "bytes": 14001
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/021-g10/seed/root/tmp/docs/make_qa_fonts.py",
+      "destination": "/root/tmp/docs/make_qa_fonts.py",
+      "source": "docops/scaling/cases/021/scripts",
+      "sha256": "35e84cbb0ac797dee14392fe3569f3b1905e06b4c2dd923e1cb2c34ef015f241",
+      "bytes": 1519
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/021-g10/seed/root/tmp/docs/build_public_shelter_briefing_variant.py",
+      "destination": "/root/tmp/docs/build_public_shelter_briefing_variant.py",
+      "source": "docops/scaling/cases/021/scripts",
+      "sha256": "138e857c76c18bdc47e5d4e63a409cca690429acc7728dbb283cce8c48764542",
+      "bytes": 41643
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/021-g10/seed/root/tmp/docs/validate_public_shelter_briefing_variant.py",
+      "destination": "/root/tmp/docs/validate_public_shelter_briefing_variant.py",
+      "source": "docops/scaling/cases/021/scripts",
+      "sha256": "1acf9a64f7667f354727e1cc6cfd55442602c6e6eaa39edbfc65399e6f1970db",
+      "bytes": 10909
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/021-g10/seed/root/tmp/docs/make_contact_sheets.py",
+      "destination": "/root/tmp/docs/make_contact_sheets.py",
+      "source": "docops/scaling/cases/021/scripts",
+      "sha256": "de5d7de3888cbfb71c65654b21a538ba877cef5ffeecc14ee2493a1236ca26d3",
+      "bytes": 5178
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "prepare_render_fonts",
+      "phase": "environment_setup",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/make_qa_fonts.py && mkdir -p /root/.local/share/fonts && cp /root/tmp/docs/qa_fonts/*.ttf /root/.local/share/fonts/ && fc-cache -f /root/.local/share/fonts >/dev/null && fc-match 'Aptos Display' && fc-match 'Aptos'"
+      ],
+      "shell_body": "tasks/021-g10/commands/01.sh",
+      "shell_sha256": "7d9e798dbef972d8daa5a28b9b30b6bb5b87d75f705779bef3f1aaca21c5d18f",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "build_validate_render",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_public_shelter_briefing_variant.py --regions /root/tmp/docs/regions.json --output /root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output_g10.pptx && python /root/tmp/docs/validate_public_shelter_briefing_variant.py --output /root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output_g10.pptx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json && mkdir -p /root/tmp/docs/render3 && python /root/.codex/skills/pptx/scripts/office/soffice.py --headless --convert-to pdf --outdir /root/tmp/docs/render3 /root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output_g10.pptx && pdftoppm -jpeg -r 150 /root/tmp/docs/render3/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output_g10.pdf /root/tmp/docs/render3/slide && python /root/tmp/docs/make_contact_sheets.py /root/tmp/docs/render3 --expected /root/tmp/docs/expected.json"
+      ],
+      "shell_body": "tasks/021-g10/commands/02.sh",
+      "shell_sha256": "f88a878e7d05324319c9426d4c4efffc6bffc79c59de57cb925a803f73c22cc6",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 021; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "021",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 0,
+      "detail": "consumed",
+      "tests_failed": 3,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/06-pptx-021-20261103T104204Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/021/seed/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input.pptx",
+      "sha256": "1eb7d9dfdfd339b3d2395710a3ba6e2c68cc69d706f2709b3886b39684b55ec8"
+    },
+    "parent_scripts": {
+      "payload/tasks/021/seed/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input.pptx": {
+        "sha256": "1eb7d9dfdfd339b3d2395710a3ba6e2c68cc69d706f2709b3886b39684b55ec8",
+        "bytes": 50722
+      },
+      "payload/tasks/021/seed/root/tmp/docs/build_public_shelter_briefing.py": {
+        "sha256": "12d0046dddb35ebce7b552527519f5008c74a7feabcb445de11ba4d758d6ff96",
+        "bytes": 47386
+      },
+      "payload/tasks/021/seed/root/tmp/docs/make_qa_fonts.py": {
+        "sha256": "35e84cbb0ac797dee14392fe3569f3b1905e06b4c2dd923e1cb2c34ef015f241",
+        "bytes": 1519
+      },
+      "payload/tasks/021/seed/root/tmp/docs/validate_public_shelter_briefing.py": {
+        "sha256": "4e6eaa97847ee54f12bbbe1b933c0b39232c1426481975e97f631d3db41c492b",
+        "bytes": 8751
+      }
+    },
+    "generator": "docops/scaling/cases/021/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110504,
+    "scale": {
+      "regions": 10,
+      "pages": 80
+    },
+    "input_sha256": "e1f71b84bdbf03e9fe4378028ba1dfc8e914f5c7da05826f988039b62b78b972",
+    "expected_sha256": "33469987ccc277b739ce1f035fee7fa797bf12f2f2a2fd8d1e5fa053e5f5ea0e",
+    "config_sha256": "3ad7935511ae6b9180f877f79187437c2a2dc8036b5d547b1df31e0cc77d91c6",
+    "scale_metadata": {
+      "regions": 10,
+      "pages": 80,
+      "pages_per_region": 8,
+      "shelter_counts": [
+        11,
+        17,
+        16,
+        11,
+        13,
+        12,
+        12,
+        15,
+        16,
+        10
+      ],
+      "accessible_counts": [
+        7,
+        13,
+        10,
+        8,
+        10,
+        7,
+        8,
+        10,
+        13,
+        6
+      ],
+      "accessible_le_shelter": true,
+      "input_bytes": 53294,
+      "input_sha256": "e1f71b84bdbf03e9fe4378028ba1dfc8e914f5c7da05826f988039b62b78b972",
+      "regions_json_sha256": "ccb160116740bc7b5947a79e42b682ef68e1f4ff7f6a9a3c637b84efd86c2422",
+      "seed": 2026110504,
+      "source_must_contain": [
+        "DRAFT",
+        "PRIVATE",
+        "INTERNAL",
+        "staff-only",
+        "personal phone",
+        "555-0199",
+        "emergency operations center",
+        "do not publish",
+        "internal.example",
+        "eoc.internal",
+        "16 shelters",
+        "11 wheelchair"
+      ]
+    },
+    "modified_steps": [
+      "01 prepare_render_fonts: unchanged font-prep step",
+      "02 build_validate_render: builder reads regions.json and iterates regions (8 public slides per region); validate checks every slide against frozen expected.json; contact sheets grouped by region (8 pages each) with numeric zero-padded filename sorting instead of fixed slide-{1..8}.jpg"
+    ]
+  }
+}

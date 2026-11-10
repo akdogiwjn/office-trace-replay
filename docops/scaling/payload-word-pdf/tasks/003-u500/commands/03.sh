@@ -1,0 +1,1 @@
+python /root/.codex/skills/doc/scripts/render_docx.py /root/submission/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_output_u500.docx --output_dir /root/tmp/docs/rendered_v2

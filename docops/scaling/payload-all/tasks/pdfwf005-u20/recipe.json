@@ -1,0 +1,312 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "pdfwf005-u20",
+  "task_id": "docops_synthetic_pdfwf005-u20_scale_variant",
+  "format": "pdf",
+  "source_run_id": null,
+  "output_path": "/root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005-u20/seed/root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf",
+      "destination": "/root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "b90be649a8ab3d02493446ed18b7e411224cd8868ece168ccf04a23de2493d22",
+      "bytes": 81056
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005-u20/seed/root/tmp/docs/groups.json",
+      "destination": "/root/tmp/docs/groups.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "608873d8adc1409a17ff4385f11a0e371398144042508cbc50b5c86f5b902725",
+      "bytes": 33418
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005-u20/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "93650316d09e5b5fb43f50ff4839fda774e129d213366651439a2b105fc21a4d",
+      "bytes": 433
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005-u20/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "d80bf88a54201d874c9c59209d8296f57425d1c94354f59bba9838f8618fd12d",
+      "bytes": 4689
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005-u20/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "0413dd324d25008e9445e151804c9665fce92bab8463f4b94408cce3aaba4644",
+      "bytes": 2390
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/pdfwf005-u20/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "ec288abe2f6aaba88e719fb805d3c8d4aaff8b95b2ace2741cd4680899520385",
+      "bytes": 38252
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/pdfwf005-u20/seed/root/tmp/docs/rebuild_closeout_binder_variant.py",
+      "destination": "/root/tmp/docs/rebuild_closeout_binder_variant.py",
+      "source": "docops/scaling/cases/pdfwf005/scripts",
+      "sha256": "5246ac762d659527caa11521cb0d780a6e5eb0cfe376c280bab7865cfd67e25b",
+      "bytes": 5735
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/pdfwf005-u20/seed/root/tmp/docs/validate_closeout_binder_variant.py",
+      "destination": "/root/tmp/docs/validate_closeout_binder_variant.py",
+      "source": "docops/scaling/cases/pdfwf005/scripts",
+      "sha256": "b5a4cb9a07f60a732a164fb6cef0726599dc2d3af3e906fd6d7f8e42ed27c0a1",
+      "bytes": 5664
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_and_pdfinfo",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/rebuild_closeout_binder_variant.py --input /root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf --groups /root/tmp/docs/groups.json --output /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf && pdfinfo /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf"
+      ],
+      "shell_body": "tasks/pdfwf005-u20/commands/01.sh",
+      "shell_sha256": "bb5da0d38eea9ead36e0f1ae0c5d07ca09c35b3fdb545daf580cfee4361fe92b",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "final_text",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftotext -layout /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf -"
+      ],
+      "shell_body": "tasks/pdfwf005-u20/commands/02.sh",
+      "shell_sha256": "628448fbc73f1bd2a2fabf8a06329c31b79e639ea325f1cb65ebec6b59131f74",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "page_labels_and_bookmarks",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python3 - <<'PY'\nfrom pypdf import PdfReader\np='/root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf'\nr=PdfReader(p)\nprint('pages', len(r.pages))\nprint('page_labels', r.page_labels)\nprint('outline entries:')\nfor item in r.outline:\n    print(' ', repr(item.title), 'page_index', r.get_destination_page_number(item))\nprint('named_destinations', list(r.named_destinations))\nPY"
+      ],
+      "shell_body": "tasks/pdfwf005-u20/commands/03.sh",
+      "shell_sha256": "78ce8965f20ce78e6e767f10fd34b8007de985e5abfa2273854688ccb43b7754",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "render_contact_sheet",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "mkdir -p /root/tmp/docs/render-output && pdftoppm -png -r 130 /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf /root/tmp/docs/render-output/page && montage /root/tmp/docs/render-output/page-*.png -thumbnail 30% -tile 3x2 -geometry +18+24 -background '#d9d9d9' -label '%f' /root/tmp/docs/output-contact.png && ls -lh /root/tmp/docs/output-contact*.png | head -30 && ls /root/tmp/docs/render-output/page-*.png | wc -l"
+      ],
+      "shell_body": "tasks/pdfwf005-u20/commands/04.sh",
+      "shell_sha256": "6c9acecb330635a7dee025cfaa52baa2fb6a0032a57472a3e22bc32e30bebac5",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "03"
+      ]
+    },
+    {
+      "id": "05",
+      "name": "forbidden_text_diagnostic",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftotext /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf - | rg -n 'Draft:|Obsolete|Superseded' || true"
+      ],
+      "shell_body": "tasks/pdfwf005-u20/commands/05.sh",
+      "shell_sha256": "eaba8ee894fac82fafe53b6b91cbf4e7afe977d93c705ef8a24f6b381ede58a5",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "04"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task pdfwf005; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "pdfwf005",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 1,
+      "detail": "consumed",
+      "tests_failed": 0,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/11-pdf-pdfwf005-20261103T105800Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/pdfwf005/seed/root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf",
+      "sha256": "a8b274c38355100275f816ea14b4ddbee573df0b673b76c58e8d74d02b46d6a3"
+    },
+    "parent_scripts": {
+      "payload/tasks/pdfwf005/seed/root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed.pdf": {
+        "sha256": "a8b274c38355100275f816ea14b4ddbee573df0b673b76c58e8d74d02b46d6a3",
+        "bytes": 5127
+      },
+      "payload/tasks/pdfwf005/seed/root/tmp/docs/rebuild_closeout_binder.py": {
+        "sha256": "df4686cb9b917ef104effbfc5002c562498e262017dd59a37b29f49de0f85a60",
+        "bytes": 2861
+      }
+    },
+    "generator": "docops/scaling/cases/pdfwf005/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110616,
+    "scale": {
+      "groups": 20,
+      "input_pages": 140,
+      "output_pages": 120
+    },
+    "input_sha256": "b90be649a8ab3d02493446ed18b7e411224cd8868ece168ccf04a23de2493d22",
+    "expected_sha256": "ec288abe2f6aaba88e719fb805d3c8d4aaff8b95b2ace2741cd4680899520385",
+    "config_sha256": "d80bf88a54201d874c9c59209d8296f57425d1c94354f59bba9838f8618fd12d",
+    "scale_metadata": {
+      "groups": 20,
+      "pages_per_group": 7,
+      "live_pages_per_group": 6,
+      "input_pages": 140,
+      "output_pages": 120,
+      "render_pages": 120,
+      "render_images": 120,
+      "contact_sheet_images": 1,
+      "render_dpi": 130,
+      "montage_tile": "3x2",
+      "montage_geometry": "+18+24",
+      "montage_label": "%f",
+      "group_ids": [
+        "GRP-001",
+        "GRP-002",
+        "GRP-003",
+        "GRP-004",
+        "GRP-005",
+        "GRP-006",
+        "GRP-007",
+        "GRP-008",
+        "GRP-009",
+        "GRP-010",
+        "GRP-011",
+        "GRP-012",
+        "GRP-013",
+        "GRP-014",
+        "GRP-015",
+        "GRP-016",
+        "GRP-017",
+        "GRP-018",
+        "GRP-019",
+        "GRP-020"
+      ],
+      "unique_group_ids": 20,
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "obsolete_title": "Obsolete Divider",
+      "first_group": {
+        "group_id": "GRP-001",
+        "live_titles": [
+          "Cover",
+          "Meeting Log",
+          "Binder Index",
+          "Approved Exhibit",
+          "Appendix A",
+          "Appendix B"
+        ],
+        "obsolete_page_index": 7
+      },
+      "middle_group": {
+        "group_id": "GRP-011",
+        "live_titles": [
+          "Cover",
+          "Meeting Log",
+          "Binder Index",
+          "Approved Exhibit",
+          "Appendix A",
+          "Appendix B"
+        ],
+        "obsolete_page_index": 7
+      },
+      "last_group": {
+        "group_id": "GRP-020",
+        "live_titles": [
+          "Cover",
+          "Meeting Log",
+          "Binder Index",
+          "Approved Exhibit",
+          "Appendix A",
+          "Appendix B"
+        ],
+        "obsolete_page_index": 7
+      },
+      "bookmarks": 120,
+      "page_labels": 120,
+      "input_bytes": 81056,
+      "input_sha256": "b90be649a8ab3d02493446ed18b7e411224cd8868ece168ccf04a23de2493d22",
+      "groups_json_sha256": "608873d8adc1409a17ff4385f11a0e371398144042508cbc50b5c86f5b902725",
+      "seed": 2026110616,
+      "parameterized": "The fixed 7-page source block and 6-page live scope are parameterized over all groups: source page indexes, obsolete page indexes, absolute bookmark targets and page-label prefixes are computed over the whole scaled binder.",
+      "preserved_parent_behavior": "130 DPI pdftoppm page rendering with montage 3x2, geometry +18+24 and -label %f contact sheet; page labels equal the visible section titles; input metadata preserved with /Title overridden to 'Closeout Binder'; no AcroForm handling is introduced (the rebuild neither reads nor writes AcroForm structures).",
+      "changed_parent_behavior": "The builder iterates every groups.json group through the real read-strip-drop-reorder-labelling path instead of a single fixed 7-page seed; live pages are never duplicated."
+    },
+    "modified_steps": [
+      "01 build_and_pdfinfo: unchanged; the builder iterates groups.json groups (7 source pages per group -> 6 live pages), removing the 'Draft: ' prefix, dropping the obsolete divider, reordering live pages and adding bookmarks/page labels over the whole binder",
+      "02 final_text: unchanged pdftotext -layout over the output PDF",
+      "03 page_labels_and_bookmarks: unchanged pypdf page-label and outline dump, now spanning all scaled groups",
+      "04 render_contact_sheet: unchanged pdftoppm -png -r 130 + one montage 3x2 -label %f invocation over every retained live page; because the montage tile grid is 3x2 and the retained page count (30/120) exceeds 6, ImageMagick writes one numbered contact-sheet tile (output-contact-0.png, ...) per 3x2 grid page instead of a single output-contact.png. The command lists all produced tiles; this is the same single tool invocation as the parent, scaled by page count",
+      "05 forbidden_text_diagnostic: unchanged pdftotext | rg over the output PDF"
+    ]
+  }
+}

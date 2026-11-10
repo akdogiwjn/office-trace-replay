@@ -1,0 +1,1 @@
+python /root/tmp/docs/validate_controlled_document_release_variant.py --output /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output_u500.docx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json

@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_public_packet_variant.py --notices /root/tmp/docs/notices.json --output /root/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output_u5.pdf

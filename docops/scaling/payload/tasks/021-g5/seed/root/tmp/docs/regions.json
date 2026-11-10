@@ -1,0 +1,163 @@
+{
+  "schema": "docops-scaling-regions-v1",
+  "variant_task_id": "021-g5",
+  "seed": 2026110503,
+  "pages_per_region": 8,
+  "regions": [
+    {
+      "id": "north-district",
+      "name": "North District",
+      "slug": "north-district",
+      "shelter_count": 18,
+      "accessible_count": 14,
+      "raw_shelter_count": 16,
+      "raw_accessible_count": 11,
+      "hotline": "1-800-555-0140",
+      "website": "https://city.example/north-district/public",
+      "email": "accessibility-north-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Bus Route 9",
+          "Priority return trips added"
+        ],
+        [
+          "Airport link",
+          "Priority return trips added"
+        ],
+        [
+          "Cross-town bus",
+          "Priority return trips added"
+        ],
+        [
+          "Accessible shuttle",
+          "Priority return trips added"
+        ]
+      ]
+    },
+    {
+      "id": "south-district",
+      "name": "South District",
+      "slug": "south-district",
+      "shelter_count": 17,
+      "accessible_count": 10,
+      "raw_shelter_count": 15,
+      "raw_accessible_count": 7,
+      "hotline": "1-800-555-0141",
+      "website": "https://city.example/south-district/public",
+      "email": "accessibility-south-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Bus Route 4",
+          "Extended weekend service"
+        ],
+        [
+          "Commuter rail",
+          "Extended weekend service"
+        ],
+        [
+          "Accessible shuttle",
+          "Extended weekend service"
+        ],
+        [
+          "Night shuttles",
+          "Extended weekend service"
+        ]
+      ]
+    },
+    {
+      "id": "east-district",
+      "name": "East District",
+      "slug": "east-district",
+      "shelter_count": 14,
+      "accessible_count": 9,
+      "raw_shelter_count": 12,
+      "raw_accessible_count": 6,
+      "hotline": "1-800-555-0142",
+      "website": "https://city.example/east-district/public",
+      "email": "accessibility-east-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Paratransit",
+          "Priority return trips added"
+        ],
+        [
+          "Bus Route 9",
+          "Priority return trips added"
+        ],
+        [
+          "Accessible shuttle",
+          "Priority return trips added"
+        ],
+        [
+          "Night shuttles",
+          "Priority return trips added"
+        ]
+      ]
+    },
+    {
+      "id": "west-district",
+      "name": "West District",
+      "slug": "west-district",
+      "shelter_count": 13,
+      "accessible_count": 10,
+      "raw_shelter_count": 11,
+      "raw_accessible_count": 7,
+      "hotline": "1-800-555-0143",
+      "website": "https://city.example/west-district/public",
+      "email": "accessibility-west-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Accessible shuttle",
+          "Extended weekend service"
+        ],
+        [
+          "Bus Route 4",
+          "Extended weekend service"
+        ],
+        [
+          "Night shuttles",
+          "Extended weekend service"
+        ],
+        [
+          "Cross-town bus",
+          "Extended weekend service"
+        ]
+      ]
+    },
+    {
+      "id": "central-district",
+      "name": "Central District",
+      "slug": "central-district",
+      "shelter_count": 14,
+      "accessible_count": 9,
+      "raw_shelter_count": 12,
+      "raw_accessible_count": 6,
+      "hotline": "1-800-555-0144",
+      "website": "https://city.example/central-district/public",
+      "email": "accessibility-central-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Bus Route 9",
+          "Priority return trips added"
+        ],
+        [
+          "Bus Route 4",
+          "Priority return trips added"
+        ],
+        [
+          "Commuter rail",
+          "Priority return trips added"
+        ],
+        [
+          "Accessible shuttle",
+          "Priority return trips added"
+        ]
+      ]
+    }
+  ]
+}

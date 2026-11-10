@@ -41,7 +41,10 @@ def main():
                       debug_symbols=verify_symbols(args.symbols),
                       perf_version=__import__('subprocess').check_output(['perf','version'],text=True).strip())
         counts, _, intervals = workload_records(original, old['task'], old['loops'])
-        bounded(['perf','script','--no-inline','--ns','-F','+pid','-i',str(original/'perf.data')],out/'samples.txt')
+        # -f: perf refuses to read perf.data not owned by root/current user; the offline
+        # container runs as root while the archived perf.data may be owned by a host
+        # user. Content/ownership of /original is untouched (mounted read-only).
+        bounded(['perf','script','--no-inline','--ns','-F','+pid','-f','-i',str(original/'perf.data')],out/'samples.txt')
         samples = parse(out/'samples.txt')
         record['sample_crosscheck'] = crosscheck(samples, original/'counter-samples.txt')
         dispatcher = json.loads((original/'measurement-ready.json').read_text())['pid']

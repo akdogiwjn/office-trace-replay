@@ -1,0 +1,338 @@
+{
+  "schema": "docops-scaling-groups-v1",
+  "variant_task_id": "pdfwf005-u5",
+  "seed": 2026110615,
+  "pages_per_group": 7,
+  "live_pages_per_group": 6,
+  "draft_prefix": "Draft: ",
+  "obsolete_title": "Obsolete Divider",
+  "source_layout": {
+    "Cover": 2,
+    "Meeting Log": 3,
+    "Binder Index": 4,
+    "Approved Exhibit": 5,
+    "Appendix A": 6,
+    "Appendix B": 1,
+    "Obsolete Divider": 7
+  },
+  "live_order": [
+    "Cover",
+    "Meeting Log",
+    "Binder Index",
+    "Approved Exhibit",
+    "Appendix A",
+    "Appendix B"
+  ],
+  "groups": [
+    {
+      "group_id": "GRP-001",
+      "binder_title": "Closeout Binder",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "source_index_for_title": {
+        "Cover": 2,
+        "Meeting Log": 3,
+        "Binder Index": 4,
+        "Approved Exhibit": 5,
+        "Appendix A": 6,
+        "Appendix B": 1
+      },
+      "obsolete_page_index": 7,
+      "obsolete_title": "Obsolete Divider",
+      "draft_prefix": "Draft: ",
+      "draft_prefix_fact": "all 6 live pages carry a 'Draft: ' prefix in the source input",
+      "bookmark_labels": [
+        "GRP-001 | Cover",
+        "GRP-001 | Meeting Log",
+        "GRP-001 | Binder Index",
+        "GRP-001 | Approved Exhibit",
+        "GRP-001 | Appendix A",
+        "GRP-001 | Appendix B"
+      ],
+      "page_label_prefixes": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "required_lines": {
+        "Cover": [
+          "Closeout Binder",
+          "Page labels refreshed",
+          "Bookmarks rebuilt"
+        ],
+        "Meeting Log": [
+          "Meeting log for the closeout binder."
+        ],
+        "Binder Index": [
+          "Binder index is now in final order."
+        ],
+        "Approved Exhibit": [
+          "Approved exhibit remains unchanged."
+        ],
+        "Appendix A": [
+          "Appendix A contains the reference list."
+        ],
+        "Appendix B": [
+          "Appendix B contains the completion log."
+        ]
+      }
+    },
+    {
+      "group_id": "GRP-002",
+      "binder_title": "Closeout Binder",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "source_index_for_title": {
+        "Cover": 2,
+        "Meeting Log": 3,
+        "Binder Index": 4,
+        "Approved Exhibit": 5,
+        "Appendix A": 6,
+        "Appendix B": 1
+      },
+      "obsolete_page_index": 7,
+      "obsolete_title": "Obsolete Divider",
+      "draft_prefix": "Draft: ",
+      "draft_prefix_fact": "all 6 live pages carry a 'Draft: ' prefix in the source input",
+      "bookmark_labels": [
+        "GRP-002 | Cover",
+        "GRP-002 | Meeting Log",
+        "GRP-002 | Binder Index",
+        "GRP-002 | Approved Exhibit",
+        "GRP-002 | Appendix A",
+        "GRP-002 | Appendix B"
+      ],
+      "page_label_prefixes": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "required_lines": {
+        "Cover": [
+          "Closeout Binder",
+          "Page labels refreshed",
+          "Bookmarks rebuilt"
+        ],
+        "Meeting Log": [
+          "Meeting log for the closeout binder."
+        ],
+        "Binder Index": [
+          "Binder index is now in final order."
+        ],
+        "Approved Exhibit": [
+          "Approved exhibit remains unchanged."
+        ],
+        "Appendix A": [
+          "Appendix A contains the reference list."
+        ],
+        "Appendix B": [
+          "Appendix B contains the completion log."
+        ]
+      }
+    },
+    {
+      "group_id": "GRP-003",
+      "binder_title": "Closeout Binder",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "source_index_for_title": {
+        "Cover": 2,
+        "Meeting Log": 3,
+        "Binder Index": 4,
+        "Approved Exhibit": 5,
+        "Appendix A": 6,
+        "Appendix B": 1
+      },
+      "obsolete_page_index": 7,
+      "obsolete_title": "Obsolete Divider",
+      "draft_prefix": "Draft: ",
+      "draft_prefix_fact": "all 6 live pages carry a 'Draft: ' prefix in the source input",
+      "bookmark_labels": [
+        "GRP-003 | Cover",
+        "GRP-003 | Meeting Log",
+        "GRP-003 | Binder Index",
+        "GRP-003 | Approved Exhibit",
+        "GRP-003 | Appendix A",
+        "GRP-003 | Appendix B"
+      ],
+      "page_label_prefixes": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "required_lines": {
+        "Cover": [
+          "Closeout Binder",
+          "Page labels refreshed",
+          "Bookmarks rebuilt"
+        ],
+        "Meeting Log": [
+          "Meeting log for the closeout binder."
+        ],
+        "Binder Index": [
+          "Binder index is now in final order."
+        ],
+        "Approved Exhibit": [
+          "Approved exhibit remains unchanged."
+        ],
+        "Appendix A": [
+          "Appendix A contains the reference list."
+        ],
+        "Appendix B": [
+          "Appendix B contains the completion log."
+        ]
+      }
+    },
+    {
+      "group_id": "GRP-004",
+      "binder_title": "Closeout Binder",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "source_index_for_title": {
+        "Cover": 2,
+        "Meeting Log": 3,
+        "Binder Index": 4,
+        "Approved Exhibit": 5,
+        "Appendix A": 6,
+        "Appendix B": 1
+      },
+      "obsolete_page_index": 7,
+      "obsolete_title": "Obsolete Divider",
+      "draft_prefix": "Draft: ",
+      "draft_prefix_fact": "all 6 live pages carry a 'Draft: ' prefix in the source input",
+      "bookmark_labels": [
+        "GRP-004 | Cover",
+        "GRP-004 | Meeting Log",
+        "GRP-004 | Binder Index",
+        "GRP-004 | Approved Exhibit",
+        "GRP-004 | Appendix A",
+        "GRP-004 | Appendix B"
+      ],
+      "page_label_prefixes": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "required_lines": {
+        "Cover": [
+          "Closeout Binder",
+          "Page labels refreshed",
+          "Bookmarks rebuilt"
+        ],
+        "Meeting Log": [
+          "Meeting log for the closeout binder."
+        ],
+        "Binder Index": [
+          "Binder index is now in final order."
+        ],
+        "Approved Exhibit": [
+          "Approved exhibit remains unchanged."
+        ],
+        "Appendix A": [
+          "Appendix A contains the reference list."
+        ],
+        "Appendix B": [
+          "Appendix B contains the completion log."
+        ]
+      }
+    },
+    {
+      "group_id": "GRP-005",
+      "binder_title": "Closeout Binder",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "source_index_for_title": {
+        "Cover": 2,
+        "Meeting Log": 3,
+        "Binder Index": 4,
+        "Approved Exhibit": 5,
+        "Appendix A": 6,
+        "Appendix B": 1
+      },
+      "obsolete_page_index": 7,
+      "obsolete_title": "Obsolete Divider",
+      "draft_prefix": "Draft: ",
+      "draft_prefix_fact": "all 6 live pages carry a 'Draft: ' prefix in the source input",
+      "bookmark_labels": [
+        "GRP-005 | Cover",
+        "GRP-005 | Meeting Log",
+        "GRP-005 | Binder Index",
+        "GRP-005 | Approved Exhibit",
+        "GRP-005 | Appendix A",
+        "GRP-005 | Appendix B"
+      ],
+      "page_label_prefixes": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "required_lines": {
+        "Cover": [
+          "Closeout Binder",
+          "Page labels refreshed",
+          "Bookmarks rebuilt"
+        ],
+        "Meeting Log": [
+          "Meeting log for the closeout binder."
+        ],
+        "Binder Index": [
+          "Binder index is now in final order."
+        ],
+        "Approved Exhibit": [
+          "Approved exhibit remains unchanged."
+        ],
+        "Appendix A": [
+          "Appendix A contains the reference list."
+        ],
+        "Appendix B": [
+          "Appendix B contains the completion log."
+        ]
+      }
+    }
+  ]
+}

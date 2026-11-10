@@ -1,0 +1,122 @@
+{
+  "schema": "docops-scaling-task-metadata-v1",
+  "variant_task_id": "026-u10",
+  "synthetic": true,
+  "parent_task": "026",
+  "kind": "pptx",
+  "seed": 2026110610,
+  "scale": {
+    "units": 10,
+    "slides_per_unit": 9,
+    "pages": 90
+  },
+  "generator": "docops/scaling/cases/026/synth.py",
+  "generator_version": "1.0",
+  "modified_workflow": [
+    "01 build: builder reads units.json and iterates reporting units, deleting every internal slide/note and rebuilding the 9-page public disclosure set per unit with that unit's own facts",
+    "02 convert_pdf: unchanged soffice convert-to-pdf",
+    "03 render: unchanged pdftoppm -jpeg -r 150 over every page",
+    "04 validate: dynamic validator checks every slide and every unit chart against the frozen expected.json"
+  ],
+  "scale_metadata": {
+    "units": 10,
+    "unit_ids": [
+      "DSC-001",
+      "DSC-002",
+      "DSC-003",
+      "DSC-004",
+      "DSC-005",
+      "DSC-006",
+      "DSC-007",
+      "DSC-008",
+      "DSC-009",
+      "DSC-010"
+    ],
+    "slides_per_unit": 9,
+    "input_slides": 13,
+    "output_slides": 90,
+    "expected_output_slides": "10 x 9 = 90",
+    "render_scope": "all 90 pages rendered (convert-to-pdf then pdftoppm -jpeg -r 150)",
+    "expected_render_images": 90,
+    "chart_categories": [
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "series_name": "Total emissions tCO2e",
+    "first_unit": {
+      "id": "DSC-001",
+      "name": "Arcadia Renewables",
+      "base_year": 2024,
+      "scope_1": 8587,
+      "scope_2_location_based": 15934,
+      "renewable_electricity_pct": 50,
+      "assurance_owner": "Kara Saito",
+      "submission_status": "Submitted",
+      "trend_values": [
+        43709,
+        38454,
+        34293
+      ]
+    },
+    "middle_unit": {
+      "id": "DSC-006",
+      "name": "Bridger Renewables",
+      "base_year": 2024,
+      "scope_1": 9516,
+      "scope_2_location_based": 15271,
+      "renewable_electricity_pct": 52,
+      "assurance_owner": "Liam Novak",
+      "submission_status": "Submitted",
+      "trend_values": [
+        44056,
+        41216,
+        36035
+      ]
+    },
+    "last_unit": {
+      "id": "DSC-010",
+      "name": "Cinder Renewables",
+      "base_year": 2024,
+      "scope_1": 8292,
+      "scope_2_location_based": 15274,
+      "renewable_electricity_pct": 44,
+      "assurance_owner": "Maya Chen",
+      "submission_status": "Submitted",
+      "trend_values": [
+        44685,
+        39989,
+        36082
+      ]
+    },
+    "parameterized_ranges": [
+      "10 reporting units x 9 public slides per unit",
+      "per-unit native clustered-column trend chart (categories ['2024', '2025', '2026'], series 'Total emissions tCO2e') with per-unit cached 3-year values from units.json",
+      "per-unit corrected emissions inventory table (5 rows x 4 cols)",
+      "per-unit supplier engagement register table (5 rows x 4 cols)",
+      "per-unit transition action cards and board decision cards",
+      "per-unit public speaker notes on all 9 pages"
+    ],
+    "preserved_parent_behavior": [
+      "frozen 9-page public disclosure sequence and page titles",
+      "native clustered-column trend chart with embedded per-unit data",
+      "public style tokens (title/content background, Aptos Display bold titles, accent 22C55E, table header 166534 white bold)",
+      "public speaker notes retained on every page",
+      "correction-first workflow: internal slides and confidential notes removed before any rebuild",
+      "footer 'Public Climate Disclosure | FY2026' on every page"
+    ],
+    "changed_parent_behavior": [
+      "the parent's single-report deck becomes a per-unit iteration: units.json drives N x 9 pages, each with its own corrected facts",
+      "trend chart data is per-unit (3-year cached values from units.json), not the frozen 42,800 / 39,750 / 36,220 series",
+      "inventory and supplier tables carry per-unit facts",
+      "all speaker notes are per-unit"
+    ],
+    "input_bytes": 59501,
+    "input_sha256": "3e41dcb8bb62268a2373c022be2ece2cb5a73e9fab0ed14a9aef5bd3e1eb93ca",
+    "units_json_sha256": "d2614241443fe31023d6565948feff9e7860f142ba586e541f4e4ab70cd1b619",
+    "seed": 2026110610
+  },
+  "input_path": "/root/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_input_u10.pptx",
+  "output_path": "/root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u10.pptx",
+  "measurement_scope": "Measures per-reporting-unit document generation, validation, conversion and rendering scale: units -> 9 public slides each (5 -> 45, 10 -> 90). The synthetic source presentation's own page count is NOT what this variant parses or repairs; this variant does NOT measure a larger source-PPT parse/cleanup cost. Distinguish input PPTX pages vs unit count vs expected output pages."
+}

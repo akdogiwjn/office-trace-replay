@@ -1,0 +1,318 @@
+{
+  "schema": "docops-scaling-regions-v1",
+  "variant_task_id": "021-g10",
+  "seed": 2026110504,
+  "pages_per_region": 8,
+  "regions": [
+    {
+      "id": "north-district",
+      "name": "North District",
+      "slug": "north-district",
+      "shelter_count": 11,
+      "accessible_count": 7,
+      "raw_shelter_count": 9,
+      "raw_accessible_count": 4,
+      "hotline": "1-800-555-0140",
+      "website": "https://city.example/north-district/public",
+      "email": "accessibility-north-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Night shuttles",
+          "Priority return trips added"
+        ],
+        [
+          "Bus Route 9",
+          "Priority return trips added"
+        ],
+        [
+          "Cross-town bus",
+          "Priority return trips added"
+        ],
+        [
+          "Commuter rail",
+          "Priority return trips added"
+        ]
+      ]
+    },
+    {
+      "id": "south-district",
+      "name": "South District",
+      "slug": "south-district",
+      "shelter_count": 17,
+      "accessible_count": 13,
+      "raw_shelter_count": 15,
+      "raw_accessible_count": 10,
+      "hotline": "1-800-555-0141",
+      "website": "https://city.example/south-district/public",
+      "email": "accessibility-south-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Night shuttles",
+          "Extended weekend service"
+        ],
+        [
+          "Paratransit",
+          "Extended weekend service"
+        ],
+        [
+          "Bus Route 4",
+          "Extended weekend service"
+        ],
+        [
+          "Cross-town bus",
+          "Extended weekend service"
+        ]
+      ]
+    },
+    {
+      "id": "east-district",
+      "name": "East District",
+      "slug": "east-district",
+      "shelter_count": 16,
+      "accessible_count": 10,
+      "raw_shelter_count": 14,
+      "raw_accessible_count": 7,
+      "hotline": "1-800-555-0142",
+      "website": "https://city.example/east-district/public",
+      "email": "accessibility-east-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Bus Route 4",
+          "Priority return trips added"
+        ],
+        [
+          "Commuter rail",
+          "Priority return trips added"
+        ],
+        [
+          "Paratransit",
+          "Priority return trips added"
+        ],
+        [
+          "Airport link",
+          "Priority return trips added"
+        ]
+      ]
+    },
+    {
+      "id": "west-district",
+      "name": "West District",
+      "slug": "west-district",
+      "shelter_count": 11,
+      "accessible_count": 8,
+      "raw_shelter_count": 9,
+      "raw_accessible_count": 5,
+      "hotline": "1-800-555-0143",
+      "website": "https://city.example/west-district/public",
+      "email": "accessibility-west-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Airport link",
+          "Extended weekend service"
+        ],
+        [
+          "Bus Route 9",
+          "Extended weekend service"
+        ],
+        [
+          "Paratransit",
+          "Extended weekend service"
+        ],
+        [
+          "Cross-town bus",
+          "Extended weekend service"
+        ]
+      ]
+    },
+    {
+      "id": "central-district",
+      "name": "Central District",
+      "slug": "central-district",
+      "shelter_count": 13,
+      "accessible_count": 10,
+      "raw_shelter_count": 11,
+      "raw_accessible_count": 7,
+      "hotline": "1-800-555-0144",
+      "website": "https://city.example/central-district/public",
+      "email": "accessibility-central-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Night shuttles",
+          "Priority return trips added"
+        ],
+        [
+          "Cross-town bus",
+          "Priority return trips added"
+        ],
+        [
+          "Bus Route 9",
+          "Priority return trips added"
+        ],
+        [
+          "Paratransit",
+          "Priority return trips added"
+        ]
+      ]
+    },
+    {
+      "id": "river-district",
+      "name": "River District",
+      "slug": "river-district",
+      "shelter_count": 12,
+      "accessible_count": 7,
+      "raw_shelter_count": 10,
+      "raw_accessible_count": 4,
+      "hotline": "1-800-555-0145",
+      "website": "https://city.example/river-district/public",
+      "email": "accessibility-river-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Bus Route 9",
+          "Extended weekend service"
+        ],
+        [
+          "Commuter rail",
+          "Extended weekend service"
+        ],
+        [
+          "Accessible shuttle",
+          "Extended weekend service"
+        ],
+        [
+          "Paratransit",
+          "Extended weekend service"
+        ]
+      ]
+    },
+    {
+      "id": "hill-district",
+      "name": "Hill District",
+      "slug": "hill-district",
+      "shelter_count": 12,
+      "accessible_count": 8,
+      "raw_shelter_count": 10,
+      "raw_accessible_count": 5,
+      "hotline": "1-800-555-0146",
+      "website": "https://city.example/hill-district/public",
+      "email": "accessibility-hill-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Airport link",
+          "Priority return trips added"
+        ],
+        [
+          "Commuter rail",
+          "Priority return trips added"
+        ],
+        [
+          "Bus Route 9",
+          "Priority return trips added"
+        ],
+        [
+          "Night shuttles",
+          "Priority return trips added"
+        ]
+      ]
+    },
+    {
+      "id": "lake-district",
+      "name": "Lake District",
+      "slug": "lake-district",
+      "shelter_count": 15,
+      "accessible_count": 10,
+      "raw_shelter_count": 13,
+      "raw_accessible_count": 7,
+      "hotline": "1-800-555-0147",
+      "website": "https://city.example/lake-district/public",
+      "email": "accessibility-lake-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Cross-town bus",
+          "Extended weekend service"
+        ],
+        [
+          "Commuter rail",
+          "Extended weekend service"
+        ],
+        [
+          "Bus Route 4",
+          "Extended weekend service"
+        ],
+        [
+          "Accessible shuttle",
+          "Extended weekend service"
+        ]
+      ]
+    },
+    {
+      "id": "harbor-district",
+      "name": "Harbor District",
+      "slug": "harbor-district",
+      "shelter_count": 16,
+      "accessible_count": 13,
+      "raw_shelter_count": 14,
+      "raw_accessible_count": 10,
+      "hotline": "1-800-555-0148",
+      "website": "https://city.example/harbor-district/public",
+      "email": "accessibility-harbor-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Commuter rail",
+          "Priority return trips added"
+        ],
+        [
+          "Airport link",
+          "Priority return trips added"
+        ],
+        [
+          "Bus Route 4",
+          "Priority return trips added"
+        ],
+        [
+          "Night shuttles",
+          "Priority return trips added"
+        ]
+      ]
+    },
+    {
+      "id": "valley-district",
+      "name": "Valley District",
+      "slug": "valley-district",
+      "shelter_count": 10,
+      "accessible_count": 6,
+      "raw_shelter_count": 8,
+      "raw_accessible_count": 3,
+      "hotline": "1-800-555-0149",
+      "website": "https://city.example/valley-district/public",
+      "email": "accessibility-valley-district@city.example",
+      "update_date": "2026-07-20",
+      "transit_updates": [
+        [
+          "Bus Route 9",
+          "Extended weekend service"
+        ],
+        [
+          "Cross-town bus",
+          "Extended weekend service"
+        ],
+        [
+          "Bus Route 4",
+          "Extended weekend service"
+        ],
+        [
+          "Night shuttles",
+          "Extended weekend service"
+        ]
+      ]
+    }
+  ]
+}

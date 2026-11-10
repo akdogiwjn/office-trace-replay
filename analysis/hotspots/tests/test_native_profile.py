@@ -43,7 +43,8 @@ class NativeProfile(unittest.TestCase):
     def test_loss_capability_is_not_a_loss_record(self):
         d=p.loss_diagnostics('captured 10 samples', '# read_format = ID|LOST\nAggregated stats:\n SAMPLE events: 10\ncycles:u stats:\n SAMPLE events: 10\n')
         self.assertEqual(d['aggregated_sample_events'],10)
-        self.assertEqual(d['reported_lost_records'],0)
+        # LOST is absent from the block: missing stat is unknown (None), not 0
+        self.assertIsNone(d['reported_lost_records'])
         d=p.loss_diagnostics('lost 3 chunks', 'Aggregated stats:\n LOST events: 2\n LOST_SAMPLES events: 1\n SAMPLE events: 10\n')
         self.assertEqual((d['reported_lost_records'],d['reported_lost_sample_records'],d['perf_record_reported_lost_chunks']),(2,1,3))
 

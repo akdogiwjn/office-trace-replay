@@ -1,0 +1,24 @@
+# docops-replay:openeuler-scaled
+#
+# Based on the verified unified candidate image (docops-replay:openeuler-unified-candidate-04,
+# sha256:57483856a27942ffd4aef853950ca66b00c12b0787aae6c1dac74371d03e6164). Adds the unified
+# 24-variant scaling payload (existing eight byte-identical + new sixteen) and re-installs the
+# current public replay entry. The base already carries the official twelve-task payload, the
+# frozen Python/LibreOffice/Poppler/ImageMagick environment, the public Skills under
+# /root/.codex/skills, and the perf/DevKit capture tools. Nothing here rebuilds the toolchain.
+ARG BASE_IMAGE=docops-replay:openeuler-unified-candidate-04
+FROM ${BASE_IMAGE}
+# Unified 24-variant scaling payload (static-validated before publish).
+COPY docops/scaling/payload-all /opt/docops/scaling/payload-all
+# Current public entry and checker (scaling-payload aware).
+COPY docops/replay.py /opt/docops/replay.py
+COPY docops/compile.py /opt/docops/compile.py
+# Install-state helpers (kept current, base already ships them).
+COPY docops/docker/install_state_check.py /opt/docops/docker/install_state_check.py
+COPY docops/docker/check_scaled_install.py /opt/docops/docker/check_scaled_install.py
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 \
+    DOCOPS_RUNTIME_ACTIVE=1 VIRTUAL_ENV=/opt/docops/venv
+ENV PATH="/opt/docops/venv/bin:${PATH}"
+WORKDIR /root
+ENTRYPOINT []
+CMD ["/bin/bash"]

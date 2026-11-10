@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_controlled_document_release_variant.py --records /root/tmp/docs/records.json --output /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output_u500.docx

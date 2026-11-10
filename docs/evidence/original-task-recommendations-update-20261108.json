@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "scope": "Recommend original tasks only; retain scaling measurements and exact-cover records unchanged",
+  "report_before_sha256": "5c948ef04504f7ad5f94445a6b6bc6f565050df52be35619459c1e45a3b439c5",
+  "report_after_sha256": "810e5288fe2f0f71c17c1152d05a0f448d8b584e6a696cc1e69b499fe7a855b7",
+  "numeric_tables_unchanged": true,
+  "operation_recommendation": [
+    "021"
+  ],
+  "function_recommendation": [
+    "013",
+    "016",
+    "021",
+    "026",
+    "029"
+  ],
+  "original_recommendation_is_exact_cover": false,
+  "operation_recipe": {
+    "path": "docops/payload/tasks/021/recipe.json",
+    "sha256": "431fcd7eb075d3a713bc52ac14119c4ae91e55ac586a35220388e16f8320ce0c"
+  },
+  "initial_report_before_sha256": "16e35fcf21527324eaa2f52385147387fedd1c8691d6048700f60df35566e1d8",
+  "figure_references_unchanged": true,
+  "figures": 12,
+  "protected_files": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
+  },
+  "measurement_inputs_rechecked": 289,
+  "publication_binding_sha256": "15008667a2367811fc740c6541383e70198319718ca49ee2507edbade7c48082",
+  "html_updated": false
+}

@@ -2,12 +2,16 @@
 
 十二项任务的输入、独立脚本和回放镜像在 [docops/](../../docops/README.md)。原始 Agent trace 留在来源仓库，本仓库回放冻结的最终有效执行链。
 
+最新离线分析：[十二组原始→小档→大档统一比较](processed/unified-scaling-final-20261108/analysis.md)、[完整机器结果](processed/unified-scaling-final-20261108/comparison.json)、[补充用例精确求解](processed/unified-scaling-final-20261108/selection.json)。覆盖 12 个原始任务与 24 个规模变体，重新核算旧 OPM＋TLC 的函数覆盖权重、未见函数的软件／脚本归属和 Topdown 变化；不启动任务或采集器，不改正式报告和 HTML。
+
+当前报告 7.4 使用[七维余弦与欧氏距离对照](processed/topdown-original-cosine-euclidean-20261108/analysis.md)，只比较 12 个原始新用例、24 组新旧配对；IPC 单独比较，按欧氏距离确定较近基准。函数覆盖与热点集合比较留在 7.3，不在 7.4 重复。
+
 当前候选已切换为基于原七例运行环境的 `docops-replay:openeuler-unified-candidate-04`（Python 3.12.3、LibreOffice 25.8.7.3）。安装态、核心 ELF/符号一致性、四格式微型检查和十二项各一轮正式回放通过。统一环境的十二项 perf 采集已完成，每项一份 profile、每份回放十轮；随后仅离线补充 build-id 精确匹配的调试符号，十二项均通过原有函数质量门槛，未解析周期占比为 0.0018%–3.02%。统一环境的十二项 DevKit Topdown 也已完成，每项一次独立采集、内部十轮，共 533 个过程点；与 perf 分开运行。下文标为“首批”的数字仍属于原 Debian candidate-05；原始记录和镜像保留，两个环境不混算。
 
 - [统一环境 Topdown 首轮结果](processed/unified-topdown-20261104-v1/report.md)、[完整指标和逐点数据](processed/unified-topdown-20261104-v1/comparison.json)：12/12 采集通过；当前 DevKit 最小间隔为 1 秒，实际每项 20–110 个过程点，逐点计数加总与 ALL 核对通过。
 - [统一环境离线补符号效果（最新）](processed/unified-symbol-enrichment-20261104-v1/report.md)、[机器结果](processed/unified-symbol-enrichment-20261104-v1/comparison.json)：同一份原始采样补符号前后对照，没有重新运行任务或采集。
 - [统一环境补符号前检查](processed/unified-symbol-check-20261103T1703Z/report.md)：保留此前结果，不被新结果覆盖。
-- [扩展任务操作与原始 OPM／TLC 对照](../../docs/representativeness-assessment.md#七扩展任务操作与原始-pdfxlsx-基准比较)、[机器结果](processed/task-operation-expansion-20261104/comparison.json)：以软件栈、物理函数和 Topdown 百分点变化为主要证据；总变差辅助描述分布差异，余弦不作整体负载高相似判据。
+- [扩展任务操作与原始 OPM／TLC 对照](../../docs/representativeness-assessment.md#七扩展任务操作与原始-pdfxlsx-基准比较)、[机器结果](processed/task-operation-expansion-20261104/comparison.json)：以软件栈、物理函数和 Topdown 为主要证据；当前 7.4 采用七维余弦与欧氏距离，早期总变差统计保留于历史记录。
 
 **首批已完成：Word、Excel、PPT、PDF 各三项，每项 perf 和 DevKit 各一份 profile，每份执行十轮真实工作。** 031 复用先前两路验证，其余新增 22 路，业务均完成，无 workload 重试。尚未补齐独立重复。
 
@@ -23,7 +27,7 @@
 | ROI 外 | 依赖／材料校验、workspace reset、字体准备、种子恢复、归档、哈希与外部评分 |
 | perf | 进程及后代、cycles:u、49 Hz、DWARF 16384；同镜像导出物理栈，按 workflow 区间并集筛选，排除调度器 |
 | DevKit | 另一次回放按 CPU 0–7 采集，控制器 CPU 9；采用完整 PMU 包络，保留间隙和宿主活动边界 |
-| 对比 | 进程／脚本、库、已解析物理叶函数；四顶层 Bound 余弦、已解析 Top-10 Jaccard、辅助十维欧氏距离 |
+| 对比 | 进程／脚本、库、已解析物理叶函数；当前报告 7.4 为七维余弦＋七维欧氏距离，IPC 单列；早期四维余弦／十维欧氏距离／Top-10 Jaccard 记录按原范围保留 |
 | 内容结果 | 来源官方评分保持原判定；回放完成与 Agent 原有检查退出 0 不等于重新通过官方评分 |
 
 十轮合在一份 profile 中，仅构成一次独立采集；本轮不计算稳定性、标准差或 CV。原七例的五次结果、环境和正式报告保持独立。

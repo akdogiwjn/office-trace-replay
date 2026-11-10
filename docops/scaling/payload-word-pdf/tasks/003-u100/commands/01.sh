@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_public_packet_variant.py --input /root/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_input_u100.docx --units /root/tmp/docs/units.json --output /root/submission/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_output_u100.docx

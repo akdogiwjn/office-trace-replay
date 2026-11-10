@@ -1,0 +1,1 @@
+python /root/tmp/docs/validate_public_packet_variant.py --output /root/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output_u20.pdf --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json

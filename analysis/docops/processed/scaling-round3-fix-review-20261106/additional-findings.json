@@ -1,0 +1,45 @@
+{
+  "schema": "docops-round3-fix-additional-review-v1",
+  "checked_at_utc": "2026-11-06T07:19:10.375424+00:00",
+  "findings": [
+    {
+      "id": "F5",
+      "severity": "high",
+      "location": "docops/scaling/functional_fixed_campaign.py:319",
+      "issue": "Post-verification failure and render-count failure do not affect task/campaign success; protected frozen hashes are recorded but not compared as a success gate.",
+      "reproduction": "main() with all external actions mocked: run_task status passed, post_verify rc=1/report.passed=False, render matched=0 -> exit=0/campaign.status=passed. final_index mocked separately to isolate this gate."
+    },
+    {
+      "id": "F6",
+      "severity": "medium",
+      "location": "docops/scaling/functional_fixed_campaign.py:374",
+      "issue": "Hashes campaign.json before adding final_index and writing it; fresh index always mismatches changed campaign.json. full_readback_passed is set before readback succeeds. Exception occurs in finally outside the status-failure handler.",
+      "reproduction": "Called real final_index_and_readback on temporary campaign with status=passed -> ValueError index readback mismatch: campaign.json; JSON still says full_readback_passed=True. Existing delivered index was separately verified valid; do not infer it is invalid."
+    },
+    {
+      "id": "F7",
+      "severity": "high",
+      "location": "docops/scaling/functional_fixed_campaign.py:113",
+      "issue": "run_task deletes an existing results directory, and create_clean removes an existing same-name container. Resume can rerun a completed workload after a post-verify failure, deleting its earlier evidence.",
+      "reproduction": "Static call-path inspection. No deletion or resume invoked."
+    },
+    {
+      "id": "F8",
+      "severity": "medium",
+      "location": "docops/scaling/cases/029/scripts/validate_qbr_release_variant.py:158",
+      "issue": "Locked legal page checks text/shape count/notes only; changed background/text styling is accepted.",
+      "reproduction": "Actual delivered 029-u10 loaded in exact fixed-image Python; saved temporary copy with legal background changed to red and both legal text runs changed to red; validator errors=[]. Original artifact read-only and untouched."
+    }
+  ],
+  "minor_static_findings": [
+    {
+      "location": "docops/scaling/cases/009/scripts/update_toc_and_render.py:105",
+      "issue": "Convergence on final allowed iteration incorrectly marked stable=False; failure to converge also returns zero from this step instead of an explicit convergence error. Downstream TOC validation can reject mismatched output. Current archived runs converged at 2 and are unaffected."
+    },
+    {
+      "location": "docops/docker/build_scaled.py:100",
+      "issue": "Build checks base tag ID, but docker build does not pass immutable BASE_IMAGE build-arg; Dockerfile still uses mutable tag. Current recorded base ID is correct; future reproducibility should pin actual build input."
+    }
+  ],
+  "scope": "No business-code edits, real workload/profiler runs, image builds, original evidence changes, or report/HTML updates. Mocks, temporary JSON and one temporary PPT mutation only."
+}

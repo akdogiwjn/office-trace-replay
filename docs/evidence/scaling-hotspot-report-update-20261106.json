@@ -1,0 +1,74 @@
+{
+  "schema": "scaling-hotspot-report-update-v1",
+  "status": "passed",
+  "checked_utc": "2026-11-06T02:11:37.186499+00:00",
+  "scope": "Markdown 7.3 and 7.6 revised; experimental record chapter 10 added; HTML not regenerated.",
+  "measurements_executed": false,
+  "original_sections_unchanged": {
+    "assessment_prefix": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
+    "experiment_prefix": "c6cfa6013753065b39a9e0d4510e2be1919332f95992c76b701274350e5b6238",
+    "assessment_7_1_7_2": "233c00993f7a8f376b7ab47ba51b51bf1757837fda4202c249e454aafab9d2af",
+    "assessment_7_4_7_5": "8777813762f6a87e9fa6e59ed14f17715e8b72163d679141b5a291c0eed998e0"
+  },
+  "protected_files_verified": 602,
+  "protected_roots": [
+    "docops/payload",
+    "docops/scaling/payload",
+    "docops/scaling/payload-word-pdf",
+    "analysis/docops/processed/all-format-scaling-20261106"
+  ],
+  "protected_tree_sha256": "4ad31f74008b9242f067f4fd9dc2b5ab8dda8ff140748d9deb48b5f95829d527",
+  "html_unchanged": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59"
+  },
+  "original_twelve_topdown_figures_retained": true,
+  "unit_tests_passed": 19,
+  "target_configurations": 20,
+  "major_operation_identity_count": 34,
+  "selection_threshold_share_roi": 0.005,
+  "selection_tools": [
+    "ImageMagick",
+    "JPEG",
+    "LibreOffice·OOXML",
+    "LibreOffice·VCL",
+    "PNG",
+    "Poppler"
+  ],
+  "minimum_original_candidate_cover": {
+    "required_function_count": 34,
+    "minimum_count": 3,
+    "solutions": [
+      [
+        "013",
+        "021",
+        "029"
+      ]
+    ]
+  },
+  "ablation_missing_counts": {
+    "013": 5,
+    "021": 11,
+    "029": 1
+  },
+  "all_augmented_partitions_and_ablations_recomputed": true,
+  "unknown_period_preserved": true,
+  "jpeg_context_correction": {
+    "task": "021-g10",
+    "montage_unseen_jpeg_share_roi": 0.04811385171774223,
+    "pdftoppm_unseen_jpeg_share_roi": 0.02643518315921741
+  },
+  "publication_input_check_passed_without_html_generation": true,
+  "presentation_read_sources": 65,
+  "supplement_analysis": {
+    "path": "analysis/docops/processed/scaling-selection-20261106/selection.json",
+    "sha256": "855a70a464cb19d2973a526daab804c300aab2b8cfd1da2ef9f6c3e94ab651b5"
+  },
+  "publication_binding_sha256": "6f357ca7d2d061043bed013e29ab38fe99aea52a6f3bf09616542e19bf974ec9",
+  "document_sha256": {
+    "docs/representativeness-assessment.md": "e0bebfe70f1e2ed653832ba5afbecacce0cd48aef8c60a14a8cb57d736cff863",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30",
+    "docs/README.md": "4637e89b1bd8e6035978d0b85869c1e06bbd1942d2c19dbe1975e9c8e7fd9f09",
+    "docs/evidence/README.md": "91451e1cce694af1051ff9d41d34a85b43272435445368c3192a8544b2e8776d"
+  },
+  "local_links_and_anchors_verified": 204
+}

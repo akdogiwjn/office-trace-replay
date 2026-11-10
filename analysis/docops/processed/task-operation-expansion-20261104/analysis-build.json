@@ -1,5 +1,5 @@
 {
-  "source_sha256": "330e00c1fd42f0411c92be76038614791ec0269043ab8d24a5cb09f417502678",
+  "source_sha256": "6020a652b2274e036a6d5cc2a7f23a30908ae2382af697cc895b0f9c8b32432e",
   "input_bindings": {
     "analysis/hotspots/comparison-inputs-pdf5-20261027.json": "52fc656ec63d04403415281a3f3e908f4cc7af7dbfda9f6f17b0b81e9754b609",
     "analysis/topdown/reports/seven-dataset-five-repeats-20261028T020708Z-58392cf7/similarity/comparison.json": "d1c8fa355c099e292c1449b96eb4b02140eb654c121984541b968f6f8f5032bd",
@@ -70,10 +70,10 @@
     "docops/payload/tasks/029/recipe.json": "ba8ea0401675fffd180c98865ef09558b016cc7405e7c602a438a5b9df99d320"
   },
   "output_sha256": {
-    "assessment-section.md": "5d9d5ad8157f5435aa0ce61326e91101dd5d208be1fadf9916fc6f11ad8a099b",
-    "experiment-section.md": "f24ae511f2c11300a715a182f2519b946ae1ef413511ed1a859e9b6d2a6c790c",
+    "assessment-section.md": "581aa25af4b7fdabbcbd6b41669dd54a5b86bb44cca25698982ea2a131bb0e99",
+    "experiment-section.md": "970c5d9bf92d079bb7544151602ac53f387e27f7c2a828a0f3a631485db5baaf",
     "base-publication-build.json": "1f7222eca4f92782865c2f382335c879758d84cb3a5875f033f260f7b56eff47",
-    "comparison.json": "e5142c1b1382a7b3dfbe7967a8ce71f251274f578e9c59af271aa87150c01cd8"
+    "comparison.json": "afdb80cd95b1320e833057a4dd0dc6ea93731aa969c769f78449a838a3ab1679"
   },
   "figures": {
     "analysis/docops/processed/task-operation-expansion-20261104/figures/031-bounds.svg": "ceed9353727520844531b46949eee069bddb19c387c5f7f894c73112e9790fed",
@@ -123,7 +123,13 @@
     "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.svg": "b83a818b3827ea9a07c4b532c8798b520afc8905a22bd500cb7d3f4675e20f7e",
     "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.png": "bdeedc01d94e2e00a19a52303c9e16b87e842a32632065140bbd4870ae31366e",
     "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.svg": "e2c688fc8485830f033c94827467e36add895dbb6991243e6f7f47ae583e5c86",
-    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.png": "21398dd0ef58e5a81fa98beb850b184920fc768767286d03469e7124536b9d9e"
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.png": "21398dd0ef58e5a81fa98beb850b184920fc768767286d03469e7124536b9d9e",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.svg": "c0282c7f434c8653ad7c9dfa90e4858e2b7e03c3a2baf71d513af98d5837e991",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.png": "1c7118f87c51331d2077b81af0525481e4b59b09bf2bc604ca8345746a0ca556"
   },
-  "measurement_rerun": false
+  "measurement_rerun": false,
+  "scaling_supplement": {
+    "path": "analysis/docops/processed/scaling-selection-20261106/selection.json",
+    "sha256": "855a70a464cb19d2973a526daab804c300aab2b8cfd1da2ef9f6c3e94ab651b5"
+  }
 }

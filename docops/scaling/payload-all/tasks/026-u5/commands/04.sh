@@ -1,0 +1,1 @@
+python /root/tmp/docs/validate_climate_disclosure_variant.py --output /root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u5.pptx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json

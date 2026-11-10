@@ -1,0 +1,1 @@
+pdftoppm -png -r 144 /root/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output_u5.pdf /root/tmp/docs/release_page

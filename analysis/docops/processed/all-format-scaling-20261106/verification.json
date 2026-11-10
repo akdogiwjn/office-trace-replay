@@ -1,0 +1,72 @@
+{
+  "schema": "scaling-analysis-checks-v1",
+  "case_count": 12,
+  "cases": {
+    "014": {
+      "roi_period": 63489076592,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "014-n1000": {
+      "roi_period": 93827635494,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "014-n10000": {
+      "roi_period": 907487668199,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "021": {
+      "roi_period": 115775254364,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "021-g5": {
+      "roi_period": 44958631720,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "021-g10": {
+      "roi_period": 90902921214,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "003": {
+      "roi_period": 53253612236,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "003-u100": {
+      "roi_period": 297102713189,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "003-u500": {
+      "roi_period": 479650485764,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "037": {
+      "roi_period": 56450928986,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "037-u5": {
+      "roi_period": 66582428915,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    },
+    "037-u20": {
+      "roi_period": 87089312211,
+      "partition_independently_recomputed": true,
+      "context_conservation": true
+    }
+  },
+  "exact_identity_union_count": 1339,
+  "comparison_count": 28,
+  "bound_differences_independently_recomputed": true,
+  "input_files_rechecked": 62,
+  "formal_report_and_html_modified": false,
+  "workload_or_collector_run": false
+}

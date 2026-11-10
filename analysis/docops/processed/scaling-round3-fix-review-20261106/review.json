@@ -1,0 +1,78 @@
+{
+  "schema": "docops-round3-fix-review-v1",
+  "reviewed_at_utc": "2026-11-06T07:13:27.657883+00:00",
+  "status": "main_repairs_confirmed_remaining_findings",
+  "campaign": "results/docops/scaling-fixed-functional-20261106T065416Z-cd25a37f",
+  "campaign_sha256": "1d9f9b5d975d6e862eaf89a95163054dce76a9fadcbfe1ad978e5025f8484e48",
+  "image_id": "sha256:fb037c236fefa455f63c3a22ac957ad24928a5494cddc4675abb66a1df0de089",
+  "verified": {
+    "campaign_index_files": 234,
+    "campaign_index_mismatches": 0,
+    "build_index_files": 7,
+    "build_index_mismatches": 0,
+    "formal_successful_tasks": 6,
+    "all_workload_containers_results_only_mount": true,
+    "protected_frozen_before_after_equal": true,
+    "official_payload": {
+      "status": "static_valid",
+      "tasks": 12,
+      "files": 247
+    },
+    "scaling_payload": {
+      "status": "static_valid",
+      "tasks": 24,
+      "files": 418
+    },
+    "rerun_directed_tests": {
+      "016_host": 29,
+      "009_host": 21,
+      "029_fixed_image": 15,
+      "all_passed": true
+    },
+    "git_diff_check": "passed",
+    "old_wrong_model_cache_rejected": true,
+    "old_missing_chart_cache_rejected": true
+  },
+  "remaining_findings": [
+    {
+      "id": "F1",
+      "kind": "actual_business_output_and_validation",
+      "case": "016",
+      "description": "Exception Review C2 states forecast exceeds capacity by 1,044.7 units, but D2=1044.69, E2=980, F2=64.69. Builder and expected formula use D instead of F; verifier omits C values. Replacing last C cache with WRONG BUSINESS DESCRIPTION still passes check().",
+      "locations": [
+        "docops/scaling/cases/016/scripts/build_forecast_dashboard_variant.py:354",
+        "docops/scaling/cases/016/expected.py:57",
+        "docops/scaling/cases/016/scripts/validate_forecast_dashboard_variant.py:132"
+      ]
+    },
+    {
+      "id": "F2",
+      "kind": "validation_gap",
+      "case": "016",
+      "description": "Changing Dashboard A24 from Sep to WRONG PERIOD in a temporary OOXML copy passes every check. verify_period_sums checks only B/C, not category labels A21:A24.",
+      "location": "docops/scaling/cases/016/scripts/validate_forecast_dashboard_variant.py:176"
+    },
+    {
+      "id": "F3",
+      "kind": "measurement_launcher_repeatability",
+      "description": "build_create uses a constant per-task/per-mode name docops-{mode}-{task}-tmp. launch retains containers. Repeating a task/mode creates a name conflict; use a campaign/attempt suffix without deleting old containers. Static inspection only; no failing collection launched.",
+      "location": "analysis/docops/pilot.py:65"
+    },
+    {
+      "id": "F4",
+      "kind": "evidence_description",
+      "description": "post_verify mounts /repo read-only but /results read-write; this does not enforce the claimed read-only output verification. Current archived hashes remain valid.",
+      "location": "docops/scaling/functional_fixed_campaign.py:226"
+    }
+  ],
+  "review_scope": {
+    "ran_agent": false,
+    "ran_full_workload": false,
+    "ran_perf_or_devkit": false,
+    "rebuilt_image": false,
+    "modified_business_code_or_payload": false,
+    "modified_original_evidence": false,
+    "modified_formal_reports_or_html": false,
+    "temporary_ooxml_mutations_original_unchanged": true
+  }
+}

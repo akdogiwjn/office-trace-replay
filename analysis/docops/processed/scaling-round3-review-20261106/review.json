@@ -1,0 +1,98 @@
+{
+  "schema": "docops-round3-readonly-review-v1",
+  "checked_utc": "2026-11-06T06:17:38.415585+00:00",
+  "status": "changes_required_before_measurement",
+  "workload_or_profiler_executed": false,
+  "original_workbooks_modified": false,
+  "campaign_index_verified_files": 1337,
+  "campaign_index_sha256": "0cfaa471d63069ccf4277933f19408af5a4af7861e20979fda98a57dfd8e0326",
+  "actual_successful_trials": 16,
+  "all_trials_claimed_passed": true,
+  "payload_all_static_validation": {
+    "status": "static_valid",
+    "files": 416,
+    "tasks": 24
+  },
+  "existing_eight_copied_task_files_verified": 100,
+  "offline_negative_check_environment": {
+    "python": "3.11.6",
+    "openpyxl": "3.1.5",
+    "method": "Call the production check() function on temporary OOXML copies; no helper, recalc or collector execution"
+  },
+  "counterexamples": [
+    {
+      "task": "016-u500",
+      "cell": "Forecast Model!E2001",
+      "before": "1006.86",
+      "after": "999999999",
+      "failed_checks": [],
+      "caches_present": true
+    },
+    {
+      "task": "016-u500",
+      "cell": "Dashboard!B539",
+      "before": "3991.55",
+      "after": null,
+      "failed_checks": [],
+      "caches_present": true
+    }
+  ],
+  "original_output_sha256": "b7a718159b6a2f3a5d42b773abe9cd9582a102cec54ba852e24f07d6e068a9d6",
+  "findings": [
+    {
+      "id": "R1",
+      "priority": "high",
+      "subject": "016 checker accepts incorrect row caches and missing chart-source caches",
+      "file": "docops/scaling/cases/016/scripts/validate_forecast_dashboard_variant.py",
+      "line": 310
+    },
+    {
+      "id": "R2",
+      "priority": "high",
+      "subject": "016 uses N-category chart and fixed ten exception slots rather than four-period aggregation and complete exception list",
+      "file": "docops/scaling/cases/016/scripts/build_forecast_dashboard_variant.py",
+      "lines": [
+        320,
+        543,
+        573
+      ],
+      "observed_breaches": {
+        "016-u100": 252,
+        "016-u500": 1292
+      },
+      "exception_slots": 10
+    },
+    {
+      "id": "R3",
+      "priority": "medium",
+      "subject": "009 expanded output retains incorrect cached table-of-contents page numbers",
+      "file": "docops/scaling/cases/009/scripts/build_incident_manual_variant.py",
+      "line": 78,
+      "evidence_images": [
+        "results/docops/scaling-all-functional-20261106T041702Z-fa404f12/009-u500/workspace-docs/rendered_v2/page-2.png",
+        "results/docops/scaling-all-functional-20261106T041702Z-fa404f12/009-u500/workspace-docs/rendered_v2/page-4.png"
+      ]
+    },
+    {
+      "id": "R4",
+      "priority": "methodology",
+      "subject": "029 changes public slide types in addition to size; restore parent pattern or explicitly register operation adaptation",
+      "file": "docops/scaling/cases/029/scripts/build_qbr_release_variant.py",
+      "line": 416
+    },
+    {
+      "id": "R5",
+      "priority": "measurement_wiring",
+      "subject": "Existing pilot still selects current-image.json candidate-04; scaled-image selection not implemented",
+      "file": "analysis/docops/pilot.py",
+      "line": 38
+    }
+  ],
+  "source_sha256": {
+    "docops/scaling/cases/016/scripts/build_forecast_dashboard_variant.py": "f7300125042585f2950d36a2c25628566b2e6f11317043d3288ba5e2354119e2",
+    "docops/scaling/cases/016/scripts/validate_forecast_dashboard_variant.py": "12fcb62765906faa20251ab2e7123bd240319bb8c7fabd1aeacd0ae60fbb0557",
+    "docops/scaling/cases/009/scripts/build_incident_manual_variant.py": "d8e45ce90555dfdff5c06c8a81ff58dde12f6e48955187a98ad857431ea7a754",
+    "docops/scaling/cases/029/scripts/build_qbr_release_variant.py": "389a587825f546218fd99e852cbdf12f5152aad813e6d942e68631ae6dc763d4",
+    "analysis/docops/pilot.py": "e1b85beeae84d283efb9b39ad881d0336ecb79cee50ed606eb6566be2ec4f862"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "docops-scaling-task-metadata-v1",
+  "variant_task_id": "014-n10000",
+  "synthetic": true,
+  "parent_task": "014",
+  "kind": "xlsx",
+  "seed": 2026110502,
+  "scale": {
+    "deduped_applications": 10000
+  },
+  "generator": "docops/scaling/cases/014/synth.py",
+  "generator_version": "1.0",
+  "modified_workflow": [
+    "01 build: dynamic ranges (register/county/dashboard/appeal/tables/conditional formats/auto-filter) sized by actual deduplicated record count",
+    "02 recalc: unchanged command, variant output path",
+    "03 finalize+validate: OOXML repair unchanged; validate compares every row/aggregate against frozen expected.json",
+    "04 convert_pdf: unchanged command, variant output path",
+    "05 render: unchanged command, variant output path"
+  ],
+  "scale_metadata": {
+    "raw_rows": 10401,
+    "duplicates": 401,
+    "valid_applications": 10000,
+    "raw_fields": 12,
+    "public_fields": 9,
+    "register_fields": 12,
+    "appeal_count": 2148,
+    "formula_count": 34313,
+    "input_bytes": 676084,
+    "input_sha256": "3613334ffb11f1158a2360347ac09d76c9407d04fc1b7a3d197f49311b6470ae",
+    "seed": 2026110502,
+    "branch_coverage": {
+      "damage": {
+        "Minor": 2268,
+        "Moderate": 3129,
+        "Major": 3209,
+        "Destroyed": 1795
+      },
+      "income": {
+        "Low": 4092,
+        "Moderate": 4205,
+        "High": 2104
+      },
+      "vulnerable": {
+        "Yes": 3541,
+        "No": 6860
+      },
+      "appeal": {
+        "Yes": 2237,
+        "No": 8164
+      }
+    }
+  },
+  "input_path": "/root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input_n10000.xlsx",
+  "output_path": "/root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx",
+  "measurement_scope": "Scales the number of deduplicated valid applications, which drives register/county/dashboard/appeal generation, recalc, validation, PDF export and page rendering. The source intake workbook is synthetic; the scope is register size, not a larger source-workbook parse or cleanup cost."
+}

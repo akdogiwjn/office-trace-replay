@@ -1,0 +1,1 @@
+python /root/tmp/docs/finalize_disaster_release_variant_ooxml.py --output /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n1000.xlsx && python /root/tmp/docs/validate_disaster_release_variant.py --output /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n1000.xlsx --expected /root/tmp/docs/expected.json

@@ -1,0 +1,1 @@
+python /root/tmp/docs/update_toc_and_render.py --input /root/submission/docops_v2_l3_009_docx_incident_manual_publication_output_u500.docx --outdir /root/tmp/docs/rendered_v2

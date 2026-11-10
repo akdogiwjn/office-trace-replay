@@ -1,0 +1,33 @@
+{
+  "schema": "seven-component-cosine-euclidean-report-update-v2",
+  "status": "passed",
+  "scope": "Section 7.4 plus one consistent 7.6 summary bullet; section 7.3 and figures unchanged",
+  "before_report_sha256": "abcaad8e4e40cb96b28da78d658567259f8ee65e1e40f00b33f10bf664469615",
+  "after_report_sha256": "920ea63f5f8dadbbd136f08ee4a2d429d087bb32a71b42046afa5aa6fff65e44",
+  "initial_report_before_sha256": "abcaad8e4e40cb96b28da78d658567259f8ee65e1e40f00b33f10bf664469615",
+  "protected_files": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
+  },
+  "protected_section_sha256": {
+    "before_7.4": "97358f093f214130cd991d8bdd0b580e3d6d65d0c1170d7b033820e0008e4db4",
+    "7.3": "336e0a4b41921a393cf66602d305acef40f4484dc005d00685bc7ffe257e1ca1",
+    "7.5": "992c63b27088a3258d5366e285c4f1ad522952cf442bbc61182cb30e35277f83"
+  },
+  "dimensions": 7,
+  "reference_scale_pp": 4.767047723696501,
+  "target_configurations": 12,
+  "nearest_baseline_repeat_envelopes": {
+    "OPM": 1.8910928057607341,
+    "TLC": 0.5524418521437315
+  },
+  "original_within_reference_scale": [
+    "009",
+    "026"
+  ],
+  "data_inputs_rechecked": 38,
+  "scale_inputs_rechecked": 254,
+  "presentation_binding_sha256": "dfc093b251078a3c55c29d442d36eaa1ac3155da5d160a28267e4c41d3f867a4",
+  "html_generated": false,
+  "workload_or_collector_run": false
+}

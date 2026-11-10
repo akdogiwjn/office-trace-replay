@@ -1,0 +1,309 @@
+{
+  "schema": "hotspot-representativeness-view-v1",
+  "status": "passed",
+  "checked_utc": "2026-11-05T06:21:33.577900+00:00",
+  "scope": "Markdown 7.3 and 7.6; weighted coverage, qualified input-scale explanation, three-case additions and exact seven-case function cover. Detailed inventories retained. HTML unchanged.",
+  "previous_commit": "0d1898906ebddcff0be88b9626aac1c80656a6b6",
+  "main_chart_partition": [
+    "observed",
+    "not_observed",
+    "unresolved"
+  ],
+  "old_reference": "OPM+TLC complete resolved identity union; DSO basename + complete physical leaf symbol; unknown retained in full target ROI denominator",
+  "all_prior_comparison_fields_unchanged": true,
+  "new_derived_fields": [
+    "coverage_augmentation",
+    "weighted_topk_presence"
+  ],
+  "input_bindings_verified": 67,
+  "original_report_prefixes_unchanged": {
+    "docs/representativeness-assessment.md": {
+      "prefix_bytes": 25710,
+      "prefix_sha256": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
+      "append_sha256": "a7f51022a180e05eddf2dca20697de5390ce2550b503e1612fe5273b76671e5d",
+      "sha256": "b0467392ed2e8fd2cd7d1c1d73fa5eae4e84805d8d5afbcf515d1ed3ba9e49b6"
+    },
+    "docs/experimental-results.md": {
+      "prefix_bytes": 83791,
+      "prefix_sha256": "c6cfa6013753065b39a9e0d4510e2be1919332f95992c76b701274350e5b6238",
+      "append_sha256": "8789320e005291edadff28bac91aac5aa7c2204300fd54b3e36125b7c7fc3d8b",
+      "sha256": "31ac5aa47d14b95e8a884eefac93b86299ee2f778156c8387fa2df73441c9884"
+    }
+  },
+  "comparison_sha256": "afdb80cd95b1320e833057a4dd0dc6ea93731aa969c769f78449a838a3ab1679",
+  "publication_manifest_sha256": "728a2aa4630c5ab3b7fc349117ea1f0f71bccaf782fa417a7ef36f049e0e824e",
+  "chart_files": {
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.svg": "c0282c7f434c8653ad7c9dfa90e4858e2b7e03c3a2baf71d513af98d5837e991",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.png": "1c7118f87c51331d2077b81af0525481e4b59b09bf2bc604ca8345746a0ca556"
+  },
+  "all_figures_verified": 50,
+  "augmentation": {
+    "selected_tasks": [
+      "013",
+      "021",
+      "029"
+    ],
+    "top20_original_unseen_unique_count": 58,
+    "matched": 49,
+    "remaining": 9,
+    "selected_case_self_match_flagged": true,
+    "target_partitions_conserved": true,
+    "unknown_period_unchanged": true,
+    "target_cases": {
+      "031": {
+        "selected_as_reference": false,
+        "roi_period": 39432108316,
+        "before_not_observed_period": 8221561054,
+        "before_not_observed_share_roi": 0.20849914968061734,
+        "observed_period": 38823770208,
+        "not_observed_period": 607612160,
+        "unresolved_period": 725948,
+        "observed_share_roi": 0.9845725188436562,
+        "not_observed_share_roi": 0.015409071083157247,
+        "unresolved_share_roi": 1.841007318661272e-05
+      },
+      "037": {
+        "selected_as_reference": false,
+        "roi_period": 56450928986,
+        "before_not_observed_period": 15344825225,
+        "before_not_observed_share_roi": 0.2718259114709266,
+        "observed_period": 54756496879,
+        "not_observed_period": 1668296901,
+        "unresolved_period": 26135206,
+        "observed_share_roi": 0.9699839818859274,
+        "not_observed_share_roi": 0.029553045998830997,
+        "unresolved_share_roi": 0.00046297211524156865
+      },
+      "pdfwf005": {
+        "selected_as_reference": false,
+        "roi_period": 40523248177,
+        "before_not_observed_period": 22048404156,
+        "before_not_observed_share_roi": 0.5440927158577118,
+        "observed_period": 39263791260,
+        "not_observed_period": 1186585775,
+        "unresolved_period": 72871142,
+        "observed_share_roi": 0.9689201390890764,
+        "not_observed_share_roi": 0.02928160570488219,
+        "unresolved_share_roi": 0.0017982552060414514
+      },
+      "013": {
+        "selected_as_reference": true,
+        "roi_period": 88617308449,
+        "before_not_observed_period": 35741255368,
+        "before_not_observed_share_roi": 0.40332138262323086,
+        "observed_period": 88166076432,
+        "not_observed_period": 0,
+        "unresolved_period": 451232017,
+        "observed_share_roi": 0.9949080825755424,
+        "not_observed_share_roi": 0.0,
+        "unresolved_share_roi": 0.005091917424457636
+      },
+      "014": {
+        "selected_as_reference": false,
+        "roi_period": 63489076592,
+        "before_not_observed_period": 21046999573,
+        "before_not_observed_share_roi": 0.3315058385280098,
+        "observed_period": 57503669925,
+        "not_observed_period": 5554011349,
+        "unresolved_period": 431395318,
+        "observed_share_roi": 0.9057254099714817,
+        "not_observed_share_roi": 0.08747979411784103,
+        "unresolved_share_roi": 0.006794795910677308
+      },
+      "016": {
+        "selected_as_reference": false,
+        "roi_period": 75130078323,
+        "before_not_observed_period": 32566096182,
+        "before_not_observed_share_roi": 0.4334628275241709,
+        "observed_period": 63791465600,
+        "not_observed_period": 11034723585,
+        "unresolved_period": 303889138,
+        "observed_share_roi": 0.8490802488684636,
+        "not_observed_share_roi": 0.1468749112380717,
+        "unresolved_share_roi": 0.004044839893464728
+      },
+      "001": {
+        "selected_as_reference": false,
+        "roi_period": 56776472434,
+        "before_not_observed_period": 14518658211,
+        "before_not_observed_share_roi": 0.25571610190959404,
+        "observed_period": 50654749721,
+        "not_observed_period": 4709234483,
+        "unresolved_period": 1412488230,
+        "observed_share_roi": 0.8921785301100519,
+        "not_observed_share_roi": 0.08294341443058593,
+        "unresolved_share_roi": 0.02487805545936218
+      },
+      "003": {
+        "selected_as_reference": false,
+        "roi_period": 53253612236,
+        "before_not_observed_period": 15161130367,
+        "before_not_observed_share_roi": 0.28469675070700495,
+        "observed_period": 46157268053,
+        "not_observed_period": 5564207846,
+        "unresolved_period": 1532136337,
+        "observed_share_roi": 0.8667443599590641,
+        "not_observed_share_roi": 0.10448507833311892,
+        "unresolved_share_roi": 0.028770561707817065
+      },
+      "009": {
+        "selected_as_reference": false,
+        "roi_period": 69595293818,
+        "before_not_observed_period": 22585336882,
+        "before_not_observed_share_roi": 0.3245239102095517,
+        "observed_period": 63388881949,
+        "not_observed_period": 4439254804,
+        "unresolved_period": 1767157065,
+        "observed_share_roi": 0.9108213856352053,
+        "not_observed_share_roi": 0.06378670971070517,
+        "unresolved_share_roi": 0.025391904654089494
+      },
+      "021": {
+        "selected_as_reference": true,
+        "roi_period": 115775254364,
+        "before_not_observed_period": 59438505635,
+        "before_not_observed_share_roi": 0.5133955952981455,
+        "observed_period": 113373585641,
+        "not_observed_period": 0,
+        "unresolved_period": 2401668723,
+        "observed_share_roi": 0.9792557681156191,
+        "not_observed_share_roi": 0.0,
+        "unresolved_share_roi": 0.02074423188438092
+      },
+      "026": {
+        "selected_as_reference": false,
+        "roi_period": 70209385580,
+        "before_not_observed_period": 26391239273,
+        "before_not_observed_share_roi": 0.3758933233068752,
+        "observed_period": 61003544605,
+        "not_observed_period": 7085682422,
+        "unresolved_period": 2120158553,
+        "observed_share_roi": 0.8688801945929235,
+        "not_observed_share_roi": 0.10092215397507258,
+        "unresolved_share_roi": 0.030197651432003886
+      },
+      "029": {
+        "selected_as_reference": true,
+        "roi_period": 39525900635,
+        "before_not_observed_period": 16942828292,
+        "before_not_observed_share_roi": 0.42865128990880486,
+        "observed_period": 38883474809,
+        "not_observed_period": 0,
+        "unresolved_period": 642425826,
+        "observed_share_roi": 0.9837467125181423,
+        "not_observed_share_roi": 0.0,
+        "unresolved_share_roi": 0.01625328748185778
+      }
+    },
+    "exact_top20_minimum": 7,
+    "exact_top20_solutions": [
+      [
+        "037",
+        "013",
+        "014",
+        "003",
+        "021",
+        "026",
+        "029"
+      ],
+      [
+        "037",
+        "013",
+        "016",
+        "003",
+        "021",
+        "026",
+        "029"
+      ],
+      [
+        "037",
+        "013",
+        "001",
+        "003",
+        "021",
+        "026",
+        "029"
+      ],
+      [
+        "037",
+        "013",
+        "003",
+        "009",
+        "021",
+        "026",
+        "029"
+      ],
+      [
+        "pdfwf005",
+        "013",
+        "016",
+        "003",
+        "021",
+        "026",
+        "029"
+      ],
+      [
+        "013",
+        "014",
+        "016",
+        "003",
+        "021",
+        "026",
+        "029"
+      ],
+      [
+        "013",
+        "016",
+        "001",
+        "003",
+        "021",
+        "026",
+        "029"
+      ],
+      [
+        "013",
+        "016",
+        "003",
+        "009",
+        "021",
+        "026",
+        "029"
+      ]
+    ],
+    "exact_all_function_minimum": 12,
+    "unique_identity_count_requiring_each_case_for_all_function_cover": {
+      "031": 12,
+      "037": 23,
+      "pdfwf005": 22,
+      "013": 106,
+      "014": 115,
+      "016": 181,
+      "001": 55,
+      "003": 47,
+      "009": 71,
+      "021": 240,
+      "026": 148,
+      "029": 90
+    },
+    "independent_check": "Separate plain-set enumeration verifies all smaller Top-20 subsets fail and all eight size-seven solutions cover the target. Each case has a unique full-list identity, establishing the twelve-case full-list minimum."
+  },
+  "size_explanation": "Plausible contributor; no controlled input-scale experiment, no deletion of runtime/text/framework weight or attribution of all residuals to size.",
+  "tests": {
+    "docops_analysis": 43,
+    "temporary_presentation_generation": 4,
+    "failed": 0
+  },
+  "html_updated": false,
+  "html_and_metadata_preserved": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/evidence/presentation.json": "fa2c0ede0c26f2a91326b4b6001924742c266de39b3aba589fdfa2b17904e46c"
+  },
+  "measurement_rerun": false,
+  "image_build": false,
+  "task_set_or_recipe_changed": false,
+  "code_sha256": {
+    "analysis/docops/operation_comparison.py": "190fafe4ea4d2217de6d79ca339a4ee086480993f559db494fa32c57c051caea",
+    "analysis/docops/tests/test_operation_comparison.py": "a304b89fbfc4f6c3d79d094439f9a5a22424a1d816d10d1811e1f60ee69c7a7d",
+    "scripts/build_presentation.py": "e130b3aff60d9e35598a4034aa1271c7e77b4cdba8df78b6868e908c632bff92"
+  }
+}

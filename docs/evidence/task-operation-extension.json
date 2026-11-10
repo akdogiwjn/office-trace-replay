@@ -5,14 +5,14 @@
     "docs/representativeness-assessment.md": {
       "prefix_bytes": 25710,
       "prefix_sha256": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
-      "append_sha256": "54f600da65126155778d44eb3d8cc32a0c1bb78c16fe6f5fdff439f366c370e5",
-      "sha256": "07847e85f62590ab6868cb9b6d1a3396aa4c9d299ecff85a711c6ae71e606e40"
+      "append_sha256": "d40193165322550665ef1880b5c03c6c645a01c1497977f512a7f6fa22686bd4",
+      "sha256": "810e5288fe2f0f71c17c1152d05a0f448d8b584e6a696cc1e69b499fe7a855b7"
     },
     "docs/experimental-results.md": {
       "prefix_bytes": 83791,
       "prefix_sha256": "c6cfa6013753065b39a9e0d4510e2be1919332f95992c76b701274350e5b6238",
-      "append_sha256": "6014f0ca347b8982336e9aca27b60e6b34e35367da392321683eda45824f015c",
-      "sha256": "237626111d2f39e5833ba4f6bc4b8583d36964e1052377602b67c3006e6b986f"
+      "append_sha256": "a5ac2eba7ecc14e651b3f4001055197de1dadf552253c1251083051478787385",
+      "sha256": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
     }
   },
   "base_publication_build": {
@@ -21,10 +21,27 @@
   },
   "analysis": {
     "path": "analysis/docops/processed/task-operation-expansion-20261104/comparison.json",
-    "sha256": "e5142c1b1382a7b3dfbe7967a8ce71f251274f578e9c59af271aa87150c01cd8"
+    "sha256": "afdb80cd95b1320e833057a4dd0dc6ea93731aa969c769f78449a838a3ab1679"
   },
   "analysis_sources": {
-    "analysis/docops/operation_comparison.py": "330e00c1fd42f0411c92be76038614791ec0269043ab8d24a5cb09f417502678"
+    "analysis/docops/operation_comparison.py": "6020a652b2274e036a6d5cc2a7f23a30908ae2382af697cc895b0f9c8b32432e",
+    "analysis/docops/scaling_report_sections.py": "0b312802e46395a8d8730e2e7290e5cd28bcf1b357f8169f5ceab58d52b42194",
+    "analysis/docops/processed/all-format-scaling-20261106/comparison.json": "0f1ab698080a0a68a31d3637d17f7fbff21b91b95576bfd836565cc9c3dae304",
+    "analysis/docops/processed/scaling-selection-20261106/selection.json": "855a70a464cb19d2973a526daab804c300aab2b8cfd1da2ef9f6c3e94ab651b5",
+    "analysis/docops/processed/scaling-selection-20261106/analysis-build.json": "ee7b5a07760313e278aa2d10639512ac36ca9f0adb60e73e6b8a7aa3f4c031d7",
+    "analysis/docops/unified_scaling_sections.py": "8f491164ada84e67c35f78fe214de595641915952a2bec2ad279924086a55187",
+    "analysis/docops/processed/unified-scaling-final-20261108/comparison.json": "04152bc733a392c31bd8bea60ece72d74a9f8cd372d17de755ea530b41a0f67a",
+    "analysis/docops/processed/unified-scaling-final-20261108/selection.json": "36b36590f139ee1ba703c9a3538999f0f6584b98dc1e3deec912c4162e0b0675",
+    "analysis/docops/processed/unified-scaling-final-20261108/analysis-build.json": "fc983570dd6f310614a2fd0d0d6dbf4aa3b30797e5e40d5366e83d516fcfc84a",
+    "analysis/docops/topdown_report_sections.py": "3a45b8185d6e590babe49cd86ff520eb4129380ae4eb3f87f75f39f85f729413",
+    "analysis/docops/topdown_hierarchy_comparison.py": "58ac0672748bf66db037915b25ec6d6736c3603f526a834b8268f7ec3e0083e8",
+    "analysis/docops/processed/topdown-seven-component-20261108/comparison.json": "da8289881a47fe3a77dcbb5f6ddb7bc9a1e623a1c4aab9b74fdb5831cdd8a04c",
+    "analysis/docops/processed/topdown-seven-component-20261108/analysis-build.json": "1ae8edda9761030a90aa1c3e4791f03f211b7540142d22cfeabac320faf70eb5",
+    "analysis/docops/processed/topdown-cosine-euclidean-20261108/comparison.json": "0af889ba5801ca1af36e0093dfc27a8b1264a15f9f73e49ef7e99bda50731bb4",
+    "analysis/docops/processed/topdown-cosine-euclidean-20261108/analysis-build.json": "10b505d93b890f24339eb0f1343ba7cf034c6b488e6b26922421a5b5944ad63c",
+    "analysis/docops/processed/topdown-original-cosine-euclidean-20261108/comparison.json": "93c52b8985c13f3cd1914ea52e1b4d0c646aa809c6a841b542b933414dbbc0a5",
+    "analysis/docops/processed/topdown-original-cosine-euclidean-20261108/analysis-build.json": "1a72485cf0c37223ae91d556bfc0b7628db9bb2ec4aeb402ff80d375a9478082",
+    "analysis/docops/chapter7_editorial.py": "31270e09c52200e80cdb0cbd7620bde85710d4c3bc0b68101fb4e0da3c6e74d8"
   },
   "images": {
     "reference": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
@@ -78,7 +95,9 @@
     "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.svg": "b83a818b3827ea9a07c4b532c8798b520afc8905a22bd500cb7d3f4675e20f7e",
     "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.png": "bdeedc01d94e2e00a19a52303c9e16b87e842a32632065140bbd4870ae31366e",
     "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.svg": "e2c688fc8485830f033c94827467e36add895dbb6991243e6f7f47ae583e5c86",
-    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.png": "21398dd0ef58e5a81fa98beb850b184920fc768767286d03469e7124536b9d9e"
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/029-all-metrics.png": "21398dd0ef58e5a81fa98beb850b184920fc768767286d03469e7124536b9d9e",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.svg": "c0282c7f434c8653ad7c9dfa90e4858e2b7e03c3a2baf71d513af98d5837e991",
+    "analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.png": "1c7118f87c51331d2077b81af0525481e4b59b09bf2bc604ca8345746a0ca556"
   },
   "presentation_figures": {
     "../analysis/docops/processed/task-operation-expansion-20261104/figures/031-bounds.svg": "analysis/docops/processed/task-operation-expansion-20261104/figures/031-bounds.svg",
@@ -92,8 +111,77 @@
     "../analysis/docops/processed/task-operation-expansion-20261104/figures/009-bounds.svg": "analysis/docops/processed/task-operation-expansion-20261104/figures/009-bounds.svg",
     "../analysis/docops/processed/task-operation-expansion-20261104/figures/021-bounds.svg": "analysis/docops/processed/task-operation-expansion-20261104/figures/021-bounds.svg",
     "../analysis/docops/processed/task-operation-expansion-20261104/figures/026-bounds.svg": "analysis/docops/processed/task-operation-expansion-20261104/figures/026-bounds.svg",
-    "../analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.svg": "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.svg"
+    "../analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.svg": "analysis/docops/processed/task-operation-expansion-20261104/figures/029-bounds.svg",
+    "../analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.svg": "analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.svg"
+  },
+  "presentation_figure_notes": {
+    "../analysis/docops/processed/task-operation-expansion-20261104/figures/function-hotspot-coverage.svg": "旧 OPM＋TLC 合并参考；蓝色为已覆盖、橙色为未覆盖、灰色为未解析，按目标完整用户态采样周期计，每条合计 100%。"
   },
   "original_seven_case_measurements_changed": false,
-  "new_measurements_executed": false
+  "new_measurements_executed": false,
+  "scaling_analysis": {
+    "path": "analysis/docops/processed/unified-scaling-final-20261108/selection.json",
+    "sha256": "36b36590f139ee1ba703c9a3538999f0f6584b98dc1e3deec912c4162e0b0675",
+    "scope": "36 target configurations; 49 core function identities; separate qualitative operation recommendation"
+  },
+  "historical_scaling_analysis": {
+    "path": "analysis/docops/processed/scaling-selection-20261106/selection.json",
+    "sha256": "855a70a464cb19d2973a526daab804c300aab2b8cfd1da2ef9f6c3e94ab651b5",
+    "scope": "20 configurations; 34 major operation identities"
+  },
+  "coverage_decisions": {
+    "function_goal_identity_count": 49,
+    "function_configurations": [
+      "013",
+      "016",
+      "021",
+      "026",
+      "029"
+    ],
+    "operation_recommendation": [
+      "021"
+    ],
+    "operation_optional": [
+      "029"
+    ],
+    "operation_recommendation_is_exact_cover": false,
+    "function_percentages_not_relabelled": true,
+    "function_exact_cover_configurations": [
+      "013",
+      "013-v100",
+      "016-u500",
+      "021",
+      "026-u10",
+      "029",
+      "029-u5"
+    ],
+    "original_recommendation_is_exact_cover": false
+  },
+  "topdown_hierarchy_analysis": {
+    "path": "analysis/docops/processed/topdown-original-cosine-euclidean-20261108/comparison.json",
+    "sha256": "93c52b8985c13f3cd1914ea52e1b4d0c646aa809c6a841b542b933414dbbc0a5",
+    "targets": 12,
+    "baseline_independent_runs": 10,
+    "dimensions": 7,
+    "reference_scale_pp": 4.767047723696501,
+    "scope": "Twelve original tasks: cumulative seven-component cosine and Euclidean comparison; partial PMU diagnostics retained; IPC separate."
+  },
+  "chapter7_reader_order": {
+    "sections": [
+      "samples",
+      "software",
+      "function_coverage",
+      "topdown",
+      "recommendations",
+      "curves"
+    ],
+    "operation_priority": [
+      "021"
+    ],
+    "operation_optional": [
+      "029"
+    ],
+    "numeric_tables_unchanged": true,
+    "figures": 12
+  }
 }

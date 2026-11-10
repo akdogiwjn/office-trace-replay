@@ -1,0 +1,101 @@
+{
+  "schema": "docops-scaling-task-metadata-v1",
+  "variant_task_id": "pdfwf005-u5",
+  "synthetic": true,
+  "parent_task": "pdfwf005",
+  "kind": "pdf",
+  "seed": 2026110615,
+  "scale": {
+    "groups": 5,
+    "input_pages": 35,
+    "output_pages": 30
+  },
+  "generator": "docops/scaling/cases/pdfwf005/synth.py",
+  "generator_version": "1.0",
+  "modified_workflow": [
+    "01 build_and_pdfinfo: unchanged; the builder iterates groups.json groups (7 source pages per group -> 6 live pages), removing the 'Draft: ' prefix, dropping the obsolete divider, reordering live pages and adding bookmarks/page labels over the whole binder",
+    "02 final_text: unchanged pdftotext -layout over the output PDF",
+    "03 page_labels_and_bookmarks: unchanged pypdf page-label and outline dump, now spanning all scaled groups",
+    "04 render_contact_sheet: unchanged pdftoppm -png -r 130 + one montage 3x2 -label %f invocation over every retained live page; because the montage tile grid is 3x2 and the retained page count (30/120) exceeds 6, ImageMagick writes one numbered contact-sheet tile (output-contact-0.png, ...) per 3x2 grid page instead of a single output-contact.png. The command lists all produced tiles; this is the same single tool invocation as the parent, scaled by page count",
+    "05 forbidden_text_diagnostic: unchanged pdftotext | rg over the output PDF"
+  ],
+  "scale_metadata": {
+    "groups": 5,
+    "pages_per_group": 7,
+    "live_pages_per_group": 6,
+    "input_pages": 35,
+    "output_pages": 30,
+    "render_pages": 30,
+    "render_images": 30,
+    "contact_sheet_images": 1,
+    "render_dpi": 130,
+    "montage_tile": "3x2",
+    "montage_geometry": "+18+24",
+    "montage_label": "%f",
+    "group_ids": [
+      "GRP-001",
+      "GRP-002",
+      "GRP-003",
+      "GRP-004",
+      "GRP-005"
+    ],
+    "unique_group_ids": 5,
+    "live_titles": [
+      "Cover",
+      "Meeting Log",
+      "Binder Index",
+      "Approved Exhibit",
+      "Appendix A",
+      "Appendix B"
+    ],
+    "obsolete_title": "Obsolete Divider",
+    "first_group": {
+      "group_id": "GRP-001",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "obsolete_page_index": 7
+    },
+    "middle_group": {
+      "group_id": "GRP-003",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "obsolete_page_index": 7
+    },
+    "last_group": {
+      "group_id": "GRP-005",
+      "live_titles": [
+        "Cover",
+        "Meeting Log",
+        "Binder Index",
+        "Approved Exhibit",
+        "Appendix A",
+        "Appendix B"
+      ],
+      "obsolete_page_index": 7
+    },
+    "bookmarks": 30,
+    "page_labels": 30,
+    "input_bytes": 20627,
+    "input_sha256": "849dc07a7c1fa9ec8c9a5a5e9d683b83381837066f8980a437f9421f8d1339ea",
+    "groups_json_sha256": "f55de8ea485bbc6daaeca190e7fb0fe39fb6e1f44e015f94b03f464218b31caa",
+    "seed": 2026110615,
+    "parameterized": "The fixed 7-page source block and 6-page live scope are parameterized over all groups: source page indexes, obsolete page indexes, absolute bookmark targets and page-label prefixes are computed over the whole scaled binder.",
+    "preserved_parent_behavior": "130 DPI pdftoppm page rendering with montage 3x2, geometry +18+24 and -label %f contact sheet; page labels equal the visible section titles; input metadata preserved with /Title overridden to 'Closeout Binder'; no AcroForm handling is introduced (the rebuild neither reads nor writes AcroForm structures).",
+    "changed_parent_behavior": "The builder iterates every groups.json group through the real read-strip-drop-reorder-labelling path instead of a single fixed 7-page seed; live pages are never duplicated."
+  },
+  "input_path": "/root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u5.pdf",
+  "output_path": "/root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u5.pdf",
+  "measurement_scope": "Scales the number of frozen binder groups that actually flow through the real read/prefix-strip/obsolete-drop/reorder/bookmark/label rebuild. 5 groups -> 35 input / 30 output pages, 20 groups -> 140 input / 120 output pages. Every retained live page is rendered at 130 DPI into the 3x2 contact sheet; pages are never duplicated."
+}

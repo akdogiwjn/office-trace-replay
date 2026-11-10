@@ -1,0 +1,3228 @@
+{
+  "schema": "docops-scaling-notices-v1",
+  "variant_task_id": "037-u20",
+  "seed": 2026110508,
+  "pages_per_group": 5,
+  "page_titles": [
+    "Public Bus Detour Notice Packet",
+    "Corrected Detour Summary",
+    "Stop Closure and Shuttle Matrix",
+    "Rider Communication Timeline",
+    "Release Checklist"
+  ],
+  "groups": [
+    {
+      "id": "N-01",
+      "route": "Route 12",
+      "corridor": "Northbank bridge corridor",
+      "closure_begins": "2026-10-11",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 8,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Northbank bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "12-01",
+          "name": "Market / Square",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "12-02",
+          "name": "Civic / Terminal",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "12-03",
+          "name": "Riverfront / Plaza",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "12-04",
+          "name": "Harbor / Exchange",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "12-05",
+          "name": "Central / Campus",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "12-06",
+          "name": "University / Medical Center",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "12-07",
+          "name": "Parkway / Mall",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "12-08",
+          "name": "Southbank / Bridge",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 8",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-04",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-11",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 12, the closure window, 8 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 8 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-02",
+      "route": "Route 18",
+      "corridor": "Market bridge corridor",
+      "closure_begins": "2026-10-15",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 18,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Market bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "18-01",
+          "name": "Civic / Medical Center",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-02",
+          "name": "Riverfront / Mall",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-03",
+          "name": "Harbor / Bridge",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-04",
+          "name": "Central / Promenade",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-05",
+          "name": "University / Garage",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-06",
+          "name": "Parkway / Stadium",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-07",
+          "name": "Southbank / Museum",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-08",
+          "name": "Mill / Courthouse",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-09",
+          "name": "Station / Post Office",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-10",
+          "name": "Airport / Library",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-11",
+          "name": "Riverside / Square",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-12",
+          "name": "Eastgate / Terminal",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-13",
+          "name": "Westfield / Plaza",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-14",
+          "name": "Oldtown / Exchange",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 14",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-15",
+          "name": "Highland / Campus",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 15",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-16",
+          "name": "Lakeshore / Medical Center",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 16",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-17",
+          "name": "Greenway / Mall",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 17",
+          "access": "Step-free"
+        },
+        {
+          "id": "18-18",
+          "name": "Sunset / Bridge",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 18",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-08",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 18, the closure window, 18 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 18 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-03",
+      "route": "Route 24",
+      "corridor": "Civic bridge corridor",
+      "closure_begins": "2026-10-05",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 11,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Civic bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "24-01",
+          "name": "Riverfront / Stadium",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-02",
+          "name": "Harbor / Museum",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-03",
+          "name": "Central / Courthouse",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-04",
+          "name": "University / Post Office",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-05",
+          "name": "Parkway / Library",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-06",
+          "name": "Southbank / Square",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-07",
+          "name": "Mill / Terminal",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-08",
+          "name": "Station / Plaza",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-09",
+          "name": "Airport / Exchange",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-10",
+          "name": "Riverside / Campus",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "24-11",
+          "name": "Eastgate / Medical Center",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 11",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-26",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-05",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 24, the closure window, 11 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 11 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-04",
+      "route": "Route 30",
+      "corridor": "Riverfront bridge corridor",
+      "closure_begins": "2026-10-18",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 15,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Riverfront bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "30-01",
+          "name": "Harbor / Square",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-02",
+          "name": "Central / Terminal",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-03",
+          "name": "University / Plaza",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-04",
+          "name": "Parkway / Exchange",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-05",
+          "name": "Southbank / Campus",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-06",
+          "name": "Mill / Medical Center",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-07",
+          "name": "Station / Mall",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-08",
+          "name": "Airport / Bridge",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-09",
+          "name": "Riverside / Promenade",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-10",
+          "name": "Eastgate / Garage",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-11",
+          "name": "Westfield / Stadium",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-12",
+          "name": "Oldtown / Museum",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-13",
+          "name": "Highland / Courthouse",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-14",
+          "name": "Lakeshore / Post Office",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 14",
+          "access": "Step-free"
+        },
+        {
+          "id": "30-15",
+          "name": "Greenway / Library",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 15",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-11",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 30, the closure window, 15 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 15 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-05",
+      "route": "Route 36",
+      "corridor": "Harbor bridge corridor",
+      "closure_begins": "2026-10-15",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 11,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Harbor bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "36-01",
+          "name": "Central / Medical Center",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-02",
+          "name": "University / Mall",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-03",
+          "name": "Parkway / Bridge",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-04",
+          "name": "Southbank / Promenade",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-05",
+          "name": "Mill / Garage",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-06",
+          "name": "Station / Stadium",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-07",
+          "name": "Airport / Museum",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-08",
+          "name": "Riverside / Courthouse",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-09",
+          "name": "Eastgate / Post Office",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-10",
+          "name": "Westfield / Library",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "36-11",
+          "name": "Oldtown / Square",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 11",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-08",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 36, the closure window, 11 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 11 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-06",
+      "route": "Route 42",
+      "corridor": "Central bridge corridor",
+      "closure_begins": "2026-10-08",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 14,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Central bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "42-01",
+          "name": "University / Stadium",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-02",
+          "name": "Parkway / Museum",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-03",
+          "name": "Southbank / Courthouse",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-04",
+          "name": "Mill / Post Office",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-05",
+          "name": "Station / Library",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-06",
+          "name": "Airport / Square",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-07",
+          "name": "Riverside / Terminal",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-08",
+          "name": "Eastgate / Plaza",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-09",
+          "name": "Westfield / Exchange",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-10",
+          "name": "Oldtown / Campus",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-11",
+          "name": "Highland / Medical Center",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-12",
+          "name": "Lakeshore / Mall",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-13",
+          "name": "Greenway / Bridge",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "42-14",
+          "name": "Sunset / Promenade",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 14",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-01",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-08",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 42, the closure window, 14 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 14 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-07",
+      "route": "Route 48",
+      "corridor": "University bridge corridor",
+      "closure_begins": "2026-10-05",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 9,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the University bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "48-01",
+          "name": "Parkway / Square",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-02",
+          "name": "Southbank / Terminal",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-03",
+          "name": "Mill / Plaza",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-04",
+          "name": "Station / Exchange",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-05",
+          "name": "Airport / Campus",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-06",
+          "name": "Riverside / Medical Center",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-07",
+          "name": "Eastgate / Mall",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-08",
+          "name": "Westfield / Bridge",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "48-09",
+          "name": "Oldtown / Promenade",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 9",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-26",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-05",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 48, the closure window, 9 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 9 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-08",
+      "route": "Route 54",
+      "corridor": "Parkway bridge corridor",
+      "closure_begins": "2026-10-05",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 16,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Parkway bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "54-01",
+          "name": "Southbank / Medical Center",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-02",
+          "name": "Mill / Mall",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-03",
+          "name": "Station / Bridge",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-04",
+          "name": "Airport / Promenade",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-05",
+          "name": "Riverside / Garage",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-06",
+          "name": "Eastgate / Stadium",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-07",
+          "name": "Westfield / Museum",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-08",
+          "name": "Oldtown / Courthouse",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-09",
+          "name": "Highland / Post Office",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-10",
+          "name": "Lakeshore / Library",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-11",
+          "name": "Greenway / Square",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-12",
+          "name": "Sunset / Terminal",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-13",
+          "name": "Northbank / Plaza",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-14",
+          "name": "Market / Exchange",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 14",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-15",
+          "name": "Civic / Campus",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 15",
+          "access": "Step-free"
+        },
+        {
+          "id": "54-16",
+          "name": "Riverfront / Medical Center",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 16",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-26",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-05",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 54, the closure window, 16 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 16 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-09",
+      "route": "Route 60",
+      "corridor": "Southbank bridge corridor",
+      "closure_begins": "2026-10-18",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 14,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Southbank bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "60-01",
+          "name": "Mill / Stadium",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-02",
+          "name": "Station / Museum",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-03",
+          "name": "Airport / Courthouse",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-04",
+          "name": "Riverside / Post Office",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-05",
+          "name": "Eastgate / Library",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-06",
+          "name": "Westfield / Square",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-07",
+          "name": "Oldtown / Terminal",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-08",
+          "name": "Highland / Plaza",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-09",
+          "name": "Lakeshore / Exchange",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-10",
+          "name": "Greenway / Campus",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-11",
+          "name": "Sunset / Medical Center",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-12",
+          "name": "Northbank / Mall",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-13",
+          "name": "Market / Bridge",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "60-14",
+          "name": "Civic / Promenade",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 14",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-11",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 60, the closure window, 14 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 14 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-10",
+      "route": "Route 66",
+      "corridor": "Mill bridge corridor",
+      "closure_begins": "2026-10-03",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 12,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Mill bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "66-01",
+          "name": "Station / Square",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-02",
+          "name": "Airport / Terminal",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-03",
+          "name": "Riverside / Plaza",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-04",
+          "name": "Eastgate / Exchange",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-05",
+          "name": "Westfield / Campus",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-06",
+          "name": "Oldtown / Medical Center",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-07",
+          "name": "Highland / Mall",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-08",
+          "name": "Lakeshore / Bridge",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-09",
+          "name": "Greenway / Promenade",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-10",
+          "name": "Sunset / Garage",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-11",
+          "name": "Northbank / Stadium",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "66-12",
+          "name": "Market / Museum",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 12",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-26",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-03",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 66, the closure window, 12 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 12 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-11",
+      "route": "Route 72",
+      "corridor": "Station bridge corridor",
+      "closure_begins": "2026-10-15",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 18,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Station bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "72-01",
+          "name": "Airport / Medical Center",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-02",
+          "name": "Riverside / Mall",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-03",
+          "name": "Eastgate / Bridge",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-04",
+          "name": "Westfield / Promenade",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-05",
+          "name": "Oldtown / Garage",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-06",
+          "name": "Highland / Stadium",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-07",
+          "name": "Lakeshore / Museum",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-08",
+          "name": "Greenway / Courthouse",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-09",
+          "name": "Sunset / Post Office",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-10",
+          "name": "Northbank / Library",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-11",
+          "name": "Market / Square",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-12",
+          "name": "Civic / Terminal",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-13",
+          "name": "Riverfront / Plaza",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-14",
+          "name": "Harbor / Exchange",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 14",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-15",
+          "name": "Central / Campus",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 15",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-16",
+          "name": "University / Medical Center",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 16",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-17",
+          "name": "Parkway / Mall",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 17",
+          "access": "Step-free"
+        },
+        {
+          "id": "72-18",
+          "name": "Southbank / Bridge",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 18",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-08",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 72, the closure window, 18 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 18 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-12",
+      "route": "Route 78",
+      "corridor": "Airport bridge corridor",
+      "closure_begins": "2026-10-15",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 17,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Airport bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "78-01",
+          "name": "Riverside / Stadium",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-02",
+          "name": "Eastgate / Museum",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-03",
+          "name": "Westfield / Courthouse",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-04",
+          "name": "Oldtown / Post Office",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-05",
+          "name": "Highland / Library",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-06",
+          "name": "Lakeshore / Square",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-07",
+          "name": "Greenway / Terminal",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-08",
+          "name": "Sunset / Plaza",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-09",
+          "name": "Northbank / Exchange",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-10",
+          "name": "Market / Campus",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-11",
+          "name": "Civic / Medical Center",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-12",
+          "name": "Riverfront / Mall",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-13",
+          "name": "Harbor / Bridge",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-14",
+          "name": "Central / Promenade",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 14",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-15",
+          "name": "University / Garage",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 15",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-16",
+          "name": "Parkway / Stadium",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 16",
+          "access": "Step-free"
+        },
+        {
+          "id": "78-17",
+          "name": "Southbank / Museum",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 17",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-08",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 78, the closure window, 17 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 17 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-13",
+      "route": "Route 84",
+      "corridor": "Riverside bridge corridor",
+      "closure_begins": "2026-10-11",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 10,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Riverside bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "84-01",
+          "name": "Eastgate / Square",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-02",
+          "name": "Westfield / Terminal",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-03",
+          "name": "Oldtown / Plaza",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-04",
+          "name": "Highland / Exchange",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-05",
+          "name": "Lakeshore / Campus",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-06",
+          "name": "Greenway / Medical Center",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-07",
+          "name": "Sunset / Mall",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-08",
+          "name": "Northbank / Bridge",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-09",
+          "name": "Market / Promenade",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "84-10",
+          "name": "Civic / Garage",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 10",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-04",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-11",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 84, the closure window, 10 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 10 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-14",
+      "route": "Route 90",
+      "corridor": "Eastgate bridge corridor",
+      "closure_begins": "2026-10-05",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 18,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Eastgate bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "90-01",
+          "name": "Westfield / Medical Center",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-02",
+          "name": "Oldtown / Mall",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-03",
+          "name": "Highland / Bridge",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-04",
+          "name": "Lakeshore / Promenade",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-05",
+          "name": "Greenway / Garage",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-06",
+          "name": "Sunset / Stadium",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-07",
+          "name": "Northbank / Museum",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-08",
+          "name": "Market / Courthouse",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-09",
+          "name": "Civic / Post Office",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-10",
+          "name": "Riverfront / Library",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-11",
+          "name": "Harbor / Square",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-12",
+          "name": "Central / Terminal",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-13",
+          "name": "University / Plaza",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-14",
+          "name": "Parkway / Exchange",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 14",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-15",
+          "name": "Southbank / Campus",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 15",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-16",
+          "name": "Mill / Medical Center",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 16",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-17",
+          "name": "Station / Mall",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 17",
+          "access": "Step-free"
+        },
+        {
+          "id": "90-18",
+          "name": "Airport / Bridge",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 18",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-26",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-05",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 90, the closure window, 18 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 18 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-15",
+      "route": "Route 96",
+      "corridor": "Westfield bridge corridor",
+      "closure_begins": "2026-10-18",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 12,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Westfield bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "96-01",
+          "name": "Oldtown / Stadium",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-02",
+          "name": "Highland / Museum",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-03",
+          "name": "Lakeshore / Courthouse",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-04",
+          "name": "Greenway / Post Office",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-05",
+          "name": "Sunset / Library",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-06",
+          "name": "Northbank / Square",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-07",
+          "name": "Market / Terminal",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-08",
+          "name": "Civic / Plaza",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-09",
+          "name": "Riverfront / Exchange",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-10",
+          "name": "Harbor / Campus",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-11",
+          "name": "Central / Medical Center",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "96-12",
+          "name": "University / Mall",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 12",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-11",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 96, the closure window, 12 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 12 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-16",
+      "route": "Route 102",
+      "corridor": "Oldtown bridge corridor",
+      "closure_begins": "2026-10-18",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 8,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Oldtown bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "102-01",
+          "name": "Highland / Square",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "102-02",
+          "name": "Lakeshore / Terminal",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "102-03",
+          "name": "Greenway / Plaza",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "102-04",
+          "name": "Sunset / Exchange",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "102-05",
+          "name": "Northbank / Campus",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "102-06",
+          "name": "Market / Medical Center",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "102-07",
+          "name": "Civic / Mall",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "102-08",
+          "name": "Riverfront / Bridge",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 8",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-11",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 102, the closure window, 8 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 8 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-17",
+      "route": "Route 108",
+      "corridor": "Highland bridge corridor",
+      "closure_begins": "2026-10-15",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 11,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Highland bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "108-01",
+          "name": "Lakeshore / Medical Center",
+          "location": "Medical Campus",
+          "boarding": "Lakeshore - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-02",
+          "name": "Greenway / Mall",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-03",
+          "name": "Sunset / Bridge",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-04",
+          "name": "Northbank / Promenade",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-05",
+          "name": "Market / Garage",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-06",
+          "name": "Civic / Stadium",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-07",
+          "name": "Riverfront / Museum",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-08",
+          "name": "Harbor / Courthouse",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-09",
+          "name": "Central / Post Office",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-10",
+          "name": "University / Library",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "108-11",
+          "name": "Parkway / Square",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 11",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-08",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-15",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 15 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 108, the closure window, 11 closed stops, and 15 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 11 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-18",
+      "route": "Route 114",
+      "corridor": "Lakeshore bridge corridor",
+      "closure_begins": "2026-10-05",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 10,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Lakeshore bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "114-01",
+          "name": "Greenway / Stadium",
+          "location": "Terminal Way",
+          "boarding": "Greenway - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-02",
+          "name": "Sunset / Museum",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-03",
+          "name": "Northbank / Courthouse",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-04",
+          "name": "Market / Post Office",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-05",
+          "name": "Civic / Library",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-06",
+          "name": "Riverfront / Square",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-07",
+          "name": "Harbor / Terminal",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-08",
+          "name": "Central / Plaza",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-09",
+          "name": "University / Exchange",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "114-10",
+          "name": "Parkway / Campus",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 10",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-26",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-05",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 114, the closure window, 10 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 10 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-19",
+      "route": "Route 120",
+      "corridor": "Greenway bridge corridor",
+      "closure_begins": "2026-10-18",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 18,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Greenway bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "120-01",
+          "name": "Sunset / Square",
+          "location": "Mill Crossing",
+          "boarding": "Sunset - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-02",
+          "name": "Northbank / Terminal",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-03",
+          "name": "Market / Plaza",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-04",
+          "name": "Civic / Exchange",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-05",
+          "name": "Riverfront / Campus",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-06",
+          "name": "Harbor / Medical Center",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-07",
+          "name": "Central / Mall",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-08",
+          "name": "University / Bridge",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-09",
+          "name": "Parkway / Promenade",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 9",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-10",
+          "name": "Southbank / Garage",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 10",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-11",
+          "name": "Mill / Stadium",
+          "location": "Mill Crossing",
+          "boarding": "Mill - signed shuttle bay 11",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-12",
+          "name": "Station / Museum",
+          "location": "Northbank Ave",
+          "boarding": "Station - signed shuttle bay 12",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-13",
+          "name": "Airport / Courthouse",
+          "location": "Market St",
+          "boarding": "Airport - signed shuttle bay 13",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-14",
+          "name": "Riverside / Post Office",
+          "location": "Civic Center",
+          "boarding": "Riverside - signed shuttle bay 14",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-15",
+          "name": "Eastgate / Library",
+          "location": "Pier Loop",
+          "boarding": "Eastgate - signed shuttle bay 15",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-16",
+          "name": "Westfield / Square",
+          "location": "Bay St",
+          "boarding": "Westfield - signed shuttle bay 16",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-17",
+          "name": "Oldtown / Terminal",
+          "location": "North Plaza",
+          "boarding": "Oldtown - signed shuttle bay 17",
+          "access": "Step-free"
+        },
+        {
+          "id": "120-18",
+          "name": "Highland / Plaza",
+          "location": "West Gate",
+          "boarding": "Highland - signed shuttle bay 18",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-11",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-28",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 120, the closure window, 18 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 18 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    },
+    {
+      "id": "N-20",
+      "route": "Route 210",
+      "corridor": "Sunset bridge corridor",
+      "closure_begins": "2026-10-18",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 9,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "summary_note": "Corrected public service details for the Sunset bridge closure, published for riders and customer information teams.",
+      "stops": [
+        {
+          "id": "210-01",
+          "name": "Northbank / Medical Center",
+          "location": "Northbank Ave",
+          "boarding": "Northbank - signed shuttle bay 1",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-02",
+          "name": "Market / Mall",
+          "location": "Market St",
+          "boarding": "Market - signed shuttle bay 2",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-03",
+          "name": "Civic / Bridge",
+          "location": "Civic Center",
+          "boarding": "Civic - signed shuttle bay 3",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-04",
+          "name": "Riverfront / Promenade",
+          "location": "Pier Loop",
+          "boarding": "Riverfront - signed shuttle bay 4",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-05",
+          "name": "Harbor / Garage",
+          "location": "Bay St",
+          "boarding": "Harbor - signed shuttle bay 5",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-06",
+          "name": "Central / Stadium",
+          "location": "North Plaza",
+          "boarding": "Central - signed shuttle bay 6",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-07",
+          "name": "University / Museum",
+          "location": "West Gate",
+          "boarding": "University - signed shuttle bay 7",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-08",
+          "name": "Parkway / Courthouse",
+          "location": "Medical Campus",
+          "boarding": "Parkway - signed shuttle bay 8",
+          "access": "Step-free"
+        },
+        {
+          "id": "210-09",
+          "name": "Southbank / Post Office",
+          "location": "Terminal Way",
+          "boarding": "Southbank - signed shuttle bay 9",
+          "access": "Step-free"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-09-11",
+          "label": "Advance notice",
+          "body": "Post stop notices and publish digital travel guidance."
+        },
+        {
+          "date": "2026-10-18",
+          "label": "Closure begins",
+          "body": "Detour signs active; replacement shuttles run every 10 minutes."
+        },
+        {
+          "date": "2026-10-21",
+          "label": "Mid-window check",
+          "body": "Confirm stop conditions and refresh rider-facing service details."
+        },
+        {
+          "date": "2026-10-25",
+          "label": "Reopening target",
+          "body": "Restore regular routing when bridge work is cleared and confirmed."
+        }
+      ],
+      "checklist": [
+        [
+          "SERVICE FACTS",
+          "Route 210, the closure window, 9 closed stops, and 10 minutes shuttle headway match the corrected notice."
+        ],
+        [
+          "STOP MATRIX",
+          "All 9 stops and their signed shuttle boarding points are shown on the landscape matrix."
+        ],
+        [
+          "RIDER GUIDANCE",
+          "Detour instructions, travel-time guidance, and the rider communication timeline are published."
+        ],
+        [
+          "ACCESSIBILITY",
+          "Step-free boarding and 311 Transit Desk assistance are clearly stated for riders."
+        ],
+        [
+          "SIGNAGE AND ALERTS",
+          "Stop notices, boarding signs, onboard messages, and digital alerts are scheduled."
+        ],
+        [
+          "PUBLIC CONTACT",
+          "Every public-facing route to assistance points to 311 Transit Desk."
+        ]
+      ],
+      "draft_wrong": {
+        "route": "Route 21",
+        "closure_begins": "2026-10-13",
+        "reopening_target": "2026-10-27",
+        "closed_stop_count": "7 stops",
+        "shuttle_headway": "30 minutes",
+        "contact": "operator personal phone",
+        "note": "do not post"
+      }
+    }
+  ]
+}

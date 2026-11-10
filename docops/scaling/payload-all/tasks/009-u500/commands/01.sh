@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_incident_manual_variant.py --cases /root/tmp/docs/cases.json --output /root/submission/docops_v2_l3_009_docx_incident_manual_publication_output_u500.docx

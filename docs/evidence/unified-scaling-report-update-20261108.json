@@ -1,0 +1,69 @@
+{
+  "schema": "unified-scaling-report-update-v1",
+  "status": "passed",
+  "scope": "Assessment 7.3 plus consistency update of 7.6; Markdown only",
+  "report_before_sha256": "7c9fae34388cde3e919dfd3e306d8f6a4e4db8646b3fe2c50ed79b252cd92514",
+  "report_after_sha256": "7c9fae34388cde3e919dfd3e306d8f6a4e4db8646b3fe2c50ed79b252cd92514",
+  "initial_report_before_sha256": "e0bebfe70f1e2ed653832ba5afbecacce0cd48aef8c60a14a8cb57d736cff863",
+  "protected_report_boundaries_unchanged": true,
+  "protected_files": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
+  },
+  "configurations": 36,
+  "scale_variants": 24,
+  "analysis_inputs_rechecked": 254,
+  "analysis_build": {
+    "path": "analysis/docops/processed/unified-scaling-final-20261108/analysis-build.json",
+    "sha256": "fc983570dd6f310614a2fd0d0d6dbf4aa3b30797e5e40d5366e83d516fcfc84a"
+  },
+  "coverage_decisions": {
+    "function_goal_identity_count": 49,
+    "function_configurations": [
+      "013",
+      "013-v100",
+      "016-u500",
+      "021",
+      "026-u10",
+      "029",
+      "029-u5"
+    ],
+    "operation_recommendation": [
+      "021-g10"
+    ],
+    "operation_optional": [
+      "029"
+    ],
+    "operation_recommendation_is_exact_cover": false,
+    "function_percentages_not_relabelled": true
+  },
+  "operation_recipe": {
+    "path": "docops/scaling/payload-all/tasks/021-g10/recipe.json",
+    "sha256": "cd763b30aa3ca7478c8fefcc79ad87351fc1173178677ff6a091ea4fd9900e61"
+  },
+  "publication_binding_sha256": "a31d5f0433438ec5aef05d1d953a40a2f6520cbf2bca5d8a59e226260df84bb1",
+  "measurements_executed": false,
+  "html_updated": false,
+  "self_review": {
+    "status": "passed",
+    "original_rows_checked": 12,
+    "scaled_rows_checked": 12,
+    "scale_variants": 24,
+    "input_hashes_checked": 254,
+    "numeric_rows_match_saved_results": true,
+    "function_and_operation_goals_separated": true,
+    "no_operation_percentage_invented": true,
+    "unknown_weight_retained": true,
+    "current_renderer_idempotent": true,
+    "normal_renderer_matches_published_appendix": true,
+    "presentation_input_validation_passed": true,
+    "html_generated": false,
+    "local_section_links_checked": 3,
+    "targeted_tests_passed": 28,
+    "targeted_test_suites": {
+      "test_operation_comparison": 19,
+      "test_unified_scaling_analysis": 9
+    },
+    "git_diff_check": "passed"
+  }
+}

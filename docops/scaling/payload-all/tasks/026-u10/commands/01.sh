@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_climate_disclosure_variant.py --units /root/tmp/docs/units.json --output /root/submission/docops_v2_l3_026_pptx_climate_disclosure_chart_rebuild_output_u10.pptx

@@ -1,0 +1,81 @@
+{
+  "schema": "docops-scaling-task-metadata-v1",
+  "variant_task_id": "037-u5",
+  "synthetic": true,
+  "parent_task": "037",
+  "kind": "pdf",
+  "seed": 2026110507,
+  "scale": {
+    "notice_groups": 5,
+    "pages": 25
+  },
+  "generator": "docops/scaling/cases/037/synth.py",
+  "generator_version": "1.0",
+  "modified_workflow": [
+    "01 build_render: page sizes, portrait/landscape rules, fonts, drawing helpers, pageCompression and 150 DPI PNG rendering are unchanged; the builder iterates notices.json groups (5 pages per group), global page numbers and bookmark targets are computed over all groups",
+    "02 validate: dynamic validator reads frozen expected.json and checks every group's pages, facts, bookmarks and orientation"
+  ],
+  "scale_metadata": {
+    "notice_groups": 5,
+    "pages": 25,
+    "pages_per_group": 5,
+    "page_titles": [
+      "Public Bus Detour Notice Packet",
+      "Corrected Detour Summary",
+      "Stop Closure and Shuttle Matrix",
+      "Rider Communication Timeline",
+      "Release Checklist"
+    ],
+    "group_ids": [
+      "N-01",
+      "N-02",
+      "N-03",
+      "N-04",
+      "N-05"
+    ],
+    "routes": [
+      "Route 12",
+      "Route 18",
+      "Route 24",
+      "Route 30",
+      "Route 36"
+    ],
+    "closure_begins": [
+      "2026-10-03",
+      "2026-10-08",
+      "2026-10-11",
+      "2026-10-15",
+      "2026-10-05"
+    ],
+    "reopening_targets": [
+      "2026-10-25",
+      "2026-10-28",
+      "2026-10-28",
+      "2026-10-28",
+      "2026-10-25"
+    ],
+    "closed_stop_counts": [
+      9,
+      9,
+      10,
+      16,
+      10
+    ],
+    "headways": [
+      "15 minutes",
+      "10 minutes",
+      "10 minutes",
+      "10 minutes",
+      "10 minutes"
+    ],
+    "total_stops": 54,
+    "input_bytes": 3859,
+    "input_sha256": "4dd7e9f8864414bd5fdfa347de9be44c7021b55d4c724bca26c359af4d07a623",
+    "notices_json_sha256": "49d7a04ab5db0f287c7092634964b0ab31ea2dd88df8c79b8e4451558886a2f6",
+    "seed": 2026110507,
+    "scale_driven_by": "frozen notices.json prepared material; the builder iterates every declared notice group through the real five-page drawing functions (no page duplication). The synthetic input PDF is an artifact only and is not read by the builder."
+  },
+  "input_path": "/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input_u5.pdf",
+  "output_path": "/root/submission/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_output_u5.pdf",
+  "measurement_scope": "Scales the number of frozen structured notice groups that drive actual ReportLab page construction, pypdf bookmark/metadata finalization and 150 DPI PNG rendering. 5 groups -> 25 pages, 20 groups -> 100 pages. All units enter the build functions; pages are never duplicated from a 5-page base."
+}

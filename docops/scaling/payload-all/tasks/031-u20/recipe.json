@@ -1,0 +1,319 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "031-u20",
+  "task_id": "docops_synthetic_031-u20_scale_variant",
+  "format": "pdf",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output_u20.pdf",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/031-u20/seed/root/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_input_u20.pdf",
+      "destination": "/root/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_input_u20.pdf",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "508c842346deaf75a0363cfd826818287f1b6579d6652dcca4dce8175b2cbeca",
+      "bytes": 4009
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/031-u20/seed/root/tmp/docs/notices.json",
+      "destination": "/root/tmp/docs/notices.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "e2371cfd5bd2acb5ac3d239110e30be44cb50fbacb1dc2eaf145112d32d2f38d",
+      "bytes": 88272
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/031-u20/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "7345396671ea31e59f1140efb3e27f74216269849f87cad828a548a1396af174",
+      "bytes": 446
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/031-u20/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "c05bea2e19ae9b790ef10e003ad9d6113ba62f26abd32a281308d863f951d1d7",
+      "bytes": 4928
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/031-u20/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "6dc45f417e14e6bb1321a5c17fcd48a923e20800fa36b6e282a6614b5b6021d5",
+      "bytes": 2673
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/031-u20/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "6014497c12930cc64dad265f14bda11b963b84c0ecf5a15358fd659afd91a410",
+      "bytes": 39664
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/031-u20/seed/root/tmp/docs/build_public_packet_variant.py",
+      "destination": "/root/tmp/docs/build_public_packet_variant.py",
+      "source": "docops/scaling/cases/031/scripts",
+      "sha256": "5f4d8cb94c1a3f51fb1f09313659dea6f3bef2efa2d055e0c8c5326161e6594e",
+      "bytes": 21575
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/031-u20/seed/root/tmp/docs/validate_public_packet_variant.py",
+      "destination": "/root/tmp/docs/validate_public_packet_variant.py",
+      "source": "docops/scaling/cases/031/scripts",
+      "sha256": "847f3dcd6aa38dac207bf339520961c9f7853f7021f6108962bdd2a0b64b34b2",
+      "bytes": 6342
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_public_packet_variant.py --notices /root/tmp/docs/notices.json --output /root/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output_u20.pdf"
+      ],
+      "shell_body": "tasks/031-u20/commands/01.sh",
+      "shell_sha256": "9997cf38d7197b893a6a2fd9ecd2daf646e81756704e8c042eebc1ec785e0fa1",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "render",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftoppm -png -r 144 /root/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output_u20.pdf /root/tmp/docs/release_page"
+      ],
+      "shell_body": "tasks/031-u20/commands/02.sh",
+      "shell_sha256": "fe230846b6703a4a9510aefad15299bca3a22d383f50c7211584b3005c8590dd",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "validate",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/validate_public_packet_variant.py --output /root/submission/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_output_u20.pdf --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json"
+      ],
+      "shell_body": "tasks/031-u20/commands/03.sh",
+      "shell_sha256": "bbf1fd19aca3f66e1ec079817fbb352276e36ec9ecae4ff607e767fc214c98ee",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "02"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 031; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "031",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 0,
+      "detail": "consumed",
+      "tests_failed": 1,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/09-pdf-031-20261103T105309Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/031/seed/root/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_input.pdf",
+      "sha256": "14208dd5a5fec993c932b0ffd54ecb6f8d61c998b0f142fe53502c96267f0fe9"
+    },
+    "parent_scripts": {
+      "payload/tasks/031/seed/root/docops_v2_l3_031_pdf_public_hearing_packet_flatten_release_input.pdf": {
+        "sha256": "14208dd5a5fec993c932b0ffd54ecb6f8d61c998b0f142fe53502c96267f0fe9",
+        "bytes": 6608
+      },
+      "payload/tasks/031/seed/root/tmp/docs/build_public_packet.py": {
+        "sha256": "e197a91b56cf0195978ee2071e47d4de1814dbdf0a300d17f6361cdd044cce53",
+        "bytes": 21453
+      },
+      "payload/tasks/031/seed/root/tmp/docs/validate_public_packet.py": {
+        "sha256": "dd98d3481f9cc914181c4849dc88b5070f07d2fa17a05572aea4b68228fc0e41",
+        "bytes": 5828
+      }
+    },
+    "generator": "docops/scaling/cases/031/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110614,
+    "scale": {
+      "groups": 20,
+      "pages": 100
+    },
+    "input_sha256": "508c842346deaf75a0363cfd826818287f1b6579d6652dcca4dce8175b2cbeca",
+    "expected_sha256": "6014497c12930cc64dad265f14bda11b963b84c0ecf5a15358fd659afd91a410",
+    "config_sha256": "c05bea2e19ae9b790ef10e003ad9d6113ba62f26abd32a281308d863f951d1d7",
+    "scale_metadata": {
+      "groups": 20,
+      "pages": 100,
+      "pages_per_group": 5,
+      "page_titles": [
+        "Public Hearing Packet: Zoning Amendment Comments",
+        "Corrected Hearing Summary",
+        "Comment Category Matrix",
+        "Response Workflow",
+        "Release Controls and Appendix Index"
+      ],
+      "group_ids": [
+        "ZA-2026-001",
+        "ZA-2026-002",
+        "ZA-2026-003",
+        "ZA-2026-004",
+        "ZA-2026-005",
+        "ZA-2026-006",
+        "ZA-2026-007",
+        "ZA-2026-008",
+        "ZA-2026-009",
+        "ZA-2026-010",
+        "ZA-2026-011",
+        "ZA-2026-012",
+        "ZA-2026-013",
+        "ZA-2026-014",
+        "ZA-2026-015",
+        "ZA-2026-016",
+        "ZA-2026-017",
+        "ZA-2026-018",
+        "ZA-2026-019",
+        "ZA-2026-020"
+      ],
+      "unique_group_ids": 20,
+      "hearing_dates": [
+        "2026-03-14",
+        "2026-03-05",
+        "2026-03-24",
+        "2026-03-19",
+        "2026-03-24",
+        "2026-03-10",
+        "2026-03-31",
+        "2026-03-12",
+        "2026-03-17",
+        "2026-03-28",
+        "2026-03-12",
+        "2026-03-28",
+        "2026-03-24",
+        "2026-03-19",
+        "2026-03-17",
+        "2026-03-07",
+        "2026-03-14",
+        "2026-03-31",
+        "2026-03-05",
+        "2026-03-10"
+      ],
+      "response_deadlines": [
+        "2026-09-03",
+        "2026-09-03",
+        "2026-09-08",
+        "2026-09-10",
+        "2026-09-03",
+        "2026-09-22",
+        "2026-09-17",
+        "2026-09-03",
+        "2026-09-10",
+        "2026-09-15",
+        "2026-09-17",
+        "2026-09-29",
+        "2026-09-17",
+        "2026-09-10",
+        "2026-09-10",
+        "2026-09-22",
+        "2026-09-29",
+        "2026-09-22",
+        "2026-09-10",
+        "2026-09-08"
+      ],
+      "comment_totals": [
+        170,
+        169,
+        157,
+        123,
+        136,
+        121,
+        170,
+        146,
+        128,
+        167,
+        144,
+        138,
+        124,
+        131,
+        124,
+        146,
+        130,
+        133,
+        116,
+        106
+      ],
+      "input_pages": 5,
+      "output_pages": 100,
+      "render_pages": 100,
+      "render_images": 100,
+      "render_dpi": 144,
+      "bookmarks": 100,
+      "page_labels": 0,
+      "first_group": {
+        "id": "ZA-2026-001",
+        "hearing_date": "2026-03-14",
+        "comment_total": 170,
+        "response_deadline": "2026-09-03"
+      },
+      "middle_group": {
+        "id": "ZA-2026-011",
+        "hearing_date": "2026-03-12",
+        "comment_total": 144,
+        "response_deadline": "2026-09-17"
+      },
+      "last_group": {
+        "id": "ZA-2026-020",
+        "hearing_date": "2026-03-10",
+        "comment_total": 106,
+        "response_deadline": "2026-09-08"
+      },
+      "input_bytes": 4009,
+      "input_sha256": "508c842346deaf75a0363cfd826818287f1b6579d6652dcca4dce8175b2cbeca",
+      "notices_json_sha256": "e2371cfd5bd2acb5ac3d239110e30be44cb50fbacb1dc2eaf145112d32d2f38d",
+      "seed": 2026110614,
+      "parameterized": "Fixed scope of five public page types per hearing group is parameterized over all groups: global page numbers, footers 'page / total', appendix and packet-content page targets and bookmark targets are absolute across the whole packet.",
+      "preserved_parent_behavior": "144 DPI pdftoppm page rendering; Letter portrait pages; public metadata model; ReportLab page construction finalized with pypdf bookmarks/metadata; no AcroForm/annotation handling is introduced (the parameterized rebuild neither reads nor writes AcroForm structures).",
+      "changed_parent_behavior": "The builder iterates every notices.json hearing group through the real five-page drawing functions instead of building a single fixed docket; pages are never duplicated from a 5-page base."
+    },
+    "modified_steps": [
+      "01 build: page sizes, portrait rules, fonts, drawing helpers and pageCompression are unchanged; the builder iterates notices.json hearing groups (5 pages per group), global page numbers, footers and bookmark targets are computed over all groups",
+      "02 render: unchanged pdftoppm -png -r 144 over the output PDF",
+      "03 validate: dynamic validator reads frozen expected.json and checks every group's pages, facts, bookmarks and forbidden tokens"
+    ]
+  }
+}

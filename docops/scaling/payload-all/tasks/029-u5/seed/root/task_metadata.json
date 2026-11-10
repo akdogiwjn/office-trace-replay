@@ -1,0 +1,161 @@
+{
+  "schema": "docops-scaling-task-metadata-v1",
+  "variant_task_id": "029-u5",
+  "synthetic": true,
+  "parent_task": "029",
+  "kind": "pptx",
+  "seed": 2026110611,
+  "scale": {
+    "units": 5,
+    "slides_per_unit": 8,
+    "pages": 41
+  },
+  "generator": "docops/scaling/cases/029/synth.py",
+  "generator_version": "1.0",
+  "modified_workflow": [
+    "01 build_validate_render: builder reads units.json, cleans internal draft/placeholder slides, rebuilds 8 public release pages per unit (KPI/risk/mitigation/measure/decision tables with per-unit facts), preserves the locked legal page from the source in the final position and renders only the first page (pdftoppm -f 1 -l 1); dynamic validator checks every unit table and the locked legal page against the frozen expected.json"
+  ],
+  "scale_metadata": {
+    "units": 5,
+    "unit_ids": [
+      "BU-001",
+      "BU-002",
+      "BU-003",
+      "BU-004",
+      "BU-005"
+    ],
+    "slides_per_unit": 8,
+    "input_slides": 45,
+    "output_slides": 41,
+    "expected_output_slides": "5 x 8 + 1 = 41",
+    "render_scope": "first page only (pdftoppm -jpeg -r 150 -f 1 -l 1); the release deck is validated structurally before rendering",
+    "expected_render_images": 1,
+    "locked_legal_slide": {
+      "preserved_from_source": true,
+      "shape_count": 2,
+      "texts": [
+        "Reference - Locked Legal",
+        "Confidentiality language approved by Legal. Do not alter this slide. Release QBR-029-u5-2026110611 | 2026-06-05"
+      ],
+      "notes": "Locked legal note: preserve exact language for release QBR-029-u5-2026110611."
+    },
+    "first_unit": {
+      "id": "BU-001",
+      "name": "Acme Retail Group",
+      "arr_text": "5.6M",
+      "nrr": 90,
+      "churn_accounts": 2,
+      "risk_counts": {
+        "renewal": 3,
+        "adoption": 2,
+        "support": 1
+      },
+      "decision_rows": [
+        [
+          "Approve executive outreach for 3 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Acme Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ]
+    },
+    "middle_unit": {
+      "id": "BU-003",
+      "name": "Harbor Retail Group",
+      "arr_text": "3.1M",
+      "nrr": 89,
+      "churn_accounts": 6,
+      "risk_counts": {
+        "renewal": 3,
+        "adoption": 1,
+        "support": 1
+      },
+      "decision_rows": [
+        [
+          "Approve executive outreach for 3 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Harbor Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ]
+    },
+    "last_unit": {
+      "id": "BU-005",
+      "name": "Meridian Retail Group",
+      "arr_text": "4.3M",
+      "nrr": 97,
+      "churn_accounts": 5,
+      "risk_counts": {
+        "renewal": 1,
+        "adoption": 1,
+        "support": 2
+      },
+      "decision_rows": [
+        [
+          "Approve executive outreach for 1 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Meridian Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ]
+    },
+    "parameterized_ranges": [
+      "5 business units x 8 public release slides per unit + 1 preserved locked legal page",
+      "per-unit KPI snapshot table (4 rows x 3 cols)",
+      "per-unit customer-risk table (3 rows x 4 cols)",
+      "per-unit mitigation plan table (3 rows x 4 cols)",
+      "per-unit title and agenda slides (agenda lists the six sections with per-unit absolute slide numbers and owners)",
+      "per-unit market-context callout cards (3)",
+      "per-unit decision request cards (3 statements) and speaker note",
+      "per-unit public page footers 'Slide i of <total>'",
+      "single preserved source locked legal page (never rebuilt)"
+    ],
+    "preserved_parent_behavior": [
+      "locked legal reference page preserved exactly from the source (text, shape count and speaker note) and kept in the final position",
+      "token-boundary forbidden draft terms removed from all visible text",
+      "QBR table headers, style_cell coloring and callout layout reused",
+      "decision speaker note retained verbatim per unit",
+      "release footer format 'QBR Release | 2026-06-05' with 'Slide i of <total>' on public pages"
+    ],
+    "changed_parent_behavior": [
+      "the parent's single fixed 9-slide deck becomes a per-unit iteration: units.json drives N x 8 public release pages",
+      "KPI / risk / mitigation / decision / market-context / appendix facts are per-unit, not the frozen parent rows",
+      "slide-number footer total becomes 8N+1 instead of 9",
+      "rendering scope restricted to the first page only (pdftoppm -f 1 -l 1)"
+    ],
+    "input_bytes": 121162,
+    "input_sha256": "ff1e050ba7895e1a19b81e3e871d19910c1de5068f7ce44be2411785110ebf0f",
+    "units_json_sha256": "21227d9c42f1471d4179e0da93fd582006db81987e7c845420317b20c084d5cc",
+    "seed": 2026110611
+  },
+  "input_path": "/root/docops_v2_l3_029_pptx_qbr_release_deck_input_u5.pptx",
+  "output_path": "/root/submission/docops_v2_l3_029_pptx_qbr_release_deck_output_u5.pptx",
+  "measurement_scope": "Measures per-business-unit document generation, validation, conversion and rendering scale: units -> 8 public release slides each plus one preserved locked legal page (5 -> 41, 10 -> 81). The synthetic source presentation's own page count is NOT what this variant parses or repairs; only the first page is rendered while every unit's tables, notes and the locked legal page are validated. Distinguish input PPTX pages vs unit count vs expected output pages."
+}

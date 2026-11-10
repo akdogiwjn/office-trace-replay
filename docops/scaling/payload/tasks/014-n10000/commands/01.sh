@@ -1,0 +1,1 @@
+python /root/tmp/docs/build_disaster_release_variant.py --input /root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input_n10000.xlsx --output /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx

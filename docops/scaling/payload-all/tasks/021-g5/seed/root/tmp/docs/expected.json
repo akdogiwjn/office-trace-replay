@@ -1,0 +1,228 @@
+{
+  "schema": "docops-scaling-expectation-v1",
+  "variant_task_id": "021-g5",
+  "kind": "pptx",
+  "total_pages": 40,
+  "pages_per_region": 8,
+  "footer": "Public Shelter Accessibility Briefing | 2026",
+  "banned_text": [
+    "DRAFT",
+    "PRIVATE",
+    "INTERNAL",
+    "staff-only",
+    "personal phone",
+    "555-0199",
+    "emergency operations center",
+    "do not publish",
+    "internal.example",
+    "eoc.internal",
+    "16 shelters",
+    "11 wheelchair"
+  ],
+  "style": {
+    "title_font": "Aptos Display",
+    "title_bold": true,
+    "title_slide_title_color": "FFFFFF",
+    "content_title_color": "102A43",
+    "title_slide_bg": "102A43",
+    "content_bg": "F7FBFF",
+    "accent_fill": "F59E0B",
+    "table_header_fill": "0B5CAD",
+    "table_header_font_color": "FFFFFF"
+  },
+  "minimum_alt_text_length": 25,
+  "regions": [
+    {
+      "id": "north-district",
+      "name": "North District",
+      "shelter_count": 18,
+      "accessible_count": 14,
+      "hotline": "1-800-555-0140",
+      "website": "https://city.example/north-district/public",
+      "email": "accessibility-north-district@city.example",
+      "update_date": "2026-07-20",
+      "page_start": 1,
+      "page_end": 8,
+      "titles": [
+        "Emergency Shelter Public Briefing",
+        "Corrected Shelter Network — North District",
+        "Accessibility Map — North District",
+        "Transit Access Updates — North District",
+        "Service Animal and Medical Equipment — North District",
+        "Hotline and Web Links — North District",
+        "Update Log — North District",
+        "Accessibility Checklist — North District"
+      ],
+      "required_texts": [
+        "North District",
+        "18",
+        "14",
+        "78%",
+        "1-800-555-0140",
+        "https://city.example/north-district/public",
+        "accessibility-north-district@city.example",
+        "2026-07-20"
+      ],
+      "links": [
+        "https://city.example/north-district/public",
+        "mailto:accessibility-north-district@city.example"
+      ]
+    },
+    {
+      "id": "south-district",
+      "name": "South District",
+      "shelter_count": 17,
+      "accessible_count": 10,
+      "hotline": "1-800-555-0141",
+      "website": "https://city.example/south-district/public",
+      "email": "accessibility-south-district@city.example",
+      "update_date": "2026-07-20",
+      "page_start": 9,
+      "page_end": 16,
+      "titles": [
+        "Emergency Shelter Public Briefing",
+        "Corrected Shelter Network — South District",
+        "Accessibility Map — South District",
+        "Transit Access Updates — South District",
+        "Service Animal and Medical Equipment — South District",
+        "Hotline and Web Links — South District",
+        "Update Log — South District",
+        "Accessibility Checklist — South District"
+      ],
+      "required_texts": [
+        "South District",
+        "17",
+        "10",
+        "59%",
+        "1-800-555-0141",
+        "https://city.example/south-district/public",
+        "accessibility-south-district@city.example",
+        "2026-07-20"
+      ],
+      "links": [
+        "https://city.example/south-district/public",
+        "mailto:accessibility-south-district@city.example"
+      ]
+    },
+    {
+      "id": "east-district",
+      "name": "East District",
+      "shelter_count": 14,
+      "accessible_count": 9,
+      "hotline": "1-800-555-0142",
+      "website": "https://city.example/east-district/public",
+      "email": "accessibility-east-district@city.example",
+      "update_date": "2026-07-20",
+      "page_start": 17,
+      "page_end": 24,
+      "titles": [
+        "Emergency Shelter Public Briefing",
+        "Corrected Shelter Network — East District",
+        "Accessibility Map — East District",
+        "Transit Access Updates — East District",
+        "Service Animal and Medical Equipment — East District",
+        "Hotline and Web Links — East District",
+        "Update Log — East District",
+        "Accessibility Checklist — East District"
+      ],
+      "required_texts": [
+        "East District",
+        "14",
+        "9",
+        "64%",
+        "1-800-555-0142",
+        "https://city.example/east-district/public",
+        "accessibility-east-district@city.example",
+        "2026-07-20"
+      ],
+      "links": [
+        "https://city.example/east-district/public",
+        "mailto:accessibility-east-district@city.example"
+      ]
+    },
+    {
+      "id": "west-district",
+      "name": "West District",
+      "shelter_count": 13,
+      "accessible_count": 10,
+      "hotline": "1-800-555-0143",
+      "website": "https://city.example/west-district/public",
+      "email": "accessibility-west-district@city.example",
+      "update_date": "2026-07-20",
+      "page_start": 25,
+      "page_end": 32,
+      "titles": [
+        "Emergency Shelter Public Briefing",
+        "Corrected Shelter Network — West District",
+        "Accessibility Map — West District",
+        "Transit Access Updates — West District",
+        "Service Animal and Medical Equipment — West District",
+        "Hotline and Web Links — West District",
+        "Update Log — West District",
+        "Accessibility Checklist — West District"
+      ],
+      "required_texts": [
+        "West District",
+        "13",
+        "10",
+        "77%",
+        "1-800-555-0143",
+        "https://city.example/west-district/public",
+        "accessibility-west-district@city.example",
+        "2026-07-20"
+      ],
+      "links": [
+        "https://city.example/west-district/public",
+        "mailto:accessibility-west-district@city.example"
+      ]
+    },
+    {
+      "id": "central-district",
+      "name": "Central District",
+      "shelter_count": 14,
+      "accessible_count": 9,
+      "hotline": "1-800-555-0144",
+      "website": "https://city.example/central-district/public",
+      "email": "accessibility-central-district@city.example",
+      "update_date": "2026-07-20",
+      "page_start": 33,
+      "page_end": 40,
+      "titles": [
+        "Emergency Shelter Public Briefing",
+        "Corrected Shelter Network — Central District",
+        "Accessibility Map — Central District",
+        "Transit Access Updates — Central District",
+        "Service Animal and Medical Equipment — Central District",
+        "Hotline and Web Links — Central District",
+        "Update Log — Central District",
+        "Accessibility Checklist — Central District"
+      ],
+      "required_texts": [
+        "Central District",
+        "14",
+        "9",
+        "64%",
+        "1-800-555-0144",
+        "https://city.example/central-district/public",
+        "accessibility-central-district@city.example",
+        "2026-07-20"
+      ],
+      "links": [
+        "https://city.example/central-district/public",
+        "mailto:accessibility-central-district@city.example"
+      ]
+    }
+  ],
+  "allowed_links": [
+    "https://city.example/central-district/public",
+    "https://city.example/east-district/public",
+    "https://city.example/north-district/public",
+    "https://city.example/south-district/public",
+    "https://city.example/west-district/public",
+    "mailto:accessibility-central-district@city.example",
+    "mailto:accessibility-east-district@city.example",
+    "mailto:accessibility-north-district@city.example",
+    "mailto:accessibility-south-district@city.example",
+    "mailto:accessibility-west-district@city.example"
+  ]
+}

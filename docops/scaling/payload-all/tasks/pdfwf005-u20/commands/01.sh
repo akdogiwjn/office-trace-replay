@@ -1,0 +1,1 @@
+python /root/tmp/docs/rebuild_closeout_binder_variant.py --input /root/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf --groups /root/tmp/docs/groups.json --output /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf && pdfinfo /root/submission/pdfwf_005_closeout_binder_page_labels_and_bookmarks_seed_u20.pdf

@@ -1,0 +1,44 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.scaled
+#1 transferring dockerfile: 1.49kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/docops-replay:base-57483856
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 266B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 8.32MB 0.1s done
+#4 DONE 0.1s
+
+#5 [1/7] FROM docker.io/library/docops-replay:base-57483856
+#5 CACHED
+
+#6 [2/7] COPY docops/scaling/payload-all /opt/docops/scaling/payload-all
+#6 DONE 0.1s
+
+#7 [3/7] COPY docops/replay.py /opt/docops/replay.py
+#7 DONE 0.0s
+
+#8 [4/7] COPY docops/compile.py /opt/docops/compile.py
+#8 DONE 0.0s
+
+#9 [5/7] COPY docops/docker/install_state_check.py /opt/docops/docker/install_state_check.py
+#9 DONE 0.0s
+
+#10 [6/7] COPY docops/docker/check_scaled_install.py /opt/docops/docker/check_scaled_install.py
+#10 DONE 0.0s
+
+#11 [7/7] WORKDIR /root
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 0.2s done
+#12 writing image sha256:9ae9d418980ab88a305eb37fc2399edadea129a70d803cdbc642357daa56f7d6 done
+#12 naming to docker.io/library/docops-replay:openeuler-scaled-reviewed done
+#12 DONE 0.2s

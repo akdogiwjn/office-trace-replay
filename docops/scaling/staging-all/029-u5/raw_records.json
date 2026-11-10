@@ -1,0 +1,751 @@
+{
+  "schema": "docops-scaling-raw-records-v1",
+  "variant_task_id": "029-u5",
+  "records": [
+    {
+      "id": "BU-001",
+      "name": "Acme Retail Group",
+      "owners": [
+        "Maya Chen",
+        "Jon Bell",
+        "Priya Rao"
+      ],
+      "arr_text": "5.6M",
+      "arr_growth": 6,
+      "nrr": 90,
+      "churn_accounts": 2,
+      "expansion_text": "1.4M",
+      "risk_counts": {
+        "renewal": 3,
+        "adoption": 2,
+        "support": 1
+      },
+      "market_headline": "Acme Retail Group: demand stable; enterprise support load is rising.",
+      "market_callouts": [
+        [
+          "01  Demand",
+          "Market demand remains stable across the Acme Retail Group enterprise segment."
+        ],
+        [
+          "02  Pressure",
+          "Support volume is rising in Acme Retail Group enterprise accounts."
+        ],
+        [
+          "03  Implication",
+          "Prioritize renewal confidence and focused support coverage for Acme Retail Group."
+        ]
+      ],
+      "market_lens": "Treat the 6 at-risk Acme Retail Group accounts as the bridge between a stable market and a below-target NRR.",
+      "kpi_rows": [
+        [
+          "ARR",
+          "5.6M",
+          "Up 6% QoQ"
+        ],
+        [
+          "Churn risk",
+          "2 accounts",
+          "Requires executive review"
+        ],
+        [
+          "NRR",
+          "90%",
+          "Below target"
+        ],
+        [
+          "Expansion pipeline",
+          "1.4M",
+          "Two deals require support plan"
+        ]
+      ],
+      "risk_rows": [
+        [
+          "Renewal delay",
+          "3",
+          "Maya Chen",
+          "Executive outreach by 2026-06-10"
+        ],
+        [
+          "Adoption gap",
+          "2",
+          "Jon Bell",
+          "Enablement plan by 2026-06-12"
+        ],
+        [
+          "Support escalation",
+          "1",
+          "Priya Rao",
+          "Daily incident review"
+        ]
+      ],
+      "mitigation_rows": [
+        [
+          "Confirm renewal-risk owners",
+          "Maya Chen",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Publish enablement plan",
+          "Jon Bell",
+          "2026-06-12",
+          "Open"
+        ],
+        [
+          "Start daily incident review",
+          "Priya Rao",
+          "2026-06-06",
+          "Ready"
+        ]
+      ],
+      "action_rows": [
+        [
+          "Executive outreach plan",
+          "3 renewal-risk accounts",
+          "Maya Chen",
+          "On track"
+        ],
+        [
+          "Enablement rollout",
+          "All at-risk segments",
+          "Jon Bell",
+          "Scheduled"
+        ],
+        [
+          "Daily incident review",
+          "24h turnaround",
+          "Priya Rao",
+          "Active"
+        ]
+      ],
+      "decision_rows": [
+        [
+          "Approve executive outreach for 3 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Acme Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ],
+      "decision_date": "2026-06-07",
+      "decision_note": "Speaker note: ask for decision on renewal-risk outreach for Acme Retail Group before reviewing appendix.",
+      "data_notes": "Public source: QBR metrics workbook, 2026-06-05.",
+      "data_currency": "2026-06-05",
+      "summary": "Acme Retail Group (BU-001) closes the quarter with ARR 5.6M, NRR 90%, and 6 at-risk accounts. The release deck documents 3 renewal delays, 2 adoption gaps, and 1 support escalations with named owners and dated mitigations.",
+      "page_notes": [
+        "Title for Acme Retail Group: QBR Release, Quarterly Business Review, prepared for executive review.",
+        "Agenda for Acme Retail Group: six sections aligned to the release sequence.",
+        "Market context for Acme Retail Group: demand is stable while support load rises.",
+        "KPI snapshot for Acme Retail Group: ARR 5.6M, NRR 90%, and 2 churn-risk accounts.",
+        "Customer risks for Acme Retail Group: 6 accounts across renewal, adoption, and support patterns.",
+        "Mitigation plan for Acme Retail Group: three owned actions with dated due dates.",
+        "Decision request for Acme Retail Group: approve outreach and enablement by 2026-06-07.",
+        "Appendix data notes for Acme Retail Group: cite the public QBR metrics workbook dated 2026-06-05."
+      ]
+    },
+    {
+      "id": "BU-002",
+      "name": "Northwind Retail Group",
+      "owners": [
+        "Jon Bell",
+        "Priya Rao",
+        "Ana Torres"
+      ],
+      "arr_text": "3.8M",
+      "arr_growth": 13,
+      "nrr": 96,
+      "churn_accounts": 6,
+      "expansion_text": "0.9M",
+      "risk_counts": {
+        "renewal": 2,
+        "adoption": 1,
+        "support": 1
+      },
+      "market_headline": "Northwind Retail Group: demand stable; enterprise support load is rising.",
+      "market_callouts": [
+        [
+          "01  Demand",
+          "Market demand remains stable across the Northwind Retail Group enterprise segment."
+        ],
+        [
+          "02  Pressure",
+          "Support volume is rising in Northwind Retail Group enterprise accounts."
+        ],
+        [
+          "03  Implication",
+          "Prioritize renewal confidence and focused support coverage for Northwind Retail Group."
+        ]
+      ],
+      "market_lens": "Treat the 4 at-risk Northwind Retail Group accounts as the bridge between a stable market and a below-target NRR.",
+      "kpi_rows": [
+        [
+          "ARR",
+          "3.8M",
+          "Up 13% QoQ"
+        ],
+        [
+          "Churn risk",
+          "6 accounts",
+          "Requires executive review"
+        ],
+        [
+          "NRR",
+          "96%",
+          "Below target"
+        ],
+        [
+          "Expansion pipeline",
+          "0.9M",
+          "Two deals require support plan"
+        ]
+      ],
+      "risk_rows": [
+        [
+          "Renewal delay",
+          "2",
+          "Jon Bell",
+          "Executive outreach by 2026-06-10"
+        ],
+        [
+          "Adoption gap",
+          "1",
+          "Priya Rao",
+          "Enablement plan by 2026-06-12"
+        ],
+        [
+          "Support escalation",
+          "1",
+          "Ana Torres",
+          "Daily incident review"
+        ]
+      ],
+      "mitigation_rows": [
+        [
+          "Confirm renewal-risk owners",
+          "Jon Bell",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Publish enablement plan",
+          "Priya Rao",
+          "2026-06-12",
+          "Open"
+        ],
+        [
+          "Start daily incident review",
+          "Ana Torres",
+          "2026-06-06",
+          "Ready"
+        ]
+      ],
+      "action_rows": [
+        [
+          "Executive outreach plan",
+          "2 renewal-risk accounts",
+          "Jon Bell",
+          "On track"
+        ],
+        [
+          "Enablement rollout",
+          "All at-risk segments",
+          "Priya Rao",
+          "Scheduled"
+        ],
+        [
+          "Daily incident review",
+          "24h turnaround",
+          "Ana Torres",
+          "Active"
+        ]
+      ],
+      "decision_rows": [
+        [
+          "Approve executive outreach for 2 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Northwind Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ],
+      "decision_date": "2026-06-07",
+      "decision_note": "Speaker note: ask for decision on renewal-risk outreach for Northwind Retail Group before reviewing appendix.",
+      "data_notes": "Public source: QBR metrics workbook, 2026-06-05.",
+      "data_currency": "2026-06-05",
+      "summary": "Northwind Retail Group (BU-002) closes the quarter with ARR 3.8M, NRR 96%, and 4 at-risk accounts. The release deck documents 2 renewal delays, 1 adoption gaps, and 1 support escalations with named owners and dated mitigations.",
+      "page_notes": [
+        "Title for Northwind Retail Group: QBR Release, Quarterly Business Review, prepared for executive review.",
+        "Agenda for Northwind Retail Group: six sections aligned to the release sequence.",
+        "Market context for Northwind Retail Group: demand is stable while support load rises.",
+        "KPI snapshot for Northwind Retail Group: ARR 3.8M, NRR 96%, and 6 churn-risk accounts.",
+        "Customer risks for Northwind Retail Group: 4 accounts across renewal, adoption, and support patterns.",
+        "Mitigation plan for Northwind Retail Group: three owned actions with dated due dates.",
+        "Decision request for Northwind Retail Group: approve outreach and enablement by 2026-06-07.",
+        "Appendix data notes for Northwind Retail Group: cite the public QBR metrics workbook dated 2026-06-05."
+      ]
+    },
+    {
+      "id": "BU-003",
+      "name": "Harbor Retail Group",
+      "owners": [
+        "Priya Rao",
+        "Ana Torres",
+        "Liam Novak"
+      ],
+      "arr_text": "3.1M",
+      "arr_growth": 13,
+      "nrr": 89,
+      "churn_accounts": 6,
+      "expansion_text": "1.3M",
+      "risk_counts": {
+        "renewal": 3,
+        "adoption": 1,
+        "support": 1
+      },
+      "market_headline": "Harbor Retail Group: demand stable; enterprise support load is rising.",
+      "market_callouts": [
+        [
+          "01  Demand",
+          "Market demand remains stable across the Harbor Retail Group enterprise segment."
+        ],
+        [
+          "02  Pressure",
+          "Support volume is rising in Harbor Retail Group enterprise accounts."
+        ],
+        [
+          "03  Implication",
+          "Prioritize renewal confidence and focused support coverage for Harbor Retail Group."
+        ]
+      ],
+      "market_lens": "Treat the 5 at-risk Harbor Retail Group accounts as the bridge between a stable market and a below-target NRR.",
+      "kpi_rows": [
+        [
+          "ARR",
+          "3.1M",
+          "Up 13% QoQ"
+        ],
+        [
+          "Churn risk",
+          "6 accounts",
+          "Requires executive review"
+        ],
+        [
+          "NRR",
+          "89%",
+          "Below target"
+        ],
+        [
+          "Expansion pipeline",
+          "1.3M",
+          "Two deals require support plan"
+        ]
+      ],
+      "risk_rows": [
+        [
+          "Renewal delay",
+          "3",
+          "Priya Rao",
+          "Executive outreach by 2026-06-10"
+        ],
+        [
+          "Adoption gap",
+          "1",
+          "Ana Torres",
+          "Enablement plan by 2026-06-12"
+        ],
+        [
+          "Support escalation",
+          "1",
+          "Liam Novak",
+          "Daily incident review"
+        ]
+      ],
+      "mitigation_rows": [
+        [
+          "Confirm renewal-risk owners",
+          "Priya Rao",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Publish enablement plan",
+          "Ana Torres",
+          "2026-06-12",
+          "Open"
+        ],
+        [
+          "Start daily incident review",
+          "Liam Novak",
+          "2026-06-06",
+          "Ready"
+        ]
+      ],
+      "action_rows": [
+        [
+          "Executive outreach plan",
+          "3 renewal-risk accounts",
+          "Priya Rao",
+          "On track"
+        ],
+        [
+          "Enablement rollout",
+          "All at-risk segments",
+          "Ana Torres",
+          "Scheduled"
+        ],
+        [
+          "Daily incident review",
+          "24h turnaround",
+          "Liam Novak",
+          "Active"
+        ]
+      ],
+      "decision_rows": [
+        [
+          "Approve executive outreach for 3 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Harbor Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ],
+      "decision_date": "2026-06-07",
+      "decision_note": "Speaker note: ask for decision on renewal-risk outreach for Harbor Retail Group before reviewing appendix.",
+      "data_notes": "Public source: QBR metrics workbook, 2026-06-05.",
+      "data_currency": "2026-06-05",
+      "summary": "Harbor Retail Group (BU-003) closes the quarter with ARR 3.1M, NRR 89%, and 5 at-risk accounts. The release deck documents 3 renewal delays, 1 adoption gaps, and 1 support escalations with named owners and dated mitigations.",
+      "page_notes": [
+        "Title for Harbor Retail Group: QBR Release, Quarterly Business Review, prepared for executive review.",
+        "Agenda for Harbor Retail Group: six sections aligned to the release sequence.",
+        "Market context for Harbor Retail Group: demand is stable while support load rises.",
+        "KPI snapshot for Harbor Retail Group: ARR 3.1M, NRR 89%, and 6 churn-risk accounts.",
+        "Customer risks for Harbor Retail Group: 5 accounts across renewal, adoption, and support patterns.",
+        "Mitigation plan for Harbor Retail Group: three owned actions with dated due dates.",
+        "Decision request for Harbor Retail Group: approve outreach and enablement by 2026-06-07.",
+        "Appendix data notes for Harbor Retail Group: cite the public QBR metrics workbook dated 2026-06-05."
+      ]
+    },
+    {
+      "id": "BU-004",
+      "name": "Summit Retail Group",
+      "owners": [
+        "Ana Torres",
+        "Liam Novak",
+        "Zoe Patel"
+      ],
+      "arr_text": "6.0M",
+      "arr_growth": 12,
+      "nrr": 94,
+      "churn_accounts": 5,
+      "expansion_text": "1.3M",
+      "risk_counts": {
+        "renewal": 3,
+        "adoption": 1,
+        "support": 1
+      },
+      "market_headline": "Summit Retail Group: demand stable; enterprise support load is rising.",
+      "market_callouts": [
+        [
+          "01  Demand",
+          "Market demand remains stable across the Summit Retail Group enterprise segment."
+        ],
+        [
+          "02  Pressure",
+          "Support volume is rising in Summit Retail Group enterprise accounts."
+        ],
+        [
+          "03  Implication",
+          "Prioritize renewal confidence and focused support coverage for Summit Retail Group."
+        ]
+      ],
+      "market_lens": "Treat the 5 at-risk Summit Retail Group accounts as the bridge between a stable market and a below-target NRR.",
+      "kpi_rows": [
+        [
+          "ARR",
+          "6.0M",
+          "Up 12% QoQ"
+        ],
+        [
+          "Churn risk",
+          "5 accounts",
+          "Requires executive review"
+        ],
+        [
+          "NRR",
+          "94%",
+          "Below target"
+        ],
+        [
+          "Expansion pipeline",
+          "1.3M",
+          "Two deals require support plan"
+        ]
+      ],
+      "risk_rows": [
+        [
+          "Renewal delay",
+          "3",
+          "Ana Torres",
+          "Executive outreach by 2026-06-10"
+        ],
+        [
+          "Adoption gap",
+          "1",
+          "Liam Novak",
+          "Enablement plan by 2026-06-12"
+        ],
+        [
+          "Support escalation",
+          "1",
+          "Zoe Patel",
+          "Daily incident review"
+        ]
+      ],
+      "mitigation_rows": [
+        [
+          "Confirm renewal-risk owners",
+          "Ana Torres",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Publish enablement plan",
+          "Liam Novak",
+          "2026-06-12",
+          "Open"
+        ],
+        [
+          "Start daily incident review",
+          "Zoe Patel",
+          "2026-06-06",
+          "Ready"
+        ]
+      ],
+      "action_rows": [
+        [
+          "Executive outreach plan",
+          "3 renewal-risk accounts",
+          "Ana Torres",
+          "On track"
+        ],
+        [
+          "Enablement rollout",
+          "All at-risk segments",
+          "Liam Novak",
+          "Scheduled"
+        ],
+        [
+          "Daily incident review",
+          "24h turnaround",
+          "Zoe Patel",
+          "Active"
+        ]
+      ],
+      "decision_rows": [
+        [
+          "Approve executive outreach for 3 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Summit Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ],
+      "decision_date": "2026-06-07",
+      "decision_note": "Speaker note: ask for decision on renewal-risk outreach for Summit Retail Group before reviewing appendix.",
+      "data_notes": "Public source: QBR metrics workbook, 2026-06-05.",
+      "data_currency": "2026-06-05",
+      "summary": "Summit Retail Group (BU-004) closes the quarter with ARR 6.0M, NRR 94%, and 5 at-risk accounts. The release deck documents 3 renewal delays, 1 adoption gaps, and 1 support escalations with named owners and dated mitigations.",
+      "page_notes": [
+        "Title for Summit Retail Group: QBR Release, Quarterly Business Review, prepared for executive review.",
+        "Agenda for Summit Retail Group: six sections aligned to the release sequence.",
+        "Market context for Summit Retail Group: demand is stable while support load rises.",
+        "KPI snapshot for Summit Retail Group: ARR 6.0M, NRR 94%, and 5 churn-risk accounts.",
+        "Customer risks for Summit Retail Group: 5 accounts across renewal, adoption, and support patterns.",
+        "Mitigation plan for Summit Retail Group: three owned actions with dated due dates.",
+        "Decision request for Summit Retail Group: approve outreach and enablement by 2026-06-07.",
+        "Appendix data notes for Summit Retail Group: cite the public QBR metrics workbook dated 2026-06-05."
+      ]
+    },
+    {
+      "id": "BU-005",
+      "name": "Meridian Retail Group",
+      "owners": [
+        "Liam Novak",
+        "Zoe Patel",
+        "Omar Haddad"
+      ],
+      "arr_text": "4.3M",
+      "arr_growth": 9,
+      "nrr": 97,
+      "churn_accounts": 5,
+      "expansion_text": "1.8M",
+      "risk_counts": {
+        "renewal": 1,
+        "adoption": 1,
+        "support": 2
+      },
+      "market_headline": "Meridian Retail Group: demand stable; enterprise support load is rising.",
+      "market_callouts": [
+        [
+          "01  Demand",
+          "Market demand remains stable across the Meridian Retail Group enterprise segment."
+        ],
+        [
+          "02  Pressure",
+          "Support volume is rising in Meridian Retail Group enterprise accounts."
+        ],
+        [
+          "03  Implication",
+          "Prioritize renewal confidence and focused support coverage for Meridian Retail Group."
+        ]
+      ],
+      "market_lens": "Treat the 4 at-risk Meridian Retail Group accounts as the bridge between a stable market and a below-target NRR.",
+      "kpi_rows": [
+        [
+          "ARR",
+          "4.3M",
+          "Up 9% QoQ"
+        ],
+        [
+          "Churn risk",
+          "5 accounts",
+          "Requires executive review"
+        ],
+        [
+          "NRR",
+          "97%",
+          "Below target"
+        ],
+        [
+          "Expansion pipeline",
+          "1.8M",
+          "Two deals require support plan"
+        ]
+      ],
+      "risk_rows": [
+        [
+          "Renewal delay",
+          "1",
+          "Liam Novak",
+          "Executive outreach by 2026-06-10"
+        ],
+        [
+          "Adoption gap",
+          "1",
+          "Zoe Patel",
+          "Enablement plan by 2026-06-12"
+        ],
+        [
+          "Support escalation",
+          "2",
+          "Omar Haddad",
+          "Daily incident review"
+        ]
+      ],
+      "mitigation_rows": [
+        [
+          "Confirm renewal-risk owners",
+          "Liam Novak",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Publish enablement plan",
+          "Zoe Patel",
+          "2026-06-12",
+          "Open"
+        ],
+        [
+          "Start daily incident review",
+          "Omar Haddad",
+          "2026-06-06",
+          "Ready"
+        ]
+      ],
+      "action_rows": [
+        [
+          "Executive outreach plan",
+          "1 renewal-risk accounts",
+          "Liam Novak",
+          "On track"
+        ],
+        [
+          "Enablement rollout",
+          "All at-risk segments",
+          "Zoe Patel",
+          "Scheduled"
+        ],
+        [
+          "Daily incident review",
+          "24h turnaround",
+          "Omar Haddad",
+          "Active"
+        ]
+      ],
+      "decision_rows": [
+        [
+          "Approve executive outreach for 1 renewal-risk accounts.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Authorize enablement plan for NRR recovery.",
+          "2026-06-07",
+          "Open"
+        ],
+        [
+          "Decision needed by 2026-06-07 for Meridian Retail Group.",
+          "2026-06-07",
+          "Required"
+        ]
+      ],
+      "decision_date": "2026-06-07",
+      "decision_note": "Speaker note: ask for decision on renewal-risk outreach for Meridian Retail Group before reviewing appendix.",
+      "data_notes": "Public source: QBR metrics workbook, 2026-06-05.",
+      "data_currency": "2026-06-05",
+      "summary": "Meridian Retail Group (BU-005) closes the quarter with ARR 4.3M, NRR 97%, and 4 at-risk accounts. The release deck documents 1 renewal delays, 1 adoption gaps, and 2 support escalations with named owners and dated mitigations.",
+      "page_notes": [
+        "Title for Meridian Retail Group: QBR Release, Quarterly Business Review, prepared for executive review.",
+        "Agenda for Meridian Retail Group: six sections aligned to the release sequence.",
+        "Market context for Meridian Retail Group: demand is stable while support load rises.",
+        "KPI snapshot for Meridian Retail Group: ARR 4.3M, NRR 97%, and 5 churn-risk accounts.",
+        "Customer risks for Meridian Retail Group: 4 accounts across renewal, adoption, and support patterns.",
+        "Mitigation plan for Meridian Retail Group: three owned actions with dated due dates.",
+        "Decision request for Meridian Retail Group: approve outreach and enablement by 2026-06-07.",
+        "Appendix data notes for Meridian Retail Group: cite the public QBR metrics workbook dated 2026-06-05."
+      ]
+    }
+  ]
+}

@@ -18,6 +18,7 @@ BEGIN='<!-- BEGIN DOCOPS TASK OPERATION EXTENSION -->'
 END='<!-- END DOCOPS TASK OPERATION EXTENSION -->'
 BOUNDS=('Bad Speculation','Frontend Bound','Backend Bound','Retiring')
 METRICS=('IPC',*BOUNDS,'Core Bound','Memory Bound','Fetch Latency Bound','Fetch Bandwidth Bound')
+HOTSPOT_SHARE=.005
 GROUPS={'PDF':('031','037','pdfwf005'),'Excel':('013','014','016'),
         'Word':('001','003','009'),'PPT':('021','026','029')}
 NAMES={'001':'受控文档发布修复','003':'公开记录元数据清理','009':'事件手册发布',
@@ -100,6 +101,94 @@ def function_presence(references,target):
     return result
 
 
+def topk_presence(references,target):
+    """Match ranked target functions against the complete reference union."""
+    identities={key(f) for case in references.values() for f in case['functions']}
+    rows=sorted(target['functions'],key=lambda f:(-f['period'],key(f)))
+    if len({key(f) for f in rows})!=len(rows):
+        raise ValueError('duplicate target function identity')
+    result={}
+    for k in (10,20):
+        selected=[dict(rank=i,library=f['library'],function=f['function'],
+                       observed=key(f) in identities) for i,f in enumerate(rows[:k],1)]
+        result[str(k)]=dict(requested_count=k,selected_count=len(selected),
+                           observed_count=sum(f['observed'] for f in selected),functions=selected)
+    return result
+
+
+def unseen_function_type(row):
+    """Exclusive, conservative leaf-DSO/symbol rules; no stage-time attribution."""
+    dso,name=row['library'],row['function']
+    if 'libpython' in dso:
+        return 'Python','语言运行时／文本与对象','已有解释执行机制的具体函数变化'
+    if 'libooxlo' in dso and 'drawingml' in name.lower():
+        return 'LibreOffice·OOXML','文档对象／样式路径','具体对象处理函数证据；不推断独有算法'
+    if 'libooxlo' in dso and 'PropertyMap' in name:
+        return 'LibreOffice·OOXML','文档对象／样式路径','文档对象属性组织与传递'
+    if any(x in dso for x in ('libpng','png.so','libjpeg','jpeg.so')):
+        return ('PNG' if 'png' in dso else 'JPEG'),'图片编码／解码','旧任务已有图像编码，具体实现路径不同'
+    if 'libMagick' in dso or '_imaging.' in dso:
+        return ('ImageMagick' if 'libMagick' in dso else 'Pillow'),'图片滤波／缩放','处理类型与旧图片操作有共性；不把整库归为拼图'
+    if 'libpoppler' in dso or 'libpixman' in dso or 'libcairo' in dso:
+        return ('Poppler' if 'libpoppler' in dso else 'pixman' if 'libpixman' in dso else 'cairo'),'页面／像素绘制','已有渲染类型的具体子路径'
+    if 'libvcllo' in dso and any(x in name for x in ('Bitmap','Convolution','Blur')):
+        return 'LibreOffice·VCL','图片滤波／缩放','LibreOffice 图形层的具体图像实现'
+    if any(x in dso for x in ('fontconfig','freetype','harfbuzz')):
+        return dso.split('.so')[0],'字体／文本图形处理','字体选择或图形处理路径；不自动归为分页'
+    if any(x in dso for x in ('etree.','_elementpath.','libxml','libexpat','pyexpat.','_elementtree.')):
+        return ('lxml' if 'etree.' in dso or '_elementpath.' in dso else 'XML 组件'),'XML／结构解析','已有 XML 处理类型，具体实现或子路径不同'
+    if 'libz.so' in dso:
+        return 'zlib','压缩／解压','旧任务已有压缩类型'
+    if 'libsclo' in dso and any(x in name for x in ('ScInterpreter','ScFormula','ScCompiler','ScDocument')):
+        return 'LibreOffice·Calc','表格模型／重算路径','已有表格处理类型的具体子路径'
+    if 'libswlo' in dso and any(x in name for x in ('SwText','SwFrame','SwLayout','SwTab')):
+        return 'LibreOffice·Writer','文字文档模型／布局路径','具体 Writer 对象或布局函数，非整段阶段计时'
+    if any(x in dso for x in ('libfreebl','libnss','libcrypto','libssl')):
+        return '安全／加密组件','运行支撑／安全组件','库内运算已观察到，具体业务用途尚未定位'
+    if dso.endswith('lo.so') or dso.startswith('libuno'):
+        return 'LibreOffice·其他组件','运行支撑／容器与配置','公共框架、容器、属性或配置；不作为新增业务机制'
+    if any(x in dso for x in ('libc.so','libstdc++','ld-linux','libgcc','libm.so','bash')):
+        return ('loader' if 'ld-linux' in dso else dso.split('.so')[0]),'运行支撑／容器与配置','公共内存、字符串、容器或装载路径'
+    return dso,'其他已解析／待归因','仅确认函数身份，不强行解释为新业务计算'
+
+
+def hotspot_coverage(references,target):
+    old_weight={}
+    for case in references.values():
+        for f in case['functions']:
+            old_weight[key(f)]=max(old_weight.get(key(f),0.),f['share_roi'])
+    buckets={k:dict(period=0,function_count=0) for k in ('old_hot','old_low','unseen')}
+    hotspot_counts=Counter();hotspot_periods=Counter();unseen=[]
+    tool_periods=Counter();type_periods=Counter();tool_counts=Counter();type_counts=Counter();pairs=Counter()
+    for f in target['functions']:
+        weight=old_weight.get(key(f))
+        bucket='unseen' if weight is None else 'old_hot' if weight>=HOTSPOT_SHARE else 'old_low'
+        buckets[bucket]['period']+=f['period'];buckets[bucket]['function_count']+=1
+        if f['share_roi']>=HOTSPOT_SHARE:
+            hotspot_counts[bucket]+=1;hotspot_periods[bucket]+=f['period']
+        if bucket=='unseen':
+            tool,kind,meaning=unseen_function_type(f)
+            row=dict(f,tool=tool,type=kind,interpretation=meaning)
+            unseen.append(row);tool_periods[tool]+=f['period'];type_periods[kind]+=f['period']
+            tool_counts[tool]+=1;type_counts[kind]+=1;pairs[(tool,kind)]+=f['period']
+    denominator=target['roi_period']
+    unresolved=denominator-sum(b['period'] for b in buckets.values())
+    if denominator<=0 or unresolved<0:raise ValueError('invalid complete ROI partition')
+    partition=[dict(key=k,**v,share_roi=v['period']/denominator) for k,v in buckets.items()]
+    partition.append(dict(key='unresolved',period=unresolved,share_roi=unresolved/denominator,function_count=None))
+    def grouped(periods,counts,label):
+        return [{label:k, 'period':v,'share_roi':v/denominator,'function_count':counts[k]}
+                for k,v in sorted(periods.items(),key=lambda x:(-x[1],x[0]))]
+    return dict(old_hotspot_threshold_share_roi=HOTSPOT_SHARE,target_hotspot_threshold_share_roi=HOTSPOT_SHARE,
+        reference='OPM+TLC union; old weight is maximum within either individual baseline, not added or averaged',
+        partition=partition,target_hotspots=dict(count=sum(hotspot_counts.values()),period=sum(hotspot_periods.values()),
+            count_by_bucket={k:hotspot_counts[k] for k in buckets},period_by_bucket={k:hotspot_periods[k] for k in buckets}),
+        unseen_functions=unseen,unseen_by_tool=grouped(tool_periods,tool_counts,'tool'),
+        unseen_by_type=grouped(type_periods,type_counts,'type'),
+        unseen_by_tool_type=[dict(tool=k[0],type=k[1],period=v,share_roi=v/denominator)
+            for k,v in sorted(pairs.items(),key=lambda x:(-x[1],x[0]))])
+
+
 def library(dso):
     name=Path(dso).name
     if 'libreoffice' in dso:return 'LibreOffice'
@@ -135,6 +224,74 @@ def compare_pair(base,target):
         bound_cosine_auxiliary=sum(x*y for x,y in zip(av,bv))/norm,
         new_target_top10_not_in_baseline_top10=[f for f in b if key(f) not in sa])
 
+
+
+PRIORITY_ADDITIONS=('013','021','029')
+
+
+def weighted_topk_presence(references,target,k):
+    """Keep both count and period denominators explicit for ranked functions."""
+    identities={key(f) for case in references.values() for f in case['functions']}
+    rows=sorted(target['functions'],key=lambda f:(-f['period'],key(f)))
+    if len({key(f) for f in rows})!=len(rows):raise ValueError('duplicate target function identity')
+    selected=rows[:k];period=sum(f['period'] for f in selected)
+    observed=sum(f['period'] for f in selected if key(f) in identities)
+    denominator=target['roi_period']
+    if denominator<=0 or sum(f['period'] for f in rows)>denominator or any(f['period']<0 for f in rows):
+        raise ValueError('invalid ranked period denominator')
+    return dict(selected_count=len(selected),observed_count=sum(key(f) in identities for f in selected),
+        selected_period=period,observed_period=observed,not_observed_period=period-observed,
+        selected_share_roi=period/denominator,observed_share_roi=observed/denominator,
+        observed_share_selected=observed/period if period else None)
+
+
+def minimum_function_cover(candidate_sets,required):
+    """Exhaustive set cover over observed identities, not a workload optimizer."""
+    required=set(required)
+    if not required:return dict(required_function_count=0,minimum_count=0,solutions=[[]])
+    names=list(candidate_sets);indices={f:i for i,f in enumerate(sorted(required))}
+    masks={name:sum(1<<indices[f] for f in identities&required) for name,identities in candidate_sets.items()}
+    goal=(1<<len(indices))-1
+    for size in range(1,len(names)+1):
+        solutions=[]
+        for choice in itertools.combinations(names,size):
+            mask=0
+            for name in choice:mask|=masks[name]
+            if mask==goal:solutions.append(list(choice))
+        if solutions:return dict(required_function_count=len(required),minimum_count=size,solutions=solutions)
+    raise ValueError('required function identities cannot be covered by candidates')
+
+
+def augmentation_analysis(references,tasks,selected=PRIORITY_ADDITIONS):
+    if len(set(selected))!=len(selected) or any(t not in tasks for t in selected):
+        raise ValueError('invalid additional task selection')
+    old={key(f) for case in references.values() for f in case['functions']}
+    new={t:{key(f) for f in case['functions']}-old for t,case in tasks.items()}
+    top20={key(f) for case in tasks.values() for f in sorted(case['functions'],key=lambda f:(-f['period'],key(f)))[:20]}-old
+    def evaluate(choice):
+        ref=old|set().union(*(new[t] for t in choice))
+        remaining=sorted(top20-ref);per_task={}
+        for task,case in tasks.items():
+            original=function_presence(references,case)['OPM+TLC']
+            denominator=case['roi_period']
+            observed=sum(f['period'] for f in case['functions'] if key(f) in ref)
+            missing=sum(f['period'] for f in case['functions'] if key(f) not in ref)
+            unresolved=denominator-observed-missing
+            if unresolved<0 or unresolved!=original['unresolved_period']:raise ValueError('augmented partition changed')
+            per_task[task]=dict(selected_as_reference=task in choice,roi_period=denominator,
+                before_not_observed_period=original['not_observed_period'],before_not_observed_share_roi=original['not_observed_share_roi'],
+                observed_period=observed,not_observed_period=missing,unresolved_period=unresolved,
+                observed_share_roi=observed/denominator,not_observed_share_roi=missing/denominator,
+                unresolved_share_roi=unresolved/denominator)
+        return dict(selected_tasks=list(choice),top20_unseen_unique_count=len(top20),
+            top20_unseen_identities_matched=len(top20)-len(remaining),
+            top20_unseen_identities_remaining=[dict(library=k[0],function=k[1]) for k in remaining],tasks=per_task)
+    result=evaluate(selected)
+    result.update(scope='Offline identity union of measured cases; selected cases match themselves. No new workload, replay, reweighting, stability claim or claim of all-operation/minimum workload coverage.',
+        alternative=evaluate(('pdfwf005','021','029')) if all(t in tasks for t in ('pdfwf005','021','029')) else None,
+        exact_top20_function_cover=minimum_function_cover(new,top20),
+        exact_all_function_cover=minimum_function_cover(new,set().union(*new.values())))
+    return result
 
 def gather():
     bindings={}
@@ -194,6 +351,11 @@ def gather():
     return dict(schema='docops-task-operation-expansion-v1',baselines=baselines,tasks=tasks,
         comparisons={task:{b:compare_pair(base,t) for b,base in baselines.items()} for task,t in tasks.items()},
         function_presence={task:function_presence(baselines,t) for task,t in tasks.items()},
+        hotspot_coverage={task:hotspot_coverage(baselines,t) for task,t in tasks.items()},
+        topk_presence={task:topk_presence(baselines,t) for task,t in tasks.items()},
+        weighted_topk_presence={task:{str(k):weighted_topk_presence(baselines,t,k) for k in (10,20)} for task,t in tasks.items()},
+        coverage_augmentation=augmentation_analysis(baselines,tasks),
+        top20_unseen_operations={task:top20_unseen_operations(baselines,t) for task,t in tasks.items()},
         function_presence_method='Complete saved resolved physical function lists for OPM, TLC and their deduplicated union; exact DSO basename plus full symbol; target full ROI period denominator includes unresolved weight. Presence does not imply representative weight, business-operation coverage or a new mechanism when absent.',
         same_format_pairs=[compare_pair(tasks[a],tasks[b]) for ids in GROUPS.values() for a,b in itertools.combinations(ids,2)],
         reference_image_id=joint['image_id'],docops_image_id=td['image_id'],
@@ -269,7 +431,47 @@ def plot(result,out):
             if ext=='svg':p.write_text('\n'.join(line.rstrip() for line in p.read_text().splitlines())+'\n')
             figures[str(p.relative_to(ROOT))]=sha(p)
         plt.close(fig)
+    figures.update(plot_coverage(result,out))
     return figures
+
+
+def plot_coverage(result,out):
+    """A measured-period stack; never synthesize samples or normalize known rows."""
+    from matplotlib import pyplot as plt
+    keys=('observed_share_roi','not_observed_share_roi','unresolved_share_roi')
+    labels=('旧例已覆盖函数','旧例未覆盖函数','未解析')
+    colors=('#3976a8','#e6a04b','#bcbcbc')
+    fig,ax=plt.subplots(figsize=(14,8.4),layout='constrained')
+    tasks=[k for ids in GROUPS.values() for k in ids]
+    ys=[i+i//3*.55 for i in range(len(tasks))]
+    positions={k:i for i,k in enumerate(tasks)}
+    for index,bucket in enumerate(keys):
+        values=[];left=[]
+        for task in tasks:
+            parts=result['function_presence'][task]['OPM+TLC']
+            values.append(100*parts[bucket])
+            left.append(100*sum(parts[k] for k in keys[:index]))
+        ax.barh(ys,values,left=left,height=.7,color=colors[index],label=labels[index],edgecolor='white',linewidth=.5)
+        for y,v,l in zip(ys,values,left):
+            if v>=5:ax.text(l+v/2,y,f'{v:.1f}%',ha='center',va='center',fontsize=10,color='white' if index==0 else 'black')
+    for task in tasks:
+        unseen=result['function_presence'][task]['OPM+TLC']['not_observed_share_roi']
+        ax.text(102,ys[positions[task]],f'未覆盖 {100*unseen:.2f}%',va='center',fontsize=10)
+    ax.set_yticks(ys,[fmt+' '+task_label(k) for fmt,ids in GROUPS.items() for k in ids],fontsize=10)
+    ax.invert_yaxis();ax.set_xlim(0,122);ax.set_xticks(range(0,101,20));ax.axvline(100,color='#aaa',linewidth=.7)
+    ax.set_xlabel('占新任务完整用户态采样周期的比例（%）；每条合计 100%')
+    ax.set_title('旧 OPM＋TLC 对新增任务的函数覆盖\n按库文件名＋完整物理叶函数名匹配；覆盖比例按新任务周期权重计算',fontsize=13,pad=43)
+    ax.legend(ncol=3,loc='lower center',bbox_to_anchor=(.48,1.01),frameon=False,fontsize=10)
+    ax.grid(axis='x',alpha=.15);ax.set_axisbelow(True)
+    for spine in ('top','right','left'):ax.spines[spine].set_visible(False)
+    files={}
+    for ext in ('svg','png'):
+        path=out/'figures'/f'function-hotspot-coverage.{ext}'
+        fig.savefig(path,dpi=150,metadata={'Date':None} if ext=='svg' else None)
+        if ext=='svg':path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines())+'\n')
+        files[str(path.relative_to(ROOT))]=sha(path)
+    plt.close(fig)
+    return files
 
 
 def task_label(task):
@@ -345,7 +547,7 @@ def function_discussion(r):
     scattered=presence['026']['OPM+TLC']
     return [
       '### 7.3.1 先看操作：哪些只是权重变化，哪些确实增加步骤','',
-      '**旧 PDF／OPM** 在固定表单中填写字段，并生成页面图片、缩放和检查。原来就有 Python、zlib 压缩、Pillow 图片处理和 Poppler 渲染。**旧 Excel／TLC** 对大型工作簿做检查、增强、保存、重算及缓存／CSV 验证，原来就有 Python 对象管理、XML 解析、ZIP 压缩和 Calc 重算。','',
+      '**旧 PDF／OPM** 在固定表单中填写字段，并生成页面图片、缩放和检查。原来就有 Python、zlib 压缩、Pillow 图片处理和 Poppler 渲染。**旧 Excel／TLC** 对大型工作簿做检查、增强、保存、重算及缓存／CSV 验证，原来就有 Python 对象管理、XML 解析、XLSX 内部数据解压与重新压缩，以及 Calc 重算。','',
       '- **PDF 031／037：主要基础机制延续，工作比重改变。** 表单扁平化、材料修复和发布是不同业务目标，但仍可由已有解释执行、压缩、渲染和图片编码完成。不能仅凭任务名称改变，就判定产生全新的 CPU 计算机制。',
       '- **PDF pdfwf005：明确增加了拼图步骤，也改变了缩放工具。** 原 OPM 用 Pillow 缩放各页图片；本任务使用 ImageMagick 缩放，并用 montage 将多页缩略图排成 3×2 总览图。缩放这一类计算已有，拼图操作和具体软件路径则扩展了。',
       '- **Excel 013／014：在工作簿处理后增加预览链。** 两者都导出 PDF，再用 pdftoppm 转成 PNG；013 还用 ImageMagick 生成拼图。XLSX 仍是保留的交付物。这些步骤来自 Agent 原轨迹，不是为了分析而添加。',
@@ -372,10 +574,188 @@ def function_discussion(r):
       '**讲解时的结论：旧例已经体现相当一部分基础函数，但前十名重合度、完整函数出现范围、计算机制是否相同是三个不同问题。** 共有函数需要看权重是否充分体现；未见函数需要进一步区分业务对象处理、软件实现和辅助路径，不能把“未见周期”直接命名为“全新计算机制周期”。','']
 
 
+# Editorial focus for the concise report; every remainder stays explicit.
+UNSEEN_FOCUS_TOOLS={
+    '031':('PNG',),'037':('PNG',),'pdfwf005':('ImageMagick','PNG'),
+    '013':('ImageMagick','PNG'),'014':('PNG',),'016':('Python','LibreOffice·其他组件'),
+    '001':('PNG',),'003':('PNG','lxml'),'009':('PNG',),
+    '021':('ImageMagick','LibreOffice·VCL','Poppler'),
+    '026':('Poppler','LibreOffice·VCL'),'029':('LibreOffice·OOXML',)}
+UNSEEN_OPERATIONS={
+    '031':'材料包扁平化／发布后渲染 PNG；旧 OPM 已有渲染，此处体现另一种图片编码实现。',
+    '037':'修复材料并生成页面预览；已有渲染操作中出现不同的 PNG 编码函数。',
+    'pdfwf005':'渲染后用 ImageMagick 缩放并拼图；旧例用 Pillow 缩放，没有这条 montage 拼图链。',
+    '013':'工作簿处理后导出 PDF、渲染 PNG 并拼图，图像处理链扩展；旧 OPM 已有 PDF 渲染。',
+    '014':'工作簿修补、重算后导出 PDF 和 PNG，增加 Excel 的预览发布链。',
+    '016':'情景切换、再次重算及首页预览；两项是通用运行时／框架函数，不能据此分配具体操作的 CPU。',
+    '001':'Word 构建／转换后生成预览；表中识别的是图片编码，不能当作 Word 排版占比。',
+    '003':'元数据／结构清理及预览交付，对应 XML 处理和 PNG 编码。',
+    '009':'事件手册发布与预览，较明显的未覆盖部分是 PNG 编码。',
+    '021':'幻灯片整改后预览与图片处理，进入图像滤波及页面绘制的不同子路径。',
+    '026':'图表重建后转换与预览，进入 Poppler 绘制和 LibreOffice 图形层的不同子路径。',
+    '029':'幻灯片表格样式及属性组织；可直接定位到 OOXML 对象函数，其他差额不全部归为对象处理。'}
+
+
+def unseen_explanation(result,task):
+    """Select explainable tool groups without assigning their CPU to a phase."""
+    coverage=result['hotspot_coverage'][task]
+    functions=coverage['unseen_functions']
+    groups=[]
+    for tool in UNSEEN_FOCUS_TOOLS[task]:
+        rows=[f for f in functions if f['tool']==tool]
+        if rows:
+            groups.append(dict(tool=tool,period=sum(f['period'] for f in rows),
+                example=max(rows,key=lambda f:f['period'])))
+    total=sum(f['period'] for f in functions)
+    remainder=total-sum(g['period'] for g in groups)
+    if remainder<0:raise ValueError('overlapping unseen explanation')
+    return dict(groups=groups,remainder_period=remainder,total_period=total)
+
+
+def selection_advice(r):
+    a=r['coverage_augmentation'];exact=a['exact_top20_function_cover']
+    return ['**优先补充方案：保留旧 OPM／TLC，增加 Excel 013、PPT 021、PPT 029。** 三例分别补充图片编码与拼图链、复杂页面／图像处理、幻灯片对象样式；具体函数和权重见 7.3.3。','',
+      '这是面向明确操作缺口的三例建议，不是全函数最小集合。Python、文本和公共框架的剩余差异继续保留；较小输入可能放大固定开销，但尚未完成控制规模验证，不据此删除差额。','',
+      '**如果要求严格覆盖当前遗漏函数，最小数量另算：** 覆盖十二项 Top-20 中全部 '+str(a['top20_unseen_unique_count'])+' 个旧例未见函数，至少补 **'+str(exact['minimum_count'])+' 例**；一套最小组合是 **'+'；'.join(r['tasks'][task]['format']+' '+task for task in exact['solutions'][0])+'**（旧 OPM／TLC 另行保留）。若连全部已解析长尾也要求覆盖，至少补 '+str(a['exact_all_function_cover']['minimum_count'])+' 例。三例是优先补操作缺口的建议，不承诺全函数覆盖。','',
+      '当前方案不自动修改正式任务集合，也不将选中任务与自身匹配算作跨任务验证。候选的稳定性仍需独立重复确认。','']
+
+
+def hotspot_report_section(r,out):
+    rows=[]
+    for fmt,ids in GROUPS.items():
+        for task in ids:
+            p=r['function_presence'][task]['OPM+TLC']
+            rows.append([fmt+' '+task,*[presence_pct(p[k]) for k in ('observed_share_roi','not_observed_share_roi','unresolved_share_roi')]])
+    chart='../'+str((out/'figures/function-hotspot-coverage.svg').relative_to(ROOT))
+    def weight(task,tool):
+        return pct(sum(g['share_roi'] for g in r['hotspot_coverage'][task]['unseen_by_tool'] if g['tool']==tool))
+    def ranked(task):return r['weighted_topk_presence'][task]['10']
+    a=r['coverage_augmentation'];alt=a['alternative']
+    checks=[]
+    for task in ('031','037','pdfwf005','014','016','001','003','009','026'):
+        p=a['tasks'][task]
+        checks.append([r['tasks'][task]['format']+' '+task,pct(p['before_not_observed_share_roi']),pct(p['not_observed_share_roi'])])
+    return ['### 7.3 旧用例的基础计算代表性与值得补充的操作','',
+      '**旧 OPM／TLC 仍具有基础计算代表性，补充任务应围绕明确增量选择。** 旧 OPM 已执行表单填写、页面渲染、图片缩放与检查；旧 TLC 已执行大型工作簿加载、增强、保存、重算和验证，覆盖解释执行、对象管理、XML 解析、压缩／解压、图像与渲染等多类计算。扩展任务仍有相当部分周期落在这些相同函数上；实际缺口主要需要区分操作扩展、实现差异及运行时成本。','',
+      '### 7.3.1 先看计算权重：旧例实际体现了多少','',
+      '**表 7-4：旧 OPM＋TLC 完整函数清单并集的周期加权覆盖。** 函数按库文件名＋完整物理叶函数名精确匹配，旧例低频出现也计为已覆盖。分母为每项新任务完整 ROI 的用户态 `cycles:u` sample period；已覆盖、未覆盖、未解析三部分合计约为 100%。它说明采样中相同函数的出现范围和当前权重，不是函数数量或整轮 CPU 时间占比。','',
+      table(['新任务','旧例已覆盖周期','旧例未覆盖周期','未解析'],rows),'',
+      '![旧 OPM＋TLC 对新增任务的函数覆盖]('+chart+')','',
+      '**读图：** 蓝色为旧两例采样已见函数在新任务中的权重；橙色为旧采样未见，灰色为未解析。PDF 031／037 的已覆盖周期约为 79%／73%，Word 三项约为 65%～72%，说明原有负载持续体现主要基础计算。pdfwf005 与 PPT 021 约为 45%／47%，则明确提示还需解释较大的差异，不能概括为全部任务都已充分覆盖。','',
+      '**为什么不以 Top-10 个数判定代表性：**','',
+      '- **函数少量重合也可能覆盖主要计算。** PDF 031 匹配 '+str(ranked('031')['observed_count'])+'/10，但这些函数承担其 Top-10 周期的 **'+pct(ranked('031')['observed_share_selected'])+'**；Top-10 本身占完整周期 '+pct(ranked('031')['selected_share_roi'])+'，全部已匹配函数占完整周期 '+pct(r['function_presence']['031']['OPM+TLC']['observed_share_roi'])+'。',
+      '- **数量重合较多也可能漏掉重热点。** pdfwf005 匹配 '+str(ranked('pdfwf005')['observed_count'])+'/10，却只覆盖其 Top-10 周期的 **'+pct(ranked('pdfwf005')['observed_share_selected'])+'**，因为未匹配的 ImageMagick 和 PNG 函数很重。',
+      '- **热点分散时，前十不能代表整项任务。** Excel 016、PPT 029 的 Top-10 仅占完整周期 **'+pct(ranked('016')['selected_share_roi'])+'／'+pct(ranked('029')['selected_share_roi'])+'**；其余路径仍需纳入完整分母。','',
+      'Top-10／Top-20 数量、权重与逐项未匹配清单完整保留在[实验数据记录](experimental-results.md#九扩展任务操作十二项-docops-完整记录)。所有任务均按相同规则计算，完整权重与未解析部分一并保留。','',
+      '### 7.3.2 差异为何出现：操作、实现与输入规模分开解释','',
+      '**已有函数变重，不等于出现全新计算。** 旧 OPM 已有页面渲染和图片缩放；新预览链中某些 Poppler 函数更突出，说明工作重心变化。旧 TLC 已有情景与重算，016 再次重算主要增加次数和工作量，不单列新机制。','',
+      '**相同操作可以进入不同软件实现。** 新 libpng 编码、ImageMagick 缩放与旧图片操作有共性，但具体代码路径不同。尤其 montage 拼图是实际步骤扩展，不能因为旧例也输出图片就忽略。','',
+      '**较小输入可能使固定开销更加显眼。** 数据处理量下降时，脚本解析、编译、导入库和组件初始化仍需完成，因而可能进入 Top-10／Top-20。增加回放轮数能改善采样，但每轮重新启动的脚本仍会重复这些开销。小输入不必然产生更多函数，而可能提高辅助函数的相对权重。当前任务还同时改变了脚本和操作，尚未通过控制规模实验确认这一因素的贡献。','',
+      table(['剩余差异','当前解释与处理'],[
+       ['Python 运行时（含解析／编译）','031／037 中未匹配 Python 函数合计占完整周期 '+weight('031','Python')+'／'+weight('037','Python')+'。可能受脚本源码及启动方式影响；保留权重，先核对调用位置，不直接命名为新的文档操作。'],
+       ['公共框架、对象与配置','部分可能是固定初始化成本，部分可能随业务对象增长；具体调用目的未定位前，不推断新增排版、重算或加密任务。'],
+       ['文本／XML 处理','大小写转换、元数据清理等可能是真实业务差异，不能全部归因于小输入；结合剩余权重和调用链继续核对。']]),'',
+      '**这些差异保留统计，但暂不据此单独增补任务。** “可能受规模影响”不是删除差额的理由，也不意味着 Python／公共库的所有具体函数已由旧例充分体现。反过来，不应仅为少量零散函数未匹配就扩大任务集；先看同类函数的累计权重及其具体操作。','',
+      '### 7.3.3 有价值的缺口与优先补充的三例','',
+      '**建议保留旧 OPM／TLC，优先补 Excel 013、PPT 021、PPT 029。** 选择依据是可定位的实际操作与有分量的函数路径，而非文件格式数量。','',
+      '**表 7-5：补什么操作、由哪个任务体现。** 下列百分比为对应工具中旧例未匹配函数占该任务完整采样周期的权重，不是所列操作阶段的独立计时。','',
+      table(['补充用例','值得补充的路径及周期占比','实际操作与代表函数'],[
+       ['Excel 013：投标评审发布','ImageMagick '+weight('013','ImageMagick')+'；PNG '+weight('013','PNG'),
+        '工作簿重算后导出 PDF、生成 PNG 和 montage 拼图。HorizontalFilter／VerticalFilter、CompositeOverImage、png_write_find_filter。补具体缩放／合成和编码实现。'],
+       ['PPT 021：庇护所无障碍整改','VCL 图像路径 '+weight('021','LibreOffice·VCL')+'；Poppler '+weight('021','Poppler')+'；JPEG '+weight('021','JPEG'),
+        '幻灯片转换、页面预览与缩略图链，进入卷积缩放、像素绘制和编解码。ImplScaleConvolutionVer、Splash::scaleImage*、expandRow 等。'],
+       ['PPT 029：季度业务回顾发布','明确 OOXML 对象／样式路径 '+weight('029','LibreOffice·OOXML'),
+        '幻灯片表格样式应用与对象属性组织。applyTableStylePart、PropertyMap::fillSequences，补充图像处理之外的直接对象操作路径。']]),'',
+      '**为什么这三例可以少量补缺口：** 使用旧两例加上这三例的完整函数清单，十二项任务 Top-20 中原来旧例未见的 **'+str(a['top20_unseen_unique_count'])+' 个去重函数**，有 **'+str(a['top20_unseen_identities_matched'])+' 个**能够匹配，剩 **'+str(len(a['top20_unseen_identities_remaining']))+' 个**。这是既有清单的离线集合核对，不是重跑结果；三例作为参考时会匹配自身，不能将此计为独立跨任务验证。','',
+      '**对未入选任务，未覆盖周期也有明显缩小。** 分母仍为各目标任务完整 ROI，未解析项保留且不变，以下不列三项参考任务自身。','',
+      table(['未入选目标任务','仅旧两例：未覆盖周期','加入013＋021＋029后：仍未覆盖'],checks),'',
+      '**替代与剩余：** pdfwf005 也能提供 ImageMagick／PNG 链，但以其替代 013 后，上述 '+str(a['top20_unseen_unique_count'])+' 个目标函数仍剩 '+str(len(alt['top20_unseen_identities_remaining']))+' 个未匹配，因此当前先选 013。026 的 Top-20 图像／绘制未匹配函数在三例清单中已能找到，但其完整周期仍有 '+pct(a['tasks']['026']['not_observed_share_roi'])+' 未匹配；不能据此宣称 026 的全部路径都已覆盖。文本、Python 和公共框架差异继续保留，不承诺三例消除全部遗漏。','',
+      '**“三例”是明确操作缺口的优先方案，不是严格全函数最小集合。** 按保存的具体函数身份枚举，覆盖全部 '+str(a['top20_unseen_unique_count'])+' 个旧例未见 Top-20 函数至少需 '+str(a['exact_top20_function_cover']['minimum_count'])+' 个新增任务；若连全部已解析长尾都要求覆盖，则需 '+str(a['exact_all_function_cover']['minimum_count'])+' 项。详细组合和剩余函数在实验数据记录中保留，不以追求全匹配作为当前选型目标。','',
+      '**本节结论：旧用例具有基础计算代表性，补充应针对明确增量。** 已有表单与大型工作簿负载继续体现多类共同计算；优先用 013、021、029 补图片编码与拼图、复杂图像／页面处理、幻灯片对象样式。规模可能放大的运行时差异继续核对，既不将其全部当成新业务机制，也不抹去实际权重。','']
+
+
+TOP20_OPERATION_NOTES={
+    '图片编码／解码':'预览图片的读写、编码滤波或颜色转换；旧例已有图片输出，差异在具体编码实现。',
+    '图像缩放／滤波／合成':'缩略图、图片缩放及合成处理；结合任务中的 montage 或转换链解释，不能把每个函数都称为拼图。',
+    '页面／像素绘制':'页面图像的缩放、裁剪、抗锯齿、像素读写或合成；关联转 PDF／页面预览，属于已有渲染类型的不同子路径。',
+    '字体处理':'字体匹配、替换等辅助路径；关联文档转换和预览，不据此认定新增分页算法。',
+    '文档对象／样式':'表格样式应用、对象属性组织或单元格样式查询；按具体函数区分 PPT 对象处理与已有 Calc 类型。',
+    'Python 运行时':'Python 代码解析、编译和代码对象处理；服务于构建、校验等脚本，具体脚本归属尚未定位，不是 PDF 文本分词。',
+    '文本／XML 处理':'字符串大小写转换或 XML 字符串比较；关联构建与检查链，不能仅凭符号锁定某条元数据清理语句。',
+    '公共框架／基础库':'UNO 类型／属性、配置查询、容器或字符转换等通用支撑；不能直接作为新增文档操作。',
+    '安全组件':'安全库内部算术；仅确认组件路径，具体调用目的未定位，不据此宣称任务新增加密操作。',
+}
+
+
+def top20_operation(row):
+    """Explain selected symbols; preserve generic support as a separate category."""
+    tool,kind,_=unseen_function_type(row)
+    name=row['function']
+    if name.startswith('ScColumnData::GetMostUsedPattern'):
+        return 'LibreOffice·Calc','文档对象／样式'
+    if tool=='Python':
+        return tool,('文本／XML 处理' if name in ('_PyUnicode_ToLowerFull','do_upper_or_lower') else 'Python 运行时')
+    if tool=='LibreOffice·VCL' and 'SetPixel' in name:
+        return tool,'页面／像素绘制'
+    if kind=='图片编码／解码':return tool,'图片编码／解码'
+    if kind=='图片滤波／缩放':return tool,'图像缩放／滤波／合成'
+    if kind=='页面／像素绘制':return tool,'页面／像素绘制'
+    if kind=='字体／文本图形处理':return tool,'字体处理'
+    if kind=='文档对象／样式路径':return tool,'文档对象／样式'
+    if kind=='XML／结构解析':return tool,'文本／XML 处理'
+    if kind=='运行支撑／安全组件':return tool,'安全组件'
+    return tool,'公共框架／基础库'
+
+
+def top20_unseen_operations(references,target):
+    selected=topk_presence(references,target)['20']
+    rows=[]
+    for f in selected['functions']:
+        if not f['observed']:
+            tool,operation=top20_operation(f)
+            rows.append(dict(f,tool=tool,operation=operation,
+                             interpretation=TOP20_OPERATION_NOTES[operation]))
+    return rows
+
+
+def top20_display_name(name):
+    # Display abbreviations only; matching and machine records keep full symbols.
+    if name.startswith('std::_Rb_tree<int,'):
+        return 'std::_Rb_tree<int, …>::_M_get_insert_unique_pos'
+    if name.startswith('std::_Rb_tree<rtl::OUString,'):
+        return 'std::_Rb_tree<rtl::OUString, …>::find'
+    name=name.replace('(anonymous namespace)::','').removeprefix('void ')
+    return name.split('(',1)[0]
+
+
+def top20_inventory_section(r):
+    evidence={task:top20_unseen_operations(r['baselines'],r['tasks'][task])
+              for ids in GROUPS.values() for task in ids}
+    lines=['### 9.6D Top-10／Top-20 数量、权重与完整未匹配清单','',
+      '旧参考为 OPM＋TLC 的完整已解析函数并集，包含旧例低频函数。下表的“已见数”按函数身份计数；“已见占 Top-10 周期”以所选十个函数的周期和为分母，“Top-10 占 ROI”以目标完整 ROI 为分母。所有排序按 period 降序，平手按库名＋完整符号排序。','',
+      table(['任务','Top-10 已见数','Top-20 已见数','Top-10 占 ROI','已见占 Top-10 周期'],[
+        [task,str(r['topk_presence'][task]['10']['observed_count'])+'/'+str(r['topk_presence'][task]['10']['selected_count']),
+         str(r['topk_presence'][task]['20']['observed_count'])+'/'+str(r['topk_presence'][task]['20']['selected_count']),
+         pct(r['weighted_topk_presence'][task]['10']['selected_share_roi']),pct(r['weighted_topk_presence'][task]['10']['observed_share_selected'])]
+        for task in r['tasks']]),'',
+      '以下完整列出每项 Top-20 中旧例未匹配函数。# 为新任务排名，函数数等于 Top-20 实际选取数减已匹配数。仅显示时简写参数，匹配仍使用完整符号；操作关联不代表单独测得该阶段 CPU 成本。','']
+    for fmt,ids in GROUPS.items():
+        for task in ids:
+            missing=evidence[task];groups={}
+            for f in missing:groups.setdefault((f['tool'],f['operation']),[]).append(f)
+            rows=[]
+            for (tool,operation),fs in groups.items():
+                symbols='；'.join('#'+str(f['rank'])+' `'+top20_display_name(f['function'])+'`' for f in fs)
+                rows.append([tool+'／'+operation+'（'+str(len(fs))+' 个）',symbols,TOP20_OPERATION_NOTES[operation]])
+            lines += ['**'+fmt+' '+task+'：Top-20 未覆盖 '+str(len(missing))+' 个。**','',
+              '实际链路：'+FLOWS[task]+'。 [冻结命令](../docops/payload/tasks/'+task+'/recipe.json)','',
+              table(['工具／操作类别','全部未覆盖函数（新任务排名）','关联操作与解释'],rows),'']
+    return lines
+
 def main_section(r,out):
     lines=['## 七、扩展任务操作：与原始 PDF/XLSX 基准比较','',
       '前六节保留原七例“跨行业输入”实验及其提出的场景扩展问题。本节报告十二项 DocOps L3 的真实轨迹回放：在 PDF／Excel 中改变任务操作，并加入 Word／PPT，分别与原始 OPM／TLC 比较。',
-      '**先看判断：原七例能够代表已测任务形态下的跨行业输入，但没有充分覆盖更广的文档操作。本次扩展已观察到不同的热点函数和流水线分配，因此有必要按操作类型补充负载。** 以下依次说明工具做什么、旧热点保留多少、CPU 指标怎样变化。','',
+      '**先看判断：原七例在已测跨行业输入下具有基础计算代表性；更广的操作需要有针对性地补充。** 本次既观察到原有函数继续承担主要计算，也定位了图像处理与文档对象路径的增量。以下依次说明工具、函数覆盖和 CPU 指标变化。','',
       '### 7.1 样本、轨迹与测量口径','',
       table(['任务组','本次操作覆盖','主要对照'],[
        ['PDF：031／037／pdfwf005','听证材料包发布、公交绕行材料修复、结算材料包重建','原始 PDF：OPM'],
@@ -413,19 +793,7 @@ def main_section(r,out):
       '- **共同基础仍然保留。** Python、LibreOffice、Poppler、压缩和图像处理继续构成主要工具链。',
       '- **扩展了文档操作工具和模块。** 新增 python-docx、python-pptx、lxml、ImageMagick 等依赖，并执行 Writer、Impress 和幻灯片对象处理路径。',
       '- **已有软件也会承担不同的工作。** 同样调用 LibreOffice 或 Poppler，实际可能是表格重算、文档转 PDF 或页面绘图，热点权重不会天然相同。','',
-      '### 7.3 热点函数：旧热点保留多少，新热点在做什么','',
-      '本节分两步阅读：表 7-4 看原有热点的延续程度，表 7-5 解释新任务最耗周期的函数。函数以“完整物理叶函数名＋所属库文件名”匹配，同名但来自不同库的函数不会混为一项。未知符号仍保留在完整周期分母中。','',
-      '**两个指标的区别：**“共同函数数”比较两份前十名单，有几个相同；“旧热点函数占比”则把原基准前十个函数在新任务全部采样中的周期相加，即使该函数掉出新任务前十也计入。后者是十个具体函数的权重，不是整个任务或旧切片的覆盖率。','',
-      f"**读表示例：** 031 与 OPM 的前十热点共有 {r['comparisons']['031']['OPM']['shared_top10_count']} 个函数，但 OPM 的前十函数在 031 中仍占 {pct(r['comparisons']['031']['OPM']['baseline_top10_share_in_target'])}；其中压缩函数 `longest_match` 单独占 {pct(next(f['share_roi'] for f in r['tasks']['031']['functions'] if f['function']=='longest_match'))}。所以共同函数数量少，不一定表示共同计算的权重小。",'',
-      '**表 7-4：原始热点在新任务中的延续程度。** PDF 以 OPM 为主对照，Excel 以 TLC 为主对照；Word／PPT 同时列两个基准。OPM 自身前十函数合计占 57.81%，TLC 为 49.50%，并非基准全部周期。','',
-      table(['新任务','对照基准','两份前十名单中相同的函数数','原基准前十函数在新任务中的周期占比'],[
-       [task_label(k),ref,str(r['comparisons'][k][ref]['shared_top10_count'])+'/10',pct(r['comparisons'][k][ref]['baseline_top10_share_in_target'])]
-       for fmt,ids in GROUPS.items() for k in ids for ref in main_refs(fmt)]),'',
-      '**表 7-5：新任务主要在计算什么。** 列出每项前三个函数及其周期占比，并按软件说明用途。完整前二十函数、所属库及全部 OPM／TLC 对照见实验数据记录。','',
-      table(['新任务','前三热点函数及周期占比','这些函数通常做什么'],[
-       [task_label(k),'; '.join(short_function(f,76)+' '+pct(f['share_roi']) for f in t['functions'][:3]),'；'.join(dict.fromkeys(hotspot_meaning(f['function']) for f in t['functions'][:3]))]
-       for k,t in r['tasks'].items()]),'',
-      *function_discussion(r),
+      *hotspot_report_section(r,out),
       '### 7.4 Topdown：四类流水线指标完整比较','',
       '热点函数回答“运行了什么代码”，Topdown 回答“CPU 流水线的资源怎样分配”。下面先解释指标，再展示原值与相对基准的变化；四项顶层指标全部保留。','',
       '**表 7-6：指标读法。** 四项 Topdown 顶层分类合计约为 100%；IPC 单独阅读，不与百分数相加。','',
@@ -458,15 +826,17 @@ def main_section(r,out):
         lines+=['','### '+caption,'',f'![{caption}]({rel})','',
                 '**读图：** '+PLOT_NOTES[task]+f" 本图共 {r['tasks'][task]['interval_points']} 个真实输出点。"]
     lines+=['','### 7.6 最终判断：原负载覆盖了什么，还需要扩展什么','',
-      '**结论是：旧 OPM／TLC 已体现相当部分共有基础函数，但不能仅凭共用工具或前十名清单，认定已充分代表所有新任务。** 扩展实验既观察到旧函数权重变化，也观察到不同实现和文档对象处理路径，应按这些差异补充任务，而不是将所有未见函数都解释为新机制。','',
+      '**结论是：保留旧 OPM／TLC 作为基础，优先用三例补充明确操作增量。** 旧例继续体现多类共同计算；扩展中的具体图像实现、拼图和幻灯片对象路径有值得补充的实际权重，未匹配数量不能直接当成新增机制数量。','',
       '- **原七例的结论继续成立。** 保持表单填写或大型工作簿增强等任务形态时，更换行业输入仍延续主要热点，已有负载有明确用途。',
       '- **函数出现范围和热点权重需要分别评价。** 旧例已经执行过的函数，在新任务中可能从很小的权重变成主要热点；旧前十排名重合少，不等于所有基础函数都未覆盖。',
       '- **操作扩展与实现变化需要分开。** 拼图、预览发布和具体幻灯片对象样式处理扩展了本批执行路径；Pillow 与 ImageMagick 的缩放有计算共性。016 再次重算主要改变次数和权重，不单列新机制。',
-      '- **未见清单也需要保留。** Word 中旧两例已见函数占约 65%–72%，PPT 中旧两例未见函数占约 38%–51%；这表明一些实际函数路径未由旧采样体现，但不能把这些比例直接当作新增算法或新机制占比。',
+      '- **未见清单也需要保留。** 表 7-4 的完整周期分区包含所有已解析函数与未解析权重；较小输入可能使代码解析或框架初始化突出，但尚未控制规模验证，不据此删除差额。',
       '- **代表范围需要扩展。** 原负载可以代表已测 PDF 表单与大型工作簿任务，单独用它们代表更广的 Word、PPT 及复杂文档操作仍不充分；本次十二项补充了这部分实测证据。',
       '- **后续优先按操作选型。** 保留原有跨行业输入对照，补充能带来不同热点的文档构建、对象处理、布局与渲染任务；先对候选做独立重复，再决定最终基准集合。连续长文档分页等是否形成主导热点，还需专项实测。','',
+      *selection_advice(r),
       '[完整扩展实验记录](experimental-results.md#九扩展任务操作十二项-docops-完整记录)保留九项指标、24 组基准对照、完整函数名单和全部曲线；[机器结果与来源绑定](../'+str((out/'comparison.json').relative_to(ROOT))+')可逐项追溯。','']
-    return '\n'.join(lines)
+    from scaling_report_sections import revise_assessment
+    return revise_assessment('\n'.join(lines))
 
 
 
@@ -491,6 +861,39 @@ def presence_detail(r):
     lines+=['','以上只新增既有数据的集合统计，没有重跑、导出或重新采样。原任务 profile、原基准函数权重、Topdown 指标及 533 个过程点保持原样。','']
     return lines
 
+
+def hotspot_detail(r):
+    lines=['### 9.6C 热点权重分区、工具归属与分类规则','',
+      '旧热点阈值与新热点阈值均为完整 ROI 的 0.5%。旧清单先按 DSO 文件名＋完整符号合并，同一函数只要在任一旧基准达到阈值即记为旧热点；旧权重取两者最大值作阈值判断，不把两个独立任务的占比相加或平均。以下四分区覆盖目标全部采样周期，非热点长尾和未解析项都保留。','',
+      table(['任务','旧热点函数 period','旧低频函数 period','旧未见函数 period','未解析 period','新热点总数','其中旧未见热点数','未见热点 period'],[
+          [task,*[p['period'] for p in c['partition']],c['target_hotspots']['count'],
+           c['target_hotspots']['count_by_bucket']['unseen'],c['target_hotspots']['period_by_bucket']['unseen']]
+          for task,c in r['hotspot_coverage'].items()]),'',
+      '分类只对旧两例均未观察到的已解析函数进行；每个函数只归一个类型和一个工具，分别汇总为两种视图。“工具×类型”交叉分组是第三种视图，不能把三种视图的周期相加。具体规则及每个函数的工具、类型、解释在 comparison.json 的 hotspot_coverage 字段中保留。','',
+      '明确 DrawingML／对象属性符号归为对象路径；PNG／JPEG 归为编码；ImageMagick、Pillow 和 VCL 的明确 Bitmap／Convolution／Blur 函数归为图像处理；Python、UNO／配置／容器、安全库分别作为运行支撑或已有处理类型。仅有库名且无法解释业务用途的部分不强行标成新操作或新算法。']
+    for task,c in r['hotspot_coverage'].items():
+        lines+=['',f'**{task_label(task)}：全部旧未见周期的互斥工具×类型分区。**','',
+            table(['工具','类型','period','完整 ROI 占比'],[[g['tool'],g['type'],g['period'],pct(g['share_roi'])] for g in c['unseen_by_tool_type']])]
+    lines+=['','统计是同一批旧数据的新增分组，不重新采样、不剔除或归一化未知权重，也不按阶段分配通用库周期。主报告的扩展建议为初选，不自动改变任务集合。','']
+    return lines
+
+
+
+def augmentation_detail(r):
+    a=r['coverage_augmentation'];exact=a['exact_top20_function_cover']
+    lines=['### 9.6E 三例补充方案的集合核验与严格最小组合','',
+      '候选参考为旧 OPM／TLC 并集加 Excel 013、PPT 021、PPT 029 的完整已解析函数身份集合。对每个目标重新划分已见、未见、未解析 period；未解析分母不变。选中任务匹配自身属于集合构造，单独标记，不当作跨任务或未来输入验证。','',
+      table(['目标','自身在新增参考中','原未见 period','新增参考后未见 period','新增参考后未见 %','未解析 period'],[
+        [task,p['selected_as_reference'],p['before_not_observed_period'],p['not_observed_period'],pct(p['not_observed_share_roi']),p['unresolved_period']]
+        for task,p in a['tasks'].items()]),'',
+      'Top-20 目标集合：十二项已解析函数各取前二十，减去旧并集，再对身份去重。候选任务提供完整函数集合，允许函数在候选中低频出现，不能据此保证同样的热点权重。','',
+      '原目标 '+str(a['top20_unseen_unique_count'])+' 个；三例匹配 '+str(a['top20_unseen_identities_matched'])+' 个，剩 '+str(len(a['top20_unseen_identities_remaining']))+' 个：','',
+      table(['库文件名','仍未匹配的完整函数'],[[f['library'],'`'+f['function']+'`'] for f in a['top20_unseen_identities_remaining']]),'',
+      '严格集合覆盖枚举全部候选子集，结果仅适用于已保存函数，不等于未来请求或全部操作的最小基准。Top-20 目标的最小新增数为 '+str(exact['minimum_count'])+'，共有 '+str(len(exact['solutions']))+' 套并列方案：','',
+      table(['方案','新增任务'],[[i,'、'.join(choice)] for i,choice in enumerate(exact['solutions'],1)]),'',
+      '若目标改为全部已解析未见函数（含长尾），目标身份数 '+str(a['exact_all_function_cover']['required_function_count'])+'，最小新增数 '+str(a['exact_all_function_cover']['minimum_count'])+'。这不是要求实际增加全部任务，而是说明全函数收集与操作级代表性是不同目标。','',
+      '以 pdfwf005、021、029 替代三例组合时，原 Top-20 目标仍剩 '+str(len(a['alternative']['top20_unseen_identities_remaining']))+' 个未匹配；两套方案逐目标完整周期保留在 coverage_augmentation。各目标比例独立计算，不合并不同任务的 period 或简单平均为代表性分数。','']
+    return lines
 
 def detail_section(r,out):
     lines=['## 九、扩展任务操作：十二项 DocOps 完整记录','',
@@ -534,13 +937,17 @@ def detail_section(r,out):
     lines+=['','### 9.6 新任务内部同格式对照（补充）','',
       table(['任务 A','任务 B','共同 Top-10','Jaccard','Bound 总变差 pp','余弦（辅助）'],[[p['baseline'],p['target'],p['shared_top10_count'],f"{p['jaccard']:.4f}",f"{p['bound_total_variation_pp']:.3f}",f"{p['bound_cosine_auxiliary']:.6f}"] for p in r['same_format_pairs']]),'',
       *presence_detail(r),
+      *hotspot_detail(r),
+      *top20_inventory_section(r),
+      *augmentation_detail(r),
       '### 9.7 来源与离线复算','',
       '- 原始基准：`'+BASE_CONFIG+'`。','- 原始统一环境 perf：`'+PERF_CAMPAIGN+'`。',
       '- 离线符号结果：`'+ENRICHMENT+'`。','- 统一环境 DevKit：`'+TOPDOWN+'`。',
       '- 本节机器结果：`'+str((out/'comparison.json').relative_to(ROOT))+'`。','',
       '```bash','python3 -B analysis/docops/operation_comparison.py --update --publish','```','',
       '该命令只读取既有 JSON、日志与冻结 recipe，重建比较表、曲线及追加章节，不启动 workload、容器、perf、DevKit 或模型。','']
-    return '\n'.join(lines)
+    from scaling_report_sections import append_detail
+    return append_detail('\n'.join(lines))
 
 
 def original_prefix(data,expected):
@@ -580,8 +987,20 @@ def publish(result,out,figures):
         images=dict(reference=result['reference_image_id'],docops=result['docops_image_id']),
         figures=figures,presentation_figures={
             '../'+str((out/'figures'/f'{k}-bounds.svg').relative_to(ROOT)):str((out/'figures'/f'{k}-bounds.svg').relative_to(ROOT))
-            for k in result['tasks']},
+            for k in result['tasks']} | {
+            '../'+str((out/'figures/function-hotspot-coverage.svg').relative_to(ROOT)):
+                str((out/'figures/function-hotspot-coverage.svg').relative_to(ROOT))},
+        presentation_figure_notes={
+            '../'+str((out/'figures/function-hotspot-coverage.svg').relative_to(ROOT)):
+            '旧 OPM＋TLC 合并参考；蓝色为已覆盖、橙色为未覆盖、灰色为未解析，按目标完整用户态采样周期计，每条合计 100%。'},
         original_seven_case_measurements_changed=False,new_measurements_executed=False)
+    # Bind the supplementary scaling analysis as well as the twelve-case result.
+    from scaling_report_sections import OUTPUT as SCALING_OUTPUT, SCALING
+    supplement_paths=('analysis/docops/scaling_report_sections.py',SCALING,
+                      SCALING_OUTPUT+'/selection.json',SCALING_OUTPUT+'/analysis-build.json')
+    manifest['analysis_sources'].update({p:sha(ROOT/p) for p in supplement_paths})
+    manifest['scaling_analysis']=dict(path=SCALING_OUTPUT+'/selection.json',
+        sha256=sha(ROOT/SCALING_OUTPUT/'selection.json'),scope='20 configurations; 34 major operation identities')
     for path,content in writes:
         tmp=path.with_name(path.name+'.tmp');tmp.write_bytes(content);tmp.replace(path)
     write(ROOT/PUBLICATION,manifest)

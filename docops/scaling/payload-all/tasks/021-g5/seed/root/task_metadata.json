@@ -1,0 +1,59 @@
+{
+  "schema": "docops-scaling-task-metadata-v1",
+  "variant_task_id": "021-g5",
+  "synthetic": true,
+  "parent_task": "021",
+  "kind": "pptx",
+  "seed": 2026110503,
+  "scale": {
+    "regions": 5,
+    "pages": 40
+  },
+  "generator": "docops/scaling/cases/021/synth.py",
+  "generator_version": "1.0",
+  "modified_workflow": [
+    "01 prepare_render_fonts: unchanged font-prep step",
+    "02 build_validate_render: builder reads regions.json and iterates regions (8 public slides per region); validate checks every slide against frozen expected.json; contact sheets grouped by region (8 pages each) with numeric zero-padded filename sorting instead of fixed slide-{1..8}.jpg"
+  ],
+  "scale_metadata": {
+    "regions": 5,
+    "pages": 40,
+    "pages_per_region": 8,
+    "shelter_counts": [
+      18,
+      17,
+      14,
+      13,
+      14
+    ],
+    "accessible_counts": [
+      14,
+      10,
+      9,
+      10,
+      9
+    ],
+    "accessible_le_shelter": true,
+    "input_bytes": 42172,
+    "input_sha256": "598f2bcf33409d65130fcdab36668c0c196bad26e8684e89a198052fdedf251f",
+    "regions_json_sha256": "3b0023c3f4869ec0e80bd3cba940ef004520256c98a51892fab33bb0e02614ec",
+    "seed": 2026110503,
+    "source_must_contain": [
+      "DRAFT",
+      "PRIVATE",
+      "INTERNAL",
+      "staff-only",
+      "personal phone",
+      "555-0199",
+      "emergency operations center",
+      "do not publish",
+      "internal.example",
+      "eoc.internal",
+      "16 shelters",
+      "11 wheelchair"
+    ]
+  },
+  "input_path": "/root/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_input_g5.pptx",
+  "output_path": "/root/submission/docops_v2_l3_021_pptx_shelter_accessibility_public_remediation_output_g5.pptx",
+  "measurement_scope": "Measures per-region document generation, validation, conversion and rendering scale: regions -> 8 public slides each (5 -> 40, 10 -> 80). The synthetic source PPTX page count is NOT what this variant parses or repairs; this variant does NOT measure a larger source-PPT parse/cleanup cost. Distinguish input PPTX pages vs region count vs expected output pages."
+}

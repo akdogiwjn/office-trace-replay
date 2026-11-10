@@ -8,7 +8,7 @@
 
 `docs/` 用于阅读与核对证据；`analysis/` 保存采集分析程序及其数据产物。根目录不再单独设置 `reports/`。
 
-HTML 放映版保留正式报告的完整文字与表格，曲线来自绑定的逐采样点数据；全部样式与图表内嵌，不含装饰性效果。重新生成：
+HTML 放映版保留其发布时的报告文字与表格，曲线来自绑定的逐采样点数据；全部样式与图表内嵌，不含装饰性效果。仅在明确要求更新 HTML 时重新生成：
 
 ```bash
 python3 -B scripts/build_presentation.py
@@ -18,13 +18,16 @@ python3 -B scripts/build_presentation.py
 
 第七节增加软件用途、热点表读法、四项 Topdown 原值与变化、十二张中文过程图和最终覆盖判断；此前 HTML 为 63 页。[修订核验](evidence/task-operation-readable-revision-v2.json)确认测量数值不变、原七例章节不变，并记录浏览器排版检查。
 
-Markdown 的 7.3.1–7.3.3 另补充了旧 OPM／TLC 完整函数清单的出现范围：分别比较 PDF、Excel、Word、PPT，区分旧函数变重、不同软件实现和新增操作。[函数出现范围核验](evidence/function-hotspot-presence-v1.json)记录三分区守恒与来源。本次按最新要求保留并同步 HTML 修改；当前放映版为 68 页，已包含这段补充。
+此前 Markdown 的 7.3.1–7.3.3 补充了旧 OPM／TLC 完整函数清单的出现范围，[函数出现范围核验](evidence/function-hotspot-presence-v1.json)记录当时三分区守恒与来源；上一轮 HTML 同步至 68 页。
 
-只更新追加章节和对应曲线，不重新生成原七例内容：
+当前 Markdown 第七节按“样本口径→软件栈→函数覆盖及规模复测→原始用例 Topdown→补充建议→过程曲线”组织。7.3 使用全部 36 个配置分析函数覆盖；7.4 只比较十二项原始新用例，采用七维余弦与欧氏距离。7.5 建议优先增加原始任务 `021`，`029` 作为样式处理强化项；扩展具体函数热点时，推荐 `013、016、021、026、029` 五个原始用例。7.6 展示十二张过程图。[本次文档审阅](evidence/chapter7-reading-order-review-20261108.json)记录表格与图引用保持不变；完整结果见[统一分析](../analysis/docops/processed/unified-scaling-final-20261108/analysis.md)和[原始用例 Topdown 对照](../analysis/docops/processed/topdown-original-cosine-euclidean-20261108/analysis.md)。HTML 保留上一轮发布快照。
+
+仅更新当前 Markdown 第七节，保留数据与原七例内容：
 
 ```bash
-python3 -B analysis/docops/operation_comparison.py --update --publish
-python3 -B scripts/build_presentation.py
+python3 -B analysis/docops/chapter7_editorial.py --publish
 ```
+
+该命令不生成 HTML；只有明确要求同步放映版时，才另行调用上文的 `scripts/build_presentation.py`。
 
 [追加章节绑定](evidence/task-operation-extension.json)记录两份原文前缀的长度与 SHA256，并绑定新章节、图表与数据源；放映版会同时核验原文和新增内容。

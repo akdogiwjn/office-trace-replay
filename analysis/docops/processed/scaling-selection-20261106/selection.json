@@ -1,0 +1,4721 @@
+{
+  "schema": "scaling-operation-selection-v1",
+  "source_sha256": {
+    "analysis/docops/processed/task-operation-expansion-20261104/comparison.json": "afdb80cd95b1320e833057a4dd0dc6ea93731aa969c769f78449a838a3ab1679",
+    "analysis/docops/processed/all-format-scaling-20261106/comparison.json": "0f1ab698080a0a68a31d3637d17f7fbff21b91b95576bfd836565cc9c3dae304",
+    "analysis/docops/processed/all-format-scaling-20261106/analysis-build.json": "887e36c24ca3071348ac99d543008525961b7d099d6e73b0131a86e5d99bf786"
+  },
+  "function_identity": "DSO basename + full exact physical leaf symbol",
+  "method": "Full target ROI cycles:u period retained. Selection uses identities, not matching weights.",
+  "target_cases": [
+    "031",
+    "037",
+    "pdfwf005",
+    "013",
+    "014",
+    "016",
+    "001",
+    "003",
+    "009",
+    "021",
+    "026",
+    "029",
+    "014-n1000",
+    "014-n10000",
+    "021-g5",
+    "021-g10",
+    "003-u100",
+    "003-u500",
+    "037-u5",
+    "037-u20"
+  ],
+  "original_candidate_tasks": [
+    "031",
+    "037",
+    "pdfwf005",
+    "013",
+    "014",
+    "016",
+    "001",
+    "003",
+    "009",
+    "021",
+    "026",
+    "029"
+  ],
+  "hotspot_threshold_share_roi": 0.005,
+  "operation_tools": [
+    "ImageMagick",
+    "JPEG",
+    "LibreOffice·OOXML",
+    "LibreOffice·VCL",
+    "PNG",
+    "Poppler"
+  ],
+  "selection_scope": "Resolved previously unseen functions at >=0.5% in at least one of 20 cases, in six explicitly identified image/page/object tool groups. Not all unseen functions, not all task operations, not independent validation.",
+  "operation_hotspots": [
+    {
+      "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+      "function": "CompositeOverImage._omp_fn.0",
+      "tool": "ImageMagick",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "pdfwf005",
+          "period": 235461066,
+          "share_roi": 0.005810518075242594
+        },
+        {
+          "task": "013",
+          "period": 684497496,
+          "share_roi": 0.00772419641241907
+        },
+        {
+          "task": "021",
+          "period": 917339544,
+          "share_roi": 0.00792345090528468
+        }
+      ]
+    },
+    {
+      "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+      "function": "HorizontalFilter._omp_fn.0",
+      "tool": "ImageMagick",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "pdfwf005",
+          "period": 5102262862,
+          "share_roi": 0.12590952333618505
+        },
+        {
+          "task": "013",
+          "period": 7129663715,
+          "share_roi": 0.08045452789962788
+        },
+        {
+          "task": "021",
+          "period": 3110449977,
+          "share_roi": 0.02686627633933479
+        },
+        {
+          "task": "021-g5",
+          "period": 1213740048,
+          "share_roi": 0.02699681911049049
+        },
+        {
+          "task": "021-g10",
+          "period": 3068596806,
+          "share_roi": 0.03375685583058473
+        }
+      ]
+    },
+    {
+      "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+      "function": "ImportRGBQuantum",
+      "tool": "ImageMagick",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "pdfwf005",
+          "period": 253030826,
+          "share_roi": 0.006244090426680408
+        }
+      ]
+    },
+    {
+      "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+      "function": "ReadPixelCachePixels",
+      "tool": "ImageMagick",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021-g5",
+          "period": 493050898,
+          "share_roi": 0.010966768318722312
+        }
+      ]
+    },
+    {
+      "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+      "function": "VerticalFilter._omp_fn.0",
+      "tool": "ImageMagick",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "pdfwf005",
+          "period": 4645151623,
+          "share_roi": 0.11462930125222474
+        },
+        {
+          "task": "013",
+          "period": 3118338666,
+          "share_roi": 0.035188821693841334
+        },
+        {
+          "task": "021",
+          "period": 8054283077,
+          "share_roi": 0.0695682606896043
+        },
+        {
+          "task": "021-g5",
+          "period": 3827351351,
+          "share_roi": 0.08513051230821578
+        },
+        {
+          "task": "021-g10",
+          "period": 6930833845,
+          "share_roi": 0.07624434674308991
+        }
+      ]
+    },
+    {
+      "library": "libjpeg.so.62.4.0",
+      "function": "decode_mcu_AC_refine",
+      "tool": "JPEG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 1295515376,
+          "share_roi": 0.011189916041357773
+        },
+        {
+          "task": "021-g5",
+          "period": 231326652,
+          "share_roi": 0.0051453223363355505
+        }
+      ]
+    },
+    {
+      "library": "libjpeg.so.62.4.0",
+      "function": "encode_mcu_gather",
+      "tool": "JPEG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "021-g10",
+          "period": 2874690172,
+          "share_roi": 0.03162373808903809
+        }
+      ]
+    },
+    {
+      "library": "libjpeg.so.62.4.0",
+      "function": "jsimd_fdct_islow_neon",
+      "tool": "JPEG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "021-g5",
+          "period": 230402491,
+          "share_roi": 0.005124766528370673
+        }
+      ]
+    },
+    {
+      "library": "libjpeg.so.62.4.0",
+      "function": "jsimd_huff_encode_one_block_neon",
+      "tool": "JPEG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "026",
+          "period": 557913808,
+          "share_roi": 0.007946427723175071
+        },
+        {
+          "task": "021-g10",
+          "period": 454546448,
+          "share_roi": 0.005000350285002668
+        }
+      ]
+    },
+    {
+      "library": "libjpeg.so.62.4.0",
+      "function": "jsimd_rgb_ycc_convert_neon.localalias",
+      "tool": "JPEG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "026",
+          "period": 353083329,
+          "share_roi": 0.00502900468481781
+        }
+      ]
+    },
+    {
+      "library": "libjpeg.so.62.4.0",
+      "function": "quantize",
+      "tool": "JPEG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "021-g5",
+          "period": 609526291,
+          "share_roi": 0.013557492025026423
+        }
+      ]
+    },
+    {
+      "library": "libjpeg.so.62.4.0",
+      "function": "rgb_ycc_convert",
+      "tool": "JPEG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 1123735968,
+          "share_roi": 0.009706184401607523
+        }
+      ]
+    },
+    {
+      "library": "libooxlo.so",
+      "function": "oox::PropertyMap::fillSequences(com::sun::star::uno::Sequence<rtl::OUString>&, com::sun::star::uno::Sequence<com::sun::star::uno::Any>&) const",
+      "tool": "LibreOffice·OOXML",
+      "type": "文档对象／样式路径",
+      "occurrences": [
+        {
+          "task": "029",
+          "period": 731549829,
+          "share_roi": 0.018508112838603253
+        }
+      ]
+    },
+    {
+      "library": "libooxlo.so",
+      "function": "oox::drawingml::table::applyTableStylePart(oox::core::XmlFilterBase const&, oox::drawingml::FillProperties&, oox::drawingml::TextCharacterProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::table::TableStylePart&, bool, int, int, int, int)",
+      "tool": "LibreOffice·OOXML",
+      "type": "文档对象／样式路径",
+      "occurrences": [
+        {
+          "task": "029",
+          "period": 788694859,
+          "share_roi": 0.019953874455212652
+        }
+      ]
+    },
+    {
+      "library": "libooxlo.so",
+      "function": "std::array<oox::drawingml::TextParagraphProperties, 9ul>::~array()",
+      "tool": "LibreOffice·OOXML",
+      "type": "文档对象／样式路径",
+      "occurrences": [
+        {
+          "task": "029",
+          "period": 208433721,
+          "share_roi": 0.00527334526605152
+        }
+      ]
+    },
+    {
+      "library": "libpng16.so.16.40.0",
+      "function": "png_read_filter_row_up",
+      "tool": "PNG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "pdfwf005",
+          "period": 415887179,
+          "share_roi": 0.010262928015628505
+        }
+      ]
+    },
+    {
+      "library": "libpng16.so.16.40.0",
+      "function": "png_write_find_filter",
+      "tool": "PNG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "031",
+          "period": 3421412927,
+          "share_roi": 0.08676718220546491
+        },
+        {
+          "task": "037",
+          "period": 5797867418,
+          "share_roi": 0.10270632427391742
+        },
+        {
+          "task": "pdfwf005",
+          "period": 4283600071,
+          "share_roi": 0.10570722396906145
+        },
+        {
+          "task": "013",
+          "period": 7423314478,
+          "share_roi": 0.08376822325033917
+        },
+        {
+          "task": "014",
+          "period": 4808553703,
+          "share_roi": 0.07573828382953528
+        },
+        {
+          "task": "016",
+          "period": 861639963,
+          "share_roi": 0.011468641883955301
+        },
+        {
+          "task": "001",
+          "period": 3030752044,
+          "share_roi": 0.05338042174992657
+        },
+        {
+          "task": "003",
+          "period": 4820020182,
+          "share_roi": 0.09051067110038435
+        },
+        {
+          "task": "009",
+          "period": 13221124244,
+          "share_roi": 0.1899715270773167
+        },
+        {
+          "task": "014-n1000",
+          "period": 4724421408,
+          "share_roi": 0.05035213115119066
+        },
+        {
+          "task": "014-n10000",
+          "period": 37357229523,
+          "share_roi": 0.04116555059876368
+        },
+        {
+          "task": "003-u100",
+          "period": 60771045934,
+          "share_roi": 0.20454557712282112
+        },
+        {
+          "task": "003-u500",
+          "period": 106025881740,
+          "share_roi": 0.22104821090949
+        },
+        {
+          "task": "037-u5",
+          "period": 8148301290,
+          "share_roi": 0.12237915352115238
+        },
+        {
+          "task": "037-u20",
+          "period": 9774810470,
+          "share_roi": 0.11223892142261484
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "026",
+          "period": 519797588,
+          "share_roi": 0.007403534209934329
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "FlateStream::readSome()",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 704684069,
+          "share_roi": 0.006086655329509858
+        },
+        {
+          "task": "021-g5",
+          "period": 347737949,
+          "share_roi": 0.0077346203764761725
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "Splash::composite(SplashBitmap*, int, int, int, int, int, int, bool, bool, bool, double)",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "021-g5",
+          "period": 278712694,
+          "share_roi": 0.006199314421662297
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 1584486401,
+          "share_roi": 0.013685881406214313
+        },
+        {
+          "task": "026",
+          "period": 710605042,
+          "share_roi": 0.010121225761053013
+        },
+        {
+          "task": "029",
+          "period": 213417899,
+          "share_roi": 0.005399444302883752
+        },
+        {
+          "task": "021-g5",
+          "period": 403236125,
+          "share_roi": 0.00896904797973687
+        },
+        {
+          "task": "021-g10",
+          "period": 1139233605,
+          "share_roi": 0.012532420188324444
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 1038249623,
+          "share_roi": 0.008967802564576709
+        },
+        {
+          "task": "021-g5",
+          "period": 347994011,
+          "share_roi": 0.007740315878990456
+        },
+        {
+          "task": "021-g10",
+          "period": 1148245609,
+          "share_roi": 0.012631558960540403
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "SplashBitmap::getPixel(int, int, unsigned char*)",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "026",
+          "period": 527967918,
+          "share_roi": 0.007519905118645535
+        },
+        {
+          "task": "021-g5",
+          "period": 578143173,
+          "share_roi": 0.012859447694063409
+        },
+        {
+          "task": "021-g10",
+          "period": 686055166,
+          "share_roi": 0.007547119023655098
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "SplashClip::testClipPaths(int, int)",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "026",
+          "period": 839534814,
+          "share_roi": 0.01195758668252969
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "014",
+          "period": 665314676,
+          "share_roi": 0.010479199127048472
+        }
+      ]
+    },
+    {
+      "library": "libpoppler.so.133.0.0",
+      "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+      "tool": "Poppler",
+      "type": "页面／像素绘制",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 1765066367,
+          "share_roi": 0.015245627199838333
+        },
+        {
+          "task": "026",
+          "period": 905703410,
+          "share_roi": 0.012900033272161274
+        },
+        {
+          "task": "021-g5",
+          "period": 456512272,
+          "share_roi": 0.010154051725664928
+        },
+        {
+          "task": "021-g10",
+          "period": 1210661828,
+          "share_roi": 0.013318183968476751
+        }
+      ]
+    },
+    {
+      "library": "libvcllo.so",
+      "function": "BitmapReadAccess::GetPixelForN24BitTcBgr(unsigned char const*, long)",
+      "tool": "LibreOffice·VCL",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 705347787,
+          "share_roi": 0.006092388143517877
+        },
+        {
+          "task": "021-g5",
+          "period": 919649026,
+          "share_roi": 0.020455449617050758
+        }
+      ]
+    },
+    {
+      "library": "libvcllo.so",
+      "function": "BitmapReadAccess::SetPixelForN24BitTcBgr(unsigned char*, long, BitmapColor const&)",
+      "tool": "LibreOffice·VCL",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 1862579409,
+          "share_roi": 0.016087888722265367
+        },
+        {
+          "task": "021-g5",
+          "period": 1875732943,
+          "share_roi": 0.04172130848380721
+        }
+      ]
+    },
+    {
+      "library": "libvcllo.so",
+      "function": "BitmapReadAccess::SetPixelForN8BitPal(unsigned char*, long, BitmapColor const&)",
+      "tool": "LibreOffice·VCL",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 766537579,
+          "share_roi": 0.006620910342291183
+        },
+        {
+          "task": "021-g5",
+          "period": 244168254,
+          "share_roi": 0.005430953849322352
+        },
+        {
+          "task": "021-g10",
+          "period": 515278731,
+          "share_roi": 0.005668450739739722
+        }
+      ]
+    },
+    {
+      "library": "libvcllo.so",
+      "function": "vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+      "tool": "LibreOffice·VCL",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 1728129377,
+          "share_roi": 0.01492658674337024
+        },
+        {
+          "task": "021-g5",
+          "period": 923267695,
+          "share_roi": 0.02053593847673263
+        },
+        {
+          "task": "021-g10",
+          "period": 2518501942,
+          "share_roi": 0.027705401634685028
+        }
+      ]
+    },
+    {
+      "library": "libvcllo.so",
+      "function": "vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+      "tool": "LibreOffice·VCL",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 4498309322,
+          "share_roi": 0.03885380642617475
+        },
+        {
+          "task": "021-g5",
+          "period": 750301595,
+          "share_roi": 0.016688710627868725
+        },
+        {
+          "task": "021-g10",
+          "period": 1735164582,
+          "share_roi": 0.01908810584772238
+        }
+      ]
+    },
+    {
+      "library": "libvcllo.so",
+      "function": "void (anonymous namespace)::stackBlurHorizontal<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+      "tool": "LibreOffice·VCL",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 687209337,
+          "share_roi": 0.005935718654000089
+        },
+        {
+          "task": "026",
+          "period": 486410656,
+          "share_roi": 0.006928000465774764
+        },
+        {
+          "task": "029",
+          "period": 240171009,
+          "share_roi": 0.006076294408009762
+        },
+        {
+          "task": "021-g5",
+          "period": 305281282,
+          "share_roi": 0.0067902707515939496
+        },
+        {
+          "task": "021-g10",
+          "period": 692342265,
+          "share_roi": 0.007616281806501198
+        }
+      ]
+    },
+    {
+      "library": "libvcllo.so",
+      "function": "void (anonymous namespace)::stackBlurVertical<(anonymous namespace)::SumFunction8>((anonymous namespace)::BlurSharedData const&, int, int)",
+      "tool": "LibreOffice·VCL",
+      "type": "图片滤波／缩放",
+      "occurrences": [
+        {
+          "task": "021",
+          "period": 854346690,
+          "share_roi": 0.0073793548949062536
+        },
+        {
+          "task": "026",
+          "period": 615142019,
+          "share_roi": 0.008761535426044673
+        },
+        {
+          "task": "029",
+          "period": 302309086,
+          "share_roi": 0.00764837944596528
+        },
+        {
+          "task": "021-g5",
+          "period": 405490735,
+          "share_roi": 0.00901919652549426
+        },
+        {
+          "task": "021-g10",
+          "period": 859926166,
+          "share_roi": 0.00945982983292249
+        }
+      ]
+    },
+    {
+      "library": "png.so",
+      "function": "ReadOnePNGImage",
+      "tool": "PNG",
+      "type": "图片编码／解码",
+      "occurrences": [
+        {
+          "task": "pdfwf005",
+          "period": 381398690,
+          "share_roi": 0.00941184893012778
+        }
+      ]
+    }
+  ],
+  "minimum_operation_cover": {
+    "required_function_count": 34,
+    "minimum_count": 3,
+    "solutions": [
+      [
+        "013",
+        "021",
+        "029"
+      ]
+    ]
+  },
+  "minimum_operation_cover_including_synthetic": {
+    "required_function_count": 34,
+    "minimum_count": 3,
+    "solutions": [
+      [
+        "pdfwf005",
+        "029",
+        "021-g5"
+      ],
+      [
+        "013",
+        "021",
+        "029"
+      ],
+      [
+        "013",
+        "029",
+        "021-g5"
+      ]
+    ]
+  },
+  "selected": {
+    "selected": [
+      "013",
+      "021",
+      "029"
+    ],
+    "required_count": 34,
+    "required_matched": 34,
+    "required_missing": [],
+    "targets": {
+      "031": {
+        "selected_as_reference": false,
+        "roi_period": 39432108316,
+        "observed_period": 38823770208,
+        "not_observed_period": 607612160,
+        "unresolved_period": 725948,
+        "observed_share_roi": 0.9845725188436562,
+        "not_observed_share_roi": 0.015409071083157247,
+        "unresolved_share_roi": 1.841007318661272e-05,
+        "before_observed_share_roi": 0.7914824402461961,
+        "before_not_observed_share_roi": 0.20849914968061734
+      },
+      "037": {
+        "selected_as_reference": false,
+        "roi_period": 56450928986,
+        "observed_period": 54756496879,
+        "not_observed_period": 1668296901,
+        "unresolved_period": 26135206,
+        "observed_share_roi": 0.9699839818859274,
+        "not_observed_share_roi": 0.029553045998830997,
+        "unresolved_share_roi": 0.00046297211524156865,
+        "before_observed_share_roi": 0.7277111164138318,
+        "before_not_observed_share_roi": 0.2718259114709266
+      },
+      "pdfwf005": {
+        "selected_as_reference": false,
+        "roi_period": 40523248177,
+        "observed_period": 39263791260,
+        "not_observed_period": 1186585775,
+        "unresolved_period": 72871142,
+        "observed_share_roi": 0.9689201390890764,
+        "not_observed_share_roi": 0.02928160570488219,
+        "unresolved_share_roi": 0.0017982552060414514,
+        "before_observed_share_roi": 0.4541090289362467,
+        "before_not_observed_share_roi": 0.5440927158577118
+      },
+      "013": {
+        "selected_as_reference": true,
+        "roi_period": 88617308449,
+        "observed_period": 88166076432,
+        "not_observed_period": 0,
+        "unresolved_period": 451232017,
+        "observed_share_roi": 0.9949080825755424,
+        "not_observed_share_roi": 0.0,
+        "unresolved_share_roi": 0.005091917424457636,
+        "before_observed_share_roi": 0.5915866999523115,
+        "before_not_observed_share_roi": 0.40332138262323086
+      },
+      "014": {
+        "selected_as_reference": false,
+        "roi_period": 63489076592,
+        "observed_period": 57503669925,
+        "not_observed_period": 5554011349,
+        "unresolved_period": 431395318,
+        "observed_share_roi": 0.9057254099714817,
+        "not_observed_share_roi": 0.08747979411784103,
+        "unresolved_share_roi": 0.006794795910677308,
+        "before_observed_share_roi": 0.6616993655613129,
+        "before_not_observed_share_roi": 0.3315058385280098
+      },
+      "016": {
+        "selected_as_reference": false,
+        "roi_period": 75130078323,
+        "observed_period": 63791465600,
+        "not_observed_period": 11034723585,
+        "unresolved_period": 303889138,
+        "observed_share_roi": 0.8490802488684636,
+        "not_observed_share_roi": 0.1468749112380717,
+        "unresolved_share_roi": 0.004044839893464728,
+        "before_observed_share_roi": 0.5624923325823644,
+        "before_not_observed_share_roi": 0.4334628275241709
+      },
+      "001": {
+        "selected_as_reference": false,
+        "roi_period": 56776472434,
+        "observed_period": 50654749721,
+        "not_observed_period": 4709234483,
+        "unresolved_period": 1412488230,
+        "observed_share_roi": 0.8921785301100519,
+        "not_observed_share_roi": 0.08294341443058593,
+        "unresolved_share_roi": 0.02487805545936218,
+        "before_observed_share_roi": 0.7194058426310438,
+        "before_not_observed_share_roi": 0.25571610190959404
+      },
+      "003": {
+        "selected_as_reference": false,
+        "roi_period": 53253612236,
+        "observed_period": 46157268053,
+        "not_observed_period": 5564207846,
+        "unresolved_period": 1532136337,
+        "observed_share_roi": 0.8667443599590641,
+        "not_observed_share_roi": 0.10448507833311892,
+        "unresolved_share_roi": 0.028770561707817065,
+        "before_observed_share_roi": 0.6865326875851779,
+        "before_not_observed_share_roi": 0.28469675070700495
+      },
+      "009": {
+        "selected_as_reference": false,
+        "roi_period": 69595293818,
+        "observed_period": 63388881949,
+        "not_observed_period": 4439254804,
+        "unresolved_period": 1767157065,
+        "observed_share_roi": 0.9108213856352053,
+        "not_observed_share_roi": 0.06378670971070517,
+        "unresolved_share_roi": 0.025391904654089494,
+        "before_observed_share_roi": 0.6500841851363588,
+        "before_not_observed_share_roi": 0.3245239102095517
+      },
+      "021": {
+        "selected_as_reference": true,
+        "roi_period": 115775254364,
+        "observed_period": 113373585641,
+        "not_observed_period": 0,
+        "unresolved_period": 2401668723,
+        "observed_share_roi": 0.9792557681156191,
+        "not_observed_share_roi": 0.0,
+        "unresolved_share_roi": 0.02074423188438092,
+        "before_observed_share_roi": 0.46586017281747355,
+        "before_not_observed_share_roi": 0.5133955952981455
+      },
+      "026": {
+        "selected_as_reference": false,
+        "roi_period": 70209385580,
+        "observed_period": 61003544605,
+        "not_observed_period": 7085682422,
+        "unresolved_period": 2120158553,
+        "observed_share_roi": 0.8688801945929235,
+        "not_observed_share_roi": 0.10092215397507258,
+        "unresolved_share_roi": 0.030197651432003886,
+        "before_observed_share_roi": 0.5939090252611209,
+        "before_not_observed_share_roi": 0.3758933233068752
+      },
+      "029": {
+        "selected_as_reference": true,
+        "roi_period": 39525900635,
+        "observed_period": 38883474809,
+        "not_observed_period": 0,
+        "unresolved_period": 642425826,
+        "observed_share_roi": 0.9837467125181423,
+        "not_observed_share_roi": 0.0,
+        "unresolved_share_roi": 0.01625328748185778,
+        "before_observed_share_roi": 0.5550954226093373,
+        "before_not_observed_share_roi": 0.42865128990880486
+      },
+      "014-n1000": {
+        "selected_as_reference": false,
+        "roi_period": 93827635494,
+        "observed_period": 89291373561,
+        "not_observed_period": 3002289259,
+        "unresolved_period": 1533972674,
+        "observed_share_roi": 0.9516532425748906,
+        "not_observed_share_roi": 0.03199792090244017,
+        "unresolved_share_roi": 0.016348836522669198,
+        "before_observed_share_roi": 0.8801044379433459,
+        "before_not_observed_share_roi": 0.10354672553398492
+      },
+      "014-n10000": {
+        "selected_as_reference": false,
+        "roi_period": 907487668199,
+        "observed_period": 876827821354,
+        "not_observed_period": 21088828047,
+        "unresolved_period": 9571018798,
+        "observed_share_roi": 0.9662145856969632,
+        "not_observed_share_roi": 0.02323869379828917,
+        "unresolved_share_roi": 0.010546720504747623,
+        "before_observed_share_roi": 0.918230902671916,
+        "before_not_observed_share_roi": 0.07122237682333635
+      },
+      "021-g5": {
+        "selected_as_reference": false,
+        "roi_period": 44958631720,
+        "observed_period": 41530513789,
+        "not_observed_period": 2712140544,
+        "unresolved_period": 715977387,
+        "observed_share_roi": 0.9237495048259,
+        "not_observed_share_roi": 0.06032524657091588,
+        "unresolved_share_roi": 0.015925248603184138,
+        "before_observed_share_roi": 0.4965226112312833,
+        "before_not_observed_share_roi": 0.4875521401655326
+      },
+      "021-g10": {
+        "selected_as_reference": false,
+        "roi_period": 90902921214,
+        "observed_period": 81966638412,
+        "not_observed_period": 7019423973,
+        "unresolved_period": 1916858829,
+        "observed_share_roi": 0.9016942174942589,
+        "not_observed_share_roi": 0.07721890429104203,
+        "unresolved_share_roi": 0.021086878214699043,
+        "before_observed_share_roi": 0.5043874405098719,
+        "before_not_observed_share_roi": 0.47452568127542905
+      },
+      "003-u100": {
+        "selected_as_reference": false,
+        "roi_period": 297102713189,
+        "observed_period": 288531613432,
+        "not_observed_period": 5389740404,
+        "unresolved_period": 3181359353,
+        "observed_share_roi": 0.97115105525291,
+        "not_observed_share_roi": 0.018141000282859587,
+        "unresolved_share_roi": 0.010707944464230451,
+        "before_observed_share_roi": 0.7458894732476808,
+        "before_not_observed_share_roi": 0.24340258228808873
+      },
+      "003-u500": {
+        "selected_as_reference": false,
+        "roi_period": 479650485764,
+        "observed_period": 463273294069,
+        "not_observed_period": 9282073018,
+        "unresolved_period": 7095118677,
+        "observed_share_roi": 0.9658559885143992,
+        "not_observed_share_roi": 0.019351743182778745,
+        "unresolved_share_roi": 0.014792268302822017,
+        "before_observed_share_roi": 0.7157600817544452,
+        "before_not_observed_share_roi": 0.2694476499427328
+      },
+      "037-u5": {
+        "selected_as_reference": false,
+        "roi_period": 66582428915,
+        "observed_period": 65372937860,
+        "not_observed_period": 1057167210,
+        "unresolved_period": 152323845,
+        "observed_share_roi": 0.9818346810906515,
+        "not_observed_share_roi": 0.015877570512628694,
+        "unresolved_share_roi": 0.0022877483967197803,
+        "before_observed_share_roi": 0.8338938885795377,
+        "before_not_observed_share_roi": 0.1638183630237425
+      },
+      "037-u20": {
+        "selected_as_reference": false,
+        "roi_period": 87089312211,
+        "observed_period": 85989325148,
+        "not_observed_period": 1099689853,
+        "unresolved_period": 297210,
+        "observed_share_roi": 0.9873694367876629,
+        "not_observed_share_roi": 0.01262715050884397,
+        "unresolved_share_roi": 3.412703493167101e-06,
+        "before_observed_share_roi": 0.8672024767059852,
+        "before_not_observed_share_roi": 0.13279411059052162
+      }
+    }
+  },
+  "ablations": {
+    "013": {
+      "selected": [
+        "021",
+        "029"
+      ],
+      "required_count": 34,
+      "required_matched": 29,
+      "required_missing": [
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "ImportRGBQuantum",
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "occurrences": [
+            {
+              "task": "pdfwf005",
+              "period": 253030826,
+              "share_roi": 0.006244090426680408
+            }
+          ]
+        },
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "ReadPixelCachePixels",
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "occurrences": [
+            {
+              "task": "021-g5",
+              "period": 493050898,
+              "share_roi": 0.010966768318722312
+            }
+          ]
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_read_filter_row_up",
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "pdfwf005",
+              "period": 415887179,
+              "share_roi": 0.010262928015628505
+            }
+          ]
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "031",
+              "period": 3421412927,
+              "share_roi": 0.08676718220546491
+            },
+            {
+              "task": "037",
+              "period": 5797867418,
+              "share_roi": 0.10270632427391742
+            },
+            {
+              "task": "pdfwf005",
+              "period": 4283600071,
+              "share_roi": 0.10570722396906145
+            },
+            {
+              "task": "013",
+              "period": 7423314478,
+              "share_roi": 0.08376822325033917
+            },
+            {
+              "task": "014",
+              "period": 4808553703,
+              "share_roi": 0.07573828382953528
+            },
+            {
+              "task": "016",
+              "period": 861639963,
+              "share_roi": 0.011468641883955301
+            },
+            {
+              "task": "001",
+              "period": 3030752044,
+              "share_roi": 0.05338042174992657
+            },
+            {
+              "task": "003",
+              "period": 4820020182,
+              "share_roi": 0.09051067110038435
+            },
+            {
+              "task": "009",
+              "period": 13221124244,
+              "share_roi": 0.1899715270773167
+            },
+            {
+              "task": "014-n1000",
+              "period": 4724421408,
+              "share_roi": 0.05035213115119066
+            },
+            {
+              "task": "014-n10000",
+              "period": 37357229523,
+              "share_roi": 0.04116555059876368
+            },
+            {
+              "task": "003-u100",
+              "period": 60771045934,
+              "share_roi": 0.20454557712282112
+            },
+            {
+              "task": "003-u500",
+              "period": 106025881740,
+              "share_roi": 0.22104821090949
+            },
+            {
+              "task": "037-u5",
+              "period": 8148301290,
+              "share_roi": 0.12237915352115238
+            },
+            {
+              "task": "037-u20",
+              "period": 9774810470,
+              "share_roi": 0.11223892142261484
+            }
+          ]
+        },
+        {
+          "library": "png.so",
+          "function": "ReadOnePNGImage",
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "pdfwf005",
+              "period": 381398690,
+              "share_roi": 0.00941184893012778
+            }
+          ]
+        }
+      ],
+      "targets": {
+        "031": {
+          "selected_as_reference": false,
+          "roi_period": 39432108316,
+          "observed_period": 34534417920,
+          "not_observed_period": 4896964448,
+          "unresolved_period": 725948,
+          "observed_share_roi": 0.8757943562958639,
+          "not_observed_share_roi": 0.12418723363094954,
+          "unresolved_share_roi": 1.841007318661272e-05,
+          "before_observed_share_roi": 0.7914824402461961,
+          "before_not_observed_share_roi": 0.20849914968061734
+        },
+        "037": {
+          "selected_as_reference": false,
+          "roi_period": 56450928986,
+          "observed_period": 48280644661,
+          "not_observed_period": 8144149119,
+          "unresolved_period": 26135206,
+          "observed_share_roi": 0.8552674956504922,
+          "not_observed_share_roi": 0.14426953223426622,
+          "unresolved_share_roi": 0.00046297211524156865,
+          "before_observed_share_roi": 0.7277111164138318,
+          "before_not_observed_share_roi": 0.2718259114709266
+        },
+        "pdfwf005": {
+          "selected_as_reference": false,
+          "roi_period": 40523248177,
+          "observed_period": 33288096869,
+          "not_observed_period": 7162280166,
+          "unresolved_period": 72871142,
+          "observed_share_roi": 0.8214567776897388,
+          "not_observed_share_roi": 0.1767449671042198,
+          "unresolved_share_roi": 0.0017982552060414514,
+          "before_observed_share_roi": 0.4541090289362467,
+          "before_not_observed_share_roi": 0.5440927158577118
+        },
+        "013": {
+          "selected_as_reference": false,
+          "roi_period": 88617308449,
+          "observed_period": 72100612177,
+          "not_observed_period": 16065464255,
+          "unresolved_period": 451232017,
+          "observed_share_roi": 0.8136177168876044,
+          "not_observed_share_roi": 0.1812903656879379,
+          "unresolved_share_roi": 0.005091917424457636,
+          "before_observed_share_roi": 0.5915866999523115,
+          "before_not_observed_share_roi": 0.40332138262323086
+        },
+        "014": {
+          "selected_as_reference": false,
+          "roi_period": 63489076592,
+          "observed_period": 50843253775,
+          "not_observed_period": 12214427499,
+          "unresolved_period": 431395318,
+          "observed_share_roi": 0.800818920422077,
+          "not_observed_share_roi": 0.1923862836672457,
+          "unresolved_share_roi": 0.006794795910677308,
+          "before_observed_share_roi": 0.6616993655613129,
+          "before_not_observed_share_roi": 0.3315058385280098
+        },
+        "016": {
+          "selected_as_reference": false,
+          "roi_period": 75130078323,
+          "observed_period": 57534167696,
+          "not_observed_period": 17292021489,
+          "unresolved_period": 303889138,
+          "observed_share_roi": 0.7657940598524138,
+          "not_observed_share_roi": 0.23016110025412145,
+          "unresolved_share_roi": 0.004044839893464728,
+          "before_observed_share_roi": 0.5624923325823644,
+          "before_not_observed_share_roi": 0.4334628275241709
+        },
+        "001": {
+          "selected_as_reference": false,
+          "roi_period": 56776472434,
+          "observed_period": 46696863902,
+          "not_observed_period": 8667120302,
+          "unresolved_period": 1412488230,
+          "observed_share_roi": 0.8224685666458571,
+          "not_observed_share_roi": 0.15265337789478067,
+          "unresolved_share_roi": 0.02487805545936218,
+          "before_observed_share_roi": 0.7194058426310438,
+          "before_not_observed_share_roi": 0.25571610190959404
+        },
+        "003": {
+          "selected_as_reference": false,
+          "roi_period": 53253612236,
+          "observed_period": 41114394565,
+          "not_observed_period": 10607081334,
+          "unresolved_period": 1532136337,
+          "observed_share_roi": 0.7720489341229371,
+          "not_observed_share_roi": 0.19918050416924585,
+          "unresolved_share_roi": 0.028770561707817065,
+          "before_observed_share_roi": 0.6865326875851779,
+          "before_not_observed_share_roi": 0.28469675070700495
+        },
+        "009": {
+          "selected_as_reference": false,
+          "roi_period": 69595293818,
+          "observed_period": 49717790500,
+          "not_observed_period": 18110346253,
+          "unresolved_period": 1767157065,
+          "observed_share_roi": 0.7143843753288542,
+          "not_observed_share_roi": 0.2602237200170563,
+          "unresolved_share_roi": 0.025391904654089494,
+          "before_observed_share_roi": 0.6500841851363588,
+          "before_not_observed_share_roi": 0.3245239102095517
+        },
+        "021": {
+          "selected_as_reference": true,
+          "roi_period": 115775254364,
+          "observed_period": 113373585641,
+          "not_observed_period": 0,
+          "unresolved_period": 2401668723,
+          "observed_share_roi": 0.9792557681156191,
+          "not_observed_share_roi": 0.0,
+          "unresolved_share_roi": 0.02074423188438092,
+          "before_observed_share_roi": 0.46586017281747355,
+          "before_not_observed_share_roi": 0.5133955952981455
+        },
+        "026": {
+          "selected_as_reference": false,
+          "roi_period": 70209385580,
+          "observed_period": 59870019858,
+          "not_observed_period": 8219207169,
+          "unresolved_period": 2120158553,
+          "observed_share_roi": 0.8527352769635219,
+          "not_observed_share_roi": 0.11706707160447423,
+          "unresolved_share_roi": 0.030197651432003886,
+          "before_observed_share_roi": 0.5939090252611209,
+          "before_not_observed_share_roi": 0.3758933233068752
+        },
+        "029": {
+          "selected_as_reference": true,
+          "roi_period": 39525900635,
+          "observed_period": 38883474809,
+          "not_observed_period": 0,
+          "unresolved_period": 642425826,
+          "observed_share_roi": 0.9837467125181423,
+          "not_observed_share_roi": 0.0,
+          "unresolved_share_roi": 0.01625328748185778,
+          "before_observed_share_roi": 0.5550954226093373,
+          "before_not_observed_share_roi": 0.42865128990880486
+        },
+        "014-n1000": {
+          "selected_as_reference": false,
+          "roi_period": 93827635494,
+          "observed_period": 84301013738,
+          "not_observed_period": 7992649082,
+          "unresolved_period": 1533972674,
+          "observed_share_roi": 0.8984667821389446,
+          "not_observed_share_roi": 0.08518438133838624,
+          "unresolved_share_roi": 0.016348836522669198,
+          "before_observed_share_roi": 0.8801044379433459,
+          "before_not_observed_share_roi": 0.10354672553398492
+        },
+        "014-n10000": {
+          "selected_as_reference": false,
+          "roi_period": 907487668199,
+          "observed_period": 838248981069,
+          "not_observed_period": 59667668332,
+          "unresolved_period": 9571018798,
+          "observed_share_roi": 0.9237028892443122,
+          "not_observed_share_roi": 0.06575039025094022,
+          "unresolved_share_roi": 0.010546720504747623,
+          "before_observed_share_roi": 0.918230902671916,
+          "before_not_observed_share_roi": 0.07122237682333635
+        },
+        "021-g5": {
+          "selected_as_reference": false,
+          "roi_period": 44958631720,
+          "observed_period": 40908043775,
+          "not_observed_period": 3334610558,
+          "unresolved_period": 715977387,
+          "observed_share_roi": 0.9099041098442041,
+          "not_observed_share_roi": 0.07417064155261173,
+          "unresolved_share_roi": 0.015925248603184138,
+          "before_observed_share_roi": 0.4965226112312833,
+          "before_not_observed_share_roi": 0.4875521401655326
+        },
+        "021-g10": {
+          "selected_as_reference": false,
+          "roi_period": 90902921214,
+          "observed_period": 81802411848,
+          "not_observed_period": 7183650537,
+          "unresolved_period": 1916858829,
+          "observed_share_roi": 0.8998876026813709,
+          "not_observed_share_roi": 0.07902551910392999,
+          "unresolved_share_roi": 0.021086878214699043,
+          "before_observed_share_roi": 0.5043874405098719,
+          "before_not_observed_share_roi": 0.47452568127542905
+        },
+        "003-u100": {
+          "selected_as_reference": false,
+          "roi_period": 297102713189,
+          "observed_period": 227607433818,
+          "not_observed_period": 66313920018,
+          "unresolved_period": 3181359353,
+          "observed_share_roi": 0.7660900547657031,
+          "not_observed_share_roi": 0.2232020007700664,
+          "unresolved_share_roi": 0.010707944464230451,
+          "before_observed_share_roi": 0.7458894732476808,
+          "before_not_observed_share_roi": 0.24340258228808873
+        },
+        "003-u500": {
+          "selected_as_reference": false,
+          "roi_period": 479650485764,
+          "observed_period": 357183649844,
+          "not_observed_period": 115371717243,
+          "unresolved_period": 7095118677,
+          "observed_share_roi": 0.7446748422970288,
+          "not_observed_share_roi": 0.2405328894001491,
+          "unresolved_share_roi": 0.014792268302822017,
+          "before_observed_share_roi": 0.7157600817544452,
+          "before_not_observed_share_roi": 0.2694476499427328
+        },
+        "037-u5": {
+          "selected_as_reference": false,
+          "roi_period": 66582428915,
+          "observed_period": 56720035746,
+          "not_observed_period": 9710069324,
+          "unresolved_period": 152323845,
+          "observed_share_roi": 0.8518769391607738,
+          "not_observed_share_roi": 0.14583531244250644,
+          "unresolved_share_roi": 0.0022877483967197803,
+          "before_observed_share_roi": 0.8338938885795377,
+          "before_not_observed_share_roi": 0.1638183630237425
+        },
+        "037-u20": {
+          "selected_as_reference": false,
+          "roi_period": 87089312211,
+          "observed_period": 76097629326,
+          "not_observed_period": 10991385675,
+          "unresolved_period": 297210,
+          "observed_share_roi": 0.8737883833739627,
+          "not_observed_share_roi": 0.12620820392254412,
+          "unresolved_share_roi": 3.412703493167101e-06,
+          "before_observed_share_roi": 0.8672024767059852,
+          "before_not_observed_share_roi": 0.13279411059052162
+        }
+      }
+    },
+    "021": {
+      "selected": [
+        "013",
+        "029"
+      ],
+      "required_count": 34,
+      "required_matched": 23,
+      "required_missing": [
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decode_mcu_AC_refine",
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "021",
+              "period": 1295515376,
+              "share_roi": 0.011189916041357773
+            },
+            {
+              "task": "021-g5",
+              "period": 231326652,
+              "share_roi": 0.0051453223363355505
+            }
+          ]
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "encode_mcu_gather",
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "021-g10",
+              "period": 2874690172,
+              "share_roi": 0.03162373808903809
+            }
+          ]
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_fdct_islow_neon",
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "021-g5",
+              "period": 230402491,
+              "share_roi": 0.005124766528370673
+            }
+          ]
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_huff_encode_one_block_neon",
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "026",
+              "period": 557913808,
+              "share_roi": 0.007946427723175071
+            },
+            {
+              "task": "021-g10",
+              "period": 454546448,
+              "share_roi": 0.005000350285002668
+            }
+          ]
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_rgb_ycc_convert_neon.localalias",
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "026",
+              "period": 353083329,
+              "share_roi": 0.00502900468481781
+            }
+          ]
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "quantize",
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "021-g5",
+              "period": 609526291,
+              "share_roi": 0.013557492025026423
+            }
+          ]
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "rgb_ycc_convert",
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "occurrences": [
+            {
+              "task": "021",
+              "period": 1123735968,
+              "share_roi": 0.009706184401607523
+            }
+          ]
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "occurrences": [
+            {
+              "task": "026",
+              "period": 519797588,
+              "share_roi": 0.007403534209934329
+            }
+          ]
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "occurrences": [
+            {
+              "task": "021",
+              "period": 1038249623,
+              "share_roi": 0.008967802564576709
+            },
+            {
+              "task": "021-g5",
+              "period": 347994011,
+              "share_roi": 0.007740315878990456
+            },
+            {
+              "task": "021-g10",
+              "period": 1148245609,
+              "share_roi": 0.012631558960540403
+            }
+          ]
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashClip::testClipPaths(int, int)",
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "occurrences": [
+            {
+              "task": "026",
+              "period": 839534814,
+              "share_roi": 0.01195758668252969
+            }
+          ]
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "occurrences": [
+            {
+              "task": "021",
+              "period": 1765066367,
+              "share_roi": 0.015245627199838333
+            },
+            {
+              "task": "026",
+              "period": 905703410,
+              "share_roi": 0.012900033272161274
+            },
+            {
+              "task": "021-g5",
+              "period": 456512272,
+              "share_roi": 0.010154051725664928
+            },
+            {
+              "task": "021-g10",
+              "period": 1210661828,
+              "share_roi": 0.013318183968476751
+            }
+          ]
+        }
+      ],
+      "targets": {
+        "031": {
+          "selected_as_reference": false,
+          "roi_period": 39432108316,
+          "observed_period": 38696361952,
+          "not_observed_period": 735020416,
+          "unresolved_period": 725948,
+          "observed_share_roi": 0.981341439871693,
+          "not_observed_share_roi": 0.018640150055120375,
+          "unresolved_share_roi": 1.841007318661272e-05,
+          "before_observed_share_roi": 0.7914824402461961,
+          "before_not_observed_share_roi": 0.20849914968061734
+        },
+        "037": {
+          "selected_as_reference": false,
+          "roi_period": 56450928986,
+          "observed_period": 53587152119,
+          "not_observed_period": 2837641661,
+          "unresolved_period": 26135206,
+          "observed_share_roi": 0.9492696237521578,
+          "not_observed_share_roi": 0.05026740413260061,
+          "unresolved_share_roi": 0.00046297211524156865,
+          "before_observed_share_roi": 0.7277111164138318,
+          "before_not_observed_share_roi": 0.2718259114709266
+        },
+        "pdfwf005": {
+          "selected_as_reference": false,
+          "roi_period": 40523248177,
+          "observed_period": 39147688443,
+          "not_observed_period": 1302688592,
+          "unresolved_period": 72871142,
+          "observed_share_roi": 0.9660550475126835,
+          "not_observed_share_roi": 0.03214669728127505,
+          "unresolved_share_roi": 0.0017982552060414514,
+          "before_observed_share_roi": 0.4541090289362467,
+          "before_not_observed_share_roi": 0.5440927158577118
+        },
+        "013": {
+          "selected_as_reference": true,
+          "roi_period": 88617308449,
+          "observed_period": 88166076432,
+          "not_observed_period": 0,
+          "unresolved_period": 451232017,
+          "observed_share_roi": 0.9949080825755424,
+          "not_observed_share_roi": 0.0,
+          "unresolved_share_roi": 0.005091917424457636,
+          "before_observed_share_roi": 0.5915866999523115,
+          "before_not_observed_share_roi": 0.40332138262323086
+        },
+        "014": {
+          "selected_as_reference": false,
+          "roi_period": 63489076592,
+          "observed_period": 57045508640,
+          "not_observed_period": 6012172634,
+          "unresolved_period": 431395318,
+          "observed_share_roi": 0.898509030247702,
+          "not_observed_share_roi": 0.09469617384162064,
+          "unresolved_share_roi": 0.006794795910677308,
+          "before_observed_share_roi": 0.6616993655613129,
+          "before_not_observed_share_roi": 0.3315058385280098
+        },
+        "016": {
+          "selected_as_reference": false,
+          "roi_period": 75130078323,
+          "observed_period": 62913895862,
+          "not_observed_period": 11912293323,
+          "unresolved_period": 303889138,
+          "observed_share_roi": 0.8373995777233179,
+          "not_observed_share_roi": 0.15855558238321737,
+          "unresolved_share_roi": 0.004044839893464728,
+          "before_observed_share_roi": 0.5624923325823644,
+          "before_not_observed_share_roi": 0.4334628275241709
+        },
+        "001": {
+          "selected_as_reference": false,
+          "roi_period": 56776472434,
+          "observed_period": 50400057075,
+          "not_observed_period": 4963927129,
+          "unresolved_period": 1412488230,
+          "observed_share_roi": 0.8876926465198717,
+          "not_observed_share_roi": 0.08742929802076616,
+          "unresolved_share_roi": 0.02487805545936218,
+          "before_observed_share_roi": 0.7194058426310438,
+          "before_not_observed_share_roi": 0.25571610190959404
+        },
+        "003": {
+          "selected_as_reference": false,
+          "roi_period": 53253612236,
+          "observed_period": 45922749658,
+          "not_observed_period": 5798726241,
+          "unresolved_period": 1532136337,
+          "observed_share_roi": 0.8623405573782982,
+          "not_observed_share_roi": 0.10888888091388475,
+          "unresolved_share_roi": 0.028770561707817065,
+          "before_observed_share_roi": 0.6865326875851779,
+          "before_not_observed_share_roi": 0.28469675070700495
+        },
+        "009": {
+          "selected_as_reference": false,
+          "roi_period": 69595293818,
+          "observed_period": 62889009761,
+          "not_observed_period": 4939126992,
+          "unresolved_period": 1767157065,
+          "observed_share_roi": 0.9036388283015554,
+          "not_observed_share_roi": 0.07096926704435513,
+          "unresolved_share_roi": 0.025391904654089494,
+          "before_observed_share_roi": 0.6500841851363588,
+          "before_not_observed_share_roi": 0.3245239102095517
+        },
+        "021": {
+          "selected_as_reference": false,
+          "roi_period": 115775254364,
+          "observed_period": 93678308214,
+          "not_observed_period": 19695277427,
+          "unresolved_period": 2401668723,
+          "observed_share_roi": 0.80913929948686,
+          "not_observed_share_roi": 0.170116468628759,
+          "unresolved_share_roi": 0.02074423188438092,
+          "before_observed_share_roi": 0.46586017281747355,
+          "before_not_observed_share_roi": 0.5133955952981455
+        },
+        "026": {
+          "selected_as_reference": false,
+          "roi_period": 70209385580,
+          "observed_period": 55857631560,
+          "not_observed_period": 12231595467,
+          "unresolved_period": 2120158553,
+          "observed_share_roi": 0.7955863891780265,
+          "not_observed_share_roi": 0.17421595938996964,
+          "unresolved_share_roi": 0.030197651432003886,
+          "before_observed_share_roi": 0.5939090252611209,
+          "before_not_observed_share_roi": 0.3758933233068752
+        },
+        "029": {
+          "selected_as_reference": true,
+          "roi_period": 39525900635,
+          "observed_period": 38883474809,
+          "not_observed_period": 0,
+          "unresolved_period": 642425826,
+          "observed_share_roi": 0.9837467125181423,
+          "not_observed_share_roi": 0.0,
+          "unresolved_share_roi": 0.01625328748185778,
+          "before_observed_share_roi": 0.5550954226093373,
+          "before_not_observed_share_roi": 0.42865128990880486
+        },
+        "014-n1000": {
+          "selected_as_reference": false,
+          "roi_period": 93827635494,
+          "observed_period": 88942092028,
+          "not_observed_period": 3351570792,
+          "unresolved_period": 1533972674,
+          "observed_share_roi": 0.9479306556082572,
+          "not_observed_share_roi": 0.03572050786907364,
+          "unresolved_share_roi": 0.016348836522669198,
+          "before_observed_share_roi": 0.8801044379433459,
+          "before_not_observed_share_roi": 0.10354672553398492
+        },
+        "014-n10000": {
+          "selected_as_reference": false,
+          "roi_period": 907487668199,
+          "observed_period": 874929447028,
+          "not_observed_period": 22987202373,
+          "unresolved_period": 9571018798,
+          "observed_share_roi": 0.9641226847350829,
+          "not_observed_share_roi": 0.02533059476016947,
+          "unresolved_share_roi": 0.010546720504747623,
+          "before_observed_share_roi": 0.918230902671916,
+          "before_not_observed_share_roi": 0.07122237682333635
+        },
+        "021-g5": {
+          "selected_as_reference": false,
+          "roi_period": 44958631720,
+          "observed_period": 37541804372,
+          "not_observed_period": 6700849961,
+          "unresolved_period": 715977387,
+          "observed_share_roi": 0.8350299583361075,
+          "not_observed_share_roi": 0.1490447930607084,
+          "unresolved_share_roi": 0.015925248603184138,
+          "before_observed_share_roi": 0.4965226112312833,
+          "before_not_observed_share_roi": 0.4875521401655326
+        },
+        "021-g10": {
+          "selected_as_reference": false,
+          "roi_period": 90902921214,
+          "observed_period": 70907968970,
+          "not_observed_period": 18078093415,
+          "unresolved_period": 1916858829,
+          "observed_share_roi": 0.78004059740909,
+          "not_observed_share_roi": 0.19887252437621097,
+          "unresolved_share_roi": 0.021086878214699043,
+          "before_observed_share_roi": 0.5043874405098719,
+          "before_not_observed_share_roi": 0.47452568127542905
+        },
+        "003-u100": {
+          "selected_as_reference": false,
+          "roi_period": 297102713189,
+          "observed_period": 284158004192,
+          "not_observed_period": 9763349644,
+          "unresolved_period": 3181359353,
+          "observed_share_roi": 0.9564301892161944,
+          "not_observed_share_roi": 0.03286186631957517,
+          "unresolved_share_roi": 0.010707944464230451,
+          "before_observed_share_roi": 0.7458894732476808,
+          "before_not_observed_share_roi": 0.24340258228808873
+        },
+        "003-u500": {
+          "selected_as_reference": false,
+          "roi_period": 479650485764,
+          "observed_period": 451013584193,
+          "not_observed_period": 21541782894,
+          "unresolved_period": 7095118677,
+          "observed_share_roi": 0.9402963148773082,
+          "not_observed_share_roi": 0.04491141681986974,
+          "unresolved_share_roi": 0.014792268302822017,
+          "before_observed_share_roi": 0.7157600817544452,
+          "before_not_observed_share_roi": 0.2694476499427328
+        },
+        "037-u5": {
+          "selected_as_reference": false,
+          "roi_period": 66582428915,
+          "observed_period": 65146018444,
+          "not_observed_period": 1284086626,
+          "unresolved_period": 152323845,
+          "observed_share_roi": 0.9784265834934658,
+          "not_observed_share_roi": 0.019285668109814403,
+          "unresolved_share_roi": 0.0022877483967197803,
+          "before_observed_share_roi": 0.8338938885795377,
+          "before_not_observed_share_roi": 0.1638183630237425
+        },
+        "037-u20": {
+          "selected_as_reference": false,
+          "roi_period": 87089312211,
+          "observed_period": 85932652397,
+          "not_observed_period": 1156362604,
+          "unresolved_period": 297210,
+          "observed_share_roi": 0.9867186938944053,
+          "not_observed_share_roi": 0.013277893402101563,
+          "unresolved_share_roi": 3.412703493167101e-06,
+          "before_observed_share_roi": 0.8672024767059852,
+          "before_not_observed_share_roi": 0.13279411059052162
+        }
+      }
+    },
+    "029": {
+      "selected": [
+        "013",
+        "021"
+      ],
+      "required_count": 34,
+      "required_matched": 33,
+      "required_missing": [
+        {
+          "library": "libooxlo.so",
+          "function": "oox::drawingml::table::applyTableStylePart(oox::core::XmlFilterBase const&, oox::drawingml::FillProperties&, oox::drawingml::TextCharacterProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::LineProperties&, oox::drawingml::table::TableStylePart&, bool, int, int, int, int)",
+          "tool": "LibreOffice·OOXML",
+          "type": "文档对象／样式路径",
+          "occurrences": [
+            {
+              "task": "029",
+              "period": 788694859,
+              "share_roi": 0.019953874455212652
+            }
+          ]
+        }
+      ],
+      "targets": {
+        "031": {
+          "selected_as_reference": false,
+          "roi_period": 39432108316,
+          "observed_period": 38823770207,
+          "not_observed_period": 607612161,
+          "unresolved_period": 725948,
+          "observed_share_roi": 0.9845725188182961,
+          "not_observed_share_roi": 0.01540907110851729,
+          "unresolved_share_roi": 1.841007318661272e-05,
+          "before_observed_share_roi": 0.7914824402461961,
+          "before_not_observed_share_roi": 0.20849914968061734
+        },
+        "037": {
+          "selected_as_reference": false,
+          "roi_period": 56450928986,
+          "observed_period": 53863345263,
+          "not_observed_period": 2561448517,
+          "unresolved_period": 26135206,
+          "observed_share_roi": 0.9541622472919493,
+          "not_observed_share_roi": 0.045374780592809145,
+          "unresolved_share_roi": 0.00046297211524156865,
+          "before_observed_share_roi": 0.7277111164138318,
+          "before_not_observed_share_roi": 0.2718259114709266
+        },
+        "pdfwf005": {
+          "selected_as_reference": false,
+          "roi_period": 40523248177,
+          "observed_period": 39134492382,
+          "not_observed_period": 1315884653,
+          "unresolved_period": 72871142,
+          "observed_share_roi": 0.9657294057738386,
+          "not_observed_share_roi": 0.03247233902011991,
+          "unresolved_share_roi": 0.0017982552060414514,
+          "before_observed_share_roi": 0.4541090289362467,
+          "before_not_observed_share_roi": 0.5440927158577118
+        },
+        "013": {
+          "selected_as_reference": true,
+          "roi_period": 88617308449,
+          "observed_period": 88166076432,
+          "not_observed_period": 0,
+          "unresolved_period": 451232017,
+          "observed_share_roi": 0.9949080825755424,
+          "not_observed_share_roi": 0.0,
+          "unresolved_share_roi": 0.005091917424457636,
+          "before_observed_share_roi": 0.5915866999523115,
+          "before_not_observed_share_roi": 0.40332138262323086
+        },
+        "014": {
+          "selected_as_reference": false,
+          "roi_period": 63489076592,
+          "observed_period": 57169710852,
+          "not_observed_period": 5887970422,
+          "unresolved_period": 431395318,
+          "observed_share_roi": 0.9004653071171572,
+          "not_observed_share_roi": 0.09273989697216543,
+          "unresolved_share_roi": 0.006794795910677308,
+          "before_observed_share_roi": 0.6616993655613129,
+          "before_not_observed_share_roi": 0.3315058385280098
+        },
+        "016": {
+          "selected_as_reference": false,
+          "roi_period": 75130078323,
+          "observed_period": 63141899897,
+          "not_observed_period": 11684289288,
+          "unresolved_period": 303889138,
+          "observed_share_roi": 0.8404343680508318,
+          "not_observed_share_roi": 0.1555207920557035,
+          "unresolved_share_roi": 0.004044839893464728,
+          "before_observed_share_roi": 0.5624923325823644,
+          "before_not_observed_share_roi": 0.4334628275241709
+        },
+        "001": {
+          "selected_as_reference": false,
+          "roi_period": 56776472434,
+          "observed_period": 50504245787,
+          "not_observed_period": 4859738417,
+          "unresolved_period": 1412488230,
+          "observed_share_roi": 0.889527714947575,
+          "not_observed_share_roi": 0.08559422959306286,
+          "unresolved_share_roi": 0.02487805545936218,
+          "before_observed_share_roi": 0.7194058426310438,
+          "before_not_observed_share_roi": 0.25571610190959404
+        },
+        "003": {
+          "selected_as_reference": false,
+          "roi_period": 53253612236,
+          "observed_period": 45668219208,
+          "not_observed_period": 6053256691,
+          "unresolved_period": 1532136337,
+          "observed_share_roi": 0.8575609670498147,
+          "not_observed_share_roi": 0.11366847124236833,
+          "unresolved_share_roi": 0.028770561707817065,
+          "before_observed_share_roi": 0.6865326875851779,
+          "before_not_observed_share_roi": 0.28469675070700495
+        },
+        "009": {
+          "selected_as_reference": false,
+          "roi_period": 69595293818,
+          "observed_period": 63151107550,
+          "not_observed_period": 4677029203,
+          "unresolved_period": 1767157065,
+          "observed_share_roi": 0.9074048557815947,
+          "not_observed_share_roi": 0.0672032395643158,
+          "unresolved_share_roi": 0.025391904654089494,
+          "before_observed_share_roi": 0.6500841851363588,
+          "before_not_observed_share_roi": 0.3245239102095517
+        },
+        "021": {
+          "selected_as_reference": true,
+          "roi_period": 115775254364,
+          "observed_period": 113373585641,
+          "not_observed_period": 0,
+          "unresolved_period": 2401668723,
+          "observed_share_roi": 0.9792557681156191,
+          "not_observed_share_roi": 0.0,
+          "unresolved_share_roi": 0.02074423188438092,
+          "before_observed_share_roi": 0.46586017281747355,
+          "before_not_observed_share_roi": 0.5133955952981455
+        },
+        "026": {
+          "selected_as_reference": false,
+          "roi_period": 70209385580,
+          "observed_period": 60402360001,
+          "not_observed_period": 7686867026,
+          "unresolved_period": 2120158553,
+          "observed_share_roi": 0.8603174561636721,
+          "not_observed_share_roi": 0.10948489240432405,
+          "unresolved_share_roi": 0.030197651432003886,
+          "before_observed_share_roi": 0.5939090252611209,
+          "before_not_observed_share_roi": 0.3758933233068752
+        },
+        "029": {
+          "selected_as_reference": false,
+          "roi_period": 39525900635,
+          "observed_period": 32990202130,
+          "not_observed_period": 5893272679,
+          "unresolved_period": 642425826,
+          "observed_share_roi": 0.8346477018865784,
+          "not_observed_share_roi": 0.1490990106315638,
+          "unresolved_share_roi": 0.01625328748185778,
+          "before_observed_share_roi": 0.5550954226093373,
+          "before_not_observed_share_roi": 0.42865128990880486
+        },
+        "014-n1000": {
+          "selected_as_reference": false,
+          "roi_period": 93827635494,
+          "observed_period": 89030208009,
+          "not_observed_period": 3263454811,
+          "unresolved_period": 1533972674,
+          "observed_share_roi": 0.9488697817040611,
+          "not_observed_share_roi": 0.03478138177326965,
+          "unresolved_share_roi": 0.016348836522669198,
+          "before_observed_share_roi": 0.8801044379433459,
+          "before_not_observed_share_roi": 0.10354672553398492
+        },
+        "014-n10000": {
+          "selected_as_reference": false,
+          "roi_period": 907487668199,
+          "observed_period": 875533628209,
+          "not_observed_period": 22383021192,
+          "unresolved_period": 9571018798,
+          "observed_share_roi": 0.9647884581688961,
+          "not_observed_share_roi": 0.02466482132635625,
+          "unresolved_share_roi": 0.010546720504747623,
+          "before_observed_share_roi": 0.918230902671916,
+          "before_not_observed_share_roi": 0.07122237682333635
+        },
+        "021-g5": {
+          "selected_as_reference": false,
+          "roi_period": 44958631720,
+          "observed_period": 41252431696,
+          "not_observed_period": 2990222637,
+          "unresolved_period": 715977387,
+          "observed_share_roi": 0.9175642166540561,
+          "not_observed_share_roi": 0.06651053474275974,
+          "unresolved_share_roi": 0.015925248603184138,
+          "before_observed_share_roi": 0.4965226112312833,
+          "before_not_observed_share_roi": 0.4875521401655326
+        },
+        "021-g10": {
+          "selected_as_reference": false,
+          "roi_period": 90902921214,
+          "observed_period": 81705349729,
+          "not_observed_period": 7280712656,
+          "unresolved_period": 1916858829,
+          "observed_share_roi": 0.8988198469073678,
+          "not_observed_share_roi": 0.08009327487793312,
+          "unresolved_share_roi": 0.021086878214699043,
+          "before_observed_share_roi": 0.5043874405098719,
+          "before_not_observed_share_roi": 0.47452568127542905
+        },
+        "003-u100": {
+          "selected_as_reference": false,
+          "roi_period": 297102713189,
+          "observed_period": 288412830715,
+          "not_observed_period": 5508523121,
+          "unresolved_period": 3181359353,
+          "observed_share_roi": 0.9707512517111482,
+          "not_observed_share_roi": 0.01854080382462138,
+          "unresolved_share_roi": 0.010707944464230451,
+          "before_observed_share_roi": 0.7458894732476808,
+          "before_not_observed_share_roi": 0.24340258228808873
+        },
+        "003-u500": {
+          "selected_as_reference": false,
+          "roi_period": 479650485764,
+          "observed_period": 463213758438,
+          "not_observed_period": 9341608649,
+          "unresolved_period": 7095118677,
+          "observed_share_roi": 0.9657318655691151,
+          "not_observed_share_roi": 0.01947586612806289,
+          "unresolved_share_roi": 0.014792268302822017,
+          "before_observed_share_roi": 0.7157600817544452,
+          "before_not_observed_share_roi": 0.2694476499427328
+        },
+        "037-u5": {
+          "selected_as_reference": false,
+          "roi_period": 66582428915,
+          "observed_period": 65372937860,
+          "not_observed_period": 1057167210,
+          "unresolved_period": 152323845,
+          "observed_share_roi": 0.9818346810906515,
+          "not_observed_share_roi": 0.015877570512628694,
+          "unresolved_share_roi": 0.0022877483967197803,
+          "before_observed_share_roi": 0.8338938885795377,
+          "before_not_observed_share_roi": 0.1638183630237425
+        },
+        "037-u20": {
+          "selected_as_reference": false,
+          "roi_period": 87089312211,
+          "observed_period": 85871582722,
+          "not_observed_period": 1217432279,
+          "unresolved_period": 297210,
+          "observed_share_roi": 0.9860174634741667,
+          "not_observed_share_roi": 0.013979123822340046,
+          "unresolved_share_roi": 3.412703493167101e-06,
+          "before_observed_share_roi": 0.8672024767059852,
+          "before_not_observed_share_roi": 0.13279411059052162
+        }
+      }
+    }
+  },
+  "all_hotspot_identity_count": 93,
+  "all_hotspots_missing_from_original_candidates": [
+    {
+      "library": "libbasegfxlo.so",
+      "function": "basegfx::B2DPolygon::getB2DRange() const"
+    }
+  ],
+  "minimum_all_hotspot_cover_including_synthetic": {
+    "required_function_count": 93,
+    "minimum_count": 8,
+    "solutions": [
+      [
+        "013",
+        "014",
+        "016",
+        "001",
+        "003",
+        "026",
+        "029",
+        "021-g10"
+      ]
+    ]
+  },
+  "unmatched_tool_script_contexts": {
+    "014": [
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 5603279524,
+        "share_roi": 0.08825580438046639
+      },
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 4808553703,
+        "share_roi": 0.07573828382953528
+      },
+      {
+        "tool": "Python",
+        "script": "recalc.py",
+        "period": 1828867233,
+        "share_roi": 0.028806014060542316
+      },
+      {
+        "tool": "Python",
+        "script": "build_disaster_release_v1.py",
+        "period": 1751064965,
+        "share_roi": 0.027580570690181445
+      },
+      {
+        "tool": "Python",
+        "script": "validate_disaster_release_v1.py",
+        "period": 1639030152,
+        "share_roi": 0.02581593937068739
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 1231629687,
+        "share_roi": 0.019399080174292416
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 1180582672,
+        "share_roi": 0.018595051863595075
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 918727773,
+        "share_roi": 0.01447064317699913
+      },
+      {
+        "tool": "liborcus-parser-0.20.so.0",
+        "script": "soffice.bin",
+        "period": 397355800,
+        "share_roi": 0.0062586482798218735
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 323964486,
+        "share_roi": 0.00510268070335774
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 317901265,
+        "share_roi": 0.005007180479926171
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 285552641,
+        "share_roi": 0.004497665682477123
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 177139574,
+        "share_roi": 0.002790079546098181
+      },
+      {
+        "tool": "loader",
+        "script": "soffice.bin",
+        "period": 107220966,
+        "share_roi": 0.0016888096623145796
+      },
+      {
+        "tool": "lxml",
+        "script": "build_disaster_release_v1.py",
+        "period": 58645144,
+        "share_roi": 0.0009237044724539219
+      },
+      {
+        "tool": "libtasn1.so.6.6.3",
+        "script": "soffice.bin",
+        "period": 57549423,
+        "share_roi": 0.0009064460548045137
+      },
+      {
+        "tool": "libcomphelper.so",
+        "script": "soffice.bin",
+        "period": 57364039,
+        "share_roi": 0.0009035261194400205
+      },
+      {
+        "tool": "libi18nlangtag.so",
+        "script": "soffice.bin",
+        "period": 56763309,
+        "share_roi": 0.0008940641768154573
+      },
+      {
+        "tool": "libicuuc.so.77",
+        "script": "soffice.bin",
+        "period": 50076441,
+        "share_roi": 0.0007887410510284524
+      },
+      {
+        "tool": "libgcc_s-12",
+        "script": "soffice.bin",
+        "period": 49356174,
+        "share_roi": 0.0007773963120802291
+      },
+      {
+        "tool": "libxstor.so",
+        "script": "soffice.bin",
+        "period": 46436839,
+        "share_roi": 0.0007314146226825312
+      },
+      {
+        "tool": "libpackage2.so",
+        "script": "soffice.bin",
+        "period": 42582166,
+        "share_roi": 0.0006707006667248584
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:thread-pool",
+        "period": 12498224,
+        "share_roi": 0.00019685628884347092
+      },
+      {
+        "tool": "libsqlite3.so.0.8.6",
+        "script": "soffice.bin",
+        "period": 6293631,
+        "share_roi": 9.912935165910154e-05
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 4133628,
+        "share_roi": 6.510770390572765e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:gpgconf",
+        "period": 3801052,
+        "share_roi": 5.9869385475972654e-05
+      },
+      {
+        "tool": "libc",
+        "script": "sh",
+        "period": 3375817,
+        "share_roi": 5.3171619138423144e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:ls",
+        "period": 3128694,
+        "share_roi": 4.927924877701299e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:sed",
+        "period": 2362210,
+        "share_roi": 3.720655783325178e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:bash",
+        "period": 2211178,
+        "share_roi": 3.482769192265464e-05
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:configmgrWriter",
+        "period": 2207730,
+        "share_roi": 3.4773383367780576e-05
+      },
+      {
+        "tool": "LibreOffice·Calc",
+        "script": "soffice.bin",
+        "period": 1967472,
+        "share_roi": 3.098914184314839e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:sh",
+        "period": 1587712,
+        "share_roi": 2.5007640451334916e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:libreoffice",
+        "period": 1327899,
+        "share_roi": 2.09153931869805e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:CUPSManager cup",
+        "period": 1297173,
+        "share_roi": 2.043143591985163e-05
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:sh",
+        "period": 1274361,
+        "share_roi": 2.0072130016781138e-05
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:ls",
+        "period": 998691,
+        "share_roi": 1.5730123252821747e-05
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 899440,
+        "share_roi": 1.4166846460534831e-05
+      },
+      {
+        "tool": "ls",
+        "script": "unknown:ls",
+        "period": 864453,
+        "share_roi": 1.3615775286121049e-05
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:sh",
+        "period": 671525,
+        "share_roi": 1.0577016331729357e-05
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:bash",
+        "period": 659645,
+        "share_roi": 1.0389897528973026e-05
+      },
+      {
+        "tool": "oosplash",
+        "script": "oosplash",
+        "period": 648237,
+        "share_roi": 1.0210213075955836e-05
+      },
+      {
+        "tool": "bash",
+        "script": "bash",
+        "period": 626260,
+        "share_roi": 9.864059041597597e-06
+      },
+      {
+        "tool": "loader",
+        "script": "bash",
+        "period": 610859,
+        "share_roi": 9.621481879876196e-06
+      },
+      {
+        "tool": "libc",
+        "script": "bash",
+        "period": 610775,
+        "share_roi": 9.620158817634485e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:gpgconf",
+        "period": 539075,
+        "share_roi": 8.490830689887946e-06
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:soffice",
+        "period": 519610,
+        "share_roi": 8.184242516853269e-06
+      },
+      {
+        "tool": "libselinux.so.1",
+        "script": "unknown:ls",
+        "period": 447724,
+        "share_roi": 7.051984751285796e-06
+      },
+      {
+        "tool": "libstdc++",
+        "script": "unknown:thread-pool",
+        "period": 435394,
+        "share_roi": 6.857778115091726e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:mkdir",
+        "period": 411639,
+        "share_roi": 6.483619263283929e-06
+      },
+      {
+        "tool": "loader",
+        "script": "sh",
+        "period": 335436,
+        "share_roi": 5.2833655489370735e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:grep",
+        "period": 290418,
+        "share_roi": 4.574298691825585e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:paperconf",
+        "period": 156803,
+        "share_roi": 2.469763436750915e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:sed",
+        "period": 125087,
+        "share_roi": 1.970212936059015e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:thread-pool",
+        "period": 19946,
+        "share_roi": 3.141642794425729e-07
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "unknown:soffice.bin",
+        "period": 12991,
+        "share_roi": 2.0461787597706128e-07
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:osl_executeProc",
+        "period": 2148,
+        "share_roi": 3.383259160947792e-08
+      },
+      {
+        "tool": "[vdso]",
+        "script": "soffice.bin",
+        "period": 774,
+        "share_roi": 1.2191073512912433e-08
+      },
+      {
+        "tool": "libstdc++",
+        "script": "soffice.bin",
+        "period": 774,
+        "share_roi": 1.2191073512912433e-08
+      },
+      {
+        "tool": "libscriptframe.so",
+        "script": "soffice.bin",
+        "period": 590,
+        "share_roi": 9.2929371739255e-09
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:javaldx",
+        "period": 446,
+        "share_roi": 7.024830473848767e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 67,
+        "share_roi": 1.0552996451745906e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:PipeIPC",
+        "period": 4,
+        "share_roi": 6.300296389102033e-11
+      },
+      {
+        "tool": "libc",
+        "script": "build_disaster_release_v1.py",
+        "period": 2,
+        "share_roi": 3.1501481945510166e-11
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:PipeIPC",
+        "period": 1,
+        "share_roi": 1.5750740972755083e-11
+      },
+      {
+        "tool": "libgpgme.so.11",
+        "script": "soffice.bin",
+        "period": 1,
+        "share_roi": 1.5750740972755083e-11
+      },
+      {
+        "tool": "libc",
+        "script": "taskset",
+        "period": 1,
+        "share_roi": 1.5750740972755083e-11
+      }
+    ],
+    "014-n1000": [
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 4724421408,
+        "share_roi": 0.05035213115119066
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 1760001519,
+        "share_roi": 0.018757815964706336
+      },
+      {
+        "tool": "Python",
+        "script": "build_disaster_release_variant.py",
+        "period": 888818060,
+        "share_roi": 0.009472881367204838
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 532178854,
+        "share_roi": 0.005671877493215006
+      },
+      {
+        "tool": "Python",
+        "script": "validate_disaster_release_variant.py",
+        "period": 386276622,
+        "share_roi": 0.004116874734893018
+      },
+      {
+        "tool": "lxml",
+        "script": "build_disaster_release_variant.py",
+        "period": 353805744,
+        "share_roi": 0.003770805287133393
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 282209736,
+        "share_roi": 0.0030077464332781407
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 188308478,
+        "share_roi": 0.0020069617763312578
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 162737246,
+        "share_roi": 0.00173442765708837
+      },
+      {
+        "tool": "Python",
+        "script": "recalc.py",
+        "period": 113581235,
+        "share_roi": 0.0012105307183965346
+      },
+      {
+        "tool": "libgcc_s-12",
+        "script": "soffice.bin",
+        "period": 86694864,
+        "share_roi": 0.0009239800570861011
+      },
+      {
+        "tool": "zlib",
+        "script": "pdftoppm",
+        "period": 59068109,
+        "share_roi": 0.0006295385009864948
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 59056403,
+        "share_roi": 0.0006294137403023065
+      },
+      {
+        "tool": "zlib",
+        "script": "soffice.bin",
+        "period": 58801151,
+        "share_roi": 0.0006266933051271462
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 47895286,
+        "share_roi": 0.0005104603323725744
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:thread-pool",
+        "period": 5355010,
+        "share_roi": 5.7072843963359144e-05
+      },
+      {
+        "tool": "LibreOffice·Calc",
+        "script": "unknown:thread-pool",
+        "period": 1751041,
+        "share_roi": 1.86623161798847e-05
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:bash",
+        "period": 1339386,
+        "share_roi": 1.4274962732974868e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:thread-pool",
+        "period": 928141,
+        "share_roi": 9.891979000785454e-06
+      },
+      {
+        "tool": "loader",
+        "script": "soffice.bin",
+        "period": 862900,
+        "share_roi": 9.196650810359385e-06
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 702691,
+        "share_roi": 7.489168796595487e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:gpgconf",
+        "period": 387584,
+        "share_roi": 4.130808561458259e-06
+      },
+      {
+        "tool": "oosplash",
+        "script": "oosplash",
+        "period": 359576,
+        "share_roi": 3.832303756849908e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:thread-pool",
+        "period": 3044,
+        "share_roi": 3.2442467338896705e-08
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 325,
+        "share_roi": 3.463798253988643e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 7,
+        "share_roi": 7.460488547052461e-11
+      }
+    ],
+    "014-n10000": [
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 37416279827,
+        "share_roi": 0.04123062068849525
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 10791498618,
+        "share_roi": 0.011891620124620325
+      },
+      {
+        "tool": "Python",
+        "script": "build_disaster_release_variant.py",
+        "period": 5545733428,
+        "share_roi": 0.00611108406465298
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 3896878144,
+        "share_roi": 0.004294138951478806
+      },
+      {
+        "tool": "lxml",
+        "script": "build_disaster_release_variant.py",
+        "period": 3827927378,
+        "share_roi": 0.0042181591134972714
+      },
+      {
+        "tool": "LibreOffice·Calc",
+        "script": "soffice.bin",
+        "period": 347814414,
+        "share_roi": 0.0003832717800896099
+      },
+      {
+        "tool": "Python",
+        "script": "recalc.py",
+        "period": 346992619,
+        "share_roi": 0.0003823662085553642
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 332690805,
+        "share_roi": 0.00036660641974370643
+      },
+      {
+        "tool": "libm",
+        "script": "soffice.bin",
+        "period": 288701522,
+        "share_roi": 0.0003181327219277338
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 236175150,
+        "share_roi": 0.00026025163567094326
+      },
+      {
+        "tool": "libm",
+        "script": "build_disaster_release_variant.py",
+        "period": 235885297,
+        "share_roi": 0.00025993223408549225
+      },
+      {
+        "tool": "libi18nlangtag.so",
+        "script": "soffice.bin",
+        "period": 167700459,
+        "share_roi": 0.00018479640536914218
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 145928848,
+        "share_roi": 0.00016080532343718828
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:thread-pool",
+        "period": 140195373,
+        "share_roi": 0.00015448735879599525
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 135697993,
+        "share_roi": 0.00014953150081841468
+      },
+      {
+        "tool": "zlib",
+        "script": "pdftoppm",
+        "period": 118075338,
+        "share_roi": 0.0001301123333547136
+      },
+      {
+        "tool": "Python",
+        "script": "validate_disaster_release_variant.py",
+        "period": 117468708,
+        "share_roi": 0.00012944386146109113
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 99498683,
+        "share_roi": 0.0001096419119363518
+      },
+      {
+        "tool": "Python",
+        "script": "finalize_disaster_release_variant_ooxml.py",
+        "period": 60010755,
+        "share_roi": 6.612845232277078e-05
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 58916378,
+        "share_roi": 6.49225108666495e-05
+      },
+      {
+        "tool": "XML 组件",
+        "script": "unknown:Parser",
+        "period": 57976673,
+        "share_roi": 6.38870091921585e-05
+      },
+      {
+        "tool": "libicuuc.so.77",
+        "script": "soffice.bin",
+        "period": 57904487,
+        "share_roi": 6.380746430958918e-05
+      },
+      {
+        "tool": "libplds4.so",
+        "script": "soffice.bin",
+        "period": 55478624,
+        "share_roi": 6.113430071187951e-05
+      },
+      {
+        "tool": "libcomphelper.so",
+        "script": "soffice.bin",
+        "period": 53753125,
+        "share_roi": 5.923289856563941e-05
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 46226029,
+        "share_roi": 5.093846519340607e-05
+      },
+      {
+        "tool": "loader",
+        "script": "soffice.bin",
+        "period": 40455946,
+        "share_roi": 4.458016061010379e-05
+      },
+      {
+        "tool": "LibreOffice·Calc",
+        "script": "unknown:thread-pool",
+        "period": 6163902,
+        "share_roi": 6.792270810944329e-06
+      },
+      {
+        "tool": "libpackage2.so",
+        "script": "soffice.bin",
+        "period": 1659877,
+        "share_roi": 1.8290904198116452e-06
+      },
+      {
+        "tool": "loader",
+        "script": "oosplash",
+        "period": 1010493,
+        "share_roi": 1.1135060402588439e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:bash",
+        "period": 655385,
+        "share_roi": 7.221971415883557e-07
+      },
+      {
+        "tool": "libc",
+        "script": "bash",
+        "period": 616801,
+        "share_roi": 6.796797594220793e-07
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:configmgrWriter",
+        "period": 545965,
+        "share_roi": 6.016225003735005e-07
+      },
+      {
+        "tool": "libc",
+        "script": "sh",
+        "period": 526437,
+        "share_roi": 5.801037506600689e-07
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:ls",
+        "period": 381755,
+        "share_roi": 4.206723830833216e-07
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:thread-pool",
+        "period": 2614,
+        "share_roi": 2.880479913504218e-09
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 806,
+        "share_roi": 8.881663390529456e-10
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 6,
+        "share_roi": 6.61166009220555e-12
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 3,
+        "share_roi": 3.305830046102775e-12
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "javaldx",
+        "period": 2,
+        "share_roi": 2.20388669740185e-12
+      }
+    ],
+    "021": [
+      {
+        "tool": "ImageMagick",
+        "script": "montage",
+        "period": 12256573961,
+        "share_roi": 0.10586523025434309
+      },
+      {
+        "tool": "LibreOffice·VCL",
+        "script": "soffice.bin",
+        "period": 10346002842,
+        "share_roi": 0.08936281676801101
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 9277512388,
+        "share_roi": 0.08013381131369655
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 7870243140,
+        "share_roi": 0.06797862965824958
+      },
+      {
+        "tool": "JPEG",
+        "script": "pdftoppm",
+        "period": 3194420331,
+        "share_roi": 0.027591563918803155
+      },
+      {
+        "tool": "JPEG",
+        "script": "montage",
+        "period": 2824381996,
+        "share_roi": 0.024395385797383606
+      },
+      {
+        "tool": "Python",
+        "script": "validate_public_shelter_briefing.py",
+        "period": 2794298430,
+        "share_roi": 0.024135541272184667
+      },
+      {
+        "tool": "Python",
+        "script": "build_public_shelter_briefing.py",
+        "period": 2726763968,
+        "share_roi": 0.023552217466324823
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 2291897795,
+        "share_roi": 0.019796093799061946
+      },
+      {
+        "tool": "LibreOffice·VCL",
+        "script": "unknown:thread-pool",
+        "period": 1534925969,
+        "share_roi": 0.013257806924562293
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 926896302,
+        "share_roi": 0.008005996679444273
+      },
+      {
+        "tool": "LibreOffice·OOXML",
+        "script": "soffice.bin",
+        "period": 843578603,
+        "share_roi": 0.007286346358158453
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 486174442,
+        "share_roi": 0.004199294958760848
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 271440566,
+        "share_roi": 0.0023445473516005826
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 264357828,
+        "share_roi": 0.002283370738006354
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 222328418,
+        "share_roi": 0.0019203448890813442
+      },
+      {
+        "tool": "libm",
+        "script": "soffice.bin",
+        "period": 183577421,
+        "share_roi": 0.0015856360843987305
+      },
+      {
+        "tool": "lxml",
+        "script": "build_public_shelter_briefing.py",
+        "period": 175768746,
+        "share_roi": 0.0015181892448914785
+      },
+      {
+        "tool": "libcomphelper.so",
+        "script": "soffice.bin",
+        "period": 153129835,
+        "share_roi": 0.0013226473639915864
+      },
+      {
+        "tool": "libucpfile1.so",
+        "script": "soffice.bin",
+        "period": 118646327,
+        "share_roi": 0.0010247986726677643
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "montage",
+        "period": 114676169,
+        "share_roi": 0.000990506733325375
+      },
+      {
+        "tool": "libi18nlangtag.so",
+        "script": "soffice.bin",
+        "period": 109390545,
+        "share_roi": 0.0009448525559362942
+      },
+      {
+        "tool": "zlib",
+        "script": "soffice.bin",
+        "period": 61966860,
+        "share_roi": 0.0005352340648302512
+      },
+      {
+        "tool": "libucb1.so",
+        "script": "soffice.bin",
+        "period": 60674374,
+        "share_roi": 0.0005240703147948905
+      },
+      {
+        "tool": "lxml",
+        "script": "validate_public_shelter_briefing.py",
+        "period": 58517606,
+        "share_roi": 0.0005054413943762052
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "build_public_shelter_briefing.py",
+        "period": 57740297,
+        "share_roi": 0.0004987274466999935
+      },
+      {
+        "tool": "libfreetype",
+        "script": "montage",
+        "period": 57387604,
+        "share_roi": 0.0004956810875972864
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 56564607,
+        "share_roi": 0.000488572513277834
+      },
+      {
+        "tool": "libstdc++",
+        "script": "soffice.bin",
+        "period": 55326650,
+        "share_roi": 0.0004778797533543029
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:Parser",
+        "period": 6361045,
+        "share_roi": 5.4943044910104294e-05
+      },
+      {
+        "tool": "libicuuc.so.77",
+        "script": "soffice.bin",
+        "period": 6298196,
+        "share_roi": 5.4400191427766855e-05
+      },
+      {
+        "tool": "libgomp.so.1.0.0",
+        "script": "montage",
+        "period": 5222740,
+        "share_roi": 4.5111021596891405e-05
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 4042280,
+        "share_roi": 3.491488766063067e-05
+      },
+      {
+        "tool": "loader",
+        "script": "soffice.bin",
+        "period": 3961846,
+        "share_roi": 3.422014507127635e-05
+      },
+      {
+        "tool": "libsqlite3.so.0.8.6",
+        "script": "soffice.bin",
+        "period": 3584341,
+        "share_roi": 3.095947419584803e-05
+      },
+      {
+        "tool": "XML 组件",
+        "script": "unknown:Parser",
+        "period": 3152722,
+        "share_roi": 2.7231397739691172e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:gpgconf",
+        "period": 2567837,
+        "share_roi": 2.2179497804657487e-05
+      },
+      {
+        "tool": "libc",
+        "script": "bash",
+        "period": 2279129,
+        "share_roi": 1.9685804298337945e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:sed",
+        "period": 1415458,
+        "share_roi": 1.2225911381285057e-05
+      },
+      {
+        "tool": "libstdc++",
+        "script": "unknown:thread-pool",
+        "period": 984177,
+        "share_roi": 8.500754374555078e-06
+      },
+      {
+        "tool": "loader",
+        "script": "sh",
+        "period": 905101,
+        "share_roi": 7.817741407454327e-06
+      },
+      {
+        "tool": "libc",
+        "script": "gpgconf",
+        "period": 862121,
+        "share_roi": 7.446504909326066e-06
+      },
+      {
+        "tool": "libselinux.so.1",
+        "script": "unknown:ls",
+        "period": 513521,
+        "share_roi": 4.435498784442127e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:paperconf",
+        "period": 335795,
+        "share_roi": 2.9004039062117106e-06
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:thread-pool",
+        "period": 261699,
+        "share_roi": 2.260405312323586e-06
+      },
+      {
+        "tool": "loader",
+        "script": "pdftoppm",
+        "period": 226694,
+        "share_roi": 1.9580522733059084e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:gpg",
+        "period": 181096,
+        "share_roi": 1.5642029982558286e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:thread-pool",
+        "period": 150579,
+        "share_roi": 1.3006147196755556e-06
+      },
+      {
+        "tool": "[vdso]",
+        "script": "soffice.bin",
+        "period": 33688,
+        "share_roi": 2.909775511620486e-07
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:PipeIPC",
+        "period": 777,
+        "share_roi": 6.711278712090708e-09
+      },
+      {
+        "tool": "bash",
+        "script": "bash",
+        "period": 433,
+        "share_roi": 3.74000473917024e-09
+      },
+      {
+        "tool": "Python",
+        "script": "soffice.py",
+        "period": 317,
+        "share_roi": 2.7380635157435704e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 13,
+        "share_roi": 1.1228651641850605e-10
+      },
+      {
+        "tool": "libcomphelper.so",
+        "script": "unknown:thread-pool",
+        "period": 4,
+        "share_roi": 3.454969735954032e-11
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:soffice.bin",
+        "period": 4,
+        "share_roi": 3.454969735954032e-11
+      },
+      {
+        "tool": "libc",
+        "script": "montage",
+        "period": 1,
+        "share_roi": 8.63742433988508e-12
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:javaldx",
+        "period": 1,
+        "share_roi": 8.63742433988508e-12
+      }
+    ],
+    "021-g5": [
+      {
+        "tool": "ImageMagick",
+        "script": "montage",
+        "period": 5762242838,
+        "share_roi": 0.12816766475205355
+      },
+      {
+        "tool": "LibreOffice·VCL",
+        "script": "soffice.bin",
+        "period": 5065359514,
+        "share_roi": 0.1126671190873155
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 3554419946,
+        "share_roi": 0.07905978918879784
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 2308958910,
+        "share_roi": 0.05135741061649907
+      },
+      {
+        "tool": "JPEG",
+        "script": "pdftoppm",
+        "period": 1326141290,
+        "share_roi": 0.029496922821386967
+      },
+      {
+        "tool": "JPEG",
+        "script": "montage",
+        "period": 1070830925,
+        "share_roi": 0.02381813867621859
+      },
+      {
+        "tool": "LibreOffice·VCL",
+        "script": "unknown:thread-pool",
+        "period": 705991815,
+        "share_roi": 0.015703142822425735
+      },
+      {
+        "tool": "Python",
+        "script": "validate_public_shelter_briefing_variant.py",
+        "period": 700038999,
+        "share_roi": 0.015570736301758608
+      },
+      {
+        "tool": "Python",
+        "script": "build_public_shelter_briefing_variant.py",
+        "period": 383646022,
+        "share_roi": 0.008533311787363265
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 309828249,
+        "share_roi": 0.006891407437165661
+      },
+      {
+        "tool": "lxml",
+        "script": "build_public_shelter_briefing_variant.py",
+        "period": 177723820,
+        "share_roi": 0.003953052243823936
+      },
+      {
+        "tool": "LibreOffice·OOXML",
+        "script": "soffice.bin",
+        "period": 154525813,
+        "share_roi": 0.0034370666341088547
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 108554826,
+        "share_roi": 0.0024145491498957033
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 105500075,
+        "share_roi": 0.0023466033320820113
+      },
+      {
+        "tool": "libm",
+        "script": "soffice.bin",
+        "period": 61317342,
+        "share_roi": 0.0013638613911090799
+      },
+      {
+        "tool": "libm",
+        "script": "pdftoppm",
+        "period": 56287549,
+        "share_roi": 0.0012519853662485972
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 46426402,
+        "share_roi": 0.00103264712968004
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 7439458,
+        "share_roi": 0.00016547340778368333
+      },
+      {
+        "tool": "libgomp.so.1.0.0",
+        "script": "montage",
+        "period": 3471144,
+        "share_roi": 7.72075098196516e-05
+      },
+      {
+        "tool": "loader",
+        "script": "soffice.bin",
+        "period": 2211653,
+        "share_roi": 4.9193067390797364e-05
+      },
+      {
+        "tool": "libicuuc.so.77",
+        "script": "soffice.bin",
+        "period": 2124491,
+        "share_roi": 4.725435180570482e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:thread-pool",
+        "period": 1659433,
+        "share_roi": 3.6910220273936756e-05
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:Parser",
+        "period": 1386394,
+        "share_roi": 3.083710395446172e-05
+      },
+      {
+        "tool": "libsqlite3.so.0.8.6",
+        "script": "soffice.bin",
+        "period": 798364,
+        "share_roi": 1.7757746832069294e-05
+      },
+      {
+        "tool": "libc",
+        "script": "montage",
+        "period": 748180,
+        "share_roi": 1.664152069083476e-05
+      },
+      {
+        "tool": "libcomphelper.so",
+        "script": "soffice.bin",
+        "period": 656115,
+        "share_roi": 1.4593749295713664e-05
+      },
+      {
+        "tool": "libc",
+        "script": "gpgconf",
+        "period": 525203,
+        "share_roi": 1.1681916906878677e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:ls",
+        "period": 487957,
+        "share_roi": 1.085346642751431e-05
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 343812,
+        "share_roi": 7.647296789218211e-06
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:thread-pool",
+        "period": 15346,
+        "share_roi": 3.4133601074814915e-07
+      },
+      {
+        "tool": "[vdso]",
+        "script": "soffice.bin",
+        "period": 10432,
+        "share_roi": 2.32035531351798e-07
+      },
+      {
+        "tool": "libstdc++",
+        "script": "soffice.bin",
+        "period": 2231,
+        "share_roi": 4.9623396323414624e-08
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 650,
+        "share_roi": 1.445773536988772e-08
+      },
+      {
+        "tool": "zlib",
+        "script": "soffice.bin",
+        "period": 523,
+        "share_roi": 1.1632916305309658e-08
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:configmgrWriter",
+        "period": 515,
+        "share_roi": 1.145497494691104e-08
+      },
+      {
+        "tool": "libstdc++",
+        "script": "montage",
+        "period": 470,
+        "share_roi": 1.0454054805918813e-08
+      },
+      {
+        "tool": "lxml",
+        "script": "validate_public_shelter_briefing_variant.py",
+        "period": 334,
+        "share_roi": 7.429051713142306e-09
+      },
+      {
+        "tool": "libstdc++",
+        "script": "unknown:thread-pool",
+        "period": 72,
+        "share_roi": 1.6014722255875629e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 1,
+        "share_roi": 2.2242669799827264e-11
+      },
+      {
+        "tool": "loader",
+        "script": "montage",
+        "period": 1,
+        "share_roi": 2.2242669799827264e-11
+      }
+    ],
+    "021-g10": [
+      {
+        "tool": "ImageMagick",
+        "script": "montage",
+        "period": 10462343813,
+        "share_roi": 0.11509359295913023
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 7201245503,
+        "share_roi": 0.07921907686604611
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 6934933927,
+        "share_roi": 0.07628945070614461
+      },
+      {
+        "tool": "LibreOffice·VCL",
+        "script": "soffice.bin",
+        "period": 5955343061,
+        "share_roi": 0.06551321983349875
+      },
+      {
+        "tool": "JPEG",
+        "script": "montage",
+        "period": 4373689672,
+        "share_roi": 0.048113851717742226
+      },
+      {
+        "tool": "JPEG",
+        "script": "pdftoppm",
+        "period": 2403035372,
+        "share_roi": 0.02643518315921741
+      },
+      {
+        "tool": "LibreOffice·VCL",
+        "script": "unknown:thread-pool",
+        "period": 1536676931,
+        "share_roi": 0.016904593499062776
+      },
+      {
+        "tool": "Python",
+        "script": "validate_public_shelter_briefing_variant.py",
+        "period": 1242451944,
+        "share_roi": 0.013667898978461535
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "montage",
+        "period": 865939284,
+        "share_roi": 0.009525978620218822
+      },
+      {
+        "tool": "LibreOffice·OOXML",
+        "script": "soffice.bin",
+        "period": 479138964,
+        "share_roi": 0.005270886321376079
+      },
+      {
+        "tool": "Python",
+        "script": "build_public_shelter_briefing_variant.py",
+        "period": 356611968,
+        "share_roi": 0.003922997888708972
+      },
+      {
+        "tool": "lxml",
+        "script": "build_public_shelter_briefing_variant.py",
+        "period": 290484074,
+        "share_roi": 0.0031955416846962937
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 177210613,
+        "share_roi": 0.0019494490455682705
+      },
+      {
+        "tool": "libi18nlangtag.so",
+        "script": "soffice.bin",
+        "period": 160859000,
+        "share_roi": 0.0017695690947193239
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 116860760,
+        "share_roi": 0.0012855556063472492
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 115072384,
+        "share_roi": 0.0012658821351747456
+      },
+      {
+        "tool": "libicuuc.so.77",
+        "script": "soffice.bin",
+        "period": 113209266,
+        "share_roi": 0.0012453864462010776
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 101271479,
+        "share_roi": 0.0011140618766430042
+      },
+      {
+        "tool": "lxml",
+        "script": "validate_public_shelter_briefing_variant.py",
+        "period": 56547841,
+        "share_roi": 0.000622068468700553
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 55676028,
+        "share_roi": 0.0006124778748191131
+      },
+      {
+        "tool": "libstdc++",
+        "script": "soffice.bin",
+        "period": 54872515,
+        "share_roi": 0.0006036386319293451
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 54547355,
+        "share_roi": 0.0006000616291701651
+      },
+      {
+        "tool": "loader",
+        "script": "soffice.bin",
+        "period": 7374322,
+        "share_roi": 8.112304754915046e-05
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:Parser",
+        "period": 7038869,
+        "share_roi": 7.743281410538368e-05
+      },
+      {
+        "tool": "libgomp.so.1.0.0",
+        "script": "montage",
+        "period": 5860738,
+        "share_roi": 6.447249353189527e-05
+      },
+      {
+        "tool": "zlib",
+        "script": "soffice.bin",
+        "period": 2208656,
+        "share_roi": 2.4296864946732248e-05
+      },
+      {
+        "tool": "XML 组件",
+        "script": "unknown:Parser",
+        "period": 1240198,
+        "share_roi": 1.3643103911703516e-05
+      },
+      {
+        "tool": "libsqlite3.so.0.8.6",
+        "script": "soffice.bin",
+        "period": 885193,
+        "share_roi": 9.73778387073078e-06
+      },
+      {
+        "tool": "libm",
+        "script": "soffice.bin",
+        "period": 873241,
+        "share_roi": 9.606302947561511e-06
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 780768,
+        "share_roi": 8.589030908720165e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:sed",
+        "period": 493961,
+        "share_roi": 5.433939783267656e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:thread-pool",
+        "period": 478973,
+        "share_roi": 5.26906059347005e-06
+      },
+      {
+        "tool": "loader",
+        "script": "montage",
+        "period": 455960,
+        "share_roi": 5.015900412337655e-06
+      },
+      {
+        "tool": "[vdso]",
+        "script": "soffice.bin",
+        "period": 22067,
+        "share_roi": 2.427534748641439e-07
+      },
+      {
+        "tool": "libcomphelper.so",
+        "script": "soffice.bin",
+        "period": 22034,
+        "share_roi": 2.4239045022687934e-07
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:thread-pool",
+        "period": 13674,
+        "share_roi": 1.5042420878652754e-07
+      },
+      {
+        "tool": "libstdc++",
+        "script": "unknown:thread-pool",
+        "period": 208,
+        "share_roi": 2.2881552894250205e-09
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 2,
+        "share_roi": 2.2001493167548274e-11
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 1,
+        "share_roi": 1.1000746583774137e-11
+      }
+    ],
+    "003": [
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 4820020182,
+        "share_roi": 0.09051067110038435
+      },
+      {
+        "tool": "Python",
+        "script": "audit_public_packet.py",
+        "period": 3312971323,
+        "share_roi": 0.062211203783100306
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 2990794050,
+        "share_roi": 0.056161336751128256
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 913131401,
+        "share_roi": 0.01714684436716414
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 760148979,
+        "share_roi": 0.014274129905616642
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 655523169,
+        "share_roi": 0.012309459236210449
+      },
+      {
+        "tool": "Python",
+        "script": "build_public_packet.py",
+        "period": 318946500,
+        "share_roi": 0.005989199353962112
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 308362510,
+        "share_roi": 0.005790452460453822
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 238792292,
+        "share_roi": 0.004484058113124088
+      },
+      {
+        "tool": "lxml",
+        "script": "audit_public_packet.py",
+        "period": 177581286,
+        "share_roi": 0.003334633624720638
+      },
+      {
+        "tool": "LibreOffice·Writer",
+        "script": "soffice.bin",
+        "period": 119205727,
+        "share_roi": 0.0022384533554592506
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 119013650,
+        "share_roi": 0.002234846520318213
+      },
+      {
+        "tool": "lxml",
+        "script": "build_public_packet.py",
+        "period": 116188668,
+        "share_roi": 0.00218179881366724
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 74978093,
+        "share_roi": 0.0014079437967085737
+      },
+      {
+        "tool": "zlib",
+        "script": "build_public_packet.py",
+        "period": 58519817,
+        "share_roi": 0.001098889155925464
+      },
+      {
+        "tool": "libsqlite3.so.0.8.6",
+        "script": "soffice.bin",
+        "period": 58317335,
+        "share_roi": 0.0010950869349774712
+      },
+      {
+        "tool": "liblangtag-lo.so.1",
+        "script": "soffice.bin",
+        "period": 56992265,
+        "share_roi": 0.001070204679213716
+      },
+      {
+        "tool": "libucpfile1.so",
+        "script": "soffice.bin",
+        "period": 45854826,
+        "share_roi": 0.0008610650822481044
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 3090894,
+        "share_roi": 5.804102050960072e-05
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:bash",
+        "period": 2781076,
+        "share_roi": 5.222323675763657e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:bash",
+        "period": 1791936,
+        "share_roi": 3.3649097681088996e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:ls",
+        "period": 1791023,
+        "share_roi": 3.363195330417886e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:gpgconf",
+        "period": 1559208,
+        "share_roi": 2.927891526100006e-05
+      },
+      {
+        "tool": "libc",
+        "script": "sh",
+        "period": 1341010,
+        "share_roi": 2.5181578182098663e-05
+      },
+      {
+        "tool": "libc",
+        "script": "bash",
+        "period": 567075,
+        "share_roi": 1.064857342422025e-05
+      },
+      {
+        "tool": "oosplash",
+        "script": "oosplash",
+        "period": 481523,
+        "share_roi": 9.042072073272156e-06
+      },
+      {
+        "tool": "Python",
+        "script": "render_docx.py",
+        "period": 410431,
+        "share_roi": 7.707101598688254e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:sed",
+        "period": 388326,
+        "share_roi": 7.292012385546451e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:sed",
+        "period": 377261,
+        "share_roi": 7.084233053114238e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:gpgconf",
+        "period": 333057,
+        "share_roi": 6.254167295244058e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:pdftoppm",
+        "period": 332866,
+        "share_roi": 6.250580684083231e-06
+      },
+      {
+        "tool": "loader",
+        "script": "gpgconf",
+        "period": 321780,
+        "share_roi": 6.042407012204016e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:uname",
+        "period": 217001,
+        "share_roi": 4.074859730422287e-06
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:osl_executeProc",
+        "period": 1665,
+        "share_roi": 3.1265484726582405e-08
+      },
+      {
+        "tool": "libstdc++",
+        "script": "oosplash",
+        "period": 726,
+        "share_roi": 1.363287802492422e-08
+      },
+      {
+        "tool": "Python",
+        "script": "unknown:python3",
+        "period": 673,
+        "share_roi": 1.2637640372966943e-08
+      },
+      {
+        "tool": "loader",
+        "script": "render_docx.py",
+        "period": 370,
+        "share_roi": 6.9478854947960904e-09
+      },
+      {
+        "tool": "libc",
+        "script": "build_public_packet.py",
+        "period": 358,
+        "share_roi": 6.722548667937839e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 32,
+        "share_roi": 6.008982049553376e-10
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:PipeIPC",
+        "period": 2,
+        "share_roi": 3.75561378097086e-11
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:PipeIPC",
+        "period": 1,
+        "share_roi": 1.87780689048543e-11
+      }
+    ],
+    "003-u100": [
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 60888628094,
+        "share_roi": 0.20494133978260268
+      },
+      {
+        "tool": "Python",
+        "script": "validate_public_packet_variant.py",
+        "period": 3039081833,
+        "share_roi": 0.010229061190251425
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 2740924231,
+        "share_roi": 0.009225510603992291
+      },
+      {
+        "tool": "Python",
+        "script": "build_public_packet_variant.py",
+        "period": 2069032239,
+        "share_roi": 0.00696403010525117
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 882961903,
+        "share_roi": 0.002971907908623875
+      },
+      {
+        "tool": "lxml",
+        "script": "build_public_packet_variant.py",
+        "period": 520346093,
+        "share_roi": 0.0017514013501081194
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 499589756,
+        "share_roi": 0.001681538854484271
+      },
+      {
+        "tool": "libi18nlangtag.so",
+        "script": "soffice.bin",
+        "period": 264712319,
+        "share_roi": 0.0008909791370084357
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 228887650,
+        "share_roi": 0.000770399056754472
+      },
+      {
+        "tool": "lxml",
+        "script": "validate_public_packet_variant.py",
+        "period": 176464590,
+        "share_roi": 0.000593951459096044
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 144471505,
+        "share_roi": 0.0004862678750028626
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 137795880,
+        "share_roi": 0.00046379879376039906
+      },
+      {
+        "tool": "LibreOffice·Writer",
+        "script": "soffice.bin",
+        "period": 104703410,
+        "share_roi": 0.0003524148563846793
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 60065367,
+        "share_roi": 0.00020217037520552631
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "validate_public_packet_variant.py",
+        "period": 58897736,
+        "share_roi": 0.00019824031685140682
+      },
+      {
+        "tool": "zlib",
+        "script": "pdftoppm",
+        "period": 58893469,
+        "share_roi": 0.00019822595481494408
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 58822048,
+        "share_roi": 0.0001979855632034593
+      },
+      {
+        "tool": "libcomphelper.so",
+        "script": "soffice.bin",
+        "period": 57581185,
+        "share_roi": 0.00019380901770281073
+      },
+      {
+        "tool": "libtasn1.so.6.6.3",
+        "script": "soffice.bin",
+        "period": 57406164,
+        "share_roi": 0.00019321992513572718
+      },
+      {
+        "tool": "libicuuc.so.77",
+        "script": "soffice.bin",
+        "period": 56644436,
+        "share_roi": 0.00019065607106713293
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 55576934,
+        "share_roi": 0.00018706303084026394
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 53431499,
+        "share_roi": 0.00017984184131637293
+      },
+      {
+        "tool": "Python",
+        "script": "render_docx.py",
+        "period": 52383117,
+        "share_roi": 0.00017631315593768008
+      },
+      {
+        "tool": "libfreetype",
+        "script": "soffice.bin",
+        "period": 42940618,
+        "share_roi": 0.0001445312213378664
+      },
+      {
+        "tool": "libsqlite3.so.0.8.6",
+        "script": "soffice.bin",
+        "period": 937495,
+        "share_roi": 3.1554575518252455e-06
+      },
+      {
+        "tool": "loader",
+        "script": "pdftoppm",
+        "period": 779815,
+        "share_roi": 2.624732004732403e-06
+      },
+      {
+        "tool": "loader",
+        "script": "soffice.bin",
+        "period": 768358,
+        "share_roi": 2.5861695834168095e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:gpgconf",
+        "period": 735523,
+        "share_roi": 2.475652248695897e-06
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:bash",
+        "period": 582930,
+        "share_roi": 1.9620487263243966e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:sh",
+        "period": 555026,
+        "share_roi": 1.8681283453878246e-06
+      },
+      {
+        "tool": "libc",
+        "script": "sh",
+        "period": 507479,
+        "share_roi": 1.708092782300411e-06
+      },
+      {
+        "tool": "loader",
+        "script": "gpgconf",
+        "period": 354246,
+        "share_roi": 1.1923351227514664e-06
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:configmgrWriter",
+        "period": 103720,
+        "share_roi": 3.4910485631956913e-07
+      },
+      {
+        "tool": "libsofficeapp.so",
+        "script": "soffice.bin",
+        "period": 589,
+        "share_roi": 1.98247937111672e-09
+      },
+      {
+        "tool": "oosplash",
+        "script": "oosplash",
+        "period": 321,
+        "share_roi": 1.0804344280619138e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 9,
+        "share_roi": 3.0292554057810665e-11
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 4,
+        "share_roi": 1.3463357359026963e-11
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "unknown:PipeIPC",
+        "period": 3,
+        "share_roi": 1.0097518019270222e-11
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:PipeIPC",
+        "period": 1,
+        "share_roi": 3.3658393397567407e-12
+      }
+    ],
+    "003-u500": [
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 106084780902,
+        "share_roi": 0.22117100691147087
+      },
+      {
+        "tool": "Python",
+        "script": "validate_public_packet_variant.py",
+        "period": 11756344037,
+        "share_roi": 0.02451023064904059
+      },
+      {
+        "tool": "LibreOffice·其他组件",
+        "script": "soffice.bin",
+        "period": 5491017709,
+        "share_roi": 0.011447956109652973
+      },
+      {
+        "tool": "lxml",
+        "script": "build_public_packet_variant.py",
+        "period": 1273897316,
+        "share_roi": 0.0026558866378940545
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 1119821265,
+        "share_roi": 0.002334660963005842
+      },
+      {
+        "tool": "Python",
+        "script": "build_public_packet_variant.py",
+        "period": 940395810,
+        "share_roi": 0.0019605855469991083
+      },
+      {
+        "tool": "LibreOffice·Writer",
+        "script": "soffice.bin",
+        "period": 879754149,
+        "share_roi": 0.0018341566934904783
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 353534479,
+        "share_roi": 0.0007370668632533144
+      },
+      {
+        "tool": "lxml",
+        "script": "validate_public_packet_variant.py",
+        "period": 349360961,
+        "share_roi": 0.0007283656982928488
+      },
+      {
+        "tool": "pixman",
+        "script": "soffice.bin",
+        "period": 184478017,
+        "share_roi": 0.00038460925710553283
+      },
+      {
+        "tool": "安全／加密组件",
+        "script": "soffice.bin",
+        "period": 170053515,
+        "share_roi": 0.0003545363135182366
+      },
+      {
+        "tool": "zlib",
+        "script": "pdftoppm",
+        "period": 117778864,
+        "share_roi": 0.0002455514327529528
+      },
+      {
+        "tool": "XML 组件",
+        "script": "soffice.bin",
+        "period": 91897464,
+        "share_roi": 0.0001915925590143483
+      },
+      {
+        "tool": "p11-kit-trust.so",
+        "script": "soffice.bin",
+        "period": 90849294,
+        "share_roi": 0.00018940728029346793
+      },
+      {
+        "tool": "libc",
+        "script": "pdftoppm",
+        "period": 58913142,
+        "share_roi": 0.0001228251482038251
+      },
+      {
+        "tool": "libstdc++",
+        "script": "soffice.bin",
+        "period": 58503280,
+        "share_roi": 0.00012197064682800107
+      },
+      {
+        "tool": "libgcc_s-12",
+        "script": "soffice.bin",
+        "period": 58349653,
+        "share_roi": 0.00012165035735773129
+      },
+      {
+        "tool": "libi18nlangtag.so",
+        "script": "soffice.bin",
+        "period": 57025650,
+        "share_roi": 0.00011889000781301833
+      },
+      {
+        "tool": "libicuuc.so.77",
+        "script": "soffice.bin",
+        "period": 52777597,
+        "share_roi": 0.0001100334484513957
+      },
+      {
+        "tool": "cairo",
+        "script": "soffice.bin",
+        "period": 48388033,
+        "share_roi": 0.00010088185967940022
+      },
+      {
+        "tool": "libfontconfig",
+        "script": "soffice.bin",
+        "period": 939441,
+        "share_roi": 1.95859491000751e-06
+      },
+      {
+        "tool": "libc",
+        "script": "sh",
+        "period": 674811,
+        "share_roi": 1.4068806767184718e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:sed",
+        "period": 421340,
+        "share_roi": 8.784313005101589e-07
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:gpgconf",
+        "period": 389243,
+        "share_roi": 8.115138242380876e-07
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:paperconf",
+        "period": 348979,
+        "share_roi": 7.275693663567066e-07
+      },
+      {
+        "tool": "libc",
+        "script": "soffice.bin",
+        "period": 623,
+        "share_roi": 1.2988624394024517e-09
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 604,
+        "share_roi": 1.2592502622778183e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 3,
+        "share_roi": 6.254554282836846e-12
+      },
+      {
+        "tool": "Python",
+        "script": "render_docx.py",
+        "period": 2,
+        "share_roi": 4.169702855224564e-12
+      }
+    ],
+    "037": [
+      {
+        "tool": "Python",
+        "script": "build_bus_detour_packet.py",
+        "period": 6223622717,
+        "share_roi": 0.11024836665741103
+      },
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 5797867418,
+        "share_roi": 0.10270632427391742
+      },
+      {
+        "tool": "Python",
+        "script": "validate_bus_detour_packet.py",
+        "period": 2901827485,
+        "share_roi": 0.0514044239328579
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 177454317,
+        "share_roi": 0.0031435145565807997
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 177127053,
+        "share_roi": 0.0031377172383456795
+      },
+      {
+        "tool": "libc",
+        "script": "validate_bus_detour_packet.py",
+        "period": 48134330,
+        "share_roi": 0.000852675604540316
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:grep",
+        "period": 5452814,
+        "share_roi": 9.659387538781362e-05
+      },
+      {
+        "tool": "bash",
+        "script": "bash",
+        "period": 2909899,
+        "share_roi": 5.1547406787967365e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:df",
+        "period": 1933268,
+        "share_roi": 3.424687661879677e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:cat",
+        "period": 1878833,
+        "share_roi": 3.3282587793479116e-05
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:grepconf.sh",
+        "period": 1705524,
+        "share_roi": 3.021250545625166e-05
+      },
+      {
+        "tool": "libc",
+        "script": "bash",
+        "period": 1198729,
+        "share_roi": 2.1234885262867657e-05
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:grepconf.sh",
+        "period": 811511,
+        "share_roi": 1.4375511875123563e-05
+      },
+      {
+        "tool": "bash",
+        "script": "sh",
+        "period": 445809,
+        "share_roi": 7.897283676422084e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:uname",
+        "period": 426204,
+        "share_roi": 7.549990897504979e-06
+      },
+      {
+        "tool": "libc",
+        "script": "sh",
+        "period": 399347,
+        "share_roi": 7.074232562214154e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:whoami",
+        "period": 363096,
+        "share_roi": 6.432064210848486e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:mkdir",
+        "period": 336854,
+        "share_roi": 5.967200293258961e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:users",
+        "period": 272683,
+        "share_roi": 4.830443092754526e-06
+      },
+      {
+        "tool": "loader",
+        "script": "unknown:awk",
+        "period": 244510,
+        "share_roi": 4.331372475032948e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:awk",
+        "period": 223553,
+        "share_roi": 3.960129691673308e-06
+      },
+      {
+        "tool": "loader",
+        "script": "awk",
+        "period": 183925,
+        "share_roi": 3.258139472702282e-06
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:bash",
+        "period": 4398,
+        "share_roi": 7.790837243955218e-08
+      },
+      {
+        "tool": "grep",
+        "script": "unknown:grep",
+        "period": 929,
+        "share_roi": 1.645677080408003e-08
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 18,
+        "share_roi": 3.188610058917552e-10
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:id",
+        "period": 1,
+        "share_roi": 1.7714500327319733e-11
+      }
+    ],
+    "037-u5": [
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 8148301290,
+        "share_roi": 0.12237915352115238
+      },
+      {
+        "tool": "Python",
+        "script": "build_bus_detour_packet_variant.py",
+        "period": 1716756530,
+        "share_roi": 0.02578392765141737
+      },
+      {
+        "tool": "Python",
+        "script": "validate_bus_detour_packet_variant.py",
+        "period": 568808142,
+        "share_roi": 0.008542916671396112
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 354100734,
+        "share_roi": 0.005318230947267629
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 118043718,
+        "share_roi": 0.00177289594152079
+      },
+      {
+        "tool": "bash",
+        "script": "unknown:bash",
+        "period": 795308,
+        "share_roi": 1.1944712936431031e-05
+      },
+      {
+        "tool": "loader",
+        "script": "bash",
+        "period": 618780,
+        "share_roi": 9.293442881003075e-06
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 8,
+        "share_roi": 1.2015181978736318e-10
+      },
+      {
+        "tool": "loader",
+        "script": "build_bus_detour_packet_variant.py",
+        "period": 1,
+        "share_roi": 1.5018977473420397e-11
+      }
+    ],
+    "037-u20": [
+      {
+        "tool": "PNG",
+        "script": "pdftoppm",
+        "period": 9774810473,
+        "share_roi": 0.11223892145706224
+      },
+      {
+        "tool": "Python",
+        "script": "build_bus_detour_packet_variant.py",
+        "period": 611005077,
+        "share_roi": 0.007015844556444042
+      },
+      {
+        "tool": "libfreetype",
+        "script": "pdftoppm",
+        "period": 589258846,
+        "share_roi": 0.006766144214945039
+      },
+      {
+        "tool": "Poppler",
+        "script": "pdftoppm",
+        "period": 412014477,
+        "share_roi": 0.0047309419094018245
+      },
+      {
+        "tool": "zlib",
+        "script": "pdftoppm",
+        "period": 117521138,
+        "share_roi": 0.001349432381728653
+      },
+      {
+        "tool": "Python",
+        "script": "validate_bus_detour_packet_variant.py",
+        "period": 59150534,
+        "share_roi": 0.000679193950420576
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:bash",
+        "period": 647416,
+        "share_roi": 7.433931714048222e-06
+      },
+      {
+        "tool": "bash",
+        "script": "bash",
+        "period": 539199,
+        "share_roi": 6.1913337734672724e-06
+      },
+      {
+        "tool": "libc",
+        "script": "pdftoppm",
+        "period": 595,
+        "share_roi": 6.8320668161718154e-09
+      },
+      {
+        "tool": "libc",
+        "script": "unknown:taskset",
+        "period": 2,
+        "share_roi": 2.2964930474527112e-11
+      }
+    ]
+  },
+  "unknown_excluded_from_unseen": true,
+  "self_reference_flagged": true
+}

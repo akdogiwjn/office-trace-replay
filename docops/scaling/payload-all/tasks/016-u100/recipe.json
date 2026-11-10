@@ -1,0 +1,392 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "016-u100",
+  "task_id": "docops_synthetic_016-u100_scale_variant",
+  "format": "xlsx",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_016_xlsx_forecast_driver_cascade_output_u100.xlsx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/016-u100/seed/root/docops_v2_l3_016_xlsx_forecast_driver_cascade_input_u100.xlsx",
+      "destination": "/root/docops_v2_l3_016_xlsx_forecast_driver_cascade_input_u100.xlsx",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "79ee795c1a76cc683effcd98c9ce737516ab16ce5616f3c9f80353606f42f093",
+      "bytes": 14983
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/016-u100/seed/root/tmp/docs/units.json",
+      "destination": "/root/tmp/docs/units.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "097275b854c99b923b6f45b48c2f09c6c36ef896bd8958e2ad78b27b390445b3",
+      "bytes": 23994
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/016-u100/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "542484aa38f0f7586db2ba082f93b9b127901505f994e5a1edf0e43d8d27a740",
+      "bytes": 470
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/016-u100/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "b8d63d6973fceb1549ec61dccb00fbe1c456a6e2db908323439ffcd77f2aac76",
+      "bytes": 6632
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/016-u100/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "bd9d26702dfa5a372263add124f84bfc5172c6e9175926de8ef5e61b718b8c30",
+      "bytes": 2220
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/016-u100/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "2b84bf44d1a58e0b67e8701c6796add368d07799dcf6139cb1aa997a6c21d9d9",
+      "bytes": 439839
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/016-u100/seed/root/tmp/docs/build_forecast_dashboard_variant.py",
+      "destination": "/root/tmp/docs/build_forecast_dashboard_variant.py",
+      "source": "docops/scaling/cases/016/scripts",
+      "sha256": "116d8fc3fc2ad9e7b18784dc5e8b1b9b2ce6ac9fc1c19dad259e1358b360c650",
+      "bytes": 29963
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/016-u100/seed/root/tmp/docs/validate_forecast_dashboard_variant.py",
+      "destination": "/root/tmp/docs/validate_forecast_dashboard_variant.py",
+      "source": "docops/scaling/cases/016/scripts",
+      "sha256": "1e3500bf4a83ef28aceb603ca02c662015457532411bc5768d21f1fe76380f96",
+      "bytes": 25990
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_recalculate_convert",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_forecast_dashboard_variant.py --units /root/tmp/docs/units.json --output /root/submission/docops_v2_l3_016_xlsx_forecast_driver_cascade_output_u100.xlsx && python /root/.codex/skills/xlsx/scripts/recalc.py /root/submission/docops_v2_l3_016_xlsx_forecast_driver_cascade_output_u100.xlsx 120 && mkdir -p /root/tmp/docs/render_landscape && soffice --headless --convert-to pdf --outdir /root/tmp/docs/render_landscape /root/submission/docops_v2_l3_016_xlsx_forecast_driver_cascade_output_u100.xlsx"
+      ],
+      "shell_body": "tasks/016-u100/commands/01.sh",
+      "shell_sha256": "4b66f5e9e10454acfb2820facddf619caf27ff25d5c896a8d63070b3d12e362c",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "render_dashboard",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdfinfo /root/tmp/docs/render_landscape/docops_v2_l3_016_xlsx_forecast_driver_cascade_output_u100.pdf | sed -n '1,25p'; pdftoppm -f 1 -singlefile -png -r 150 /root/tmp/docs/render_landscape/docops_v2_l3_016_xlsx_forecast_driver_cascade_output_u100.pdf /root/tmp/docs/render_landscape/dashboard"
+      ],
+      "shell_body": "tasks/016-u100/commands/02.sh",
+      "shell_sha256": "19a2e95282d61820a419fff97cdde770d647b4e2b9e46ea5c7852c7b4d1d996c",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "verify_scenario_cascade",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/validate_forecast_dashboard_variant.py --output /root/submission/docops_v2_l3_016_xlsx_forecast_driver_cascade_output_u100.xlsx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json"
+      ],
+      "shell_body": "tasks/016-u100/commands/03.sh",
+      "shell_sha256": "0ef3402f8c9d8c46ab8d3c4648e0c9c4666937eacdd27ed6e8c5e4bad6a82827",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "02"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 016; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "016",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 0,
+      "detail": "consumed",
+      "tests_failed": 1,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/05-xlsx-016-20261103T103856Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/016/seed/root/docops_v2_l3_016_xlsx_forecast_driver_cascade_input.xlsx",
+      "sha256": "c9cada30e31d73549581d153d0d8617db1f95fc456703dd2ac65ecf4e6778adb"
+    },
+    "parent_scripts": {
+      "payload/tasks/016/seed/root/docops_v2_l3_016_xlsx_forecast_driver_cascade_input.xlsx": {
+        "sha256": "c9cada30e31d73549581d153d0d8617db1f95fc456703dd2ac65ecf4e6778adb",
+        "bytes": 6501
+      },
+      "payload/tasks/016/seed/root/tmp/docs/build_forecast_dashboard_v1.py": {
+        "sha256": "0253f19622a20005d54836835eb8d0f28abf141784bdfd9737873cdb09ff746b",
+        "bytes": 24614
+      }
+    },
+    "generator": "docops/scaling/cases/016/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110607,
+    "scale": {
+      "business_units": 100,
+      "periods": 4,
+      "model_rows": 400
+    },
+    "input_sha256": "79ee795c1a76cc683effcd98c9ce737516ab16ce5616f3c9f80353606f42f093",
+    "expected_sha256": "2b84bf44d1a58e0b67e8701c6796add368d07799dcf6139cb1aa997a6c21d9d9",
+    "config_sha256": "b8d63d6973fceb1549ec61dccb00fbe1c456a6e2db908323439ffcd77f2aac76",
+    "scale_metadata": {
+      "business_units": 100,
+      "periods": 4,
+      "model_rows": 400,
+      "model_range_end": 401,
+      "unit_ids": [
+        "BU-001",
+        "BU-002",
+        "BU-003",
+        "BU-004",
+        "BU-005",
+        "BU-006",
+        "BU-007",
+        "BU-008",
+        "BU-009",
+        "BU-010",
+        "BU-011",
+        "BU-012",
+        "BU-013",
+        "BU-014",
+        "BU-015",
+        "BU-016",
+        "BU-017",
+        "BU-018",
+        "BU-019",
+        "BU-020",
+        "BU-021",
+        "BU-022",
+        "BU-023",
+        "BU-024",
+        "BU-025",
+        "BU-026",
+        "BU-027",
+        "BU-028",
+        "BU-029",
+        "BU-030",
+        "BU-031",
+        "BU-032",
+        "BU-033",
+        "BU-034",
+        "BU-035",
+        "BU-036",
+        "BU-037",
+        "BU-038",
+        "BU-039",
+        "BU-040",
+        "BU-041",
+        "BU-042",
+        "BU-043",
+        "BU-044",
+        "BU-045",
+        "BU-046",
+        "BU-047",
+        "BU-048",
+        "BU-049",
+        "BU-050",
+        "BU-051",
+        "BU-052",
+        "BU-053",
+        "BU-054",
+        "BU-055",
+        "BU-056",
+        "BU-057",
+        "BU-058",
+        "BU-059",
+        "BU-060",
+        "BU-061",
+        "BU-062",
+        "BU-063",
+        "BU-064",
+        "BU-065",
+        "BU-066",
+        "BU-067",
+        "BU-068",
+        "BU-069",
+        "BU-070",
+        "BU-071",
+        "BU-072",
+        "BU-073",
+        "BU-074",
+        "BU-075",
+        "BU-076",
+        "BU-077",
+        "BU-078",
+        "BU-079",
+        "BU-080",
+        "BU-081",
+        "BU-082",
+        "BU-083",
+        "BU-084",
+        "BU-085",
+        "BU-086",
+        "BU-087",
+        "BU-088",
+        "BU-089",
+        "BU-090",
+        "BU-091",
+        "BU-092",
+        "BU-093",
+        "BU-094",
+        "BU-095",
+        "BU-096",
+        "BU-097",
+        "BU-098",
+        "BU-099",
+        "BU-100"
+      ],
+      "source_demand_rows": 400,
+      "source_sheets": [
+        "Assumptions",
+        "Demand Raw",
+        "Dashboard",
+        "Archive"
+      ],
+      "assumption_facts": {
+        "Base": {
+          "growth": 0.08,
+          "price": 42,
+          "capacity": 1200
+        },
+        "Stress": {
+          "growth": -0.03,
+          "price": 39,
+          "capacity": 980
+        }
+      },
+      "default_scenario": "Stress",
+      "capacity_flag_cells": 400,
+      "kpi_formula_cells": 8,
+      "watch_formula_cells": 8,
+      "exception_slots": 10,
+      "exception_formula_cells": 50,
+      "unit_summary_formula_cells": 200,
+      "parameterized_ranges": [
+        "'Demand Raw'!A2:D401",
+        "'Forecast Model'!A2:I401 (model)",
+        "'Forecast Model'!J2:J401 (breach rank)",
+        "'Forecast Model'!K2:K401 (unit key)",
+        "'Exception Review'!A2:E11 (slots)",
+        "'Dashboard'!A5:G8 (KPI cells)",
+        "'Dashboard'!A40:B139 (unit summary)"
+      ],
+      "render_scope": "Dashboard first page only (pdftoppm -f 1 -singlefile at 150 dpi); the dashboard keeps fitToWidth=1/fitToHeight=1 while Forecast Model and Exception Review use fitToWidth=1/fitToHeight=0",
+      "expected_render_images": 1,
+      "preserved_parent_behavior": [
+        "sheet order and visibility (Dashboard, Forecast Model, Exception Review, Assumptions visible; Demand Raw and Archive hidden)",
+        "scenario-driven INDEX/MATCH formulas, capacity flag logic, exception breach-rank slots, dashboard KPIs, chart and yellow B5 scenario driver"
+      ],
+      "changed_parent_behavior": [
+        "Forecast Model and Exception Review print setup changed from fitToWidth=1/fitToHeight=1 to fitToWidth=1/fitToHeight=0 so large ranges render across multiple readable pages",
+        "every fixed range, KPI aggregate, exception slot, conditional-format range and chart data range is sized from the actual unit count; the native bar chart aggregates the four periods per unit instead of plotting every model row"
+      ],
+      "formula_count": 4668,
+      "cached_check_cells": 4466,
+      "base_breach_count": 0,
+      "stress_breach_count": 252,
+      "first_unit": {
+        "id": "BU-001",
+        "name": "Central Plant",
+        "base_units": [
+          1031,
+          1078,
+          980,
+          986
+        ],
+        "actual_units": [
+          1019,
+          1062,
+          902,
+          1087
+        ]
+      },
+      "middle_unit": {
+        "id": "BU-051",
+        "name": "Central Works",
+        "base_units": [
+          1081,
+          1096,
+          964,
+          1047
+        ],
+        "actual_units": [
+          902,
+          1072,
+          1093,
+          962
+        ]
+      },
+      "last_unit": {
+        "id": "BU-100",
+        "name": "Elmwood Station",
+        "base_units": [
+          1049,
+          1036,
+          1029,
+          1090
+        ],
+        "actual_units": [
+          924,
+          903,
+          1066,
+          908
+        ]
+      },
+      "input_bytes": 14983,
+      "input_sha256": "79ee795c1a76cc683effcd98c9ce737516ab16ce5616f3c9f80353606f42f093",
+      "units_json_sha256": "097275b854c99b923b6f45b48c2f09c6c36ef896bd8958e2ad78b27b390445b3",
+      "seed": 2026110607
+    },
+    "modified_steps": [
+      "01 build: frozen parent sheet order, formulas and styles preserved; Forecast Model and Exception Review print setup changed from fitToWidth=1/fitToHeight=1 to fitToWidth=1/fitToHeight=0 so large model/exception ranges render across multiple readable pages instead of one unreadable compressed page; every fixed range / KPI aggregate / exception slot / conditional-format range / dashboard chart data range is sized from the actual unit count read out of the synthetic source workbook",
+      "02 recalc + pdf: unchanged recalc.py and soffice convert-to-pdf; page count is decided by real layout",
+      "03 scenario cascade verify: dynamic validator checks every model row, the dashboard aggregates against the frozen expected.json, then flips B5 Base -> recalc -> all flags OK, and Stress -> recalc -> breach set and exception rows match the oracle"
+    ]
+  }
+}

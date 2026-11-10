@@ -411,9 +411,11 @@ def make_slides(config, comparison, joint, series, markdown):
                         and blocks[block_index + 1]['value'].startswith('**读图：**')):
                     note = '<p>' + inline_markdown(blocks[block_index + 1]['value']) + '</p>'
                     consumed.add(block_index + 1)
+                legend = config.get('_task_operation_extension', {}).get('presentation_figure_notes', {}).get(
+                    block['path'], '四条线为误推测、前端受限、后端受限、有效完成；横轴为实际输出点。每项一次采集、内部十轮回放，最终指标取 ALL 累计报告。')
                 slides.append(dict(title=block['value'], section=section, subtitle='',
                     cls='report-page chart-slide', body=svg +
-                    '<p>四条线为误推测、前端受限、后端受限、有效完成；横轴为实际输出点。每项一次采集、内部十轮回放，最终指标取 ALL 累计报告。</p>' + note))
+                    '<p>' + text(legend) + '</p>' + note))
                 current_title = section
                 part = 1
                 continue

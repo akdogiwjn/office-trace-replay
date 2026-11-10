@@ -9,11 +9,24 @@ import sys
 import time
 
 
+def replay_cli_args(task, loops, payload, step_timeout, out_dir='/results/runner'):
+    argv = ['run', '--task', task, '--loops', str(loops),
+            '--results-dir', out_dir, '--workdir', '/workspace/docops/work',
+            '--step-timeout', str(step_timeout)]
+    if payload:
+        argv += ['--payload', payload]
+    return argv
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--task', required=True)
     parser.add_argument('--loops', type=int, required=True)
     parser.add_argument('--mode', choices=['perf', 'topdown'], required=True)
+    parser.add_argument('--payload', default=None,
+                        help='payload directory to pass to the replay entry (default: installed payload)')
+    parser.add_argument('--step-timeout', type=int, default=1200,
+                        help='seconds per workflow step passed to the replay entry')
     args = parser.parse_args()
     out = Path('/results')
     os.sched_setaffinity(0, {9})
@@ -59,8 +72,8 @@ def main():
     log('worker_start', affinity=sorted(os.sched_getaffinity(0)), task=args.task, loops=args.loops)
     entry.run_step = observed
     subprocess.Popen = spawn
-    sys.argv = [entry.__file__, 'run', '--task', args.task, '--loops', str(args.loops),
-                '--results-dir', str(out/'runner'), '--workdir', '/workspace/docops/work']
+    sys.argv = [entry.__file__] + replay_cli_args(args.task, args.loops, args.payload,
+                                                  args.step_timeout)
     try:
         code = entry.cli()
         log('worker_end', returncode=code)

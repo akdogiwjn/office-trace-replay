@@ -1,0 +1,95 @@
+{
+  "schema": "docops-final-effective-payload-v1",
+  "kind": "scaling",
+  "status": "synthetic_scale_variants_static_valid",
+  "scope": "synthetic_scale_input_size_variants",
+  "synthetic": true,
+  "declaration": "Manually labelled synthetic scale variants for input-size hotspot studies. Parent scores are NOT inherited as acceptance results. Nothing here is a historical benchmark task.",
+  "tasks": [
+    {
+      "task": "003-u100",
+      "recipe": "tasks/003-u100/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "003",
+      "scale": {
+        "business_units": 100
+      }
+    },
+    {
+      "task": "003-u500",
+      "recipe": "tasks/003-u500/recipe.json",
+      "steps": 3,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "003",
+      "scale": {
+        "business_units": 500
+      }
+    },
+    {
+      "task": "037-u5",
+      "recipe": "tasks/037-u5/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "037",
+      "scale": {
+        "notice_groups": 5,
+        "pages": 25
+      }
+    },
+    {
+      "task": "037-u20",
+      "recipe": "tasks/037-u20/recipe.json",
+      "steps": 2,
+      "scripts": 2,
+      "historical_reward": null,
+      "synthetic": true,
+      "parent_task": "037",
+      "scale": {
+        "notice_groups": 20,
+        "pages": 100
+      }
+    }
+  ],
+  "environment": {
+    "base_image": "docops-l3-shared-tools:arm64-v3",
+    "base_image_id": "sha256:b0d0e6038597b41c08f7fbba8d3e5cb2ff515e0e2602c31528c9e3fe80a90106",
+    "platform": "linux/arm64",
+    "python": "3.12.14",
+    "openpyxl": "3.1.5",
+    "pypdf": "6.16.2",
+    "python_docx": "1.2.0",
+    "python_pptx": "1.0.2",
+    "lxml": "6.1.2",
+    "unresolved_dependencies": [
+      "021: fonttools version and offline wheel identity",
+      "perf: Debian-compatible binary and unwind dependencies",
+      "DevKit: HIP09 CLI compatibility in the DocOps image"
+    ],
+    "dependency_status": "not_ready_to_build_release",
+    "note": "same installed environment; synthetic payload does not change it"
+  },
+  "measurement_policy": {
+    "parent_reference": {
+      "measured": "final construction, necessary repair, recalculation, selected final render and agent-authored checks",
+      "excluded": [
+        "model requests and waiting",
+        "source exploration and image viewing",
+        "failed/replaced commands",
+        "package installation and font environment setup",
+        "reset, payload restoration, archive, output hash and official scoring"
+      ],
+      "perf": "separate pass; command descendants; cycles:u; physical callchain; export inside the same image",
+      "topdown": "separate DevKit pass; fixed workload CPU set; controller outside set; preserve collection envelope and per-ROI markers",
+      "repetitions": "not scheduled; short tasks may require batches; do not pad with sleeps",
+      "official_score": "historical result retained; replay infrastructure status is separate"
+    },
+    "scaling": "same measurement policy as the frozen official package; only input size / region count vary"
+  }
+}

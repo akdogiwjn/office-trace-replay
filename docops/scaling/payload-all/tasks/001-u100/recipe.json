@@ -1,0 +1,349 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "001-u100",
+  "task_id": "docops_synthetic_001-u100_scale_variant",
+  "format": "docx",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output_u100.docx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/001-u100/seed/root/docops_v2_l3_001_docx_controlled_document_release_repair_input_u100.docx",
+      "destination": "/root/docops_v2_l3_001_docx_controlled_document_release_repair_input_u100.docx",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "00b3a7239593457ef77f46738d473ebc3e21ff5a536926a653152711e4b60066",
+      "bytes": 39583
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001-u100/seed/root/tmp/docs/records.json",
+      "destination": "/root/tmp/docs/records.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "84b4cac76a449719565a6ce43501250451edcefef35018affd94b44e96650c4d",
+      "bytes": 27552
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001-u100/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "f8381211d7af9043dd852b196da20bb56227e03880b63c2cbd3968f0b800a6f1",
+      "bytes": 531
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001-u100/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "ff6cf5fe13a2c8916b76511446e3907d9bfbdb1d1ec96507e769a9379c4e7c81",
+      "bytes": 5823
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001-u100/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "80585825e59100f717b7db5d2c4b7e2baf79df94ca8f28b3739c053d80831947",
+      "bytes": 2488
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/001-u100/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "207645472bfb75ac5a861d9a9cbd63142cf5609be59c3c7b91afe5703e2be5f1",
+      "bytes": 73253
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/001-u100/seed/root/tmp/docs/build_controlled_document_release_variant.py",
+      "destination": "/root/tmp/docs/build_controlled_document_release_variant.py",
+      "source": "docops/scaling/cases/001/scripts",
+      "sha256": "e4698d44116239246638aa31c46fd7f3bee1f6dedc7ccca55063f0f5d93a3289",
+      "bytes": 22968
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/001-u100/seed/root/tmp/docs/validate_controlled_document_release_variant.py",
+      "destination": "/root/tmp/docs/validate_controlled_document_release_variant.py",
+      "source": "docops/scaling/cases/001/scripts",
+      "sha256": "3b7374509790dd88051724775901a0955cbbcab15128a8174c1b98efc3e38e48",
+      "bytes": 12232
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_controlled_document_release_variant.py --records /root/tmp/docs/records.json --output /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output_u100.docx"
+      ],
+      "shell_body": "tasks/001-u100/commands/01.sh",
+      "shell_sha256": "4870b5a79a100e5af8603e7ac275ea767a1c053e19b95c02c26c6c325cdba560",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "validate",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/validate_controlled_document_release_variant.py --output /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output_u100.docx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json"
+      ],
+      "shell_body": "tasks/001-u100/commands/02.sh",
+      "shell_sha256": "b6c297d3c000349a76631ceec21d14d2018be509d32e681e3d0b4d386025767d",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "render",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "render_dir=/root/tmp/docs/render_variant_v2; mkdir -p $render_dir; soffice -env:UserInstallation=file:///tmp/lo_packet_profile_variant_v2 --headless --convert-to pdf --outdir $render_dir /root/submission/docops_v2_l3_001_docx_controlled_document_release_repair_output_u100.docx; pdfinfo $render_dir/docops_v2_l3_001_docx_controlled_document_release_repair_output_u100.pdf | sed -n '1,25p'; pdftoppm -png -r 150 $render_dir/docops_v2_l3_001_docx_controlled_document_release_repair_output_u100.pdf $render_dir/page"
+      ],
+      "shell_body": "tasks/001-u100/commands/03.sh",
+      "shell_sha256": "da11d8bf8bdcb1025341929c02ff00982fcd325b88feb24bd5ff569c98ee7968",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "02"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 001; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "001",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 1,
+      "detail": "consumed",
+      "tests_failed": 0,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/word001-full-20261103T084219Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/001/seed/root/docops_v2_l3_001_docx_controlled_document_release_repair_input.docx",
+      "sha256": "e0eff02c89aeb4a488545b39637cbe12d01619b080c59698ef384ed64fdd927a"
+    },
+    "parent_scripts": {
+      "payload/tasks/001/seed/root/docops_v2_l3_001_docx_controlled_document_release_repair_input.docx": {
+        "sha256": "e0eff02c89aeb4a488545b39637cbe12d01619b080c59698ef384ed64fdd927a",
+        "bytes": 36828
+      },
+      "payload/tasks/001/seed/root/create_packet.py": {
+        "sha256": "625a0bef02e4ac3d3f7d8d331d5aa60557049bd09ae4bfd8b7cfa60046ea509a",
+        "bytes": 19979
+      }
+    },
+    "generator": "docops/scaling/cases/001/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110601,
+    "scale": {
+      "records": 100
+    },
+    "input_sha256": "00b3a7239593457ef77f46738d473ebc3e21ff5a536926a653152711e4b60066",
+    "expected_sha256": "207645472bfb75ac5a861d9a9cbd63142cf5609be59c3c7b91afe5703e2be5f1",
+    "config_sha256": "ff6cf5fe13a2c8916b76511446e3907d9bfbdb1d1ec96507e769a9379c4e7c81",
+    "scale_metadata": {
+      "records": 100,
+      "record_ids": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010",
+        "DOC-011",
+        "DOC-012",
+        "DOC-013",
+        "DOC-014",
+        "DOC-015",
+        "DOC-016",
+        "DOC-017",
+        "DOC-018",
+        "DOC-019",
+        "DOC-020",
+        "DOC-021",
+        "DOC-022",
+        "DOC-023",
+        "DOC-024",
+        "DOC-025",
+        "DOC-026",
+        "DOC-027",
+        "DOC-028",
+        "DOC-029",
+        "DOC-030",
+        "DOC-031",
+        "DOC-032",
+        "DOC-033",
+        "DOC-034",
+        "DOC-035",
+        "DOC-036",
+        "DOC-037",
+        "DOC-038",
+        "DOC-039",
+        "DOC-040",
+        "DOC-041",
+        "DOC-042",
+        "DOC-043",
+        "DOC-044",
+        "DOC-045",
+        "DOC-046",
+        "DOC-047",
+        "DOC-048",
+        "DOC-049",
+        "DOC-050",
+        "DOC-051",
+        "DOC-052",
+        "DOC-053",
+        "DOC-054",
+        "DOC-055",
+        "DOC-056",
+        "DOC-057",
+        "DOC-058",
+        "DOC-059",
+        "DOC-060",
+        "DOC-061",
+        "DOC-062",
+        "DOC-063",
+        "DOC-064",
+        "DOC-065",
+        "DOC-066",
+        "DOC-067",
+        "DOC-068",
+        "DOC-069",
+        "DOC-070",
+        "DOC-071",
+        "DOC-072",
+        "DOC-073",
+        "DOC-074",
+        "DOC-075",
+        "DOC-076",
+        "DOC-077",
+        "DOC-078",
+        "DOC-079",
+        "DOC-080",
+        "DOC-081",
+        "DOC-082",
+        "DOC-083",
+        "DOC-084",
+        "DOC-085",
+        "DOC-086",
+        "DOC-087",
+        "DOC-088",
+        "DOC-089",
+        "DOC-090",
+        "DOC-091",
+        "DOC-092",
+        "DOC-093",
+        "DOC-094",
+        "DOC-095",
+        "DOC-096",
+        "DOC-097",
+        "DOC-098",
+        "DOC-099",
+        "DOC-100"
+      ],
+      "record_id_summary": {
+        "unit": "controlled_document",
+        "first": "DOC-001",
+        "middle": "DOC-051",
+        "last": "DOC-100",
+        "count": 100,
+        "unique": true
+      },
+      "input_records": 100,
+      "expected_output_tables": 6,
+      "expected_output_table_rows": 129,
+      "expected_headings": 7,
+      "expected_paragraphs": 35,
+      "expected_images": 0,
+      "render_scope": "full document; all pages rendered at 150 DPI",
+      "first_record": {
+        "id": "DOC-001",
+        "name": "Change Control Policy 1",
+        "version": "6.1",
+        "effective_date": "2026-01-01",
+        "owner": "Department Leads",
+        "training_due": "2026-01-15",
+        "retention": "6 years",
+        "status": "Corrected"
+      },
+      "middle_record": {
+        "id": "DOC-051",
+        "name": "Access Review Procedure 3",
+        "version": "4.7",
+        "effective_date": "2026-02-20",
+        "owner": "Quality Systems Office",
+        "training_due": "2026-03-06",
+        "retention": "6 years",
+        "status": "Corrected"
+      },
+      "last_record": {
+        "id": "DOC-100",
+        "name": "Document Numbering Standard 5",
+        "version": "4.2",
+        "effective_date": "2026-04-10",
+        "owner": "Compliance Director",
+        "training_due": "2026-04-24",
+        "retention": "6 years",
+        "status": "Corrected"
+      },
+      "preserved_parent_behaviour": [
+        "all parent chapter headings and their order",
+        "correction register, metadata, revision history, workflow and retirement tables with the frozen public values",
+        "release margins (0.8 in), footer with page field, header band, title/heading/table-header styling and core properties",
+        "page breaks before Distribution and Training Workflow and Final Release Appendix",
+        "byte-deterministic output and DRAFT-source verification"
+      ],
+      "changed_parent_behaviour": [
+        "the Controlled Document Register table now holds one real row per declared record instead of a fixed register, so table row count is driven by the actual record count",
+        "the register narrative reports the actual record count"
+      ],
+      "source_paragraphs": 205,
+      "source_tables": 1,
+      "source_table_rows": 101,
+      "input_bytes": 39583,
+      "input_sha256": "00b3a7239593457ef77f46738d473ebc3e21ff5a536926a653152711e4b60066",
+      "records_json_sha256": "84b4cac76a449719565a6ce43501250451edcefef35018affd94b44e96650c4d",
+      "seed": 2026110601
+    },
+    "modified_steps": [
+      "01 build: stage order and processing tools unchanged from the frozen 001 create_packet.py; the correction register and every release chapter are derived from the frozen records.json, and the controlled document register table iterates all N records (one real row per record), so output size is driven by the actual record count",
+      "02 validate: dynamic validator reads frozen expected.json and covers every record plus document-level controls (metadata/style/margin/footer/header checks run once, not repeated per record)",
+      "03 render: unchanged LibreOffice -> PDF -> 150 DPI PNG render; page count is decided by real layout"
+    ]
+  }
+}

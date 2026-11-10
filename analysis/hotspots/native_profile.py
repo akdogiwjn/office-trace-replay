@@ -64,19 +64,68 @@ def crosscheck(samples, counter_path):
                 period=sum(k[3] * count for k, count in actual.items()))
 
 
+_STATS_LINE = re.compile(r'^\s*([A-Z_]+) events:\s*(\d+)', re.M)
+_CHUNK_LOSS = re.compile(r'lost\s+(\d+)\s+chunks?', re.I)
+
+
+def _stats_blocks(perf_report):
+    """Return {block_label: {EVENT_TYPE: count}} for each `... stats:` block.
+
+    Blocks are separated by their own header lines; counts from one block never
+    leak into another (e.g. `Aggregated stats:` vs `cycles:u stats:`).
+    """
+    headers = [(m.group(1).strip(), m.start())
+               for m in re.finditer(r'^(\S.*?)\s+stats:\s*$', perf_report, re.M)]
+    blocks = {}
+    for index, (label, start) in enumerate(headers):
+        end = headers[index + 1][1] if index + 1 < len(headers) else len(perf_report)
+        blocks[label] = {name: int(count) for name, count in _STATS_LINE.findall(perf_report[start:end])}
+    return blocks
+
+
+def _pick(block, key):
+    if block is None:
+        return None
+    return block[key] if key in block else None
+
+
 def loss_diagnostics(record_stderr, perf_report):
-    # read_format = ID|LOST describes an enabled capability, not a lost event.
-    aggregated = perf_report.split('Aggregated stats:', 1)
-    text = aggregated[1].split('cycles:u stats:', 1)[0] if len(aggregated) == 2 else ''
-    counts = {name: int(count) for name, count in
-              re.findall(r'^\s*([A-Z_]+) events:\s*(\d+)', text, re.M)}
-    chunks = [int(v) for v in re.findall(r'lost\s+(\d+)\s+chunks?', record_stderr, re.I)]
-    return dict(aggregated_sample_events=counts.get('SAMPLE'),
-                reported_lost_records=(counts.get('LOST',0) if text else None),
-                reported_lost_sample_records=(counts.get('LOST_SAMPLES',0) if text else None),
-                perf_record_reported_lost_chunks=sum(chunks),
-                quantified_lost_samples=None,
-                note='No reported loss is not proof of lossless acquisition; missing sample weights and ROI membership are unknown.')
+    """Perf loss statistics, kept as separate un-summed fields.
+
+    - `Aggregated stats:` block: LOST record count and LOST_SAMPLES record count;
+    - `cycles:u stats:` block: LOST_SAMPLES reported for the sampling event;
+    - `perf record` stderr: lost chunks.
+    These are different granularities: record counts are not sample counts and
+    they are never added together. A missing stat is `None` (unknown); only an
+    explicitly printed 0 is a zero. ROI membership/period of lost samples is
+    unknown, so `quantified_lost_samples` stays None.
+    """
+    blocks = _stats_blocks(perf_report)
+    aggregated = blocks.get('Aggregated')
+    cycles = blocks.get('cycles:u')
+    chunks = [int(v) for v in _CHUNK_LOSS.findall(record_stderr)]
+    lost_records = _pick(aggregated, 'LOST')
+    lost_samples_aggregated = _pick(aggregated, 'LOST_SAMPLES')
+    cycles_lost_samples = _pick(cycles, 'LOST_SAMPLES')
+    return dict(
+        aggregated_sample_events=_pick(aggregated, 'SAMPLE'),
+        # legacy keys preserved for existing consumers
+        reported_lost_records=lost_records,
+        reported_lost_sample_records=lost_samples_aggregated,
+        # explicit per-block fields (record counts are NOT sample counts)
+        aggregated_lost_records=lost_records,
+        aggregated_lost_sample_records=lost_samples_aggregated,
+        cycles_u_stats_lost_samples=cycles_lost_samples,
+        cycles_u_stats_sample_events=_pick(cycles, 'SAMPLE'),
+        perf_record_reported_lost_chunks=sum(chunks),
+        perf_record_reported_loss_warning=bool(chunks),
+        quantified_lost_samples=None,
+        quantified_lost_samples_reason=(
+            'ROI membership and period of lost samples are unknown; LOST / '
+            'LOST_SAMPLES / cycles:u stats / lost-chunks are kept separate and are '
+            'never summed or converted into a quantified sample count.'),
+        note='No reported loss is not proof of lossless acquisition; a printed 0 in the '
+             'stats is an explicit zero, an absent stat is unknown (None).')
 
 
 def roi(path):

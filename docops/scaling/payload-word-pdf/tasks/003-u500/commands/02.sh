@@ -1,0 +1,1 @@
+python /root/tmp/docs/validate_public_packet_variant.py --output /root/submission/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_output_u500.docx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json

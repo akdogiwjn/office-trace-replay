@@ -180,6 +180,13 @@ def check_environment(payload):
     checks["skills"] = skills
     checks["payload_catalog"] = (payload / "catalog.json").is_file()
     checks["payload_tasks"] = sorted(p.name for p in (payload / "tasks").iterdir()) if (payload / "tasks").is_dir() else []
+    checks["payload_kind"] = None
+    checks["payload_declared_tasks"] = []
+    if checks["payload_catalog"]:
+        catalog = load(payload / "catalog.json")
+        checks["payload_kind"] = catalog.get("kind", "official")
+        declared = [t.get("task") for t in catalog.get("tasks", [])]
+        checks["payload_declared_tasks"] = [d for d in declared if d is not None]
     if profile == UNIFIED_PROFILE:
         checks['optional_numpy_present'] = importlib.util.find_spec('numpy') is not None
         checks['frozen_font_sources'] = {}
@@ -247,8 +254,26 @@ def environment_errors(checks):
             errors.append(f'missing tool: {name}')
     if not all(checks.get('skills', {}).get(k) for k in ('doc', 'xlsx', 'pptx', 'pdf')):
         errors.append('missing frozen Skill')
-    if not checks.get('payload_catalog') or len(checks.get('payload_tasks', [])) != 12:
-        errors.append('expected twelve installed tasks')
+    if not checks.get('payload_catalog'):
+        errors.append('missing payload catalog')
+    else:
+        kind = checks.get('payload_kind', 'official')
+        declared = list(checks.get('payload_declared_tasks') or [])
+        actual = list(checks.get('payload_tasks') or [])
+        if kind == 'official':
+            if len(declared) != 12 or len(actual) != 12 or set(declared) != set(actual):
+                errors.append('official payload must declare exactly the twelve installed tasks; '
+                              f'declared={sorted(declared)} actual={sorted(actual)}')
+        elif kind == 'scaling':
+            if not declared:
+                errors.append('scaling payload must declare a non-empty task set')
+            if len(set(declared)) != len(declared):
+                errors.append(f'scaling payload declares duplicate task ids: {declared}')
+            if set(declared) != set(actual):
+                errors.append('scaling payload declared task set does not match installed '
+                              f'directories; declared={sorted(declared)} actual={sorted(actual)}')
+        else:
+            errors.append(f'unsupported payload kind: {kind!r}')
     return errors
 
 
@@ -715,7 +740,7 @@ def cli() -> int:
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="action", required=True)
 
-    p_list = sub.add_parser("list", help="list the twelve tasks and their formats")
+    p_list = sub.add_parser("list", help="list the selected payload tasks and their formats")
     p_list.add_argument("--payload", type=Path, default=DEFAULT_PAYLOAD)
     p_validate = sub.add_parser("validate-only",
                                 help="check materials, environment and plan; never runs workload")

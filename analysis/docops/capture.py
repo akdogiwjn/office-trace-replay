@@ -59,14 +59,31 @@ def stop(proc):
             proc.wait(timeout=5)
 
 
+def workload_argv(task, loops, mode, payload, step_timeout):
+    argv = [sys.executable, '-B', str(HERE/'worker.py'), '--task', task,
+            '--loops', str(loops), '--mode', mode,
+            '--step-timeout', str(step_timeout)]
+    if payload:
+        argv += ['--payload', payload]
+    return argv
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--task', required=True)
     parser.add_argument('--loops', type=int, required=True)
     parser.add_argument('--mode', choices=['perf', 'topdown'], required=True)
+    parser.add_argument('--payload', default=None,
+                        help='payload directory passed to the worker/replay entry')
+    parser.add_argument('--workload-timeout', type=int, default=600,
+                        help='seconds to wait for the whole worker (replay) to finish')
+    parser.add_argument('--step-timeout', type=int, default=1200,
+                        help='seconds per workflow step passed to the replay entry')
     args = parser.parse_args()
     if args.loops < 1:
         parser.error('positive loops required')
+    if args.workload_timeout < 1 or args.step_timeout < 1:
+        parser.error('timeouts must be positive')
     os.sched_setaffinity(0, {9})
     state = dict(schema='docops-collector-pilot-v1', task=args.task, loops=args.loops,
                  mode=args.mode, status='in_progress', workload_cpus='0-7', controller_cpu=9,
@@ -78,8 +95,8 @@ def main():
         monitor_log = (OUT/'monitor.log').open('x'); handles.append(monitor_log)
         monitor = subprocess.Popen([sys.executable, '-B', str(HERE/'monitor.py')],
                                    stdout=monitor_log, stderr=subprocess.STDOUT, start_new_session=True)
-        workload = [sys.executable, '-B', str(HERE/'worker.py'), '--task', args.task,
-                    '--loops', str(args.loops), '--mode', args.mode]
+        workload = workload_argv(args.task, args.loops, args.mode, args.payload,
+                                 args.step_timeout)
         log = (OUT/'workload.log').open('x'); handles.append(log)
         if args.mode == 'perf':
             from native_capture_helpers import bounded
@@ -90,7 +107,7 @@ def main():
             err = (OUT/'perf-record.stderr').open('x'); handles.append(err)
             state['workflow_status'] = 'running'; write(OUT/'collection.json', state)
             worker = subprocess.Popen(argv, stdout=log, stderr=err, start_new_session=True)
-            code = worker.wait(timeout=600)
+            code = worker.wait(timeout=args.workload_timeout)
             state['record_returncode'] = code
             if (OUT/'perf.data').exists():
                 (OUT/'perf.data').chmod(0o644)
@@ -157,7 +174,7 @@ def main():
                 raise ValueError('DevKit controller not on CPU 9')
             (OUT/'measurement-go').touch()
             state['workflow_status'] = 'running'; write(OUT/'collection.json', state)
-            code = worker.wait(timeout=600)
+            code = worker.wait(timeout=args.workload_timeout)
             if code:
                 raise RuntimeError('Topdown workload failed')
             state['profiler_stop_requested_ns'] = time.monotonic_ns()

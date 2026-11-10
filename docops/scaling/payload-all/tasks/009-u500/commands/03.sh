@@ -1,0 +1,1 @@
+python /root/tmp/docs/validate_incident_manual_variant.py --output /root/submission/docops_v2_l3_009_docx_incident_manual_publication_output_u500.docx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json

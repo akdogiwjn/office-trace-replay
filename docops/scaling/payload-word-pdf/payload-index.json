@@ -1,0 +1,685 @@
+{
+  "schema": "docops-payload-index-v1",
+  "files": {
+    "catalog.json": {
+      "bytes": 3234,
+      "sha256": "29cea99dc3bdfc6f6236bf82c1846a9cbefe1699f84efbcd2605890a64cc9ab6"
+    },
+    "skills/doc/LICENSE.txt": {
+      "bytes": 10776,
+      "sha256": "4dd13869245e356246a5b770723247bbb80a8f07a181d1d3d873a1734297cdb9"
+    },
+    "skills/doc/SKILL.md": {
+      "bytes": 2988,
+      "sha256": "0a635585817d1ac96e8e512114d08258b70f9e54ce0052078a258291ac13a8ed"
+    },
+    "skills/doc/agents/openai.yaml": {
+      "bytes": 271,
+      "sha256": "b77d452b23dfa0bef7788728317254f07bddcd5f2be1d6678d5c3cf754b833ae"
+    },
+    "skills/doc/assets/doc-small.svg": {
+      "bytes": 1678,
+      "sha256": "bd5415fbbfe72c66c1527411d61625731fdd2f75b25d1542510b6ddef699ebe0"
+    },
+    "skills/doc/assets/doc.png": {
+      "bytes": 1211,
+      "sha256": "7eadf1088e5062f681dba6596173a1df13bbfbcddd8a8a9bb78fd2071947dcf8"
+    },
+    "skills/doc/scripts/render_docx.py": {
+      "bytes": 9700,
+      "sha256": "52b3c3158913ebcad2ada7b8193970b70453239e255054aa2d60c1683af08751"
+    },
+    "skills/pdf/LICENSE.txt": {
+      "bytes": 10776,
+      "sha256": "4dd13869245e356246a5b770723247bbb80a8f07a181d1d3d873a1734297cdb9"
+    },
+    "skills/pdf/SKILL.md": {
+      "bytes": 2517,
+      "sha256": "d108cf2b36355ab37eb5962933f4d09785ec002f3105c506129320209306b9d2"
+    },
+    "skills/pdf/agents/openai.yaml": {
+      "bytes": 219,
+      "sha256": "f8b223e25343559f57e1839ccd849fd1494a9729da33da04bb5074b7f80f4887"
+    },
+    "skills/pdf/assets/pdf.png": {
+      "bytes": 1312,
+      "sha256": "17da356d195d4e3fa24f9becbee6b8d9e60e13005762b5ab0809c520c76da6ee"
+    },
+    "skills/pptx/LICENSE.txt": {
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa"
+    },
+    "skills/pptx/SKILL.md": {
+      "bytes": 9182,
+      "sha256": "e5b0df918cbe9d62508b3cf808d73899633f82fc19f6258a25ef9f0de7e62125"
+    },
+    "skills/pptx/editing.md": {
+      "bytes": 6885,
+      "sha256": "6cb47c3ab17e60b7de37e83131c409ef5a90a01bfb54e999905a9c9f7dd88e68"
+    },
+    "skills/pptx/pptxgenjs.md": {
+      "bytes": 12819,
+      "sha256": "9539534d92b7170813b735a448750df3580390da2da6c52a02b687ed53ecba86"
+    },
+    "skills/pptx/scripts/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "skills/pptx/scripts/add_slide.py": {
+      "bytes": 6872,
+      "sha256": "04233ba3932c6b8611677347891616456e243cc09b7f9769408b8c83d9acfe64"
+    },
+    "skills/pptx/scripts/clean.py": {
+      "bytes": 9583,
+      "sha256": "3e3966a17f488a1ddc7145f0b7ec9f25595afa1f3a427ab05e610f1a328feea9"
+    },
+    "skills/pptx/scripts/office/helpers/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "skills/pptx/scripts/office/helpers/merge_runs.py": {
+      "bytes": 5567,
+      "sha256": "7c40ed838b88639c51f9ffdcfd564b568f26832b78fe44008c0e01b742669ca7"
+    },
+    "skills/pptx/scripts/office/helpers/simplify_redlines.py": {
+      "bytes": 5754,
+      "sha256": "560cb55978a834c505406eb18e2c61f62f998fc7a2d8e9721b9c563b42597896"
+    },
+    "skills/pptx/scripts/office/pack.py": {
+      "bytes": 4991,
+      "sha256": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-chart.xsd": {
+      "bytes": 74984,
+      "sha256": "41b93bd8857cc68b1e43be2806a872d736a9bdd6566900062d8fdb57d7bbb354"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-chartDrawing.xsd": {
+      "bytes": 6956,
+      "sha256": "3fd0586f2637b98bb9886f0e0b67d89e1cc987c2d158cc7deb5f5b9890ced412"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-diagram.xsd": {
+      "bytes": 51302,
+      "sha256": "29b254ee0d10414a8504b5a08149c7baec35a60d5ff607d6b3f492aa36815f40"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-lockedCanvas.xsd": {
+      "bytes": 624,
+      "sha256": "5cb76dabd8b97d1e9308a1700b90c20139be4d50792d21a7f09789f5cccd6026"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-main.xsd": {
+      "bytes": 152039,
+      "sha256": "5375417f0f5394b8dd1a7035b9679151f19a6b65df309dec10cfb4a420cb00e9"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-picture.xsd": {
+      "bytes": 1231,
+      "sha256": "5d389d42befbebd91945d620242347caecd3367f9a3a7cf8d97949507ae1f53c"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-spreadsheetDrawing.xsd": {
+      "bytes": 8862,
+      "sha256": "b4532b6d258832953fbb3ee4c711f4fe25d3faf46a10644b2505f17010d01e88"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-wordprocessingDrawing.xsd": {
+      "bytes": 14795,
+      "sha256": "bdad416b096b61d37b71603b2c949484f9070c830bdaeba93bf35e15c8900614"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/pml.xsd": {
+      "bytes": 83612,
+      "sha256": "d173c3e5d61e42e2e3a97226c632fd2ab7cc481fc4e492365b87024ab546daff"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-additionalCharacteristics.xsd": {
+      "bytes": 1269,
+      "sha256": "3c6709101c6aaa82888df5d8795c33f9e857196790eb320d9194e64be2b6bdd8"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-bibliography.xsd": {
+      "bytes": 7328,
+      "sha256": "0b364451dc36a48dd6dae0f3b6ada05fd9b71e5208211f8ee5537d7e51a587e2"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-commonSimpleTypes.xsd": {
+      "bytes": 6382,
+      "sha256": "e2abacbb9a55ce1365f8961bc1b1395bbc811e512b111000d8c333f98458dece"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-customXmlDataProperties.xsd": {
+      "bytes": 1248,
+      "sha256": "0ef4bb354ff44b923564c4ddbdda5987919d220225129ec94614a618ceafc281"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-customXmlSchemaProperties.xsd": {
+      "bytes": 880,
+      "sha256": "0d103b99a4a8652f8871552a69d42d2a3760ac6a5e3ef02d979c4273257ff6a4"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesCustom.xsd": {
+      "bytes": 2608,
+      "sha256": "9c085407751b9061c1f996f6c39ce58451be22a8d334f09175f0e89e42736285"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesExtended.xsd": {
+      "bytes": 3507,
+      "sha256": "bc92e36ccd233722d4c5869bec71ddc7b12e2df56059942cce5a39065cc9c368"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesVariantTypes.xsd": {
+      "bytes": 7507,
+      "sha256": "7b5b7413e2c895b1e148e82e292a117d53c7ec65b0696c992edca57b61b4a74b"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-math.xsd": {
+      "bytes": 23313,
+      "sha256": "3213ef1631606250f5010b42cad7ef716f7c59426367798e33c374c0ec391d3a"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-relationshipReference.xsd": {
+      "bytes": 1367,
+      "sha256": "12264f3c03d738311cd9237d212f1c07479e70f0cbe1ae725d29b36539aef637"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/sml.xsd": {
+      "bytes": 242277,
+      "sha256": "beffeed56945c22a77440122c8bdc426f3fcbe7f3b12ea0976c770d1f8d54578"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-main.xsd": {
+      "bytes": 26148,
+      "sha256": "f5ee623b08b6a66935e5aced2f5d8ad0fc71bf9e8e833cd490150c0fa94b8763"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-officeDrawing.xsd": {
+      "bytes": 25279,
+      "sha256": "585bedc1313b40888dcc544cb74cd939a105ee674f3b1d3aa1cc6d34f70ff155"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-presentationDrawing.xsd": {
+      "bytes": 535,
+      "sha256": "133c9f64a5c5d573b78d0a474122b22506d8eadb5e063f67cdbbb8fa2f161d0e"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-spreadsheetDrawing.xsd": {
+      "bytes": 5712,
+      "sha256": "6bdeb169c3717eb01108853bd9fc5a3750fb1fa5b82abbdd854d49855a40f519"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-wordprocessingDrawing.xsd": {
+      "bytes": 4010,
+      "sha256": "475dcae1e7d1ea46232db6f8481040c15e53a52a3c256831d3df204212b0e831"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/wml.xsd": {
+      "bytes": 171367,
+      "sha256": "c2dd9f61f892deae6acd8d20771ea79b12018af25f3bf8d06639c8542d218cfd"
+    },
+    "skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/xml.xsd": {
+      "bytes": 4646,
+      "sha256": "a539aa2fb154fa50e0f5cc97e6ad7cbc66f8ec3e3746f61ec6a8b0d5d15ecdf2"
+    },
+    "skills/pptx/scripts/office/schemas/ecma/fouth-edition/opc-contentTypes.xsd": {
+      "bytes": 1963,
+      "sha256": "9e0b7209fc69ab11987900404540969976000c5ebe4d4f58c43dc3842886bf3a"
+    },
+    "skills/pptx/scripts/office/schemas/ecma/fouth-edition/opc-coreProperties.xsd": {
+      "bytes": 2515,
+      "sha256": "451958454e8588dfc7cd945981ada142ca06ff3307937f5700df059c2b307fa8"
+    },
+    "skills/pptx/scripts/office/schemas/ecma/fouth-edition/opc-digSig.xsd": {
+      "bytes": 2856,
+      "sha256": "6de111e11403f7cd49027400755bae0ea1cabef2815f09bd40a24f0017613b24"
+    },
+    "skills/pptx/scripts/office/schemas/ecma/fouth-edition/opc-relationships.xsd": {
+      "bytes": 1344,
+      "sha256": "f565adfef5a502044abc3a9153e157edc25af78304d335994afb958874b15e26"
+    },
+    "skills/pptx/scripts/office/schemas/mce/mc.xsd": {
+      "bytes": 3127,
+      "sha256": "3a37e461ecf5a8670fdec34029703401f8728ab9c96ec1739a6ae58d55212413"
+    },
+    "skills/pptx/scripts/office/schemas/microsoft/wml-2010.xsd": {
+      "bytes": 26549,
+      "sha256": "568b26ee156cb9549aa439ca2158965f77b7c1602b7e0316f40ac6cf586e35f2"
+    },
+    "skills/pptx/scripts/office/schemas/microsoft/wml-2012.xsd": {
+      "bytes": 3745,
+      "sha256": "0fa75578a000439a7988ba0c59fdc69f774bbd416cbacc14d07125b3f686cb74"
+    },
+    "skills/pptx/scripts/office/schemas/microsoft/wml-2018.xsd": {
+      "bytes": 901,
+      "sha256": "be0ff793a22dd31384650c3a4da14c2fa8062751c2e97b0e5ee852bda13c60ad"
+    },
+    "skills/pptx/scripts/office/schemas/microsoft/wml-cex-2018.xsd": {
+      "bytes": 1778,
+      "sha256": "fddc2b880cabb9005aebbc7e783e53c19fec1c03df7d0e2f2076a33a0fdfd081"
+    },
+    "skills/pptx/scripts/office/schemas/microsoft/wml-cid-2016.xsd": {
+      "bytes": 1002,
+      "sha256": "127ca209fa73d7cb708449cb355c871867948a96e4a74f7bf5811ef62d17991d"
+    },
+    "skills/pptx/scripts/office/schemas/microsoft/wml-sdtdatahash-2020.xsd": {
+      "bytes": 600,
+      "sha256": "842e7163409c8d74f4d7088a8bc99500d80bc75332681a0980055b08f374a604"
+    },
+    "skills/pptx/scripts/office/schemas/microsoft/wml-symex-2015.xsd": {
+      "bytes": 745,
+      "sha256": "16f6f8072249f431370723c2cd8974672e0d9c897e00e97dd918079df934871b"
+    },
+    "skills/pptx/scripts/office/soffice.py": {
+      "bytes": 5301,
+      "sha256": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0"
+    },
+    "skills/pptx/scripts/office/unpack.py": {
+      "bytes": 4052,
+      "sha256": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62"
+    },
+    "skills/pptx/scripts/office/validate.py": {
+      "bytes": 3668,
+      "sha256": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514"
+    },
+    "skills/pptx/scripts/office/validators/__init__.py": {
+      "bytes": 336,
+      "sha256": "83e0f035c5abea238d3f2c3968afbd511ed022b527b7c9cb60a9434cc34ff987"
+    },
+    "skills/pptx/scripts/office/validators/base.py": {
+      "bytes": 32651,
+      "sha256": "d6358b67252df4dbfe4fa6647423a765960c949346ef6a8c4eb8722bb1108d25"
+    },
+    "skills/pptx/scripts/office/validators/docx.py": {
+      "bytes": 16376,
+      "sha256": "0ef04ce86b2e6b6a1cb088c0276fd0bd5b770d96fdfe7a6cc73d005feb3f0345"
+    },
+    "skills/pptx/scripts/office/validators/pptx.py": {
+      "bytes": 9824,
+      "sha256": "f937961e62a5fa0d002b8dc51a4c4e2cd8fcd59fe65853fa54edaca3fe99eccc"
+    },
+    "skills/pptx/scripts/office/validators/redlining.py": {
+      "bytes": 8918,
+      "sha256": "f4c33fdb9da0651d1d9aa76f0d5294cc9955869339ae131b2f75f3b2e366cb40"
+    },
+    "skills/pptx/scripts/thumbnail.py": {
+      "bytes": 8785,
+      "sha256": "e959ecd4f19735161218bc44d0648a46da17874323fb3e19c2e9cb50cefe6ce7"
+    },
+    "skills/xlsx/LICENSE.txt": {
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa"
+    },
+    "skills/xlsx/SKILL.md": {
+      "bytes": 11463,
+      "sha256": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc"
+    },
+    "skills/xlsx/scripts/office/helpers/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "skills/xlsx/scripts/office/helpers/merge_runs.py": {
+      "bytes": 5567,
+      "sha256": "7c40ed838b88639c51f9ffdcfd564b568f26832b78fe44008c0e01b742669ca7"
+    },
+    "skills/xlsx/scripts/office/helpers/simplify_redlines.py": {
+      "bytes": 5754,
+      "sha256": "560cb55978a834c505406eb18e2c61f62f998fc7a2d8e9721b9c563b42597896"
+    },
+    "skills/xlsx/scripts/office/pack.py": {
+      "bytes": 4991,
+      "sha256": "b1800987e568261a31f462df8e1303d386e9e6ccc11a75ef46e60cc528c20683"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-chart.xsd": {
+      "bytes": 74984,
+      "sha256": "41b93bd8857cc68b1e43be2806a872d736a9bdd6566900062d8fdb57d7bbb354"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-chartDrawing.xsd": {
+      "bytes": 6956,
+      "sha256": "3fd0586f2637b98bb9886f0e0b67d89e1cc987c2d158cc7deb5f5b9890ced412"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-diagram.xsd": {
+      "bytes": 51302,
+      "sha256": "29b254ee0d10414a8504b5a08149c7baec35a60d5ff607d6b3f492aa36815f40"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-lockedCanvas.xsd": {
+      "bytes": 624,
+      "sha256": "5cb76dabd8b97d1e9308a1700b90c20139be4d50792d21a7f09789f5cccd6026"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-main.xsd": {
+      "bytes": 152039,
+      "sha256": "5375417f0f5394b8dd1a7035b9679151f19a6b65df309dec10cfb4a420cb00e9"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-picture.xsd": {
+      "bytes": 1231,
+      "sha256": "5d389d42befbebd91945d620242347caecd3367f9a3a7cf8d97949507ae1f53c"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-spreadsheetDrawing.xsd": {
+      "bytes": 8862,
+      "sha256": "b4532b6d258832953fbb3ee4c711f4fe25d3faf46a10644b2505f17010d01e88"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/dml-wordprocessingDrawing.xsd": {
+      "bytes": 14795,
+      "sha256": "bdad416b096b61d37b71603b2c949484f9070c830bdaeba93bf35e15c8900614"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/pml.xsd": {
+      "bytes": 83612,
+      "sha256": "d173c3e5d61e42e2e3a97226c632fd2ab7cc481fc4e492365b87024ab546daff"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-additionalCharacteristics.xsd": {
+      "bytes": 1269,
+      "sha256": "3c6709101c6aaa82888df5d8795c33f9e857196790eb320d9194e64be2b6bdd8"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-bibliography.xsd": {
+      "bytes": 7328,
+      "sha256": "0b364451dc36a48dd6dae0f3b6ada05fd9b71e5208211f8ee5537d7e51a587e2"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-commonSimpleTypes.xsd": {
+      "bytes": 6382,
+      "sha256": "e2abacbb9a55ce1365f8961bc1b1395bbc811e512b111000d8c333f98458dece"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-customXmlDataProperties.xsd": {
+      "bytes": 1248,
+      "sha256": "0ef4bb354ff44b923564c4ddbdda5987919d220225129ec94614a618ceafc281"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-customXmlSchemaProperties.xsd": {
+      "bytes": 880,
+      "sha256": "0d103b99a4a8652f8871552a69d42d2a3760ac6a5e3ef02d979c4273257ff6a4"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesCustom.xsd": {
+      "bytes": 2608,
+      "sha256": "9c085407751b9061c1f996f6c39ce58451be22a8d334f09175f0e89e42736285"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesExtended.xsd": {
+      "bytes": 3507,
+      "sha256": "bc92e36ccd233722d4c5869bec71ddc7b12e2df56059942cce5a39065cc9c368"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesVariantTypes.xsd": {
+      "bytes": 7507,
+      "sha256": "7b5b7413e2c895b1e148e82e292a117d53c7ec65b0696c992edca57b61b4a74b"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-math.xsd": {
+      "bytes": 23313,
+      "sha256": "3213ef1631606250f5010b42cad7ef716f7c59426367798e33c374c0ec391d3a"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/shared-relationshipReference.xsd": {
+      "bytes": 1367,
+      "sha256": "12264f3c03d738311cd9237d212f1c07479e70f0cbe1ae725d29b36539aef637"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/sml.xsd": {
+      "bytes": 242277,
+      "sha256": "beffeed56945c22a77440122c8bdc426f3fcbe7f3b12ea0976c770d1f8d54578"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-main.xsd": {
+      "bytes": 26148,
+      "sha256": "f5ee623b08b6a66935e5aced2f5d8ad0fc71bf9e8e833cd490150c0fa94b8763"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-officeDrawing.xsd": {
+      "bytes": 25279,
+      "sha256": "585bedc1313b40888dcc544cb74cd939a105ee674f3b1d3aa1cc6d34f70ff155"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-presentationDrawing.xsd": {
+      "bytes": 535,
+      "sha256": "133c9f64a5c5d573b78d0a474122b22506d8eadb5e063f67cdbbb8fa2f161d0e"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-spreadsheetDrawing.xsd": {
+      "bytes": 5712,
+      "sha256": "6bdeb169c3717eb01108853bd9fc5a3750fb1fa5b82abbdd854d49855a40f519"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/vml-wordprocessingDrawing.xsd": {
+      "bytes": 4010,
+      "sha256": "475dcae1e7d1ea46232db6f8481040c15e53a52a3c256831d3df204212b0e831"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/wml.xsd": {
+      "bytes": 171367,
+      "sha256": "c2dd9f61f892deae6acd8d20771ea79b12018af25f3bf8d06639c8542d218cfd"
+    },
+    "skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/xml.xsd": {
+      "bytes": 4646,
+      "sha256": "a539aa2fb154fa50e0f5cc97e6ad7cbc66f8ec3e3746f61ec6a8b0d5d15ecdf2"
+    },
+    "skills/xlsx/scripts/office/schemas/ecma/fouth-edition/opc-contentTypes.xsd": {
+      "bytes": 1963,
+      "sha256": "9e0b7209fc69ab11987900404540969976000c5ebe4d4f58c43dc3842886bf3a"
+    },
+    "skills/xlsx/scripts/office/schemas/ecma/fouth-edition/opc-coreProperties.xsd": {
+      "bytes": 2515,
+      "sha256": "451958454e8588dfc7cd945981ada142ca06ff3307937f5700df059c2b307fa8"
+    },
+    "skills/xlsx/scripts/office/schemas/ecma/fouth-edition/opc-digSig.xsd": {
+      "bytes": 2856,
+      "sha256": "6de111e11403f7cd49027400755bae0ea1cabef2815f09bd40a24f0017613b24"
+    },
+    "skills/xlsx/scripts/office/schemas/ecma/fouth-edition/opc-relationships.xsd": {
+      "bytes": 1344,
+      "sha256": "f565adfef5a502044abc3a9153e157edc25af78304d335994afb958874b15e26"
+    },
+    "skills/xlsx/scripts/office/schemas/mce/mc.xsd": {
+      "bytes": 3127,
+      "sha256": "3a37e461ecf5a8670fdec34029703401f8728ab9c96ec1739a6ae58d55212413"
+    },
+    "skills/xlsx/scripts/office/schemas/microsoft/wml-2010.xsd": {
+      "bytes": 26549,
+      "sha256": "568b26ee156cb9549aa439ca2158965f77b7c1602b7e0316f40ac6cf586e35f2"
+    },
+    "skills/xlsx/scripts/office/schemas/microsoft/wml-2012.xsd": {
+      "bytes": 3745,
+      "sha256": "0fa75578a000439a7988ba0c59fdc69f774bbd416cbacc14d07125b3f686cb74"
+    },
+    "skills/xlsx/scripts/office/schemas/microsoft/wml-2018.xsd": {
+      "bytes": 901,
+      "sha256": "be0ff793a22dd31384650c3a4da14c2fa8062751c2e97b0e5ee852bda13c60ad"
+    },
+    "skills/xlsx/scripts/office/schemas/microsoft/wml-cex-2018.xsd": {
+      "bytes": 1778,
+      "sha256": "fddc2b880cabb9005aebbc7e783e53c19fec1c03df7d0e2f2076a33a0fdfd081"
+    },
+    "skills/xlsx/scripts/office/schemas/microsoft/wml-cid-2016.xsd": {
+      "bytes": 1002,
+      "sha256": "127ca209fa73d7cb708449cb355c871867948a96e4a74f7bf5811ef62d17991d"
+    },
+    "skills/xlsx/scripts/office/schemas/microsoft/wml-sdtdatahash-2020.xsd": {
+      "bytes": 600,
+      "sha256": "842e7163409c8d74f4d7088a8bc99500d80bc75332681a0980055b08f374a604"
+    },
+    "skills/xlsx/scripts/office/schemas/microsoft/wml-symex-2015.xsd": {
+      "bytes": 745,
+      "sha256": "16f6f8072249f431370723c2cd8974672e0d9c897e00e97dd918079df934871b"
+    },
+    "skills/xlsx/scripts/office/soffice.py": {
+      "bytes": 5301,
+      "sha256": "a3e21840e29e32f947d5286028931b96eaf2dee63f75d883b8eb19c943c80aa0"
+    },
+    "skills/xlsx/scripts/office/unpack.py": {
+      "bytes": 4052,
+      "sha256": "83f69cecc87910183654c06345837244402e8a99edbf3bdddc1cf72f11304b62"
+    },
+    "skills/xlsx/scripts/office/validate.py": {
+      "bytes": 3668,
+      "sha256": "1aef24f8e316965a0584c30859776bd2c82a9fb69f72d79cfed041119cf95514"
+    },
+    "skills/xlsx/scripts/office/validators/__init__.py": {
+      "bytes": 336,
+      "sha256": "83e0f035c5abea238d3f2c3968afbd511ed022b527b7c9cb60a9434cc34ff987"
+    },
+    "skills/xlsx/scripts/office/validators/base.py": {
+      "bytes": 32651,
+      "sha256": "d6358b67252df4dbfe4fa6647423a765960c949346ef6a8c4eb8722bb1108d25"
+    },
+    "skills/xlsx/scripts/office/validators/docx.py": {
+      "bytes": 16376,
+      "sha256": "0ef04ce86b2e6b6a1cb088c0276fd0bd5b770d96fdfe7a6cc73d005feb3f0345"
+    },
+    "skills/xlsx/scripts/office/validators/pptx.py": {
+      "bytes": 9824,
+      "sha256": "f937961e62a5fa0d002b8dc51a4c4e2cd8fcd59fe65853fa54edaca3fe99eccc"
+    },
+    "skills/xlsx/scripts/office/validators/redlining.py": {
+      "bytes": 8918,
+      "sha256": "f4c33fdb9da0651d1d9aa76f0d5294cc9955869339ae131b2f75f3b2e366cb40"
+    },
+    "skills/xlsx/scripts/recalc.py": {
+      "bytes": 5782,
+      "sha256": "cf419d15e02965aeaec17773c05b61303f7f520f67fa2696547e7da07502eac7"
+    },
+    "tasks/003-u100/commands/01.sh": {
+      "bytes": 283,
+      "sha256": "56bcd6d6606bc00f17d03dbbb38ec4ce8276e77700301dce3f34bf006cf6384d"
+    },
+    "tasks/003-u100/commands/02.sh": {
+      "bytes": 247,
+      "sha256": "eb24e149577507cea1c940ab8dfd36a9135e640c2a95a2390c2e7418627b4f5a"
+    },
+    "tasks/003-u100/commands/03.sh": {
+      "bytes": 189,
+      "sha256": "932f702affe4a1cdbf97f6ae52df38ba012c49ba85f8d5fc3330f49261e7c231"
+    },
+    "tasks/003-u100/recipe.json": {
+      "bytes": 10700,
+      "sha256": "0c4bfd151e0b2a539d19dfa7b9cb71f0fd8d2607c563b1858631d3f6550bd3ec"
+    },
+    "tasks/003-u100/seed/root/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_input_u100.docx": {
+      "bytes": 53030,
+      "sha256": "7eaac629308d8ca8c31a0f2a4e2f93dfc5f5573ee8bf6105fe811a5518beaf9e"
+    },
+    "tasks/003-u100/seed/root/instruction.md": {
+      "bytes": 2728,
+      "sha256": "3bf5e427e9b9eaafcb832815b6508745424ebf3510bce463009fdd1dbfdd059a"
+    },
+    "tasks/003-u100/seed/root/original_task_description.txt": {
+      "bytes": 479,
+      "sha256": "84f040e11de60a84a08341ca930d7ec4ca2424cc231518f09d40f6aa9689541c"
+    },
+    "tasks/003-u100/seed/root/task_metadata.json": {
+      "bytes": 4145,
+      "sha256": "23cb6c1215698c6b86e008d63c16bd274f527ef8bcfa46523b0a7640bdbc02a4"
+    },
+    "tasks/003-u100/seed/root/tmp/docs/build_public_packet_variant.py": {
+      "bytes": 33257,
+      "sha256": "28ee6905857cbd742cf148489554dd43b3b18a5c7df516a49bafc2f6ca3456aa"
+    },
+    "tasks/003-u100/seed/root/tmp/docs/expected.json": {
+      "bytes": 100088,
+      "sha256": "681a3cd188b540f90f1851a158bb3cdb96d142b9250b7f7b0b09cd75cf0a183e"
+    },
+    "tasks/003-u100/seed/root/tmp/docs/units.json": {
+      "bytes": 35333,
+      "sha256": "ecf6a0621a252e3454a48f3c186896709a5868fe1313796c9d223948c1c2677a"
+    },
+    "tasks/003-u100/seed/root/tmp/docs/validate_public_packet_variant.py": {
+      "bytes": 11467,
+      "sha256": "8149f80a5a91b952a05dc4e882b9e2532a516d7657ca36e27e5fd3f23b03229c"
+    },
+    "tasks/003-u500/commands/01.sh": {
+      "bytes": 283,
+      "sha256": "940964849149c4fb80caa20d68036560809df9579852d27b083e266bf7d7a29c"
+    },
+    "tasks/003-u500/commands/02.sh": {
+      "bytes": 247,
+      "sha256": "966da8ca0fa981a35930a5215596e808329f889acc371390f4d99ded1183e239"
+    },
+    "tasks/003-u500/commands/03.sh": {
+      "bytes": 189,
+      "sha256": "ee656954abb05f775a8a3b1a2b0d1372b0a1b4fd92b61f74ea89da8837bfff82"
+    },
+    "tasks/003-u500/recipe.json": {
+      "bytes": 18311,
+      "sha256": "dc13eb81b23782c2217c92dceabb27e8330ae49f61b241d34d1eeb43dff3fc7f"
+    },
+    "tasks/003-u500/seed/root/docops_v2_l3_003_docx_public_records_release_metadata_cleanup_input_u500.docx": {
+      "bytes": 110373,
+      "sha256": "1235c7644dde57dc682700028e85cfd12947a05bb108fe4e578a21db2d4ff989"
+    },
+    "tasks/003-u500/seed/root/instruction.md": {
+      "bytes": 2728,
+      "sha256": "06c2d1feea3a57f958053ccffa0ed8b0a313f9edeb1809d87904a89f4c33f781"
+    },
+    "tasks/003-u500/seed/root/original_task_description.txt": {
+      "bytes": 479,
+      "sha256": "311275b26654a89df9de4cf241eac06d7cc3d7b4a288f6720c1bdf29bcf5277e"
+    },
+    "tasks/003-u500/seed/root/task_metadata.json": {
+      "bytes": 10953,
+      "sha256": "f60a97f2767d0e4bc207dd22eb7601edf0efd524c2342a65ab6d8ea6cdbb1120"
+    },
+    "tasks/003-u500/seed/root/tmp/docs/build_public_packet_variant.py": {
+      "bytes": 33257,
+      "sha256": "28ee6905857cbd742cf148489554dd43b3b18a5c7df516a49bafc2f6ca3456aa"
+    },
+    "tasks/003-u500/seed/root/tmp/docs/expected.json": {
+      "bytes": 484988,
+      "sha256": "19bf3b82d8f4569847f457add300de41ab721c840162317e1aff0375de74ea9c"
+    },
+    "tasks/003-u500/seed/root/tmp/docs/units.json": {
+      "bytes": 175427,
+      "sha256": "c2168b6045bd6ae938bdbff7999d98278d685d5083162247d23f256eea07fbbd"
+    },
+    "tasks/003-u500/seed/root/tmp/docs/validate_public_packet_variant.py": {
+      "bytes": 11467,
+      "sha256": "8149f80a5a91b952a05dc4e882b9e2532a516d7657ca36e27e5fd3f23b03229c"
+    },
+    "tasks/037-u20/commands/01.sh": {
+      "bytes": 364,
+      "sha256": "7809381341fa0d1dfdfeb247d3616db79440cd59556e3319098f0fb5d5da6d82"
+    },
+    "tasks/037-u20/commands/02.sh": {
+      "bytes": 240,
+      "sha256": "562ce3493e6173d89a599eea6e48acdeeeaec805997e9ab0b76d9d1ec6ae2068"
+    },
+    "tasks/037-u20/recipe.json": {
+      "bytes": 10333,
+      "sha256": "af57c20ce6c0cffe4a300c3e261f245d1292cd92713779c1a64fe0b66ec998d7"
+    },
+    "tasks/037-u20/seed/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input_u20.pdf": {
+      "bytes": 3859,
+      "sha256": "4dd7e9f8864414bd5fdfa347de9be44c7021b55d4c724bca26c359af4d07a623"
+    },
+    "tasks/037-u20/seed/root/instruction.md": {
+      "bytes": 2593,
+      "sha256": "55867a20282fba5b63592278f23b9eb76a347e85b1aa4f9fe726c4ab4d10411f"
+    },
+    "tasks/037-u20/seed/root/original_task_description.txt": {
+      "bytes": 423,
+      "sha256": "2ccd58b2e023a46a4e77368921af3d3e245af915b6da61509309e1027f423989"
+    },
+    "tasks/037-u20/seed/root/task_metadata.json": {
+      "bytes": 4285,
+      "sha256": "feb6bc0729f78c5bf8c68511ce97815df0b8137a74018e9d5887df1a08534f17"
+    },
+    "tasks/037-u20/seed/root/tmp/docs/build_bus_detour_packet_variant.py": {
+      "bytes": 23315,
+      "sha256": "08321f886e4529d6bec082daf8cc17a2006eb6de777853f87ac0af821a43c270"
+    },
+    "tasks/037-u20/seed/root/tmp/docs/expected.json": {
+      "bytes": 37754,
+      "sha256": "dac3e4a4b16f5b83f54271e22025636804f3a7dc55a6bbabb00dd4f314f12cda"
+    },
+    "tasks/037-u20/seed/root/tmp/docs/notices.json": {
+      "bytes": 103216,
+      "sha256": "c8829401f99ca7a98b9733d8210e527dabde998ee780a48f6eb76c2b469f93fa"
+    },
+    "tasks/037-u20/seed/root/tmp/docs/validate_bus_detour_packet_variant.py": {
+      "bytes": 7248,
+      "sha256": "342b1c6a7f441e61a9f61772df53f2291356a4be654c224368493da0c6d5f031"
+    },
+    "tasks/037-u5/commands/01.sh": {
+      "bytes": 362,
+      "sha256": "c20c99d466b55e4f378433138f4a96d8af7b2b29f7d1810d48e6f1cdf83d716d"
+    },
+    "tasks/037-u5/commands/02.sh": {
+      "bytes": 239,
+      "sha256": "66ebb90bb4919400c0bf4b798fac3256ae5f3f070247fd1c3f117acd69c287d4"
+    },
+    "tasks/037-u5/recipe.json": {
+      "bytes": 8595,
+      "sha256": "4d63961582cc650b3995ea9813e0e3eda21de1d65b4050bf37332786f61d2bed"
+    },
+    "tasks/037-u5/seed/root/docops_v2_l3_037_pdf_bus_detour_notice_layout_repair_input_u5.pdf": {
+      "bytes": 3859,
+      "sha256": "4dd7e9f8864414bd5fdfa347de9be44c7021b55d4c724bca26c359af4d07a623"
+    },
+    "tasks/037-u5/seed/root/instruction.md": {
+      "bytes": 2588,
+      "sha256": "35d3125339581b6f1c0d983553ab519758349b810af75bddc136aa45b9ad14bb"
+    },
+    "tasks/037-u5/seed/root/original_task_description.txt": {
+      "bytes": 420,
+      "sha256": "7a018e88f39357713ac018e70b710ea021ff6ff830638540d8850cd7e799004c"
+    },
+    "tasks/037-u5/seed/root/task_metadata.json": {
+      "bytes": 2744,
+      "sha256": "19ed3dd3dabbe81315db98e2c6630e800af5784f503afd7cf00265b7d67a95e2"
+    },
+    "tasks/037-u5/seed/root/tmp/docs/build_bus_detour_packet_variant.py": {
+      "bytes": 23315,
+      "sha256": "08321f886e4529d6bec082daf8cc17a2006eb6de777853f87ac0af821a43c270"
+    },
+    "tasks/037-u5/seed/root/tmp/docs/expected.json": {
+      "bytes": 9748,
+      "sha256": "52428381f7840fe996b15bc434ae4a2b802419bd9f3bb1f86d7490c54a9efc83"
+    },
+    "tasks/037-u5/seed/root/tmp/docs/notices.json": {
+      "bytes": 23736,
+      "sha256": "49d7a04ab5db0f287c7092634964b0ab31ea2dd88df8c79b8e4451558886a2f6"
+    },
+    "tasks/037-u5/seed/root/tmp/docs/validate_bus_detour_packet_variant.py": {
+      "bytes": 7248,
+      "sha256": "342b1c6a7f441e61a9f61772df53f2291356a4be654c224368493da0c6d5f031"
+    }
+  }
+}

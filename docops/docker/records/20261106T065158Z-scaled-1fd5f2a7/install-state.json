@@ -1,0 +1,52 @@
+{
+  "schema": "docops-scaled-install-state-v1",
+  "status": "passed",
+  "python": "3.12.3",
+  "python_prefix": "/opt/docops/venv",
+  "python_ok": true,
+  "tools": {
+    "perf": true,
+    "devkit": true,
+    "soffice": true,
+    "pdftoppm": true,
+    "pdftotext": true,
+    "pdfinfo": true,
+    "montage": true
+  },
+  "tools_ok": true,
+  "perf_version": "perf version 6.6.0-145.3.23.154.oe2403sp3.aarch64",
+  "devkit_version": "devkit version 26.0.RC1",
+  "runtime_profile": "seven-case-openeuler-unified",
+  "runtime_profile_ok": true,
+  "skills": {
+    "doc": true,
+    "xlsx": true,
+    "pptx": true,
+    "pdf": true
+  },
+  "skills_ok": true,
+  "official_payload": {
+    "status": "static_valid",
+    "tasks": 12
+  },
+  "scaling_payload": {
+    "status": "static_valid",
+    "tasks": 24
+  },
+  "official_task_count": 12,
+  "scaling_task_count": 24,
+  "official_is_twelve": true,
+  "scaling_is_twenty_four": true,
+  "binding_ok": true,
+  "binding_missing": {},
+  "preflight_official": {
+    "rc": 0,
+    "environment_errors": [],
+    "payload_status": "static_valid"
+  },
+  "preflight_scaling": {
+    "rc": 0,
+    "environment_errors": [],
+    "payload_status": "static_valid"
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "013-v100",
+  "task_id": "docops_synthetic_013-v100_scale_variant",
+  "format": "xlsx",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output_v100.xlsx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/013-v100/seed/root/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input_v100.xlsx",
+      "destination": "/root/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input_v100.xlsx",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "fc00df0a76956e4b21ce5d46166460a08a3c73eb8af2197b0ab07e46e215a9fe",
+      "bytes": 22153
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013-v100/seed/root/tmp/docs/vendors.json",
+      "destination": "/root/tmp/docs/vendors.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "6e9453e62607dbe318c8af9de7dfde82941968a5e054545b12a5c3b7d06b9508",
+      "bytes": 29237
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013-v100/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "2fb4aa9b01afa1f8c972382d8fa8026aa9564f28b272403816081d5be367979c",
+      "bytes": 447
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013-v100/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "89ce65be1a184754a3388d43baf84dedbfd194dfebf2f5cde02a5f4b30ccb6e4",
+      "bytes": 6465
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013-v100/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "b605fb5409d736e151f9f4f440aefe0f7b4be723af68f1843a9b8cb041796ed6",
+      "bytes": 2162
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/013-v100/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "7671ff7f9ad9e6f63ebeec09a974d596376e603c2ea151366aa6a2031309b84b",
+      "bytes": 106145
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/013-v100/seed/root/tmp/docs/build_bid_evaluation_variant.py",
+      "destination": "/root/tmp/docs/build_bid_evaluation_variant.py",
+      "source": "docops/scaling/cases/013/scripts",
+      "sha256": "70c07a5f93a1852589e8d7d0f4e51117e9dba85f12c3785e88603180a0729cb2",
+      "bytes": 16332
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/013-v100/seed/root/tmp/docs/validate_bid_evaluation_variant.py",
+      "destination": "/root/tmp/docs/validate_bid_evaluation_variant.py",
+      "source": "docops/scaling/cases/013/scripts",
+      "sha256": "e3dbe9a63db8c38a035d7afe06d048931872f161376c4d92b0da3026201a2874",
+      "bytes": 13520
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build_recalculate_verify",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_bid_evaluation_variant.py --vendors /root/tmp/docs/vendors.json --output /root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output_v100.xlsx && python /root/.codex/skills/xlsx/scripts/recalc.py /root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output_v100.xlsx 60 && python /root/tmp/docs/validate_bid_evaluation_variant.py --output /root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output_v100.xlsx --expected /root/tmp/docs/expected.json --report /root/tmp/docs/output_validation.json"
+      ],
+      "shell_body": "tasks/013-v100/commands/01.sh",
+      "shell_sha256": "9dc25ba4780d238a9dc4f055672a4cd0fd66dd123fa940a61eea9b18a536b88f",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "render_contact_sheet",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "mkdir -p /root/tmp/docs/rendered-final && libreoffice --headless --convert-to pdf --outdir /root/tmp/docs/rendered-final /root/submission/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output_v100.xlsx >/dev/null && pdftoppm -png -r 110 /root/tmp/docs/rendered-final/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_output_v100.pdf /root/tmp/docs/rendered-final/final-page >/dev/null 2>&1 && montage /root/tmp/docs/rendered-final/final-page-*.png -thumbnail 620x480 -tile 2x5 -geometry +10+10 /root/tmp/docs/rendered-final/final-contact-sheet.png"
+      ],
+      "shell_body": "tasks/013-v100/commands/02.sh",
+      "shell_sha256": "ec8c0487c8e36dd829d829fd226d3d82fd084d3ff234a653029bcfcbfd00f8cb",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 013; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "013",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 0,
+      "detail": "consumed",
+      "tests_failed": 2,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/xlsx013-rerun-20261103T112157Z/session/score.json",
+      "ctrf": "reports/analysis/DOCOPS-L3-XLSX013-RERUN-01/evidence/xlsx013-rerun-ctrf.json",
+      "ctrf_counts": {
+        "total": 5,
+        "passed": 3,
+        "failed": 2
+      },
+      "raw_reward": 0,
+      "raw_evidence": "ctrf_and_summary"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/013/seed/root/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input.xlsx",
+      "sha256": "23a6d90be7c312e1a418fa5b46e5a151919d246088c56a685289b689a544167a"
+    },
+    "parent_scripts": {
+      "payload/tasks/013/seed/root/docops_v2_l3_013_xlsx_procurement_bid_evaluation_release_input.xlsx": {
+        "sha256": "23a6d90be7c312e1a418fa5b46e5a151919d246088c56a685289b689a544167a",
+        "bytes": 7220
+      },
+      "payload/tasks/013/seed/root/tmp/docs/build_public_bid_workbook.py": {
+        "sha256": "9e520fcb17a3169a54e1bf60b63efd49fbf315a72869924fb199890ba9258604",
+        "bytes": 14267
+      },
+      "payload/tasks/013/seed/root/tmp/docs/verify_public_bid_workbook.py": {
+        "sha256": "1b1166cc7b7f59fa97b9508cc623f70a11a28b105c24d3b203df60f1f34fbe7a",
+        "bytes": 5965
+      }
+    },
+    "generator": "docops/scaling/cases/013/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110605,
+    "scale": {
+      "vendors": 100
+    },
+    "input_sha256": "fc00df0a76956e4b21ce5d46166460a08a3c73eb8af2197b0ab07e46e215a9fe",
+    "expected_sha256": "7671ff7f9ad9e6f63ebeec09a974d596376e603c2ea151366aa6a2031309b84b",
+    "config_sha256": "89ce65be1a184754a3388d43baf84dedbfd194dfebf2f5cde02a5f4b30ccb6e4",
+    "scale_metadata": {
+      "vendors": 100,
+      "vendor_ids": [
+        "VND-001",
+        "VND-002",
+        "VND-003",
+        "VND-004",
+        "VND-005",
+        "VND-006",
+        "VND-007",
+        "VND-008",
+        "VND-009",
+        "VND-010",
+        "VND-011",
+        "VND-012",
+        "VND-013",
+        "VND-014",
+        "VND-015",
+        "VND-016",
+        "VND-017",
+        "VND-018",
+        "VND-019",
+        "VND-020",
+        "VND-021",
+        "VND-022",
+        "VND-023",
+        "VND-024",
+        "VND-025",
+        "VND-026",
+        "VND-027",
+        "VND-028",
+        "VND-029",
+        "VND-030",
+        "VND-031",
+        "VND-032",
+        "VND-033",
+        "VND-034",
+        "VND-035",
+        "VND-036",
+        "VND-037",
+        "VND-038",
+        "VND-039",
+        "VND-040",
+        "VND-041",
+        "VND-042",
+        "VND-043",
+        "VND-044",
+        "VND-045",
+        "VND-046",
+        "VND-047",
+        "VND-048",
+        "VND-049",
+        "VND-050",
+        "VND-051",
+        "VND-052",
+        "VND-053",
+        "VND-054",
+        "VND-055",
+        "VND-056",
+        "VND-057",
+        "VND-058",
+        "VND-059",
+        "VND-060",
+        "VND-061",
+        "VND-062",
+        "VND-063",
+        "VND-064",
+        "VND-065",
+        "VND-066",
+        "VND-067",
+        "VND-068",
+        "VND-069",
+        "VND-070",
+        "VND-071",
+        "VND-072",
+        "VND-073",
+        "VND-074",
+        "VND-075",
+        "VND-076",
+        "VND-077",
+        "VND-078",
+        "VND-079",
+        "VND-080",
+        "VND-081",
+        "VND-082",
+        "VND-083",
+        "VND-084",
+        "VND-085",
+        "VND-086",
+        "VND-087",
+        "VND-088",
+        "VND-089",
+        "VND-090",
+        "VND-091",
+        "VND-092",
+        "VND-093",
+        "VND-094",
+        "VND-095",
+        "VND-096",
+        "VND-097",
+        "VND-098",
+        "VND-099",
+        "VND-100"
+      ],
+      "source_vendor_rows": 100,
+      "source_requirements_rows": 300,
+      "source_correction_rows": 203,
+      "register_rows": 100,
+      "scoring_rows": 300,
+      "price_rows": 100,
+      "coi_rows": 100,
+      "award_rows": 3,
+      "debrief_rows": 100,
+      "price_formula_cells": 100,
+      "summary_formula_cells": 4,
+      "formula_count": 104,
+      "cached_check_cells": 104,
+      "named_range": "'Vendor Register'!$A$2:$A$101",
+      "scoring_dv_range": "B2:B301",
+      "coi_dv_range": "B2:B101",
+      "parameterized_ranges": [
+        "'Vendor Register'!$A$2:$A$101 (VendorIDs)",
+        "'Requirements Scoring'!$B$2:$B$301 (data validation)",
+        "'Conflict-of-Interest Log'!$B$2:$B$101 (data validation)",
+        "'Price Normalization'!$C$2:$C$101",
+        "'Price Normalization'!$D$2:$D$101",
+        "'Evaluation Summary'!$B$3:$B$6"
+      ],
+      "render_scope": "all rendered pages at 110 dpi (one PNG per page) tiled into 2x5 contact sheets; page count is decided by real LibreOffice layout (landscape, fit-to-width=1, height unconstrained)",
+      "expected_render_images": "one PNG per rendered page plus contact sheets",
+      "preserved_parent_behavior": [
+        "ten-sheet order, tab colors, header/body styles, freeze panes, auto filters, landscape fit-to-width printing",
+        "Correction_Log application semantics and internal-sheet removal",
+        "price normalization, top-3 award, summary formulas and debrief mailto hyperlinks"
+      ],
+      "changed_parent_behavior": [
+        "every fixed range, formula range, named range, data-validation range and dropdown is sized from the actual vendor count instead of the original five vendors"
+      ],
+      "responsive_count": 71,
+      "lowest_price": 1104417,
+      "average_score": 80.65666666666667,
+      "first_vendor": {
+        "id": "VND-001",
+        "name": "Ava Kim Works",
+        "contact": "Owen Kim",
+        "evaluator": "Leah Moore",
+        "status": "Responsive",
+        "corrected_price": 1878501,
+        "scores": {
+          "REQ-01": 84,
+          "REQ-02": 68,
+          "REQ-03": 92
+        }
+      },
+      "middle_vendor": {
+        "id": "VND-051",
+        "name": "Ava Patel Works",
+        "contact": "Owen Patel",
+        "evaluator": "Leah Moore",
+        "status": "Responsive",
+        "corrected_price": 1241470,
+        "scores": {
+          "REQ-01": 64,
+          "REQ-02": 72,
+          "REQ-03": 89
+        }
+      },
+      "last_vendor": {
+        "id": "VND-100",
+        "name": "Callum Rossi Systems",
+        "contact": "Nora Novak",
+        "evaluator": "Leah Moore",
+        "status": "Responsive",
+        "corrected_price": 2170367,
+        "scores": {
+          "REQ-01": 67,
+          "REQ-02": 80,
+          "REQ-03": 85
+        }
+      },
+      "top3_award": [
+        "VND-015",
+        "VND-054",
+        "VND-092"
+      ],
+      "input_bytes": 22153,
+      "input_sha256": "fc00df0a76956e4b21ce5d46166460a08a3c73eb8af2197b0ab07e46e215a9fe",
+      "vendors_json_sha256": "6e9453e62607dbe318c8af9de7dfde82941968a5e054545b12a5c3b7d06b9508",
+      "seed": 2026110605
+    },
+    "modified_steps": [
+      "01 build: frozen parent stage order preserved (read Correction_Log from the synthetic source workbook, apply corrections, remove internal sheets, rebuild the ten public sheets); every fixed range / named range / data-validation range / summary formula / dropdown is sized from the actual vendor count read out of the source workbook",
+      "02 recalc: unchanged recalc.py (LibreOffice calculates all formulas and caches values)",
+      "03 verify: dynamic validator covers all N vendors, all 3N scoring rows, all N price-normalization formulas, the top-3 award rows, the summary formulas with their cached values, the VendorIDs named range, both data-validation ranges, forbidden text and zip integrity"
+    ]
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "schema": "docops-scaling-expectation-v1",
+  "variant_task_id": "037-u5",
+  "kind": "pdf",
+  "group_count": 5,
+  "pages_per_group": 5,
+  "total_pages": 25,
+  "page_titles": [
+    "Public Bus Detour Notice Packet",
+    "Corrected Detour Summary",
+    "Stop Closure and Shuttle Matrix",
+    "Rider Communication Timeline",
+    "Release Checklist"
+  ],
+  "groups": [
+    {
+      "id": "N-01",
+      "route": "Route 12",
+      "corridor": "Northbank bridge corridor",
+      "closure_begins": "2026-10-03",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 9,
+      "shuttle_headway": "15 minutes",
+      "contact": "311 Transit Desk",
+      "page_start": 1,
+      "page_end": 5,
+      "page_titles": [
+        "Public Bus Detour Notice Packet",
+        "Corrected Detour Summary",
+        "Stop Closure and Shuttle Matrix",
+        "Rider Communication Timeline",
+        "Release Checklist"
+      ],
+      "bookmark_titles": [
+        "N-01 | Public Bus Detour Notice Packet",
+        "N-01 | Corrected Detour Summary",
+        "N-01 | Stop Closure and Shuttle Matrix",
+        "N-01 | Rider Communication Timeline",
+        "N-01 | Release Checklist"
+      ],
+      "required_texts": [
+        "N-01",
+        "Route 12",
+        "Northbank bridge corridor",
+        "2026-10-03",
+        "2026-10-25",
+        "9",
+        "15 minutes",
+        "311 Transit Desk"
+      ],
+      "stop_ids": [
+        "12-01",
+        "12-02",
+        "12-03",
+        "12-04",
+        "12-05",
+        "12-06",
+        "12-07",
+        "12-08",
+        "12-09"
+      ],
+      "forbidden": [
+        "Route 21",
+        "2026-10-13",
+        "2026-10-27",
+        "7 stops",
+        "30 minutes",
+        "operator personal phone",
+        "do not post"
+      ],
+      "orientation": [
+        "portrait",
+        "portrait",
+        "landscape",
+        "portrait",
+        "portrait"
+      ]
+    },
+    {
+      "id": "N-02",
+      "route": "Route 18",
+      "corridor": "Market bridge corridor",
+      "closure_begins": "2026-10-08",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 9,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "page_start": 6,
+      "page_end": 10,
+      "page_titles": [
+        "Public Bus Detour Notice Packet",
+        "Corrected Detour Summary",
+        "Stop Closure and Shuttle Matrix",
+        "Rider Communication Timeline",
+        "Release Checklist"
+      ],
+      "bookmark_titles": [
+        "N-02 | Public Bus Detour Notice Packet",
+        "N-02 | Corrected Detour Summary",
+        "N-02 | Stop Closure and Shuttle Matrix",
+        "N-02 | Rider Communication Timeline",
+        "N-02 | Release Checklist"
+      ],
+      "required_texts": [
+        "N-02",
+        "Route 18",
+        "Market bridge corridor",
+        "2026-10-08",
+        "2026-10-28",
+        "9",
+        "10 minutes",
+        "311 Transit Desk"
+      ],
+      "stop_ids": [
+        "18-01",
+        "18-02",
+        "18-03",
+        "18-04",
+        "18-05",
+        "18-06",
+        "18-07",
+        "18-08",
+        "18-09"
+      ],
+      "forbidden": [
+        "Route 21",
+        "2026-10-13",
+        "2026-10-27",
+        "7 stops",
+        "30 minutes",
+        "operator personal phone",
+        "do not post"
+      ],
+      "orientation": [
+        "portrait",
+        "portrait",
+        "landscape",
+        "portrait",
+        "portrait"
+      ]
+    },
+    {
+      "id": "N-03",
+      "route": "Route 24",
+      "corridor": "Civic bridge corridor",
+      "closure_begins": "2026-10-11",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 10,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "page_start": 11,
+      "page_end": 15,
+      "page_titles": [
+        "Public Bus Detour Notice Packet",
+        "Corrected Detour Summary",
+        "Stop Closure and Shuttle Matrix",
+        "Rider Communication Timeline",
+        "Release Checklist"
+      ],
+      "bookmark_titles": [
+        "N-03 | Public Bus Detour Notice Packet",
+        "N-03 | Corrected Detour Summary",
+        "N-03 | Stop Closure and Shuttle Matrix",
+        "N-03 | Rider Communication Timeline",
+        "N-03 | Release Checklist"
+      ],
+      "required_texts": [
+        "N-03",
+        "Route 24",
+        "Civic bridge corridor",
+        "2026-10-11",
+        "2026-10-28",
+        "10",
+        "10 minutes",
+        "311 Transit Desk"
+      ],
+      "stop_ids": [
+        "24-01",
+        "24-02",
+        "24-03",
+        "24-04",
+        "24-05",
+        "24-06",
+        "24-07",
+        "24-08",
+        "24-09",
+        "24-10"
+      ],
+      "forbidden": [
+        "Route 21",
+        "2026-10-13",
+        "2026-10-27",
+        "7 stops",
+        "30 minutes",
+        "operator personal phone",
+        "do not post"
+      ],
+      "orientation": [
+        "portrait",
+        "portrait",
+        "landscape",
+        "portrait",
+        "portrait"
+      ]
+    },
+    {
+      "id": "N-04",
+      "route": "Route 30",
+      "corridor": "Riverfront bridge corridor",
+      "closure_begins": "2026-10-15",
+      "reopening_target": "2026-10-28",
+      "closed_stop_count": 16,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "page_start": 16,
+      "page_end": 20,
+      "page_titles": [
+        "Public Bus Detour Notice Packet",
+        "Corrected Detour Summary",
+        "Stop Closure and Shuttle Matrix",
+        "Rider Communication Timeline",
+        "Release Checklist"
+      ],
+      "bookmark_titles": [
+        "N-04 | Public Bus Detour Notice Packet",
+        "N-04 | Corrected Detour Summary",
+        "N-04 | Stop Closure and Shuttle Matrix",
+        "N-04 | Rider Communication Timeline",
+        "N-04 | Release Checklist"
+      ],
+      "required_texts": [
+        "N-04",
+        "Route 30",
+        "Riverfront bridge corridor",
+        "2026-10-15",
+        "2026-10-28",
+        "16",
+        "10 minutes",
+        "311 Transit Desk"
+      ],
+      "stop_ids": [
+        "30-01",
+        "30-02",
+        "30-03",
+        "30-04",
+        "30-05",
+        "30-06",
+        "30-07",
+        "30-08",
+        "30-09",
+        "30-10",
+        "30-11",
+        "30-12",
+        "30-13",
+        "30-14",
+        "30-15",
+        "30-16"
+      ],
+      "forbidden": [
+        "Route 21",
+        "2026-10-13",
+        "2026-10-27",
+        "7 stops",
+        "30 minutes",
+        "operator personal phone",
+        "do not post"
+      ],
+      "orientation": [
+        "portrait",
+        "portrait",
+        "landscape",
+        "portrait",
+        "portrait"
+      ]
+    },
+    {
+      "id": "N-05",
+      "route": "Route 36",
+      "corridor": "Harbor bridge corridor",
+      "closure_begins": "2026-10-05",
+      "reopening_target": "2026-10-25",
+      "closed_stop_count": 10,
+      "shuttle_headway": "10 minutes",
+      "contact": "311 Transit Desk",
+      "page_start": 21,
+      "page_end": 25,
+      "page_titles": [
+        "Public Bus Detour Notice Packet",
+        "Corrected Detour Summary",
+        "Stop Closure and Shuttle Matrix",
+        "Rider Communication Timeline",
+        "Release Checklist"
+      ],
+      "bookmark_titles": [
+        "N-05 | Public Bus Detour Notice Packet",
+        "N-05 | Corrected Detour Summary",
+        "N-05 | Stop Closure and Shuttle Matrix",
+        "N-05 | Rider Communication Timeline",
+        "N-05 | Release Checklist"
+      ],
+      "required_texts": [
+        "N-05",
+        "Route 36",
+        "Harbor bridge corridor",
+        "2026-10-05",
+        "2026-10-25",
+        "10",
+        "10 minutes",
+        "311 Transit Desk"
+      ],
+      "stop_ids": [
+        "36-01",
+        "36-02",
+        "36-03",
+        "36-04",
+        "36-05",
+        "36-06",
+        "36-07",
+        "36-08",
+        "36-09",
+        "36-10"
+      ],
+      "forbidden": [
+        "Route 21",
+        "2026-10-13",
+        "2026-10-27",
+        "7 stops",
+        "30 minutes",
+        "operator personal phone",
+        "do not post"
+      ],
+      "orientation": [
+        "portrait",
+        "portrait",
+        "landscape",
+        "portrait",
+        "portrait"
+      ]
+    }
+  ],
+  "bookmark_titles": [
+    "N-01 | Public Bus Detour Notice Packet",
+    "N-01 | Corrected Detour Summary",
+    "N-01 | Stop Closure and Shuttle Matrix",
+    "N-01 | Rider Communication Timeline",
+    "N-01 | Release Checklist",
+    "N-02 | Public Bus Detour Notice Packet",
+    "N-02 | Corrected Detour Summary",
+    "N-02 | Stop Closure and Shuttle Matrix",
+    "N-02 | Rider Communication Timeline",
+    "N-02 | Release Checklist",
+    "N-03 | Public Bus Detour Notice Packet",
+    "N-03 | Corrected Detour Summary",
+    "N-03 | Stop Closure and Shuttle Matrix",
+    "N-03 | Rider Communication Timeline",
+    "N-03 | Release Checklist",
+    "N-04 | Public Bus Detour Notice Packet",
+    "N-04 | Corrected Detour Summary",
+    "N-04 | Stop Closure and Shuttle Matrix",
+    "N-04 | Rider Communication Timeline",
+    "N-04 | Release Checklist",
+    "N-05 | Public Bus Detour Notice Packet",
+    "N-05 | Corrected Detour Summary",
+    "N-05 | Stop Closure and Shuttle Matrix",
+    "N-05 | Rider Communication Timeline",
+    "N-05 | Release Checklist"
+  ],
+  "bookmark_page_indexes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "metadata": {
+    "/Title": "Public Bus Detour Notice Packet",
+    "/Author": "Transit Communications"
+  },
+  "global_forbidden": [
+    "DRAFT",
+    "PRIVATE",
+    "do not post",
+    "operator personal phone"
+  ],
+  "global_required": [
+    "311 Transit Desk"
+  ]
+}

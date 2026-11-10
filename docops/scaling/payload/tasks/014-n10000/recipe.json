@@ -1,0 +1,261 @@
+{
+  "schema": "docops-final-effective-recipe-v1",
+  "task": "014-n10000",
+  "task_id": "docops_synthetic_014-n10000_scale_variant",
+  "format": "xlsx",
+  "source_run_id": null,
+  "output_path": "/root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx",
+  "files": [
+    {
+      "kind": "input",
+      "payload": "tasks/014-n10000/seed/root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input_n10000.xlsx",
+      "destination": "/root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input_n10000.xlsx",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "3613334ffb11f1158a2360347ac09d76c9407d04fc1b7a3d197f49311b6470ae",
+      "bytes": 676084
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/014-n10000/seed/root/original_task_description.txt",
+      "destination": "/root/original_task_description.txt",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "0ee7063b3686e08ed61e37c7ce8a67aa76ab14e714056f269e0370c7f17b96d2",
+      "bytes": 445
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/014-n10000/seed/root/task_metadata.json",
+      "destination": "/root/task_metadata.json",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "11d67484caa1f542c56870cdc72aa204e996edfa783d8a906a46f2e30692eef4",
+      "bytes": 2066
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/014-n10000/seed/root/instruction.md",
+      "destination": "/root/instruction.md",
+      "source": "docops/scaling (synthetic)",
+      "sha256": "2496c37ae4f711ccfbf06767557c0469a80f7c22796eca070644c3bb5cf6b565",
+      "bytes": 2533
+    },
+    {
+      "kind": "input",
+      "payload": "tasks/014-n10000/seed/root/tmp/docs/expected.json",
+      "destination": "/root/tmp/docs/expected.json",
+      "source": "docops/scaling (prepared oracle)",
+      "sha256": "20c226cc65c59fd9d03ba7771c17564ca1119f36caa254efb2fb41c4daf8b850",
+      "bytes": 3996562
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/014-n10000/seed/root/tmp/docs/build_disaster_release_variant.py",
+      "destination": "/root/tmp/docs/build_disaster_release_variant.py",
+      "source": "docops/scaling/cases/014/scripts",
+      "sha256": "e9e22aa1003a004145586790b7583ed67be379742a5710be250330013309d0fe",
+      "bytes": 13988
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/014-n10000/seed/root/tmp/docs/finalize_disaster_release_variant_ooxml.py",
+      "destination": "/root/tmp/docs/finalize_disaster_release_variant_ooxml.py",
+      "source": "docops/scaling/cases/014/scripts",
+      "sha256": "f2c2582bb61fa78840d9bd5e3c022224728cdae7830d0ddd0a4c0c690a202dbc",
+      "bytes": 3335
+    },
+    {
+      "kind": "script",
+      "payload": "tasks/014-n10000/seed/root/tmp/docs/validate_disaster_release_variant.py",
+      "destination": "/root/tmp/docs/validate_disaster_release_variant.py",
+      "source": "docops/scaling/cases/014/scripts",
+      "sha256": "dbfc8af2cbe707e02cc20fe061774afd0e75fecf9d5dd08ea8aa805b0d6af44c",
+      "bytes": 12179
+    }
+  ],
+  "steps": [
+    {
+      "id": "01",
+      "name": "build",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/build_disaster_release_variant.py --input /root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input_n10000.xlsx --output /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx"
+      ],
+      "shell_body": "tasks/014-n10000/commands/01.sh",
+      "shell_sha256": "fe4e3a654c8c4e0cce6c4d16917a4520e2dc9c0b84a468014db5c7db683d39cd",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": []
+    },
+    {
+      "id": "02",
+      "name": "recalculate",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/.codex/skills/xlsx/scripts/recalc.py /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx 120"
+      ],
+      "shell_body": "tasks/014-n10000/commands/02.sh",
+      "shell_sha256": "bf5bdc2088229e194d88ba970b1eea820d63cd7173b6296a476fc4f8ba41f5aa",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "final_ooxml_repair_and_validate",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "python /root/tmp/docs/finalize_disaster_release_variant_ooxml.py --output /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx && python /root/tmp/docs/validate_disaster_release_variant.py --output /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx --expected /root/tmp/docs/expected.json"
+      ],
+      "shell_body": "tasks/014-n10000/commands/03.sh",
+      "shell_sha256": "2bd39f0e04f9a74b74a155212e876e1aae83e090d99447919cfb6894c6164609",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "convert_pdf",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "mkdir -p /root/tmp/docs/preview && libreoffice --headless --convert-to pdf --outdir /root/tmp/docs/preview /root/submission/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.xlsx"
+      ],
+      "shell_body": "tasks/014-n10000/commands/04.sh",
+      "shell_sha256": "be28339eb5e722946f30b046482e735b864deeb642ff7e6a5eb10522283ab762",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "03"
+      ]
+    },
+    {
+      "id": "05",
+      "name": "render",
+      "phase": "workflow",
+      "cwd": "/root",
+      "argv": [
+        "/bin/bash",
+        "-c",
+        "pdftoppm -png -r 110 /root/tmp/docs/preview/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_output_n10000.pdf /root/tmp/docs/preview/page"
+      ],
+      "shell_body": "tasks/014-n10000/commands/05.sh",
+      "shell_sha256": "3880681fe14ed8ff7dff456c7ed56e9a1e78be4d0f7b7ddad519f21fbe3ba572",
+      "source_command_sha256": null,
+      "source_exit_code": null,
+      "depends_on": [
+        "04"
+      ]
+    }
+  ],
+  "review": "Synthetic scale variant of frozen task 014; builder/validator are parameterized by actual data scale and every range/check covers all generated rows/pages.",
+  "excluded_items": [],
+  "provenance": {
+    "trace": null,
+    "trace_sha256": null,
+    "run_env": null,
+    "run_env_sha256": null,
+    "note": "synthetic scale variant; no historical Agent trace"
+  },
+  "synthetic_variant": {
+    "synthetic": true,
+    "parent_task": "014",
+    "parent_historical_score": {
+      "status": "valid",
+      "reward": 1,
+      "detail": "consumed",
+      "tests_failed": 0,
+      "tests_error": 0,
+      "source_summary": "data/raw/generated/DOCOPS-L3-WORD001-FIRST-FORMAL-RUN-01/archive/04-xlsx-014-20261103T103608Z/session/score.json",
+      "ctrf": null,
+      "ctrf_counts": null,
+      "raw_reward": null,
+      "raw_evidence": "summary_only"
+    },
+    "parent_input": {
+      "payload": "payload/tasks/014/seed/root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input.xlsx",
+      "sha256": "251a31df8f826ce68a4078719890ac61b054352272f589a1020c88d8c66851c0"
+    },
+    "parent_scripts": {
+      "payload/tasks/014/seed/root/docops_v2_l3_014_xlsx_disaster_housing_grant_public_release_input.xlsx": {
+        "sha256": "251a31df8f826ce68a4078719890ac61b054352272f589a1020c88d8c66851c0",
+        "bytes": 9193
+      },
+      "payload/tasks/014/seed/root/tmp/docs/build_disaster_release_v1.py": {
+        "sha256": "245d8319fbe24073b13dfba485e11cb36166263776fc70592d3ea6d4152115e0",
+        "bytes": 12832
+      },
+      "payload/tasks/014/seed/root/tmp/docs/finalize_disaster_release_ooxml_v3.py": {
+        "sha256": "0df081e546990558430aa88c57977d9417be08ad46ceab22a0b5b770123f1679",
+        "bytes": 2422
+      },
+      "payload/tasks/014/seed/root/tmp/docs/validate_disaster_release_v1.py": {
+        "sha256": "84a5ace211a6691d5b3a260c300ace3e2c8d979b8198f569a746aa54a75c8c86",
+        "bytes": 7589
+      }
+    },
+    "generator": "docops/scaling/cases/014/synth.py",
+    "generator_version": "1.0",
+    "seed": 2026110502,
+    "scale": {
+      "deduped_applications": 10000
+    },
+    "input_sha256": "3613334ffb11f1158a2360347ac09d76c9407d04fc1b7a3d197f49311b6470ae",
+    "expected_sha256": "20c226cc65c59fd9d03ba7771c17564ca1119f36caa254efb2fb41c4daf8b850",
+    "config_sha256": "11d67484caa1f542c56870cdc72aa204e996edfa783d8a906a46f2e30692eef4",
+    "scale_metadata": {
+      "raw_rows": 10401,
+      "duplicates": 401,
+      "valid_applications": 10000,
+      "raw_fields": 12,
+      "public_fields": 9,
+      "register_fields": 12,
+      "appeal_count": 2148,
+      "formula_count": 34313,
+      "input_bytes": 676084,
+      "input_sha256": "3613334ffb11f1158a2360347ac09d76c9407d04fc1b7a3d197f49311b6470ae",
+      "seed": 2026110502,
+      "branch_coverage": {
+        "damage": {
+          "Minor": 2268,
+          "Moderate": 3129,
+          "Major": 3209,
+          "Destroyed": 1795
+        },
+        "income": {
+          "Low": 4092,
+          "Moderate": 4205,
+          "High": 2104
+        },
+        "vulnerable": {
+          "Yes": 3541,
+          "No": 6860
+        },
+        "appeal": {
+          "Yes": 2237,
+          "No": 8164
+        }
+      }
+    },
+    "modified_steps": [
+      "01 build: dynamic ranges (register/county/dashboard/appeal/tables/conditional formats/auto-filter) sized by actual deduplicated record count",
+      "02 recalc: unchanged command, variant output path",
+      "03 finalize+validate: OOXML repair unchanged; validate compares every row/aggregate against frozen expected.json",
+      "04 convert_pdf: unchanged command, variant output path",
+      "05 render: unchanged command, variant output path"
+    ]
+  }
+}
