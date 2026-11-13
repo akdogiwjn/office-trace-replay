@@ -1,10 +1,12 @@
 # 构建与验收记录
 
+- [第七节精简与操作归并（当前）](chapter7-operation-equivalence-update-20261112.json)：十二项大档并列精确函数与同类操作权重；简化表格、说明和结论，保留十二图及原始用例 Topdown，HTML 未改。
+
 - [原始任务推荐调整](original-task-recommendations-update-20261108.json)：函数路径扩展推荐 013／016／021／026／029，操作扩展优先 021；保留规模数据与原精确组合记录。
 
 - [原始 021 推荐调整](original-021-recommendation-update-20261108.json)：操作扩展建议改为原始任务 021；规模复测编号与数据保留，HTML 未改。
 
-- [第七节阅读顺序与文字审阅（当前）](chapter7-reading-order-review-20261108.json)：7.5 先给补充用例建议，7.6 展示十二张过程图；数据表、测量结果与 HTML 保持不变。
+- [第七节阅读顺序与文字审阅](chapter7-reading-order-review-20261108.json)：7.5 先给补充用例建议，7.6 展示十二张过程图；数据表、测量结果与 HTML 保持不变。
 
 - [规模复测与补例报告核验](scaling-hotspot-report-update-20261106.json)：7.3 按初测、规模复测、操作归因和最少补例重写，7.6 同步结论；34 个主要操作函数的三例最少组合、删例检查与完整差额分别保留。原七例正文、十二项 Topdown 图表、payload 和 HTML 未改。
 - [当前镜像](current-image.json)：数值缓存修复版的构建、安装检查与默认标签；本次不包含正式 workload 重跑。

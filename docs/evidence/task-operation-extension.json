@@ -5,8 +5,8 @@
     "docs/representativeness-assessment.md": {
       "prefix_bytes": 25710,
       "prefix_sha256": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
-      "append_sha256": "d40193165322550665ef1880b5c03c6c645a01c1497977f512a7f6fa22686bd4",
-      "sha256": "810e5288fe2f0f71c17c1152d05a0f448d8b584e6a696cc1e69b499fe7a855b7"
+      "append_sha256": "79550c244a16affb2a0a52223f15a388c0dc808b4a8ae294f5f5e3e7c5fdf917",
+      "sha256": "aeee3d7b904e2e03dba619f3b5c783d38e4b7b2fb30acef4e260df0ab0893729"
     },
     "docs/experimental-results.md": {
       "prefix_bytes": 83791,
@@ -29,7 +29,7 @@
     "analysis/docops/processed/all-format-scaling-20261106/comparison.json": "0f1ab698080a0a68a31d3637d17f7fbff21b91b95576bfd836565cc9c3dae304",
     "analysis/docops/processed/scaling-selection-20261106/selection.json": "855a70a464cb19d2973a526daab804c300aab2b8cfd1da2ef9f6c3e94ab651b5",
     "analysis/docops/processed/scaling-selection-20261106/analysis-build.json": "ee7b5a07760313e278aa2d10639512ac36ca9f0adb60e73e6b8a7aa3f4c031d7",
-    "analysis/docops/unified_scaling_sections.py": "8f491164ada84e67c35f78fe214de595641915952a2bec2ad279924086a55187",
+    "analysis/docops/unified_scaling_sections.py": "b4b803da341a60361e5aaf9a11743fb10834d6240a27749dac70f510f7198b9a",
     "analysis/docops/processed/unified-scaling-final-20261108/comparison.json": "04152bc733a392c31bd8bea60ece72d74a9f8cd372d17de755ea530b41a0f67a",
     "analysis/docops/processed/unified-scaling-final-20261108/selection.json": "36b36590f139ee1ba703c9a3538999f0f6584b98dc1e3deec912c4162e0b0675",
     "analysis/docops/processed/unified-scaling-final-20261108/analysis-build.json": "fc983570dd6f310614a2fd0d0d6dbf4aa3b30797e5e40d5366e83d516fcfc84a",
@@ -41,7 +41,10 @@
     "analysis/docops/processed/topdown-cosine-euclidean-20261108/analysis-build.json": "10b505d93b890f24339eb0f1343ba7cf034c6b488e6b26922421a5b5944ad63c",
     "analysis/docops/processed/topdown-original-cosine-euclidean-20261108/comparison.json": "93c52b8985c13f3cd1914ea52e1b4d0c646aa809c6a841b542b933414dbbc0a5",
     "analysis/docops/processed/topdown-original-cosine-euclidean-20261108/analysis-build.json": "1a72485cf0c37223ae91d556bfc0b7628db9bb2ec4aeb402ff80d375a9478082",
-    "analysis/docops/chapter7_editorial.py": "31270e09c52200e80cdb0cbd7620bde85710d4c3bc0b68101fb4e0da3c6e74d8"
+    "analysis/docops/chapter7_editorial.py": "1969df40b1c07ab38563566beef29b7742e9b880db089849014a217e7c3501d9",
+    "analysis/docops/operation_equivalence.py": "dcdfc362f7331c45bf0c2fe7d5df2919c297581931f12b0fefc12bf73d9824d6",
+    "analysis/docops/processed/operation-equivalence-20261112/comparison.json": "28e845f87f70909c022285fe8279b8f7c8affa1b716e432b734b3abd98cffdb9",
+    "analysis/docops/processed/operation-equivalence-20261112/analysis-build.json": "9689cfca14d7b0c3a98a4275d840454fef0d6ec679241b48c613cdadbcaf6f17"
   },
   "images": {
     "reference": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
@@ -170,8 +173,8 @@
     "sections": [
       "samples",
       "software",
-      "function_coverage",
-      "topdown",
+      "large_operation_coverage",
+      "original_topdown",
       "recommendations",
       "curves"
     ],
@@ -181,7 +184,14 @@
     "operation_optional": [
       "029"
     ],
-    "numeric_tables_unchanged": true,
     "figures": 12
+  },
+  "operation_equivalence_analysis": {
+    "path": "analysis/docops/processed/operation-equivalence-20261112/comparison.json",
+    "sha256": "28e845f87f70909c022285fe8279b8f7c8affa1b716e432b734b3abd98cffdb9",
+    "target_scope": "12 large inputs",
+    "same_operation_policy": "PNG, explicit resampling, zlib, Poppler, named Calc paths; JPEG separate; no whole-framework/runtime credit.",
+    "jpeg_separate": true,
+    "full_roi_denominator": true
   }
 }

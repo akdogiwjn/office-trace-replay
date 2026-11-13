@@ -1,0 +1,3806 @@
+{
+  "scope": "Exploratory operation-equivalence accounting; full ROI denominator; no formal report changed.",
+  "source": "analysis/docops/processed/unified-scaling-final-20261108/comparison.json",
+  "source_sha256": "04152bc733a392c31bd8bea60ece72d74a9f8cd372d17de755ea530b41a0f67a",
+  "results": {
+    "001-u500": {
+      "parent": "001",
+      "exact_pct": 75.56139312859126,
+      "additional_equivalent_pct": 10.751839135095793,
+      "supported_pct": 86.31323226368704,
+      "remaining_pct": 10.284595511829425,
+      "unknown_pct": 3.402172224483526,
+      "categories_pct": {
+        "图片编解码": 10.276882772913616,
+        "PDF页面解析渲染": 0.4072153321038956,
+        "压缩解压": 0.06774103007828126
+      },
+      "functions": [
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 8941062755,
+          "share_roi": 0.10276882772913616,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 118131895,
+          "share_roi": 0.0013578113362175369,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::computeIntersections(SplashXPath const&)",
+          "period": 59075259,
+          "share_roi": 0.0006790126947526497,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Object::free()@plt",
+          "period": 59052470,
+          "share_roi": 0.000678750757343273,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxFontDict::lookup(char const*) const",
+          "period": 59045085,
+          "share_roi": 0.0006786658739447804,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashFTFont::makeGlyph(int, int, int, SplashGlyphBitmap*, int, int, SplashClip*, SplashClipResult*)",
+          "period": 58979554,
+          "share_roi": 0.000677912658780716,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "scan_tree",
+          "period": 58935848,
+          "share_roi": 0.0006774103007828128,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        }
+      ]
+    },
+    "003-u500": {
+      "parent": "003",
+      "exact_pct": 71.57600817544451,
+      "additional_equivalent_pct": 22.375121930722965,
+      "supported_pct": 93.9511301061675,
+      "remaining_pct": 4.569643063550311,
+      "unknown_pct": 1.4792268302822016,
+      "categories_pct": {
+        "图片编解码": 22.117100691147087,
+        "PDF页面解析渲染": 0.23346609630058418,
+        "压缩解压": 0.02455514327529528
+      },
+      "functions": [
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 106025881740,
+          "share_roi": 0.22104821090949,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+          "period": 235858799,
+          "share_roi": 0.0004917305538100683,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 117889616,
+          "share_roi": 0.00024578233421826374,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "read_buf",
+          "period": 117778864,
+          "share_roi": 0.0002455514327529528,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::readSome()",
+          "period": 59000482,
+          "share_roi": 0.00012300723912751275,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "CharCodeToUnicode::mapToUnicode(unsigned int, unsigned int const**) const",
+          "period": 58999988,
+          "share_roi": 0.00012300620921090752,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__introsort_loop<boost::container::vec_iterator<SplashIntersect*, false>, long, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}> >(boost::container::vec_iterator<SplashIntersect*, false>, boost::container::vec_iterator<SplashIntersect*, false>, long, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}>)",
+          "period": 58981494,
+          "share_roi": 0.00012296765196860525,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getHuffmanCodeWord(FlateHuffmanTab*)",
+          "period": 58978483,
+          "share_roi": 0.0001229613744809567,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillWithPattern(SplashPath*, bool, SplashPattern*, double)",
+          "period": 58967346,
+          "share_roi": 0.0001229381554906074,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::setLineWidth(double)",
+          "period": 58964117,
+          "share_roi": 0.00012293142350534763,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx::doShowText(GooString const*)",
+          "period": 58962391,
+          "share_roi": 0.00012292782505178356,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Object::copy() const",
+          "period": 58960975,
+          "share_roi": 0.00012292487290216207,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getChar()",
+          "period": 58919320,
+          "share_roi": 0.0001228380284159449,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Parser::getObj(bool, unsigned char const*, CryptAlgorithm, int, int, int, int, bool, bool)",
+          "period": 58903579,
+          "share_roi": 0.00012280521076962284,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_row",
+          "period": 58899162,
+          "share_roi": 0.00012279600198086707,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+          "period": 58838590,
+          "share_roi": 0.00012266971836019376,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "PSTokenizer::getToken(char*, int, int*)",
+          "period": 58810677,
+          "share_roi": 0.0001226115239022948,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object> > >::_M_realloc_insert<char const*&, Object>(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object> > > >, char const*&, Object&&)",
+          "period": 58785408,
+          "share_roi": 0.00012255884179157046,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        }
+      ]
+    },
+    "009-u500": {
+      "parent": "009",
+      "exact_pct": 71.59380775129426,
+      "additional_equivalent_pct": 4.658303489119432,
+      "supported_pct": 76.2521112404137,
+      "remaining_pct": 20.28879459091954,
+      "unknown_pct": 3.4590941686667653,
+      "categories_pct": {
+        "图片编解码": 4.345348477422088,
+        "PDF页面解析渲染": 0.2872646907899692,
+        "压缩解压": 0.02569032090737544
+      },
+      "functions": [
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 9911994947,
+          "share_roi": 0.043453484774220875,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__introsort_loop<boost::container::vec_iterator<SplashIntersect*, false>, long, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}> >(boost::container::vec_iterator<SplashIntersect*, false>, boost::container::vec_iterator<SplashIntersect*, false>, long, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}>)",
+          "period": 118102692,
+          "share_roi": 0.0005177538483481329,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getChar()",
+          "period": 118099322,
+          "share_roi": 0.0005177390745064924,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::computeIntersections(SplashXPath const&)",
+          "period": 65037649,
+          "share_roi": 0.00028512045311604835,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Parser::getObj(bool, unsigned char const*, CryptAlgorithm, int, int, int, int, bool, bool)",
+          "period": 59064257,
+          "share_roi": 0.000258933525084874,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx8BitFont::Gfx8BitFont(XRef*, char const*, Ref, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&&, GfxFontType, Ref, Dict*)",
+          "period": 59054488,
+          "share_roi": 0.00025889069847983344,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPath::SplashXPath(SplashPath*, double*, double, bool, bool, int)",
+          "period": 59026721,
+          "share_roi": 0.0002587689699157878,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 59021622,
+          "share_roi": 0.0002587466162604391,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__insertion_sort<boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}> >(boost::container::vec_iterator<SplashIntersect*, false>, boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}>) [clone .isra.0]",
+          "period": 58964501,
+          "share_roi": 0.000258496201836596,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+          "period": 58896370,
+          "share_roi": 0.0002581975203514881,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "deflateStateCheck",
+          "period": 58601130,
+          "share_roi": 0.0002569032090737544,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        }
+      ]
+    },
+    "013-v1000": {
+      "parent": "013",
+      "exact_pct": 93.24538697998955,
+      "additional_equivalent_pct": 2.50985603016901,
+      "supported_pct": 95.75524301015857,
+      "remaining_pct": 4.22351909171998,
+      "unknown_pct": 0.021237898121452853,
+      "categories_pct": {
+        "图片编解码": 1.1301897061139414,
+        "图片缩放": 1.3334112374883655,
+        "PDF页面解析渲染": 0.03471888407546031,
+        "表格模型重算": 0.009499847400043879,
+        "压缩解压": 0.002036355091199015
+      },
+      "functions": [
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 26494665067,
+          "share_roi": 0.00973483596119366,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "HorizontalFilter._omp_fn.0",
+          "period": 23582777064,
+          "share_roi": 0.00866493181351377,
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "interpretation": "处理类型与旧图片操作有共性；不把整库归为拼图",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "VerticalFilter._omp_fn.0",
+          "period": 12707802741,
+          "share_roi": 0.004669180561369886,
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "interpretation": "处理类型与旧图片操作有共性；不把整库归为拼图",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "png.so",
+          "function": "ReadOnePNGImage",
+          "period": 2051079977,
+          "share_roi": 0.0007536206654770415,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_read_filter_row_up",
+          "period": 1048514872,
+          "share_roi": 0.0003852519084872403,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_read_filter_row_paeth_multibyte_pixel",
+          "period": 874160907,
+          "share_roi": 0.00032118968146279856,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+          "period": 177181837,
+          "share_roi": 6.510126148551675e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 177113941,
+          "share_roi": 6.507631471148697e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "png.so",
+          "function": "WriteOnePNGImage",
+          "period": 176690521,
+          "share_roi": 6.492073908023196e-05,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx::findOp(char const*)",
+          "period": 118140417,
+          "share_roi": 4.340789275779429e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::readSome()",
+          "period": 118109571,
+          "share_roi": 4.339655912706903e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_row",
+          "period": 59079319,
+          "share_roi": 2.1707293815930232e-05,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+          "period": 59068098,
+          "share_roi": 2.1703170925754252e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FileStream::~FileStream()",
+          "period": 59066632,
+          "share_roi": 2.1702632278842395e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashFTFont::makeGlyph(int, int, int, SplashGlyphBitmap*, int, int, SplashClip*, SplashClipResult*)",
+          "period": 59064021,
+          "share_roi": 2.1701672928851352e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxDeviceRGBColorSpace::GfxDeviceRGBColorSpace()",
+          "period": 59063142,
+          "share_roi": 2.1701349961159997e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx::opSetFont(Object*, int)",
+          "period": 59057450,
+          "share_roi": 2.1699258570831e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getCodeWord(int)",
+          "period": 59056006,
+          "share_roi": 2.1698728007297083e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScPrintFunc::InitModes()",
+          "period": 58048261,
+          "share_roi": 2.1328456020808297e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScTable::UpdatePageBreaks(ScRange const*)",
+          "period": 57882402,
+          "share_roi": 2.126751506708782e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::IsValue()",
+          "period": 57629234,
+          "share_roi": 2.1174494493157516e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::GetPrinter(bool)",
+          "period": 57370065,
+          "share_roi": 2.107926899418078e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_read_filter_row_sub",
+          "period": 55441903,
+          "share_roi": 2.0370811622512165e-05,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "inflateStateCheck",
+          "period": 55422142,
+          "share_roi": 2.036355091199015e-05,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScValueIterator::GetThis(double&, FormulaError&)",
+          "period": 19401379,
+          "share_roi": 7.1285763193583635e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::ScMin(bool)",
+          "period": 3134976,
+          "share_roi": 1.1518725383054888e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::Interpret()",
+          "period": 2114678,
+          "share_roi": 7.769882498490497e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColumn::CalculateInThread(ScInterpreterContext&, int, unsigned long, unsigned long, unsigned int, unsigned int)",
+          "period": 1860937,
+          "share_roi": 6.837571406660215e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::SingleRefToVars(ScSingleRefData const&, short&, int&, short&)",
+          "period": 583960,
+          "share_roi": 2.1456224464521363e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColumn::InitBlockPosition(sc::ColumnBlockPosition&)",
+          "period": 518064,
+          "share_roi": 1.903503231554866e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::GetRecursionHelper()",
+          "period": 4840,
+          "share_roi": 1.7783431469327248e-09,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScTable::CalculateInColumnInThread(ScInterpreterContext&, short, short, int, int, unsigned int, unsigned int)",
+          "period": 971,
+          "share_roi": 3.567709081966272e-10,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "TLS init function for ScDocument::maThreadSpecific",
+          "period": 734,
+          "share_roi": 2.696908822001281e-10,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::InterpretFormulaGroupThreading(sc::FormulaLogger::GroupScope&, bool&, bool&, int, int)::Executor::doWork()",
+          "period": 613,
+          "share_roi": 2.2523230352680998e-10,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColContainer::resize(ScSheetLimits const&, unsigned long)",
+          "period": 7,
+          "share_roi": 2.5719838901919575e-12,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        }
+      ]
+    },
+    "014-n10000": {
+      "parent": "014",
+      "exact_pct": 91.8230902671916,
+      "additional_equivalent_pct": 4.801959590644719,
+      "supported_pct": 96.62504985783632,
+      "remaining_pct": 2.320278091688916,
+      "unknown_pct": 1.0546720504747622,
+      "categories_pct": {
+        "图片编解码": 4.123062068849524,
+        "表格模型重算": 0.23647239331184167,
+        "PDF页面解析渲染": 0.42941389514788053,
+        "压缩解压": 0.013011233335471358
+      },
+      "functions": [
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 37357229523,
+          "share_roi": 0.04116555059876368,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScHorizontalAttrIterator::InitForNextRow(bool)",
+          "period": 1045926955,
+          "share_roi": 0.0011525522512892618,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 767253375,
+          "share_roi": 0.0008454697533495865,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::computeIntersections(SplashXPath const&)",
+          "period": 708606054,
+          "share_roi": 0.0007808437280545085,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx::findOp(char const*)",
+          "period": 236202168,
+          "share_roi": 0.0002602814079763385,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+          "period": 177130082,
+          "share_roi": 0.00019518731571474944,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getChar()",
+          "period": 177086167,
+          "share_roi": 0.00019513892387259125,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__unguarded_linear_insert<boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Val_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}> >(boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Val_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}>)",
+          "period": 118144280,
+          "share_roi": 0.0001301883035330597,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getHuffmanCodeWord(FlateHuffmanTab*)",
+          "period": 118132725,
+          "share_roi": 0.00013017557057766547,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx::go(bool)",
+          "period": 118122848,
+          "share_roi": 0.00013016468668321037,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxState::restore()",
+          "period": 118117727,
+          "share_roi": 0.00013015904363132167,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::~SplashXPathScanner()",
+          "period": 118073155,
+          "share_roi": 0.00013010992781238337,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::GetFormatTable() const",
+          "period": 116426061,
+          "share_roi": 0.00012829492353439817,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScPatternAttr::GetLanguageType() const",
+          "period": 71623905,
+          "share_roi": 7.892548572273693e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Lexer::lookChar()@plt",
+          "period": 59083463,
+          "share_roi": 6.51066290710672e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Parser::getObj(int)",
+          "period": 59078062,
+          "share_roi": 6.510067747504087e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPath::strokeAdjust(SplashXPathAdjust*, double*, double*)",
+          "period": 59077347,
+          "share_roi": 6.509988958554655e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx::doShowText(GooString const*)",
+          "period": 59075562,
+          "share_roi": 6.509792261666912e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScConditionalFormat::GetCellStyle(ScRefCellValue const&, ScAddress const&) const",
+          "period": 59074962,
+          "share_roi": 6.50972614506599e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "PDFDoc::getNumPages()",
+          "period": 59074310,
+          "share_roi": 6.509654298359654e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashSolidColor::~SplashSolidColor()",
+          "period": 59072092,
+          "share_roi": 6.509409887324912e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillWithPattern(SplashPath*, bool, SplashPattern*, double)",
+          "period": 59071070,
+          "share_roi": 6.509297268714675e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxState::shift(double, double)",
+          "period": 59066436,
+          "share_roi": 6.508786628166887e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "deflate",
+          "period": 59064760,
+          "share_roi": 6.508601942461645e-05,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Parser::getObj(bool, unsigned char const*, CryptAlgorithm, int, int, int, int, bool, bool)",
+          "period": 59054454,
+          "share_roi": 6.507466279646473e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxState::GfxState(GfxState const*, bool)",
+          "period": 59051676,
+          "share_roi": 6.507160159784205e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashState::SplashState(SplashState const*)",
+          "period": 59050890,
+          "share_roi": 6.507073547036996e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_row",
+          "period": 59050304,
+          "share_roi": 6.507008973156763e-05,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__introsort_loop<boost::container::vec_iterator<SplashIntersect*, false>, long, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}> >(boost::container::vec_iterator<SplashIntersect*, false>, boost::container::vec_iterator<SplashIntersect*, false>, long, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}>)",
+          "period": 59050048,
+          "share_roi": 6.506980763407036e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashFont::getGlyph(int, int, int, SplashGlyphBitmap*, int, int, SplashClip*, SplashClipResult*)",
+          "period": 59047482,
+          "share_roi": 6.506698004743759e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+          "period": 59046386,
+          "share_roi": 6.506577231752742e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColumn::GetOptimalHeight(sc::RowHeightContext&, int, int, unsigned short, int)",
+          "period": 59045728,
+          "share_roi": 6.506504723880397e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxDeviceRGBColorSpace::getMode() const",
+          "period": 59045234,
+          "share_roi": 6.506450287878972e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__insertion_sort<boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}> >(boost::container::vec_iterator<SplashIntersect*, false>, boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Iter_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}>) [clone .isra.0]",
+          "period": 59044240,
+          "share_roi": 6.50634075471011e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Gfx::execOp(Object*, Object*, int)",
+          "period": 59036838,
+          "share_roi": 6.505525096243403e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "free@plt",
+          "period": 59035950,
+          "share_roi": 6.505427243674038e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashState::setFillPattern(SplashPattern*)",
+          "period": 59032451,
+          "share_roi": 6.505041673696327e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "send_tree",
+          "period": 59010578,
+          "share_roi": 6.502631393009714e-05,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "png_set_longjmp_fn@plt",
+          "period": 58984086,
+          "share_roi": 6.499712124690335e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "CharCodeToUnicode::mapToUnicode(unsigned int, unsigned int const**) const",
+          "period": 58931486,
+          "share_roi": 6.493915902676169e-05,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScCondFormatItem::operator==(SfxPoolItem const&) const",
+          "period": 58482312,
+          "share_roi": 6.44441947250523e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "getAlignmentFromContext(SvxCellHorJustify, bool, rtl::OUString const&, ScPatternAttr const&, SfxItemSet const*, ScDocument const*, short, bool)",
+          "period": 58276517,
+          "share_roi": 6.421742029360638e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScPrintFunc::DoPrint(MultiSelection const&, long, long, bool, ScPreviewLocationData*)",
+          "period": 58239971,
+          "share_roi": 6.417714867198476e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreterContext::NFGetOutputString(rtl::OUString const&, unsigned int, rtl::OUString&, Color const**, bool) const",
+          "period": 58239208,
+          "share_roi": 6.41763078892097e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "std::_Hashtable<std::pair<ScPatternAttr const*, SfxItemSet const*>, std::pair<std::pair<ScPatternAttr const*, SfxItemSet const*> const, ScRotateDir>, std::allocator<std::pair<std::pair<ScPatternAttr const*, SfxItemSet const*> const, ScRotateDir> >, std::__detail::_Select1st, std::equal_to<std::pair<ScPatternAttr const*, SfxItemSet const*> >, ScTable::FillMaxRotCacheMapHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_find_before_node(unsigned long, std::pair<ScPatternAttr const*, SfxItemSet const*> const&, unsigned long) const [clone .isra.0]",
+          "period": 57889782,
+          "share_roi": 6.379126023264653e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScOutputData::LayoutStrings(bool)",
+          "period": 57838876,
+          "share_roi": 6.373516470453756e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFlatUInt16RowSegments::ForwardIterator::getValue(int, unsigned short&)",
+          "period": 57582684,
+          "share_roi": 6.345285563414718e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScRefCellValue::ScRefCellValue(ScFormulaCell*)",
+          "period": 57438116,
+          "share_roi": 6.329354988811218e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScAttrArray::ExtendMerge(short, int, int, short&, int&, bool)",
+          "period": 57371911,
+          "share_roi": 6.322059572871143e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScTokenArray::CheckForThreading(formula::FormulaToken const&)",
+          "period": 57098767,
+          "share_roi": 6.291960651467386e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::ScMin(bool)",
+          "period": 56628636,
+          "share_roi": 6.240154878620576e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScTokenArray::CreateString(sc::TokenStringContext&, ScAddress const&) const",
+          "period": 55283400,
+          "share_roi": 6.091917492357272e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColumn::GetNextDataPos(int&) const",
+          "period": 54437359,
+          "share_roi": 5.998688567089444e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "non-virtual thunk to ScModelObj::release()",
+          "period": 36448773,
+          "share_roi": 4.016448297565986e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColumn::CalculateInThread(ScInterpreterContext&, int, unsigned long, unsigned long, unsigned int, unsigned int)",
+          "period": 2689513,
+          "share_roi": 2.963690961594671e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryCellIteratorBase<(ScQueryCellIteratorAccess)0, (ScQueryCellIteratorType)1>::PerformQuery()",
+          "period": 1781080,
+          "share_roi": 1.9626492595042435e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::IsValue()",
+          "period": 1243564,
+          "share_roi": 1.3703370784839172e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryCellIteratorBase<(ScQueryCellIteratorAccess)0, (ScQueryCellIteratorType)0>::PerformQuery()",
+          "period": 1240292,
+          "share_roi": 1.3667315198469678e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "auto ScQueryEvaluator::visitCellSharedString<ScQueryEvaluator::equalCellSharedString(ScRefCellValue const&, int, int, bool, svl::SharedString const&)::{lambda(svl::SharedString const&)#1}>(ScRefCellValue const&, int, short, ScQueryEvaluator::equalCellSharedString(ScRefCellValue const&, int, int, bool, svl::SharedString const&)::{lambda(svl::SharedString const&)#1} const&)",
+          "period": 1065165,
+          "share_roi": 1.1737514870190207e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::IsEmptyDisplayedAsString()",
+          "period": 850979,
+          "share_roi": 9.377306489341645e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "lcl_EvalDirty(mdds::mtv::soa::multi_type_vector<sc::CellStoreTraits>&, int, int, ScDocument&, boost::intrusive_ptr<ScFormulaCellGroup> const&, bool, bool, bool&, bool&, ScAddress*) [clone .constprop.0]",
+          "period": 805876,
+          "share_roi": 8.880296980777067e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::isFastCompareByString(ScQueryEntry const&) const",
+          "period": 754961,
+          "share_roi": 8.31924252478599e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::GetErrCode()",
+          "period": 714176,
+          "share_roi": 7.869814930018319e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEntry::Clear()",
+          "period": 628866,
+          "share_roi": 6.929747059241559e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::PushTempToken(formula::FormulaToken*)",
+          "period": 394118,
+          "share_roi": 4.3429570870331116e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::ScQueryEvaluator(ScDocument&, ScTable const&, ScQueryParam const&, ScInterpreterContext*, bool*, bool)",
+          "period": 262263,
+          "share_roi": 2.889989684603507e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::ValidQuery(int, ScRefCellValue const*, sc::TableColumnBlockPositionSet*)",
+          "period": 163743,
+          "share_roi": 1.8043550974633556e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::InterpretFormulaGroupThreading(sc::FormulaLogger::GroupScope&, bool&, bool&, int, int)::Executor::~Executor()",
+          "period": 5725,
+          "share_roi": 6.308625671312796e-09,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "TLS init function for ScDocument::maThreadSpecific",
+          "period": 2655,
+          "share_roi": 2.9256595908009557e-09,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::InterpretFormulaGroupThreading(sc::FormulaLogger::GroupScope&, bool&, bool&, int, int)::Executor::doWork()",
+          "period": 909,
+          "share_roi": 1.0016665039691408e-09,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        }
+      ]
+    },
+    "016-u500": {
+      "parent": "016",
+      "exact_pct": 80.02529610397147,
+      "additional_equivalent_pct": 7.306028831498878,
+      "supported_pct": 87.33132493547035,
+      "remaining_pct": 12.116765481743089,
+      "unknown_pct": 0.551909582786562,
+      "categories_pct": {
+        "表格模型重算": 6.796845488428639,
+        "图片编解码": 0.508071771998884,
+        "压缩解压": 0.0011115662774668724,
+        "PDF页面解析渲染": 4.793889190637368e-09
+      },
+      "functions": [
+        {
+          "library": "libsclo.so",
+          "function": "ScHorizontalAttrIterator::InitForNextRow(bool)",
+          "period": 694409991,
+          "share_roi": 0.01664462274862746,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::RemoveFromFormulaTree(ScFormulaCell*)",
+          "period": 609018566,
+          "share_roi": 0.014597837602224351,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::MergeCalcConfig()",
+          "period": 327963506,
+          "share_roi": 0.007861103531684668,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 211966423,
+          "share_roi": 0.00508071771998884,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::ScFormulaCell(ScDocument&, ScAddress const&, ScTokenArray const&, formula::FormulaGrammar::Grammar, ScMatrixMode)",
+          "period": 201421493,
+          "share_roi": 0.004827961590273701,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScTable::UpdatePageBreaks(ScRange const*)",
+          "period": 105420753,
+          "share_roi": 0.002526877041377759,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::PushWithoutError(formula::FormulaToken const&)",
+          "period": 65832586,
+          "share_roi": 0.0015779706120855246,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::GetCellString(svl::SharedString&, ScRefCellValue const&)",
+          "period": 60471273,
+          "share_roi": 0.0014494629098939064,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaResult::IsValue() const",
+          "period": 59969865,
+          "share_roi": 0.001437444437937411,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::PushTempToken(formula::FormulaToken*)",
+          "period": 59144014,
+          "share_roi": 0.0014176492470275258,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::IsValue()",
+          "period": 59107762,
+          "share_roi": 0.0014167803066728309,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScPatternAttr::GetItem(unsigned short, SfxItemSet const*) const",
+          "period": 59005431,
+          "share_roi": 0.0014143274892989951,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreterContextPool::ReturnToPool()",
+          "period": 58647713,
+          "share_roi": 0.0014057531870315131,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScOutputData::GetOutputArea(short, unsigned long, long, long, short, int, long, ScPatternAttr const&, unsigned short, bool, bool, bool, ScOutputData::OutputAreaParam&)",
+          "period": 58253071,
+          "share_roi": 0.0013962938369416556,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::ScInterpreter(ScFormulaCell*, ScDocument&, ScInterpreterContext&, ScAddress const&, ScTokenArray&, bool)",
+          "period": 58148791,
+          "share_roi": 0.0013937943031176573,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::Compare(ScQueryOp)",
+          "period": 57938568,
+          "share_roi": 0.0013887553742810404,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::GetScriptType(ScAddress const&) const",
+          "period": 57813514,
+          "share_roi": 0.0013857578991868106,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColumn::SetScriptType(int, SvtScriptType)",
+          "period": 57784151,
+          "share_roi": 0.0013850540843452872,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScTable::GetScriptType(short, int) const",
+          "period": 57579385,
+          "share_roi": 0.0013801459567752369,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaGroupCycleCheckGuard::~ScFormulaGroupCycleCheckGuard()",
+          "period": 54973779,
+          "share_roi": 0.0013176910245829376,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScColumn::CalculateInThread(ScInterpreterContext&, int, unsigned long, unsigned long, unsigned int, unsigned int)",
+          "period": 23329430,
+          "share_roi": 0.0005591935115036557,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::Interpret()",
+          "period": 15312567,
+          "share_roi": 0.00036703374711105234,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::GetErrCode()",
+          "period": 4030901,
+          "share_roi": 9.661846366214678e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaResult::GetResultError() const",
+          "period": 2852067,
+          "share_roi": 6.836246581136773e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::PushTempTokenWithoutError(formula::FormulaToken const*)",
+          "period": 2667543,
+          "share_roi": 6.393952776630188e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaResult::SetToken(formula::FormulaToken const*)",
+          "period": 2024496,
+          "share_roi": 4.852604745444294e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::GetErrorOrValue(FormulaError&, double&)",
+          "period": 1926217,
+          "share_roi": 4.617035427560969e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::GetRecursionHelper()",
+          "period": 1677023,
+          "share_roi": 4.019731216075125e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryCellIteratorBase<(ScQueryCellIteratorAccess)0, (ScQueryCellIteratorType)0>::PerformQuery()",
+          "period": 1590114,
+          "share_roi": 3.8114151582405734e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::ValidQuery(int, ScRefCellValue const*, sc::TableColumnBlockPositionSet*)",
+          "period": 1360662,
+          "share_roi": 3.261431426955511e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScRefCellValue::ScRefCellValue(ScFormulaCell*)",
+          "period": 1358456,
+          "share_roi": 3.256143767178238e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEntry::~ScQueryEntry()",
+          "period": 1143121,
+          "share_roi": 2.7399977027452892e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::processEntry(int, short, ScRefCellValue const&, ScQueryEntry const&, unsigned long)",
+          "period": 1077638,
+          "share_roi": 2.5830385798100357e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::GetRawValue() const",
+          "period": 1009346,
+          "share_roi": 2.419346439506532e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScTable::GetNumberFormat(ScInterpreterContext const&, ScAddress const&) const",
+          "period": 923602,
+          "share_roi": 2.213822822125527e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::CalculateAddSub(bool)",
+          "period": 913928,
+          "share_roi": 2.190634780110414e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::GetCellValueOrZero(ScAddress const&, ScRefCellValue const&)",
+          "period": 849278,
+          "share_roi": 2.0356723120230612e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScRefCellValue::getSharedString(ScDocument const&, svl::SharedStringPool&) const",
+          "period": 844535,
+          "share_roi": 2.0243036038074647e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScPatternAttr::GetNumberFormat(ScInterpreterContext const&) const",
+          "period": 821174,
+          "share_roi": 1.9683085811162247e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::Init(ScFormulaCell*, ScAddress const&, ScTokenArray&)",
+          "period": 796249,
+          "share_roi": 1.9085647370779068e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::InterpretTail(ScInterpreterContext&, ScFormulaCell::ScInterpretTailParameter)",
+          "period": 745093,
+          "share_roi": 1.785946639359784e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::ScQueryEvaluator(ScDocument&, ScTable const&, ScQueryParam const&, ScInterpreterContext*, bool*, bool)",
+          "period": 716520,
+          "share_roi": 1.7174587414377433e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScRangeList::push_back(ScRange const&)",
+          "period": 714572,
+          "share_roi": 1.7127894933660626e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScRefCellValue::hasNumeric() const",
+          "period": 644973,
+          "share_roi": 1.5459645464764776e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::compareByValue(ScRefCellValue const&, short, int, ScQueryEntry const&, ScQueryEntry::Item const&)",
+          "period": 566872,
+          "share_roi": 1.3587607766374929e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::LimitRangeToAvailableSheets(ScRange const&, ScRange&, bool&) const",
+          "period": 555809,
+          "share_roi": 1.3322433785794823e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "_tr_flush_block",
+          "period": 463743,
+          "share_roi": 1.1115662774668724e-05,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::PopSingleRef(ScAddress&)",
+          "period": 434240,
+          "share_roi": 1.0408492210711853e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaResult::~ScFormulaResult()",
+          "period": 418074,
+          "share_roi": 1.0021002147432634e-05,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScQueryEvaluator::~ScQueryEvaluator()",
+          "period": 324368,
+          "share_roi": 7.774921244943309e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScPatternAttr::GetLanguageType() const",
+          "period": 314171,
+          "share_roi": 7.5305048045586625e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreterContext::ResetTokens()",
+          "period": 308298,
+          "share_roi": 7.389732248475596e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaResult::GetCellResultType() const",
+          "period": 246729,
+          "share_roi": 5.913957430583836e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::GetNumberFormat(ScInterpreterContext const&, ScAddress const&) const",
+          "period": 140339,
+          "share_roi": 3.3638480756242877e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScInterpreter::GetDouble()",
+          "period": 66840,
+          "share_roi": 1.6021177675110083e-06,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "TLS init function for ScDocument::maThreadSpecific",
+          "period": 7484,
+          "share_roi": 1.793873335136503e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::InterpretFormulaGroupThreading(sc::FormulaLogger::GroupScope&, bool&, bool&, int, int)::Executor::~Executor()",
+          "period": 6901,
+          "share_roi": 1.6541314652294237e-07,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScFormulaCell::InterpretFormulaGroupThreading(sc::FormulaLogger::GroupScope&, bool&, bool&, int, int)::Executor::doWork()",
+          "period": 2682,
+          "share_roi": 6.42860540464471e-08,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScCalcConfig::setOpenCLConfigToDefault()",
+          "period": 1521,
+          "share_roi": 3.6457527294797184e-08,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libsclo.so",
+          "function": "ScDocument::CalculateInColumnInThread(ScInterpreterContext&, ScRange const&, unsigned int, unsigned int)",
+          "period": 906,
+          "share_roi": 2.1716318033587275e-08,
+          "tool": "LibreOffice·Calc",
+          "type": "表格模型／重算路径",
+          "interpretation": "Calc 单元格、属性或公式管理；旧例已有表格与重算，具体子路径不同",
+          "equivalent_operation": "表格模型重算"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FileStream::fillBuf()",
+          "period": 2,
+          "share_roi": 4.7938891906373674e-11,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        }
+      ]
+    },
+    "021-g10": {
+      "parent": "021",
+      "exact_pct": 50.4387440509872,
+      "additional_equivalent_pct": 31.79521109883614,
+      "supported_pct": 82.23395514982333,
+      "remaining_pct": 15.65735702870676,
+      "unknown_pct": 2.1086878214699043,
+      "categories_pct": {
+        "图片缩放": 15.844078479165342,
+        "图片编解码": 8.026795246571513,
+        "PDF页面解析渲染": 7.921907686604611,
+        "压缩解压": 0.002429686494673225
+      },
+      "functions": [
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "VerticalFilter._omp_fn.0",
+          "period": 6930833845,
+          "share_roi": 0.07624434674308991,
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "interpretation": "处理类型与旧图片操作有共性；不把整库归为拼图",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "HorizontalFilter._omp_fn.0",
+          "period": 3068596806,
+          "share_roi": 0.03375685583058473,
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "interpretation": "处理类型与旧图片操作有共性；不把整库归为拼图",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "encode_mcu_gather",
+          "period": 2874690172,
+          "share_roi": 0.03162373808903809,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+          "period": 2518501942,
+          "share_roi": 0.027705401634685028,
+          "tool": "LibreOffice·VCL",
+          "type": "图片滤波／缩放",
+          "interpretation": "LibreOffice 图形层的具体图像实现",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+          "period": 1735164582,
+          "share_roi": 0.01908810584772238,
+          "tool": "LibreOffice·VCL",
+          "type": "图片滤波／缩放",
+          "interpretation": "LibreOffice 图形层的具体图像实现",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+          "period": 1210661828,
+          "share_roi": 0.013318183968476751,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+          "period": 1148245609,
+          "share_roi": 0.012631558960540403,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+          "period": 1139233605,
+          "share_roi": 0.012532420188324444,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashBitmap::getPixel(int, int, unsigned char*)",
+          "period": 686055166,
+          "share_roi": 0.007547119023655098,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_huff_encode_one_block_neon",
+          "period": 454546448,
+          "share_roi": 0.005000350285002668,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "jpeg.so",
+          "function": "WriteJPEGImage_",
+          "period": 437636170,
+          "share_roi": 0.004814324602063497,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::readSome()",
+          "period": 401547851,
+          "share_roi": 0.004417326150110096,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_fdct_islow_neon",
+          "period": 398984742,
+          "share_roi": 0.004389130037534506,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::composite(SplashBitmap*, int, int, int, int, int, int, bool, bool, bool, double)",
+          "period": 393797738,
+          "share_roi": 0.004332069121001482,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decode_mcu_AC_refine",
+          "period": 346212318,
+          "share_roi": 0.003808593974499025,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_idct_islow_neon",
+          "period": 339998629,
+          "share_roi": 0.00374023875645964,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_quantize_neon",
+          "period": 285743662,
+          "share_roi": 0.0031433936135816117,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::blitTransparent(SplashBitmap*, int, int, int, int, int, int)",
+          "period": 282470624,
+          "share_roi": 0.0031073877519845485,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jpeg12_fdct_islow",
+          "period": 278644882,
+          "share_roi": 0.0030653017337476476,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_refine_prepare",
+          "period": 268674048,
+          "share_roi": 0.0029556151156847686,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "rgb_ycc_convert",
+          "period": 266540599,
+          "share_roi": 0.002932145583886362,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_first_prepare",
+          "period": 249957245,
+          "share_roi": 0.002749716309023345,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "encode_mcu_huff",
+          "period": 230982309,
+          "share_roi": 0.002540977846644012,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_rgb_ycc_convert_neon.localalias",
+          "period": 230578525,
+          "share_roi": 0.0025365359211854295,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__unguarded_linear_insert<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object> > > >, __gnu_cxx::__ops::_Val_comp_iter<Dict::CmpDictEntry> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object> > > >, __gnu_cxx::__ops::_Val_comp_iter<Dict::CmpDictEntry>) [clone .isra.0]",
+          "period": 230080853,
+          "share_roi": 0.0025310611576315895,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Parser::getObj(bool, unsigned char const*, CryptAlgorithm, int, int, int, int, bool, bool)",
+          "period": 171893424,
+          "share_roi": 0.0018909559968412393,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::blitImage(SplashBitmap*, bool, int, int, SplashClipResult)",
+          "period": 170309322,
+          "share_roi": 0.0018735296921763894,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+          "period": 167995261,
+          "share_roi": 0.0018480732935359945,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "(anonymous namespace)::scaleUpPalette8bit((anonymous namespace)::ScaleContext const&, int, int)",
+          "period": 149633002,
+          "share_roi": 0.0016460747355713685,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Lexer::getChar(bool)@plt",
+          "period": 116087697,
+          "share_roi": 0.0012770513361909572,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "consume_data",
+          "period": 115407769,
+          "share_roi": 0.0012695716205677447,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "pthread_mutex_unlock@plt",
+          "period": 114608710,
+          "share_roi": 0.0012607813750032607,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "modf@plt",
+          "period": 114268097,
+          "share_roi": 0.0012570343777071216,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getHuffmanCodeWord(FlateHuffmanTab*)",
+          "period": 114174536,
+          "share_roi": 0.0012560051368559972,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "compress_data",
+          "period": 113652313,
+          "share_roi": 0.0012502602939727788,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "quantize",
+          "period": 112597385,
+          "share_roi": 0.0012386552983806513,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashBitmap::getPixel(int, int, unsigned char*)@plt",
+          "period": 112351308,
+          "share_roi": 0.0012359482676635558,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jpeg_fill_bit_buffer",
+          "period": 58556503,
+          "share_roi": 0.00064416525033501,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+          "period": 58283161,
+          "share_roi": 0.000641158284262308,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object> > >::_M_realloc_insert<char const*&, Object>(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Object> > > >, char const*&, Object&&)",
+          "period": 58237108,
+          "share_roi": 0.0006406516668798854,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decompress_data",
+          "period": 58175177,
+          "share_roi": 0.0006399703796432058,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_h2v2_downsample_neon",
+          "period": 58100719,
+          "share_roi": 0.0006391512860540711,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "std::vector<boost::container::small_vector<SplashIntersect, 4ul, void, void>, std::allocator<boost::container::small_vector<SplashIntersect, 4ul, void, void> > >::_M_default_append(unsigned long)",
+          "period": 58042009,
+          "share_roi": 0.0006385054322221377,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "XRef::fetch(int, int, int, long long*)",
+          "period": 58002794,
+          "share_roi": 0.000638074037944855,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 57986869,
+          "share_roi": 0.0006378988510555084,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decode_mcu_DC_first",
+          "period": 57956213,
+          "share_roi": 0.0006375616121682362,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashState::SplashState(int, int, bool, SplashScreenParams*)",
+          "period": 57479371,
+          "share_roi": 0.0006323159941657362,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "convsamp",
+          "period": 57125899,
+          "share_roi": 0.0006284275382692764,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashFont::getGlyph(int, int, int, SplashGlyphBitmap*, int, int, SplashClip*, SplashClipResult*)",
+          "period": 56424408,
+          "share_roi": 0.000620710613547478,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Lexer::lookChar()@plt",
+          "period": 56248115,
+          "share_roi": 0.0006187712589299848,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxImageColorMap::GfxImageColorMap(int, Object*, GfxColorSpace*)",
+          "period": 56183161,
+          "share_roi": 0.0006180567164363823,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "getCharFromString(void*)",
+          "period": 55569414,
+          "share_roi": 0.0006113050412228307,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char const*>(char const*, char const*, std::forward_iterator_tag) [clone .isra.0]",
+          "period": 55007462,
+          "share_roi": 0.0006051231496785857,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "deflate_fast",
+          "period": 1343699,
+          "share_roi": 1.4781692183870723e-05,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_first",
+          "period": 1232475,
+          "share_roi": 1.355814514583703e-05,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "send_tree",
+          "period": 864956,
+          "share_roi": 9.515161762114941e-06,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decompress_onepass",
+          "period": 594188,
+          "share_roi": 6.5365116111195865e-06,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_refine",
+          "period": 2547,
+          "share_roi": 2.8018901548872727e-08,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "jpeg.so",
+          "function": "ReadOneJPEGImage",
+          "period": 422,
+          "share_roi": 4.642315058352686e-09,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::computeIntersections(SplashXPath const&)",
+          "period": 1,
+          "share_roi": 1.1000746583774137e-11,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "operator new(unsigned long)@plt",
+          "period": 1,
+          "share_roi": 1.1000746583774137e-11,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "crc32",
+          "period": 1,
+          "share_roi": 1.1000746583774137e-11,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        }
+      ]
+    },
+    "026-u10": {
+      "parent": "026",
+      "exact_pct": 63.003995275030015,
+      "additional_equivalent_pct": 17.650974815494312,
+      "supported_pct": 80.65497009052432,
+      "remaining_pct": 17.4745802543147,
+      "unknown_pct": 1.8704496551609822,
+      "categories_pct": {
+        "PDF页面解析渲染": 10.896221535138663,
+        "图片编解码": 5.853000056209536,
+        "图片缩放": 0.7644426266020795,
+        "压缩解压": 0.137310597544032
+      },
+      "functions": [
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "expandRow(unsigned char*, unsigned char*, int, int, int)",
+          "period": 1558165675,
+          "share_roi": 0.030633657072943563,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::scaleImageYdownXdown(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+          "period": 937744379,
+          "share_roi": 0.0184361266515298,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashBitmap::getPixel(int, int, unsigned char*)",
+          "period": 761501202,
+          "share_roi": 0.014971172229616933,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decode_mcu_AC_refine",
+          "period": 526934014,
+          "share_roi": 0.010359563263351725,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_fdct_islow_neon",
+          "period": 410324205,
+          "share_roi": 0.008067005445167565,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_rgb_ycc_convert_neon.localalias",
+          "period": 352118731,
+          "share_roi": 0.006922681347356764,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::readSome()",
+          "period": 351340067,
+          "share_roi": 0.006907372753197772,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "consume_data",
+          "period": 293214361,
+          "share_roi": 0.0057646169004052,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::scaleImageYupXupBilinear(bool (*)(void*, unsigned char*, unsigned char*), void*, SplashColorMode, int, bool, int, int, int, int, SplashBitmap*)",
+          "period": 234175096,
+          "share_roi": 0.004603900407373329,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_idct_islow_neon",
+          "period": 176112676,
+          "share_roi": 0.0034623887622106794,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "forward_DCT",
+          "period": 175718355,
+          "share_roi": 0.003454636381007275,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "encode_mcu_huff",
+          "period": 175715380,
+          "share_roi": 0.0034545778922783457,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashClip::testClipPaths(int, int)",
+          "period": 175589003,
+          "share_roi": 0.003452093310733506,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+          "period": 166071623,
+          "share_roi": 0.0032649808875613736,
+          "tool": "LibreOffice·VCL",
+          "type": "图片滤波／缩放",
+          "interpretation": "LibreOffice 图形层的具体图像实现",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+          "period": 163552904,
+          "share_roi": 0.0032154626782033686,
+          "tool": "LibreOffice·VCL",
+          "type": "图片滤波／缩放",
+          "interpretation": "LibreOffice 图形层的具体图像实现",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_refine_prepare",
+          "period": 119347460,
+          "share_roi": 0.0023463802475092057,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_convsamp_neon",
+          "period": 117428676,
+          "share_roi": 0.002308656806416813,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Parser::getObj(bool, unsigned char const*, CryptAlgorithm, int, int, int, int, bool, bool)",
+          "period": 117283956,
+          "share_roi": 0.002305811600080461,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::computeIntersections(SplashXPath const&)",
+          "period": 117278560,
+          "share_roi": 0.0023057055143052333,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_huff_encode_one_block_neon",
+          "period": 117260439,
+          "share_roi": 0.0023053492540508038,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::blitImage(SplashBitmap*, bool, int, int, SplashClipResult)",
+          "period": 117238788,
+          "share_roi": 0.002304923593724737,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::fillGlyph2(int, int, SplashGlyphBitmap*, bool)",
+          "period": 117209014,
+          "share_roi": 0.002304338234593597,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::composite(SplashBitmap*, int, int, int, int, int, int, bool, bool, bool, double)",
+          "period": 117126303,
+          "share_roi": 0.0023027121299689013,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "jsimd_quantize_neon",
+          "period": 117054397,
+          "share_roi": 0.002301298452475661,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getChar()",
+          "period": 116890030,
+          "share_roi": 0.002298066984607452,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_refine",
+          "period": 109378910,
+          "share_roi": 0.00215039778741908,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "deflate_fast",
+          "period": 69842350,
+          "share_roi": 0.00137310597544032,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::readDynamicCodes()",
+          "period": 59884412,
+          "share_roi": 0.0011773321480867984,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "(anonymous namespace)::scaleUpPalette8bit((anonymous namespace)::ScaleContext const&, int, int)",
+          "period": 59205399,
+          "share_roi": 0.001163982700256053,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "GfxState::textShift(double, double)",
+          "period": 58873030,
+          "share_roi": 0.0011574483001399183,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "compress_data",
+          "period": 58779153,
+          "share_roi": 0.001155602671095987,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::pathAllOutside(SplashPath*)",
+          "period": 58658990,
+          "share_roi": 0.0011532402572693213,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(char const*) const [clone .isra.0]",
+          "period": 58613252,
+          "share_roi": 0.0011523410446697354,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "modf@plt",
+          "period": 58554128,
+          "share_roi": 0.001151178662280083,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::compHuffmanCodes(int const*, int, int*)",
+          "period": 58553754,
+          "share_roi": 0.0011511713094113033,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "void std::__unguarded_linear_insert<boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Val_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}> >(boost::container::vec_iterator<SplashIntersect*, false>, __gnu_cxx::__ops::_Val_comp_iter<SplashXPathScanner::computeIntersections(SplashXPath const&)::{lambda(SplashIntersect, SplashIntersect)#1}>)",
+          "period": 58548505,
+          "share_roi": 0.0011510681136673875,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 58547987,
+          "share_roi": 0.0011510579297475268,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Parser::shift(char const*, int)",
+          "period": 58545300,
+          "share_roi": 0.0011510051031207594,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "strcmp@plt",
+          "period": 58511382,
+          "share_roi": 0.0011503382726307345,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decode_mcu_DC_first",
+          "period": 58455157,
+          "share_roi": 0.0011492328848041633,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libjpeg.so.62.4.0",
+          "function": "decode_mcu_AC_first",
+          "period": 58426919,
+          "share_roi": 0.0011486777235512203,
+          "tool": "JPEG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Dict::add(char const*, Object&&)",
+          "period": 58391893,
+          "share_roi": 0.0011479891096959336,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Splash::blitTransparent(SplashBitmap*, int, int, int, int, int, int)",
+          "period": 58382742,
+          "share_roi": 0.001147809200331755,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashBitmap::getPixel(int, int, unsigned char*)@plt",
+          "period": 58360691,
+          "share_roi": 0.001147375675974908,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "BaseStream::~BaseStream()",
+          "period": 58340552,
+          "share_roi": 0.0011469797416851911,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_first_prepare",
+          "period": 57076808,
+          "share_roi": 0.001122134437398797,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_DC_first",
+          "period": 53751375,
+          "share_roi": 0.0010567561687233238,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_first",
+          "period": 2245,
+          "share_roi": 4.413687275504788e-08,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        }
+      ]
+    },
+    "029-u10": {
+      "parent": "029",
+      "exact_pct": 46.29421197563215,
+      "additional_equivalent_pct": 1.9467990123053023,
+      "supported_pct": 48.24101098793745,
+      "remaining_pct": 44.91582981651906,
+      "unknown_pct": 6.843159195543491,
+      "categories_pct": {
+        "图片缩放": 1.506914772327691,
+        "图片编解码": 0.43988423335224214,
+        "PDF页面解析渲染": 6.625369210798852e-09
+      },
+      "functions": [
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::(anonymous namespace)::ImplScaleConvolutionHor(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+          "period": 114080903,
+          "share_roi": 0.007558281022763304,
+          "tool": "LibreOffice·VCL",
+          "type": "图片滤波／缩放",
+          "interpretation": "LibreOffice 图形层的具体图像实现",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "(anonymous namespace)::scaleUpPalette8bit((anonymous namespace)::ScaleContext const&, int, int)",
+          "period": 112677803,
+          "share_roi": 0.007465320467366586,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_first",
+          "period": 35153078,
+          "share_roi": 0.002329021206460105,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_refine_prepare",
+          "period": 30351529,
+          "share_roi": 0.002010900857372685,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_first_prepare",
+          "period": 888249,
+          "share_roi": 5.88497757612287e-05,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::(anonymous namespace)::ImplScaleConvolutionVer(Bitmap const&, Bitmap&, double const&, vcl::Kernel const&)",
+          "period": 687452,
+          "share_roi": 4.554623314702092e-05,
+          "tool": "LibreOffice·VCL",
+          "type": "图片滤波／缩放",
+          "interpretation": "LibreOffice 图形层的具体图像实现",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "encode_mcu_AC_refine",
+          "period": 1064,
+          "share_roi": 7.049392840289978e-08,
+          "tool": "LibreOffice·VCL",
+          "type": "图片编码／滤波",
+          "interpretation": "Office 图形层中的图像编码或缩放子路径",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "Dict::add(char const*, Object&&)",
+          "period": 1,
+          "share_roi": 6.625369210798852e-11,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        }
+      ]
+    },
+    "031-u20": {
+      "parent": "031",
+      "exact_pct": 86.48851536231082,
+      "additional_equivalent_pct": 11.299242021154761,
+      "supported_pct": 97.78775738346557,
+      "remaining_pct": 2.211407653337129,
+      "unknown_pct": 0.0008349631972870715,
+      "categories_pct": {
+        "图片编解码": 10.975603845354254,
+        "PDF页面解析渲染": 0.323638175800507
+      },
+      "functions": [
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 7946732506,
+          "share_roi": 0.10894713547391373,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashFTFont::makeGlyph(int, int, int, SplashGlyphBitmap*, int, int, SplashClip*, SplashClipResult*)",
+          "period": 59058047,
+          "share_roi": 0.0008096667457317537,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashFTFont::SplashFTFont(SplashFTFontFile*, double*, double const*)",
+          "period": 59036579,
+          "share_roi": 0.000809372426386968,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 59011390,
+          "share_roi": 0.0008090270933342472,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_row@plt",
+          "period": 59002337,
+          "share_roi": 0.0008089029796288091,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getChar()",
+          "period": 58959485,
+          "share_roi": 0.0008083154925521013,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        }
+      ]
+    },
+    "037-u20": {
+      "parent": "037",
+      "exact_pct": 86.72024767059851,
+      "additional_equivalent_pct": 11.83192957481927,
+      "supported_pct": 98.5521772454178,
+      "remaining_pct": 1.447481484232892,
+      "unknown_pct": 0.0003412703493167101,
+      "categories_pct": {
+        "图片编解码": 11.223892145706223,
+        "压缩解压": 0.1349432381728653,
+        "PDF页面解析渲染": 0.47309419094018246
+      },
+      "functions": [
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 9774810470,
+          "share_roi": 0.11223892142261484,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libz.so.1.2.13",
+          "function": "scan_tree",
+          "period": 117521138,
+          "share_roi": 0.001349432381728653,
+          "tool": "zlib",
+          "type": "压缩／解压",
+          "interpretation": "旧任务已有压缩类型",
+          "equivalent_operation": "压缩解压"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::renderAALine(SplashBitmap*, int*, int*, int, bool) const",
+          "period": 117498352,
+          "share_roi": 0.0013491707422757567,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::computeIntersections(SplashXPath const&)",
+          "period": 58971432,
+          "share_roi": 0.0006771374179316516,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "ASCII85Stream::lookChar()",
+          "period": 58958123,
+          "share_roi": 0.0006769845978018089,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "FlateStream::getHuffmanCodeWord(FlateHuffmanTab*)",
+          "period": 58956143,
+          "share_roi": 0.0006769618625206391,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "memcpy@plt",
+          "period": 58859433,
+          "share_roi": 0.0006758513933075433,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpoppler.so.133.0.0",
+          "function": "SplashXPathScanner::~SplashXPathScanner()",
+          "period": 58770994,
+          "share_roi": 0.000674835895564425,
+          "tool": "Poppler",
+          "type": "页面／像素绘制",
+          "interpretation": "已有渲染类型的具体子路径",
+          "equivalent_operation": "PDF页面解析渲染"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_complete_chunk",
+          "period": 3,
+          "share_roi": 3.4447395711790665e-11,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        }
+      ]
+    },
+    "pdfwf005-u20": {
+      "parent": "pdfwf005",
+      "exact_pct": 48.9372500091162,
+      "additional_equivalent_pct": 45.12871725791222,
+      "supported_pct": 94.06596726702841,
+      "remaining_pct": 5.50643372268622,
+      "unknown_pct": 0.4275990102853602,
+      "categories_pct": {
+        "图片缩放": 29.125732819374885,
+        "图片编解码": 16.002984438537332
+      },
+      "functions": [
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "HorizontalFilter._omp_fn.0",
+          "period": 9870201121,
+          "share_roi": 0.1594692771580045,
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "interpretation": "处理类型与旧图片操作有共性；不把整库归为拼图",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libMagickCore-7.Q16HDRI.so.10.0.2",
+          "function": "VerticalFilter._omp_fn.0",
+          "period": 8156897631,
+          "share_roi": 0.13178805103574437,
+          "tool": "ImageMagick",
+          "type": "图片滤波／缩放",
+          "interpretation": "处理类型与旧图片操作有共性；不把整库归为拼图",
+          "equivalent_operation": "图片缩放"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_find_filter",
+          "period": 7950972091,
+          "share_roi": 0.1284609864086312,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_read_filter_row_up",
+          "period": 1152575372,
+          "share_roi": 0.01862174429778351,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "png.so",
+          "function": "ReadOnePNGImage",
+          "period": 484760063,
+          "share_roi": 0.007832093378239756,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "png.so",
+          "function": "WriteOnePNGImage",
+          "period": 115977939,
+          "share_roi": 0.0018738137016534597,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_read_filter_row_paeth_multibyte_pixel",
+          "period": 95307676,
+          "share_roi": 0.0015398517226758843,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_write_row@plt",
+          "period": 58936273,
+          "share_roi": 0.0009522120915753543,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        },
+        {
+          "library": "libpng16.so.16.40.0",
+          "function": "png_read_filter_row_sub",
+          "period": 46367489,
+          "share_roi": 0.000749142784814154,
+          "tool": "PNG",
+          "type": "图片编码／解码",
+          "interpretation": "旧任务已有图像编码，具体实现路径不同",
+          "equivalent_operation": "图片编解码"
+        }
+      ]
+    }
+  },
+  "task_016_python_xml_additional_pct": 3.254964465643452,
+  "task_016_extended_supported_pct": 90.5862894011138,
+  "task_016_python_xml_functions": [
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "bitwise_xor_rule",
+      "period": 169867766,
+      "share_roi": 0.0040716362363255884,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "tok_get_normal_mode",
+      "period": 119654193,
+      "share_roi": 0.002868044712185687,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "dict_richcompare",
+      "period": 117836292,
+      "share_roi": 0.0028244706324179426,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "PyDict_MergeFromSeq2",
+      "period": 116722879,
+      "share_roi": 0.002797782739690867,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "_PyAST_Call",
+      "period": 105517529,
+      "share_roi": 0.0025291967084793247,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "eliminate_empty_basic_blocks",
+      "period": 69890449,
+      "share_roi": 0.0016752353399494611,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "bitwise_or_rule",
+      "period": 67483850,
+      "share_roi": 0.0016175504952879677,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "shift_expr_rule",
+      "period": 65858774,
+      "share_roi": 0.0015785983239361466,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "star_expressions_rule",
+      "period": 62385374,
+      "share_roi": 0.0014953428503623474,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "_Py_HashDouble",
+      "period": 58888006,
+      "share_roi": 0.0014115128771079422,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "pyexpat.cpython-312-aarch64-linux-gnu.so",
+      "function": "normal_scanRef",
+      "period": 58725901,
+      "share_roi": 0.001407627310071701,
+      "tool": "XML 组件",
+      "type": "XML／结构解析",
+      "interpretation": "已有 XML 处理类型，具体实现或子路径不同"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "PyErr_Fetch",
+      "period": 58594394,
+      "share_roi": 0.001404475160142735,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "etree.cpython-312-aarch64-linux-gnu.so",
+      "function": "xmlBufUse",
+      "period": 58316934,
+      "share_roi": 0.001397824597668564,
+      "tool": "lxml",
+      "type": "XML／结构解析",
+      "interpretation": "已有 XML 处理类型，具体实现或子路径不同"
+    },
+    {
+      "library": "etree.cpython-312-aarch64-linux-gnu.so",
+      "function": "xmlFreeNodeList",
+      "period": 58173348,
+      "share_roi": 0.0013943829208019297,
+      "tool": "lxml",
+      "type": "XML／结构解析",
+      "interpretation": "已有 XML 处理类型，具体实现或子路径不同"
+    },
+    {
+      "library": "etree.cpython-312-aarch64-linux-gnu.so",
+      "function": "xmlDictReference",
+      "period": 57277809,
+      "share_roi": 0.0013729173471424586,
+      "tool": "lxml",
+      "type": "XML／结构解析",
+      "interpretation": "已有 XML 处理类型，具体实现或子路径不同"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "PyDict_Next",
+      "period": 57146830,
+      "share_roi": 0.0013697778530809561,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "sum_rule",
+      "period": 55327249,
+      "share_roi": 0.0013261635046440106,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libpython3.12.so.1.0",
+      "function": "translate_newlines.constprop.0",
+      "period": 296418,
+      "share_roi": 7.104975230551736e-06,
+      "tool": "Python",
+      "type": "语言运行时／文本与对象",
+      "interpretation": "已有解释执行机制的具体函数变化"
+    },
+    {
+      "library": "libxmlreaderlo.so",
+      "function": "xmlreader::Span::convertFromUtf8() const",
+      "period": 3,
+      "share_roi": 7.190833785956051e-11,
+      "tool": "XML 组件",
+      "type": "XML／结构解析",
+      "interpretation": "已有 XML 处理类型，具体实现或子路径不同"
+    }
+  ]
+}

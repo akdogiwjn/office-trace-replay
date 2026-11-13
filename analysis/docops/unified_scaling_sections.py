@@ -193,18 +193,8 @@ def section76():
 
 
 def revise_assessment(text):
-    from chapter7_editorial import normalize_sections, revise
-    text=normalize_sections(text)
-    result,selection = load()
-    require(text.count('### 7.3 ')==1 and text.count('### 7.4 ')==1 and text.count('### 7.6 ')==1,
-            'Ambiguous assessment section boundaries')
-    a,b = text.index('### 7.3 '),text.index('### 7.4 ')
-    result_text = text[:a]+section73(result,selection)+'\n'+text[b:]
-    a = result_text.index('### 7.6 ')
-    end = result_text.index(method.END,a) if method.END in result_text[a:] else len(result_text)
-    result_text=result_text[:a]+section76()+('\n'+result_text[end:] if end<len(result_text) else '')
-    from topdown_hierarchy_comparison import revise_section
-    return revise(revise_section(result_text))
+    from chapter7_editorial import revise
+    return revise(text)
 
 
 def publish():

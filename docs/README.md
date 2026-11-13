@@ -20,7 +20,7 @@ python3 -B scripts/build_presentation.py
 
 此前 Markdown 的 7.3.1–7.3.3 补充了旧 OPM／TLC 完整函数清单的出现范围，[函数出现范围核验](evidence/function-hotspot-presence-v1.json)记录当时三分区守恒与来源；上一轮 HTML 同步至 68 页。
 
-当前 Markdown 第七节按“样本口径→软件栈→函数覆盖及规模复测→原始用例 Topdown→补充建议→过程曲线”组织。7.3 使用全部 36 个配置分析函数覆盖；7.4 只比较十二项原始新用例，采用七维余弦与欧氏距离。7.5 建议优先增加原始任务 `021`，`029` 作为样式处理强化项；扩展具体函数热点时，推荐 `013、016、021、026、029` 五个原始用例。7.6 展示十二张过程图。[本次文档审阅](evidence/chapter7-reading-order-review-20261108.json)记录表格与图引用保持不变；完整结果见[统一分析](../analysis/docops/processed/unified-scaling-final-20261108/analysis.md)和[原始用例 Topdown 对照](../analysis/docops/processed/topdown-original-cosine-euclidean-20261108/analysis.md)。HTML 保留上一轮发布快照。
+当前 Markdown 第七节按“样本口径→软件栈→大规模函数与操作覆盖→原始用例 Topdown→补充建议→过程曲线”组织。7.3 用一张表并列十二项大档的精确函数覆盖、同类操作和剩余权重，JPEG 与拼图合成单列；原始、小档、大档的完整 36 配置保留在[统一分析](../analysis/docops/processed/unified-scaling-final-20261108/analysis.md)。7.4 只比较十二项原始新用例，采用七维余弦与欧氏距离。7.5 优先推荐原始任务 `021`，`029` 按需补充；更多函数路径可选 `013、016、021、026、029`。7.6 保留十二张过程图。[本次审阅](evidence/chapter7-operation-equivalence-update-20261112.json)、[操作归并明细](../analysis/docops/processed/operation-equivalence-20261112/analysis.md)和[原始用例 Topdown 对照](../analysis/docops/processed/topdown-original-cosine-euclidean-20261108/analysis.md)提供核对入口。HTML 保留上一轮发布快照。
 
 仅更新当前 Markdown 第七节，保留数据与原七例内容：
 

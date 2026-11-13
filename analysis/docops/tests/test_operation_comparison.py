@@ -215,7 +215,8 @@ class OperationComparisonTests(unittest.TestCase):
         report=module.main_section(result,module.ROOT/module.DEFAULT_OUTPUT)
         self.assertIn('### 7.4 Topdown 相似性',report)
         self.assertIn('七维、不重复计权',report)
-        self.assertIn('Core Bound＋Memory Bound',report)
+        self.assertIn('| Core Bound | 核心执行受限 |',report)
+        self.assertIn('| Memory Bound | 缓存／内存供数受限 |',report)
         self.assertIn('IPC 单独列相对变化，idle 不加入距离',report)
         self.assertIn('24 组新旧配对',report)
         topdown_section=report.split('### 7.4 ')[1].split('### 7.5 ')[0]
@@ -225,7 +226,7 @@ class OperationComparisonTests(unittest.TestCase):
         self.assertNotIn('-v1000',topdown_section)
         self.assertIn('七维余弦 ↑',topdown_section)
         self.assertIn('七维欧氏距离 ↓',topdown_section)
-        self.assertIn('旧清单已见函数权重',report)
+        self.assertIn('精确函数覆盖',report)
         self.assertEqual(report.count('![图 7-'),12)
         self.assertEqual(report.count('**读图：**'),12)
         for task in result['tasks']:
@@ -235,16 +236,15 @@ class OperationComparisonTests(unittest.TestCase):
         self.assertLess(report.index('### 7.5 结论'),report.index('#### 图 7-1'))
         self.assertNotIn('未见热点／新热点数',report)
         section=report.split('### 7.3 ')[1].split('### 7.4 ')[0]
-        self.assertIn('0.5% ROI',section)
         self.assertIn('不是函数个数或总 CPU 时间比例',section)
-        self.assertIn('未解析权重单列',section)
+        self.assertIn('| 未解析 |',section)
         self.assertNotIn('尚未通过控制规模实验',report)
-        self.assertIn('100业务单元／74.59%',section)
-        self.assertIn('500业务单元／71.58%',section)
+        self.assertIn('500单元',section)
+        self.assertIn('原始、小档、大档的完整表',section)
         self.assertIn('共 24 个合成规模变体',section)
-        self.assertIn('五个原始用例',section)
-        self.assertIn('优先一个用例：021；029 为可选强化项',section)
-        self.assertIn('覆盖百分比始终按精确函数匹配计算',section)
+        self.assertIn('覆盖权重＝精确匹配权重＋同类操作差额',section)
+        self.assertIn('JPEG 与 PNG 编码不同，JPEG 单列',section)
+        self.assertIn('Python／XML 和公共框架不自动归并',section)
         self.assertIn('Python 库约 85.9%、构建脚本约 87.5%',section)
         import unified_scaling_sections
         current,_=unified_scaling_sections.load()
@@ -252,7 +252,19 @@ class OperationComparisonTests(unittest.TestCase):
             value=module.pct(current['cases'][large]['presence']['OPM+TLC']['observed_share_roi'])
             self.assertIn(value,section)
         self.assertIn('93 个',module.detail_section(result,module.ROOT/module.DEFAULT_OUTPUT))
-        self.assertIn('JPEG 7.45%、VCL 8.98%、Poppler 7.92%',section)
+        import chapter7_editorial as editorial
+        import operation_equivalence as equivalence
+        accounted=equivalence.load()
+        for parent,row in accounted['cases'].items():
+            cells=[line for line in section.splitlines()
+                   if line.startswith('| '+row['format']+' '+parent+'（')]
+            self.assertEqual(len(cells),1)
+            self.assertIn('| '+editorial.pct(row['shares_pct']['exact'])+' |',cells[0])
+            self.assertTrue(cells[0].endswith('**'+editorial.pct(row['supported_share_pct'])+'** |'))
+            self.assertIn('| '+editorial.pct(row['shares_pct']['unresolved'])+' |',cells[0])
+            self.assertNotIn('继续细分',cells[0])
+        self.assertIn('JPEG 8.03%',section)
+        self.assertIn('74.21%／74.80%',section)
         self.assertNotIn('各任务 Top-20 未覆盖函数完整清单',section)
         recommendations=report.split('### 7.5 ')[1].split('### 7.6 ')[0]
         self.assertIn('013、016、021、026、029',recommendations)
@@ -263,7 +275,8 @@ class OperationComparisonTests(unittest.TestCase):
         self.assertIn('优先增加 PPT 021。',recommendations)
         self.assertNotIn('021-g10',recommendations)
         self.assertNotIn('80 页',recommendations)
-        self.assertIn('不宣称覆盖所有 Word／PPT 操作',report)
+        self.assertIn('按需增加 029',recommendations)
+        self.assertEqual(editorial.revise(report),report)
 
     def test_scaled_operation_selection_is_minimal_and_preserves_unknown(self):
         import itertools

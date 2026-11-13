@@ -2,7 +2,9 @@
 
 十二项任务的输入、独立脚本和回放镜像在 [docops/](../../docops/README.md)。原始 Agent trace 留在来源仓库，本仓库回放冻结的最终有效执行链。
 
-最新离线分析：[十二组原始→小档→大档统一比较](processed/unified-scaling-final-20261108/analysis.md)、[完整机器结果](processed/unified-scaling-final-20261108/comparison.json)、[补充用例精确求解](processed/unified-scaling-final-20261108/selection.json)。覆盖 12 个原始任务与 24 个规模变体，重新核算旧 OPM＋TLC 的函数覆盖权重、未见函数的软件／脚本归属和 Topdown 变化；不启动任务或采集器，不改正式报告和 HTML。
+离线统一比较：[十二组原始→小档→大档](processed/unified-scaling-final-20261108/analysis.md)、[完整机器结果](processed/unified-scaling-final-20261108/comparison.json)、[补充用例精确求解](processed/unified-scaling-final-20261108/selection.json)。覆盖 12 个原始任务与 24 个规模变体，保留精确函数覆盖、软件／脚本归属和 Topdown 变化。
+
+当前报告 7.3 使用[十二项大档操作归并](processed/operation-equivalence-20261112/analysis.md)：精确函数匹配外，另计 PNG、明确缩放、PDF 渲染和 Calc 等同类操作；JPEG、拼图及对象／布局样式单列，Python／公共框架不自动计入。逐函数分类与完整分母均保留；仅更新 Markdown，未重跑采集或更新 HTML。
 
 当前报告 7.4 使用[七维余弦与欧氏距离对照](processed/topdown-original-cosine-euclidean-20261108/analysis.md)，只比较 12 个原始新用例、24 组新旧配对；IPC 单独比较，按欧氏距离确定较近基准。函数覆盖与热点集合比较留在 7.3，不在 7.4 重复。
 
