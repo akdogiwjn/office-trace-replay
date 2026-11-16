@@ -295,7 +295,9 @@ XLSX 的主要特征与热点集合在固定环境重复运行中接近；PDF �
 
 ## 七、扩展任务操作：旧用例的代表性与补充建议
 
-**结论：保留旧 OPM／TLC 作为共同基础负载，优先增加 PPT 021。** 本节先说明样本与软件栈，再用规模复测区分函数实现差异和操作差额，最后结合 Topdown 给出补充建议。
+前六章考察跨行业输入，本章进一步扩展实际任务操作。
+
+**结论：旧 OPM／TLC 保留为核心；具体函数优先补 013＋021，不同操作优先补 021、按需加 009。** 本节先说明样本与软件栈，再用规模复测区分函数实现差异和操作差额，最后结合 Topdown 给出补充建议。
 
 ### 7.1 测了什么，如何回放与采集
 
@@ -316,107 +318,210 @@ XLSX 的主要特征与热点集合在固定环境重复运行中接近；PDF �
 | Topdown | DevKit，CPU 0–7，1 秒间隔 | 同参数；控制器 CPU 9 |
 | 边界 | 完整循环，含 reset／检查 | perf 排除准备、reset、归档；Topdown 为按核包络 |
 
-perf 与 DevKit 分开运行。热点合并保留样本的周期权重；旧例 Topdown 取五次 ALL 均值，新例取本次 ALL。7.3 使用大规模复测，7.4 和 7.6 使用十二项原始任务。
+perf 与 DevKit 分开运行。热点合并保留样本的周期权重；旧例 Topdown 取五次 ALL 均值，新例取本次 ALL。7.3 比较原始规模与大规模复测；7.4 和 7.6 使用十二项原始任务。
 
-### 7.2 执行了哪些软件与脚本
+### 7.2 软件与库：哪些旧用例已有，哪些是新增
 
-**表 7-1：软件用途。** 脚本负责组织任务，底层库承担具体计算，两层分别阅读。
+本节先比较使用的软件和库，7.3 再比较库内实际执行的函数及操作。
 
-| 软件／组件 | 用途 | 来源 |
+任务脚本可以在 Python 中调用文档库，也可以启动 LibreOffice 等外部程序。它们处理的文档不同，但可能调用相同的底层库，因此会出现共同的 CPU 热点。
+
+#### 7.2.1 上层：由什么工具处理文档
+
+**表 7-1：各场景的主要处理工具。**
+
+| 场景 | Python 库（主要工作） | 另外启动的程序 |
 |---|---|---|
-| Python | 脚本、对象管理 | 共用 |
-| openpyxl | Excel 读写 | 共用 |
-| python-docx／python-pptx | Word／PPT 对象编辑 | 新增 |
-| Calc／Writer／Impress | 重算／文字排版／幻灯片转换 | LibreOffice 文档模块 |
-| Poppler／pdftoppm | PDF 解析、页面渲染 | 共用 |
-| Pillow／ImageMagick | 图片缩放、滤波、合成 | 原有 Pillow；新增 ImageMagick |
-| ReportLab／fontTools | PDF 生成／字体处理 | 新增 |
-| zlib／PNG、JPEG 编码库 | 压缩解压／图片编解码 | 编码路径分别统计 |
-| Expat／ElementTree／lxml | XML 解析、结构处理 | 原有 Expat／ElementTree；新增 lxml |
-| libc／loader | 内存、字符串、库装载 | 公共运行组件 |
+| PDF：旧 OPM＋新任务 | pypdf（表单、页面、书签）；ReportLab（新 031／037 绘制 PDF）；Pillow（旧 OPM 图片处理） | Poppler 命令；ImageMagick（新 pdfwf005） |
+| Excel：旧 TLC＋新任务 | openpyxl（单元格、公式、样式和图表） | LibreOffice；新三项还用 Poppler，013 还用 ImageMagick |
+| Word：新任务 | python-docx（段落、表格和样式） | LibreOffice、Poppler 命令 |
+| PPT：新任务 | python-pptx（幻灯片、文本框、形状和图表） | LibreOffice、Poppler 命令；021 还用 ImageMagick |
 
-**表 7-2：旧基准。** 以下比例为用户态 perf 周期权重。
+Python 库在 Python 进程内执行，外部程序由脚本另外启动。LibreOffice 负责重算、排版和格式转换；Poppler 提供 `pdftoppm`（页面转图片）、`pdftotext`（提取文字）等命令；ImageMagick 提供 `montage` 等图片缩放与拼图命令。
+
+**上层变化：** 新 Excel 继续使用 openpyxl，新 PDF 继续使用 pypdf 并增加 ReportLab；Word、PPT 分别增加 python-docx、python-pptx。
+
+#### 7.2.2 底层：使用了哪些计算库
+
+底层库提供压缩／解压、XML 解析、字体和绘图等具体功能，由上层工具调用。其中 `.so` 文件是编译好的共享库，供程序加载和调用。例如，Python 文档库和 LibreOffice 都可能把实际压缩工作交给 zlib：
+
+```text
+Python 文档库 → Python 的 ZIP 处理代码 → zlib
+LibreOffice  → 自己的 ZIP 处理代码    → zlib
+```
+
+**表 7-1A：主要底层库的新旧对照。** 根据 perf 记录核对。✓ 表示该库中出现了执行样本，— 表示未观测到；新用例列中仅写格式名表示该类三项均观测到，附编号表示部分任务。
+
+| 底层库 | 主要用途 | 旧 OPM | 旧 TLC | 新用例 |
+|---|---|---|---|---|
+| Python：`libpython3.12.so` | 执行 Python 脚本和库代码 | ✓ | ✓ | PDF；Excel；Word；PPT |
+| C 运行库：`libc.so` | 内存分配、字符串和文件操作 | ✓ | ✓ | PDF；Excel；Word；PPT |
+| zlib：`libz.so` | 压缩／解压文档与图片数据 | ✓ | ✓ | PDF；Excel；Word；PPT |
+| XML：`libxml2.so` | 解析和修改 XML | — | ✓ | Excel；Word；PPT |
+| lxml 扩展：`etree.*.so` | 让 Python 调用 XML 处理代码 | — | — | Excel；Word；PPT |
+| UNO：`libuno_cppu.so` | 传递和管理 Office 组件数据 | — | ✓ | Excel；Word；PPT |
+| VCL：`libvcllo.so` | 文字、图片和页面绘制 | — | ✓ | Excel；Word；PPT |
+| OOXML：`libooxlo.so` | Office 文件导入、属性和图形处理 | — | ✓ | Excel；PPT |
+| Calc：`libsclo.so`／`libscfiltlo.so` | 表格模型、公式重算和 Excel 导入 | — | ✓ | Excel |
+| Writer：`libswlo.so`／`libsw_writerfilterlo.so` | Word 导入、段落、表格和分页 | — | — | Word |
+| Impress／Draw：`libsdlo.so` | 幻灯片／绘图文档的页面和对象 | — | — | PPT |
+| Poppler：`libpoppler.so` | 读取 PDF、生成页面预览 | ✓ | — | PDF；Excel；Word；PPT |
+| 字体：`libfreetype.so` | 读取字体和生成文字字形 | ✓ | — | PDF；Excel 013／016；Word 001；PPT |
+| Pillow：`_imaging.*.so` | 图片读取、缩放和像素处理 | ✓ | — | — |
+| PNG：`libpng16.so` | PNG 图片编解码 | — | — | PDF；Excel；Word |
+| JPEG：`libjpeg.so` | JPEG 图片编解码 | — | — | PPT |
+| ImageMagick：`libMagickCore*.so` | 图片缩放、滤波和拼图 | — | — | PDF pdfwf005；Excel 013；PPT 021 |
+
+**底层变化：** Python、zlib、Poppler 和字体库在旧例中已有；新 Excel／Word／PPT 继续使用 TLC 已有的 XML、UNO 和 VCL 组件。新增路径包括 Writer、Impress／Draw、lxml 扩展，以及 libpng、libjpeg 和 ImageMagick。表中 Calc 库负责 Excel 表格与重算，Writer 库负责 Word 导入与布局，Impress／Draw 共用库负责幻灯片和绘图文档的页面对象；它们属于 LibreOffice。
+
+表中的重合表示使用了相同的库；是否执行相同函数或同类操作，见 7.3。Python 文档库的计算会落在解释器、XML 或压缩等底层库中，因此下表的 Python 权重不是某一个 Python 文档库的单独占比。
+
+#### 7.2.3 主要热点落在哪些库
+
+**表 7-2：旧基准概览。** 组件按软件归属汇总，比例为用户态 perf 周期权重。
 
 | 基准 | 主要脚本／进程 | 主要组件 |
 |---|---|---|
 | OPM | convert_pdf_to_images.py 38.85%；fill_fillable_fields.py 38.44%；verify_pdf_batch.py 12.26%；pdftoppm 8.03% | Python 50.41%；zlib 25.18%；Pillow 14.61%；Poppler 6.23% |
 | TLC | enhance_workbook.py 22.01%；inspect_xlsx_structure.py 12.69%；recalc.py 11.60%；inspect_xlsx_features.py 10.57% | Python 79.26%；LibreOffice 6.43%；Expat 5.65%；ElementTree 3.68% |
 
-**表 7-3：十二项原始任务。** 每行组件列展示前四项。
+**表 7-3：旧两例与十二项原始新任务的前三个原生库。** 每格为“库名、用途、占比”，库名简写。
 
-| 任务 | 脚本／工具链 | 主要组件 |
+| 用例 | 页面预览 | 第 1 大原生库 | 第 2 大原生库 | 第 3 大原生库 |
+|---|---|---|---|---|
+| 旧 PDF／OPM | PNG | `libpython3.12.so` ★（Python 执行）50.41% | `libz.so` ★（PNG 压缩为主）25.18% | `_imaging.*.so` ★（图片读取、缩放和像素处理）14.61% |
+| 旧 Excel／TLC | 不生成页面预览 | `libpython3.12.so` ★（Python 执行）79.26% | `pyexpat.*.so` ★（XML 解析）5.65% | `_elementtree.*.so` ★（XML 节点处理）3.68% |
+| [新 PDF 031](../docops/payload/tasks/031/recipe.json) | PNG | `libz.so` ★（PNG 压缩为主）66.25% | `libpython3.12.so` ★（Python 执行）20.08% | `libpng16.so`（PNG 编解码）8.68% |
+| [新 PDF 037](../docops/payload/tasks/037/recipe.json) | PNG | `libz.so` ★（PNG 压缩为主）52.92% | `libpython3.12.so` ★（Python 执行）29.90% | `libpng16.so`（PNG 编解码）10.27% |
+| [新 PDF pdfwf005](../docops/payload/tasks/pdfwf005/recipe.json) | PNG＋拼图 | `libpython3.12.so` ★（Python 执行）31.74% | `libMagickCore-7.Q16HDRI.so`（图片缩放／滤波／拼图）25.96% | `libz.so` ★（PNG 压缩为主）23.67% |
+| [新 Excel 013](../docops/payload/tasks/013/recipe.json) | PNG＋拼图 | `libz.so` ★（PNG 压缩为主）31.66% | `libpython3.12.so` ★（Python 执行）19.77% | `libMagickCore-7.Q16HDRI.so`（图片缩放／滤波／拼图）13.43% |
+| [新 Excel 014](../docops/payload/tasks/014/recipe.json) | PNG | `libz.so` ★（PNG 压缩为主）30.54% | `libpython3.12.so` ★（Python 执行）25.49% | `libpng16.so`（PNG 编解码）7.57% |
+| [新 Excel 016](../docops/payload/tasks/016/recipe.json) | PNG：首页 | `libpython3.12.so` ★（Python 执行）47.65% | `libc.so` ★（内存／字符串等）8.81% | `libsclo.so` ★（表格模型／重算）6.11% |
+| [新 Word 001](../docops/payload/tasks/001/recipe.json) | PNG | `libz.so` ★（PNG 压缩为主）44.27% | `libpython3.12.so` ★（Python 执行）18.74% | `libc.so` ★（内存／字符串等）7.16% |
+| [新 Word 003](../docops/payload/tasks/003/recipe.json) | PNG | `libz.so` ★（PNG 压缩为主）44.62% | `libpython3.12.so` ★（Python 执行）14.91% | `libpng16.so`（PNG 编解码）9.05% |
+| [新 Word 009](../docops/payload/tasks/009/recipe.json) | PNG | `libz.so` ★（PNG 压缩为主）44.39% | `libpng16.so`（PNG 编解码）19.00% | `libpython3.12.so` ★（Python 执行）8.86% |
+| [新 PPT 021](../docops/payload/tasks/021/recipe.json) | JPEG＋拼图 | `libpoppler.so` ★（PDF 页面渲染）27.74% | `libpython3.12.so` ★（Python 执行）15.95% | `libvcllo.so` ★（文字／图片绘制）12.32% |
+| [新 PPT 026](../docops/payload/tasks/026/recipe.json) | JPEG | `libpoppler.so` ★（PDF 页面渲染）36.90% | `libpython3.12.so` ★（Python 执行）20.97% | `libc.so` ★（内存／字符串等）6.60% |
+| [新 PPT 029](../docops/payload/tasks/029/recipe.json) | JPEG：首页 | `libpython3.12.so` ★（Python 执行）36.96% | `libc.so` ★（内存／字符串等）7.61% | `libooxlo.so` ★（Office 结构／图形）5.41% |
+
+★ 表示旧 OPM 或 TLC 中也观测到该库。占比为该库在整轮保留样本中的周期权重，不将前三项重新归一化。任务编号链接到冻结脚本与命令，进程明细见[详细记录](experimental-results.md)；逐库权重、zlib 调用来源与采集记录见[表格依据](evidence/old-new-preview-comparison-20261116.json)。
+
+**预览区别：** 旧 OPM 已生成 PNG，旧 TLC 不生成页面预览；十二项新任务均生成预览图片。
+
+**新 Excel 仍有 XML 等文件的压缩／解压。** XLSX 是 ZIP 包，读取时解压其中的 XML 等内容，保存时重新压缩；XML 解析本身由解析库执行。新任务在工作簿处理之外，又把工作簿转为 PDF 并生成 PNG。
+
+**新 Excel 的高压缩权重主要来自 PNG 预览。** 旧 TLC 的 zlib 权重为 1.55%，主要服务于工作簿读写。新 Excel 014 的 zlib 为 30.54%，其中 29.27% 是 `pdftoppm` 生成 PNG 所占的整轮权重。PPT 的 JPEG 编码主要使用 libjpeg，与 PNG 的 zlib 压缩不同。
+
+**本节小结：上层文档库按格式分工，底层计算库大量复用。** 旧 OPM／TLC 已包含 Python 执行、XML 处理、压缩／解压、表格重算和页面渲染所用的主要组件；新任务增加 Word／PPT 文档模型及部分图片处理实现。下一节进一步检查这些库中实际执行的函数。
+
+### 7.3 旧用例覆盖了哪些函数与操作
+
+先看十二项原始任务的函数覆盖，再比较扩大规模后的变化，最后检查剩余函数是否属于旧例已有的操作。以 OPM＋TLC 为旧参考，百分比均按热点采样权重计算。
+
+#### 7.3.1 从原始规模出发，再比较扩大规模后的变化
+
+新任务调用的函数，在旧 OPM 或 TLC 记录中出现过，就计为“函数已覆盖”；比较时同时核对所属库。“未匹配”是已识别但旧记录中没有的函数，“未解析”是尚不能确定函数名的部分。
+
+**原始规模的发现：** 使用 Agent 任务原有的冻结输入回放，函数覆盖为 45.41%–79.15%。例如 Excel 016 为 56.25%，PPT 029 为 55.51%，仍有较多函数未在旧例中匹配。
+
+**为什么扩大规模：** 小输入中，解释器启动、脚本解析和检查的权重可能更显眼。为观察输入规模变化后的结果，将十二项任务各扩为两档，共 24 个规模变体。下表保留原始规模作为起点，与大档对照；小档结果见本节末的完整记录。
+
+**表 7-4：原始规模与大规模的函数覆盖对比。** 变化为“大规模－原始规模”，单位为百分点，按未舍入原值计算。
+
+| 用例 | 原始规模函数覆盖 | 大规模函数覆盖 | 变化（百分点） |
+|---|---|---|---|
+| PDF 031 | 79.15% | 86.49% | +7.34 |
+| PDF 037 | 72.77% | 86.72% | +13.95 |
+| PDF pdfwf005 | 45.41% | 48.94% | +3.53 |
+| Excel 013 | 59.16% | 93.25% | +34.09 |
+| Excel 014 | 66.17% | 91.82% | +25.65 |
+| Excel 016 | 56.25% | 80.03% | +23.78 |
+| Word 001 | 71.94% | 75.56% | +3.62 |
+| Word 003 | 68.65% | 71.58% | +2.92 |
+| Word 009 | 65.01% | 71.59% | +6.59 |
+| PPT 021 | 46.59% | 50.44% | +3.85 |
+| PPT 026 | 59.39% | 63.00% | +3.61 |
+| PPT 029 | 55.51% | 46.29% | -9.22 |
+
+**规模复测的结果：** 11/12 项大档高于原始任务。Excel 016 从 56.25% 提高到 80.03%，PPT 029 则从 55.51% 降至 46.29%。在规模复测中，多数任务的匹配权重提高，变化方向并不完全相同。剩余差额继续按实际操作核对。
+
+#### 7.3.2 把同类操作也算上，覆盖了多少
+
+以下使用上表的大规模结果，具体规模列在表 7-4A 中。
+
+旧例用 Pillow、新例用 ImageMagick 缩放图片，函数不同，操作同类。Python 容器与对象管理、脚本解析／编译、XML 节点处理和 UNO 组件数据管理，也按具体用途逐项对应。
+
+**公共操作按具体用途对应。** 每类都保留旧 OPM／TLC 的实际依据，包括字典／列表操作、对象调用、XML 文本比较与节点查询、组件引用管理、字体和像素格式处理。例如 ElementTree 与 lxml 都会查询 XML 节点，Pillow 与 VCL 都会读写图片像素。旧 OPM 的冻结脚本还实际调用 `PdfWriter.write`，提供 PDF 对象写出的操作依据。
+
+**合计覆盖＝已覆盖函数＋未匹配函数中的同类操作。** 同一部分只计算一次。JPEG 编解码、图像模糊、多图合成和 Word／PPT 文档对象路径分别保留。
+
+**表 7-4A：大规模复测中，计入同类操作后的覆盖。**
+
+| 用例 | 函数已覆盖 | 同类操作补充 | 合计覆盖 |
+|---|---|---|---|
+| PDF 031（100页） | 86.49% | 13.51%：PNG、Python 对象／调用／内存管理、字体字形加载／栅格化等 | **>99.99%** |
+| PDF 037（100页） | 86.72% | 13.28%：PNG、字体字形加载／栅格化、Python 脚本解析／编译等 | **>99.99%** |
+| PDF pdfwf005（120页） | 48.94% | 49.09%：图片缩放、PNG、像素读写／格式转换等 | **98.03%** |
+| Excel 013（1000供应商） | 93.25% | 6.54%：图片缩放、PNG、Python 容器／迭代等 | **99.79%** |
+| Excel 014（10000申请） | 91.82% | 6.64%：PNG、PDF 渲染、模型／重算等 | **98.46%** |
+| Excel 016（500单元／2000行） | 80.03% | 18.07%：模型／重算、Python 脚本解析／编译、C++ 容器／查找等 | **98.10%** |
+| Word 001（500条记录） | 75.56% | 18.26%：PNG、正则处理、文本比较／编码／拼接等 | **93.82%** |
+| Word 003（500单元） | 71.58% | 25.93%：PNG、文本搜索、PDF 渲染等 | **97.51%** |
+| Word 009（500事件） | 71.59% | 15.67%：PNG、属性／样式管理、字体与文字排布等 | **87.27%** |
+| PPT 021（80页） | 50.44% | 33.88%：图片缩放、PDF 渲染、像素读写／格式转换等 | **84.32%** |
+| PPT 026（90页） | 63.00% | 23.32%：PDF 渲染、属性／样式管理、像素读写／格式转换等 | **86.32%** |
+| PPT 029（81页） | 46.29% | 34.37%：属性／样式管理、字体与文字排布、Python 脚本解析／编译等 | **80.66%** |
+
+**计入同类操作后：** Word 009 从函数匹配的 71.59% 提高到 87.27%，PPT 021 从 50.44% 提高到 84.32%，PPT 029 从 46.29% 提高到 80.66%。10/12 项大档合计超过 85%。
+
+#### 7.3.3 剩下的是什么，还有必要增加用例吗
+
+公共组件中能确认属于旧例同类操作的部分，已计入表 7-4A。下表合并列出剩余函数的用途和权重。**函数尚未匹配，不等于操作是新增的；只有已明确识别的不同操作，才作为补充用例的依据。**
+
+**表 7-5：大规模复测后，逐例说明剩余部分。** 各百分比均按整轮保留样本的周期权重计算；各行列出的函数权重加上未解析部分，等于表 7-4A 合计覆盖之外的部分。
+
+| 用例 | 尚未匹配的函数主要在做什么 | 未解析 |
 |---|---|---|
-| PDF／031 听证材料包扁平化发布 | build_public_packet.py；PDF 渲染；validate_public_packet.py | zlib 66.25%；Python 20.08%；PNG 8.68%；Poppler 2.56% |
-| PDF／037 公交绕行材料修复 | build_bus_detour_packet.py；PDF 渲染；validate_bus_detour_packet.py | zlib 52.92%；Python 29.90%；PNG 10.27%；Poppler 4.61% |
-| PDF／pdfwf005 结算材料包重建 | rebuild_closeout_binder.py；PDF 检查；图片／拼图／诊断 | Python 31.74%；ImageMagick 25.96%；zlib 23.67%；PNG 11.60% |
-| Excel／013 采购投标评审发布 | build_public_bid_workbook.py；recalc.py；verify_public_bid_workbook.py；PDF／拼图 | zlib 31.66%；Python 19.77%；ImageMagick 13.43%；LibreOffice 10.20% |
-| Excel／014 灾害补助公开发布 | build_disaster_release_v1.py；recalc.py；finalize_disaster_release_ooxml_v3.py；validate_disaster_release_v1.py／渲染 | zlib 30.54%；Python 25.49%；LibreOffice 17.51%；PNG 7.57% |
-| Excel／016 预测模型情景级联 | build_forecast_dashboard_v1.py；recalc.py；测试副本切换情景并重算 | Python 47.65%；LibreOffice 27.74%；libc 8.81%；loader 3.62% |
-| Word／001 受控文档发布修复 | create_packet.py；render_docx.py；结构与渲染检查 | zlib 44.27%；Python 18.74%；LibreOffice 11.65%；libc 7.16% |
-| Word／003 公开记录元数据清理 | build_public_packet.py；audit_public_packet.py；render_docx.py | zlib 44.62%；Python 14.91%；LibreOffice 14.23%；PNG 9.05% |
-| Word／009 事件手册发布 | build_incident_manual_publication.py；render_docx.py；validate_incident_manual_publication.py | zlib 44.39%；PNG 19.00%；LibreOffice 9.11%；Python 8.86% |
-| PPT／021 庇护所无障碍整改 | build_public_shelter_briefing.py；validate_public_shelter_briefing.py；soffice.py／图片／拼图 | Poppler 27.74%；LibreOffice 24.32%；Python 15.95%；ImageMagick 10.59% |
-| PPT／026 气候披露图表重建 | build_climate_disclosure.py；转 PDF／图片；qa_climate_disclosure.py | Poppler 36.90%；Python 20.97%；LibreOffice 19.20%；libc 6.60% |
-| PPT／029 季度业务回顾发布 | build_release_deck.py；validate_release_deck.py；转 PDF／图片 | Python 36.96%；LibreOffice 32.15%；libc 7.61%；Poppler 5.08% |
+| PDF 031 | Shell 初始化等 <0.01% | <0.01% |
+| PDF 037 | Shell 初始化、字符编码等 <0.01% | <0.01% |
+| PDF pdfwf005 | 多图合成 1.17%；其余 ImageMagick 图像参数／链表管理等 0.38% | 0.43% |
+| Excel 013 | 多图合成 0.15%；图文对象／样式 <0.01%；其余 图像链表、进程与 Shell 支撑等 0.04% | 0.02% |
+| Excel 014 | 图文对象／样式 0.01%；其余 绘图指令、图形边框、加密等 0.47% | 1.05% |
+| Excel 016 | 图文对象／样式 0.28%；其余 图形边框／坐标、区域配置、加密等 1.07% | 0.55% |
+| Word 001 | Word 导入／对象布局 2.31%；图文对象／样式 0.20%；其余 加密、URI 字符处理、连字符处理等 0.27% | 3.40% |
+| Word 003 | Word 导入／对象布局 0.85%；图文对象／样式 0.02%；其余 加密、文档状态、图形属性等 0.14% | 1.48% |
+| Word 009 | Word 导入／对象布局 7.77%；图文对象／样式 0.48%；其余 绘图指令、PDF 字形登记、加密／证书等 1.02% | 3.46% |
+| PPT 021 | JPEG 编解码 8.15%；图文对象／样式 2.20%；图像模糊 1.71%；多图合成 0.45%；其余 幻灯片对象、图形路径、文字方向与加密等 1.07% | 2.11% |
+| PPT 026 | JPEG 编解码 6.12%；图像模糊 2.83%；图文对象／样式 2.26%；其余 幻灯片对象、图形属性、文字方向与加密等 0.60% | 1.87% |
+| PPT 029 | 图文对象／样式 4.66%；图像模糊 3.46%；JPEG 编解码 0.44%；其余 幻灯片对象／属性、文字方向与加密等 3.93% | 6.84% |
 
-**软件栈变化：** Python、压缩、XML 和页面渲染继续共用；新增 python-docx、python-pptx、ImageMagick 等工具。LibreOffice 分别进入 Calc、Writer、Impress 的表格、文字和幻灯片模块。
+Office 公共组件承担属性、数据、文字和位图处理；例如 `libsvllo.so` 管理属性／样式，UNO 库管理组件数据，`libvcllo.so` 处理文字与位图。同一个库可以执行不同工作，所以按具体操作判断覆盖。Python 项来自 CPython 解释器库 `libpython3.12.so.1.0`；“其余”列举主要用途，权重包含未逐项展开的全部剩余函数。
 
-### 7.3 大规模任务中，旧用例覆盖了哪些计算
+**PPT 的公共工作已计入，剩余主要看具体图片与幻灯片操作。** 021 的 JPEG 编解码合计 8.15%，其中 `encode_mcu_gather` 约占 3.16%；另有模糊 1.71%、图文对象／样式 2.20% 和多图合成 0.45%。这些比通用 Python／XML 函数更能说明补充价值。
 
-**先比较具体函数，再检查未匹配部分属于什么操作。** 原始十二项的精确函数匹配为 45.41%–79.15%。小输入中的解释器启动、脚本解析和检查可能更显眼，因此为每项构建两档输入，共 24 个合成规模变体。
+**Word 009 的公共计算已计入覆盖。** Python 对象管理、XML 比较等已按同类操作对应；其余 1.02% 为绘图指令、PDF 字形登记、加密／证书等函数差异。
 
-**规模复测：** 11/12 组的大档匹配高于原始任务。016 从 56.25% 提高到 80.03%，031 从 79.15% 提高到 86.49%；029 则从 55.51% 降至 46.29%。扩大规模影响权重，但不同任务的变化方向不同。原始、小档、大档的完整表见[统一分析](../analysis/docops/processed/unified-scaling-final-20261108/analysis.md)。
+**Word 专用工作仍单独保留。** LibreOffice Writer 的 `libswlo.so` 负责段落、表格与布局，`libsw_writerfilterlo.so` 负责 Word／DOCX 导入。扣除两库中的通用容器和运行支撑后，尚未覆盖的 Word 导入／对象布局为 7.77%。001、003 同样有 Word 路径；009 的反复排版与目录页码确认使这部分更突出。
 
-#### 7.3.1 归并口径
+#### 7.3.4 结论：按函数或按操作，分别补哪些用例
 
-精确匹配按“库文件名＋完整函数名”判断，旧参考为 OPM＋TLC 完整函数清单的并集。同类操作仅从未匹配函数中识别：PNG 编解码、明确的图片缩放、PDF 渲染、压缩解压及 Calc 模型／重算。例如旧例使用 Pillow、新例使用 ImageMagick 缩放图片，函数不同，操作同类。
+**只看具体函数：优先增加 Excel 013＋PPT 021。** 新出现的库主要包括 PNG 编解码的 libpng、图片处理的 ImageMagick、JPEG 编解码的 libjpeg，以及 lxml 扩展和 Word 的 Writer 库；旧例已有的 VCL、OOXML 等库中也出现了不同函数。013 可补 PNG 预览和图片处理函数，021 可补 JPEG、图片处理及幻灯片相关函数。
 
-**计入同类操作后的覆盖权重＝精确匹配权重＋同类操作差额。** 分母始终为目标工作流全部保留样本的 `cycles:u` 周期权重，不是函数个数或总 CPU 时间比例。JPEG 与 PNG 编码不同，JPEG 单列；Python／XML 和公共框架不自动归并。
+**把同类操作也算上：先补 PPT 021，需要研究 Word 导入与排版时再加 009。** 旧两例已涵盖 Python、XML、压缩／解压、图片缩放、页面渲染和表格重算等共同操作。021 重点补 JPEG 编解码、模糊和多图合成；009 重点补 Writer 的 Word 导入、段落、表格和分页。
 
-#### 7.3.2 大规模结果与操作归属
-
-**表 7-4：十二项大规模任务的覆盖与未匹配部分。** “其余已解析函数”列出未计入覆盖的操作及公共组件；对象／布局样式包含 Writer、PPT 和文本图形路径，公共组件不直接视作新增文档操作。精确匹配、同类操作、其他已解析、未解析四部分合计约 100%；四舍五入可能产生尾差。
-
-| 大规模用例 | 精确函数覆盖 | 同类操作（函数不同） | 其余已解析函数 | 未解析 | 函数＋同类操作 |
-|---|---|---|---|---|---|
-| PDF 031（100页） | 86.49% | 11.30%：PNG、PDF 渲染 | Python／字体等 2.21% | <0.01% | **97.79%** |
-| PDF 037（100页） | 86.72% | 11.83%：PNG、PDF 渲染、压缩／解压 | Python／字体等 1.45% | <0.01% | **98.55%** |
-| PDF pdfwf005（120页） | 48.94% | 45.13%：图片缩放、PNG | 拼图合成 1.17%；ImageMagick／Python等 4.34% | 0.43% | **94.07%** |
-| Excel 013（1000供应商） | 93.25% | 2.51%：图片缩放、PNG | 拼图合成 0.15%；Python／ImageMagick等 4.07% | 0.02% | **95.76%** |
-| Excel 014（10000申请） | 91.82% | 4.80%：PNG、PDF 渲染、模型／重算 | Office／Python等 2.32% | 1.05% | **96.63%** |
-| Excel 016（500单元／2000行） | 80.03% | 7.31%：模型／重算、PNG | 对象／布局样式 0.56%；Office／Python等 11.56% | 0.55% | **87.33%** |
-| Word 001（500条记录） | 75.56% | 10.75%：PNG、PDF 渲染、压缩／解压 | 对象／布局样式 2.14%；Python／Office等 8.14% | 3.40% | **86.31%** |
-| Word 003（500单元） | 71.58% | 22.38%：PNG、PDF 渲染 | 对象／布局样式 0.60%；Python／Office等 3.97% | 1.48% | **93.95%** |
-| Word 009（500事件） | 71.59% | 4.66%：PNG、PDF 渲染 | 对象／布局样式 5.99%；Office／Python等 14.30% | 3.46% | **76.25%** |
-| PPT 021（80页） | 50.44% | 23.77%：图片缩放、PDF 渲染 | JPEG 8.03%；对象／布局样式 3.28%；拼图合成 0.45%；Office／位图等 11.93% | 2.11% | **74.21%** |
-| PPT 026（90页） | 63.00% | 11.80%：PDF 渲染、图片缩放、压缩／解压 | JPEG 5.85%；对象／布局样式 3.28%；Office／位图等 14.19% | 1.87% | **74.80%** |
-| PPT 029（81页） | 46.29% | 1.51%：图片缩放 | 对象／布局样式 7.56%；JPEG 0.44%；Office／位图等 37.36% | 6.84% | **47.80%** |
-
-#### 7.3.3 如何解释这些结果
-
-1. **旧例对共同基础计算具有代表性。** 8/12 项大档计入同类操作后的权重超过 85%。其中 PDF 031／037 为 97.79%／98.55%，Excel 014 为 96.63%。
-2. **016 计入同类操作后达到 87.33%。** 其中精确函数匹配 80.03%，Calc 模型／重算 6.80%，PNG 等约 0.51%。
-3. **图片处理的实现差异解释了部分低匹配。** pdfwf005 精确匹配 48.94%，计入明确缩放与 PNG 路径后为 94.07%；拼图合成 1.17% 单列。缩放和把多图排列合成是两类操作。
-4. **PPT 仍有值得补充的对象与样式路径。** 021／026 按严格口径为 74.21%／74.80%，JPEG 分别单列 8.03%／5.85%；029 为 47.80%，对象／布局样式占 7.56%，另有 Office、位图等差额。
-
-**013 的特殊性：** 其大档 Python 库约 85.9%、构建脚本约 87.5%。构建器反复遍历纠错清单和评分记录，通用 Python 函数变重是匹配提高的重要背景；不单凭高匹配率判断算法接近。
-
-**表 7-5：主要函数路径与操作。**
-
-| 函数／路径 | 操作 | 归类 |
+| 判断口径 | 补充的原始用例 | 十二项大档的平均覆盖 |
 |---|---|---|
-| `png_write_find_filter` | PNG 行滤波、编码 | 旧例同类 |
-| `HorizontalFilter`／`VerticalFilter` | 图片缩放 | 旧例同类 |
-| `ScDocument::RemoveFromFormulaTree` | 公式树管理 | 旧例同类 |
-| `encode_mcu_*`／JPEG 库 | JPEG 编解码 | 单列 |
-| `CompositeOverImage` | 多图合成 | 单列 |
-| DrawingML／`applyTableStylePart` | 幻灯片对象、表格样式 | 单列 |
-| Writer／文本图形组件 | 文档对象、布局样式 | 单列 |
-| Python／Office 公共组件 | 解析、对象、配置、运行支撑 | 其他差额 |
+| 具体函数匹配 | 013＋021 | 72.14% → **90.14%** |
+| 计入同类操作 | 021 | 93.69% → **96.01%** |
+| 计入同类操作 | 021＋009 | 93.69% → **96.93%** |
 
-**测量口径：** 各规模每路采集一次；Word 003 小档和 PDF 037 小档各含三轮，其余一轮。016／029 保留只渲染首页的范围。采样丢失及未解析权重保留，未推算补齐缺失周期；归并规则只描述已观测的操作类型。
+平均覆盖先分别计算十二项大档的覆盖率，再等权取平均；未解析部分仍计入分母。候选均为十二项原始用例，不增加规模变体。
 
-[归并明细](../analysis/docops/processed/operation-equivalence-20261112/analysis.md)保留逐函数分类、全部权重及质量标记；[规模记录](../analysis/docops/processed/unified-scaling-final-20261108/analysis.md)保留输入规模、脚本变更和全部 36 配置。
+**少量补例能补多少：** 若以平均覆盖达到 90% 为精简选型目标，具体函数口径至少需两项；最好的单项 013 为 84.51%，013＋021 达到 90.14%。计入同类操作时，旧两例本身已达到 93.69%，补 021、009 是为增加图片处理和 Word 路径。
+
+**仍值得单独看的是 PPT 029。** 加入 013＋021 后，其具体函数覆盖为 67.73%；加入 021＋009 后，计入同类操作的覆盖为 86.29%。若关注幻灯片表格样式，再补原始 029。
+
+[原始、小档、大档完整结果](../analysis/docops/processed/unified-scaling-final-20261108/analysis.md)｜[本次归并与旧例函数依据](../analysis/docops/processed/operation-equivalence-deep-20261115/analysis.md)｜[补充组合核算](../analysis/docops/processed/supplement-selection-20261116/analysis.md)｜[早期 Word 009 交叉核对](../analysis/docops/processed/word009-coverage-review-20261113/review.md)
 
 ### 7.4 Topdown 相似性：CPU 瓶颈分布是否接近
 
@@ -487,11 +592,15 @@ perf 与 DevKit 分开运行。热点合并保留样本的周期权重；旧例 
 
 ### 7.5 结论：建议增加哪些用例
 
-**保留旧 OPM／TLC，优先增加 PPT 021。** 旧例承载共同的文档读写、解析、PNG 编码、图片缩放、PDF 渲染和表格重算；021 补充幻灯片对象处理与多图组合。
+**保留旧 OPM／TLC 作为核心，再按研究目标补充。** 它们覆盖了本批任务的大部分共同操作；具体函数实现仍有差异。
 
-1. **优先增加 021（庇护所无障碍整改）。** 补充形状、文本、表格、样式和联系表合成。
-2. **按需增加 029（季度业务回顾发布）。** 强化幻灯片表格与对象样式处理。
-3. **若要扩展更多具体函数路径，增加五个原始用例：`013、016、021、026、029`。** 分别侧重预览发布、Calc、幻灯片对象、页面绘制和表格样式。
+| 研究目标 | 建议补充的原始用例 |
+|---|---|
+| 覆盖更多具体函数 | Excel 013＋PPT 021 |
+| 补充不同操作 | 先选 PPT 021；研究 Word 导入与长文档排版时，再加 Word 009 |
+| 专门研究幻灯片表格样式 | 再选 PPT 029 |
+
+013 主要补 PNG 预览与图片处理实现，021 补 JPEG、图片处理和幻灯片相关路径，009 补 Word 导入、表格、分页与目录页码确认。组合效果见 7.3.4。
 
 ### 7.6 十二项任务的逐点曲线与读图说明
 

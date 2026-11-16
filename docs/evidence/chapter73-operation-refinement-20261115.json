@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "scope": "Chapter 7.3.2/7.3.3: witnessed operation refinement, full residual partitions, operation-weight-based extension choice",
+  "report_before_sha256": "f6cb405827270875d4f536f6bc89630c49f2d72aceeca6263652db92e2050856",
+  "report_after_sha256": "6f2edab3bc67002d9847e13a0d6135a0425c63ad826a1ec1968f483b404bdfa5",
+  "protected_files": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
+  },
+  "figure_references_unchanged": true,
+  "analysis": {
+    "path": "analysis/docops/processed/operation-equivalence-refined-20261115/analysis-build.json",
+    "sha256": "6518829837429ca806c86577b2a96b8276b1ab9b8e43c10a615fd2207037618c"
+  },
+  "word009_review": {
+    "path": "analysis/docops/processed/word009-coverage-review-20261113/review.json",
+    "sha256": "4256ccd10205d124c2e6e588761877476c579cb5d50cddf24a74341d153decd0"
+  },
+  "word_comparison": [
+    {
+      "task": "001",
+      "compression_png_pct": 64.70067271804537,
+      "writer_pct": 2.314935770209458,
+      "supported_pct": 90.19190561211563
+    },
+    {
+      "task": "003",
+      "compression_png_pct": 84.94601722314789,
+      "writer_pct": 0.8719828362808913,
+      "supported_pct": 96.60064861478688
+    },
+    {
+      "task": "009",
+      "compression_png_pct": 45.01473265429629,
+      "writer_pct": 8.080528174762113,
+      "supported_pct": 80.57962099978437
+    }
+  ],
+  "original_tasks_recommended": [
+    "021",
+    "009"
+  ],
+  "recommendation_scope": "optional extensions for corresponding operation studies",
+  "workload_or_collector_run": false,
+  "html_updated": false
+}

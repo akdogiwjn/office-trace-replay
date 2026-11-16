@@ -5,8 +5,8 @@
     "docs/representativeness-assessment.md": {
       "prefix_bytes": 25710,
       "prefix_sha256": "7fcda2087290031953e314ee563872d0b6d46eaf511deeef4974c127c3892e86",
-      "append_sha256": "79550c244a16affb2a0a52223f15a388c0dc808b4a8ae294f5f5e3e7c5fdf917",
-      "sha256": "aeee3d7b904e2e03dba619f3b5c783d38e4b7b2fb30acef4e260df0ab0893729"
+      "append_sha256": "125f95146f12a790a829675886d2f0862d9f2c93d3c7af3dadfa1d708245be2a",
+      "sha256": "5b4f6504180d96dd91e204befffa0b4e9c3b841b7d6c77f4931e4cad2b7d05a2"
     },
     "docs/experimental-results.md": {
       "prefix_bytes": 83791,
@@ -41,10 +41,21 @@
     "analysis/docops/processed/topdown-cosine-euclidean-20261108/analysis-build.json": "10b505d93b890f24339eb0f1343ba7cf034c6b488e6b26922421a5b5944ad63c",
     "analysis/docops/processed/topdown-original-cosine-euclidean-20261108/comparison.json": "93c52b8985c13f3cd1914ea52e1b4d0c646aa809c6a841b542b933414dbbc0a5",
     "analysis/docops/processed/topdown-original-cosine-euclidean-20261108/analysis-build.json": "1a72485cf0c37223ae91d556bfc0b7628db9bb2ec4aeb402ff80d375a9478082",
-    "analysis/docops/chapter7_editorial.py": "1969df40b1c07ab38563566beef29b7742e9b880db089849014a217e7c3501d9",
+    "analysis/docops/chapter7_editorial.py": "a194360d7056267b514db0bc7e4790d0e10b28f9789e33c00337b4dde9ec9e19",
     "analysis/docops/operation_equivalence.py": "dcdfc362f7331c45bf0c2fe7d5df2919c297581931f12b0fefc12bf73d9824d6",
     "analysis/docops/processed/operation-equivalence-20261112/comparison.json": "28e845f87f70909c022285fe8279b8f7c8affa1b716e432b734b3abd98cffdb9",
-    "analysis/docops/processed/operation-equivalence-20261112/analysis-build.json": "9689cfca14d7b0c3a98a4275d840454fef0d6ec679241b48c613cdadbcaf6f17"
+    "analysis/docops/processed/operation-equivalence-20261112/analysis-build.json": "9689cfca14d7b0c3a98a4275d840454fef0d6ec679241b48c613cdadbcaf6f17",
+    "analysis/docops/processed/word009-coverage-review-20261113/review.json": "4256ccd10205d124c2e6e588761877476c579cb5d50cddf24a74341d153decd0",
+    "analysis/docops/processed/word009-coverage-review-20261113/sha256-index.json": "3f74b7b3e4f988cb27cdd7d24c8525fc1f3a1bac7e6b29c7c96acbdf830330d6",
+    "analysis/docops/operation_equivalence_refined.py": "69eb64e830e24bf21be33e287314be89c96d6753d769198dd4e908c571d688ea",
+    "analysis/docops/processed/operation-equivalence-refined-20261115/comparison.json": "4882ec4dab2bddf8c7991a6241d0cf2844046b8a6bfbd27949baa36c33a0c6e7",
+    "analysis/docops/processed/operation-equivalence-refined-20261115/analysis-build.json": "6518829837429ca806c86577b2a96b8276b1ab9b8e43c10a615fd2207037618c",
+    "analysis/docops/operation_equivalence_deep.py": "17032c4c4cb54bcbbf17991255a07588401edb1bf3a603c6a942c0c45a5e018e",
+    "analysis/docops/processed/operation-equivalence-deep-20261115/comparison.json": "f7f212fca534f1e1e02d1b7cbf93d6746e3c760475179c16465d83483eaf3c0e",
+    "analysis/docops/processed/operation-equivalence-deep-20261115/analysis-build.json": "44235de142a0b8d6ab560ae9b66afb8b98e8fe015f355de6d420342144cd6188",
+    "analysis/docops/supplement_selection.py": "c18a0f7dfef79dcd993a69785110e6d0db10e5c8a6075180d1d6755c9d6e545c",
+    "analysis/docops/processed/supplement-selection-20261116/comparison.json": "db3892e826b1bba004f0a73d5be2e6b4f1dcb8fdf5e7f9405e8c5527599ba194",
+    "analysis/docops/processed/supplement-selection-20261116/analysis-build.json": "760850c91c041846cbb7daa3995b3e2977d5b7fc74d1569d675d0cf8c31ae209"
   },
   "images": {
     "reference": "sha256:4baef1363ba99a994e17e93fe6a32c904cdb5cb349487adfa2fb13ba42301499",
@@ -173,25 +184,52 @@
     "sections": [
       "samples",
       "software",
-      "large_operation_coverage",
+      "original_and_scaled_operation_coverage",
       "original_topdown",
       "recommendations",
       "curves"
     ],
-    "operation_priority": [
+    "base_cases": [
+      "OPM",
+      "TLC"
+    ],
+    "exact_function_extensions": [
+      "013",
+      "021"
+    ],
+    "operation_extensions": [
       "021"
     ],
     "operation_optional": [
+      "009",
       "029"
     ],
+    "selection_mode": "exact native functions versus evidenced equivalent operations; original-task supplements",
     "figures": 12
   },
   "operation_equivalence_analysis": {
-    "path": "analysis/docops/processed/operation-equivalence-20261112/comparison.json",
-    "sha256": "28e845f87f70909c022285fe8279b8f7c8affa1b716e432b734b3abd98cffdb9",
+    "path": "analysis/docops/processed/operation-equivalence-deep-20261115/comparison.json",
+    "sha256": "f7f212fca534f1e1e02d1b7cbf93d6746e3c760475179c16465d83483eaf3c0e",
     "target_scope": "12 large inputs",
-    "same_operation_policy": "PNG, explicit resampling, zlib, Poppler, named Calc paths; JPEG separate; no whole-framework/runtime credit.",
+    "same_operation_policy": "Observed operation families, including named Python, XML, UNO, font, pixel and shared support work; distinguish exact functions from operation coverage. Require native or frozen-workflow witnesses; retain document model paths, JPEG, blur and composition unless specifically witnessed.",
     "jpeg_separate": true,
     "full_roi_denominator": true
+  },
+  "word009_gap_review": {
+    "path": "analysis/docops/processed/word009-coverage-review-20261113/review.json",
+    "sha256": "4256ccd10205d124c2e6e588761877476c579cb5d50cddf24a74341d153decd0",
+    "scope": "009-u500 residual functions compared against other measured task configurations"
+  },
+  "software_library_comparison": {
+    "path": "docs/evidence/chapter73-two-coverage-conclusions-20261116.json",
+    "scope": "12 original tasks; Python workflow evidence and native perf library presence"
+  },
+  "supplement_selection": {
+    "path": "analysis/docops/processed/supplement-selection-20261116/comparison.json",
+    "sha256": "db3892e826b1bba004f0a73d5be2e6b4f1dcb8fdf5e7f9405e8c5527599ba194",
+    "targets": "12 large inputs",
+    "candidates": "12 original tasks",
+    "average": "equal-task arithmetic mean",
+    "exact_mean_reference_pct": 90.0
   }
 }

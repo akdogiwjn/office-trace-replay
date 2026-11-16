@@ -4,7 +4,9 @@
 
 离线统一比较：[十二组原始→小档→大档](processed/unified-scaling-final-20261108/analysis.md)、[完整机器结果](processed/unified-scaling-final-20261108/comparison.json)、[补充用例精确求解](processed/unified-scaling-final-20261108/selection.json)。覆盖 12 个原始任务与 24 个规模变体，保留精确函数覆盖、软件／脚本归属和 Topdown 变化。
 
-当前报告 7.3 使用[十二项大档操作归并](processed/operation-equivalence-20261112/analysis.md)：精确函数匹配外，另计 PNG、明确缩放、PDF 渲染和 Calc 等同类操作；JPEG、拼图及对象／布局样式单列，Python／公共框架不自动计入。逐函数分类与完整分母均保留；仅更新 Markdown，未重跑采集或更新 HTML。
+当前报告 7.3 先展示[原始规模与大规模覆盖对照](../../docs/evidence/original-to-large-coverage-review-20261116.json)，再使用[公共操作深度核对](processed/operation-equivalence-deep-20261115/analysis.md)：逐函数核对 Python 容器／调用／编译、XML、UNO、字体、像素处理等，每类保留旧 OPM／TLC 的实际函数依据；不按整个库计入。新增原始 PPT 021／026／029 的边际覆盖对照，精确函数匹配、未知权重和原始样本不变。
+
+[双口径补例核算](processed/supplement-selection-20261116/analysis.md)穷举十二项原始用例的组合，对照十二项大档。旧 OPM／TLC 为核心：只匹配具体函数，优先补 `013＋021`，等权平均覆盖 72.14%→90.14%；计入同类操作，旧两例已为 93.69%，先补 `021` 为 96.01%，再加 Word `009` 为 96.93%。`029` 用于幻灯片表格样式专项研究。报告 7.2 用上层工具、底层计算库两层对照各场景；[库级对照证据](../../docs/evidence/old-new-preview-comparison-20261116.json)保留 Python 脚本调用、十四项原生库前三名、预览类型及 zlib 调用脚本权重。[上一版归并](processed/operation-equivalence-refined-20261115/analysis.md)及[早期 Word 009 核对](processed/word009-coverage-review-20261113/review.md)保留原口径，当前数字以上述深度核对为准。
 
 当前报告 7.4 使用[七维余弦与欧氏距离对照](processed/topdown-original-cosine-euclidean-20261108/analysis.md)，只比较 12 个原始新用例、24 组新旧配对；IPC 单独比较，按欧氏距离确定较近基准。函数覆盖与热点集合比较留在 7.3，不在 7.4 重复。
 
@@ -13,7 +15,7 @@
 - [统一环境 Topdown 首轮结果](processed/unified-topdown-20261104-v1/report.md)、[完整指标和逐点数据](processed/unified-topdown-20261104-v1/comparison.json)：12/12 采集通过；当前 DevKit 最小间隔为 1 秒，实际每项 20–110 个过程点，逐点计数加总与 ALL 核对通过。
 - [统一环境离线补符号效果（最新）](processed/unified-symbol-enrichment-20261104-v1/report.md)、[机器结果](processed/unified-symbol-enrichment-20261104-v1/comparison.json)：同一份原始采样补符号前后对照，没有重新运行任务或采集。
 - [统一环境补符号前检查](processed/unified-symbol-check-20261103T1703Z/report.md)：保留此前结果，不被新结果覆盖。
-- [扩展任务操作与原始 OPM／TLC 对照](../../docs/representativeness-assessment.md#七扩展任务操作与原始-pdfxlsx-基准比较)、[机器结果](processed/task-operation-expansion-20261104/comparison.json)：以软件栈、物理函数和 Topdown 为主要证据；当前 7.4 采用七维余弦与欧氏距离，早期总变差统计保留于历史记录。
+- [扩展任务操作与原始 OPM／TLC 对照](../../docs/representativeness-assessment.md#七扩展任务操作旧用例的代表性与补充建议)、[机器结果](processed/task-operation-expansion-20261104/comparison.json)：以软件栈、物理函数和 Topdown 为主要证据；当前 7.4 采用七维余弦与欧氏距离，早期总变差统计保留于历史记录。
 
 **首批已完成：Word、Excel、PPT、PDF 各三项，每项 perf 和 DevKit 各一份 profile，每份执行十轮真实工作。** 031 复用先前两路验证，其余新增 22 路，业务均完成，无 workload 重试。尚未补齐独立重复。
 

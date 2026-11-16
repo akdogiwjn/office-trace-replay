@@ -1,0 +1,1818 @@
+{
+  "status": "passed",
+  "scope": "Chapter 7.2: Python libraries and observed native libraries compared against OPM/TLC; concepts and workflow explained",
+  "report_before_sha256": "6e5ab76a3c6bd9e4636d4829cdfe5ed13dc4d650f3ae3128f7e7dea9ee83d74b",
+  "report_after_sha256": "9725695bd0a2e15ba0ceda5b1b8aa71fe5fd56eaebcb55b7ece5518de4c556de",
+  "protected_files": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
+  },
+  "figure_references_unchanged": true,
+  "analysis": {
+    "path": "analysis/docops/processed/operation-equivalence-deep-20261115/analysis-build.json",
+    "sha256": "44235de142a0b8d6ab560ae9b66afb8b98e8fe015f355de6d420342144cd6188"
+  },
+  "word009_review": {
+    "path": "analysis/docops/processed/word009-coverage-review-20261113/review.json",
+    "sha256": "4256ccd10205d124c2e6e588761877476c579cb5d50cddf24a74341d153decd0"
+  },
+  "library_inventory": {
+    "scope": "12 original tasks; OPM and TLC references",
+    "python_basis": "Imports in frozen workflow scripts; old witnesses also observed as captured processes",
+    "native_basis": "Native leaf DSO presence in retained perf profiles; not installation or inclusive library time",
+    "python": [
+      {
+        "library": "openpyxl",
+        "module": "openpyxl",
+        "purpose": "读写单元格、公式、样式和图表",
+        "old_tasks": [
+          "TLC"
+        ],
+        "new_tasks": [
+          "013",
+          "014",
+          "016"
+        ],
+        "witnesses": [
+          {
+            "task": "TLC",
+            "path": "document-oe/assets/xlsx/enhance_workbook.py",
+            "sha256": "774a41787ea3b89fbaa7ef6095505a393dc35ed52121c052442aa11978cbbbbe",
+            "kind": "captured_script",
+            "lock": "document-oe/lock.json",
+            "lock_sha256": "6e142ba49a1a4cfd0e89581a342b41938ab86d6a6923ef4a075ac249ec86cec5"
+          },
+          {
+            "task": "013",
+            "path": "docops/payload/tasks/013/seed/root/tmp/docs/build_public_bid_workbook.py",
+            "sha256": "9e520fcb17a3169a54e1bf60b63efd49fbf315a72869924fb199890ba9258604",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/013/recipe.json",
+            "recipe_sha256": "af5c89cafec7e9d2e16795c356bf946bdedb0f518beb71f6858537ef1e42f470",
+            "steps": [
+              "01"
+            ]
+          },
+          {
+            "task": "014",
+            "path": "docops/payload/tasks/014/seed/root/tmp/docs/build_disaster_release_v1.py",
+            "sha256": "245d8319fbe24073b13dfba485e11cb36166263776fc70592d3ea6d4152115e0",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/014/recipe.json",
+            "recipe_sha256": "586b0f91f7d22d4d6cd8af30b27d501b3f7fce05c8ea34c53dd7249dbdc17211",
+            "steps": [
+              "01"
+            ]
+          },
+          {
+            "task": "016",
+            "path": "docops/payload/tasks/016/seed/root/tmp/docs/build_forecast_dashboard_v1.py",
+            "sha256": "0253f19622a20005d54836835eb8d0f28abf141784bdfd9737873cdb09ff746b",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/016/recipe.json",
+            "recipe_sha256": "a108c0427a062b18476bf3b6af56c5edb538abbfbb023a682e0c2f04a4e4795f",
+            "steps": [
+              "01"
+            ]
+          }
+        ]
+      },
+      {
+        "library": "python-docx",
+        "module": "docx",
+        "purpose": "读写 Word 段落、表格和样式",
+        "old_tasks": [],
+        "new_tasks": [
+          "001",
+          "003",
+          "009"
+        ],
+        "witnesses": [
+          {
+            "task": "001",
+            "path": "docops/payload/tasks/001/seed/root/create_packet.py",
+            "sha256": "625a0bef02e4ac3d3f7d8d331d5aa60557049bd09ae4bfd8b7cfa60046ea509a",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/001/recipe.json",
+            "recipe_sha256": "17f8446fda2849d9c08b676d1307bc56b114ea877f243d414835109b94d2e76a",
+            "steps": [
+              "01"
+            ]
+          },
+          {
+            "task": "003",
+            "path": "docops/payload/tasks/003/seed/root/tmp/docs/build_public_packet.py",
+            "sha256": "b937402d599d85714815b1726ac7e49ae3780d02a6b37d1bb380099855227d59",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/003/recipe.json",
+            "recipe_sha256": "88104c382d5ce3a23f5d62a43012dcb0d489fad8a6b3bdd539e3432288b5e6a2",
+            "steps": [
+              "01"
+            ]
+          },
+          {
+            "task": "009",
+            "path": "docops/payload/tasks/009/seed/root/tmp/docs/build_incident_manual_publication.py",
+            "sha256": "4f572a1c2fcfcd7063a12e4b203a9c929667dd3fcbdac44ec2da62d499826821",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/009/recipe.json",
+            "recipe_sha256": "397da98fde5b6945aac5c03c3f947a52ed69c876458117e8c725cb7557f2f0a2",
+            "steps": [
+              "01"
+            ]
+          }
+        ]
+      },
+      {
+        "library": "python-pptx",
+        "module": "pptx",
+        "purpose": "读写幻灯片、文本框、形状和图表",
+        "old_tasks": [],
+        "new_tasks": [
+          "021",
+          "026",
+          "029"
+        ],
+        "witnesses": [
+          {
+            "task": "021",
+            "path": "docops/payload/tasks/021/seed/root/tmp/docs/build_public_shelter_briefing.py",
+            "sha256": "12d0046dddb35ebce7b552527519f5008c74a7feabcb445de11ba4d758d6ff96",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/021/recipe.json",
+            "recipe_sha256": "431fcd7eb075d3a713bc52ac14119c4ae91e55ac586a35220388e16f8320ce0c",
+            "steps": [
+              "02"
+            ]
+          },
+          {
+            "task": "026",
+            "path": "docops/payload/tasks/026/seed/root/tmp/docs/build_climate_disclosure.py",
+            "sha256": "7aa55dbd1c9127656ce56ab2ac0c1f09c3c1c84b499d1c4b6e1cde2499f2a766",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/026/recipe.json",
+            "recipe_sha256": "89cd33c345bb5aa7ca199cc4fbaa9e2b3eed9121a1f7313357634a8e6288d69a",
+            "steps": [
+              "01"
+            ]
+          },
+          {
+            "task": "029",
+            "path": "docops/payload/tasks/029/seed/root/tmp/docs/build_release_deck.py",
+            "sha256": "817d9d17671b0f9146b0590d6048e973b4fa8b75f1c783a195e9f17d6d0f263a",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/029/recipe.json",
+            "recipe_sha256": "ba8ea0401675fffd180c98865ef09558b016cc7405e7c602a438a5b9df99d320",
+            "steps": [
+              "01"
+            ]
+          }
+        ]
+      },
+      {
+        "library": "pypdf",
+        "module": "pypdf",
+        "purpose": "填写表单，读写 PDF 页面、书签和元数据",
+        "old_tasks": [
+          "OPM"
+        ],
+        "new_tasks": [
+          "031",
+          "037",
+          "pdfwf005"
+        ],
+        "witnesses": [
+          {
+            "task": "OPM",
+            "path": "document-oe/assets/skills/pdf/scripts/fill_fillable_fields.py",
+            "sha256": "d140872c2e92e41b1e05370ae8d270c5b7f5ebdf55d9905f03bc974a9c708ff5",
+            "kind": "captured_script",
+            "lock": "document-oe/lock.json",
+            "lock_sha256": "6e142ba49a1a4cfd0e89581a342b41938ab86d6a6923ef4a075ac249ec86cec5"
+          },
+          {
+            "task": "031",
+            "path": "docops/payload/tasks/031/seed/root/tmp/docs/validate_public_packet.py",
+            "sha256": "dd98d3481f9cc914181c4849dc88b5070f07d2fa17a05572aea4b68228fc0e41",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/031/recipe.json",
+            "recipe_sha256": "ce876af81677795ec91c2097364544f1015c6f554de284f7c34dd4839d7417f3",
+            "steps": [
+              "03"
+            ]
+          },
+          {
+            "task": "037",
+            "path": "docops/payload/tasks/037/seed/root/tmp/docs/build_bus_detour_packet.py",
+            "sha256": "e70385a417913c6bede0c6b15f21945b5169a27e10ed721f8056aa345a725666",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/037/recipe.json",
+            "recipe_sha256": "b55ecb2e63a403ff748e92002a93897360e0caa054ad655235f4afdcadf38073",
+            "steps": [
+              "01"
+            ]
+          },
+          {
+            "task": "pdfwf005",
+            "path": "docops/payload/tasks/pdfwf005/seed/root/tmp/docs/rebuild_closeout_binder.py",
+            "sha256": "df4686cb9b917ef104effbfc5002c562498e262017dd59a37b29f49de0f85a60",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/pdfwf005/recipe.json",
+            "recipe_sha256": "bb74656265089ba44b5a35b61fbd5a5a7c02f93cc82f77f8b1f9ca559e4afff4",
+            "steps": [
+              "01"
+            ]
+          }
+        ]
+      },
+      {
+        "library": "ReportLab",
+        "module": "reportlab",
+        "purpose": "绘制文字、表格和图形，生成 PDF",
+        "old_tasks": [],
+        "new_tasks": [
+          "031",
+          "037"
+        ],
+        "witnesses": [
+          {
+            "task": "031",
+            "path": "docops/payload/tasks/031/seed/root/tmp/docs/build_public_packet.py",
+            "sha256": "e197a91b56cf0195978ee2071e47d4de1814dbdf0a300d17f6361cdd044cce53",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/031/recipe.json",
+            "recipe_sha256": "ce876af81677795ec91c2097364544f1015c6f554de284f7c34dd4839d7417f3",
+            "steps": [
+              "01"
+            ]
+          },
+          {
+            "task": "037",
+            "path": "docops/payload/tasks/037/seed/root/tmp/docs/build_bus_detour_packet.py",
+            "sha256": "e70385a417913c6bede0c6b15f21945b5169a27e10ed721f8056aa345a725666",
+            "kind": "frozen_workflow_script",
+            "recipe": "docops/payload/tasks/037/recipe.json",
+            "recipe_sha256": "b55ecb2e63a403ff748e92002a93897360e0caa054ad655235f4afdcadf38073",
+            "steps": [
+              "01"
+            ]
+          }
+        ]
+      }
+    ],
+    "native": [
+      {
+        "library": "Python：`libpython3.12.so`",
+        "purpose": "执行 Python 脚本和库代码",
+        "observed_dsos": {
+          "OPM": [
+            "libpython3.12.so.1.0"
+          ],
+          "TLC": [
+            "libpython3.12.so.1.0"
+          ],
+          "031": [
+            "libpython3.12.so.1.0"
+          ],
+          "037": [
+            "libpython3.12.so.1.0"
+          ],
+          "pdfwf005": [
+            "libpython3.12.so.1.0"
+          ],
+          "013": [
+            "libpython3.12.so.1.0"
+          ],
+          "014": [
+            "libpython3.12.so.1.0"
+          ],
+          "016": [
+            "libpython3.12.so.1.0"
+          ],
+          "001": [
+            "libpython3.12.so.1.0"
+          ],
+          "003": [
+            "libpython3.12.so.1.0"
+          ],
+          "009": [
+            "libpython3.12.so.1.0"
+          ],
+          "021": [
+            "libpython3.12.so.1.0"
+          ],
+          "026": [
+            "libpython3.12.so.1.0"
+          ],
+          "029": [
+            "libpython3.12.so.1.0"
+          ]
+        },
+        "old_tasks": [
+          "OPM",
+          "TLC"
+        ],
+        "new_tasks": [
+          "031",
+          "037",
+          "pdfwf005",
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "C 运行库：`libc.so`",
+        "purpose": "内存分配、字符串和文件操作",
+        "observed_dsos": {
+          "OPM": [
+            "libc.so.6"
+          ],
+          "TLC": [
+            "libc.so.6"
+          ],
+          "031": [
+            "libc.so.6"
+          ],
+          "037": [
+            "libc.so.6"
+          ],
+          "pdfwf005": [
+            "libc.so.6"
+          ],
+          "013": [
+            "libc.so.6"
+          ],
+          "014": [
+            "libc.so.6"
+          ],
+          "016": [
+            "libc.so.6"
+          ],
+          "001": [
+            "libc.so.6"
+          ],
+          "003": [
+            "libc.so.6"
+          ],
+          "009": [
+            "libc.so.6"
+          ],
+          "021": [
+            "libc.so.6"
+          ],
+          "026": [
+            "libc.so.6"
+          ],
+          "029": [
+            "libc.so.6"
+          ]
+        },
+        "old_tasks": [
+          "OPM",
+          "TLC"
+        ],
+        "new_tasks": [
+          "031",
+          "037",
+          "pdfwf005",
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "zlib：`libz.so`",
+        "purpose": "压缩／解压文档与图片数据",
+        "observed_dsos": {
+          "OPM": [
+            "libz.so.1.2.13"
+          ],
+          "TLC": [
+            "libz.so.1.2.13"
+          ],
+          "031": [
+            "libz.so.1.2.13"
+          ],
+          "037": [
+            "libz.so.1.2.13"
+          ],
+          "pdfwf005": [
+            "libz.so.1.2.13"
+          ],
+          "013": [
+            "libz.so.1.2.13"
+          ],
+          "014": [
+            "libz.so.1.2.13"
+          ],
+          "016": [
+            "libz.so.1.2.13"
+          ],
+          "001": [
+            "libz.so.1.2.13"
+          ],
+          "003": [
+            "libz.so.1.2.13"
+          ],
+          "009": [
+            "libz.so.1.2.13"
+          ],
+          "021": [
+            "libz.so.1.2.13"
+          ],
+          "026": [
+            "libz.so.1.2.13"
+          ],
+          "029": [
+            "libz.so.1.2.13"
+          ]
+        },
+        "old_tasks": [
+          "OPM",
+          "TLC"
+        ],
+        "new_tasks": [
+          "031",
+          "037",
+          "pdfwf005",
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "XML：`libxml2.so`",
+        "purpose": "解析和修改 XML",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [
+            "libxml2.so.16"
+          ],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [
+            "libxml2.so.16"
+          ],
+          "014": [
+            "libxml2.so.16"
+          ],
+          "016": [
+            "libxml2.so.16"
+          ],
+          "001": [
+            "libxml2.so.16"
+          ],
+          "003": [
+            "libxml2.so.16"
+          ],
+          "009": [
+            "libxml2.so.16"
+          ],
+          "021": [
+            "libxml2.so.16"
+          ],
+          "026": [
+            "libxml2.so.16"
+          ],
+          "029": [
+            "libxml2.so.16"
+          ]
+        },
+        "old_tasks": [
+          "TLC"
+        ],
+        "new_tasks": [
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "lxml 扩展：`etree.*.so`",
+        "purpose": "让 Python 调用 XML 处理代码",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "014": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "016": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "001": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "003": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "009": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "021": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "026": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ],
+          "029": [
+            "etree.cpython-312-aarch64-linux-gnu.so"
+          ]
+        },
+        "old_tasks": [],
+        "new_tasks": [
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "UNO：`libuno_cppu.so`",
+        "purpose": "传递和管理 Office 组件数据",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [
+            "libuno_cppu.so.3"
+          ],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [
+            "libuno_cppu.so.3"
+          ],
+          "014": [
+            "libuno_cppu.so.3"
+          ],
+          "016": [
+            "libuno_cppu.so.3"
+          ],
+          "001": [
+            "libuno_cppu.so.3"
+          ],
+          "003": [
+            "libuno_cppu.so.3"
+          ],
+          "009": [
+            "libuno_cppu.so.3"
+          ],
+          "021": [
+            "libuno_cppu.so.3"
+          ],
+          "026": [
+            "libuno_cppu.so.3"
+          ],
+          "029": [
+            "libuno_cppu.so.3"
+          ]
+        },
+        "old_tasks": [
+          "TLC"
+        ],
+        "new_tasks": [
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "VCL：`libvcllo.so`",
+        "purpose": "文字、图片和页面绘制",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [
+            "libvcllo.so"
+          ],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [
+            "libvcllo.so"
+          ],
+          "014": [
+            "libvcllo.so"
+          ],
+          "016": [
+            "libvcllo.so"
+          ],
+          "001": [
+            "libvcllo.so"
+          ],
+          "003": [
+            "libvcllo.so"
+          ],
+          "009": [
+            "libvcllo.so"
+          ],
+          "021": [
+            "libvcllo.so"
+          ],
+          "026": [
+            "libvcllo.so"
+          ],
+          "029": [
+            "libvcllo.so"
+          ]
+        },
+        "old_tasks": [
+          "TLC"
+        ],
+        "new_tasks": [
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "OOXML：`libooxlo.so`",
+        "purpose": "Office 文件导入、属性和图形处理",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [
+            "libooxlo.so"
+          ],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [
+            "libooxlo.so"
+          ],
+          "014": [
+            "libooxlo.so"
+          ],
+          "016": [
+            "libooxlo.so"
+          ],
+          "001": [],
+          "003": [],
+          "009": [],
+          "021": [
+            "libooxlo.so"
+          ],
+          "026": [
+            "libooxlo.so"
+          ],
+          "029": [
+            "libooxlo.so"
+          ]
+        },
+        "old_tasks": [
+          "TLC"
+        ],
+        "new_tasks": [
+          "013",
+          "014",
+          "016",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "Calc：`libsclo.so`／`libscfiltlo.so`",
+        "purpose": "表格模型、公式重算和 Excel 导入",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [
+            "libscfiltlo.so",
+            "libsclo.so"
+          ],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [
+            "libscfiltlo.so",
+            "libsclo.so"
+          ],
+          "014": [
+            "libscfiltlo.so",
+            "libsclo.so"
+          ],
+          "016": [
+            "libscfiltlo.so",
+            "libsclo.so"
+          ],
+          "001": [],
+          "003": [],
+          "009": [],
+          "021": [],
+          "026": [],
+          "029": []
+        },
+        "old_tasks": [
+          "TLC"
+        ],
+        "new_tasks": [
+          "013",
+          "014",
+          "016"
+        ]
+      },
+      {
+        "library": "Writer：`libswlo.so`／`libsw_writerfilterlo.so`",
+        "purpose": "Word 导入、段落、表格和分页",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [],
+          "014": [],
+          "016": [],
+          "001": [
+            "libsw_writerfilterlo.so",
+            "libswlo.so"
+          ],
+          "003": [
+            "libsw_writerfilterlo.so",
+            "libswlo.so"
+          ],
+          "009": [
+            "libsw_writerfilterlo.so",
+            "libswlo.so"
+          ],
+          "021": [],
+          "026": [],
+          "029": []
+        },
+        "old_tasks": [],
+        "new_tasks": [
+          "001",
+          "003",
+          "009"
+        ]
+      },
+      {
+        "library": "Impress／Draw：`libsdlo.so`",
+        "purpose": "幻灯片／绘图文档的页面和对象",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [],
+          "014": [],
+          "016": [],
+          "001": [],
+          "003": [],
+          "009": [],
+          "021": [
+            "libsdlo.so"
+          ],
+          "026": [
+            "libsdlo.so"
+          ],
+          "029": [
+            "libsdlo.so"
+          ]
+        },
+        "old_tasks": [],
+        "new_tasks": [
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "Poppler：`libpoppler.so`",
+        "purpose": "读取 PDF、生成页面预览",
+        "observed_dsos": {
+          "OPM": [
+            "libpoppler.so.133.0.0"
+          ],
+          "TLC": [],
+          "031": [
+            "libpoppler.so.133.0.0"
+          ],
+          "037": [
+            "libpoppler.so.133.0.0"
+          ],
+          "pdfwf005": [
+            "libpoppler.so.133.0.0"
+          ],
+          "013": [
+            "libpoppler.so.133.0.0"
+          ],
+          "014": [
+            "libpoppler.so.133.0.0"
+          ],
+          "016": [
+            "libpoppler.so.133.0.0"
+          ],
+          "001": [
+            "libpoppler.so.133.0.0"
+          ],
+          "003": [
+            "libpoppler.so.133.0.0"
+          ],
+          "009": [
+            "libpoppler.so.133.0.0"
+          ],
+          "021": [
+            "libpoppler.so.133.0.0"
+          ],
+          "026": [
+            "libpoppler.so.133.0.0"
+          ],
+          "029": [
+            "libpoppler.so.133.0.0"
+          ]
+        },
+        "old_tasks": [
+          "OPM"
+        ],
+        "new_tasks": [
+          "031",
+          "037",
+          "pdfwf005",
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "字体：`libfreetype.so`",
+        "purpose": "读取字体和生成文字字形",
+        "observed_dsos": {
+          "OPM": [
+            "libfreetype.so.6.20.1"
+          ],
+          "TLC": [],
+          "031": [
+            "libfreetype.so.6.20.1"
+          ],
+          "037": [
+            "libfreetype.so.6.20.1"
+          ],
+          "pdfwf005": [
+            "libfreetype.so.6.20.1"
+          ],
+          "013": [
+            "libfreetype.so.6.20.1"
+          ],
+          "014": [],
+          "016": [
+            "libfreetype.so.6.20.1"
+          ],
+          "001": [
+            "libfreetype.so.6.20.1"
+          ],
+          "003": [],
+          "009": [],
+          "021": [
+            "libfreetype.so.6.20.1"
+          ],
+          "026": [
+            "libfreetype.so.6.20.1"
+          ],
+          "029": [
+            "libfreetype.so.6.20.1"
+          ]
+        },
+        "old_tasks": [
+          "OPM"
+        ],
+        "new_tasks": [
+          "031",
+          "037",
+          "pdfwf005",
+          "013",
+          "016",
+          "001",
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "PNG：`libpng16.so`",
+        "purpose": "PNG 图片编解码",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [],
+          "031": [
+            "libpng16.so.16.40.0"
+          ],
+          "037": [
+            "libpng16.so.16.40.0"
+          ],
+          "pdfwf005": [
+            "libpng16.so.16.40.0"
+          ],
+          "013": [
+            "libpng16.so.16.40.0"
+          ],
+          "014": [
+            "libpng16.so.16.40.0"
+          ],
+          "016": [
+            "libpng16.so.16.40.0"
+          ],
+          "001": [
+            "libpng16.so.16.40.0"
+          ],
+          "003": [
+            "libpng16.so.16.40.0"
+          ],
+          "009": [
+            "libpng16.so.16.40.0"
+          ],
+          "021": [],
+          "026": [],
+          "029": []
+        },
+        "old_tasks": [],
+        "new_tasks": [
+          "031",
+          "037",
+          "pdfwf005",
+          "013",
+          "014",
+          "016",
+          "001",
+          "003",
+          "009"
+        ]
+      },
+      {
+        "library": "JPEG：`libjpeg.so`",
+        "purpose": "JPEG 图片编解码",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [],
+          "031": [],
+          "037": [],
+          "pdfwf005": [],
+          "013": [],
+          "014": [],
+          "016": [],
+          "001": [],
+          "003": [],
+          "009": [],
+          "021": [
+            "libjpeg.so.62.4.0"
+          ],
+          "026": [
+            "libjpeg.so.62.4.0"
+          ],
+          "029": [
+            "libjpeg.so.62.4.0"
+          ]
+        },
+        "old_tasks": [],
+        "new_tasks": [
+          "021",
+          "026",
+          "029"
+        ]
+      },
+      {
+        "library": "ImageMagick：`libMagickCore*.so`",
+        "purpose": "图片缩放、滤波和拼图",
+        "observed_dsos": {
+          "OPM": [],
+          "TLC": [],
+          "031": [],
+          "037": [],
+          "pdfwf005": [
+            "libMagickCore-7.Q16HDRI.so.10.0.2"
+          ],
+          "013": [
+            "libMagickCore-7.Q16HDRI.so.10.0.2"
+          ],
+          "014": [],
+          "016": [],
+          "001": [],
+          "003": [],
+          "009": [],
+          "021": [
+            "libMagickCore-7.Q16HDRI.so.10.0.2"
+          ],
+          "026": [],
+          "029": []
+        },
+        "old_tasks": [],
+        "new_tasks": [
+          "pdfwf005",
+          "013",
+          "021"
+        ]
+      }
+    ]
+  },
+  "library_profile_source": {
+    "path": "analysis/docops/processed/unified-scaling-final-20261108/comparison.json",
+    "sha256": "04152bc733a392c31bd8bea60ece72d74a9f8cd372d17de755ea530b41a0f67a"
+  },
+  "word_comparison": [
+    {
+      "task": "001",
+      "compression_png_pct": 64.70067271804537,
+      "writer_pct": 2.314935770209458,
+      "supported_pct": 93.81696516779937
+    },
+    {
+      "task": "003",
+      "compression_png_pct": 84.94601722314789,
+      "writer_pct": 0.8719828362808913,
+      "supported_pct": 97.50816609453395
+    },
+    {
+      "task": "009",
+      "compression_png_pct": 45.01473265429629,
+      "writer_pct": 8.080528174762113,
+      "supported_pct": 87.26705425567091
+    }
+  ],
+  "original_tasks_recommended": [],
+  "optional_tasks": [
+    "021",
+    "009",
+    "029"
+  ],
+  "recommendation_scope": "OPM/TLC core baseline; optional image/PPT or long-document studies",
+  "ppt_supplements": {
+    "021": {
+      "candidates": [
+        "021"
+      ],
+      "added_period": 632777760,
+      "added_share_pct": 0.2774052943595149,
+      "supported_share_pct": 87.54445955003042,
+      "gain_periods": {
+        "function": 632777760
+      },
+      "functions": [
+        {
+          "library": "libvcllo.so",
+          "function": "GDIMetaFile::AddAction(rtl::Reference<MetaAction> const&)",
+          "period": 116865829,
+          "share_roi": 0.0005123315284392064,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::PageSyncData::PushAction(OutputDevice const&, std::variant<vcl::(anonymous namespace)::EnsureStructureElement, vcl::(anonymous namespace)::InitStructureElement, vcl::(anonymous namespace)::BeginStructureElement, vcl::(anonymous namespace)::EndStructureElement, vcl::(anonymous namespace)::SetCurrentStructureElement, vcl::(anonymous namespace)::SetStructureAttribute, vcl::(anonymous namespace)::SetStructureAttributeNumerical, vcl::(anonymous namespace)::SetStructureBoundingBox, vcl::(anonymous namespace)::SetStructureAnnotIds, vcl::(anonymous namespace)::SetActualText, vcl::(anonymous namespace)::SetAlternateText, vcl::(anonymous namespace)::CreateControl, vcl::(anonymous namespace)::BeginGroup, vcl::(anonymous namespace)::EndGroupGfxLink>) [clone .isra.0]",
+          "period": 116336153,
+          "share_roi": 0.0005100094663190843,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libfreeblpriv3.so",
+          "function": "s_mpv_mul_d_add",
+          "period": 115891150,
+          "share_roi": 0.0005080586046420578,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "安全／加密组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "p11-kit-trust.so",
+          "function": "lookup_or_create_bucket",
+          "period": 112183874,
+          "share_roi": 0.0004918061688729505,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "p11-kit-trust.so",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libfreeblpriv3.so",
+          "function": "s_mpv_mul_d_add_prop",
+          "period": 58946866,
+          "share_roi": 0.000258418891243916,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "安全／加密组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "AllSettings::GetStyleSettings() const",
+          "period": 58475534,
+          "share_roi": 0.00025635260509313445,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "p11-kit-trust.so",
+          "function": "p11_attrs_find",
+          "period": 54076587,
+          "share_roi": 0.00023706793258177907,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "p11-kit-trust.so",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "syncJournal.part.0",
+          "period": 689,
+          "share_roi": 3.020527267167319e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "xrealloc",
+          "period": 662,
+          "share_roi": 2.9021611768719376e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "SvpSalBitmap::~SvpSalBitmap()",
+          "period": 405,
+          "share_roi": 1.7754913544307173e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·VCL",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "zread",
+          "period": 7,
+          "share_roi": 3.0687504891395115e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libc.so.6",
+          "function": "sched_setaffinity@@GLIBC_2.17",
+          "period": 3,
+          "share_roi": 1.3151787810597905e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libc",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "unixSync",
+          "period": 1,
+          "share_roi": 4.383929270199302e-12,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        }
+      ]
+    },
+    "026": {
+      "candidates": [
+        "026"
+      ],
+      "added_period": 174617421,
+      "added_share_pct": 0.07655104230086142,
+      "supported_share_pct": 87.34360529797178,
+      "gain_periods": {
+        "function": 174617421
+      },
+      "functions": [
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::text::IsControlChar(unsigned int)",
+          "period": 115668882,
+          "share_roi": 0.0005070841974510291,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libfreeblpriv3.so",
+          "function": "s_mpv_mul_d_add_prop",
+          "period": 58946866,
+          "share_roi": 0.000258418891243916,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "安全／加密组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "syncJournal.part.0",
+          "period": 689,
+          "share_roi": 3.020527267167319e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "xrealloc",
+          "period": 662,
+          "share_roi": 2.9021611768719376e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libuno_sal.so.3",
+          "function": "ChildStatusProc",
+          "period": 311,
+          "share_roi": 1.3634020030319829e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "zread",
+          "period": 7,
+          "share_roi": 3.0687504891395115e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libc.so.6",
+          "function": "sched_setaffinity@@GLIBC_2.17",
+          "period": 3,
+          "share_roi": 1.3151787810597905e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libc",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "unixSync",
+          "period": 1,
+          "share_roi": 4.383929270199302e-12,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        }
+      ]
+    },
+    "029": {
+      "candidates": [
+        "029"
+      ],
+      "added_period": 457777003,
+      "added_share_pct": 0.20068620026758135,
+      "supported_share_pct": 87.4677404559385,
+      "gain_periods": {
+        "function": 457777003
+      },
+      "functions": [
+        {
+          "library": "libvcllo.so",
+          "function": "GDIMetaFile::Clear()",
+          "period": 116677164,
+          "share_roi": 0.0005115044344234442,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libfreeblpriv3.so",
+          "function": "s_mpv_mul_d_add",
+          "period": 115891150,
+          "share_roi": 0.0005080586046420578,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "安全／加密组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "p11-kit-trust.so",
+          "function": "lookup_or_create_bucket",
+          "period": 112183874,
+          "share_roi": 0.0004918061688729505,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "p11-kit-trust.so",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libfreeblpriv3.so",
+          "function": "s_mpv_mul_d_add_prop",
+          "period": 58946866,
+          "share_roi": 0.000258418891243916,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "安全／加密组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "p11-kit-trust.so",
+          "function": "p11_attrs_find",
+          "period": 54076587,
+          "share_roi": 0.00023706793258177907,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "p11-kit-trust.so",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "syncJournal.part.0",
+          "period": 689,
+          "share_roi": 3.020527267167319e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "xrealloc",
+          "period": 662,
+          "share_roi": 2.9021611768719376e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "zread",
+          "period": 7,
+          "share_roi": 3.0687504891395115e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libc.so.6",
+          "function": "sched_setaffinity@@GLIBC_2.17",
+          "period": 3,
+          "share_roi": 1.3151787810597905e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libc",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "unixSync",
+          "period": 1,
+          "share_roi": 4.383929270199302e-12,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        }
+      ]
+    },
+    "021,026,029": {
+      "candidates": [
+        "021",
+        "026",
+        "029"
+      ],
+      "added_period": 865124117,
+      "added_share_pct": 0.37926429388716254,
+      "supported_share_pct": 87.64631854955807,
+      "gain_periods": {
+        "function": 865124117
+      },
+      "functions": [
+        {
+          "library": "libvcllo.so",
+          "function": "GDIMetaFile::AddAction(rtl::Reference<MetaAction> const&)",
+          "period": 116865829,
+          "share_roi": 0.0005123315284392064,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "GDIMetaFile::Clear()",
+          "period": 116677164,
+          "share_roi": 0.0005115044344234442,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::PageSyncData::PushAction(OutputDevice const&, std::variant<vcl::(anonymous namespace)::EnsureStructureElement, vcl::(anonymous namespace)::InitStructureElement, vcl::(anonymous namespace)::BeginStructureElement, vcl::(anonymous namespace)::EndStructureElement, vcl::(anonymous namespace)::SetCurrentStructureElement, vcl::(anonymous namespace)::SetStructureAttribute, vcl::(anonymous namespace)::SetStructureAttributeNumerical, vcl::(anonymous namespace)::SetStructureBoundingBox, vcl::(anonymous namespace)::SetStructureAnnotIds, vcl::(anonymous namespace)::SetActualText, vcl::(anonymous namespace)::SetAlternateText, vcl::(anonymous namespace)::CreateControl, vcl::(anonymous namespace)::BeginGroup, vcl::(anonymous namespace)::EndGroupGfxLink>) [clone .isra.0]",
+          "period": 116336153,
+          "share_roi": 0.0005100094663190843,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libfreeblpriv3.so",
+          "function": "s_mpv_mul_d_add",
+          "period": 115891150,
+          "share_roi": 0.0005080586046420578,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "安全／加密组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "vcl::text::IsControlChar(unsigned int)",
+          "period": 115668882,
+          "share_roi": 0.0005070841974510291,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "p11-kit-trust.so",
+          "function": "lookup_or_create_bucket",
+          "period": 112183874,
+          "share_roi": 0.0004918061688729505,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "p11-kit-trust.so",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libfreeblpriv3.so",
+          "function": "s_mpv_mul_d_add_prop",
+          "period": 58946866,
+          "share_roi": 0.000258418891243916,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "安全／加密组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "AllSettings::GetStyleSettings() const",
+          "period": 58475534,
+          "share_roi": 0.00025635260509313445,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "p11-kit-trust.so",
+          "function": "p11_attrs_find",
+          "period": 54076587,
+          "share_roi": 0.00023706793258177907,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "p11-kit-trust.so",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "syncJournal.part.0",
+          "period": 689,
+          "share_roi": 3.020527267167319e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "xrealloc",
+          "period": 662,
+          "share_roi": 2.9021611768719376e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libvcllo.so",
+          "function": "SvpSalBitmap::~SvpSalBitmap()",
+          "period": 405,
+          "share_roi": 1.7754913544307173e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·VCL",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "021",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libuno_sal.so.3",
+          "function": "ChildStatusProc",
+          "period": 311,
+          "share_roi": 1.3634020030319829e-09,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "LibreOffice·其他组件",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "026",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "bash",
+          "function": "zread",
+          "period": 7,
+          "share_roi": 3.0687504891395115e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "bash",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libc.so.6",
+          "function": "sched_setaffinity@@GLIBC_2.17",
+          "period": 3,
+          "share_roi": 1.3151787810597905e-11,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libc",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        },
+        {
+          "library": "libsqlite3.so.0.8.6",
+          "function": "unixSync",
+          "period": 1,
+          "share_roi": 4.383929270199302e-12,
+          "bucket": "other_resolved",
+          "operation": null,
+          "tool": "libsqlite3.so.0.8.6",
+          "previous_bucket": "other_resolved",
+          "gain_mode": "function",
+          "candidate": "029",
+          "candidate_family": null,
+          "candidate_witness": null
+        }
+      ]
+    }
+  },
+  "workload_or_collector_run": false,
+  "html_updated": false,
+  "verification": {
+    "targeted_tests": 30,
+    "tests_passed": true,
+    "report_outside_section72_unchanged": true,
+    "hotspot_percentages_unchanged": true,
+    "frozen_measurement_and_analysis_hashes_unchanged": true,
+    "renderer_idempotent": true,
+    "native_library_rows": 16,
+    "python_library_rows": 5,
+    "python_script_witnesses": 16,
+    "corrected_flow": "001 invokes soffice/pdftoppm directly; render_docx.py was not used"
+  }
+}

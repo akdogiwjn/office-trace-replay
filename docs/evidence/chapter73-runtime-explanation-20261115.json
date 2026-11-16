@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "scope": "Chapter 7.3: explain CPython functions, Writer library ownership and the different weights of three Word tasks",
+  "report_before_sha256": "20cea29c3429ba6b59e5cf113b0913f7cd1afc0aa01318b5e3444a7f3d4a8d25",
+  "report_after_sha256": "c08c48ab4556708019a5b81e4710f76aec05804640a8cc3b7eb28ec8b487abd5",
+  "protected_files": {
+    "docs/representativeness-assessment.html": "f6604f10b6f35b2b485207b68b597af49fc75a560b1c18cf656983525c957f59",
+    "docs/experimental-results.md": "2dbfeb56c78f87a890aa63384c7ec93f9cc1f20763b913b4a82ac969d9a7ef30"
+  },
+  "figure_references_unchanged": true,
+  "analysis": {
+    "path": "analysis/docops/processed/operation-equivalence-20261112/analysis-build.json",
+    "sha256": "9689cfca14d7b0c3a98a4275d840454fef0d6ec679241b48c613cdadbcaf6f17"
+  },
+  "word009_review": {
+    "path": "analysis/docops/processed/word009-coverage-review-20261113/review.json",
+    "sha256": "4256ccd10205d124c2e6e588761877476c579cb5d50cddf24a74341d153decd0"
+  },
+  "word_comparison": [
+    {
+      "task": "001",
+      "compression_png_pct": 64.70067271804537,
+      "writer_pct": 2.314935770209458,
+      "supported_pct": 86.31323226368706
+    },
+    {
+      "task": "003",
+      "compression_png_pct": 84.94601722314789,
+      "writer_pct": 0.8719828362808913,
+      "supported_pct": 93.95113010616748
+    },
+    {
+      "task": "009",
+      "compression_png_pct": 45.01473265429629,
+      "writer_pct": 8.080528174762113,
+      "supported_pct": 76.2521112404137
+    }
+  ],
+  "original_tasks_recommended": [
+    "021",
+    "009"
+  ],
+  "workload_or_collector_run": false,
+  "html_updated": false
+}

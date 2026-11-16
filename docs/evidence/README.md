@@ -1,6 +1,36 @@
 # 构建与验收记录
 
-- [第七节精简与操作归并（当前）](chapter7-operation-equivalence-update-20261112.json)：十二项大档并列精确函数与同类操作权重；简化表格、说明和结论，保留十二图及原始用例 Topdown，HTML 未改。
+- [7.3 函数与操作两种补例结论](chapter73-two-coverage-conclusions-20261116.json)：对十二项大档核算原始用例组合；具体函数选 013＋021，同类操作先选 021、Word 专项再加 009；保留逐函数依据，HTML 不变。
+
+- [7.3 删除补例增益表与重复说明](chapter73-trim-20261116.json)：删除表 7-5A 及后续的 PPT 增益、013 构建和选型建议段落；保留其他正文、底层分析数据和 HTML。
+
+- [7.3 原始规模→大规模→同类操作覆盖（当前）](original-to-large-coverage-review-20261116.json)：十二项原始覆盖作为起点，同表展示大规模覆盖与百分点变化，再分析大档的同类操作和剩余缺口；测量数据、7.2 表格和 HTML 不变。
+
+- [表 7-3：旧两例与新十二项的预览和原生热点（当前）](old-new-preview-comparison-20261116.json)：十四项同表对照，补充页面预览类型和 zlib 按调用脚本的权重，区分工作簿 ZIP 与 PNG 压缩；原测量数据和 HTML 不变。
+
+- [表 7-3：逐库热点前三名（上一版）](top-native-libraries-review-20261116.json)：从完整原生 profile 按具体库重新汇总，展示十二项原始任务的前三名及旧 OPM／TLC 出现标记；完整分母保留未解析部分，原测量数据和 HTML 不变。
+
+- [7.2 上层工具与底层库两层对照（当前）](two-layer-software-review-20261116.json)：按四类场景列出 Python 库及外部程序，再对照主要底层库；保留脚本和热点权重，7.3 后续分析与 HTML 不变。
+
+- [7.2 Python 库与外部程序说明](external-programs-clarification-20261116.json)：将 Pillow 归入 Python 库，分别说明 LibreOffice、Poppler 命令、ImageMagick 命令的独立进程与底层共享库。
+
+- [7.2 新旧软件与库对照（上一版）](library-coverage-review-20261116.json)：区分 Python 库、LibreOffice 模块及原生共享库；五类 Python 文档库和十六类底层库逐项列出旧 OPM／TLC 与新任务的使用证据。7.3 之后、测量数据和 HTML 不变。
+
+- [功能模块与共享组件说明（上一版）](component-layer-explanation-20261116.json)：说明模块、代码库及复用关系，解释函数覆盖与同类操作覆盖；旧两例为核心、PPT／Word 按需选配。测量结果和 HTML 不变。
+
+- [7.3 公共操作深度核对](chapter73-deep-operation-review-20261115.json)：公共操作逐函数归并，追加原始 PPT 的边际覆盖；精简建议为旧两例＋021，保留 Word 专用路径与未知部分。原始数据、Topdown、曲线及 HTML 不变。
+
+- [表 7-5 合并展示](table75-merged-functions-20261115.json)：将剩余函数的用途与权重合为一列，统计数据及 HTML 不变。
+
+- [表 7-5 剩余函数用途说明](table75-residual-explanation-20261115.json)：说明公共组件与解释器的具体工作，区分函数差异和新增操作；所有覆盖权重及 HTML 不变。
+
+- [7.3 同类操作进一步归并](chapter73-operation-refinement-20261115.json)：七类归并绑定旧例函数；完整保留文档路径、其它已解析和未解析权重，按操作总权重判断补例价值。HTML 未改。
+
+- [7.3 Python 与 Word 路径说明](chapter73-runtime-explanation-20261115.json)：具体说明解释器在做什么、Word 函数来自哪些 LibreOffice 库，并对照三项 Word 的热点权重。HTML 未改。
+
+- [7.3 逐例缺口与补例建议](chapter73-gaps-update-20261115.json)：先看大档函数覆盖，再计同类操作，逐例说明剩余部分；补例建议为 PPT 021＋Word 009。Topdown、过程图及 HTML 保持不变。
+
+- [第七节精简与操作归并](chapter7-operation-equivalence-update-20261112.json)：十二项大档并列精确函数与同类操作权重；简化表格、说明和结论，保留十二图及原始用例 Topdown，HTML 未改。
 
 - [原始任务推荐调整](original-task-recommendations-update-20261108.json)：函数路径扩展推荐 013／016／021／026／029，操作扩展优先 021；保留规模数据与原精确组合记录。
 

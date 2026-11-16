@@ -226,7 +226,7 @@ class OperationComparisonTests(unittest.TestCase):
         self.assertNotIn('-v1000',topdown_section)
         self.assertIn('七维余弦 ↑',topdown_section)
         self.assertIn('七维欧氏距离 ↓',topdown_section)
-        self.assertIn('精确函数覆盖',report)
+        self.assertIn('函数已覆盖',report)
         self.assertEqual(report.count('![图 7-'),12)
         self.assertEqual(report.count('**读图：**'),12)
         for task in result['tasks']:
@@ -236,16 +236,16 @@ class OperationComparisonTests(unittest.TestCase):
         self.assertLess(report.index('### 7.5 结论'),report.index('#### 图 7-1'))
         self.assertNotIn('未见热点／新热点数',report)
         section=report.split('### 7.3 ')[1].split('### 7.4 ')[0]
-        self.assertIn('不是函数个数或总 CPU 时间比例',section)
+        self.assertIn('以 OPM＋TLC 为旧参考，百分比均按热点采样权重计算',section)
         self.assertIn('| 未解析 |',section)
         self.assertNotIn('尚未通过控制规模实验',report)
         self.assertIn('500单元',section)
-        self.assertIn('原始、小档、大档的完整表',section)
-        self.assertIn('共 24 个合成规模变体',section)
-        self.assertIn('覆盖权重＝精确匹配权重＋同类操作差额',section)
-        self.assertIn('JPEG 与 PNG 编码不同，JPEG 单列',section)
-        self.assertIn('Python／XML 和公共框架不自动归并',section)
-        self.assertIn('Python 库约 85.9%、构建脚本约 87.5%',section)
+        self.assertIn('原始、小档、大档完整结果',section)
+        self.assertIn('共 24 个规模变体',section)
+        self.assertIn('合计覆盖＝已覆盖函数＋未匹配函数中的同类操作',section)
+        self.assertIn('JPEG 编解码、图像模糊、多图合成和 Word／PPT 文档对象路径分别保留',section)
+        self.assertIn('每类都保留旧 OPM／TLC 的实际依据',section)
+        self.assertNotIn('013 的高覆盖主要来自 Python 构建',section)
         import unified_scaling_sections
         current,_=unified_scaling_sections.load()
         for parent,(_,large) in current['groups'].items():
@@ -253,30 +253,199 @@ class OperationComparisonTests(unittest.TestCase):
             self.assertIn(value,section)
         self.assertIn('93 个',module.detail_section(result,module.ROOT/module.DEFAULT_OUTPUT))
         import chapter7_editorial as editorial
-        import operation_equivalence as equivalence
+        import operation_equivalence_deep as equivalence
         accounted=equivalence.load()
+        stages=[section.split('#### 7.3.1 ')[1].split('#### 7.3.2 ')[0],
+                section.split('#### 7.3.2 ')[1].split('#### 7.3.3 ')[0]]
+        self.assertIn('### 7.3 旧用例覆盖了哪些函数与操作',report)
+        self.assertLess(stages[0].index('原始规模的发现'),stages[0].index('为什么扩大规模'))
+        self.assertLess(stages[0].index('为什么扩大规模'),stages[0].index('**表 7-4：'))
+        self.assertIn('45.41%–79.15%',stages[0])
+        self.assertIn('11/12 项大档高于原始任务',stages[0])
         for parent,row in accounted['cases'].items():
-            cells=[line for line in section.splitlines()
+            first=[line for line in stages[0].splitlines()
+                   if line.startswith('| '+row['format']+' '+parent+' |')]
+            self.assertEqual(len(first),1)
+            original=100*current['cases'][parent]['presence']['OPM+TLC']['observed_share_roi']
+            cells=[x.strip() for x in first[0].split('|')[1:-1]]
+            self.assertEqual(cells,[row['format']+' '+parent,editorial.pct(original),
+                editorial.pct(row['shares_pct']['exact']),f"{row['shares_pct']['exact']-original:+.2f}"])
+            cells=[line for line in stages[1].splitlines()
                    if line.startswith('| '+row['format']+' '+parent+'（')]
             self.assertEqual(len(cells),1)
             self.assertIn('| '+editorial.pct(row['shares_pct']['exact'])+' |',cells[0])
             self.assertTrue(cells[0].endswith('**'+editorial.pct(row['supported_share_pct'])+'** |'))
-            self.assertIn('| '+editorial.pct(row['shares_pct']['unresolved'])+' |',cells[0])
             self.assertNotIn('继续细分',cells[0])
-        self.assertIn('JPEG 8.03%',section)
-        self.assertIn('74.21%／74.80%',section)
+        self.assertIn('以下使用上表的大规模结果',stages[1])
+        self.assertIn('从函数匹配的 71.59% 提高到 87.27%',stages[1])
+        self.assertIn('JPEG 编解码 '+editorial.pct(editorial.operation_pct(accounted['cases']['021'],'JPEG 编解码')),section)
+        gaps=section.split('#### 7.3.3 ')[1]
+        gap_table=gaps.split('Office 公共组件')[0]
+        for parent,row in accounted['cases'].items():
+            self.assertEqual(sum(line.startswith('| '+row['format']+' '+parent+' |')
+                                 for line in gap_table.splitlines()),1)
+            line=next(line for line in gap_table.splitlines() if line.startswith('| '+row['format']+' '+parent+' |'))
+            self.assertEqual(len(line.split('|')[1:-1]),3)
+            self.assertIn(editorial.pct(row['shares_pct']['other_resolved']),line.split('|')[2])
+            self.assertIn('| '+editorial.pct(row['shares_pct']['unresolved'])+' |',line)
+            for op in row['separate_operations']:
+                self.assertIn(op['operation']+' '+editorial.pct(op['share_pct']),line)
+            self.assertAlmostEqual(row['supported_share_pct']+sum(op['share_pct'] for op in row['separate_operations'])
+                +row['shares_pct']['other_resolved']+row['shares_pct']['unresolved'],100)
+        self.assertIn('Word 导入／对象布局 '+editorial.pct(editorial.operation_pct(accounted['cases']['009'],'Word 导入／对象布局')),gaps)
+        self.assertIn('CPython 解释器库 `libpython3.12.so.1.0`',gaps)
+        self.assertIn('`libswlo.so`',gaps)
+        self.assertIn('`libsw_writerfilterlo.so`',gaps)
+        self.assertIn('001、003 同样有 Word 路径',gaps)
+        self.assertIn('encode_mcu_gather',gaps)
+        self.assertIn('3.16%',gaps)
+        self.assertNotIn('表 7-5A',gaps)
+        self.assertNotIn('只补 PPT 的作用',gaps)
+        self.assertNotIn('**选型建议：**',gaps)
         self.assertNotIn('各任务 Top-20 未覆盖函数完整清单',section)
         recommendations=report.split('### 7.5 ')[1].split('### 7.6 ')[0]
-        self.assertIn('013、016、021、026、029',recommendations)
+        self.assertIn('保留旧 OPM／TLC 作为核心',recommendations)
+        self.assertIn('覆盖更多具体函数 | Excel 013＋PPT 021',recommendations)
+        self.assertIn('研究 Word 导入与长文档排版时，再加 Word 009',recommendations)
+        self.assertIn('具体函数优先补 013＋021',report)
+        self.assertIn('前六章考察跨行业输入，本章进一步扩展实际任务操作',report)
+        import supplement_selection
+        selected=supplement_selection.load()
+        decisions=section.split('#### 7.3.4 ')[1]
+        self.assertIn('平均覆盖先分别计算十二项大档的覆盖率，再等权取平均',decisions)
+        self.assertIn('若以平均覆盖达到 90% 为精简选型目标',decisions)
+        self.assertIn('未解析部分仍计入分母',decisions)
+        for mode,keys in [('exact',['base','primary']),('operation',['base','primary','ppt_only'])]:
+            for key in keys:
+                self.assertIn(editorial.pct(selected['modes'][mode][key]['mean_pct']),decisions)
+        self.assertIn('67.73%',decisions)
+        self.assertIn('86.29%',decisions)
         self.assertNotIn('七配置',recommendations)
         self.assertNotIn('补齐本节的 49',recommendations)
         for variant in ['013-v100','016-u500','026-u10','029-u5']:
             self.assertNotIn(variant,recommendations)
-        self.assertIn('优先增加 PPT 021。',recommendations)
         self.assertNotIn('021-g10',recommendations)
         self.assertNotIn('80 页',recommendations)
-        self.assertIn('按需增加 029',recommendations)
+        self.assertIn('再选 PPT 029',recommendations)
         self.assertEqual(editorial.revise(report),report)
+
+    def test_library_inventory_distinguishes_python_workflows_from_native_samples(self):
+        import chapter7_editorial as editorial
+        import unified_scaling_sections
+        scale,_=unified_scaling_sections.load()
+        data=editorial.library_inventory(scale)
+        python={r['library']:r for r in data['python']}
+        self.assertEqual(python['python-pptx']['old_tasks'],[])
+        self.assertEqual(python['python-pptx']['new_tasks'],['021','026','029'])
+        self.assertEqual(python['openpyxl']['old_tasks'],['TLC'])
+        self.assertEqual(python['pypdf']['old_tasks'],['OPM'])
+        for row in data['python']:
+            self.assertEqual({w['task'] for w in row['witnesses']},set(row['old_tasks']+row['new_tasks']))
+            for witness in row['witnesses']:
+                self.assertEqual(module.sha(module.ROOT/witness['path']),witness['sha256'])
+        native={r['library']:r for r in data['native']}
+        slides=native['Impress／Draw：`libsdlo.so`']
+        self.assertEqual(slides['old_tasks'],[])
+        self.assertEqual(slides['new_tasks'],['021','026','029'])
+        # The shared OOXML library is observed in Excel/PPT, not the measured Word cases.
+        self.assertEqual(native['OOXML：`libooxlo.so`']['new_tasks'],['013','014','016','021','026','029'])
+        self.assertEqual(editorial.task_groups(['001'],scale),'Word 001')
+        self.assertEqual(editorial.task_groups(['001','003','009'],scale),'Word')
+        section=editorial.software_section(scale)
+        self.assertIn('7.3 再比较库内实际执行的函数及操作',section)
+        self.assertIn('— 表示未观测到',section)
+        self.assertIn('Python 权重不是某一个 Python 文档库的单独占比',section)
+
+    def test_native_library_ranking_keeps_full_roi_and_unknown_symbol_weight(self):
+        import chapter7_editorial as editorial
+        raw=dict(roi_period=100,libraries=[
+            dict(dso='/lib/a.so.1',period=40),dict(dso='/other/a.so.1',period=20),
+            dict(dso='/lib/b.so',period=15),dict(dso='[unknown]',period=20),
+            dict(dso='/usr/bin/tool',period=5)],
+            functions=[dict(dso='/lib/a.so.1',function='[unknown]',period=40)])
+        rows=editorial.rank_native_libraries(raw)
+        self.assertEqual([(r['library'],r['period']) for r in rows],[('a.so.1',60),('b.so',15)])
+        self.assertEqual(rows[0]['share_roi'],.6)
+        self.assertEqual(rows[1]['share_roi'],.15)
+        with self.assertRaisesRegex(ValueError,'conserve'):
+            editorial.rank_native_libraries(dict(raw,roi_period=90))
+
+    def test_native_top3_table_uses_concrete_libraries_and_old_presence(self):
+        import chapter7_editorial as editorial
+        import unified_scaling_sections
+        scale,_=unified_scaling_sections.load()
+        data=editorial.native_library_hotspots(scale)
+        old={r['library'] for p in ('OPM','TLC') for r in data['tasks'][p]['libraries']}
+        for p in editorial.ORDER:
+            case=data['tasks'][p]
+            self.assertEqual(len(case['top3']),3)
+            self.assertEqual(case['unranked_period']+sum(r['period'] for r in case['libraries']),case['roi_period'])
+            for row in case['libraries']:
+                self.assertEqual(row['observed_in_old'],row['library'] in old)
+                self.assertAlmostEqual(row['share_roi'],row['period']/case['roi_period'])
+            self.assertEqual(sum(r['period'] for r in case['zlib']['by_script']),case['zlib']['period'])
+        self.assertEqual([r['library'] for r in data['tasks']['016']['top3']],
+                         ['libpython3.12.so.1.0','libc.so.6','libsclo.so'])
+        self.assertFalse(data['tasks']['031']['top3'][2]['observed_in_old'])
+        cell=editorial.native_library_cell(data['tasks']['031']['top3'][0])
+        self.assertIn('`libz.so` ★',cell)
+        self.assertIn('66.25%',cell)
+        self.assertEqual(data['tasks']['OPM']['preview'],'PNG')
+        self.assertEqual(data['tasks']['TLC']['preview'],'不生成页面预览')
+        self.assertEqual(round(100*data['tasks']['TLC']['zlib']['share_roi'],2),1.55)
+        z=data['tasks']['014']['zlib']
+        self.assertEqual(round(100*z['share_roi'],2),30.54)
+        self.assertEqual(round(100*next(r['share_roi'] for r in z['by_script'] if r['script']=='pdftoppm'),2),29.27)
+        table=editorial.native_hotspot_table(scale,data)
+        self.assertEqual(len(table.splitlines()),16)  # header + separator + 14 cases
+        self.assertTrue(all(len(line.split('|')[1:-1])==5 for line in table.splitlines()))
+        self.assertIn('旧 PDF／OPM | PNG',table)
+        self.assertIn('旧 Excel／TLC | 不生成页面预览',table)
+        self.assertIn('PNG 压缩为主',table)
+
+    def test_word_gap_and_candidate_gains_preserve_denominator(self):
+        import chapter7_editorial as editorial
+        import operation_equivalence as equivalence
+        data=json.loads((module.ROOT/equivalence.INPUT/'comparison.json').read_text())
+        accounted=equivalence.load()['cases']['009']
+        review=editorial.word_review()
+        remainder=[f for f in accounted['functions'] if f['bucket'] in ('separate_operation','other_resolved')]
+        writer=[f for f in remainder if f['library'] in ('libswlo.so','libsw_writerfilterlo.so')]
+        self.assertEqual(len(writer),225)
+        self.assertAlmostEqual(100*sum(f['period'] for f in writer)/accounted['roi_period'],
+                               review['residual_by_owner_pct']['Writer'])
+        nonword={module.key(f) for c in data['cases'].values() if c['format']!='Word' for f in c['functions']}
+        self.assertTrue(all(module.key(f) not in nonword for f in writer))
+        for label,c in review['cross_task'].items():
+            keys={module.key(f) for p in c['selected'] for f in data['cases'][p]['functions']}
+            gained=sum(f['period'] for f in remainder if module.key(f) in keys)
+            self.assertEqual(gained,c['additional_exact_period'],label)
+            self.assertAlmostEqual(c['supported_pct'],accounted['supported_share_pct']+100*gained/accounted['roi_period'])
+            self.assertAlmostEqual(c['supported_pct']+c['remaining_resolved_pct']+c['unresolved_pct'],100)
+        self.assertGreater(review['cross_task']['all_original_nonWord']['supported_pct'],
+                           review['cross_task']['021']['supported_pct'])
+
+    def test_word_comparison_shows_modules_present_with_different_weights(self):
+        import chapter7_editorial as editorial
+        import operation_equivalence_refined as equivalence
+        data=json.loads((module.ROOT/equivalence.INPUT/'comparison.json').read_text())
+        saved=equivalence.load()
+        rows=editorial.word_comparison(data,saved)
+        self.assertEqual([r['task'] for r in rows],['001','003','009'])
+        for row in rows:
+            c=data['cases'][saved['cases'][row['task']]['task']]
+            writer=sum(f['period'] for f in c['functions']
+                       if f['library'] in ('libswlo.so','libsw_writerfilterlo.so'))
+            codec=sum(f['period'] for f in c['functions']
+                      if 'libz.so' in f['library'] or 'libpng' in f['library'])
+            self.assertGreater(writer,0)
+            self.assertAlmostEqual(row['writer_pct'],100*writer/c['roi_period'])
+            # Native resolved leaves independently check the displayed aggregated libraries.
+            self.assertAlmostEqual(row['compression_png_pct'],100*codec/c['roi_period'])
+        self.assertGreater(rows[0]['compression_png_pct'],rows[2]['compression_png_pct'])
+        self.assertGreater(rows[1]['compression_png_pct'],rows[0]['compression_png_pct'])
+        self.assertGreater(rows[2]['writer_pct'],rows[0]['writer_pct'])
+        self.assertGreater(rows[0]['writer_pct'],rows[1]['writer_pct'])
 
     def test_scaled_operation_selection_is_minimal_and_preserves_unknown(self):
         import itertools
